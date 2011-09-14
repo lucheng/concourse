@@ -1,0 +1,115 @@
+/* reset CSS */ 
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+margin: 0;
+padding: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+font-weight: normal;
+}
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+text-decoration: none;
+}
+div {
+display: block;
+}
+/* reset em font inheritance */
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, p a, li a, td a, th a, label a, input a, legend a,
+li h2, li h3, li h4, li h5, li h6, li p, li a, li code, li pre, li li, 
+p pre, p code, 
+td h3, td h4, td p, td a, td li, td code, td pre, caption a, 
+dt a, dd a, dd h2, dd h3, dd h4, dd h5, dd h6, dd p, dd li {
+font-size: 100%;
+}
+td h2 {
+font-size: 110%;
+}
+fieldset, img {
+border: 0;
+}
+img {
+font-size: 70%;
+}
+a img {
+background: transparent;
+border: 0 none;
+}
+a:active {
+outline: 0;
+} 
+body {
+line-height: 1;
+}
+ol, ul {
+list-style: none;
+}
+blockquote, q {
+quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+content: '';
+content: none;
+}  
+html\:abbr, abbr, acronym {  
+cursor: help;
+border: 0;
+font-variant: normal;
+border-bottom: 1px dashed #CCD8E0;
+} 
+/* zur Auszeichnung von ganzen code-Bloecken steht die Klasse .codeblock zur Verfuegung */
+code {
+font-family: 'courier new', courier, mono, monospace;
+font-size: 1em;
+font-weight: normal;
+color: #ff0000;
+background: transparent;
+}
+sup { 
+vertical-align: text-top;
+}
+sub {
+vertical-align: text-bottom;
+}
+input, textarea, select {
+font-family: inherit;
+font-size: inherit;
+font-weight: inherit;
+}
+address, caption, cite, code, dfn, em, strong, th, var {
+font-style: normal;
+font-weight: normal;
+}
+caption, th, td { 
+text-align: left;
+vertical-align: top;
+}
+
+/* remember to define focus styles! */
+:focus {
+outline: 0;
+} 
+/* remember to highlight inserts somehow! */
+ins {
+text-decoration: none;
+}
+del {
+text-decoration: line-through;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+border-collapse: collapse;
+border-spacing: 0;
+font-size: inherit;
+}
+.clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */

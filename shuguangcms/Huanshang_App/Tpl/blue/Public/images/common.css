@@ -1,0 +1,129 @@
+BODY {
+	FONT-SIZE: 9pt; BACKGROUND: url(skin1_bg.jpg) center 50%
+}
+TD {
+	FONT-SIZE: 9pt; COLOR: #000000; LINE-HEIGHT: 150%; FONT-FAMILY: ËÎÌו
+}
+INPUT {
+	
+}
+BUTTON {
+	FONT-SIZE: 9pt; HEIGHT: 20px
+}
+SELECT {
+	FONT-SIZE: 9pt; HEIGHT: 20px
+}
+.border {
+	BORDER-LEFT: #bdbdbd 1px solid; HEIGHT: 370px
+}
+.border2 {
+	BACKGROUND: url(centact_bg_01.gif); BORDER-BOTTOM: #b7dbff 1px solid
+}
+.FootBg {
+	BACKGROUND: #f2f5fa
+}
+.title {
+	BACKGROUND: url(head_bg.GIF); HEIGHT: 30px
+}
+.tdbg {
+	BACKGROUND: #f2f5fa
+}
+.txt_css {
+	BORDER-TOP: #dbdbdb 1px solid; PADDING-LEFT: 1px; BORDER-BOTTOM: #dbdbdb 1px solid; BACKGROUND-COLOR: #e7e7e7
+}
+.title_lefttxt {
+	FONT-WEIGHT: bold; BORDER-BOTTOM: #dbdbdb 1px dashed
+}
+.title_left {
+	BORDER-TOP: #dbdbdb 1px solid; FONT-WEIGHT: bold; BORDER-BOTTOM: #dbdbdb 1px solid; HEIGHT: 26px
+}
+.tdbg_left {
+	BACKGROUND: #ffffff
+}
+.title_left2 {
+	BORDER-TOP: #dbdbdb 1px solid; BORDER-BOTTOM: #dbdbdb 1px solid
+}
+.tdbg_left2 {
+	BORDER-RIGHT: #dbdbdb 1px solid; BORDER-TOP: #dbdbdb 1px solid; BORDER-BOTTOM: #dbdbdb 1px solid
+}
+.tdbg_leftall {
+	BORDER-RIGHT: #dbdbdb 1px solid; FONT-WEIGHT: bold; BACKGROUND: #ffffff
+}
+.title_righttxt {
+	BORDER-RIGHT: #dbdbdb 1px solid; BORDER-TOP: #dbdbdb 1px solid; BORDER-LEFT: #dbdbdb 1px solid; BORDER-BOTTOM: #dbdbdb 1px solid
+}
+.title_right {
+	FONT-WEIGHT: bold; BACKGROUND-IMAGE: url(pwbg_02.gif); hright: 21px
+}
+.tdbg_right {
+	BACKGROUND-COLOR: #cccccc
+}
+.tablepp {
+	BACKGROUND-IMAGE: url(pwbg_01.gif)
+}
+.tdbg_right2 {
+	BORDER-RIGHT: #cccccc 1px solid; BORDER-TOP: #cccccc 1px solid; MARGIN-LEFT: 7px; BORDER-LEFT: #cccccc 1px solid; MARGIN-RIGHT: 7px; BORDER-BOTTOM: #cccccc 1px solid
+}
+.tdbg_rightall {
+	BACKGROUND-IMAGE: url(centact_bg_01.gif); BORDER-BOTTOM: #cccccc 1px solid
+}
+UNKNOWN {
+	FONT-SIZE: 12px
+}
+A {
+	FONT-SIZE: 9pt; COLOR: #b2847b; TEXT-DECORATION: none
+}
+A:visited {
+	FONT-SIZE: 9pt; COLOR: #b2847b; TEXT-DECORATION: none
+}
+A:hover {
+	FONT-SIZE: 9pt; COLOR: #b2847b; TEXT-DECORATION: none
+}
+.Board_Tab {
+	COLOR: #666666
+}
+UNKNOWN {
+	BORDER-RIGHT: #d5d1c4 1px solid; BORDER-TOP: #d5d1c4 1px solid; FONT-SIZE: 12px; BACKGROUND: #ffffff; BORDER-LEFT: #d5d1c4 1px solid; COLOR: #000000; BORDER-BOTTOM: #d5d1c4 1px solid; FONT-FAMILY: verdana, tahoma, sans-serif
+}
+UNKNOWN {
+	
+}
+.NewsInfoList_Tab {
+	
+}
+.NewsInfoContent_Tab {
+	
+}
+.ProsInfoBoard_Tab {
+	
+}
+.ProsInfoList_Tab {
+	
+}
+.ProsInfoContent_Tab {
+	
+}
+.FileInfoBoard_Tab {
+	
+}
+.FileInfoList_Tab {
+	
+}
+.FileInfoContent_Tab {
+	
+}
+.OnlineOrdTab {
+	WIDTH: 100%
+}
+.OnlineOrdTab TD {
+	COLOR: #666666; BORDER-BOTTOM: #eeeeee 1px solid; HEIGHT: 25px
+}
+.OnlineOrdTab INPUT {
+	COLOR: #666666
+}
+TEXTAREA {
+	COLOR: #666666
+}
+.GolWidth {
+	WIDTH: 900px
+}

@@ -1,0 +1,62 @@
+@charset "utf-8";
+button {
+background: none;
+border: none;
+cursor: pointer;
+height: 26px;
+margin: 0px;
+overflow: visible;
+padding: 0px;
+vertical-align: middle;
+_margin-right:5px;
+margin-bottom:5px;
+_margin-bottom:4px;
+}
+button span {
+border: none;
+display: inline-block;
+height: 26px;
+padding-left: 15px;
+vertical-align: middle;
+}
+button span span {
+color: white;
+display: block;
+height: 26px;
+line-height: 26px;
+margin-bottom: 0px;
+padding-left: 0px;
+padding-right: 15px;
+white-space: nowrap;
+zoom: 1;
+font-size:12px;
+}
+
+
+button span, a.button, a.button span {
+background-image: url(images/btn.gif);
+background-repeat: no-repeat;
+}
+
+
+
+button.blue span, a.button.blue {
+background-position: 0px 0px;
+}
+button.blue span span, a.button.blue span {
+background-position: 100% -30px;
+}
+
+
+button.green span {
+background-position:0px -120px;
+}
+button.green span span, a.button.green span {
+background-position: 100% -150px;
+}
+button.silver span {
+background-position:0px -240px;
+}
+button.silver span span, a.button.silver span {
+background-position: 100% -270px; color:#666
+}
