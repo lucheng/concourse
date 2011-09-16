@@ -7,7 +7,7 @@ if (file_exists('installed.lock'))
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         </head>
         <body>
-        	你已经安装过该系统，如果想重新安装，请先删除install目录下的 installed.txt 文件，然后再安装。
+        	你已经安装过该系统，如果想重新安装，请先删除install目录下的 installed.lock 文件，然后再安装。
         </body>
         </html>';
         exit;
@@ -201,7 +201,7 @@ else
 
             $adminPwd = MD5($adminPwd);
 
-            $fp = fopen(ROOT . "/shuguangcms.sql", "r");
+            $fp = fopen(ROOT . "/buptcms.sql", "r");
             
             //创建数据表
             $query = "";
