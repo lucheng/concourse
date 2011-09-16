@@ -5,8 +5,10 @@ class PagesAction extends GlobalAction
 	{
 		$id=intval($_REQUEST['id']);
 		$Pages=D("Pages");
-		$list=$Pages->find($id);
-		$this->assign('vo',$list);
+		$page=$Pages->find($id);
+		$list=$Pages->findall();
+		$this->assign('pages',$list);
+		$this->assign('page',$page);
 		$this->display();
 	}
 	public function about()
