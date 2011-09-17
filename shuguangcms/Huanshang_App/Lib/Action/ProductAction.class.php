@@ -18,13 +18,16 @@ class ProductAction extends GlobalAction
 		//分类
 		$map['module']=1;//分类
 		$Category=D('Category')->order("id desc")->where($map)->findall();
+		
 		$this->assign('titler','产品中心');
 		$this->assign('cate',$Category);
 		$this->assign('Product',$Product);
 		$this->assign('count',$count);
 		$this->assign('page',$page);
+		$this->assign('list', $list);
 		$this->display();
 	}
+	
 	public function read(){
 		$id=intval($_REQUEST['id']);
 		$Product=D("Product");
