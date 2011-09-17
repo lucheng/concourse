@@ -156,9 +156,12 @@ width=10></TD>
       foreach ($Product as $pro){
       if($iii % 4 == 0) echo "</tr><tr>";
       </php>
-      <td align="center" ><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <td align="center" >
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
-          <td align="center"><a href="__APP__/Product/{$pro.id}.html" target="_blank"><if condition="$pro['attachment'] neq ''"><img src="__ROOT__/attachments/product/{$pro.attachpath}/{$pro.attachthumb}" alt="{$pro.subject}" width="110" height="75" border="0" /><else /><img src="../Public/images/nopic.jpg" width="110" height="75" border="0" /></if></a></td>
+          <td align="center"><a href="__APP__/Product/{$pro.id}.html" target="_blank">
+          <if condition="$pro['attachment'] neq ''">
+          	<img src="__ROOT__/attachments/product/{$pro.attachpath}/{$pro.attachthumb}" alt="{$pro.subject}" width="110" height="75" border="0" /><else /><img src="../Public/images/nopic.jpg" width="110" height="75" border="0" /></if></a></td>
         </tr>
         <tr>
           <td align="center"><a class="" title="{$pro.subject}" 
