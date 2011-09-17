@@ -30,7 +30,7 @@ function close_right(){
 }
 //设置样式
 document.writeln("<style type=\"text\/css\">");
-document.writeln("#leftDiv,#rightDiv{position:absolute;z-index:1000;width:120px;height:200px;top:215px;right:5px;background:url(../public/css/images/right_float_bg.jpg) no-repeat}");
+document.writeln("#leftDiv,#rightDiv{position:absolute;z-index:1000;width:115px;height:200px;top:215px;right:1px;background:url(../public/css/images/right_float_bg.jpg) no-repeat}");
 document.writeln("<\/style>");
 //------左侧开始
 //document.writeln("<div style=\"display:none\" id=\"leftDiv\" style=\"top:100px;left:5px\">");
@@ -44,9 +44,9 @@ var dd = new Date();
 var hour = dd.getHours();
  
 if(hour>=8||hour<1){
-document.writeln("<div id=\"rightDiv\" style=\"top:215px;right:5px\">");
+document.writeln("<div id=\"rightDiv\" style=\"top:215px;right:1px\">");
 document.writeln("<div id=\"right1\">");
-document.writeln("<a href='/Help12.php' target=\'_blank\'>ssss<\/a>");
+document.writeln("<a href='/Help12.php' target=\'_blank\'><\/a>");
 document.writeln("<\/div>");
 document.writeln("<\/div>");
 }
