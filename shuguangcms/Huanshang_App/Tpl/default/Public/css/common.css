@@ -188,6 +188,7 @@ height:28px;
 }
 
 #featured{ width:770px; _height:300px; background:#FFFFFF;padding-top:20px;}
+.company_info #featured{ padding-top:10px;}
 #featured #info{height:auto; background:#fdeada; float:left; margin:20px 0px 10px ;border: 1px solid #d99694;}
 #featured #info{ width:770px;color:#404040; }
 #featured #info h4{
@@ -238,6 +239,7 @@ padding:10px;
  
 .pro{width:600px;float:left;padding-top:40px;}
 .vip{width:200px;float:left;text-align:right;padding-top:40px;}
+.company_info{margin-top:0px;}
 
  .search{padding-left:10px;float:left;background:#fff;}
  #footer .bottom-left{width:1000px;height:124px;/*background:url(images/bank_Botton_right.jpg) no-repeat bottom left; */}
