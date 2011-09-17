@@ -203,6 +203,9 @@ line-height:26px;
 font-size:18px;
 padding:10px;
 }
+.band { position: absolute; top: -10px; right: -11px; display: block; width: 101px; height: 101px; }
+.onsale { background: url(images/band-onsale.png) no-repeat; }
+.whatsnew{ background: url(images/whatsnew.png) no-repeat; }
 #footer{
  background:url(images/footer_bg1.gif )repeat-x;
  height:205px;
@@ -240,7 +243,7 @@ padding:10px;
 .pro{width:600px;float:left;padding-top:40px;}
 .vip{width:200px;float:left;text-align:right;padding-top:40px;}
 .company_info{margin-top:0px;}
-
+#rightDiv{width:100px;height:200px;top:215px;right:5px;background:url(images/right_float_bg.jpg}
  .search{padding-left:10px;float:left;background:#fff;}
  #footer .bottom-left{width:1000px;height:124px;/*background:url(images/bank_Botton_right.jpg) no-repeat bottom left; */}
  #footer .bottom-right{width:1000px;height:124px;/*background:url(images/bank_Botton_left.jpg) no-repeat bottom right; */}
