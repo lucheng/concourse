@@ -9,11 +9,10 @@
 <link rel="stylesheet" href="../Public/css/nav.css"/>
 <link rel="stylesheet" href="../Public/css/common.css"/>
 <link rel="stylesheet" href="../Public/css/product.css"/>
-
 <link href="../Public/css/jqzoom.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="../Public/js/jquery.js"></script>
-    <script type="text/javascript" src="../Public/js/jquery.jqzoom.js"></script>
-     <script type="text/javascript">
+<script type="text/javascript" src="../Public/js/jquery.js"></script>
+ <script type="text/javascript" src="../Public/js/jquery.jqzoom.js"></script>
+<script type="text/javascript">
         $(document).ready(function(){
 		    $(".jqzoom").jqueryzoom({
 		        xzoom:400,  // 放大图的宽
@@ -22,10 +21,12 @@
 		        position:'right'  // 放大图在原图的右边(默认为right)
 		    });
 	    });
-    </script>
-
+</script>
 </head>
 <body>
+<!-- header start -->
+<include file="Public:header" />
+<!-- header end -->
 <div id="mainbody">
  <div class="left_side">
    <div class="left_side_top">
@@ -41,16 +42,47 @@
    <div class="left_side_bottom"></div>
  </div>
 	<div class="right-side">
-	  <div class="product_info">
+	  <div class="product_info  bgcolor_green">
+	   <div class="product_info_base">
 		<div class="pic">
+		 <div class="pic_header"></div>
+		 <div class="pic_body">
             <div class="jqzoom">
                 <img src="../Public/images/room_small.jpg" width=300px; height=300px;alt="" jqimg="../Public/images/room_big.jpg" />
             </div>
+         </div>
+         <div class="pic_footer"></div>
         </div>
-        <div class="product_feature"></div>
+        <div class="product_feature">
+         <ul>
+          <li class="name">舒适沙发</li>
+         </ul>
+        </div>
+        </div>
+         <div class="product_info_detail">
+          <div class="product_tab">
+            <img src="../Public/css/images/product_info_tab.png"/>
+          </div>
+          <div class="product_info_box">
+           <p>
+                                  舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发   舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发
+                                     舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发   舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发  
+                                   舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发   舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发
+           </p>
+            <p>
+                                  舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发   舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发
+                                     舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发   舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发  
+                                   舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发   舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发
+           </p>
+          </div>
+         </div>
 		<div class="tdpage">{$page}</div>
 	 </div>
 	</div>
 </div>
+<!-- footer start -->
+<include file="Public:footer" />
+<!-- footer end -->
+<include file="Public:ad" />
 </body>
 </html>
