@@ -31,9 +31,9 @@ class ProductAction extends GlobalAction
 	public function read(){
 		
 		$id=intval($_REQUEST['id']);
-		$Product=D("Product");
+		$Product=D("ProductView");
 		$list=$Product->find($id);
-		//dump($list);
+		dump($list);
 		if (!$list) {
 			$this->error("产品不存在");
 		}
