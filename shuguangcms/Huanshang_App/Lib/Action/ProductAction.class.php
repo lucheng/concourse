@@ -4,7 +4,15 @@ class ProductAction extends GlobalAction
 	public function index()
 	{
 		$id=intval($_REQUEST['id']);
-		if ($id>0)$mapc['cid']=$id;
+		$module=intval($_REQUEST['module']);
+		if ($id>0){
+			$mapc['cid']=$id;
+		}
+		
+		if ($module>0){
+			$mapc['module']=$module;
+		}
+		
 		$Product=D("Product");
 		$count=$Product->count($mapc);
 		//if($count<=1)$this->error('此类别无产品');
@@ -20,6 +28,7 @@ class ProductAction extends GlobalAction
 		$Category=D('Category')->order("id desc")->where($map)->findall();
 		
 		$this->assign('titler','产品中心');
+		$this->assign('module',$module);
 		$this->assign('cate',$Category);
 		$this->assign('Product',$Product);
 		$this->assign('count',$count);
@@ -29,33 +38,6 @@ class ProductAction extends GlobalAction
 	}
 	
 	public function newProduct()
-	{
-		$id=intval($_REQUEST['id']);
-		if ($id>0)$mapc['cid']=$id;
-		$Product=D("Product");
-		$count=$Product->count($mapc);
-		//if($count<=1)$this->error('此类别无产品');
-		import("ORG.Util.Page");
-		$listRows=16;
-		$p=new page($count,$listRows);
-		$list=$Product->findAll($mapc,'*','id desc',$p->firstRow.','.$p->listRows);
-		//$list=$p->order('pid desc')->limit("$p->firstRow.','.$p->listRows")->findAll();
-		$page = $p->show();	
-		/**/
-		//分类
-		$map['module']=1;//分类
-		$Category=D('Category')->order("id desc")->where($map)->findall();
-		
-		$this->assign('titler','产品中心');
-		$this->assign('cate',$Category);
-		$this->assign('Product',$Product);
-		$this->assign('count',$count);
-		$this->assign('page',$page);
-		$this->assign('list', $list);
-		$this->display();
-	}
-	
-	public function promteProduct()
 	{
 		$id=intval($_REQUEST['id']);
 		if ($id>0)$mapc['cid']=$id;
