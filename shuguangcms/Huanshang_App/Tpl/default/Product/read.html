@@ -48,14 +48,20 @@
 		 <div class="pic_header"></div>
 		 <div class="pic_body">
             <div class="jqzoom">
-                <img src="../Public/images/room_small.jpg" width=300px; height=300px;alt="" jqimg="../Public/images/room_big.jpg" />
+                <img src="__ROOT__/attachments/product/{$product.attachpath}/{$product.attachthumb}" width=300px; height=300px;alt="{$product.subject}" jqimg="__ROOT__/attachments/product/{$product.attachpath}/{$product.attachment}" />
             </div>
          </div>
          <div class="pic_footer"></div>
         </div>
         <div class="product_feature">
          <ul>
-          <li class="name">舒适沙发</li>
+          <li class="name">{$product.subject}</li>
+          <li class="name">产品类别：{$product.category.title}</li>
+          <li class="name">产品型号：{$product.spec}</li>
+          <li class="name">产品尺寸：{$product.size}</li>
+          <li class="name">点击次数：{$product.hits}次</li>
+          <li class="name">添加时间：{$product.postdate|date="Y-m-d",###}</li>
+          <li class="name">其它参数：{$product.meno}</li>
          </ul>
         </div>
         </div>
@@ -64,16 +70,7 @@
             <img src="../Public/css/images/product_info_tab.png"/>
           </div>
           <div class="product_info_box">
-           <p>
-                                  舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发   舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发
-                                     舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发   舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发  
-                                   舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发   舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发
-           </p>
-            <p>
-                                  舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发   舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发
-                                     舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发   舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发  
-                                   舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发   舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发舒适沙发
-           </p>
+          	{$product.content}
           </div>
          </div>
 		<div class="tdpage">{$page}</div>
