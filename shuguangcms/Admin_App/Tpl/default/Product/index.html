@@ -33,10 +33,12 @@
             </tr>
             <volist name="list" id="vo">
             <tr>
-              <td class="option"><input name="id[]" type="checkbox" id="id[]" value="{$vo.id}" class="checkbox">
-                {$vo.id}</td>
+              <td class="option">
+              <input name="id[]" type="checkbox" id="id[]" value="{$vo.id}" class="checkbox">
+                {$vo.id}
+              </td>
               <td>
-              		<strong><if condition="$vo['color'] neq ''"><font color="{$vo.color}">{$vo.subject}</font><else /> {$vo.subject}</if></strong> <neq name="vo['attachthumb']" value=""><img src="../Public/images/img.gif" alt="图片" align="absmiddle" /></neq> 
+              	<strong><if condition="$vo['color'] neq ''"><font color="{$vo.color}">{$vo.subject}</font><else /> {$vo.subject}</if></strong> <neq name="vo['attachthumb']" value=""><img src="../Public/images/img.gif" alt="图片" align="absmiddle" /></neq> 
 	              <eq name="vo['istop']" value="1"><img src="../Public/images/d.gif" alt="置顶" align="absmiddle" /></eq>
 	              <eq name="vo['isgood']" value="1"><img src="../Public/images/j.gif" alt="推荐" align="absmiddle" /></eq>
 	              <eq name="vo['ischecked']" value="0"><font color="#cccccc">未审核</font></eq></td>
