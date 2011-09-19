@@ -29,6 +29,7 @@ class ProductAction extends GlobalAction
 	}
 	
 	public function read(){
+		
 		$id=intval($_REQUEST['id']);
 		$Product=D("Product");
 		$list=$Product->find($id);
@@ -41,9 +42,8 @@ class ProductAction extends GlobalAction
 		$map['module']=1;//分类
 		$Category=D('Category')->order("id desc")->where($map)->findall();
 		$this->assign('cate',$Category);
-		$this->assign('vo',$list);
+		$this->assign('product',$list);
 		$this->display();
-		
 		
 	}
 	public function order(){
