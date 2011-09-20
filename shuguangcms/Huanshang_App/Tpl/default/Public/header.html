@@ -9,12 +9,14 @@
 		<img src="../Public/images/tel.png" />
 	</div> 
 	<div class="search_frm">
-		 <div class="search_txt">
-		  <input type="text" name="search"/>
-		 </div>
-		 <div class="search_btn">
-		   <img src="../Public/images/search_btn.jpg"/>
-		 </div>
+		 <form id="searchForm" method="post" action="__APP__/Search">
+			 <div class="search_txt">
+			  <input type="text" name="keyword"/>
+			 </div>
+			 <div class="search_btn">
+			   <a href="javascript:void(0);" onclick="javascript:$('#searchForm').submit();" ><img src="../Public/images/search_btn.jpg"/></a>
+			 </div>
+		 </form>
 	</div>
 </div>
 <div class="clear"></div>
