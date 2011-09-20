@@ -7,7 +7,6 @@ class SearchAction extends GlobalAction
 
 		$data=array();
 		$keyword=$_POST['keyword'];
-		$keywords=$_REQUEST['keywords'];
 		if($keyword){
 			$data['subject']=array('like','%'.$keyword.'%');
 			$data['spec']=array('like','%'.$keyword.'%');
