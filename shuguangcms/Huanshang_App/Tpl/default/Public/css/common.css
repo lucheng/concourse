@@ -68,16 +68,22 @@ float:left;
  width:1000px;margin:0 auto;  overflow:hidden; text-align:left; position:relative;margin-top:40px;
  }
  .left_side{ 
-	 background:#C8000B;
  	width:187px;
  	float:left;
  	margin:30px 0px 30px 10px;
  }
+ 
 .right-side{
 width:770px;
 float:left;
 margin:30px 0px 0px 10px;
 }
+/*产品分类*/
+.left_side_category
+ {
+  width:187px;
+  background:#C8000B;
+ }
  .left_side_top{
  width:187px;
  background:url(images/nav_top_bg.jpg) no-repeat; 
@@ -122,6 +128,19 @@ height:28px;
 	padding-left:20px;
  	padding-top:5px;
 	background:url(images/nav_ahover.jpg ) no-repeat;
+}
+/*联系方式*/
+.left_contact_box{
+ width:187px;
+ margin:30px 0px 10px 0px;
+ 
+}
+.left_contact_box_top{
+	width:187px;
+	height:60px;
+	float:left;
+	display:inline;
+	background:url(images/left_contact_top.png) no-repeat top left;
 }
 /*图片轮换*/
 .changePic .ad {

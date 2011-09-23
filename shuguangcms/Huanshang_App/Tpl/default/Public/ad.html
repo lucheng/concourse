@@ -30,7 +30,12 @@ function close_right(){
 }
 //设置样式
 document.writeln("<style type=\"text\/css\">");
-document.writeln("#leftDiv,#rightDiv{position:absolute;z-index:1000;width:115px;height:200px;top:215px;right:1px;background:url(../public/css/images/right_float_bg.jpg) no-repeat}");
+document.writeln("#leftDiv,#rightDiv{position:absolute;z-index:1000;width:115px;margin-bottom:2px;overflow:hidden;top:215px;right:2px;}");
+document.writeln("#right_top_Div{width:115px;height:42px;right:1px;background:url(../public/css/images/right_float_bg_top.gif) top left no-repeat}");
+document.writeln("#right_bottom_Div{width:115px;height:40px;right:1px;background:url(../public/css/images/right_float_bg_bottom.gif) bottom left no-repeat}");
+document.writeln("#right1{width:115px;overflow:hidden;top:215px;right:2px;background:url(../public/css/images/right_float_bg_center1.gif) no-repeat}");
+document.writeln(".qq_content{width:90px;height:20px;overflow:hidden;margin:5px 0px 5px 10px;background:url(../public/css/images/qqimg.jpg) no-repeat}");
+document.writeln(".qq_content a {font-size:15px;color:#000;text-decoration:none;height:20px;overflow:hidden;margin-left:25px;padding-top:5px;}");
 document.writeln("<\/style>");
 //------左侧开始
 //document.writeln("<div style=\"display:none\" id=\"leftDiv\" style=\"top:100px;left:5px\">");
@@ -44,9 +49,15 @@ var dd = new Date();
 var hour = dd.getHours();
  
 if(hour>=8||hour<1){
-document.writeln("<div id=\"rightDiv\" style=\"top:215px;right:1px\">");
+document.writeln("<div id=\"rightDiv\" style=\"top:215px;right:2px\">");
+document.writeln("<div id=\"right_top_Div\">");
+document.writeln("<\/div>");
 document.writeln("<div id=\"right1\">");
-document.writeln("<a href='/Help12.php' target=\'_blank\'><\/a>");
+document.writeln("<div class=\"qq_content\">");
+document.writeln("<a href='/#' target=\'_blank\'>经理<\/a>");
+document.writeln("<\/div>");
+document.writeln("<\/div>");
+document.writeln("<div id=\"right_bottom_Div\">");
 document.writeln("<\/div>");
 document.writeln("<\/div>");
 }
