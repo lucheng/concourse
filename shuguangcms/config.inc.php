@@ -1,7 +1,7 @@
 <?php
 //核心配置文件
 if (!defined('THINK_PATH')) exit();
-return array(
+return array( 
 	'SITENAME'=>'广西桓尚家具',
 	'SITEURL'=>'http://localhost',
 	'STOPD'=>'系统维护中.....',
