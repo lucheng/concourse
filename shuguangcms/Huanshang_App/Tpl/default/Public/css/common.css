@@ -88,7 +88,6 @@ margin:30px 0px 0px 10px;
  width:187px;
  background:url(images/nav_top_bg.jpg) no-repeat; 
  padding-top:10px;
- padding-left:5px;
  }
  .left_side_bottom{
  width:187px;
@@ -130,17 +129,49 @@ height:28px;
 	background:url(images/nav_ahover.jpg ) no-repeat;
 }
 /*联系方式*/
-.left_contact_box{
+.left_contact{
  width:187px;
  margin:30px 0px 10px 0px;
  
 }
 .left_contact_box_top{
 	width:187px;
-	height:60px;
+	height:48px;
 	float:left;
-	display:inline;
 	background:url(images/left_contact_top.png) no-repeat top left;
+}
+.left_contact_box_top span{
+	float:left;
+	font-size:22px;
+	color:#fff;
+	font-weight:bold;
+	padding:10px 0px 0px 50px;
+}
+.left_contact_box{
+	width:160px;
+	float:left;
+	border:#a6250b 1px solid;
+	border-top:none;
+	margin-left:13px !important;
+	margin-left:6px;
+}
+.left_contact_box ul{
+	width:160px;
+	float:left;
+}
+.left_contact_box ul span{
+	width:160px;
+	float:left;
+	padding:10px 0px 2px 10px;
+}
+
+.left_contact_box ul li{
+	width:160px;
+	padding-bottom:5px;
+}
+.left_contact_box ul li img{
+	padding-top:5px;
+	padding-left:1px;
 }
 /*图片轮换*/
 .changePic .ad {
@@ -208,7 +239,28 @@ height:28px;
 	overflow: hidden;
 	position: relative;
 }
-
+.root_info{
+	 width:700px;
+	 float:left;
+	 margin-left:20px;
+	 height:34px;
+	 background:url(images/content_tab.png) no-repeat top left;
+	
+}
+.root_info span{
+	width:100px;
+	float:left;
+	padding:6px;
+	text-align:center;
+	font-size:18px;
+	font-weight:bold;
+}
+.root_info_line{
+	width:770px;
+	 float:left;
+	 height:3px;
+	 background:url(images/content_tab_line.png) repeat-x top left;
+}
 #featured{ width:770px; _height:300px; background:#FFFFFF;padding-top:20px;}
 .company_info #featured{ padding-top:10px;}
 #featured #info{height:auto; background:#fdeada; float:left; margin:20px 0px 10px ;border: 1px solid #d99694;}
@@ -230,12 +282,12 @@ padding:10px;
 .whatsnew{ background: url(images/whatsnew.png) no-repeat; }
 .tdpage{width:720px;float:left;text-align:right;padding:20px 10px 20px 0px;}
 #footer{
- background:url(images/footer_bg1.gif )repeat-x;
- height:205px;
+ background:url(images/footer_bg.gif) repeat-x;
+ height:170px;
  overflow:hidden;
 }
  .footer_nav{
- width:1000px; height:124px;  margin:0 auto;position:relative;margin-top:30px;/* background:url(images/left_nav_ahover.jpg ) no-repeat;*/
+ width:1000px; height:124px;  margin:0 auto;position:relative;margin-top:25px;/* background:url(images/left_nav_ahover.jpg ) no-repeat;*/
  }
  .footer_left{
  width:450px;
@@ -243,26 +295,68 @@ padding:10px;
  
  }
   .footer_left .footer_logo{
- width:500px;
+ width:450px;
  float:left;
- padding-top:30px;
  
  } 
  .footer_right{
- width:500px;
- float:left;
- padding-left:20px;
+	 width:500px;
+	 float:left;
+	 padding-left:20px;
  }
  .footer_right ul{
- width:450px;
- float:left;
- padding-top:30px;
+	 width:480px;
+	 float:left;
+	 padding-top:10px;
  }
   .footer_right ul li{
- width:80px;
+	 font-size:18px;
+	 color:#fff;
+	 float:left;
+	 text-aling:left;
+	 line-height:25px;
+ }
+ .footer_right ul li.short{
+  	width:200px;
+  }
+  .footer_right ul li.long{
+  	width:250px;
+  }
+  .footer_right ul li.add{
+  	width:480px;
+  }
+  .footer_left .footer_left_contact{
+	  width:450px;
+	  float:left;
+  }
+  .footer_left .footer_left_contact ul{
+	  width:450px;
+	  float:left;
+	  font-size:15px;
+	  color:#fff;
+	  padding-left:20px;
+  }
+  
+ .footer_left .footer_left_contact ul li{
  float:left;
  }
- 
+ .footer_left .footer_left_contact ul li a{
+  padding:5px;
+ float:left;
+  font-size:15px;
+	  color:#fff;
+	  text-decoration:none;
+ }
+ .footer_left .footer_left_contact ul span{
+   float:left;
+    padding:5px;
+ }
+ .footer_nav p{
+  text-align:center;
+  color:#fff;
+  font-size:18px;
+  padding-top:15px;
+ }
 .pro{width:600px;float:left;padding-top:40px;}
 .vip{width:200px;float:left;text-align:right;padding-top:40px;}
 .company_info{margin-top:0px;}
