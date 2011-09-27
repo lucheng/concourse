@@ -138,6 +138,7 @@ class ProductAction extends GlobalAction
 	}
 	public function category(){
 		$this->_checkSecurity('category');
+		
 		$Category=D("Category");
 		$map['module']=1;
 		$list=$Category->findAll($map,'*','id desc','');
