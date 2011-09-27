@@ -21,7 +21,7 @@ class ProductAction extends GlobalAction
 		$p=new page($count,$listRows);
 		$list=$Product->findAll($mapc,'*','id desc',$p->firstRow.','.$p->listRows);
 		//$list=$p->order('pid desc')->limit("$p->firstRow.','.$p->listRows")->findAll();
-		$page = $p->show();	
+		$page = $p->show();
 		/**/
 		//分类
 		$map['module']=1;//分类
