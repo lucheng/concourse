@@ -364,3 +364,17 @@ padding:10px;
  .search{padding-left:10px;float:left;background:#fff;}
  #footer .bottom-left{width:1000px;height:124px;/*background:url(images/bank_Botton_right.jpg) no-repeat bottom left; */}
  #footer .bottom-right{width:1000px;height:124px;/*background:url(images/bank_Botton_left.jpg) no-repeat bottom right; */}
+/*新闻*/
+.news_title_box{
+	width:750px;
+	float:left;
+}
+.news_title_box ul{
+	width:750px;
+	float:left;
+}
+.news_title_box ul li a{
+	padding:5px;
+	line-height:26px;
+	font-size:21px;
+}

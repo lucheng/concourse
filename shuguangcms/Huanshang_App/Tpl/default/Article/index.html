@@ -8,6 +8,70 @@
 <link rel="stylesheet" href="../Public/css/reset.css"/>
 <link rel="stylesheet" href="../Public/css/nav.css"/>
 <link rel="stylesheet" href="../Public/css/common.css"/>
+<link rel="stylesheet" type="text/css" href="../Public/css/easyui.css"/>
+	<script type="text/javascript" src="../Public/js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="../Public/js/jquery.easyui.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#tt').tabs({
+			});
+		});
+		
+		var index = 0;
+		function addTab(){
+			index++;
+			$('#tt').tabs('add',{
+				title:'New Tab ' + index,
+				content:'Tab Body ' + index,
+				iconCls:'icon-save',
+				closable:true
+			});
+		}
+		function getSelected(){
+			var tab = $('#tt').tabs('getSelected');
+			alert('Selected: '+tab.panel('options').title);
+		}
+		function update(){
+			index++;
+			var tab = $('#tt').tabs('getSelected');
+			$('#tt').tabs('update', {
+				tab: tab,
+				options:{
+					title:'new title'+index,
+					iconCls:'icon-save'
+				}
+			});
+		}
+	</script>
+	
+	<style>
+	 .news_title_box{
+	width:730px;
+	float:left;
+}
+.news_title_box ul{
+	width:730px;
+	float:left;
+}
+.news_title_box ul li a{
+    text-decoration:none;
+    font-weight:bold;
+    color:#FAC090;
+	padding:5px;
+	line-height:26px;
+	font-size:21px;
+}
+.news_title_box ul li a:hover{
+   color:#a6250b;
+}
+.news_title_box ul li span{
+   color:#FAC090;
+	padding:5px;
+	line-height:26px;
+	font-size:31px;
+}
+	</style>
+
 </head>
 <body>
 <!-- header start -->
@@ -64,7 +128,34 @@
  </div>
  
 	<div class="right-side">
+			 <div class="root_info">
+	           <span>新闻中心</span>
+	 		 </div>
+	 		 <div class="root_info_line"></div>
+	 		 
+	 		 
+	<div id="tt" style="width:770px;height:550px;">
+		<div title="旺派新闻" style="padding:20px;">
+		 <div class="news_title_box">
+		   <ul>
+		    <li><span>.</span><a href="href">旺派新闻旺派新闻旺派新闻旺派新闻</a></li>
+		    <li><span>.</span><a href="href">旺派新闻旺派新闻旺派新闻旺派新闻</a></li>
+		    <li><span>.</span><a href="href">旺派新闻旺派新闻旺派新闻旺派新闻</a></li>
+		   </ul>
+		  </div>
+		</div>
+		<div title="热点新闻"  style="padding:20px;" cache="false" >
+			<div class="news_title_box">
+			   <ul>
+			    <li><span>.</span><a href="href">旺派新闻旺派新闻旺派新闻旺派新闻</a></li>
+			    <li><span>.</span><a href="href">旺派新闻旺派新闻旺派新闻旺派新闻</a></li>
+			    <li><span>.</span><a href="href">旺派新闻旺派新闻旺派新闻旺派新闻</a></li>
+			   </ul>
+		  </div>
+		</div>
 		
+	</div>
+	 		 
 	</div>
 </div>
 
