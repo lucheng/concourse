@@ -378,3 +378,13 @@ padding:10px;
 	line-height:26px;
 	font-size:21px;
 }
+/*联系我们*/
+#info ul{
+	width:720px;
+	
+}
+#info ul li{
+	 width:720px;
+	 line-height:26px;
+	 padding:5px;
+}

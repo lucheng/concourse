@@ -35,6 +35,22 @@ $(function(){
 		$(".products_inner").corner("4px");
 });
 </script>
+<style>
+ /*联系我们*/
+#info ul{
+	width:720px;
+	 padding:15px 0px 15px 15px;
+	
+}
+#info ul li{
+	 width:720px;
+	 line-height:31px;
+}
+#info ul li strong{
+ font-weight:bold;
+ width:80px;
+}
+</style>
 </head>
 <body>
 <!-- header start -->
@@ -92,38 +108,31 @@ $(function(){
  
  <div class="right-side">
   <div class="root_info">
-         <span>公司介绍</span>
+         <span>联系我们</span>
   </div>
   <div class="root_info_line"></div>
     <div id="featured">
    		<div id="info" class="corner_10">
-   		 <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
-      <tr>
-        <td width="20%" align="center"><strong>公司名称：</strong></td>
-        <td width="80%">{$company}</td>
-      </tr>
-      <tr>
-        <td align="center"><strong>联系人：</strong></td>
-        <td>{$linkman}</td>
-      </tr>
-      <tr>
-        <td align="center"><strong>手机：</strong></td>
-        <td>{$telephone}</td>
-      </tr>
-      <tr>
-        <td align="center"><strong>传真：</strong></td>
-        <td>{$fax}</td>
-      </tr>
-      <tr>
-        <td align="center"><strong>邮箱：</strong></td>
-        <td>{$email}</td>
-      </tr>
-      <tr>
-        <td align="center"><strong>地址：</strong></td>
-        <td>{$address}</td>
-      </tr>
-      
-    </table>
+   		  <ul>
+   		  <li>
+   		         <strong>公司名称：</strong><span>{$company}</span>
+   		   </li>
+   		   <li>
+   		         <strong> 联系人：</strong><span>{$linkman}</span>
+   		   </li>
+   		    <li>
+   		         <strong>  手机：</strong><span>{$telephone}</span>
+   		   </li>
+   		    <li>
+   		         <strong> 传真：</strong><span>{$fax}</span>
+   		   </li>
+   		    <li>
+   		         <strong> 邮箱：</strong><span>{$email}</span>
+   		   </li>
+   		    <li>
+   		         <strong>地址：</strong><span>{$address}</span>
+   		   </li>
+   		  </ul>
    		 <!-- <p>{$page.content}</p> -->
    		</div>
 	</div>
