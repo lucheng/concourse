@@ -21,7 +21,7 @@
    <h1>产品分类</h1>
     <div class="category">
      <ul>
-     	<volist name='Category' id='vo' >
+     	<volist name='category' id='vo' >
 			<li class="left_side_line"><a href="__APP__/Product/index/id/{$vo.id}">{$vo.title}</a></li>
 		</volist>
      </ul>
@@ -29,39 +29,7 @@
    </div>
     <div class="left_side_bottom"></div>
     </div>
-   <div class="left_contact">
-    <div class="left_contact_box_top">
-    <span> 联系方式</span>
-    </div>
-    <div class="left_contact_box">
-       <ul>
-        <span>
-                  项目经理:
-        </span>
-         <li>
-         <img src="../Public/css/images/QQ_online.png">
-         </img>
-          <img src="../Public/css/images/QQ_offline.png">
-         </img>
-         </li>
-          <li>
-         </li>
-       </ul>
-        <ul>
-        <span>
-                  项目经理:
-        </span>
-         <li>
-         <img src="../Public/css/images/wangwang_offline.png">
-         </img>
-          <img src="../Public/css/images/wangwang_online.png">
-         </img>
-         </li>
-          <li>
-         </li>
-       </ul>
-     </div>
-   </div>
+	<include file="Public:wangwang"/>
  </div>
 	<div class="right-side">
 		<div class="product_content">
@@ -84,10 +52,8 @@
 					</div>
 					<div class="ft"></div>
 				</div>
-				<if condition='$vo.module eq 1'><div class="band onsale"></div>
-				</if>
-				<if condition='$vo.module eq 2'><div class="band whatsnew"></div>
-				</if>
+				<if condition='$vo.module eq 1'><div class="band whatsnew"></div></if>
+				<if condition='$vo.module eq 2'><div class="band onsale"></div></if>
 				
 			</div>
 		</volist>

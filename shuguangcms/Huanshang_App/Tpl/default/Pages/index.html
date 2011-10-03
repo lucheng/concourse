@@ -41,7 +41,7 @@ $(function(){
 <include file="Public:header" />
 <!-- header end -->
 <div id="mainbody">
- <div class="left_side">
+ <!--<div class="left_side">
    <div class="left_side_top">
    <h1>{$titler}</h1>
     <div class="category">
@@ -54,9 +54,28 @@ $(function(){
    </div>
     <div class="left_side_bottom"></div>
  </div>
+ -->
+ 
+ <div class="left_side">
+ <div class="left_side_category">
+   <div class="left_side_top">
+   <h1>{$titler}</h1>
+    <div class="category">
+     <ul>
+     	<volist name='pages' id='vo' >
+			<li class="left_side_line"><a href="__APP__/Pages/index/module/{$vo.module}/id/{$vo.id}.html" target=_self>{$vo.subject}</a></li>
+		</volist>
+     </ul>
+    </div>
+   </div>
+    <div class="left_side_bottom"></div>
+    </div>
+	<include file="Public:wangwang"/>
+ </div>
+ 
  <div class="right-side company_info">
  <div class="root_info">
-         <span>公司介绍</span>
+         <span>{$titler}</span>
   </div>
   <div class="root_info_line"></div>
     <div id="featured">
