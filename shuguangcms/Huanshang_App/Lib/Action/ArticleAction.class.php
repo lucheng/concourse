@@ -4,7 +4,9 @@ class ArticleAction extends GlobalAction
 	public function index()
 	{
 		$id=intval($_REQUEST['id']);
-		if ($id>0)$mapc['cid']=$id;
+		if ($id>0){
+			$mapc['cid']=$id;
+		}
 		$Article=D("Article");
 		$count=$Article->count($mapc);
 		import("ORG.Util.Page");
@@ -15,7 +17,7 @@ class ArticleAction extends GlobalAction
 		//分类
 		$map['module']=2;//新闻分类
 		$Category=D('Category')->order("id desc")->where($map)->findall();
-		
+//		dump($list);
 		//title
 		$this->assign('titler','公司新闻');
 		$this->assign('cate',$Category);
@@ -23,6 +25,7 @@ class ArticleAction extends GlobalAction
 		$this->assign('page',$page);
 		$this->display();
 	}
+	
 	public function read(){
 		$id=intval($_REQUEST['id']);
 		$Article=D("Article");
