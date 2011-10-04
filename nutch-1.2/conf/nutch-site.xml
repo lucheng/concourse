@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!-- Put site-specific property overrides in this file. -->
+<configuration>
+	<property>
+        <name>http.agent.name</name>
+        <value>google</value>
+    </property>
+    <property>
+        <name>http.agent.version</name>
+        <value>1.0</value>
+    </property>
+    <property>
+		<name>searcher.dir</name> 
+		<value>/home/linzhe/workspace/nutch-1.2/localweb</value> 
+	</property>
+</configuration>
