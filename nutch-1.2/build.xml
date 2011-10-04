@@ -159,15 +159,27 @@
 				<include name="${final.name}.war"/>
 			</fileset>
 		</copy>
-		<delete file="${tomcatroot}/nutch.war"></delete>
-		<delete dir="${tomcatroot}/nutch"></delete>
-		<rename dest="${tomcatroot}/nutch.war" src="${tomcatroot}/${final.name}.war"/>
+		<delete file="${tomcatroot}/${final.name}.war"></delete>
+		<delete dir="${tomcatroot}/${final.name}"></delete>
 	</target>
 	
+	<target name="replace">
+		<replace dir="${basedir}/conf">
+				<include name="nutch-default.xml" />
+				<replacetoken>"Directories where nutch plugins"</replacetoken>
+				<replacevalue>"plugins"</replacevalue>
+		</replace>
+	</target>
 	
-	<target name="war" depends="jar,compile,generate-docs">
+	<target name="war" depends="jar,compile,generate-docs,copy">
 
     <!-- generate the nutch.xml (servlet context) file -->
+	<!-- 将nutct-default中的plugins替换 -->
+	<replace dir="${basedir}/conf">
+		<include name="nutch-default.xml" />
+		<replacetoken>"./src/plugin"</replacetoken>
+		<replacevalue>"plugins"</replacevalue>
+	</replace>
     <xslt in="${basedir}/conf/nutch-default.xml"
           out="${build.dir}/nutch.xml"
           style="${basedir}/conf/context.xsl">
@@ -208,6 +220,13 @@
 	      <include name="taglibs-*.tld"/>
       </webinf>
     </war>
+	<!--
+	<replace dir="${basedir}/conf">
+		<include name="nutch-default.xml" />
+		<replacetoken>"plugins"</replacetoken>
+		<replacevalue>"./src/plugin"</replacevalue>
+	</replace>
+	-->
    </target>
 
 
