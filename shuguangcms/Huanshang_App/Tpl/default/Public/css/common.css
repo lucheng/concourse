@@ -378,6 +378,12 @@ padding:10px;
 	line-height:26px;
 	font-size:21px;
 }
+.article{
+	 width:700px;
+	 height:700px;
+	 margin-top:30px;
+	 margin-bottom:30px;
+}
 /*联系我们*/
 #info ul{
 	width:720px;

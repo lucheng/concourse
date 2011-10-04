@@ -42,10 +42,15 @@
 .product_feature ul li{
 	width:370px;
 	float:left;
+	line-height:31px;
+	font-size:25px;
+	color:#F36;
 }
 .product_feature   .name{
 	font-size:25px;
 	color:#F36;
+	padding-top:3px;
+	padding-bottom:3px;
 }
 .product_info_detail{
 	width:750px;
