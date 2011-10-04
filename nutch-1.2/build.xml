@@ -153,16 +153,12 @@
   <!--                                                                    -->
   <!-- ================================================================== -->
   
-	<target name="copy" description="copy files to OFBiz hot-deploy">
-		<copy todir="${tomcatroot}">
-			<fileset dir="${build.dir}">
-				<include name="${final.name}.war"/>
-			</fileset>
+	<target name="copyjsp" description="copy files to OFBiz hot-deploy">
+		<copy todir="${tomcatroot}/${final.name}">
+			<fileset dir="${web.src.dir}/jsp"/>
 		</copy>
-		<delete file="${tomcatroot}/${final.name}.war"></delete>
-		<delete dir="${tomcatroot}/${final.name}"></delete>
 	</target>
-	
+	<!--
 	<target name="replace">
 		<replace dir="${basedir}/conf">
 				<include name="nutch-default.xml" />
@@ -170,16 +166,25 @@
 				<replacevalue>"plugins"</replacevalue>
 		</replace>
 	</target>
-	
-	<target name="war" depends="jar,compile,generate-docs,copy">
+	-->
+	<target name="war" depends="jar,compile,generate-docs">
 
     <!-- generate the nutch.xml (servlet context) file -->
 	<!-- 将nutct-default中的plugins替换 -->
+	<!--
 	<replace dir="${basedir}/conf">
 		<include name="nutch-default.xml" />
 		<replacetoken>"./src/plugin"</replacetoken>
 		<replacevalue>"plugins"</replacevalue>
 	</replace>
+	-->
+	<delete file="${tomcatroot}/${final.name}.war"></delete>
+	<delete dir="${tomcatroot}/${final.name}"></delete>
+	<copy todir="${tomcatroot}">
+		<fileset dir="${build.dir}">
+			<include name="${final.name}.war"/>
+		</fileset>
+	</copy>
     <xslt in="${basedir}/conf/nutch-default.xml"
           out="${build.dir}/nutch.xml"
           style="${basedir}/conf/context.xsl">
