@@ -53,9 +53,12 @@ document.writeln("<div id=\"rightDiv\" style=\"top:215px;right:2px\">");
 document.writeln("<div id=\"right_top_Div\">");
 document.writeln("<\/div>");
 document.writeln("<div id=\"right1\">");
-document.writeln("<div class=\"qq_content\">");
-document.writeln("<a href='/#' target=\'_blank\'>经理<\/a>");
+<volist name="qqs" id="qq">
+//document.writeln("<div class=\"qq_content\">");
+document.writeln("<div style=\"width:90px;height:20px;overflow:hidden;margin:5px 0px 5px 10px;background:url(http://wpa.qq.com/pa?p=1:{$qq.url}:4) no-repeat\">");
+document.writeln("<a style=\"font-size:15px;color:#000;text-decoration:none;height:20px;overflow:hidden;margin-left:25px;padding-top:5px;\" href='tencent://message/?uin={$qq.url}' target=\'_blank\'>{$qq.title}</a>");
 document.writeln("<\/div>");
+</volist>
 document.writeln("<\/div>");
 document.writeln("<div id=\"right_bottom_Div\">");
 document.writeln("<\/div>");
