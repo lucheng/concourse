@@ -9,7 +9,7 @@ class LinkModel extends Model
 	protected $_auto	 =	 array(
 		array('ischecked','1','ADD'),
 		array('title','dhtml','ALL','function'),
-		array('url','cvhttp','ALL','function'),
+//		array('url','cvhttp','ALL','function'),
 	);			
 }
 ?>
