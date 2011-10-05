@@ -49,6 +49,9 @@ margin-left:5px;
 .search_frm .search_btn{
 width:75px;
 float:left;
+ background:url(images/search_btn.jpg) no-repeat;
+ color:#fff;
+ height:35px;
 }
  .header_nav{
  background:url(images/menubarbg.png) repeat-x;
