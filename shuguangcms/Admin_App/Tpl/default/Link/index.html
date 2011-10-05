@@ -29,9 +29,14 @@
               <td class="option"><input name="id[]" type="checkbox" id="id[]" value="{$vo.id}" class="checkbox">
                 {$vo.id}</td>
               
-              <td>{$vo.title} <neq name="vo['logo']" value=""><img src="../Public/images/img.gif" alt="LOGO链接" align="absmiddle" /></neq><eq name="vo['ischecked']" value="0">(<font color=red>隐藏</font>)</eq></td>
+              <td>{$vo.title}
+              <neq name="vo['logo']" value=""><img src="../Public/images/img.gif" alt="LOGO链接" align="absmiddle" /></neq><eq name="vo['ischecked']" value="0">(<font color=red>隐藏</font>)</eq></td>
               <td>{$vo.url}</td>
-               <td><if condition="$vo['types'] eq 1">普通链接<else /><font color="#FF0000">合作伙伴</font></if></td>
+               <td>
+               	<if condition="$vo['types'] eq 1">普通链接</if>
+               	<if condition="$vo['types'] eq 2">QQ</if>
+               	<if condition="$vo['types'] eq 3">旺旺</if>
+               </td>
               <td>{$vo.postdate|date="Y-m-d",###}</td>
               <td><a href="__URL__/edit/id/{$vo.id}"><img src="../Public/images/edit.gif" alt="编辑" align="absmiddle" /></a>　<a href="__URL__/submit/act/delete/id/{$vo.id}" onclick="return confirm('确定删除吗，此操作不可恢复');"><img src="../Public/images/del.gif" alt="删除" align="absmiddle" /></a></td>
             </tr>
