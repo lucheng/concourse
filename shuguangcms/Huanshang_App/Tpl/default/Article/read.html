@@ -41,20 +41,19 @@ color:#7f7f7f;
 <!-- header end -->
 <div id="mainbody">
 <div class="left_side">
- <!--<div class="left_side_category">
+ <div class="left_side_category">
    <div class="left_side_top">
-   <h1>产品分类</h1>
+   <h1>新闻分类</h1>
     <div class="category">
      <ul>
-     	<volist name='cate' id='vo' >
-			<li class="left_side_line"><a href="__APP__/Product/index/id/{$vo.id}">{$vo.title}</a></li>
-		</volist>
+     	<li class="left_side_line"><a href="__APP__/Product/index/id/{$vo.id}">葡萄牙</a></li>
+		<li class="left_side_line"><a href="__APP__/Article/index/id/{$vo.id}">茜茜苯酚</a></li>
      </ul>
     </div>
    </div>
     <div class="left_side_bottom"></div>
     </div>
-   -->
+   
 	<include file="Public:wangwang"/>
  </div>
  
@@ -65,11 +64,11 @@ color:#7f7f7f;
 	 		 <div class="root_info_line"></div>
 	 		 <div class="article">
 	 		  <div class="article_title">
-	 		    新闻
+	 		    {$article.subject}
 	 		  </div>
 	 		   <div class="article_content">
 	 		    <p>
-	 		   新闻新闻新闻新闻新闻 新闻新闻新闻新闻新闻 新闻新闻新闻新闻新闻 新闻新闻新闻新闻新闻 新闻新闻新闻新闻新闻
+	 		   	{$article.content}
 	 		   </p>
 	 		  </div>
 	         </div>

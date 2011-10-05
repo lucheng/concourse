@@ -16,14 +16,17 @@ class GlobalAction extends Action
 		foreach ($Settings AS $key ){
 			$this->assign($key['title'],$key['values']);
 		}
+		$map1['types']=1;
 		$map2['types']=2;
 		$map3['types']=3;
 		$Link=D("Link");
+		$links=$Link->order('id desc')->findall($map1);
 		$qq=$Link->order('id desc')->findall($map2);
 		$ww=$Link->order('id desc')->findall($map3);
+		$this->assign("links", $links);
 		$this->assign("qqs", $qq);
 		$this->assign("wws", $ww);
-//		dump($Contect);
+//		dump($ww);
 	}
 	function verify()
 	{

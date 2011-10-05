@@ -30,10 +30,14 @@ class ArticleAction extends GlobalAction
 		$id=intval($_REQUEST['id']);
 		$Article=D("Article");
 		$list=$Article->find($id);
-		if (!$list) $this->error("信息不存在");
-		$Article->setINC('hits','id='.$id);
+		if (!$list) {
+			$this->error("信息不存在");
+		}
+		$this->assign("article", $list);
+//		dump($article);
+		$this->display();
 		
-		//分类
+		/*//分类
 		$map['module']=2;//新闻分类
 		$Category=D('Category')->order("id desc")->where($map)->findall();
 		$this->assign('cate',$Category);
@@ -49,7 +53,7 @@ class ArticleAction extends GlobalAction
 		//评论
 		$Comment=D('Comment')->limit('5')->findall('tid='.$id);
 		$this->assign('commentlist',$Comment);
-		$this->display();
+		$this->display();*/
 
 	}
 	public function commentsave()

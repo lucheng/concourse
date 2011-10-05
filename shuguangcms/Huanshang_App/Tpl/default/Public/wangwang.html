@@ -5,29 +5,36 @@
     <div class="left_contact_box">
        <ul>
         <span>
-                  项目经理1:
+        QQ:
         </span>
+        <volist name="qqs" id="qq">
          <li>
-         <img src="../Public/css/images/QQ_online.png">
-         </img>
-          <img src="../Public/css/images/QQ_offline.png">
-         </img>
+         <a href='tencent://message/?uin={$qq.url}' target='_blank'><img src="http://wpa.qq.com/pa?p=1:{$qq.url}:4"/></a>
+         <a href='tencent://message/?uin={$qq.url}' target='_blank'>{$qq.title}</a>
          </li>
-          <li>
-         </li>
+         </volist>
        </ul>
         <ul>
         <span>
-                  项目经理2:
+                  旺旺:
         </span>
+        
+         <volist name="wws" id="vo">
          <li>
-         <img src="../Public/css/images/wangwang_offline.png">
+         <a href="http://amos.im.alisoft.com/msg.aw?v=2&amp;site=cntaobao&amp;s=1&amp;charset=utf-8&amp;uid={$vo.url}" target="_blank">
+         	{$vo.title}
+         </a>
+         <a href="http://amos.im.alisoft.com/msg.aw?v=2&amp;site=cntaobao&amp;s=1&amp;charset=utf-8&amp;uid={$vo.url}" target="_blank">
+         	<img src="http://amos.im.alisoft.com/online.aw?v=2&amp;site=cntaobao&amp;s=1&amp;charset=utf-8&amp;uid={$vo.url}" alt="点击这里给我发消息">
+         </a>
+         </li>
+         </volist>
+         <!--<img src="../Public/css/images/wangwang_offline.png">
          </img>
           <img src="../Public/css/images/wangwang_online.png">
          </img>
-         </li>
-          <li>
-         </li>
+         -->
+         
        </ul>
      </div>
    </div>
