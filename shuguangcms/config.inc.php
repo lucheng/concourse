@@ -1,13 +1,13 @@
 <?php
 //核心配置文件
 if (!defined('THINK_PATH')) exit();
-return array( 
+return array(
 	'SITENAME'=>'广西桓尚家具',
 	'SITEURL'=>'http://localhost',
 	'STOPD'=>'系统维护中.....',
 	'STATUS'=>1, 
 	'DB_FIELDS_CACHE'=>false, 
-	'EMAIL'=>'m23linzhe@gmail.com',
+	'EMAIL'=>'XXX@mail.com',
 	'ADDRESS'=>'南宁市江南区星光大道223号荣宝华商城A3栋211室',
 	'TELEPHONE'=>'0771-4868986',
 	'FAX'=>'0771-4868986',

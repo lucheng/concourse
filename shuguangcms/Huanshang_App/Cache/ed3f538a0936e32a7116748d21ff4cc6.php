@@ -56,15 +56,53 @@
 <!-- header end -->
 <div id="mainbody">
  <div class="left_side">
+ <div class="left_side_category">
    <div class="left_side_top">
    <h1>产品分类</h1>
     <div class="category">
      <ul>
-     	<?php if(is_array($cate)): ?><?php $i = 0;?><?php $__LIST__ = $cate?><?php if( count($__LIST__)==0 ) : echo "" ; ?><?php else: ?><?php foreach($__LIST__ as $key=>$vo): ?><?php ++$i;?><?php $mod = (($i % 2 )==0)?><li class="left_side_line"><a href="/index.php/Product/index/module/<?php echo ($module); ?>/id/<?php echo (is_array($vo)?$vo["id"]:$vo->id); ?>"><?php echo (is_array($vo)?$vo["title"]:$vo->title); ?></a></li><?php endforeach; ?><?php endif; ?><?php else: echo "" ;?><?php endif; ?>
+     	<?php if(is_array($category)): ?><?php $i = 0;?><?php $__LIST__ = $category?><?php if( count($__LIST__)==0 ) : echo "" ; ?><?php else: ?><?php foreach($__LIST__ as $key=>$vo): ?><?php ++$i;?><?php $mod = (($i % 2 )==0)?><li class="left_side_line"><a href="/index.php/Product/index/id/<?php echo (is_array($vo)?$vo["id"]:$vo->id); ?>"><?php echo (is_array($vo)?$vo["title"]:$vo->title); ?></a></li><?php endforeach; ?><?php endif; ?><?php else: echo "" ;?><?php endif; ?>
      </ul>
     </div>
    </div>
-   <div class="left_side_bottom"></div>
+    <div class="left_side_bottom"></div>
+    </div>
+	<div class="left_contact">
+    <div class="left_contact_box_top">
+    <span> 联系方式</span>
+    </div>
+    <div class="left_contact_box">
+       <ul>
+        <span>
+        QQ:
+        </span>
+        <?php if(is_array($qqs)): ?><?php $i = 0;?><?php $__LIST__ = $qqs?><?php if( count($__LIST__)==0 ) : echo "" ; ?><?php else: ?><?php foreach($__LIST__ as $key=>$qq): ?><?php ++$i;?><?php $mod = (($i % 2 )==0)?><li>
+         <a href='tencent://message/?uin=<?php echo (is_array($qq)?$qq["url"]:$qq->url); ?>' target='_blank'><img src="http://wpa.qq.com/pa?p=1:<?php echo (is_array($qq)?$qq["url"]:$qq->url); ?>:4"/></a>
+         <a href='tencent://message/?uin=<?php echo (is_array($qq)?$qq["url"]:$qq->url); ?>' target='_blank'><?php echo (is_array($qq)?$qq["title"]:$qq->title); ?></a>
+         </li><?php endforeach; ?><?php endif; ?><?php else: echo "" ;?><?php endif; ?>
+       </ul>
+        <ul>
+        <span>
+                  旺旺:
+        </span>
+        
+         <?php if(is_array($wws)): ?><?php $i = 0;?><?php $__LIST__ = $wws?><?php if( count($__LIST__)==0 ) : echo "" ; ?><?php else: ?><?php foreach($__LIST__ as $key=>$vo): ?><?php ++$i;?><?php $mod = (($i % 2 )==0)?><li>
+         <a href="http://amos.im.alisoft.com/msg.aw?v=2&amp;site=cntaobao&amp;s=1&amp;charset=utf-8&amp;uid=<?php echo (is_array($vo)?$vo["url"]:$vo->url); ?>" target="_blank">
+         	<img src="http://amos.im.alisoft.com/online.aw?v=2&amp;site=cntaobao&amp;s=1&amp;charset=utf-8&amp;uid=<?php echo (is_array($vo)?$vo["url"]:$vo->url); ?>" alt="点击这里给我发消息">
+         </a>
+         <a href="http://amos.im.alisoft.com/msg.aw?v=2&amp;site=cntaobao&amp;s=1&amp;charset=utf-8&amp;uid=<?php echo (is_array($vo)?$vo["url"]:$vo->url); ?>" target="_blank">
+         	<?php echo (is_array($vo)?$vo["title"]:$vo->title); ?>
+         </a>
+         </li><?php endforeach; ?><?php endif; ?><?php else: echo "" ;?><?php endif; ?>
+         <!--<img src="/Huanshang_App/Tpl/default/Public/css/images/wangwang_offline.png">
+         </img>
+          <img src="/Huanshang_App/Tpl/default/Public/css/images/wangwang_online.png">
+         </img>
+         -->
+         
+       </ul>
+     </div>
+   </div>
  </div>
 	<div class="right-side">
 		<div class="product_content">
@@ -86,7 +124,9 @@
 					</div>
 					<div class="ft"></div>
 				</div>
-				<?php if((is_array($vo)?$vo["module"]:$vo->module) == 1): ?><div class="band onsale"></div><?php endif; ?>
+				<?php if((is_array($vo)?$vo["module"]:$vo->module) == 1): ?><div class="band whatsnew"></div><?php endif; ?>
+				<?php if((is_array($vo)?$vo["module"]:$vo->module) == 2): ?><div class="band onsale"></div><?php endif; ?>
+				
 			</div><?php endforeach; ?><?php endif; ?><?php else: echo "" ;?><?php endif; ?>
 		<div class="tdpage"><?php echo ($page); ?></div>
 		</div>
@@ -103,26 +143,17 @@
 	   </div>
 	   <div class="footer_left_contact">
 	    <ul>
-	     <li> <a href="#">办公家具网站 </a></li><span>|</span>
-	     <li> <a href="#">阿里巴巴站 </a></li><span>|</span>
-	     <li> <a href="#">视频展示 </a></li><span>|</span>
-	     <li> <a href="#">荣誉资质 </a></li>
-	    </ul>
-	    <ul>
-	     <li> <a href="#">客户见证 </a></li><span>|</span>
-	     <li> <a href="#">典型客户 </a></li><span>|</span>
-	     <li> <a href="#">成功案例 </a></li><span>|</span>
-	     <li> <a href="#">加入收藏夹 </a></li><span>|</span>
+	     <?php if(is_array($links)): ?><?php $i = 0;?><?php $__LIST__ = $links?><?php if( count($__LIST__)==0 ) : echo "" ; ?><?php else: ?><?php foreach($__LIST__ as $key=>$vo): ?><?php ++$i;?><?php $mod = (($i % 2 )==0)?><li><a href="<?php echo (is_array($vo)?$vo["url"]:$vo->url); ?>" target="_blank"><?php echo (is_array($vo)?$vo["title"]:$vo->title); ?> </a></li><span>|</span><?php endforeach; ?><?php endif; ?><?php else: echo "" ;?><?php endif; ?>
+	     </ul>
 	   </div>
 	  </div>
 	  <div class="footer_right">
 	 	 <ul>
-        	<li class="short">电话：0771-4868986</li>
-            <li  class="long">电话/传真：0771-4868986</li>
-            <li  class="short">手机: 13377083879</li>
-            <li  class="long"> 邮箱：ekdkdk@gmail.com</li>
-            <li  class="short">联系人：方小姐</li>
-            <li class="add">地址：南宁市江南区星光大道223号荣宝华商城A3栋211室  </li>
+        	<li class="short">电话：<?php echo ($telephone); ?></li>
+            <li  class="long">传真：<?php echo ($fax); ?></li>
+            <li  class="long"> 邮箱：<?php echo ($email); ?></li>
+            <li  class="short">联系人：<?php echo ($linkman); ?></li>
+            <li class="add">地址：<?php echo ($address); ?></li>
         </ul> 
 	    
 	  </div>
@@ -130,55 +161,6 @@
         <p>Copyright @ 2011 buptcms.com All Right Reserved </p>
     </div>
 </div>
-<!-- footer end -->
-	<!-- 
-		<div id="footer">
-			<div class="footer_nav">
-			  <div class="footer_left">
-			   <div class="footer_logo">
-				<img src="/Huanshang_App/Tpl/default/Public/css/images/company.png"/>
-			   </div>
-				
-			  </div>
-			  <div class="footer_right">
-				 <ul>
-					<li><a href="http://www.gxfans.com" target="_blank">鍏徃鍚嶇О锛歿$company}</a></li>
-					<li><a href="http://www.gxfans.com" target="_blank">鑱旂郴鐢佃瘽锛歿$telephone}</a></li>
-				</ul> 
-				
-			  </div>
-				
-				<p style="text-align:center;">Copyright 漏 2011 gxfans.com All Right Reserved </p>
-			</div>
-		</div>
-	</body>
-</html>
- -->
-<!-- 
-<TABLE cellSpacing=0 cellPadding=0 width=860 align=center bgColor=#ffffff 
-border=0>
-  <TBODY>
-  <TR>
-    <TD vAlign=top width=3 height=3></TD>
-    <TD vAlign=top width=860 bgColor=#0e0e0e></TD>
-    <TD vAlign=top width=3></TD></TR></TBODY></TABLE>
-<TABLE cellSpacing=0 cellPadding=0 width=860 align=center bgColor=#ffffff 
-border=0>
-  <TBODY>
-  <TR>
-    <TD vAlign=top align=left width=504 height=10></TD>
-    <TD vAlign=top align=right width=350></TD></TR>
-  <TR>
-    <TD vAlign=top align=left width=504 height=76>鍏徃鍚嶇О:<?php echo ($company); ?> 鑱旂郴鐢佃瘽锛�FONT color=#443734><?php echo ($telephone); ?></FONT> 鑱�绯�浜�<?php echo ($linkman); ?><BR>
-      <BR>
-鐢靛瓙閭欢:<?php echo ($email); ?> 
-      鍏徃鍦板潃:<?php echo ($address); ?> </TD>
-<TD vAlign=top 
-width=350><p>Powered by <strong><a href="http://www.gxfans.com" target="_blank">妗撳皻瀹跺叿</a></strong> <em>1.0.0</em></p>
- </TD>
-  </TR></TBODY></TABLE></BODY></HTML>
-   -->
-<!-- footer end --> 
 
 <!-- footer end -->
 <script language="JavaScript">

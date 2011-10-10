@@ -63,11 +63,17 @@
 				  </tr>
 					
 					<tr>
-					  <td><if condition="$list['istop'] eq 1 ">
+					  <td>
+					    <input name="module" type="radio" class="checkbox"  value="1" <if condition="$list['module'] eq 1 ">checked=checked</if>/>
+					  	是否新品
+					    <input name="module" type="radio" class="checkbox"  value="2" <if condition="$list['module'] eq 2 ">checked=checked</if>/>
+					   	 是否促销
+						
+					  <if condition="$list['istop'] eq 1 ">
 					    <input name="istop" type="radio" class="checkbox" id="istop" value="0"/>
 					    取消置顶
-  <else />
-  <input name="istop" type="radio" class="checkbox" id="istop" value="1"/>
+					  <else />
+					  <input name="istop" type="radio" class="checkbox" id="istop" value="1"/>
 					    置顶</if>
                         <if condition="$list['isgood'] eq 1 ">
                           <input name="isgood" type="radio" class="checkbox" id="isgood" value="0"/>

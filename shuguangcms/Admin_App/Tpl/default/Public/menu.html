@@ -134,7 +134,7 @@ function refreshMainFrame(url)
     <script type="text/javascript">refreshMainFrame('{$url}');</script>
 
 </case>
-
+<!--
 <case value="Job">
     <dl>
         <dt><a href="" onclick="return showHide('items0');" target="_self">招聘模块</a></dt>
@@ -162,6 +162,7 @@ function refreshMainFrame(url)
     
     <script type="text/javascript">refreshMainFrame('{$url}');</script>
 </case>
+-->
 <case value="Member">
 
     <dl>
@@ -188,7 +189,7 @@ function refreshMainFrame(url)
 
 </case>
 
-<case value="Feedback">
+<!--<case value="Feedback">
     <dl>
         <dt><a href="" onclick="return showHide('items0');" target="_self">留言模块</a></dt>
         <dd id="items0" style="display:block;">
@@ -201,6 +202,7 @@ function refreshMainFrame(url)
     <script type="text/javascript">refreshMainFrame('{$url}');</script>
 
 </case>
+-->
 <case value="Other">
    <dl>
         <dt><a href="" onclick="return showHide('items0');" target="_self">其它管理</a></dt>
@@ -225,12 +227,14 @@ function refreshMainFrame(url)
 				<eq name="security['allowsystem']" value="1"><li><a href='__APP__/Settings'>系统配置</a></li></eq>
 				<eq name="security['allowarticle']" value="1"><li><a href='__APP__/Article'>新闻管理</a></li></eq>
 				<eq name="security['allowproduct']" value="1"><li><a href='__APP__/Product'>产品管理</a></li></eq>
-				<eq name="security['alloworder']" value="1"><li><a href='__APP__/Order'>订单管理</a></li></eq>
+				<!--<eq name="security['alloworder']" value="1"><li><a href='__APP__/Order'>订单管理</a></li></eq>
 				<eq name="security['allowjob']" value="1"><li><a href='__APP__/Job'>招聘管理</a></li></eq>
 				<eq name="security['allowannounce']" value="1"><li><a href='__APP__/Announce'>公告管理</a></li></eq>
+				-->
 				<eq name="security['allowmember']" value="1"><li><a href='__APP__/Member'>用户管理</a></li></eq>
                 <eq name="security['allowgroup']" value="1"><li><a href='__APP__/Usergroup'>用户组管理</a></li></eq>
-				<eq name="security['allowfeedback']" value="1"><li><a href='__APP__/Feedback'>留言管理</a></li></eq>
+				<!--<eq name="security['allowfeedback']" value="1"><li><a href='__APP__/Feedback'>留言管理</a></li></eq>
+                -->
                 <eq name="security['allowpages']" value="1"><li><a href='__APP__/Pages'>单页管理</a></li></eq>
                 <eq name="security['allowlink']" value="1"><li><a href='__APP__/Link'>链接管理</a></li></eq>
             </ul>

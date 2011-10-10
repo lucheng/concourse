@@ -14,7 +14,33 @@ class IndexAction extends GlobalAction
 		//公司简介
 		$intro=D('Pages')->where('id=1')->find();
 		//产品
-		$Product=D('Product')->limit('8')->order('id desc')->findall();
+		$id=intval($_REQUEST['id']);
+		$module=intval($_REQUEST['module']);
+		if ($id>0){
+			$mapc['cid']=$id;
+		}
+		
+		if ($module>0){
+			$mapc['module']=$module;
+		}
+		
+		$Product=D("Product");
+		$count=$Product->count($mapc);
+		//if($count<=1)$this->error('此类别无产品');
+		import("ORG.Util.Page");
+		$listRows=6;
+		$p=new page($count,$listRows);
+		$list=$Product->findAll($mapc,'*','id desc',$p->firstRow.','.$p->listRows);
+		//$list=$p->order('pid desc')->limit("$p->firstRow.','.$p->listRows")->findAll();
+		$page = $p->show();
+		/**/
+		//分类
+		$map['module']=1;//分类
+		$Category=D('Category')->order("id desc")->where($map)->findall();
+//		dump($list);
+		$this->assign('count',$count);
+		$this->assign('page',$page);
+		$this->assign('list', $list);
 		//链接
 		if (S('link')) {
 			$Link=S('link');
@@ -34,7 +60,7 @@ class IndexAction extends GlobalAction
 		$this->assign('Link',$Link);
 		$this->assign('article',$Articles);
 		$this->assign('pic',$Pic);
-		$this->assign('Product',$Product);
+		$this->assign('product',$Product);
 		$this->assign('Category',$Category);
 		$this->assign('intro',$intro);
 		$this->display();
