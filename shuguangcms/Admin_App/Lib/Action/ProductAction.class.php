@@ -175,6 +175,7 @@ class ProductAction extends GlobalAction
 		if (!$Group) $this->error('用户组丢失，请检查');//用户组丢失，请检查
 		$this->assign('html',$html);
 		$this->assign('group',$Group);
+		$this->assign("cate", $Category);
 		$this->display();
 	}
 
@@ -225,6 +226,8 @@ class ProductAction extends GlobalAction
 		$this->assign('group',$Group);
 		$this->assign('html',$html);
 		$this->assign('list',$list);
+		$this->assign('cate',$Category);
+		
 		$this->display();
 	}
 	public function categoryedits()
