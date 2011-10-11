@@ -13,9 +13,19 @@
 <input name="id" type="hidden" id="id" value="{$list.id}" />
 					<tr>
 					  <td>类别名称</td>
-					  <td>  <input name="title" type="text" class="txt redtxt" id="title" value="{$list.title}" size="40"  /></td>
+					  <td><input name="title" type="text" class="txt redtxt" id="title" value="{$list.title}" size="40"  /></td>
 				  </tr>
-					
+					<tr>
+		              <td>父类别名称</td>
+		              <td>
+		              	<select name="parentid" id="catelist">
+						 <volist name="cate" id="vo">
+						 	<option <if condition="$vo['id'] eq $list['parentid']">selected=selected</if> value="{$vo.id}">{$vo.title}</option>
+						 </volist>
+						</select>
+		              </td>
+		            </tr>
+		            <tr>
 					<tr>
 					  <td>描述</td>
 					  <td> <textarea name="description" cols="48" rows="5"  id="description">{$list.description}</textarea></td>
