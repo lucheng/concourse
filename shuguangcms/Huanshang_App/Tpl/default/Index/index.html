@@ -89,7 +89,7 @@ $(function(){
 					<ul class="pic">
 						<li type="goods" style="width: 200px; height: 200px">
 							<a target="_blank" href="__APP__/Product/{$vo.id}.html" > 
-								<img src="__ROOT__/attachments/product/{$vo.attachpath}/{$vo.attachthumb}" alt="" title="" width="196px" height="194px"/>
+								<img src="__ROOT__/Attachments/product/{$vo.attachpath}/{$vo.attachthumb}" alt="{$vo.subject}" title="{$vo.subject}" width="196px" height="194px"/>
 							</a>
 						</li>
 					</ul>
@@ -97,7 +97,7 @@ $(function(){
 				
 				<div class="who_share">
 					<div class="name clearfix">
-					<a href="__APP__/Product/{$vo.id}.html">{$vo.subject}</a>
+						<a href="__APP__/Product/{$vo.id}.html">{$vo.subject}</a>
 					</div>
 					<div class="ft"></div>
 				</div>
