@@ -36,6 +36,52 @@ $(function(){
 		$(".products_inner").corner("4px");
 });
 </script>
+
+<style>
+    .category li {/*水平菜单*/
+      float:left;
+      list-style:none;
+	  width:180px;
+      position:relative;/*相对定位以方便把包含块移动li元素*/
+    }
+    .category a {
+      display:block;
+      height:32px;
+      width:150px;
+      line-height:32px;
+      background:#a9ea00;
+      color:#ff8040;
+      text-decoration:none;
+      text-align:center;
+      overflow:hidden;/*在IE6中，当li元素包含display为block的元素时（如a）会多出5px，我们可以用overflow:hidden*/
+    }
+    .category a:hover {
+      color:#fff;
+    }
+    /*新增的二级菜单部分*/
+    .category ul ul {
+      visibility:hidden;/*隐藏所有子菜单（二级的,三级的）*/
+      position:absolute;
+      left:182px;
+      top:50px;
+      width:180px;
+      padding:10px;
+      background:#C8000B;
+      border:1px solid #fff;
+      z-index:100;
+    }
+    /*指定是显示二级子菜单*/
+    .category ul li:hover ul.second,/*非IE6*/
+    .category ul a:hover ul.second{/*IE6*/
+      visibility:visible;
+    }
+    .category ul ul li {
+      clear:both;/*垂直显示*/
+      text-align:left;
+      padding:10px;
+      background:#C8000B;
+    }
+</style>
 </head>
 <body>
 <!-- header start -->
@@ -47,6 +93,23 @@ $(function(){
    <div class="left_side_top">
    <h1>产品分类</h1>
     <div class="category">
+    
+     <ul>
+      <li id="">
+      <a>一</a>
+        <ul class="second">
+          <li>
+            <a href="#">二级菜单_11</a>
+           </li>
+           <li>
+            <a href="#">二级菜单_22</a>
+           </li>
+            
+         </ul>
+        </li>
+       </ul>
+            
+            
      <ul>
      	<volist name='Category' id='vo' >
 			<li class="left_side_line"><a href="__APP__/Product/index/id/{$vo.id}">{$vo.title}</a></li>
