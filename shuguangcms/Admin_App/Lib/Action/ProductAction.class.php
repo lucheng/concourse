@@ -26,7 +26,7 @@ class ProductAction extends GlobalAction
 		$page  = $p->show();
 		//分类
 		$map['module']=1;
-		$Category=D('Category')->order("id desc")->where($map)->findall();
+		$Category=D('Category')->order("displayorder desc")->where($map)->findall();
 		$this->assign('cate',$Category);
 		if($list!==false){
 			$this->assign('page',$page);
@@ -43,7 +43,8 @@ class ProductAction extends GlobalAction
 		$allowadd=$this->_checkCategory(1,$cid,'allowadd');
 		if($allowadd==false)$this->error('您无权限新增');//您无权限在当前类别发布产品
 		$map['module']=1;
-		$Category=D('Category')->order("id desc")->where($map)->findall();
+		$map['parentid']=0;
+		$Category=D('Category')->order("displayorder desc")->where($map)->findall();
 		$this->assign('cate',$Category);		
 		$this->assign('cid',$cid);	
 		$this->display();
@@ -95,7 +96,8 @@ class ProductAction extends GlobalAction
 		$Product=D("Product");
 		//读取分类
 		$map['module']=1;
-		$Category=D('Category')->order("id desc")->where($map)->findall();
+		$map['parentid']=0;
+		$Category=D('Category')->order("displayorder desc")->where($map)->findall();
 		$this->assign('cate',$Category);
 		$this->assign('list',$list);
 		$this->display();
@@ -140,8 +142,8 @@ class ProductAction extends GlobalAction
 		$this->_checkSecurity('category');
 		
 		$Category=D("Category");
-		$map['module']=1;
-		$list=$Category->findAll($map,'*','id desc','');
+		$data['module']=1;
+//		$list=$Category->findAll($map,'*','id desc','');
 		
 //		import('ORG.Util.Tree');
 		
@@ -150,7 +152,7 @@ class ProductAction extends GlobalAction
 		import("ORG.Util.Page");
 		$listRows=10;
 		$p=new page($count,$listRows);
-		$list=$Category->findAll($data,'*','id desc',$p->firstRow.','.$p->listRows);
+		$list=$Category->findAll($data,'*','displayorder desc',$p->firstRow.','.$p->listRows);
 //		if ($keyword) $p->parameter='keywords='.safe_b64encode($keyword);
 		$page  = $p->show();
 		/**/
@@ -165,7 +167,7 @@ class ProductAction extends GlobalAction
 	{
 		$this->_checkSecurity('category');
 		$map['module']=1;
-		$Category=D('Category')->order("id desc")->where($map)->findall();
+		$Category=D('Category')->order("displayorder desc")->where($map)->findall();
 		import('ORG.Util.Tree');	
 		$tree=new tree($Category);
 		$str="<option value=\$id \$selected>\$spacer\$title</option>";
@@ -211,7 +213,7 @@ class ProductAction extends GlobalAction
 		if (!$list) $this->error(L('_SELECT_NOT_EXIST_'));
 		$parentId=$list['parentid'];//父ID
 		$map['module']=1;
-		$Category=D('Category')->order("id desc")->where($map)->findall();
+		$Category=D('Category')->order("displayorder desc")->where($map)->findall();
 		foreach($Category as $catid => $category)
 		{
 			$Categorys[$category['id']] = array('id'=>$category['id'],'parentid'=>$category['parentid'],'title'=>$category['title']);
