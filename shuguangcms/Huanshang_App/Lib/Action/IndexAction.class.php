@@ -36,7 +36,7 @@ class IndexAction extends GlobalAction
 		/**/
 		//分类
 		$map['module']=1;//分类
-		$Category=D('Category')->order("id desc")->where($map)->findall();
+		$Category=D('Category')->order("displayorder desc")->where($map)->findall();
 //		dump($list);
 		$this->assign('count',$count);
 		$this->assign('page',$page);
@@ -53,7 +53,7 @@ class IndexAction extends GlobalAction
 		//幻灯
 		$Scroll=D('Scroll')->limit('5')->order('orders desc')->findall();
 		
-		$Category=D('Category')->order('id desc')->findall();
+//		$Category=D('Category')->order('id desc')->findall();
 		
 		$this->assign('Scroll',$Scroll);
 		$this->assign('Announce',$Announce);
