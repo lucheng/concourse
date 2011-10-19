@@ -2,13 +2,23 @@
 class CategoryModel extends Model 
 {
 
-	protected $_validate=array(
-		array('title','require','标题必填',0,'','all'),
-	);	
-/*	
-	protected $_auto	 =	 array(
-		array('postdate','time','ADD','function'),
+	public $_link = array(
+
+        'Category'=> array(
+
+			'mapping_type'=>HAS_MANY,
+
+			'class_name'=>'Category',
+
+			'foreign_key'=>'parentid',
+
+			'mapping_name'=>'children',
+
+			'mapping_order'=>'id desc',
+
+		),
+
+	
 	);
-*/
 }
 ?>

@@ -17,7 +17,8 @@
             <tr>
               <td>父类别名称</td>
               <td>
-              	<select name="parentid" id="catelist">
+              	<select name="parent_id" id="catelist">
+              	<option value="0">无</option>
 				 <volist name="cate" id="vo">
 				 	<option value="{$vo.id}">{$vo.title}</option>
 				 </volist>

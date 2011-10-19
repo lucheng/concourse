@@ -21,7 +21,7 @@ class LinkAction extends GlobalAction
 		import("ORG.Util.Page");
 		$listRows=15;
 		$p=new page($count,$listRows);
-		$list=$Link->findAll($data,'*','id desc',$p->firstRow.','.$p->listRows);
+		$list=$Link->findAll($data,'*','types desc, orders desc',$p->firstRow.','.$p->listRows);
 		if ($keyword) $p->parameter='keywords='.safe_b64encode($keyword);
 		$page  = $p->show();
 		if($list!==false){

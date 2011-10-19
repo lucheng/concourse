@@ -36,11 +36,24 @@ class IndexAction extends GlobalAction
 		/**/
 		//分类
 		$map['module']=1;//分类
-		$Category=D('Category')->order("displayorder desc")->where($map)->findall();
-//		dump($list);
+		$map['parent_id']=0;
+		$Category=D('Category')->relation(true)->order("displayorder desc")->where($map)->findall();
+		
+		/*foreach ($Category AS $cate){
+			if($cate['parentid'] != 0){
+				$listCate[$cate['parentid']][$cate['id']] = $cate;
+			}
+			else{
+				$listCate[$cate['id']]['title'] = $cate['title'];
+				$listCate[$cate['id']]['id'] = $cate['id'];
+			}
+		}*/
+//		dump($Category);
+		$this->assign('listCate', $Category);		
 		$this->assign('count',$count);
 		$this->assign('page',$page);
 		$this->assign('list', $list);
+		
 		//链接
 		if (S('link')) {
 			$Link=S('link');

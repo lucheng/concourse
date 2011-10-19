@@ -152,10 +152,11 @@ class ProductAction extends GlobalAction
 		import("ORG.Util.Page");
 		$listRows=10;
 		$p=new page($count,$listRows);
-		$list=$Category->findAll($data,'*','displayorder desc',$p->firstRow.','.$p->listRows);
+		$list=$Category->relation(true)->findAll($data,'*','displayorder desc',$p->firstRow.','.$p->listRows);
 //		if ($keyword) $p->parameter='keywords='.safe_b64encode($keyword);
 		$page  = $p->show();
 		/**/
+//		dump($list);
 		if ($list!==false) {
 			$this->assign('page',$page);
 			$this->assign('list',$list);
@@ -167,6 +168,7 @@ class ProductAction extends GlobalAction
 	{
 		$this->_checkSecurity('category');
 		$map['module']=1;
+		$map['parent_id']=0;
 		$Category=D('Category')->order("displayorder desc")->where($map)->findall();
 		import('ORG.Util.Tree');	
 		$tree=new tree($Category);
@@ -177,6 +179,7 @@ class ProductAction extends GlobalAction
 		if (!$Group) $this->error('用户组丢失，请检查');//用户组丢失，请检查
 		$this->assign('html',$html);
 		$this->assign('group',$Group);
+		
 		$this->assign("cate", $Category);
 		$this->display();
 	}
@@ -213,6 +216,7 @@ class ProductAction extends GlobalAction
 		if (!$list) $this->error(L('_SELECT_NOT_EXIST_'));
 		$parentId=$list['parentid'];//父ID
 		$map['module']=1;
+		$map['parent_id']=0;
 		$Category=D('Category')->order("displayorder desc")->where($map)->findall();
 		foreach($Category as $catid => $category)
 		{
@@ -239,7 +243,7 @@ class ProductAction extends GlobalAction
 		$allowedit =$_POST['allowedit']==""?'': implode(',',$_POST['allowedit']);
 		$allowdel = $_POST['allowdel']==""?'':implode(',',$_POST['allowdel']);
 		$id=intval($_POST['id']);
-		$parentid=intval($_POST['parentid']);
+		$parentid=intval($_POST['parent_id']);
 		if (!$id) $this->error(L('_SELECT_NOT_EXIST_'));
 		//防止上级类别成为子类别
 		if($parentid==$id){
@@ -250,7 +254,7 @@ class ProductAction extends GlobalAction
 			$Category->allowadd=$allowadd;
 			$Category->allowedit=$allowedit;
 			$Category->allowdel=$allowdel;
-			$Category->parentid=$parentid;
+			$Category->parent_id=$parentid;
             if($Category->save()){ 
             	$this->assign('jumpUrl',__APP__.'/Product/category');
 				$this->success(L('_UPDATE_SUCCESS_'));

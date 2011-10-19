@@ -18,9 +18,10 @@
 					<tr>
 		              <td>父类别名称</td>
 		              <td>
-		              	<select name="parentid" id="catelist">
+		              	<select name="parent_id" id="catelist">
+						 <option value="0">无</option>
 						 <volist name="cate" id="vo">
-						 	<option <if condition="$vo['id'] eq $list['parentid']">selected=selected</if> value="{$vo.id}">{$vo.title}</option>
+						 	<option <if condition="$vo['id'] eq $list['parent_id']">selected=selected</if> value="{$vo.id}">{$vo.title}</option>
 						 </volist>
 						</select>
 		              </td>

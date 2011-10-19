@@ -13,6 +13,7 @@
               <th><input name="checkbox" type="checkbox" class="checkbox" onClick="selAll(this)" value="选择全部">
                   选择</th>
               <th>类别名称</th>
+              <th>父类别名称</th>
               <th>状态</th>
               <th>操作</th>
             </tr><present name="list"><volist name="list" id="vo">
@@ -20,6 +21,7 @@
               <td><input name="id[]" type="checkbox" id="id[]" value="{$vo.id}" class="checkbox">
                 {$vo.id}</td>
               <td>{$vo.title}</td>
+              <td>{$vo['parent']['title']}</td>
               <td><if condition="$vo['status'] eq 1">正常<else />锁定</if></td>
               <td>
               <a href="__URL__/categoryedit/id/{$vo.id}"><img src="../Public/images/edit.gif" alt="编辑" align="absmiddle" /></a>

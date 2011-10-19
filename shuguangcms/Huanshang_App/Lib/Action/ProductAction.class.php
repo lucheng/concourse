@@ -24,8 +24,19 @@ class ProductAction extends GlobalAction
 		$page = $p->show();
 		/**/
 		//分类
+		//分类
 		$map['module']=1;//分类
-		$Category=D('Category')->order("id desc")->where($map)->findall();
+		$Category=D('Category')->order("displayorder desc")->where($map)->findall();
+		foreach ($Category AS $cate){
+			if($cate['parentid'] != 0){
+				$listCate[$cate['parentid']][$cate['id']] = $cate;
+			}
+			else{
+				$listCate[$cate['id']]['title'] = $cate['title'];
+				$listCate[$cate['id']]['id'] = $cate['id'];
+			}
+		}
+		$this->assign('listCate', $listCate);
 //		dump($list);
 		
 		$this->assign('titler','产品中心');
@@ -64,7 +75,17 @@ class ProductAction extends GlobalAction
 		/**/
 		//分类
 		$map['module']=1;//分类
-		$Category=D('Category')->order("id desc")->where($map)->findall();
+		$Category=D('Category')->order("displayorder desc")->where($map)->findall();
+		foreach ($Category AS $cate){
+			if($cate['parentid'] != 0){
+				$listCate[$cate['parentid']][$cate['id']] = $cate;
+			}
+			else{
+				$listCate[$cate['id']]['title'] = $cate['title'];
+				$listCate[$cate['id']]['id'] = $cate['id'];
+			}
+		}
+		$this->assign('listCate', $listCate);
 		
 		$this->assign('titler','产品中心');
 		$this->assign('module',$module);
@@ -88,7 +109,17 @@ class ProductAction extends GlobalAction
 		//分类
 		$Product->setINC('hits','id='.$id);
 		$map['module']=1;//分类
-		$Category=D('Category')->order("id desc")->where($map)->findall();
+		$Category=D('Category')->order("displayorder desc")->where($map)->findall();
+		foreach ($Category AS $cate){
+			if($cate['parentid'] != 0){
+				$listCate[$cate['parentid']][$cate['id']] = $cate;
+			}
+			else{
+				$listCate[$cate['id']]['title'] = $cate['title'];
+				$listCate[$cate['id']]['id'] = $cate['id'];
+			}
+		}
+		$this->assign('listCate', $listCate);
 		$this->assign('cate',$Category);
 		$this->assign('product',$list);
 		$this->display();
