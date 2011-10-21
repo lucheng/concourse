@@ -26,22 +26,15 @@ class ProductAction extends GlobalAction
 		//分类
 		//分类
 		$map['module']=1;//分类
-		$Category=D('Category')->order("displayorder desc")->where($map)->findall();
-		foreach ($Category AS $cate){
-			if($cate['parentid'] != 0){
-				$listCate[$cate['parentid']][$cate['id']] = $cate;
-			}
-			else{
-				$listCate[$cate['id']]['title'] = $cate['title'];
-				$listCate[$cate['id']]['id'] = $cate['id'];
-			}
-		}
-		$this->assign('listCate', $listCate);
-//		dump($list);
+		$map['parent_id']=0;
+		$Category=D('Category')->relation(true)->order("displayorder desc")->where($map)->findall();
 		
+		$this->assign('listCate', $Category);
+//		dump($list);
+//		dump($Category);
 		$this->assign('titler','产品中心');
 		$this->assign('module',$module);
-		$this->assign('category',$Category);
+//		$this->assign('category',$Category);
 //		$this->assign('Product',$Product);
 		$this->assign('count',$count);
 		$this->assign('page',$page);
@@ -62,7 +55,7 @@ class ProductAction extends GlobalAction
 		if ($module>0){
 			$mapc['module']=$module;
 		}
-		dump($keyword);
+//		dump($keyword);
 		$Product=D("Product");
 		$count=$Product->count($mapc);
 		//if($count<=1)$this->error('此类别无产品');
@@ -75,21 +68,14 @@ class ProductAction extends GlobalAction
 		/**/
 		//分类
 		$map['module']=1;//分类
-		$Category=D('Category')->order("displayorder desc")->where($map)->findall();
-		foreach ($Category AS $cate){
-			if($cate['parentid'] != 0){
-				$listCate[$cate['parentid']][$cate['id']] = $cate;
-			}
-			else{
-				$listCate[$cate['id']]['title'] = $cate['title'];
-				$listCate[$cate['id']]['id'] = $cate['id'];
-			}
-		}
-		$this->assign('listCate', $listCate);
+		$map['parent_id']=0;
+		$Category=D('Category')->relation(true)->order("displayorder desc")->where($map)->findall();
+		
+		$this->assign('listCate', $Category);
 		
 		$this->assign('titler','产品中心');
 		$this->assign('module',$module);
-		$this->assign('cate',$Category);
+//		$this->assign('cate',$Category);
 		$this->assign('Product',$Product);
 		$this->assign('count',$count);
 		$this->assign('page',$page);
@@ -108,66 +94,16 @@ class ProductAction extends GlobalAction
 		}
 		//分类
 		$Product->setINC('hits','id='.$id);
+		
 		$map['module']=1;//分类
-		$Category=D('Category')->order("displayorder desc")->where($map)->findall();
-		foreach ($Category AS $cate){
-			if($cate['parentid'] != 0){
-				$listCate[$cate['parentid']][$cate['id']] = $cate;
-			}
-			else{
-				$listCate[$cate['id']]['title'] = $cate['title'];
-				$listCate[$cate['id']]['id'] = $cate['id'];
-			}
-		}
-		$this->assign('listCate', $listCate);
-		$this->assign('cate',$Category);
+		$map['parent_id']=0;
+		$Category=D('Category')->relation(true)->order("displayorder desc")->where($map)->findall();
+//		dump($Category);
+		$this->assign('listCate', $Category);
 		$this->assign('product',$list);
 		$this->display();
 		
 	}
-	public function order(){
-		$id=intval($_GET['id']);
-		$Product=D("Product");
-		$list=$Product->find($id);
-		if (!$list) {
-			$this->error("产品不存在");
-		}		
-		$this->assign('vo',$list);
-		$this->display();
-		
-	}
-	public function orders()
-	{
-		$Order=D("Order");
-		if($Order->create()) { 
-            if($Order->add()){ 
-            	$this->assign('jumpUrl',__URL__);
-				$this->success(L('_INSERT_SUCCESS_'));
-            }else{ 
-                $this->error(L('_INSERT_FAIL_')); 
-            } 
-        }else{ 
-            $this->error($Order->getError()); 
-        }		
-        dump($id);
-		$this->display("index");
-	}
 
-	public function insert()
-	{
-		$admin=D("order");
-		$vo=$admin->create();
-		$id = $admin->add();
-		if($id) { //保存成功
-			$this->assign('jumpUrl',__URL__);
-            $this->success(L('_INSERT_SUCCESS_'));
-        }else { 
-            //失败提示
-            $this->error(L('_INSERT_FAIL_'));
-        }
-        
-		//$this->display("index");
-        
-	}
 }
 ?>

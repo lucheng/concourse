@@ -92,55 +92,11 @@ $(function(){
    <div class="left_side_top">
    <h1>产品分类</h1>
     <div class="category">
-    
-    <!--
-	<ul>
-		<li id="">
-      	<a>一级菜单1</a>
-        <ul class="second">
-          <li>
-            <a href="#">二级菜单_11</a>
-           </li>
-           <li>
-            <a href="#">二级菜单_12</a>
-           </li>
-         </ul>
-		</li>
-		<li id="">
-      	<a>一级菜单2</a>
-        <ul class="second">
-          <li>
-            <a href="#">二级菜单_21</a>
-           </li>
-           <li>
-            <a href="#">二级菜单_22</a>
-           </li>
-           <li>
-            <a href="#">二级菜单_23</a>
-           </li>
-         </ul>
-		</li>
-		<li id="">
-      	<a>一级菜单3</a>
-        <ul class="second">
-          <li>
-            <a href="#">二级菜单_31</a>
-           </li>
-           <li>
-            <a href="#">二级菜单_32</a>
-           </li>
-           <li>
-            <a href="#">二级菜单_33</a>
-           </li>
-         </ul>
-		</li>
-	</ul>
-     -->
      
      <ul>
      <volist name="listCate" id="cate">
      	<li class="left_side_line">
-     		<a href="javascript:;">{$cate.title}</a>
+     		<a href="__APP__/Product/index/id/{$cate.id}">{$cate.title}</a>
      		<if condition="$cate.children neq null">
      		<ul class="second">
 	          <volist name="cate.children" id="vo">
@@ -154,14 +110,6 @@ $(function(){
      </volist>
      </ul>
      
-     <!--
-     <ul>
-     	<volist name='Category' id='vo' >
-			<li class="left_side_line"><a href="__APP__/Product/index/id/{$vo.id}">{$vo.title}</a></li>
-		</volist>
-		<li class="left_side_line"><a href="__APP__/Product/index/id/{$vo.id}">www{$cate['20']['title']}</a></li>
-     </ul>
-    -->
     </div>
    </div>
     <div class="left_side_bottom"></div>

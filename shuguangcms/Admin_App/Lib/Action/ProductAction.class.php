@@ -25,8 +25,9 @@ class ProductAction extends GlobalAction
 		if ($keyword) $p->parameter='keywords='.safe_b64encode($keyword);
 		$page  = $p->show();
 		//分类
-		$map['module']=1;
-		$Category=D('Category')->order("displayorder desc")->where($map)->findall();
+//		$map['module']=1;
+//		$map['parent_id']=1;
+		$Category=D('Category')->order("displayorder desc")->where('module=1')->findall();
 		$this->assign('cate',$Category);
 		if($list!==false){
 			$this->assign('page',$page);
@@ -43,8 +44,8 @@ class ProductAction extends GlobalAction
 		$allowadd=$this->_checkCategory(1,$cid,'allowadd');
 		if($allowadd==false)$this->error('您无权限新增');//您无权限在当前类别发布产品
 		$map['module']=1;
-		$map['parentid']=0;
-		$Category=D('Category')->order("displayorder desc")->where($map)->findall();
+		$map['parent_id']=0;
+		$Category=D('Category')->order("displayorder desc")->where('module=1')->findall();
 		$this->assign('cate',$Category);		
 		$this->assign('cid',$cid);	
 		$this->display();
@@ -95,9 +96,9 @@ class ProductAction extends GlobalAction
 		$Category=D("Category");	
 		$Product=D("Product");
 		//读取分类
-		$map['module']=1;
-		$map['parentid']=0;
-		$Category=D('Category')->order("displayorder desc")->where($map)->findall();
+//		$map['module']=1;
+//		$map['parentid']=0;
+		$Category=D('Category')->order("displayorder desc")->where('module=1')->findall();
 		$this->assign('cate',$Category);
 		$this->assign('list',$list);
 		$this->display();
@@ -220,7 +221,7 @@ class ProductAction extends GlobalAction
 		$Category=D('Category')->order("displayorder desc")->where($map)->findall();
 		foreach($Category as $catid => $category)
 		{
-			$Categorys[$category['id']] = array('id'=>$category['id'],'parentid'=>$category['parentid'],'title'=>$category['title']);
+			$Categorys[$category['id']] = array('id'=>$category['id'],'parent_id'=>$category['parent_id'],'title'=>$category['title']);
 		}
 		import('ORG.Util.Tree');	
 		$tree=new tree($Categorys);

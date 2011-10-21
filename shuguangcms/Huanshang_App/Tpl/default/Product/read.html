@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="../Public/css/product.css"/>
 <link href="../Public/css/jqzoom.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../Public/js/jquery.js"></script>
- <script type="text/javascript" src="../Public/js/jquery.jqzoom.js"></script>
+<script type="text/javascript" src="../Public/js/jquery.jqzoom.js"></script>
 <script type="text/javascript">
         $(document).ready(function(){
 		    $(".jqzoom").jqueryzoom({
@@ -22,6 +22,50 @@
 		    });
 	    });
 </script>
+<style>
+    .category li {/*水平菜单*/
+      float:left;
+      list-style:none;
+	  width:180px;
+      position:relative;/*相对定位以方便把包含块移动li元素*/
+    }
+    .category a {
+      display:block;
+      height:32px;
+      width:150px;
+      line-height:32px;
+      background:#a9ea00;
+      color:#ff8040;
+      text-decoration:none;
+      text-align:center;
+      overflow:hidden;/*在IE6中，当li元素包含display为block的元素时（如a）会多出5px，我们可以用overflow:hidden*/
+    }
+    .category a:hover {
+      color:#fff;
+    }
+    /*新增的二级菜单部分*/
+    .category ul ul {
+      visibility:hidden;/*隐藏所有子菜单（二级的,三级的）*/
+      position:absolute;
+      left:182px;
+      top:50px;
+      width:180px;
+      padding:10px;
+      background:#C8000B;
+      border:1px solid #fff;
+      z-index:100;
+    }
+    /*指定是显示二级子菜单*/
+    .category ul li:hover ul.second,/*非IE6*/
+    .category ul a:hover ul.second{/*IE6*/
+      visibility:visible;
+    }
+    .category ul ul li {
+      clear:both;/*垂直显示*/
+      text-align:left;
+      background:#C8000B;
+    }
+</style>
 </head>
 <body>
 <!-- header start -->
@@ -34,9 +78,20 @@
    <h1>产品分类</h1>
     <div class="category">
      <ul>
-     	<volist name='cate' id='vo' >
-			<li class="left_side_line"><a href="__APP__/Product/index/id/{$vo.id}">{$vo.title}</a></li>
-		</volist>
+     <volist name="listCate" id="cate">
+     	<li class="left_side_line">
+     		<a href="__APP__/Product/index/id/{$cate.id}">{$cate.title}</a>
+     		<if condition="$cate.children neq null">
+     		<ul class="second">
+	          <volist name="cate.children" id="vo">
+	          <li class="left_side_line">
+				<a href="__APP__/Product/index/id/{$vo.id}">{$vo.title}</a>
+	           </li>
+	           </volist>
+	         </ul>
+	         </if>
+     	</li>
+     </volist>
      </ul>
     </div>
    </div>
