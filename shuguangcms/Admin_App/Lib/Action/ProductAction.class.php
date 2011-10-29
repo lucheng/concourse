@@ -153,7 +153,7 @@ class ProductAction extends GlobalAction
 		import("ORG.Util.Page");
 		$listRows=10;
 		$p=new page($count,$listRows);
-		$list=$Category->relation(true)->findAll($data,'*','displayorder desc',$p->firstRow.','.$p->listRows);
+		$list=$Category->relation(true)->findAll($data,'*','parent_id asc, displayorder desc',$p->firstRow.','.$p->listRows);
 //		if ($keyword) $p->parameter='keywords='.safe_b64encode($keyword);
 		$page  = $p->show();
 		/**/

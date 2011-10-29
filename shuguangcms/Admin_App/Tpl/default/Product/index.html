@@ -5,9 +5,11 @@
 	<div class="bodyTitleLeft"></div>
   <div class="bodyTitleText">产品管理</div>
 </div>
-<br><h3 class="marginbot"><form method="GET" name="form1" action="__URL__/add"><select name="catelist" id="catelist">
+<br><h3 class="marginbot">
+<form method="GET" name="form1" action="__URL__/add"><select name="catelist" id="catelist">
  <volist name="cate" id="vo"><option value="{$vo.id}">{$vo.title}</option></volist>
-</select><input name="submit" type="submit" class="inputButton"  value="发布产品"/></form></h3>
+</select><input name="submit" type="submit" class="inputButton"  value="发布产品"/>
+</form></h3>
 				
 				<table class="fixwidth">
 				<form method="POST" name="form1" action="__URL__" >
@@ -20,7 +22,8 @@
 				</form>
 				</table>
 
-          <table class="datalist fixwidth" ><form name="form1" method="post" action="__URL__/submit">
+          <table class="datalist fixwidth" >
+          <form name="form1" method="post" action="__URL__/submit">
             <tr>
               <th><input name="checkbox" type="checkbox" class="checkbox" onClick="selAll(this)" value="选择全部">
               选择</th>
