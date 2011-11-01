@@ -6,7 +6,7 @@
 }
 .product_info_base{
 	width:750px;
-	height:350px;
+	height:300px;
 	float:left;
 }
 
@@ -22,7 +22,7 @@
 	 background:url(images/note_body.png) repeat-y;
 	 overflow:hidden;
 	 font-size:0px;
-	 height:320px;
+	 height:250px;
 }
 .product_info .pic .pic_footer{
 	 background:url(images/note_foot.png) no-repeat;
