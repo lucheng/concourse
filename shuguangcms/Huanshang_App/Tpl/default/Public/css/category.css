@@ -8,7 +8,7 @@
 .i_w_f .pic{padding-bottom:3px;}
 .i_w_f .pic li{text-align:center;position:relative;margin:0 auto 3px;}
 .i_w_f .share_bao{position:absolute;right:25px;bottom:2px;display:block;width:97px;height:29px;margin-bottom:15px;background:url(images/to_pub_goods.png) no-repeat;}
-.i_w_f .name{height:45px;overflow:hidden;font-size:20px;text-align:center;background-color:#FFF4EA;padding:15px;}
+.i_w_f .name{height:45px;overflow:hidden;font-size:18px;text-align:center;background-color:#FFF4EA;padding:15px;}
 .i_w_f .name a{clear:both;line-height:20px;color:#000;text-decoration:none;}
 .i_w_f .name p img{width:16px;height:16px;}
 .i_w_f .name p a{color:#09c;}
