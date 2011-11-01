@@ -21,12 +21,16 @@
         
          <volist name="wws" id="vo">
          <li>
-         <a href="http://amos.im.alisoft.com/msg.aw?v=2&amp;site=cntaobao&amp;s=1&amp;charset=utf-8&amp;uid={$vo.url}" target="_blank">
-         	<img src="http://amos.im.alisoft.com/online.aw?v=2&amp;site=cntaobao&amp;s=1&amp;charset=utf-8&amp;uid={$vo.url}" alt="点击这里给我发消息">
-         </a>
-         <a href="http://amos.im.alisoft.com/msg.aw?v=2&amp;site=cntaobao&amp;s=1&amp;charset=utf-8&amp;uid={$vo.url}" target="_blank">
-         	{$vo.title}
-         </a>
+          <span>
+	           <a href="http://amos.im.alisoft.com/msg.aw?v=2&amp;site=cntaobao&amp;s=1&amp;charset=utf-8&amp;uid={$vo.url}" target="_blank">
+	         	{$vo.title}：
+	          </a>
+          </span>
+          <span>
+	         <a href="http://amos.im.alisoft.com/msg.aw?v=2&amp;site=cntaobao&amp;s=1&amp;charset=utf-8&amp;uid={$vo.url}" target="_blank">
+	         	<img src="http://amos.im.alisoft.com/online.aw?v=2&amp;site=cntaobao&amp;s=1&amp;charset=utf-8&amp;uid={$vo.url}" alt="点击这里给我发消息">
+	         </a>
+         </span>
          </li>
          </volist>
          <!--<img src="../Public/css/images/wangwang_offline.png">

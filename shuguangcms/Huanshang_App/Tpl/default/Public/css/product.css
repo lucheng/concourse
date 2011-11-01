@@ -1,6 +1,8 @@
 .product_info{
 	width:750px;
+	border:2px solid #EBEDE3;
 	float:right;
+	margin-bottom:20px;
 }
 .product_info_base{
 	width:750px;
@@ -44,27 +46,40 @@
 	float:left;
 	line-height:31px;
 	font-size:25px;
-	color:#F36;
 }
 .product_feature   .name{
 	font-size:25px;
-	color:#F36;
+	color:#C8000B;
+	font-weight:bold;
 	padding-top:3px;
 	padding-bottom:3px;
 }
+.product_feature   .feature{
+	font-size:25px;
+	color:#595959;
+	padding-top:3px;
+	padding-bottom:3px;
+}
+ .product_feature .feature_detail{
+ font-size:20px;
+ color:#C8000B;
+ }
 .product_info_detail{
 	width:750px;
     float:left;
    
 }
 .product_info_detail .product_tab{
-	width:750px;
-	height:49px;
+	width:650px;
+	height:40px;
 	margin-top:20px;
+	margin-left:10px;
 	border-bottom:2px solid #EBEDE3;
 }
 .product_info_detail .product_tab img{
 	 padding-left:20px;
+	 width:120px;
+	 height:42px;
 }
 .product_info_detail .product_info_box{
 	 width:750px;

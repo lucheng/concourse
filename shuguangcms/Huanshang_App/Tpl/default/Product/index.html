@@ -35,7 +35,7 @@
       visibility:hidden;/*隐藏所有子菜单（二级的,三级的）*/
       position:absolute;
       left:182px;
-      top:50px;
+      top:-10px;
       width:180px;
       padding:10px;
       background:#C8000B;
@@ -66,7 +66,7 @@
     <div class="category">
      <ul>
      <volist name="listCate" id="cate">
-     	<li class="left_side_line">
+     	<li class="left_side_line" style="position:relative">
      		<a href="__APP__/Product/index/id/{$cate.id}">{$cate.title}</a>
      		<if condition="$cate.children neq null">
      		<ul class="second">

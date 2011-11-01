@@ -48,7 +48,7 @@
       visibility:hidden;/*隐藏所有子菜单（二级的,三级的）*/
       position:absolute;
       left:182px;
-      top:50px;
+      top:-10px;
       width:180px;
       padding:10px;
       background:#C8000B;
@@ -79,7 +79,7 @@
     <div class="category">
      <ul>
      <volist name="listCate" id="cate">
-     	<li class="left_side_line">
+     	<li class="left_side_line" style="position:relative">
      		<a href="__APP__/Product/index/id/{$cate.id}">{$cate.title}</a>
      		<if condition="$cate.children neq null">
      		<ul class="second">
@@ -100,7 +100,7 @@
 	<include file="Public:wangwang"/>
  </div>
 	<div class="right-side">
-	  <div class="product_info  bgcolor_green">
+	  <div class="product_info">
 	   <div class="product_info_base">
 		<div class="pic">
 		 <div class="pic_header"></div>
@@ -116,11 +116,11 @@
           <li class="name">{$product.subject}</li>
           <!--<li >产品类别：{$product.title}</li>
           -->
-          <li >产品型号：{$product.spec}</li>
-          <li>产品尺寸：{$product.size}</li>
-          <li>点击次数：{$product.hits}次</li>
-          <li>添加时间：{$product.postdate|date="Y-m-d",###}</li>
-          <li>其它参数：{$product.meno}</li>
+          <li class="feature">产品型号：<span class="feature_detail">{$product.spec}</span></li>
+          <li class="feature">产品尺寸：<span class="feature_detail">{$product.size}</span></li>
+         <li class="feature">浏览次数：<span class="feature_detail">{$product.hits}次</span></li>
+         <li class="feature">上架时间：<span class="feature_detail">{$product.postdate|date="Y-m-d",###}</span></li>
+         <li class="feature">其它参数：<span class="feature_detail">{$product.meno}</span></li>
          </ul>
         </div>
         </div>
