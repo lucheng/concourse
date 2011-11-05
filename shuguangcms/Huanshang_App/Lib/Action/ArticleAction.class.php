@@ -3,26 +3,26 @@ class ArticleAction extends GlobalAction
 {
 	public function index()
 	{
-		$id=intval($_REQUEST['id']);
-		if ($id>0){
-			$mapc['cid']=$id;
-		}
 		$Article=D("Article");
-		$count=$Article->count($mapc);
+		
+		$count=$Article->count('cid=51');
 		import("ORG.Util.Page");
 		$listRows=15;
-		$p=new page($count,$listRows);
-		$list=$Article->findAll($mapc,'*','id desc',$p->firstRow.','.$p->listRows);
-		$page=$p->show();
-		//分类
-		$map['module']=2;//新闻分类
-		$Category=D('Category')->order("id desc")->where($map)->findall();
-//		dump($list);
-		//title
+		$p1=new Page($count,$listRows);
+		$cate1=$Article->findAll('cid=51','*','id desc',$p1->firstRow.','.$p1->listRows);
+		$page1=$p1->show();
+		
+		$count=$Article->count('cid=50');
+		$p2=new Page($count,$listRows);
+		$cate2=$Article->findAll('cid=50','*','id desc',$p1->firstRow.','.$p1->listRows);
+		$page2=$p2->show();
+		
 		$this->assign('titler','公司新闻');
-		$this->assign('cate',$Category);
-		$this->assign('list',$list);
-		$this->assign('page',$page);
+		$this->assign('cate1',$cate1);
+		$this->assign('cate2',$cate2);
+		
+		$this->assign('page1',$page1);
+		$this->assign('page2',$page2);
 		$this->display();
 	}
 	
