@@ -3,8 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title><present name="titler">{$titler}<else />{$vo.subject}</present>{$vo.subject} {$sitename} - {$seotitle}</title>
-<meta content={$seokeywords} name=keywords/>
-<meta content={$seodescription} name=description/>
+<meta content="{$seokeywords}" name="keywords"/>
+<meta content="{$seodescription}" name="description"/>
 <link rel="stylesheet" href="../Public/css/reset.css"/>
 <link rel="stylesheet" href="../Public/css/nav.css"/>
 <link rel="stylesheet" href="../Public/css/common.css"/>
@@ -54,6 +54,7 @@
     }
 </style>
 </head>
+<include file="Public:googleAnalytics" />
 <body>
 <!-- header start -->
 <include file="Public:header" />

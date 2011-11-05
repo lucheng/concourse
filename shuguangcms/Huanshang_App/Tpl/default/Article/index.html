@@ -3,8 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title><present name="titler">{$titler}<else />{$vo.subject}</present>{$vo.subject} {$sitename} - {$seotitle}</title>
-<meta content={$seokeywords} name=keywords/>
-<meta content={$seodescription} name=description/>
+<meta content="{$seokeywords}" name="keywords"/>
+<meta content="{$seodescription}" name="description"/>
 <link rel="stylesheet" href="../Public/css/reset.css"/>
 <link rel="stylesheet" href="../Public/css/nav.css"/>
 <link rel="stylesheet" href="../Public/css/common.css"/>
@@ -71,7 +71,7 @@
 	font-size:31px;
 }
 	</style>
-
+<include file="Public:googleAnalytics" />
 </head>
 <body>
 <!-- header start -->
@@ -104,10 +104,11 @@
 	 		 
 	 		 
 	<div id="tt" style="width:770px;height:550px;">
+		
 		<div title="桓尚新闻" style="padding:20px;">
 		 <div class="news_title_box">
 		   <ul>
-		    <volist name="list" id="vo">
+		    <volist name="cate2" id="vo">
 			   	<li><span>.</span><a href="__APP__/Article/read/id/{$vo.id}">{$vo.subject}</a></li>
 			</volist>
 		   </ul>
@@ -116,8 +117,8 @@
 		<div title="热点新闻"  style="padding:20px;" cache="false" >
 			<div class="news_title_box">
 			   <ul>
-			   <volist name="cate2" id="vo">
-			   	<li><span>.</span><a href="__APP__/Article/read/id/{$vo.id}">旺派新闻旺派新闻旺派新闻旺派新闻</a></li>
+			   <volist name="cate1" id="vo">
+			   	<li><span>.</span><a href="__APP__/Article/read/id/{$vo.id}">{$vo.subject}</a></li>
 			    </volist>
 			   </ul>
 		  </div>
