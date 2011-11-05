@@ -29,6 +29,7 @@ class ArticleAction extends GlobalAction
 		$page=$p->show();
 		$map['module']=2;//新闻分类
 		$Category=D('Category')->order("id desc")->where($map)->findall();
+//		dump($Category);
 		$this->assign('cate',$Category);
 		if ($list!==false) {
 			$this->assign('page',$page);
@@ -54,7 +55,7 @@ class ArticleAction extends GlobalAction
 			//读取分类
 			$map['module']=2;
 			$Category=D('Category')->order("id desc")->where($map)->findall();
-		$this->assign('cate',$Category);		
+		$this->assign('cate',$Category);
 		$this->assign('cid',$cid);	
 		$this->assign('Articlecate',$list);
 		$this->display();
