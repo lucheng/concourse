@@ -19,7 +19,7 @@ class ProductAction extends GlobalAction
 		$Product=D("ProductView");
 		$count=$Product->count($data);
 		import("ORG.Util.Page");
-		$listRows=10;
+		$listRows=5;
 		$p=new page($count,$listRows);
 		$list=$Product->findAll($data,'*','id desc',$p->firstRow.','.$p->listRows);
 		if ($keyword) $p->parameter='keywords='.safe_b64encode($keyword);
