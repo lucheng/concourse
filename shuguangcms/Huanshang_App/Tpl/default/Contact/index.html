@@ -98,6 +98,14 @@ $(function(){
    		    <li>
    		         <strong> 邮箱：</strong><span>{$email}</span>
    		   </li>
+   		   <li>
+   		         <strong>地址：</strong>
+   		         <span>
+   		         <volist name="qqs" id="qq">
+   		         	{$qq.url}&nbsp;&nbsp;&nbsp;
+   		         </volist>
+   		         </span>
+   		   </li>
    		    <li>
    		         <strong>地址：</strong><span>{$address}</span>
    		   </li>
