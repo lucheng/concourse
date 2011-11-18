@@ -19,26 +19,32 @@
                   旺旺:
         </span>
         
-         <volist name="wws" id="vo">
+         <volist name="wws" id="ww">
          <li>
           <span>
-	           <a href="http://amos.im.alisoft.com/msg.aw?v=2&amp;site=cntaobao&amp;s=1&amp;charset=utf-8&amp;uid={$vo.url}" target="_blank">
-	         	{$vo.title}：
+	           <a href="http://amos.im.alisoft.com/msg.aw?v=2&amp;site=cntaobao&amp;s=1&amp;charset=utf-8&amp;uid={$ww.url}" target="_blank">
+	         	{$ww.title}：
 	          </a>
           </span>
           <span>
-	         <a href="http://amos.im.alisoft.com/msg.aw?v=2&amp;site=cntaobao&amp;s=1&amp;charset=utf-8&amp;uid={$vo.url}" target="_blank">
-	         	<img src="http://amos.im.alisoft.com/online.aw?v=2&amp;site=cntaobao&amp;s=1&amp;charset=utf-8&amp;uid={$vo.url}" alt="点击这里给我发消息">
+	         <a href="http://amos.im.alisoft.com/msg.aw?v=2&amp;site=cntaobao&amp;s=1&amp;charset=utf-8&amp;uid={$ww.url}" target="_blank">
+	         	<img src="http://amos.im.alisoft.com/online.aw?v=2&amp;site=cntaobao&amp;s=1&amp;charset=utf-8&amp;uid={$ww.url}" alt="点击这里给我发消息">
 	         </a>
          </span>
          </li>
          </volist>
-         <!--<img src="../Public/css/images/wangwang_offline.png">
-         </img>
-          <img src="../Public/css/images/wangwang_online.png">
-         </img>
-         -->
-         
+       </ul>
+       <ul>
+        <span>
+                  阿里巴巴:
+        </span>
+         <volist name="bbs" id="bb">
+         <li>
+          <a target=_blank href="http://scs1.sh1.china.alibaba.com/msg.atc?v=1&uid={$bb.url}">
+          	<img border=0 src="http://scs1.sh1.china.alibaba.com/online.atc?v=1&uid={$bb.url}&s=1" alt="{$bb.title}" align="absmiddle">
+          </a> 
+         </li>
+         </volist>
        </ul>
      </div>
    </div>

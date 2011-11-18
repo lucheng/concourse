@@ -86,6 +86,7 @@ margin:30px 0px 30px 10px;
  {
   width:187px;
   background:#C8000B;
+  z-index: 99;
  }
  .left_side_top{
  width:187px;

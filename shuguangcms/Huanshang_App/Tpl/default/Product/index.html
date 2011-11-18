@@ -106,7 +106,7 @@
 				
 				<div class="who_share">
 					<div class="name clearfix">
-					<a href="__APP__/Product/{$vo.id}.html">{$vo.subject}</a>
+					<a href="__APP__/Product/{$vo.id}.html">{$vo.subject|msubstr1=0,12,'utf-8',true}</a>
 					</div>
 					<div class="ft"></div>
 				</div>
