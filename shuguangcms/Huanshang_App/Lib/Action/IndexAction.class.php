@@ -28,7 +28,7 @@ class IndexAction extends GlobalAction
 		$count=$Product->count($mapc);
 		//if($count<=1)$this->error('此类别无产品');
 		import("ORG.Util.Page");
-		$listRows=8;
+		$listRows=9;
 		$p=new page($count,$listRows);
 		$list=$Product->findAll($mapc,'*','id desc',$p->firstRow.','.$p->listRows);
 		//$list=$p->order('pid desc')->limit("$p->firstRow.','.$p->listRows")->findAll();

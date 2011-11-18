@@ -6,7 +6,7 @@ class ProductAction extends GlobalAction
 		$id=intval($_REQUEST['id']);
 		$module=intval($_REQUEST['module']);
 		if ($id>0){
-			$mapc['cid']=$id;
+			$mapc['category_id']=$id;
 		}
 		
 		if ($module>0){
@@ -17,7 +17,7 @@ class ProductAction extends GlobalAction
 		$count=$Product->count($mapc);
 		//if($count<=1)$this->error('此类别无产品');
 		import("ORG.Util.Page");
-		$listRows=16;
+		$listRows=15;
 		$p=new page($count,$listRows);
 		$list=$Product->findAll($mapc,'*','id desc',$p->firstRow.','.$p->listRows);
 		//$list=$p->order('pid desc')->limit("$p->firstRow.','.$p->listRows")->findAll();
@@ -49,7 +49,7 @@ class ProductAction extends GlobalAction
 		$id=intval($_REQUEST['id']);
 		$module=intval($_REQUEST['module']);
 		if ($id>0){
-			$mapc['cid']=$id;
+			$mapc['category_id']=$id;
 		}
 		
 		if ($module>0){

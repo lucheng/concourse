@@ -19,14 +19,17 @@ class GlobalAction extends Action
 		$map1['types']=1;
 		$map2['types']=2;
 		$map3['types']=3;
+		$map4['types']=4;
 		$Link=D("Link");
 		$links=$Link->order('orders desc')->findall($map1);
 		$qq=$Link->order('orders desc')->findall($map2);
 		$ww=$Link->order('orders desc')->findall($map3);
+		$bb=$Link->order('orders desc')->findall($map4);
+		
 		$this->assign("links", $links);
 		$this->assign("qqs", $qq);
 		$this->assign("wws", $ww);
-//		dump($ww);
+		$this->assign("bbs", $bb);
 
 	}
 	
