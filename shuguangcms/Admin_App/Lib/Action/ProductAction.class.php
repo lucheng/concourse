@@ -16,22 +16,24 @@ class ProductAction extends GlobalAction
 		}elseif ($keywords) {
 			$data['subject']=array('like','%'.safe_b64decode($keywords).'%');	
 		}
-		$Product=D("ProductView");
+		$Product=D("Product");
 		$count=$Product->count($data);
 		import("ORG.Util.Page");
 		$listRows=5;
 		$p=new page($count,$listRows);
-		$list=$Product->findAll($data,'*','id desc',$p->firstRow.','.$p->listRows);
+		$list=$Product->relation(true)->findAll($data,'*','category_id desc,postdate desc',$p->firstRow.','.$p->listRows);
 		if ($keyword) $p->parameter='keywords='.safe_b64encode($keyword);
 		$page  = $p->show();
 		//分类
 //		$map['module']=1;
 //		$map['parent_id']=1;
+//dump($list);
 		$Category=D('Category')->order("displayorder desc")->where('module=1')->findall();
 		$this->assign('cate',$Category);
 		if($list!==false){
 			$this->assign('page',$page);
 			$this->assign('list',$list);
+			$this->assign('category',D('Category')->findAll());
 		}
 		//$this->assign('allowbat',$this->allowbat);
 		$this->display();

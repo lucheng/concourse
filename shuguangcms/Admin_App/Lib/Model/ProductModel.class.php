@@ -1,13 +1,20 @@
 <?php
 class ProductModel extends Model 
 {
-	protected $autoCreateTimestamps = array('postdate');
-	protected $_validate=array(
-		array('subject','require','产品名称必填',0,'','all'),
-		array('content','require','产品说明必填',0,'','all'),
+	public $_link = array(
+
+        'category'=> array(  
+			'mapping_type'	=>	BELONGS_TO,
+			'class_name'	=>	'Category',
+			'foreign_key'	=>	'category_id',
+		),
+		
+		/*'children'=> array(  
+			'mapping_type'	=>	HAS_MANY,
+			'class_name'	=>	'Category',
+			'foreign_key'	=>	'pid',
+		),*/
 	);
-	protected $_auto	 =	 array(
-		array('subject','dhtml','ALL','function'),
-	);
+	
 }
 ?>

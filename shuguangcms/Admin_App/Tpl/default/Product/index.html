@@ -5,11 +5,13 @@
 	<div class="bodyTitleLeft"></div>
   <div class="bodyTitleText">产品管理</div>
 </div>
-<br><h3 class="marginbot">
+<br>
+<h3 class="marginbot">
 <form method="GET" name="form1" action="__URL__/add"><select name="catelist" id="catelist">
  <volist name="cate" id="vo"><option value="{$vo.id}">{$vo.title}</option></volist>
 </select><input name="submit" type="submit" class="inputButton"  value="发布产品"/>
-</form></h3>
+</form>
+</h3>
 				
 				<table class="fixwidth">
 				<form method="POST" name="form1" action="__URL__" >
@@ -22,12 +24,14 @@
 				</form>
 				</table>
 
-          <table class="datalist fixwidth" >
+          <table class="fixwidth" border="1">
           <form name="form1" method="post" action="__URL__/submit">
             <tr>
-              <th><input name="checkbox" type="checkbox" class="checkbox" onClick="selAll(this)" value="选择全部">
-              选择</th>
+              <th>
+              	<input name="checkbox" type="checkbox" class="checkbox" onClick="selAll(this)" value="选择全部">选择
+              </th>
               <th>产品名称</th>
+              <th>产品图片</th>
               <th>产品型号</th>
               <th>类别名称</th>
               <th>浏览</th>
@@ -41,17 +45,32 @@
                 {$vo.id}
               </td>
               <td>
-              	<strong><if condition="$vo['color'] neq ''"><font color="{$vo.color}">{$vo.subject}</font><else /> {$vo.subject}</if></strong>
-              	<neq name="vo['attachthumb']" value="">
-              		<!--<img src="../Public/images/img.gif" alt="图片" align="absmiddle" />
-              		-->
+              	<strong>
+	              	<if condition="$vo['color'] neq ''">
+	              		<font color="{$vo.color}">{$vo.subject}</font><else /> {$vo.subject}
+	              	</if> 
+              	</strong>
+              	<!--<neq name="vo['attachthumb']" value="">
               		<img src="__ROOT__/Attachments/product/{$vo.attachpath}/{$vo.attachthumb}" alt="" title="">
               	</neq> 
+	              -->
 	              <eq name="vo['istop']" value="1"><img src="../Public/images/d.gif" alt="置顶" align="absmiddle" /></eq>
 	              <eq name="vo['isgood']" value="1"><img src="../Public/images/j.gif" alt="推荐" align="absmiddle" /></eq>
-	              <eq name="vo['ischecked']" value="0"><font color="#cccccc">未审核</font></eq></td>
+	              <eq name="vo['ischecked']" value="0"><font color="#cccccc">未审核</font></eq>
+	          </td>
+	          <td>
+              	<img src="__ROOT__/Attachments/product/{$vo.attachpath}/{$vo.attachthumb}" alt="" title="">
+	          </td>
               <td>{$vo.spec}</td>
-              <td>{$vo.title}</td>
+              <td>
+              	<volist name="category" id="parent">
+              		<if condition="$parent['id'] eq $vo['category']['parent_id']" >
+              		{$parent['title']}<br>
+              		|===
+              		</if>
+              	</volist>
+              	{$vo['category']['title']}
+              </td>
               <td>{$vo.hits}</td>
               <td>{$vo.postdate|date="Y-m-d",###}</td>
 

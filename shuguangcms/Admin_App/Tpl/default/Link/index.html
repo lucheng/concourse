@@ -36,6 +36,7 @@
                	<if condition="$vo['types'] eq 1">普通链接</if>
                	<if condition="$vo['types'] eq 2">QQ</if>
                	<if condition="$vo['types'] eq 3">旺旺</if>
+               	<if condition="$vo['types'] eq 4">阿里巴巴</if>
                </td>
               <td>{$vo.postdate|date="Y-m-d",###}</td>
               <td><a href="__URL__/edit/id/{$vo.id}"><img src="../Public/images/edit.gif" alt="编辑" align="absmiddle" /></a>　<a href="__URL__/submit/act/delete/id/{$vo.id}" onclick="return confirm('确定删除吗，此操作不可恢复');"><img src="../Public/images/del.gif" alt="删除" align="absmiddle" /></a></td>
