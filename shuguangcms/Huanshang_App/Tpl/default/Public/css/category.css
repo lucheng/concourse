@@ -1,4 +1,4 @@
-.product_content{width:755px;float:left;background:#F0F4E6;margin-left:20px;}
+.product_content{width:770px;float:right;background:#F0F4E6;margin-left:10px;margin-bottom:30px;}
 .index_product_content{width:770px;float:left;background:#F0F4E6;}
 .i_w_f{width:237px;float:left;position:relative;margin:15px 7px 7px 7px;}
 .index_product_content .first{margin-left:15px !important;margin-left:7px;}
@@ -13,4 +13,3 @@
 .i_w_f .name p img{width:16px;height:16px;}
 .i_w_f .name p a{color:#09c;}
 .i_w_f .name p a:hover{background-color:#09c;color:#fff;}
-
