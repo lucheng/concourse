@@ -10,11 +10,11 @@ class CategoryModel extends Model
 
 			'class_name'=>'Category',
 
-			'foreign_key'=>'parentid',
+			'foreign_key'=>'parent_id',
 
 			'mapping_name'=>'children',
 
-			'mapping_order'=>'id desc',
+			'mapping_order'=>'displayorder desc',
 
 		),
 
