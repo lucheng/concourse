@@ -13,7 +13,7 @@
 </form>
 </h3>
 				
-				<table class="fixwidth">
+				<!--<table class="fixwidth">
 				<form method="POST" name="form1" action="__URL__" >
 					<tr>
 						<td>产品名称:
@@ -23,8 +23,9 @@
 				    </tr>
 				</form>
 				</table>
-
-          <table class="fixwidth" border="1">
+          -->
+          
+          <table class="fixwidth datalist">
           <form name="form1" method="post" action="__URL__/submit">
             <tr>
               <th>
@@ -39,7 +40,7 @@
               <th>操作</th>
             </tr>
             <volist name="list" id="vo">
-            <tr>
+            <tr class="option">
               <td class="option">
               <input name="id[]" type="checkbox" id="id[]" value="{$vo.id}" class="checkbox">
                 {$vo.id}
@@ -63,12 +64,13 @@
 	          </td>
               <td>{$vo.spec}</td>
               <td>
-              	<volist name="category" id="parent">
+              	<!--<volist name="category" id="parent">
               		<if condition="$parent['id'] eq $vo['category']['parent_id']" >
               		{$parent['title']}<br>
               		|===
               		</if>
               	</volist>
+              	-->
               	{$vo['category']['title']}
               </td>
               <td>{$vo.hits}</td>

@@ -13,22 +13,45 @@
               <th><input name="checkbox" type="checkbox" class="checkbox" onClick="selAll(this)" value="选择全部">
                   选择</th>
               <th>类别名称</th>
-              <th>父类别名称</th>
+              <!--<th>父类别名称</th>
+              -->
               <th>状态</th>
               <th>排序大小</th>
               <th>操作</th>
-            </tr><present name="list"><volist name="list" id="vo">
-			<tr class="option">
-              <td><input name="id[]" type="checkbox" id="id[]" value="{$vo.id}" class="checkbox">
-                {$vo.id}</td>
-              <td>{$vo.title}</td>
-              <td>{$vo['parent']['title']}</td>
-              <td><if condition="$vo['status'] eq 1">正常<else />锁定</if></td>
-              <td>{$vo.displayorder}</td>
-              <td>
-              <a href="__URL__/categoryedit/id/{$vo.id}"><img src="../Public/images/edit.gif" alt="编辑" align="absmiddle" /></a>
-              <a href="__URL__/categorysubmit/act/delete/id/{$vo.id}" onclick="return confirm('确定删除吗，此操作不可恢复');"><img src="../Public/images/del.gif" alt="删除" align="absmiddle" /></a></td>
-              </tr>
+            </tr>
+            <present name="list">
+            <volist name="list" id="vo">
+				<tr class="option">
+	              <td><input name="id[]" type="checkbox" id="id[]" value="{$vo.id}" class="checkbox">
+	                {$vo.id}</td>
+	              <td><a href="__APP__/Product/index/cid/{$vo.id}">{$vo.title}</a></td>
+	              <td><if condition="$vo['status'] eq 1">正常<else />锁定</if></td>
+	              <td>{$vo.displayorder}</td>
+	              <td>
+	              <a href="__URL__/categoryedit/id/{$vo.id}"><img src="../Public/images/edit.gif" alt="编辑" align="absmiddle" /></a>
+	              <a href="__URL__/categorysubmit/act/delete/id/{$vo.id}" onclick="return confirm('确定删除吗，此操作不可恢复');">
+	              	<img src="../Public/images/del.gif" alt="删除" align="absmiddle" />
+	              </a>
+	              <a href="__APP__/Product/index/cid/{$vo.id}">浏览</a>
+	              </td>
+	              </tr>
+	         <volist name="vo['children']" id="child">
+				<tr class="option">
+	              <td><input name="id[]" type="checkbox" id="id[]" value="{$child.id}" class="checkbox">
+	                {$child.id}</td>
+	              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|----<a href="__APP__/Product/index/cid/{$child.id}">【{$child.title}】浏览</a></td>
+	              <td><if condition="$child['status'] eq 1">正常<else />锁定</if></td>
+	              <td>{$child.displayorder}</td>
+	              <td>
+	              <a href="__URL__/categoryedit/id/{$child.id}"><img src="../Public/images/edit.gif" alt="编辑" align="absmiddle" /></a>
+	              <a href="__URL__/categorysubmit/act/delete/id/{$child.id}" onclick="return confirm('确定删除吗，此操作不可恢复');">
+	              	<img src="../Public/images/del.gif" alt="删除" align="absmiddle" />
+	              </a>
+	              <a href="__APP__/Product/index/cid/{$child.id}">浏览</a>
+	              </td>
+	              </tr>
+	              
+            </volist>
             </volist>
             
              <eq name="allowbat" value="1">
