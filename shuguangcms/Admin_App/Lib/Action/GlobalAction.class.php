@@ -142,7 +142,7 @@ class GlobalAction extends Action{
 			case 'utop':$Result=D($dbname)->execute('UPDATE __TABLE__ SET `istop`=0 WHERE `id` IN ('.$id.')');$say='取消置顶成功';break;//取消置顶
 			case 'ischecked':$Result=D($dbname)->execute('UPDATE __TABLE__ SET `ischecked`=0 WHERE `id` IN ('.$id.')');$say='审核成功';;break;//审核
 			case 'uischecked':$Result=D($dbname)->execute('UPDATE __TABLE__ SET `ischecked`=1 WHERE `id` IN ('.$id.')');$say='取消审核成功';;break;//取消审核
-			case 'remove':$Result=D($dbname)->execute('UPDATE __TABLE__ SET `cid`='.$category.' WHERE `id` IN ('.$id.')');$say='移动成功';;break;//移动
+			case 'remove':$Result=D($dbname)->execute('UPDATE __TABLE__ SET `category_id`='.$category.' WHERE `id` IN ('.$id.')');$say='移动成功';;break;//移动
 			case 'delete':$Result=D($dbname)->execute('DELETE FROM __TABLE__ where `id` IN ('.$id.')');$say='删除成功';;break;//删除
 			default:$this->error(L('_OPERATION_WRONG_'));break;//未知操作类型
 		}		

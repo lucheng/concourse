@@ -26,7 +26,7 @@ class MenuAction extends GlobalAction{
 		switch ($action){
 			case 'Systemconfig':$url=__APP__.'/Settings';break;
 			case 'Article':$url=__APP__.'/Article';break;
-			case 'Product':$url=__APP__.'/Product';break;
+			case 'Product':$url=__APP__.'/Product/category';break;
 			case 'Job':$url=__APP__.'/Job';break;
 			case 'Feedback':$url=__APP__.'/Feedback';break;
 			case 'Announce':$url=__APP__.'/Announce';break;

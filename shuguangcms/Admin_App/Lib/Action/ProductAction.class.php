@@ -8,6 +8,7 @@ class ProductAction extends GlobalAction
 	}
 	public function index()
 	{
+		$category_id = $_GET['cid'];
 		$data=array();
 		$keyword=$_POST['keyword'];
 		$keywords=$_REQUEST['keywords'];
@@ -16,10 +17,15 @@ class ProductAction extends GlobalAction
 		}elseif ($keywords) {
 			$data['subject']=array('like','%'.safe_b64decode($keywords).'%');	
 		}
+		
+		if($category_id){
+			$data['category_id']=$category_id;
+		}
+//		dump($data);
 		$Product=D("Product");
 		$count=$Product->count($data);
 		import("ORG.Util.Page");
-		$listRows=5;
+		$listRows=8;
 		$p=new page($count,$listRows);
 		$list=$Product->relation(true)->findAll($data,'*','category_id desc,postdate desc',$p->firstRow.','.$p->listRows);
 		if ($keyword) $p->parameter='keywords='.safe_b64encode($keyword);
@@ -146,6 +152,7 @@ class ProductAction extends GlobalAction
 		
 		$Category=D("Category");
 		$data['module']=1;
+		$data['parent_id']=0;
 //		$list=$Category->findAll($map,'*','id desc','');
 		
 //		import('ORG.Util.Tree');
