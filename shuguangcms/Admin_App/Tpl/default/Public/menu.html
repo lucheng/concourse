@@ -110,7 +110,7 @@ function refreshMainFrame(url)
 
 </case>
 <case value="Product">
-    <dl>
+    <!--<dl>
         <dt><a href="" onclick="return showHide('items0');" target="_self">产品模块</a></dt>
         <dd id="items0" style="display:block;">
             <ul>
@@ -119,7 +119,7 @@ function refreshMainFrame(url)
             </ul>
         </dd>
     </dl>
-	
+ -->
  <eq name="security['allowcategory']" value="1"> 
 <dl>
  <dt><a href="" onclick="return showHide('items2');" target="_self">类别管理</a></dt>
@@ -226,7 +226,7 @@ function refreshMainFrame(url)
             <ul>
 				<eq name="security['allowsystem']" value="1"><li><a href='__APP__/Settings'>系统配置</a></li></eq>
 				<eq name="security['allowarticle']" value="1"><li><a href='__APP__/Article'>新闻管理</a></li></eq>
-				<eq name="security['allowproduct']" value="1"><li><a href='__APP__/Product'>产品管理</a></li></eq>
+				<eq name="security['allowproduct']" value="1"><li><a href='__APP__/Product/category'>产品管理</a></li></eq>
 				<!--<eq name="security['alloworder']" value="1"><li><a href='__APP__/Order'>订单管理</a></li></eq>
 				<eq name="security['allowjob']" value="1"><li><a href='__APP__/Job'>招聘管理</a></li></eq>
 				<eq name="security['allowannounce']" value="1"><li><a href='__APP__/Announce'>公告管理</a></li></eq>
