@@ -143,7 +143,29 @@ class GlobalAction extends Action{
 			case 'ischecked':$Result=D($dbname)->execute('UPDATE __TABLE__ SET `ischecked`=0 WHERE `id` IN ('.$id.')');$say='审核成功';;break;//审核
 			case 'uischecked':$Result=D($dbname)->execute('UPDATE __TABLE__ SET `ischecked`=1 WHERE `id` IN ('.$id.')');$say='取消审核成功';;break;//取消审核
 			case 'remove':$Result=D($dbname)->execute('UPDATE __TABLE__ SET `category_id`='.$category.' WHERE `id` IN ('.$id.')');$say='移动成功';;break;//移动
-			case 'delete':$Result=D($dbname)->execute('DELETE FROM __TABLE__ where `id` IN ('.$id.')');$say='删除成功';;break;//删除
+			case 'delete':
+				$Product = D('Product')->find($id);
+				$Result=D($dbname)->execute('DELETE FROM __TABLE__ where `id` IN ('.$id.')');
+//				$Result=true;
+				if($Result)
+				{
+					$pic = "./Attachments/product/".$Product['attachpath']."/".$Product['attachment'];
+					$picthumb = "./Attachments/product/".$Product['attachpath']."/".$Product['attachthumb'];
+//					
+					dump($picthumb);
+					dump(file_exists($picthumb));
+					if(file_exists($pic));
+					{
+						unlink($pic);
+					}
+					if(file_exists($picthumb));
+					{
+						unlink($picthumb);
+					}
+				  	echo "删除成功";
+				}
+				$say='删除成功';
+				break;//删除
 			default:$this->error(L('_OPERATION_WRONG_'));break;//未知操作类型
 		}		
 		if($Result===false){
