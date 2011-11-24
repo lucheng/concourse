@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBliC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title><present name="titler">{$titler}<else />{$vo.subject}</present>{$vo.subject} {$sitename} - {$seotitle}</title>
@@ -46,11 +46,13 @@
     .category ul li:hover ul.second,/*非IE6*/
     .category ul a:hover ul.second{/*IE6*/
       visibility:visible;
+      z-index:999;
     }
     .category ul ul li {
       clear:both;/*垂直显示*/
       text-align:left;
       background:#C8000B;
+      z-index:999;
     }
 </style>
 </head>
@@ -60,14 +62,14 @@
 <include file="Public:header" />
 <!-- header end -->
 <div id="mainbody">
- <div class="left_side">
- <div class="left_side_category">
+ <div class="left_side" style="z-index:999;">
+ <div class="left_side_category" >
    <div class="left_side_top">
    <h1>产品分类</h1>
     <div class="category">
-     <ul>
+     <ul style="z-index:999;">
      <volist name="listCate" id="cate">
-     	<li class="left_side_line" style="position:relative">
+     	<li class="left_side_line" style="position:relative;z-index:999;">
      		<a href="__APP__/Product/index/id/{$cate.id}">{$cate.title}</a>
      		<if condition="$cate.children neq null">
      		<ul class="second">
@@ -87,7 +89,7 @@
     </div>
 	<include file="Public:wangwang"/>
  </div>
-	<div class="right-side">
+	<div class="right-side" style="z-index:-1;">
 		<div class="product_content">
 		<volist name='list' id='vo'>
 			<div class="i_w_f <if condition='$i eq 1'>first</if>">
