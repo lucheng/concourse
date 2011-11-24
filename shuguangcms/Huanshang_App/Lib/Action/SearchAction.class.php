@@ -22,7 +22,7 @@ class SearchAction extends GlobalAction
 		$count=$Product->count($data);
 		//if($count<=1)$this->error('此类别无产品');
 		import("ORG.Util.Page");
-		$listRows=16;
+		$listRows=9;
 		$p=new page($count,$listRows);
 		$list=$Product->findAll($data,'*','id desc',$p->firstRow.','.$p->listRows);
 		//$list=$p->order('pid desc')->limit("$p->firstRow.','.$p->listRows")->findAll();
@@ -30,11 +30,14 @@ class SearchAction extends GlobalAction
 		/**/
 		//分类
 		$map['module']=1;//分类
-		$Category=D('Category')->order("id desc")->where($map)->findall();
+		$map['parent_id']=0;
+		$Category=D('Category')->relation(true)->order("displayorder desc")->where($map)->findall();
+		
+		$this->assign('listCate', $Category);
 		
 		$this->assign('titler','产品中心');
 		$this->assign('module',$module);
-		$this->assign('cate',$Category);
+//		$this->assign('cate',$Category);
 		$this->assign('Product',$Product);
 		$this->assign('count',$count);
 		$this->assign('page',$page);
