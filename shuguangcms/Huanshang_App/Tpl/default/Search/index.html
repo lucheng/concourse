@@ -1,59 +1,120 @@
-<!DOCTYPE html PUBliC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title><present name="titler">{$titler}<else />{$vo.subject}</present>{$vo.subject} {$sitename} - {$seotitle}</title>
-<meta content={$seokeywords} name=keywords/>
-<meta content={$seodescription} name=description/>
+<meta content="{$seokeywords}" name="keywords"/>
+<meta content="{$seodescription}" name="description"/>
 <link rel="stylesheet" href="../Public/css/reset.css"/>
-<link rel="stylesheet" href="../Pulic/css/nav.css"/>
+<link rel="stylesheet" href="../Public/css/nav.css"/>
 <link rel="stylesheet" href="../Public/css/common.css"/>
 <link rel="stylesheet" href="../Public/css/category.css"/>
-
+<style>
+    .category li {/*水平菜单*/
+      float:left;
+      list-style:none;
+	  width:180px;
+      position:relative;/*相对定位以方便把包含块移动li元素*/
+    }
+    .category a {
+      display:block;
+      height:32px;
+      width:150px;
+      line-height:32px;
+      background:#a9ea00;
+      color:#ff8040;
+      text-decoration:none;
+      text-align:center;
+      overflow:hidden;/*在IE6中，当li元素包含display为block的元素时（如a）会多出5px，我们可以用overflow:hidden*/
+    }
+    .category a:hover {
+      color:#fff;
+    }
+    /*新增的二级菜单部分*/
+    .category ul ul {
+      visibility:hidden;/*隐藏所有子菜单（二级的,三级的）*/
+      position:absolute;
+      left:182px;
+      top:-10px;
+      width:180px;
+      padding:10px;
+      background:#C8000B;
+      border:1px solid #fff;
+      z-index:999;
+    }
+    /*指定是显示二级子菜单*/
+    .category ul li:hover ul.second,/*非IE6*/
+    .category ul a:hover ul.second{/*IE6*/
+      visibility:visible;
+      z-index:999;
+    }
+    .category ul ul li {
+      clear:both;/*垂直显示*/
+      text-align:left;
+      background:#C8000B;
+      z-index:999;
+    }
+</style>
 </head>
+<include file="Public:googleAnalytics" />
 <body>
 <!-- header start -->
 <include file="Public:header" />
 <!-- header end -->
 <div id="mainbody">
-<div class="left_side">
- <div class="left_side_category">
+ <div class="left_side" style="z-index:999;">
+ <div class="left_side_category" >
    <div class="left_side_top">
    <h1>产品分类</h1>
     <div class="category">
-     <ul>
-     	<volist name='cate' id='vo' >
-			<li class="left_side_line"><a href="__APP__/Product/index/module/{$module}/id/{$vo.id}">{$vo.title}</a></li>
-		</volist>
+     <ul style="z-index:999;">
+     <volist name="listCate" id="cate">
+     	<li class="left_side_line" style="position:relative;z-index:999;">
+     		<a href="__APP__/Product/index/id/{$cate.id}">{$cate.title}</a>
+     		<if condition="$cate.children neq null">
+     		<ul class="second">
+	          <volist name="cate.children" id="vo">
+	          <li class="left_side_line">
+				<a href="__APP__/Product/index/id/{$vo.id}">{$vo.title}</a>
+	           </li>
+	           </volist>
+	         </ul>
+	         </if>
+     	</li>
+     </volist>
      </ul>
     </div>
    </div>
     <div class="left_side_bottom"></div>
     </div>
-   <include file="Public:wangwang"/>
+	<include file="Public:wangwang"/>
  </div>
-	<div class="right-side">
+	<div class="right-side" style="z-index:-1;">
 		<div class="product_content">
 		<volist name='list' id='vo'>
 			<div class="i_w_f <if condition='$i eq 1'>first</if>">
 				<div class="hd"></div>
 				<div class="bd">
 					<ul class="pic">
-						<li type="goods" style="width: 200px; height: 200px">
+						<li type="goods" style="width:237px;height:170px;">
+						 <div style="width:231px;height:164px;padding:2px;overflow:hidden">
 							<a target="_blank" href="__APP__/Product/{$vo.id}.html" > 
-								<img src="__ROOT__/attachments/product/{$vo.attachpath}/{$vo.attachthumb}" alt="" title="" width="196px" height="194px"/>
+								<img src="__ROOT__/Attachments/product/{$vo.attachpath}/{$vo.attachthumb}" alt="" title=""/>
 							</a>
+							</div>
 						</li>
 					</ul>
 				</div>
 				
 				<div class="who_share">
 					<div class="name clearfix">
-					<a href="__APP__/Product/{$vo.id}.html">{$vo.subject}</a>
+					<a href="__APP__/Product/{$vo.id}.html">{$vo.subject|msubstr1=0,12,'utf-8',true}</a>
 					</div>
 					<div class="ft"></div>
 				</div>
-				<if condition='$vo.module eq 1'><div class="band onsale"></div></if>
+				<if condition='$vo.module eq 1'><div class="band whatsnew"></div></if>
+				<if condition='$vo.module eq 2'><div class="band onsale"></div></if>
+				
 			</div>
 		</volist>
 		<div class="tdpage">{$page}</div>

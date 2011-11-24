@@ -95,16 +95,18 @@
 	<div class="right-side" style="z-index:-1;">
 	  <div class="product_info">
 	   <div class="product_info_base">
+		<!--
 		<div class="pic">
 		 <div class="pic_header"></div>
-		 <div class="pic_body">
-            <div class="jqzoom">
+		 <div class="pic_body" style="z-index:-1;">
+            <div class="jqzoom" >
                 <img src="__ROOT__/Attachments/product/{$product.attachpath}/{$product.attachthumb}" width=300px; alt="{$product.subject}"/>
-                <!-- jqimg="__ROOT__/Attachments/product/{$product.attachpath}/{$product.attachment}"  -->
+                 jqimg="__ROOT__/Attachments/product/{$product.attachpath}/{$product.attachment}"  
             </div>
          </div>
          <div class="pic_footer"></div>
         </div>
+        -->
         <div class="product_feature">
          <ul>
           <li class="name">{$product.subject}</li>
@@ -123,6 +125,7 @@
             <img src="../Public/css/images/product_info_tab.png" alt=""/>
           </div>
           <div class="product_info_box">
+          	<img src="__ROOT__/Attachments/product/{$product.attachpath}/{$product.attachment}" alt="{$product.subject}"/>
           	{$product.content}
           </div>
          </div>

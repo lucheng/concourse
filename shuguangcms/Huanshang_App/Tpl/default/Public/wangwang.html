@@ -9,8 +9,9 @@
         </span>
         <volist name="qqs" id="qq">
          <li>
-         <a href='tencent://message/?uin={$qq.url}' target='_blank'><img src="http://wpa.qq.com/pa?p=1:{$qq.url}:4"/></a>
-         <a href='tencent://message/?uin={$qq.url}' target='_blank'>{$qq.title}</a>
+         <!--<a href='tencent://message/?uin={$qq.url}' target='_blank'>{$qq.title}</a>
+         -->
+         <a href='tencent://message/?uin={$qq.url}' target='_blank'><img src="http://wpa.qq.com/pa?p=1:{$qq.url}:1"/ alt="{$qq.title}"></a>
          </li>
          </volist>
        </ul>
@@ -22,15 +23,16 @@
          <volist name="wws" id="ww">
          <li>
           <span>
+	         <a href="http://amos.im.alisoft.com/msg.aw?v=2&amp;site=cntaobao&amp;s=1&amp;charset=utf-8&amp;uid={$ww.url}" target="_blank">
+	         	<img src="http://amos.im.alisoft.com/online.aw?v=2&amp;site=cntaobao&amp;s=1&amp;charset=utf-8&amp;uid={$ww.url}" alt="{$ww.title}">
+	         </a>
+         </span>
+         <!--<span>
 	           <a href="http://amos.im.alisoft.com/msg.aw?v=2&amp;site=cntaobao&amp;s=1&amp;charset=utf-8&amp;uid={$ww.url}" target="_blank">
 	         	{$ww.title}：
 	          </a>
           </span>
-          <span>
-	         <a href="http://amos.im.alisoft.com/msg.aw?v=2&amp;site=cntaobao&amp;s=1&amp;charset=utf-8&amp;uid={$ww.url}" target="_blank">
-	         	<img src="http://amos.im.alisoft.com/online.aw?v=2&amp;site=cntaobao&amp;s=1&amp;charset=utf-8&amp;uid={$ww.url}" alt="点击这里给我发消息">
-	         </a>
-         </span>
+         -->
          </li>
          </volist>
        </ul>
