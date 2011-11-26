@@ -9,12 +9,12 @@ class ArticleAction extends GlobalAction
 		import("ORG.Util.Page");
 		$listRows=15;
 		$p1=new Page($count,$listRows);
-		$cate1=$Article->findAll('cid=51','*','id desc',$p1->firstRow.','.$p1->listRows);
+		$cate1=$Article->findAll('cid=51','*','postdate desc',$p1->firstRow.','.$p1->listRows);
 		$page1=$p1->show();
 		
 		$count=$Article->count('cid=50');
 		$p2=new Page($count,$listRows);
-		$cate2=$Article->findAll('cid=50','*','id desc',$p1->firstRow.','.$p1->listRows);
+		$cate2=$Article->findAll('cid=50','*','postdate desc',$p1->firstRow.','.$p1->listRows);
 		$page2=$p2->show();
 		
 		$this->assign('titler','公司新闻');
