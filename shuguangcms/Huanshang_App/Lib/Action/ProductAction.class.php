@@ -6,20 +6,31 @@ class ProductAction extends GlobalAction
 		$id=intval($_REQUEST['id']);
 		$module=intval($_REQUEST['module']);
 		if ($id>0){
-			$mapc['category_id']=$id;
+			$cate = D('Category')->where('parent_id='.$id)->findAll();
+			
+			$str = '(';
+			foreach ($cate as $value) {
+				$str = $str.'category_id='.$value['id'].' or ';
+			}
+			$str = $str.'1=0)';
+		//	dump($str);
+		//	$mapc['category_id']=$id;
 		}
 		
 		if ($module>0){
-			$mapc['module']=$module;
+			$str = $str.' and module='.$module;
+//			$mapc['module']=$module;
 		}
 		
 		$Product=D("Product");
-		$count=$Product->count($mapc);
+		$count=$Product->count($str);
 		//if($count<=1)$this->error('此类别无产品');
 		import("ORG.Util.Page");
-		$listRows=15;
+		$listRows=9;
 		$p=new page($count,$listRows);
-		$list=$Product->findAll($mapc,'*','id desc',$p->firstRow.','.$p->listRows);
+		
+//		$list = $Product->where('status=1')->order('id desc')->limit($p->firstRow.','.$p->listRows)->select();
+		$list = $Product->findAll($str,'*','id desc',$p->firstRow.','.$p->listRows);
 		//$list=$p->order('pid desc')->limit("$p->firstRow.','.$p->listRows")->findAll();
 		$page = $p->show();
 		/**/
