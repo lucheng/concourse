@@ -30,12 +30,12 @@ function close_right(){
 }
 //设置样式
 document.writeln("<style type=\"text\/css\">");
-document.writeln("#leftDiv,#rightDiv{position:absolute;z-index:1000;width:115px;margin-bottom:2px;overflow:hidden;top:215px;right:2px;}");
-document.writeln("#right_top_Div{width:115px;height:42px;right:1px;background:url(../public/css/images/right_float_bg_top.gif) top left no-repeat}");
-document.writeln("#right_bottom_Div{width:115px;height:40px;right:1px;background:url(../public/css/images/right_float_bg_bottom.gif) bottom left no-repeat}");
-document.writeln("#right1{width:115px;overflow:hidden;top:215px;right:2px;background:url(../public/css/images/right_float_bg_center1.gif) no-repeat}");
-document.writeln(".qq_content{width:90px;height:20px;overflow:hidden;margin:5px 0px 5px 10px;background:url(../public/css/images/qqimg.jpg) no-repeat}");
-document.writeln(".qq_content a {font-size:15px;color:#000;text-decoration:none;height:20px;overflow:hidden;margin-left:25px;padding-top:5px;}");
+document.writeln("#leftDiv,#rightDiv{position:absolute;z-index:1000;width:135px;margin-bottom:2px;overflow:hidden;top:215px;right:2px;}");
+document.writeln("#right_top_Div{width:135px;height:42px;right:1px;background:url(../public/css/images/right_float_bg_top.png) top left no-repeat}");
+document.writeln("#right_bottom_Div{width:135px;height:10px;right:1px;background:url(../public/css/images/right_float_bg_bottom.png) top left no-repeat}");
+document.writeln("#right1{width:135px;overflow:hidden;top:215px;right:2px;background:url(../public/css/images/right_float_bg_center.png) repeat-y}");
+document.writeln(".qq_content{width:90px;height:20px;overflow:hidden;margin:5px 0px 5px 20px;background:url(../public/css/images/qqimg.jpg) no-repeat}");
+document.writeln(".qq_content a {font-size:15px;color:#000;text-decoration:none;height:20px;overflow:hidden;margin-left:35px;padding-top:5px;}");
 document.writeln("<\/style>");
 //------左侧开始
 //document.writeln("<div style=\"display:none\" id=\"leftDiv\" style=\"top:100px;left:5px\">");
@@ -55,7 +55,7 @@ document.writeln("<\/div>");
 document.writeln("<div id=\"right1\">");
 <volist name="qqs" id="qq">
 //document.writeln("<div class=\"qq_content\">");
-document.writeln("<div style=\"width:90px;height:20px;overflow:hidden;margin:5px 0px 5px 10px;background:url(http://wpa.qq.com/pa?p=1:{$qq.url}:4) no-repeat\">");
+document.writeln("<div style=\"width:90px;height:30px;overflow:hidden;margin:5px 0px 5px 30px;background:url(http://wpa.qq.com/pa?p=1:{$qq.url}:4) no-repeat\">");
 document.writeln("<a style=\"font-size:15px;color:#000;text-decoration:none;height:20px;overflow:hidden;margin-left:25px;padding-top:5px;\" href='tencent://message/?uin={$qq.url}' target=\'_blank\'>{$qq.title}</a>");
 document.writeln("<\/div>");
 </volist>

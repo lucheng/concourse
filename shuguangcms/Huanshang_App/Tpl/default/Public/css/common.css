@@ -9,9 +9,9 @@ font-weight:bold;
 .clear{clear:both;}
 .header_top{
 width:1100px;
-height:60px;
+height:90px;
 margin:0 auto;
-padding:30px 0px 30px 100px;
+padding:30px 0px 10px 100px;
 position:relative;
 
 }
@@ -22,12 +22,12 @@ position:relative;
 float:left;
 width:365px;
 height:50px;
-padding:13px 0px 0px 220px;
+padding:13px 0px 0px 0px;
 }
 .search_frm{
-width:460px;
-float:right;
-margin:20px 0px 10px 50px;
+width:470px;
+float:left;
+margin:30px 0px 10px 20px;
 }
 .search_frm .search_txt{
 background:url(images/search_txt_bg.jpg) no-repeat;
@@ -59,12 +59,11 @@ float:left;
  overflow:hidden;
  }
  .logo{
- width:193px;
- height:172px;
- position:absolute; 
- left:155px !important;
- left:150px;
- top:50px;
+ width:150px;
+ height:82px;
+ float:left; 
+ margin-left:35px;
+ padding-top:20px;
  background:url(images/logo.png) no-repeat;
  }
  #mainbody{
