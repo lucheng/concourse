@@ -1,0 +1,217 @@
+.login-page {
+	width: 756px;
+	padding: 35px 0 35px 50px;
+	_height: 330px;
+	min-height: 330px;
+	margin: 0 auto
+}
+
+.user-wrapper #frame_page_wrapper {
+	background: none;
+	padding: 20px 85px;
+	border: 0;
+	width: 796px
+}
+
+.user-wrapper .navigation_arrow {
+	border: 0
+}
+
+.dash-line {
+	background: url(http://img.meilishuo.net/css/images/user/dash-line.gif)
+		repeat-x;
+	width: 100%;
+	height: 2px;
+	margin: 20px 0
+}
+
+.user-wrapper {
+	color: #666
+}
+
+.user-wrapper h1 {
+	float: none;
+	color: #666;
+	margin-bottom: 10px
+}
+
+.reg-desc {
+	font-size: 14px;
+	margin-bottom: 25px
+}
+
+.reg_links {
+	margin-right: 32px
+}
+
+.friend_prompt .reg-desc {
+	margin-bottom: 5px
+}
+
+.user-wrapper #frame_page_wrapper_content {
+	width: 798px;
+	min-height: 400px
+}
+
+.user-wrapper .register-page-wrapper {
+	width: 696px;
+	padding: 35px 50px;
+	background: #fff;
+	border: 1px solid #c8c8c8;
+	margin-top: 10px
+}
+
+.user-wrapper #loginForm .titleBox {
+	width: 50px;
+	text-align: right;
+	font-size: 12px;
+	height: 25px;
+	line-height: 25px;
+	margin-right: 15px
+}
+
+.user-wrapper #loginForm .inputBox {
+	height: 25px;
+	width: 170px;
+	margin-left: 20px;
+	border: 0px
+}
+
+#loginForm {
+	width: 400px;
+	float: left
+}
+
+.user-wrapper #loginForm .logonInput {
+	padding-left: 2px;
+	padding-right: 2px;
+	width: 158px;
+	margin-top: 2px;
+	height: 20px;
+	font-size: 12px;
+	background: #ffffff;
+	border: 1px solid #c8c8c8
+}
+
+.checkInput {
+	padding-left: 2px;
+	padding-right: 2px;
+	width: 58px;
+	margin-top: 2px;
+	height: 20px;
+	font-size: 12px;
+	background: #ffffff;
+	border: 1px solid #c8c8c8
+}
+
+#logon_form_input_auth {
+	float: left;
+	margin-top: 15px
+}
+
+#logon_form_input_auth #checkCodeSpan img {
+	height: 36px;
+	margin-left: 15px;
+	width: 90px;
+	cursor: pointer
+}
+
+#checkcode_hint {
+	margin-top: 10px;
+	display: none;
+	color: #999999
+}
+
+.user-logon-right {
+	border-left: 1px solid #ddd;
+	float: left;
+	margin-left: 25px;
+	min-height: 300px;
+	_height: 300px;
+	padding: 20px 0px 20px 30px;
+	width: 284px
+}
+
+.user-wrapper .passwordMask {
+	position: static
+}
+
+.logon_form_input_email {
+	margin-bottom: 15px;
+	line-height: 20px;
+}
+
+.logon_form_input_pass {
+	clear: both;
+	float: left;
+	width: 100%
+}
+
+.button {
+	height: 28px;
+	border: 0px;
+	color: #ffffff;
+	font-size: 14px;
+	cursor: pointer;
+	font-weight: bold;
+	text-align: center;
+	float: left
+}
+
+.button-100 {
+	background: url(http://img.meilishuo.net/css/images/user/btn_100.gif)
+		no-repeat;
+	width: 100px;
+	margin: 8px 0 0 39px
+}
+
+.user-wrapper .submitLogon {
+	margin: 10px;
+	height: 28px;
+	width: 100px;
+	margin-left: 66px
+}
+
+.remember-me {
+	padding: 15px 0 10px 39px
+}
+
+.forget_password {
+	float: left;
+	margin: 16px 0 0 8px
+}
+
+.forget_password a,.reg-desc a {
+	color: #f69
+}
+
+.reg-desc {
+	font-size: 14px;
+	margin-bottom: 25px
+}
+
+.user-wrapper .checkcode_apply,.user-wrapper .register_Input {
+	width: 65px;
+	border-right: 1px solid #c8c8c8
+}
+
+#logon_hint_logon span {
+	line-height: 25px;
+	margin-left: 39px;
+	color: #f69
+}
+
+.logonInput {
+	width: 160px;
+	height: 22px;
+	border: 1px solid #ddd;
+	color: #898989;
+	font-size: 12px;
+	line-height: 22px;
+	overflow: hidden;
+	padding: 0 5px;
+}
+
+.change-code {
+	margin-top: 6px
+}

@@ -1,65 +1,226 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>{$Think.config.sitename} - {$Think.config.description}</title>
-		<meta content="{$Think.config.keywords}" name=keywords/>
-		<meta content="{$Think.config.description}" name=description/>
-		<link rel="stylesheet" type="text/css" media="screen" href="../Public/css/index.css">
-		<meta content={$seokeywords} name=keywords/>
-		<meta content={$seodescription} name=description/>
-		<link rel="shortcut icon" href="../Public/images/favicon.png">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-	</head>
-<body id="login">
-<!--[if lte IE 6]>
-<div id="ie6-warning" style="color:red;font-size:18px">你正在使用的浏览器版本太低，将不能正常浏览本站及使用你问我答的所有功能。请升级 <a href="http://windows.microsoft.com/zh-CN/internet-explorer/downloads/ie">Internet Explorer</a> 或使用 <a href="http://www.google.com/chrome/">Google Chrome</a> 浏览器。</div>
-<![endif]-->
-<div id="page">
-<h1>你问我答 - 一个真实的网络问答社区，帮助你寻找答案，分享知识</h1>
-<div id="login_form">
-<form action="__APP__/Public/checkLogin" method="post">
-<input type="hidden" name="_xsrf" value="cdecd0d3c32c4583a0ee76e3ddfeb0e2">
-<ul class="clearfix">
-<li>
-<label for="email">邮箱</label>
-<input type="email" id="email" class="text r5px" name="email" spellcheck="false" placeholder="yourname@example.com" autofocus="">
-</li>
-<li>
-<label for="password">密码</label>
-<input type="password" id="password" class="text r5px" name="password" value="8888">
-</li>
-<li class="last">
-<label for="">&nbsp;</label>
-<input type="submit" id="button_login" class="r5px button_blue" value="登 录">
-</li>
-<li>
-<input id="remember_me" type="checkbox" name="rememberme">
-<label for="remember_me" class="remember_me">记住我的登录状态</label>
-</li>
-<li>
-<a href="__APP__/Index/resetpassword">忘记密码？</a>
-</li>
-</ul>
-</form>
-<div class="zu-index-link-apply-x2 r5px">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="keywords" content="美丽说,网购,购物社区,打折信息,淘宝网购物,淘宝网导购,淘宝网女装,女人街">
+	<meta name="description" content="沸腾着血拼快感的时尚购物社区。每天推荐网上最好看、最超值的衣服、鞋子、包包、配饰、化妆品、团购；提供最可靠的评论和价格比较。">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+	<meta property="qc:admins" content="223261362165514130576375">
+	<title>美丽说.com</title>
+	<link rel="stylesheet" type="text/css" href="../Public/css/global_new.css">
+	<link rel="apple-touch-icon-precomposed" href="http://stc-tx.meiliworks.com/css/images/custom_icon_precomposed.png">
+	<script type="text/javascript">var LOAD_BEGIN_TIME = (new Date()).getTime();</script>
+	<script type="text/javascript" src="../Public/js/base.js"></script>
+	<link rel="stylesheet" type="text/css" href="../Public/css/logon.css">	
+	<script type="text/javascript">
+		// 增加当前用户信息
+		Meilishuo.current_user = {
+			'id': 0,
+			'nickname': '',
+			'avatar': ''
+		};
+		var GOODS_T_DEPART = 100000000;
+		var renrenApiKey = "b0b7bffe39384d7b833e0d75eeff7715";
+		var current_user_id = "0";
+		var lock_a        = "0";
+		var lock_eniger   = "0";
+		var person  = "0";
+		var DEFAULT_COOKIEDOMAIN = '.meilishuo.com';
 
-<a href="http://container.api.taobao.com/container?appkey=12402963&encode=utf-8" target="_self"><img src="../Public/images/connect_light_medium.png"/></a>
+		$(function(){
+			//lazy load
+			var isiPad = navigator.userAgent.match(/iPad/i) != null;
+			if( !isiPad ) {
+				$('.normal_pic, .goods_pic img, .quote_picture img, .detail_body img').lazyload({ placeholder : "/css/images/loading.gif" });
+				$('.twitter_avatar img').lazyload({ placeholder : "/css/images/loading64.gif" });
+			}
+		});
+			</script>
+		<script type="text/javascript"><!--//--><![CDATA[//><!--
+		jQuery.extend(Meilishuo.config, {"domain":{"root":"meilishuo.com","upload":"img.meilishuo.com"},"picture_url":"http:\/\/imgtest.meiliworks.com\/","is_actived":0});document.domain = Meilishuo.config.domain.root;
+	//--><!]]></script>
+</head>
 
-<a href="__APP__/Public/apply" class="zu-index-link-apply r5px"><span class="r5px zu-index-link-apply-x1">申请注册</span></a>
+<body class="f960">
+<input type="hidden" id="twitter_latest_id" value=""/>
+<div id="wrapper">
+	<div id="systemUserMsg" style="display: none; "></div>
+	<include file="Public:header" />
+	<div id="h_banner" class="container_12"><a href="http://www.meilishuo.com/users/register/aa74158f1933b65e23e61bf99d8157f5">美丽说，最具人气的时尚分享社区，623万MM的美丽地盘。跟朋友一起修炼美丽，每天分享怎样搭配，怎样化妆，哪里去买；记录我漂亮的一天，让改变发生！</a></div><!-- not logon banner -->
+			
+	
+		<div class="clear"></div>
+		<div id="main" class="container_12">
+			
+				<div class="grid_12">
+		<div class="box_shadow p13">
+	<div class="login-page">
+		<form action="" onsubmit="return check_user_logon();return false;" method="post" id="loginForm">
+			<h1>登录美丽说</h1>
+			<div class="dash-line"></div>
+			<div class="logon_form_input_email ">
+				<div class="titleBox left">账　号：</div>
+				<div class="titleBox left">
+					<input type="text" name="USERNAME" id="username" class="logonInput" value="注册时使用的邮箱/昵称"/>
+				</div>
+				<div class="clear-fix"></div>
+			</div>
+			<div class="logon_form_input_pass">
+				<div class="">
+					<div class="left titleBox">密　码：</div>
+					<div class="left"><input type="password" name="PASSWORD" id="password" class=" logonInput" value=""/></div>
+				</div>
+			</div>
+		    <div id="logon_form_input_auth" class="logon_form_input_auth none">
+	           			<div>
+						<div class="titleBox left">验证码：</div>
+						<div class="left">
+							<input type="text" class="checkInput left" name="checkcode" id="checkcode_apply" value="" maxlength="4"/>
+							<div class="left">
+								<span id="checkCodeSpan" style="cursor: pointer;float:left;" onclick="changeCheckCode();return true;">
+									<img id="checkCodeImage" csrc="http://www.meilishuo.com//css/checkCode.php?t=1323096988" style="cursor: pointer;"/>
+								</span>
+							</div>
+							<div class="left " style="margin-top:8px;">&nbsp;&nbsp;&nbsp;&nbsp;看不清，<a href="http://www.meilishuo.com/#" class="red" onclick="changeCheckCode();return false;">换一张</a></div>
+							<div style="clear:both"></div>
+						</div>
+					</div>
+	        </div>
+	        <!-- ./#logon_form_input_auth -->
+			<div class="clear-fix"></div>
+			<div class="remember-me">
+				<input type="checkbox" name="savestate" id="savestate" value="savestate" checked="checked">
+				<label for="savestate">记住我(下次自动登录)</label>
+			</div>
+	
+			<div id="logon_hint_logon" class="logon_hint_logon" style="display: none; "></div>
+			<input type="submit" value="登   录" class="button button-100 submitLogon">
+			<div id="forget_password" class="forget_password">
+				<a class="a1" href="http://www.meilishuo.com/users/forgetPassword" target="_blank">忘记密码了?</a>
+			</div>
+			<input name="redirect" type="hidden" value="http://www.meilishuo.com/">
+		</form>
+		<div class="user-logon-right">
+			<div class="reg-desc">还没有美丽说账号？ <a href="http://www.meilishuo.com/apply">立即注册</a></div>
+			<div>
+				你也可以用站外账号登录:
+				<div class="mt14 left">
+					<a class="left reg_links" href="http://www.meilishuo.com/connect/auth/weibo"><img src="../Public/images/linksina.png"></a>
+					<a class="left" href="http://www.meilishuo.com/connect/auth/taobao"><img src="../Public/images/taobao.gif"></a>
+				</div>
+				<div class="mt14 left">
+					<a class="left reg_links" href="http://www.meilishuo.com/connect/auth/qzone"><img src="../Public/images/connect_QQ.png"></a>
+					<a class="left" href="http://www.meilishuo.com/connect/auth/txweibo"><img src="../Public/images/txwb.png"></a>
+				</div>
+				<div class="mt14 left">
+					<a class="left reg_links" href="http://www.meilishuo.com/connect/auth/wangyi"><img src="../Public/images/connect_163.png"></a>
+					<a class="left" href="http://www.meilishuo.com/connect/auth/baidu"><img src="../Public/images/connect_baidu.png"></a>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-</div>
-<div id="footer">
-<p>© 2011 你问我答 · <a href="#" target="_blank">你问我答博客</a> · <a href="#" target="_blank" rel="nofollow">新浪微博</a>
-<br>
-<a href="http://www.miibeian.gov.cn/" target="_blank"></a></p>
-</div>
-</div>
-<!--[if lt IE 7 ]>
-<script src="http://static.zhihu.com/static/js/dd_fix.js"></script>
-<script>DD_belatedPNG.fix('#login, #page, ##page h1');</script>
-<![endif]-->
+		</div>
+		
+						<div class="clear"></div>
+	</div><!-- main -->
+	<div class="clear"></div>
 
+	<div id="show_err"></div>
+
+		
+    <!-- google_ad_section_end -->
+		
+
+		 <!-- google_ad_section_end -->
+		<div class="clear-fix"></div>
+		<!-- google_ad_section_start(weight=ignore) -->
+				
+				
+						<!-- google_ad_section_start(weight=ignore) -->
+	<div class="container_12">
+		<div class="grid_12 mt10">
+			<div class="box_shadow p13">
+				<div class="clear"></div>
+<div class="clear-fix"></div>
+<div class="footer_top">
+	<div class="f_list">
+		<h4>发现美丽</h4>
+		<ul class="l_one">
+			<li><a href="http://www.meilishuo.com/goods/" target="_blank">挑衣服</a></li>
+			<li><a href="http://www.meilishuo.com/findfs/main/recommend" target="_blank">看达人</a></li>
+			<li><a href="http://www.meilishuo.com/shop/" target="_blank">逛店铺</a></li>
+			<li><a href="http://www.meilishuo.com/ask/" target="_blank">美丽问答</a></li>
+			<li><a href="http://www.meilishuo.com/tuan/" target="_blank">美丽说团购</a></li>
+		</ul>
+	</div>
+	<div class="f_list">
+		<h4>获取帮助</h4>
+		<ul class="l_one">
+			<li><a href="http://www.meilishuo.com/helpcenter/" target="_blank">新手指南</a></li>
+			<li><a href="http://www.meilishuo.com/sitemap/" target="_blank">网站地图</a></li>
+			<li><a href="http://www.meilishuo.com/contactus/" target="_blank">美丽说客服</a></li>
+			<li><a href="javascript:void(0);" onclick="return showSendPmsgBox(&#39;美丽客服精灵&#39;);">意见薄</a></li>
+			
+		</ul>
+	</div>
+	<div class="f_list">
+		<h4>关于我们</h4>
+		<ul class="l_one">
+			<li><a href="http://www.meilishuo.com/aboutus/" target="_blank">关于美丽说</a></li>
+			<li><a href="http://www.meilishuo.com/contactus/" target="_blank">联系我们</a></li>
+			<li><a href="http://www.meilishuo.com/joinus/" target="_blank">加入美丽说</a></li>
+			<li><a href="http://www.meilishuo.com/contactus/cooperate" target="_blank">广告投放与品牌推广</a></li>
+			<li><a href="http://www.meilishuo.com/PrivacyProctClaim" target="_blank">隐私政策</a></li>
+		</ul>
+	</div>
+	<div class="f_list">
+		<h4>更多</h4>
+		<ul class="l_one">
+			<li><a href="http://webapp.meilishuo.com/mobile/iphone" target="_blank">下载iPhone客户端</a></li>
+			<li><a href="http://www.meilishuo.com/mobile/Android" target="_blank">下载Android客户端</a></li>
+			<li><a href="http://www.meilishuo.com/topic/list/new" target="_blank">今日热门话题</a></li>
+			<li><a href="http://www.meilishuo.com/topic/list/hot" target="_blank">每周热门话题</a></li>
+			<li><a href="http://www.meilishuo.com/aboutus/links" target="_blank">友情链接</a></li>		</ul>
+	</div>
+	<div class="f_list">
+		<h4>关注我们</h4>
+		<ul class="l_two">
+			<li><a href="http://t.sina.com.cn/meilishuo" target="_blank"><span class="s_sina">&nbsp;&nbsp;</span>新浪微博</a></li>
+			<li><a href="http://page.renren.com/699103070" target="_blank"><span class="s_ren">&nbsp;&nbsp;</span>人人主页</a></li>
+			<li><a href="http://t.qq.com/meilishuo" target="_blank"><span class="s_tx">&nbsp;&nbsp;</span>腾讯微博</a></li>
+			<li><a href="http://user.qzone.qq.com/1379986183/" target="_blank"><span class="s_qzone">&nbsp;&nbsp;</span>QQ空间</a></li>
+			<li><a href="http://t.163.com/meilishuo" target="_blank"><span class="h_wangyi">&nbsp;</span>网易微博</a></li>
+			<li><a href="http://site.douban.com/121404/" target="_blank"><span class="s_dbai">&nbsp;&nbsp;</span>豆瓣</a></li>
+		</ul>
+	</div>
+</div>
+<div class="clear-fix"></div>
+<div class="new_footer left">
+	<div class="nf_r">Copyright ©2011 Meilishuo.com, All Rights Reserved. 京ICP备11031139号&nbsp; 京ICP证100798号&nbsp; 京公网安备110108006045&nbsp; <a href="http://imgtest.meiliworks.com/css/images/about/license.jpg" target="_blank">工商注册号110108013011072</a></div>
+</div>
+<!-- frame_footer -->				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
+<div id="xs"></div>
+
+
+<script type="text/javascript" src="../Public/js/settings.js"></script>
+
+<!-- 在html加载以后加载若干js代码 -->
+<script type="text/javascript" src="../Public/js/connect.js"></script>
+
+<div id="goTop" class="none" style="left: 1183px; top: 462px; ">
+		<div class="love_bg">
+		<h4 class="love_bgt"></h4>
+		<h4 class="love_bgm">
+							<a href="javascript:void(0);" onclick="AddFavorite();" class="collect"></a>
+					</h4>
+		<h4 class="love_bgb"></h4>
+	</div>
+	<a onclick="javascript:void(0)" id="go_top"></a>	
+</div>
 </body></html>

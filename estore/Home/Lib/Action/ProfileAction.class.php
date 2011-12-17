@@ -3,7 +3,7 @@ import('Com.Taobao.top.TopClient');
 import('Com.Taobao.top.request.UserGetRequest');
 import('Com.Taobao.top.RequestCheckUtil');
 
-class IndexAction extends Action
+class ProfileAction extends Action
 {
     public function index()
     {
