@@ -1,0 +1,57 @@
+	<div id="xd" class="xfn">
+		<div class="xq xen">
+		<span class="xaw">•</span>
+		<span>© 2011 你问我答</span>
+		<a href="#" target="_blank" class="xcw">你问我答博客</a>
+		<span class="xaw">•</span>
+		<a href="#" target="_blank" class="xcw">新手入门</a>
+		<span class="xaw">•</span>
+		<a href="#" target="_blank" class="xcw">你问我答指南</a>
+		<span class="xaw">•</span>
+		<a href="#" target="_blank" class="xcw">建议反馈</a>
+		<span class="xaw">•</span>
+		<a href="#" target="_blank" class="xcw">你问我答协议</a>
+		<!--<span class="xaw">•</span>
+		<a href="http://sae.sina.com.cn" target="_blank"><img src="http://static.sae.sina.com.cn/image/poweredby/117X12px.gif" title="Powered by Sina App Engine"></a>
+		-->
+		</div>
+	</div>
+	<div id="qdialog" style="display:none;" class="modal-dialog" tabindex="0" role="dialog" aria-labelledby=":0">
+		<div class="modal-dialog-title modal-dialog-title-draggable" id=":0">
+			<span class="modal-dialog-title-text">添加问题</span>
+			<span class="modal-dialog-title-close">X</span>
+		</div>
+		<div class="modal-dialog-content">
+			<form id="qform" name="qform" method="post" action="__APP__/Question/add">
+			<div class="description">
+				<div class="tags_text_input">
+					<input class="xko text_input" name="title"/>
+				</div>
+			</div>
+			<div class="text_area">
+				<textarea class="xko xpm label-input-label" name="message" title="在这里输入问题" aria-haspopup="true" style="height: 66px; "></textarea>
+			</div>
+			<div class="description">
+				<div class="tags_text_input">
+					<input class="xko text_input" />
+				</div>
+			</div>
+			<div class="xy">
+				<label class="xxw">
+					<input type="checkbox" value="1" class="xiz">匿名添加问题
+				</label>
+				<a href="javascript:$('#qdialog').hide();" name="cancel" class="xuv">取消</a>
+				<input type="submit" name="add" value="添加问题" class="xn xz xce" />
+				<!--<a href="javascript:;" name="add" onclick="javascript:$('#qform').submit();" class="xn xz xce">添加问题</a>
+			--></div>
+			</form>
+		</div>
+		<div class="modal-dialog-buttons"></div>
+		<span tabindex="0"></span>
+	</div>
+<!-- 
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F70e1f57849eac7fdff80d8f28fe0c7f3' type='text/javascript'%3E%3C/script%3E"));
+</script>
+ -->

@@ -1,0 +1,59 @@
+	<script src="../Public/js/lib.js" type="text/javascript"></script>
+	<script type="text/javascript">currentUser();</script>
+	<div class="xgt">
+		<div class="xq" id="xjt">
+			<a href="__APP__/Index/index" class="xet" id="zh-top-link-logo"></a>
+			<div id="xyt" style="display:none"></div>
+				<if condition="$_SESSION['tinyurl'] neq 2">
+				<ul class="xxs">
+					<li class="xws" id="xus">
+						<a class="xvs xts" href="javascript:;">
+							<img id="myiamge" class="xss" src="{$_SESSION['tinyurl']}"/>
+							<span id="currentUserName" class="xrs">{$_SESSION['loginUserName']}</span>
+						</a>
+					</li>
+					<li class="xws"><a class="xvs xqs" href="__APP__/Profile">我的主页</a></li>
+					<li class="xws">
+						<a class="xvs xps" href="__APP__/Index/inbox">私信 
+							<span id="xod" class="xtv xl" style="visibility:hidden;"></span>
+						</a>
+					</li>
+					<li class="xws"><a class="xvs xos" href="__APP__/Index/settings">设置</a></li>
+					
+					<li class="xws"><a class="xvs xns" href="__APP__/Public/logout">退出</a></li>
+				</ul>
+				</if>
+				<div id="xrz" class="xdt">
+					<div class="xzt" onclick="javascript:$('#qdialog').show();">搜索问题</div>
+					<div class="xbt">
+					<input type="text" class="xat" name="q" autocomplete="off" placeholder="搜索话题、问题或人…" value="" aria-haspopup="true">
+					<!--<div class="xes xn" style="display: none; ">
+						<div class="xcs"></div>
+						<div class="xbs">提示：提问前请先搜索问题，查看是否已经有人问过了</div>
+					</div>
+					<label class="xas" style="">搜索话题、问题或人…</label>
+					-->
+					</div>
+					<form style="display:none" method="GET" action="__APP__/search" id="xrz-form" class="xbt"></form>
+				</div>
+		
+				<div id="zg-top-nav" class="xms">
+					<ul class="xks">
+					<li class="xjs" id="zh-top-home-link">
+					<a class="xis" href="__APP__/Index/index/">首页</a>
+					</li>
+					<li class="xjs" id="zh-top-nav-item-explore">
+					<a class="xis" href="__ROOT__/shop.php">攻略</a>
+					</li>
+					<li class="xjs">
+					<a id="xld" class="xis" href="__APP__/Index/notifications">通知
+						<span id="xpd" class="xhs xl" style="display:none;">0</span>
+					</a>
+					</li>
+					</ul>
+				</div>
+		</div>
+	</div>
+	<!--[if lte IE 6]>
+	<div id="xt">你正在使用的浏览器版本太低，将不能正常浏览本站及使用知乎的所有功能。请升级 <a href="http://windows.microsoft.com/zh-CN/internet-explorer/downloads/ie">Internet Explorer</a> 或使用 <a href="http://www.google.com/chrome/">Google Chrome</a> 浏览器。</div>
+	<![endif]-->
