@@ -345,21 +345,7 @@ function checkIfEmailExist(emailaddress){
 	return retValue;
 }
 
-function changeCheckCode(){
-	var url=server_url+'server/ajax_changeCheckCode';
-	var data={};
-	var callback=function(r){
-		try{
-			$("#checkCodeSpan").hide();
-			$("#checkCodeSpan").html(r);
-			$("#checkCodeSpan").show();
-			$('#logon_form_input_auth').show();
-		}catch(e){
-			alert(e);
-		}
-	}
-	$.ajax({async:false,dataType:"json",type:"POST",url:url,data:data,success:callback});
-}
+
 
 function verifyCheckCode(checkcode,reg){if(typeof(reg)==undefined){reg='NULL';}
 var url=server_url+'server/ajax_verifyCheckCode';var data={'checkcode':checkcode,'reg':reg};var retValue="";var callback=function(r){retValue=trim(r);}
@@ -501,8 +487,9 @@ function check_user_logon(tt){
 				return false;
 			}
 		}
-		var url=server_url+'/estore/control/login';
-		var data={'USERNAME':username,'PASSWORD':password,'savestate':savestate,'type':tt,'follow':follow,'wbid':wbid};
+	//	var url=server_url+'estore/control/login';
+		var url='__APP__/Public/checkLogin';
+		var data={'username':username,'password':password,'savestate':savestate,'type':tt,'follow':follow,'wbid':wbid};
 		var loginfrom=$("#popLoginForm #loginfrom").val();
 		if(typeof(password)!='undefined'&&password!=""&&password.length!=0)
 	//		url=url+'?frm='+loginfrom;
@@ -609,7 +596,7 @@ else{alert('修改失败');}}});return false;}
 alertTime=100000;
 
 function getUserMsg(){
-	var url=server_url+'estore/control/checkLogin';
+	var url=server_url+'/index.php/Public/checkLogin';
 	var data={};
 	var callback=function(r){
 	

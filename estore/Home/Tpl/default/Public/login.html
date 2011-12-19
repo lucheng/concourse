@@ -9,9 +9,11 @@
 	<title>美丽说.com</title>
 	<link rel="stylesheet" type="text/css" href="../Public/css/global_new.css">
 	<link rel="apple-touch-icon-precomposed" href="http://stc-tx.meiliworks.com/css/images/custom_icon_precomposed.png">
+	<link rel="stylesheet" type="text/css" href="../Public/css/logon.css">	
+	<load href="__PUBLIC__/Js/jquery.js" />
+	<load href="__PUBLIC__/Js/jquery.form.js" />
 	<script type="text/javascript">var LOAD_BEGIN_TIME = (new Date()).getTime();</script>
 	<script type="text/javascript" src="../Public/js/base.js"></script>
-	<link rel="stylesheet" type="text/css" href="../Public/css/logon.css">	
 	<script type="text/javascript">
 		// 增加当前用户信息
 		Meilishuo.current_user = {
@@ -35,10 +37,7 @@
 				$('.twitter_avatar img').lazyload({ placeholder : "/css/images/loading64.gif" });
 			}
 		});
-			</script>
-		<script type="text/javascript"><!--//--><![CDATA[//><!--
-		jQuery.extend(Meilishuo.config, {"domain":{"root":"meilishuo.com","upload":"img.meilishuo.com"},"picture_url":"http:\/\/imgtest.meiliworks.com\/","is_actived":0});document.domain = Meilishuo.config.domain.root;
-	//--><!]]></script>
+		</script>
 </head>
 
 <body class="f960">
@@ -47,8 +46,6 @@
 	<div id="systemUserMsg" style="display: none; "></div>
 	<include file="Public:header" />
 	<div id="h_banner" class="container_12"><a href="http://www.meilishuo.com/users/register/aa74158f1933b65e23e61bf99d8157f5">美丽说，最具人气的时尚分享社区，623万MM的美丽地盘。跟朋友一起修炼美丽，每天分享怎样搭配，怎样化妆，哪里去买；记录我漂亮的一天，让改变发生！</a></div><!-- not logon banner -->
-			
-	
 		<div class="clear"></div>
 		<div id="main" class="container_12">
 			
@@ -61,14 +58,14 @@
 			<div class="logon_form_input_email ">
 				<div class="titleBox left">账　号：</div>
 				<div class="titleBox left">
-					<input type="text" name="USERNAME" id="username" class="logonInput" value="注册时使用的邮箱/昵称"/>
+					<input type="text" name="username" id="username" class="logonInput" value="注册时使用的邮箱/昵称"/>
 				</div>
 				<div class="clear-fix"></div>
 			</div>
 			<div class="logon_form_input_pass">
 				<div class="">
 					<div class="left titleBox">密　码：</div>
-					<div class="left"><input type="password" name="PASSWORD" id="password" class=" logonInput" value=""/></div>
+					<div class="left"><input type="password" name="password" id="password" class=" logonInput" value=""/></div>
 				</div>
 			</div>
 		    <div id="logon_form_input_auth" class="logon_form_input_auth none">
@@ -78,7 +75,7 @@
 							<input type="text" class="checkInput left" name="checkcode" id="checkcode_apply" value="" maxlength="4"/>
 							<div class="left">
 								<span id="checkCodeSpan" style="cursor: pointer;float:left;" onclick="changeCheckCode();return true;">
-									<img id="checkCodeImage" csrc="http://www.meilishuo.com//css/checkCode.php?t=1323096988" style="cursor: pointer;"/>
+									<img id="checkCodeImage" csrc="__APP__/Public/checkCode?t=1323096988" style="cursor: pointer;"/>
 								</span>
 							</div>
 							<div class="left " style="margin-top:8px;">&nbsp;&nbsp;&nbsp;&nbsp;看不清，<a href="http://www.meilishuo.com/#" class="red" onclick="changeCheckCode();return false;">换一张</a></div>

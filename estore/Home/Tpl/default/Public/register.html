@@ -37,9 +37,12 @@
 			}
 		});
 			</script>
-		<script type="text/javascript"><!--//--><![CDATA[//><!--
-		jQuery.extend(Meilishuo.config, {"domain":{"root":"meilishuo.com","upload":"img.meilishuo.com"},"picture_url":"http:\/\/imgtest.meiliworks.com\/","is_actived":0});document.domain = Meilishuo.config.domain.root;
-	//--><!]]></script>
+		<script type="text/javascript">
+			function changeCheckCode(){
+				var timenow = new Date().getTime();
+				document.getElementById('checkCodeImage').src= '__APP__/Public/checkCode/'+timenow;
+			}
+		</script>
 </head>
 
 <body class="f960">
@@ -86,7 +89,7 @@
 			<div class="reg_right left"></div>
 		</div>
 		<div class="clear"></div>
-		<form action="http://www.meilishuo.com/users/registerAction" onsubmit="return registerAction.checkRegisterForm();" method="post" id="form">
+		<form action="__APP__/User/register" onsubmit="return registerAction.checkRegisterForm();" method="post" id="form">
 
 				<div class="oneline">
 			<div class="titleBox left">电子邮箱：<span class="required">*</span></div>
@@ -139,10 +142,10 @@
 			<input type="text" class="input2 left" name="checkcode" id="checkcode" value="" maxlength="4">
 			<div class="left">
 				<span id="checkCodeSpan" style="cursor: pointer;float:left;" onclick="changeCheckCode();return true;">
-					<img id="checkCodeImage" src="../Public/control/checkCode" style="cursor: pointer;">
+					<img id="checkCodeImage" src="__APP__/Public/checkCode" style="cursor: pointer;"/>
 				</span>
 			</div>
-			<div class="left change-code">&nbsp;看不清，<a href="http://www.meilishuo.com/#" class="red" onclick="changeCheckCode();return false;">换一张</a></div>
+			<div class="left change-code">&nbsp;看不清，<a href="javascript:void(0);" class="red" onclick="changeCheckCode();return false;">换一张</a></div>
 			<div class="hints left" style="margin-left:10px;"></div>
 			<div style="clear:both"></div>
 		</div>

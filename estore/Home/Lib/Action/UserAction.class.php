@@ -1,6 +1,6 @@
 <?php
 import('Com.top.TopClient');
-class PublicAction extends Action
+class UserAction extends Action
 {
 	public function login()
     {
@@ -34,19 +34,6 @@ class PublicAction extends Action
             // 加载了 Js/Form/CheckForm.js 类库或提交了 ajax=1 隐藏表单元素
             //$this->error('用户名错误！');
         }
-	}
-	
-	function checkCode()
-	{
-		import('ORG.Util.Image');
-		if(isset($_REQUEST['adv']))
-		{
-			Image::showAdvVerify("png",30,40,"login");
-		}
-		else
-		{
-			Image::buildImageVerify();
-		}
 	}
 	
 }

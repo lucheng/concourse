@@ -2,9 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	
-	<meta name="keywords" content="美丽说,网购,购物社区,打折信息,淘宝网购物,淘宝网导购,淘宝网女装,女人街">
-	<meta name="description" content="沸腾着血拼快感的时尚购物社区。每天推荐网上最好看、最超值的衣服、鞋子、包包、配饰、化妆品、团购；提供最可靠的评论和价格比较。">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
 	<meta property="qc:admins" content="223261362165514130576375">
 	<link rel="stylesheet" type="text/css" href="../Public/css/global_new.css">
@@ -46,107 +45,6 @@
 <div id="wrapper">
 	<div id="systemUserMsg" style="display: none; "></div>
 	<include file="Public:header" />
-	<div class="container_12" style="width: 948px; ">
-	<div class="new_header">
-	<div class="header_top">
-			<ul class="menu_leo">
-			<li class="list_f" id="setting"><a class="setting cursor">韦飞霞<small>▼</small></a>
-			</li>
-			<li class="list_f"><a class="hlikeit" href="http://www.meilishuo.com/person/u/4517211/collect/pic?frm=headerlike">喜欢</a></li>
-			<li class="list_f"><a class="h_house hrelease" href="http://www.meilishuo.com/#topic?frm=headerpublish">发布</a></li>
-			<li class="list_f h_house hface"><em class="h_house hszone">&nbsp;</em><a class="red" href="http://www.meilishuo.com/person/u/4517211?frm=headerprofile">我的美丽空间</a></li>
-			<li class="list_f"><a href="http://user.qzone.qq.com/1379986183" class="qzone_like left" target="_blank"><span>49.5万</span></a></li>
-			<li class="list_f"><a class="qzone_like bgnone"><iframe width="120" height="22" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0" scrolling="no" border="0" src="../Public/images/followbutton.htm"></iframe></a></li>
-		</ul>
-	</div>
-	<div class="clear"></div>
-	<div class="header_b">
-		<span class="header_b_left"> </span>
-		<h1><a class="logo_new" href="http://www.meilishuo.com/welcome">美丽说</a></h1>
-		<ul class="nav_new f16">
-							<li>
-									<a class="home" href="http://www.meilishuo.com/">我的首页</a>
-								</li>
-				<li>
-									<a class="racks" href="http://www.meilishuo.com/goods/">逛宝贝</a>
-								</li>
-				<li>
-									<a class="group" href="http://www.meilishuo.com/group/">杂志社</a>
-									<img src="../Public/images/new.gif" style="margin-left:280px;margin-top:-7px;position: absolute; z-index: 99;">
-				</li>
-				<li>
-									<a class="group" href="http://www.meilishuo.com/goods/report">搭配秀</a>
-								</li>
-				<li>
-									<a class="banmei" href="http://www.meilishuo.com/findfs/main/recommend">达人</a>
-								</li>
-				<li>
-									<a class="FAQ" href="http://www.meilishuo.com/ask">问答</a>
-								</li>
-				<li>
-									<a class="shops" href="http://www.meilishuo.com/shop/">好店</a>
-								</li>
-				<li>
-									<a class="tuangou" href="http://www.meilishuo.com/welfare">福利社<span class="nav_new_line"> </span></a>
-				
-				</li>
-					</ul>
-		<div class="ser_n">
-							<form id="frame_header_tools_searchBox" action="http://www.meilishuo.com/search" method="get">
-					<input class="ipt1 f12 gray" name="searchKey" type="text" value="搜宝贝、用户名...">
-					<input class="ipt2" type="submit" id="fm_hd_btm_shbx_bttn" value="">
-				</form>
-<script type="text/javascript">
-
-</script>
-		</div>
-		<span class="header_b_right"> </span>
-	</div>
-</div>
-<ul class="add_menu_leo hw62 none" id="moreConnectBox">
-    <li><a href="../Public/html/profile.html" target="_blank">账号设置</a></li>
-    <li><a href="http://www.meilishuo.com/tuan/myTickets" target="_blank">我的团购</a></li>
-    <li style="border-bottom: 1px solid #fcbcd2;"><a href="http://www.meilishuo.com/findfs/invitation" target="_blank">邀请朋友</a></li>
-    <li><a href="http://www.meilishuo.com/atme/" target="_blank">@我</a></li>
-    <li style="border-bottom: 1px solid #fcbcd2;"><a href="http://www.meilishuo.com/msg/" target="_blank">私信</a></li>
-    <li><a href="../Public/control/logout">退出</a></li>
-</ul>
-<script type="text/javascript">
-//鼠标划过效果
-$(function(){
-	$('#setting').hover(function(){
-		//alert($(this).position().top);
-		$('#moreConnectBox').css({
-			'left' : $(this).offset().left + $(this).width() - $('#moreConnectBox').width() - 5 + 'px', 
-			'top' : $(this).offset().top + $(this).height() - 5 + 'px'
-			})
-		.show();
-	},function(){
-		var t = setTimeout(function(){
-			$('#moreConnectBox').hide();
-		} ,500);
-		
-		$('#moreConnectBox').mouseenter(function(){
-			clearTimeout(t);
-		}).mouseleave(function () {
-			$(this).hide();
-		});
-	});
-
-	$('#frame_header_tools_searchBox .ipt1').focus(function() {
-		if ($(this).val() == '搜宝贝、用户名...') {
-			$(this).val('');
-		}
-	})
-	.blur(function() {
-		if ($(this).val() == '') {
-			$(this).val('搜宝贝、用户名...');
-		}
-	});
-});
-</script>
-<div class="clear"></div>
-	</div>
 		<div class="clear"></div>
 		<div id="main" class="container_12">
 			
