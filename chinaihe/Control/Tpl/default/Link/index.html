@@ -1,0 +1,87 @@
+<link href="../Public/images/skin.css" rel="stylesheet" type="text/css" />
+<link href="../Public/images/main.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #EEF2FB;
+}
+-->
+</style>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="17" valign="top" background="../Public/images/mail_leftbg.gif">
+    <img src="../Public/images/left-top-right.gif" width="17" height="29" /></td>
+    <td valign="top" background="../Public/images/content-bg.gif">
+    <table width="100%" height="31" border="0" cellpadding="0" cellspacing="0" class="left_topbg" id="table2">
+      <tr>
+        <td height="31"><div class="titlebt">友情链接</div></td>
+      </tr>
+    </table>
+    </td>
+    <td width="16" valign="top" background="../Public/images/mail_rightbg.gif"><img src="../Public/images/nav-right-bg.gif" width="16" height="29" /></td>
+  </tr>
+  <tr>
+    <td valign="middle" background="../Public/images/mail_leftbg.gif">&nbsp;</td>
+    <td valign="top" bgcolor="#F7F8F9">
+    	
+    	<table width="100%" border="0">
+		  	<tbody>
+		  	<tr>
+			    <td><a href="__APP__/Link/direct"><img src="../Public/images/icon-add.gif" alt="" width="16" height="16">【添加】</a>&nbsp;
+				<a href="__APP__/Link/order">【排序】</a></td>
+			    <td align="right"><a href="#"> 【属性设置】</a></td>
+			  </tr>
+			</tbody>
+		</table>
+	    
+	    <table width="100%" border="0" align="center" cellpadding="2" cellspacing="0">
+	      <tbody>
+		      <tr>
+		        <td width="8%" class="table-list-title">编号</td>
+		        <td width="30%" class="table-list-title">网站名称</td>
+		        <td width="30%" class="table-list-title">网站简介</td>
+		        <td width="12%" class="table-list-title">浏览</td>
+		        <td colspan="4" class="table-list-title">操作</td>
+		      </tr>
+		      
+		      <volist name="list" id="link">
+			      <tr class="table-list-link" onmouseover="this.className='table-list-hover'" onmouseout="this.className='table-list-link'">
+			        <td align="center" class="table-list-style">{$link.id}</td>
+			        <td align="center" height="25" class="table-list-style">{$link.title}</td>
+			        <td align="center" height="25" class="table-list-style">{$link.intro}</td>
+			        <td align="center" class="table-list-style"><a href="{$link.url}" title="浏览该网站" target="_blank">浏览该网站</a></td>
+			        <td width="8%" align="center" class="table-list-style"><a href="__APP__/Link/direct/id/{$link.id}">编辑</a></td>
+			        <td width="10%" align="center" class="table-list-style">
+			          <a href="__APP__/Link/delete/id/{$link.id}">删除</a>	
+			        </td>
+			      </tr>
+		      </volist>
+		    </tbody>
+		    </table>
+			
+			<table width="100%" border="0">
+			  <tbody>
+			  	<tr>
+				    <td align="right">
+					 <label for="allbox" accesskey="d">{$page}</label>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+			
+	    </td>
+	    <td background="../Public/images/mail_rightbg.gif">&nbsp;</td>
+	  </tr>
+	  <tr>
+	    <td valign="bottom" background="../Public/images/mail_leftbg.gif"><img src="../Public/images/buttom_left2.gif" width="17" height="17" /></td>
+	    <td background="../Public/images/buttom_bgs.gif"><img src="../Public/images/buttom_bgs.gif" width="17" height="17"></td>
+	    <td valign="bottom" background="../Public/images/mail_rightbg.gif"><img src="../Public/images/buttom_right2.gif" width="16" height="17" /></td>
+	  </tr>
+	</table>
+</body>

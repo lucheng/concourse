@@ -1,11 +1,8 @@
+{$keshow}
 <link href="../Public/images/skin.css" rel="stylesheet" type="text/css" />
 <link href="../Public/images/main.css" rel="stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script src="../Public/js/jquery.js" type="text/javascript"></script>
-<script src="../Public/js/editor/xheditor/xheditor.js" type="text/javascript"></script>
-<script type="text/javascript">
-$('#editor_full').xheditor(true);
-</script>
 <style type="text/css">
 <!--
 body {
@@ -43,10 +40,9 @@ body {
     	<table width="100%" border="0">
 		  	<tbody>
 		  	<tr>
-			    <td><a href="/sysadm/introduce/introduce.jsp?E%80%E4%BB%8B"><img src="../Public/images/icon-add.gif" alt="" width="16" height="16">【添加】</a>&nbsp;
-				<a href="SortIntroduce.jsp?ctid=65535&amp;fname=%E5%85%AC%E5%8F%B8%E7%AE%80%E4%BB%8B&amp;cname=%E5%85%AC%E5%8F%B8%E7%AE%80%E4%BB%8B">
-				【排序】</a></td>
-			    <td align="right"><!--<a href="/sysadm/introduce/initIntroducePropertyAction.do?ctid=65535&fname=%E5%85%AC%E5%8F%B8%E7%AE%80%E4%BB%8B&cname=%E5%85%AC%E5%8F%B8%E7%AE%80%E4%BB%8B"> 【属性设置】</a> --></td>
+			    <td><a href="javascript:form1.submit();"><img src="../Public/images/icon-add.gif" alt="" width="16" height="16">【修改】</a>
+				</td>
+			    <td align="right"></td>
 			  </tr>
 			</tbody>
 		</table>
@@ -54,13 +50,20 @@ body {
 		  <tbody>
 			  <tr>
 			  	<td>内容</td>
-			    <td><textarea class="xheditor" style="width:99.5%;" id="editor_full" cols="55" rows="20" name="content"></textarea></td>
+			    <td>
+			    	<form id="form1" name="form1" method="post" action="__APP__/Introduct/update">
+					<input type="hidden" name="id" value="1">
+					<textarea name="content" id="content" cols="90" rows="20">
+					{$intro.content}
+					</textarea>
+					<input name="img" id="img" type="hidden" value="" /><!--隐藏域存储编辑器上传的图片地址，id为img-->
+					</form>
+			    </td>
 			  </tr>
-		    
 		</tbody>
 		</table>
 		
-		<table width="100%" border="0">
+		<!--<table width="100%" border="0">
 		  <tbody>
 		  	<tr>
 			    <td align="right"><input id="allbox" onclick="CheckedAll();" type="checkbox" value="Check All" name="allbox">
@@ -70,7 +73,7 @@ body {
 			</tr>
 			</tbody>
 		</table>
-		
+    -->
     </td>
     <td background="../Public/images/mail_rightbg.gif">&nbsp;</td>
   </tr>

@@ -24,77 +24,93 @@ body {
       </tr>
     </table>
     </td>
-    <td width="16" valign="top" background="../Public/images/mail_rightbg.gif"><img src="../Public/images/nav-right-bg.gif" width="16" height="29" /></td>
+    <td width="16" valign="top" background="../Public/images/mail_rightbg.gif">
+    	<img src="../Public/images/nav-right-bg.gif" width="16" height="29" />
+    </td>
   </tr>
   <tr>
     <td valign="middle" background="../Public/images/mail_leftbg.gif">&nbsp;</td>
     <td valign="top" bgcolor="#F7F8F9">
-    	
-    	<table width="100%" border="0">
-		  	<tbody>
-		  	<tr>
-			    <td><a href="/sysadm/introduce/introduce.jsp?E%80%E4%BB%8B"><img src="../Public/images/icon-add.gif" alt="" width="16" height="16">【添加】</a>&nbsp;
-				<a href="SortIntroduce.jsp?ctid=65535&amp;fname=%E5%85%AC%E5%8F%B8%E7%AE%80%E4%BB%8B&amp;cname=%E5%85%AC%E5%8F%B8%E7%AE%80%E4%BB%8B">
-				【排序】</a></td>
-			    <td align="right"><!--<a href="/sysadm/introduce/initIntroducePropertyAction.do?ctid=65535&fname=%E5%85%AC%E5%8F%B8%E7%AE%80%E4%BB%8B&cname=%E5%85%AC%E5%8F%B8%E7%AE%80%E4%BB%8B"> 【属性设置】</a> --></td>
-			  </tr>
-			</tbody>
-		</table>
-	    
-	    <table width="100%" border="0" align="center" cellpadding="2" cellspacing="0">
-	      <tbody>
-		      <tr>
-		        <td width="8%" class="table-list-title">编号</td>
-		        <td width="30%" class="table-list-title">类别名称</td>
-		        <td width="12%" class="table-list-title">浏览</td>
-		        <td width="13%" class="table-list-title">是否锁定</td>
-		        <td colspan="4" class="table-list-title">操作</td>
-		      </tr>
-		      
-		      
-		      <volist name="list" id="parent">
-			      <tr class="table-list-link" onmouseover="this.className='table-list-hover'" onmouseout="this.className='table-list-link'">
-			        <td align="center" class="table-list-style">{$parent.id}</td>
-			        <td height="25" class="table-list-style">{$parent.title}</td>
-			        <td align="center" class="table-list-style"><a href="ManageProducts.jsp?typeid=203043&amp;ctid=65535" title="浏览该类别下的产品">浏览</a></td>
-			        <td align="center" class="table-list-style">未锁定</td>
-			        <td width="8%" align="center" class="table-list-style"><a href="initProductsTypeAction.do?typeid=203043&amp;ctid=65535">编辑</a></td>
-			        <td width="9%" align="center" class="table-list-style"><a href="Products.jsp?typeid=203043&amp;ctid=65535" title="该类别下添加产品">添加产品</a></td>
-			        <td width="10%" align="center" class="table-list-style">
-			          <a onclick="return DeleteOrNot();" href="/sysadm/products/delProductsTypeAction.do?typeid=203043">删除</a>	  </td>
-					   <td width="20%" align="center" class="table-list-style"><a href="javascript:clickTitle(65535,203043,'o')">批量上传</a></td>
-			      </tr>
-		      	  <volist name="parent['children']" id="child">
-		      	  	<tr class="table-list-link" onmouseover="this.className='table-list-hover'" onmouseout="this.className='table-list-link'">
-				        <td align="center" class="table-list-style">{$child.id}</td>
-				        <td height="25" class="table-list-style">
-				        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|----【{$child.title}】    </td>
-				        <td align="center" class="table-list-style"><a href="ManageProducts.jsp?typeid=203059&amp;ctid=65535" title="浏览该类别下的产品">浏览</a></td>
-				        <td align="center" class="table-list-style">未锁定</td>
-				        <td width="8%" align="center" class="table-list-style"><a href="initProductsTypeAction.do?typeid=203059&amp;ctid=65535">编辑</a></td>
-				        <td width="9%" align="center" class="table-list-style"><a href="Products.jsp?typeid=203059&amp;ctid=65535" title="该类别下添加产品">添加产品</a></td>
-				        <td width="10%" align="center" class="table-list-style">
-				          <a onclick="return DeleteOrNot();" href="/sysadm/products/delProductsTypeAction.do?typeid=203059">删除</a>	  </td>
-						   <td width="20%" align="center" class="table-list-style"><a href="javascript:clickTitle(65535,203059,'o')">批量上传</a></td>
-			      	</tr>
-		      	  </volist>
-		      </volist>
-		    </tbody>
-		    </table>
-			
-			<table width="100%" border="0">
-			  <tbody>
-			  	<tr>
-				    <td align="right">
-					 <label for="allbox" accesskey="d">{$page}</label>
-					</td>
-				</tr>
-				</tbody>
-			</table>
-			
-	    </td>
-	    <td background="../Public/images/mail_rightbg.gif">&nbsp;</td>
+    <br>	
+	<!--<table width="100%" border="0">
+		<tbody>
+		<tr>
+		    <td width="46%" class="title2">【网站设置】</td>
+		    <td width="54%"><font color="red"></font></td>
+		  </tr>
+		</tbody>
+	</table>
+	-->
+	<form name="defaultMailActionForm" method="post" action="__APP__/Settings/update">
+	  <table width="100%" border="0" cellpadding="2" cellspacing="0">
+		<tbody>
+		<tr>
+	      <td width="23%" align="right" class="table-list-title" 　class="table-list-title">网站名称</td>
+	      <td width="77%" class="table-list-style"><input type="text" name="sitename" size="48" value="{$sitename}"></td>
+	    </tr>
+	    <tr>
+	      <td width="23%" align="right" class="table-list-title" 　class="table-list-title">网站网址</td>
+	      <td width="77%" class="table-list-style"><input type="text" name="siteurl" size="48" value="{$siteurl}"></td>
+	    </tr>
+		<tr>
+	      <td width="23%" align="right" class="table-list-title" 　class="table-list-title">标题附加字</td>
+	      <td width="77%" class="table-list-style"><input type="text" name="seotitle" size="48" value="{$seotitle}"></td>
+	    </tr>
+	    <tr>
+	      <td width="23%" align="right" class="table-list-title" class="table-list-title">网站关键字</td>
+	      <td width="77%" class="table-list-style"><textarea name="seokeywords" cols="48" rows="5" class="area">{$seokeywords}</textarea>
+	      </td>
+	      
+	    </tr>
+	  
+	    <tr>
+	      <td align="right" class="table-list-title">网站描述</td>
+	      <td class="table-list-style">
+	      <textarea name="seodescription" cols="48" rows="5" class="area">{$seodescription}</textarea>
+		 </td>
+	    </tr>
+	    <tr>
+	      <td align="right" class="table-list-title">版权所有</td>
+	      <td class="table-list-style"><input type="text" name="copyright" size="48" value="{$copyright}">
+		 &nbsp;</td>
+	    </tr>
+	    <tr>
+	      <td align="right" class="table-list-title">备案号</td>
+	      <td class="table-list-style"><input type="text" name="beian" size="48" value="{$beian}">
+		 &nbsp;</td>
+	    </tr>
+		<!--<tr>
+	      <td align="right" class="table-list-title">网站状态</td>
+	      <td class="table-list-style">
+		  <input type="radio" name="isuse" value="0">暂时关闭
+		  <input type="radio" name="isuse" value="1" checked="checked">正常运行
+		  </td>
+	    </tr>
+		-->
+	    <tr>
+	      <td colspan="2" align="center" class="table-list-title">
+		  <input type="submit" value="保  存">&nbsp;&nbsp;&nbsp;&nbsp;
+		  <input type="reset" value="重  置">
+		  </td>
+	    </tr>
+	  </tbody>
+	  </table>
+	<span class="STYLE1">
+	<br>
+	</span>
+	</form>
+	</td>
+	<td background="../Public/images/mail_rightbg.gif">&nbsp;</td>
 	  </tr>
+	  
+	  <tr>
+    <td valign="middle" background="../Public/images/mail_leftbg.gif">&nbsp;</td>
+    <td valign="top" bgcolor="#F7F8F9">
+    	
+	</td>
+	<td background="../Public/images/mail_rightbg.gif">&nbsp;</td>
+	</tr>
+	  
 	  <tr>
 	    <td valign="bottom" background="../Public/images/mail_leftbg.gif"><img src="../Public/images/buttom_left2.gif" width="17" height="17" /></td>
 	    <td background="../Public/images/buttom_bgs.gif"><img src="../Public/images/buttom_bgs.gif" width="17" height="17"></td>
