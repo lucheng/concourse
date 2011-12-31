@@ -5,3 +5,4 @@ return array(
 	'author'	=> '林哲',
 	'site'		=> 'http://www.hooome.com',
 )
+?>
