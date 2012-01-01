@@ -1,3 +1,3 @@
 <?php
-return '<a href=\\"http://www.thinksaas.cn/index.php/group/topic/topicid-92\\">意见反馈</a>';
-?>
+defined('IN_TS') or die('Access Denied.');
+return '<a href=\\"http://www.hooome.com/index.php/group/group/groupid-1\\">意见反馈</a>';
