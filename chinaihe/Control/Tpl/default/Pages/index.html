@@ -20,7 +20,7 @@ body {
     <td valign="top" background="../Public/images/content-bg.gif">
     <table width="100%" height="31" border="0" cellpadding="0" cellspacing="0" class="left_topbg" id="table2">
       <tr>
-        <td height="31"><div class="titlebt">文章分类</div></td>
+        <td height="31"><div class="titlebt">单页管理</div></td>
       </tr>
     </table>
     </td>
@@ -33,7 +33,7 @@ body {
     	<table width="100%" border="0">
 		  	<tbody>
 		  	<tr>
-			    <td><a href="__APP__/Category/direct"><img src="../Public/images/icon-add.gif" alt="" width="16" height="16">【添加】</a>&nbsp;
+			    <td><a href="__APP__/Pages/direct"><img src="../Public/images/icon-add.gif" alt="" width="16" height="16">【添加】</a>&nbsp;
 				<a href="SortIntroduce.jsp?ctid=65535&amp;fname=%E5%85%AC%E5%8F%B8%E7%AE%80%E4%BB%8B&amp;cname=%E5%85%AC%E5%8F%B8%E7%AE%80%E4%BB%8B">
 				【排序】</a></td>
 			    <td align="right"><!--<a href="/sysadm/introduce/initIntroducePropertyAction.do?ctid=65535&fname=%E5%85%AC%E5%8F%B8%E7%AE%80%E4%BB%8B&cname=%E5%85%AC%E5%8F%B8%E7%AE%80%E4%BB%8B"> 【属性设置】</a> --></td>
@@ -52,32 +52,19 @@ body {
 		      </tr>
 		      
 		      
-		      <volist name="list" id="parent">
-			      <tr class="table-list-link" onmouseover="this.className='table-list-hover'" onmouseout="this.className='table-list-link'">
-			        <td align="center" class="table-list-style">{$parent.id}</td>
-			        <td height="25" class="table-list-style">{$parent.title}</td>
-			        <td align="center" class="table-list-style"><a href="__APP__/Category/article/cid/{$parent.id}" title="浏览该类别下的文章">浏览</a></td>
+		      <volist name="list" id="vo">
+			     <tr class="table-list-link" onmouseover="this.className='table-list-hover'" onmouseout="this.className='table-list-link'">
+			        <td align="center" class="table-list-style">{$vo.id}</td>
+			        <td height="25" class="table-list-style" align="center">{$vo.title}</td>
+			        <td align="center" class="table-list-style"><a href="__APP__/Category/article/cid/{$vo.id}" title="浏览该类别下的文章">浏览</a></td>
 			        <td align="center" class="table-list-style">未锁定</td>
-			        <td width="8%" align="center" class="table-list-style"><a href="__APP__/Category/direct/id/{$parent.id}">编辑</a></td>
-			        <td width="9%" align="center" class="table-list-style"><a href="Products.jsp?typeid=203043&amp;ctid=65535" title="该类别下添加产品">添加文章</a></td>
-			        <td width="10%" align="center" class="table-list-style">
-			          <a href="__APP__/Category/delete/id/{$parent.id}">删除</a></td>
-					   <td width="20%" align="center" class="table-list-style"><a href="javascript:clickTitle(65535,203043,'o')">批量上传</a></td>
-			      </tr>
-		      	  <volist name="parent['children']" id="child">
-		      	  	<tr class="table-list-link" onmouseover="this.className='table-list-hover'" onmouseout="this.className='table-list-link'">
-				        <td align="center" class="table-list-style">{$child.id}</td>
-				        <td height="25" class="table-list-style">
-				        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|----【{$child.title}】</td>
-				        <td align="center" class="table-list-style"><a href="__APP__/Category/article/id/{$child.id}" title="浏览该类别下的产品">浏览</a></td>
-				        <td align="center" class="table-list-style">未锁定</td>
-				        <td width="8%" align="center" class="table-list-style"><a href="__APP__/Category/direct/id/{$child.id}">编辑</a></td>
-				        <td width="9%" align="center" class="table-list-style"><a href="Products.jsp?typeid=203059&amp;ctid=65535" title="该类别下添加产品">添加文章</a></td>
-				        <td width="10%" align="center" class="table-list-style">
-				          <a href="__APP__/Category/delete/id/{$child.id}">删除</a>	</td>
-						   <td width="20%" align="center" class="table-list-style"><a href="javascript:clickTitle(65535,203059,'o')">批量上传</a></td>
-			      	</tr>
-		      	  </volist>
+			        <td width="8%" align="center" class="table-list-style"><a href="__APP__/Pages/direct/id/{$vo.id}">编辑</a></td>
+			        <!--
+			        	<td width="9%" align="center" class="table-list-style"><a href="Products.jsp?typeid=203043&amp;ctid=65535" title="该类别下添加产品">添加文章</a></td>
+			        -->
+			        <td width="10%" align="center" class="table-list-style"><a href="__APP__/Pages/delete/id/{$vo.id}">删除</a></td>
+					   <!--<td width="20%" align="center" class="table-list-style"><a href="javascript:clickTitle(65535,203043,'o')">批量上传</a></td>-->
+				</tr>
 		      </volist>
 		    </tbody>
 		    </table>

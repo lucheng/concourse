@@ -3,7 +3,7 @@
 if (!defined('THINK_PATH')) exit();
 return array(
 	'SITENAME'=>'中国名牌研究网',
-	'SITEURL'=>'http://www.chinaihe.net',
+	'SITEURL'=>'http://localhost/chinaihe',
 	'STOPD'=>'系统维护中.....',
 	'STATUS'=>1, 
 	'DB_FIELDS_CACHE'=>false, 
@@ -38,6 +38,6 @@ return array(
 	'COPYRIGHT'=>'chinaihe.net',
 	'BEIAN'=>'京ICP10000号',
 	'USERID'=>'',
-	'__HASH__'=>'05befcaab6b6ded22a1eddfc65173123',
+	'__HASH__'=>'c8a5cd5df339e31a0680628834fbdf60',
 );
 ?>
