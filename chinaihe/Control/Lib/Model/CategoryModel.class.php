@@ -10,6 +10,6 @@ class CategoryModel extends RelationModel
 			'foreign_key'	=>	'parent_id',
 		),
 	);
-
+ 
 }
 ?>
