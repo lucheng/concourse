@@ -4,7 +4,7 @@ var lilist=myul.childNodes;
 var alertstr="";
 for(var str in lilist){
 	if(lilist[str].id=="menu"+value){
-		lilist[str].style.background="url(../Public/images/index/bg.jpg) repeat-x";
+		lilist[str].style.background="url(../images/index/bg.jpg) repeat-x";
 	}
 	if(lilist[str].nodeName=="LI" && lilist[str].id!="menu"+value){
 		if(lilist[str].addEventListener){
@@ -25,8 +25,8 @@ function mover(event){
 		target=target.parentNode;
 	}
 	if(event.type=="mouseover"){
-		target.style.background="url(../Public/images/index/bg.jpg) repeat-x";
+		target.style.background="url(../images/index/bg.jpg) repeat-x";
 	}else{
-		target.style.background="url(../Public/images/index/2.jpg) repeat-y";
+		target.style.background="url(../images/index/2.jpg) repeat-y";
 	}
 }

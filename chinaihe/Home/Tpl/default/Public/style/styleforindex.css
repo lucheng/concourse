@@ -34,6 +34,18 @@ body{
 	padding-left:8px;
 	padding-right: 8px;
 	padding-top:2px;
+	width:54px;
+	display:block;
+}
+#context ul li a{
+	height:25px;
+	float:left;
+	display:block;
+	width:54px;
+	top:-2px;
+}
+#context ul li a:hover{
+	background-image:url(../images/index/bg.jpg);
 }
 #cont{
 	width:100%;
@@ -119,3 +131,8 @@ body{
 	width:345px;
 	height:255px;
 }
+/*menu*/
+#myul ul li{
+	width:80px;
+	
+} 
