@@ -156,7 +156,10 @@ H1 a {
           <li><a href="__APP__/Link/index" target="main">友情链接</a></li>
         </ul>
       </div>
-      <h1 class="type"><a href="javascript:void(0)">栏目分类管理</a></h1>
+      <h1 class="type"><a href="__APP__/Pages/index" target="main">单页管理</a></h1>
+      <!--
+      <h1 class="type"><a href="javascript:void(0);">单页管理</a></h1>
+      -->
       <div class="content">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
@@ -164,16 +167,18 @@ H1 a {
           </tr>
         </table>
         <ul class="MM">
-          <li><a href="__APP__/Category/index" target="main">文章分类</a></li>
-          <li><a href="__APP__/Pages/index" target="main">单面管理</a></li>
-          <li><a href="__APP__/Introduct/index" target="main">中心介绍</a></li>
-          <li><a href="http://www.865171.cn" target="main">前沿观点</a></li>
+        	<volist name="pages" id="vo">
+	          <li><a href="__APP__/Pages/direct/id/{$vo.id}" target="main">{$vo.title}</a></li>
+        	</volist>
+          <!--
+          <li><a href="__APP__/Category/article/id/1" target="main">前沿观点</a></li>
           <li><a href="http://www.865171.cn" target="main">学术研究</a></li>
           <li><a href="http://www.865171.cn" target="main">成功案例</a></li>
           <li><a href="http://www.865171.cn" target="main">要闻记事</a></li>
+        -->
         </ul>
       </div>
-      <h1 class="type"><a href="javascript:void(0)">栏目内容管理</a></h1>
+      <h1 class="type"><a href="__APP__/Category/index" target="main">栏目管理</a></h1>
       <div class="content">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
@@ -181,18 +186,9 @@ H1 a {
           </tr>
         </table>
         <ul class="MM">
-		  <li><a href="http://www.865171.cn" target="main">信息管理</a></li>
-          <li><a href="http://www.865171.cn" target="main">张贴管理</a></li>
-          <li><a href="http://www.865171.cn" target="main">增加商家</a></li>
-          <li><a href="http://www.865171.cn" target="main">管理商家</a></li>
-          <li><a href="http://www.865171.cn" target="main">发布资讯</a></li>
-          <li><a href="http://www.865171.cn" target="main">资讯管理</a></li>
-          <li><a href="http://www.865171.cn" target="main">市场联盟</a></li>
-          <li><a href="http://www.865171.cn" target="main">名片管理</a></li>
-          <li><a href="http://www.865171.cn" target="main">商城管理</a></li>
-          <li><a href="http://www.865171.cn" target="main">商品管理</a></li>
-          <li><a href="http://www.865171.cn" target="main">商城留言</a></li>
-          <li><a href="http://www.865171.cn" target="main">商城公告</a></li>
+        	<volist name="categories" id="vo">
+				<li><a href="__APP__/Article/index/id/{$vo.id}" target="main">{$vo.title}</a></li>
+        	</volist>
         </ul>
       </div>
       <h1 class="type"><a href="javascript:void(0)">反馈管理</a></h1>

@@ -77,9 +77,9 @@
 		
      	public function article(){
      		
-     		$category = $_GET['cid'];
-     		$Product = D("Product");
-			$list = $Product->order('displayorder asc')->where('category_id='.$category)->findAll();
+     		$id = $_GET['id'];
+     		$Category = D("Category");
+			$list = $Category->order('displayorder asc')->where('category_id='.$category)->findAll();
 			$this->assign('list',$list);
 			dump($list);
 			$this->display();

@@ -9,6 +9,15 @@
      		$this->display();
      	}
      	
+     	public function left() {
+     		
+			$this->assign('pages', M("Pages")->order('id')->select()); // 赋值分页输出
+			
+			$this->assign('categories', M("Category")->order('id')->select()); // 赋值分页输出
+			
+			$this->display();
+			
+     	}
      	public function main(){
      		$this->display();
      	}

@@ -1,12 +1,7 @@
 <?php
-class PagesAction extends Action {
+class PagesAction extends BaseAction {
      	
 	public function index(){
-		
-//		foreach($_SERVER as $asd =>$values) 
-//		{ 
-//		echo("\$_SERVER[\"$asd\"]=".$values."</p>"); 
-//		} 
 		
 		$Pages = M("Pages"); // 实例化User对象
 		import("ORG.Util.Page"); // 导入分页类
