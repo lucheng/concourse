@@ -25,7 +25,7 @@ public class WieShell{
 		while (!sShell.isDisposed()) {
 			if (!display.readAndDispatch())
 				display.sleep();
-		}		
+		}
 		display.dispose();
 	}
 
