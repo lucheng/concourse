@@ -33,7 +33,7 @@ body {
     	<table width="100%" border="0">
 		  	<tbody>
 		  	<tr>
-			    <td><a href="__APP__/Pages/direct"><img src="../Public/images/icon-add.gif" alt="" width="16" height="16">【添加】</a>&nbsp;
+			    <td><a href="__APP__/Pages/direct"><img src="../Public/images/icon-add.gif" alt="" width="16" height="16">【添加单页】</a>&nbsp;
 				<a href="SortIntroduce.jsp?ctid=65535&amp;fname=%E5%85%AC%E5%8F%B8%E7%AE%80%E4%BB%8B&amp;cname=%E5%85%AC%E5%8F%B8%E7%AE%80%E4%BB%8B">
 				【排序】</a></td>
 			    <td align="right"><!--<a href="/sysadm/introduce/initIntroducePropertyAction.do?ctid=65535&fname=%E5%85%AC%E5%8F%B8%E7%AE%80%E4%BB%8B&cname=%E5%85%AC%E5%8F%B8%E7%AE%80%E4%BB%8B"> 【属性设置】</a> --></td>
@@ -46,18 +46,14 @@ body {
 		      <tr>
 		        <td width="8%" class="table-list-title">编号</td>
 		        <td width="30%" class="table-list-title">类别名称</td>
-		        <td width="12%" class="table-list-title">浏览</td>
-		        <td width="13%" class="table-list-title">是否锁定</td>
 		        <td colspan="4" class="table-list-title">操作</td>
 		      </tr>
 		      
 		      
 		      <volist name="list" id="vo">
-			     <tr class="table-list-link" onmouseover="this.className='table-list-hover'" onmouseout="this.className='table-list-link'">
+			     <tr class="table-list-link" onmouseover="this.className='ta ble-list-hover'" onmouseout="this.className='table-list-link'">
 			        <td align="center" class="table-list-style">{$vo.id}</td>
 			        <td height="25" class="table-list-style" align="center">{$vo.title}</td>
-			        <td align="center" class="table-list-style"><a href="__APP__/Category/article/cid/{$vo.id}" title="浏览该类别下的文章">浏览</a></td>
-			        <td align="center" class="table-list-style">未锁定</td>
 			        <td width="8%" align="center" class="table-list-style"><a href="__APP__/Pages/direct/id/{$vo.id}">编辑</a></td>
 			        <!--
 			        	<td width="9%" align="center" class="table-list-style"><a href="Products.jsp?typeid=203043&amp;ctid=65535" title="该类别下添加产品">添加文章</a></td>

@@ -1,14 +1,16 @@
 <div id="cont">
-                <ul id="myul">
-                    <li><a href="index.html" target="_self">首&nbsp;页</a></li>
-                    <li><a href="expert.html" target="_self">专家寄语</a></li>
-                    <li><a href="introduction.html" target="_self">中心介绍</a></li>
-                    <li><a href="view.html" target="_self">前沿观点</a></li>
-                    <li><a href="study.html" target="_self">学术研究</a></li>
-                    <li><a href="case.html" target="_self">成功案例</a></li>
-                    <li><a href="news.html" target="_self">要闻事记</a></li>
-                    <li><a href="connectus.html" target="_self">联系我们</a></li>
-                    <li><a href="message.html" target="_self">在线留言</a></li>
-                    <li></li>
-                </ul> 
-            </div>
+    <ul id="myul">
+        <li><a href="index.html" target="_self">首&nbsp;页</a></li>
+        <li><a href="expert.html" target="_self">专家寄语</a></li>
+        <li><a href="introduction.html" target="_self">中心介绍</a></li>
+        <volist name="category" id="vo">
+        	<li><a href="view.html" target="_self">{$vo.title}</a></li>
+        </volist>
+        <!--<li><a href="study.html" target="_self">学术研究</a></li>
+        <li><a href="case.html" target="_self">成功案例</a></li>
+        <li><a href="news.html" target="_self">要闻事记</a></li>
+        -->
+        <li><a href="connectus.html" target="_self">联系我们</a></li>
+        <li><a href="__APP__/Feedback/index" target="_self">在线留言</a></li>
+    </ul> 
+</div>

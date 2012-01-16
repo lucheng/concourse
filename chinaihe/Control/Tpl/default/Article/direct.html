@@ -2,7 +2,6 @@
 <link href="../Public/images/skin.css" rel="stylesheet" type="text/css" />
 <link href="../Public/images/main.css" rel="stylesheet" type="text/css" />
 {$keshow}
-{$keshow2}
 <style type="text/css">
 <!--
 body {
@@ -34,23 +33,23 @@ body {
     <td valign="middle" background="../Public/images/mail_leftbg.gif">&nbsp;</td>
     <td valign="top" bgcolor="#F7F8F9">
     <br>	
-	<form name="form1" id="form1" method="post" action="__APP__/Pages/option">
-	  <input type="hidden" name="id" value="{$page.id}"/>	
+	<form name="form1" id="form1" method="post" action="__APP__/Article/option">
+	  <input type="hidden" name="category_id" value="{$cid}"/>
+	  <input type="hidden" name="id" value="{$id}"/>
+	  
 	  <table width="100%" border="0" cellpadding="2" cellspacing="0">
 		<tbody>
 	    <tr>
-	      <td align="right" class="table-list-title">网页名称</td>
-	      <td class="table-list-style"><input type="text" name="title" size="90" value="{$page.title}">
+	      <td align="right" class="table-list-title">标题</td>
+	      <td class="table-list-style"><input type="text" name="title" size="90" value="{$article.title}">
 		 &nbsp;</td>
 	    </tr>
 	    <tr>
-	      <td align="right" class="table-list-title">网页关键字</td>
-	      <td class="table-list-style"><input type="text" name="intro" size="90" value="{$page.seokeywords}">
+	      <td align="right" class="table-list-title">中英版本</td>
+	      <td class="table-list-style">
+	      	<input type="radio" name="isenglish" size="90" value="{$article.isenglish}">中文版本
+	      	<input type="radio" name="isenglish" size="90" value="{$article.isenglish}">英文版本
 		 &nbsp;</td>
-	    </tr>
-	    <tr>
-	      <td width="23%" align="right" class="table-list-title" class="table-list-title">网页描述</td>
-	      <td width="77%" class="table-list-style"><input type="text" name="url" size="90" value="{$page.seodescription}"></td>
 	    </tr>
 	    <tr>
 	      <td width="23%" align="right" class="table-list-title" class="table-list-title">排序</td>
@@ -63,12 +62,7 @@ body {
 	      <input name="img" id="img" type="hidden" value="" />
 		 </td>
 	    </tr>
-	    <tr>
-	      <td align="right" class="table-list-title">英文版本</td>
-	      <td class="table-list-style">
-	      <textarea name="english" id="content2" cols="90" rows="25" class="area">{$page.english}</textarea>
-		 </td>
-	    </tr>
+	   
 	    <tr>
 	      <td colspan="2" align="center" class="table-list-title">
 			  <input type="submit" value="保  存">&nbsp;&nbsp;&nbsp;&nbsp;

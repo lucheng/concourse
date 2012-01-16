@@ -1,5 +1,5 @@
 <?php
-class ArticleAction extends Action
+class ArticleAction extends BaseAction
 {
     public function view()
     {

@@ -13,10 +13,12 @@ class ArticleAction extends Action{
 		// 进行分页数据查询注意limit方法的参数要使用Page类的属性
 		$condition = new stdClass(); 
 		$condition->category_id = $category_id;  // 查询name的值为thinkphp的记录
-		
 		$list = $Article->where($condition)->order('id')->limit($Page->firstRow.','.$Page->listRows)->select();
+		
 		$this->assign('list',$list); // 赋值数据集
 		$this->assign('page',$show); // 赋值分页输出
+		
+		$this->assign('cid', $category_id); // 赋值数据集
 		
 		$this->display();
 	}
@@ -24,16 +26,34 @@ class ArticleAction extends Action{
 	public function direct(){
 		
 		$id = $_GET["id"];
+		$cid = $_GET["cid"];
 		if($id){
-			$this->assign("link", D("Link")->find($id));
+			$this->assign("article", D("Article")->find($id));
 		}
+		$this->assign('cid', $cid); // 赋值数据集
+		
+		import("ORG.Net.Keditor");
+		$ke=new Keditor();
+//		$ke->items="little";//定义工具栏项目，little表示精简。
+		
+    	$ke->id="content";//指定textarea的id
+    	$ke->fileManagerJson=__APP__."/Keditor/filemanager";//浏览过程
+        $ke->imageUploadJson=__APP__."/Keditor/upload";//上传过程
+		$ke->allowFileManager=true;//允许浏览服务器图片，注意，为true或false的属性值，不要使用引号
+    	$ke->imgid="img";//
+//    	$ke->upload(__ROOT__.'/Public/Upload/', 'http://localhost/chinaihe/Public/Upload/',array('gif', 'jpg', 'jpeg', 'png', 'bmp'),1000000);
+    	$ke->jspath=__ROOT__."/Public/editor/kindeditor.js";
+    	
+    	$keshow=$ke->show();//生成js代码
+    	$this->assign("keshow",$keshow);
+		
 		$this->display();
 		
 	}
 	
 	public function option()
 	{
-		$Link = D("Link");
+		$Link = D("Article");
 		$id = $_POST["id"];
 //		dump($id);
 		if($id){

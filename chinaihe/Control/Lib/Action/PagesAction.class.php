@@ -23,6 +23,7 @@ class PagesAction extends BaseAction {
 		if($id){
 			$this->assign("page", D("Pages")->find($id));
 		}
+		
 		import("ORG.Net.Keditor");
 		$ke=new Keditor();
 //		$ke->items="little";//定义工具栏项目，little表示精简。

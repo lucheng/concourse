@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 body{
-	margin-left:0px;
+	margin:auto;
 	margin-top:0px;
 	text-align:center;
 	font-family: "微软雅黑", "黑体", "宋体";
@@ -19,6 +19,8 @@ body{
 	background-image: url(../images/index/3.jpg);
 	background-repeat: repeat-x;
 	overflow: hidden;
+	width:1038px;
+	float:left;
 }
 #context {
 	height: 176px;
@@ -31,35 +33,40 @@ body{
 	float: left;
 	background-image:url(../images/index/2.jpg);
 	background-repeat:repeat-y;
-	padding-left:8px;
-	padding-right: 8px;
-	padding-top:2px;
-	width:54px;
+	text-align:center;
+	margin-top:2px;
+	width:70px;
 	display:block;
+	position:relative;
 }
 #context ul li a{
-	height:25px;
-	float:left;
+	height:24px;
 	display:block;
-	width:54px;
+	width:70px;
+	padding-top:2px;
+	position:absolute;
 	top:-2px;
+	left:0px;
 }
 #context ul li a:hover{
 	background-image:url(../images/index/bg.jpg);
 }
 #cont{
-	width:100%;
+	width:1038px;
 	height:26px;
 	margin-bottom:0px;
 	overflow:hidden;
 	font-size: smaller;
+	float:left;
 }
 #context ul{
 	z-index:1;
+	width:900px;
 	list-style-type: none;
-	margin-left:48px;
 	position: relative;
 	margin-top:0px;
+	padding-left:90px;
+	float:left;
 }
 #context a{
 	text-decoration: none;

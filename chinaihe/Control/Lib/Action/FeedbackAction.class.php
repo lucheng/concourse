@@ -3,28 +3,31 @@ class FeedbackAction extends Action
 {
 	public function index()
 	{
+		$reply = $_GET["reply"];
 		$Feedback=D("Feedback");
-		$keyword=$_POST['keyword'];
-		$keywords=$_REQUEST['keywords'];
-		$uid=intval($_REQUEST['uid']);
-		if($keyword){
-			$data['content']=array('like','%'.$keyword.'%');
-		}elseif ($keywords) {
-			$data['content']=array('like','%'.safe_b64decode($keywords).'%');	
+		
+		import("ORG.Util.Page"); // 导入分页类
+		$count = $Feedback->count(); // 查询满足要求的总记录数
+		$Page = new Page($count,10); // 实例化分页类传入总记录数和每页显示的记录数
+		$show = $Page->show(); // 分页显示输出
+		// 进行分页数据查询注意limit方法的参数要使用Page类的属性
+		$condition = new stdClass(); 
+		$condition->reply = $reply;  // 查询name的值为thinkphp的记录
+		if($reply){
+			$list = $Feedback->where($condition)->order('id')->limit($Page->firstRow.','.$Page->listRows)->select();
+		}else {
+			$list = $Feedback->order('id')->limit($Page->firstRow.','.$Page->listRows)->select();
 		}
-		$count=$Feedback->count($data);
-		import("ORG.Util.Page");
-		$listRows=15;
-		$p=new page($count,$listRows);
-		$list=$Feedback->findAll($data,'*','id desc',$p->firstRow.','.$p->listRows);
-		if ($keyword) $p->parameter='keywords='.safe_b64encode($keyword);
-		$page  = $p->show();
-		if($list!==false){
-			$this->assign('page',$page);
-			$this->assign('list',$list);
-			$this->assign('allowbat',$this->allowbat);
-		}
+		
+		$this->assign('list',$list); // 赋值数据集
+		$this->assign('page',$show); // 赋值分页输出
+		
+		$this->assign('reply', $reply); // 赋值数据集
+		
 		$this->display();
+		
+		
+		
 	}
 	
 	public function add(){

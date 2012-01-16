@@ -1,5 +1,5 @@
 <?php
-class PagesAction extends Action
+class PagesAction extends BaseAction
 {
     public function expert()
     {

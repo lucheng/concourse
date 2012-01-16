@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2012 年 01 月 14 日 13:45
+-- 生成日期: 2012 年 01 月 16 日 15:02
 -- 服务器版本: 5.5.8
 -- PHP 版本: 5.3.5
 
@@ -55,29 +55,29 @@ CREATE TABLE IF NOT EXISTS `t_article` (
   `category_id` int(11) NOT NULL DEFAULT '0',
   `title` varchar(255) NOT NULL,
   `postdate` int(11) NOT NULL DEFAULT '0',
-  `yeard` char(4) NOT NULL DEFAULT '0',
-  `monthd` char(2) NOT NULL DEFAULT '0',
   `hits` int(11) NOT NULL DEFAULT '0',
   `ischecked` tinyint(4) NOT NULL DEFAULT '1',
   `istop` tinyint(4) NOT NULL DEFAULT '0',
   `ispic` tinyint(1) NOT NULL DEFAULT '0',
   `isgood` tinyint(1) NOT NULL DEFAULT '0',
-  `link` varchar(100) NOT NULL,
+  `isenglish` int(11) NOT NULL,
   `message` text NOT NULL,
   `content` mediumtext NOT NULL,
   `attachment` varchar(50) NOT NULL,
   `attachpath` varchar(50) NOT NULL,
   `attachthumb` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- 转存表中的数据 `t_article`
 --
 
-INSERT INTO `t_article` (`id`, `category_id`, `title`, `postdate`, `yeard`, `monthd`, `hits`, `ischecked`, `istop`, `ispic`, `isgood`, `link`, `message`, `content`, `attachment`, `attachpath`, `attachthumb`) VALUES
-(1, 1, '【凡客诚品 全场95折】【V+代理下单】', 1317614375, '0', '0', 3, 1, 0, 0, 0, '', '【凡客诚品 全场95折】【V+代理下单】', '<p>&nbsp;【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】</p>', '', '', ''),
-(2, 1, 'sda', 1318487296, '0', '0', 0, 1, 0, 0, 0, '', 'sasa', '<p>&nbsp;<img width="2337" height="1700" alt="" src="/huanshang/Attachments/201110/20111013_062738_137.jpg" /></p>', '', '', '');
+INSERT INTO `t_article` (`id`, `category_id`, `title`, `postdate`, `hits`, `ischecked`, `istop`, `ispic`, `isgood`, `isenglish`, `message`, `content`, `attachment`, `attachpath`, `attachthumb`) VALUES
+(1, 1, '【凡客诚品 全场95折】【V+代理下单】', 1317614375, 3, 1, 0, 0, 0, 0, '【凡客诚品 全场95折】【V+代理下单】', '<p>&nbsp;【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】【凡客诚品 全场95折】【V+代理下单】</p>', '', '', ''),
+(2, 1, 'sda', 1318487296, 0, 1, 0, 0, 0, 0, 'sasa', '<p>&nbsp;<img width="2337" height="1700" alt="" src="/huanshang/Attachments/201110/20111013_062738_137.jpg" /></p>', '', '', ''),
+(3, 1, 'jjjf', 1326599828, 0, 1, 0, 0, 0, 0, '', '', '', '', ''),
+(4, 2, 'eee', 1326599853, 0, 1, 0, 0, 0, 0, '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -88,37 +88,23 @@ INSERT INTO `t_article` (`id`, `category_id`, `title`, `postdate`, `yeard`, `mon
 DROP TABLE IF EXISTS `t_category`;
 CREATE TABLE IF NOT EXISTS `t_category` (
   `id` smallint(6) unsigned NOT NULL AUTO_INCREMENT,
-  `module` tinyint(1) NOT NULL DEFAULT '0',
-  `parent_id` smallint(6) unsigned NOT NULL DEFAULT '0',
   `title` varchar(50) NOT NULL,
   `keywords` varchar(255) NOT NULL DEFAULT '',
   `description` varchar(255) NOT NULL DEFAULT '',
   `status` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `allowadd` varchar(50) NOT NULL DEFAULT '0',
-  `allowedit` varchar(50) NOT NULL DEFAULT '0',
-  `allowdel` varchar(50) NOT NULL DEFAULT '0',
-  `tnum` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `cnum` int(10) unsigned NOT NULL DEFAULT '0',
   `displayorder` mediumint(8) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
 
 --
 -- 转存表中的数据 `t_category`
 --
 
-INSERT INTO `t_category` (`id`, `module`, `parent_id`, `title`, `keywords`, `description`, `status`, `allowadd`, `allowedit`, `allowdel`, `tnum`, `cnum`, `displayorder`) VALUES
-(1, 2, 0, '热点新闻', '', '', 1, '', '', '', 0, 0, 0),
-(2, 2, 0, '桓尚新闻', '', '', 1, '', '', '', 0, 0, 0),
-(4, 1, 0, '大班台', '', '大班台', 1, '', '', '', 0, 0, 0),
-(8, 1, 20, '折叠活动屏风', '折叠活动屏风', '折叠活动屏风', 1, '3', '3', '3', 0, 0, 10),
-(15, 1, 0, '快餐厅沙发', '快餐厅沙发', '快餐厅沙发', 1, '3', '3', '3', 0, 0, 0),
-(16, 1, 0, 'KTV沙发', 'KTV沙发', 'KTV沙发', 1, '3', '3', '3', 0, 0, 0),
-(17, 1, 0, '酒店沙发', '酒店沙发', '酒店沙发', 1, '3', '3', '3', 0, 0, 0),
-(18, 1, 0, '快餐桌椅', '快餐桌椅', '快餐桌椅', 1, '3', '3', '3', 0, 0, 0),
-(19, 1, 0, '礼堂椅', '礼堂椅', '礼堂椅', 1, '3', '3', '3', 0, 0, 0),
-(20, 1, 0, '网吧沙发', '网吧沙发', '网吧沙发', 1, '3', '3', '3', 0, 0, 0),
-(21, 2, 4, '北邮', '北邮', '北邮', 1, '3', '3', '3', 0, 0, 0);
+INSERT INTO `t_category` (`id`, `title`, `keywords`, `description`, `status`, `displayorder`) VALUES
+(8, '要闻事记', '折叠活动屏风', '折叠活动屏风', 1, 10),
+(20, '前沿观点', '网吧沙发', '网吧沙发', 1, 0),
+(21, '学术研究', '北邮', '北邮', 1, 0),
+(23, '成功案例', '', '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -152,29 +138,24 @@ CREATE TABLE IF NOT EXISTS `t_comment` (
 DROP TABLE IF EXISTS `t_feedback`;
 CREATE TABLE IF NOT EXISTS `t_feedback` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `type` varchar(50) NOT NULL COMMENT '反馈类型：建议，投诉，表扬，问题，留言。。',
-  `username` varchar(50) NOT NULL COMMENT '留言者',
-  `sex` tinyint(4) NOT NULL COMMENT '是为男，否为女',
+  `name` varchar(50) NOT NULL COMMENT '留言者',
   `tel` varchar(50) NOT NULL COMMENT '电话',
-  `fax` varchar(50) NOT NULL COMMENT '传真',
-  `qq` varchar(50) NOT NULL COMMENT 'QQ',
   `email` varchar(50) NOT NULL COMMENT 'email',
-  `web` varchar(50) NOT NULL COMMENT '个人主页',
   `address` varchar(50) NOT NULL,
   `content` text NOT NULL COMMENT '回复内容',
-  `reply` text NOT NULL,
-  `ischecked` smallint(1) NOT NULL DEFAULT '0',
-  `replydate` int(11) NOT NULL DEFAULT '0',
+  `reply` int(10) unsigned zerofill NOT NULL DEFAULT '0000000000',
   `postdate` int(11) NOT NULL COMMENT '留言时间',
   `ip` varchar(50) NOT NULL COMMENT '留言IP',
-  `intro` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- 转存表中的数据 `t_feedback`
 --
 
+INSERT INTO `t_feedback` (`id`, `name`, `tel`, `email`, `address`, `content`, `reply`, `postdate`, `ip`) VALUES
+(1, 'fnh', '122', 'ed', '', 'qqqqqqqqqqqqqq', 0000000000, 0, ''),
+(2, 'fnh', '122', 'ed', '', '请点击留言', 0000000000, 1326641841, '');
 
 -- --------------------------------------------------------
 
@@ -257,7 +238,7 @@ CREATE TABLE IF NOT EXISTS `t_pages` (
   `chinese` text NOT NULL,
   `orders` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 
 --
 -- 转存表中的数据 `t_pages`
@@ -267,13 +248,18 @@ INSERT INTO `t_pages` (`id`, `title`, `seokeywords`, `seodescription`, `english`
 (1, '专家寄语', '', '', '', '专家寄语', 0),
 (11, '企业文化', '', '', '', '<p><span class="Apple-style-span" style="color: rgb(32, 32, 32); font-family: Simsun; line-height: 24px; ">\r\n<p><strong>设计理念：&nbsp;&nbsp;</strong></p>\r\n<p>&nbsp;&nbsp;<strong>&nbsp;创意空间 铺垫未来</strong></p>\r\n<p>我们让家具与科技相结合，注重低碳、时尚、人性，让未来之路充满希望。</p>\r\n<p>我们的家具设计，是赋予人性的关怀，让工作与生活温暖相伴。</p>\r\n<p>公司不仅制造家具，更关怀每一个你，和我们人类共同的生存坏境。</p>\r\n<p>我们洞察你的需要，前瞻你的未来，将你的梦想融入家具蓝图。</p>\r\n<p>是的，我们放怀于创想与创造，创造更高效的科技，每一个梦想的抵达，和始终同行的您！</p>\r\n<p><strong>&nbsp;&nbsp; 人才理念：</strong></p>\r\n<p><strong>&nbsp;&nbsp; 尊重人才 共赢发展</strong></p>\r\n<p>公司最注重的不是&ldquo;资本&rdquo;而是&ldquo;知本&rdquo;</p>\r\n<p>我们集结着各个领域的专业人才，有思想有创意并能及时的把握国际潮流设计大师；思想稳健、专业过感触的高素质的管理人才；经验丰富，计技术专才的设计师以为无数在家具领域积淀多年的能工巧匠！</p>\r\n<p>我们坚持以人为本、每一位员工提供适合其发展的舞台、并使其创造力都得到最佳的发挥。</p>\r\n<p><strong>&nbsp; &nbsp;服务理念：</strong></p>\r\n<p><strong>&nbsp;&nbsp;</strong>&nbsp;<strong>用心服务 至于完美</strong></p>\r\n<p>我们竭诚服务于每一位客人，源源不断地向顾客提供优质的产品和服务，我们孜孜不倦的追求和方向。</p>\r\n<p>客户的满意就是我们的工作标准，专程为您，我们无怨无悔。</p>\r\n<p>从售前设计的量身定制到售后服务的无微关切，我们让每一位都能至于完美。</p>\r\n</span></p>', 1231751240),
 (2, '中心介绍', '', '', 'direction', '中心介绍', 1231751249),
+(16, 'jfj', '', '', 'ddd', 'iddidi', 3),
 (4, '企业荣誉', '', '', '', '<p>荣誉证书</p>', 1231751268),
 (12, '服务保障', '', '', '', '<p><span class="Apple-style-span" style="color: rgb(32, 32, 32); font-family: Simsun; line-height: 24px; ">\r\n<p>为保障消费者利益，凡在旺派订购指定套餐产品成功的用户，可以享受以下承诺：</p>\r\n<p>1、免费上门量房服务；</p>\r\n<p>2、免费设计服务；</p>\r\n<p>3、产品颜色、型号与合同约定不符的，予以免费更换；</p>\r\n<p>4、产品与合同约定的产品尺寸不符时，予以免费修改；</p>\r\n<p>5、产品部件与合同约定的有明显色差或质量问题，予以免费重新生产；</p>\r\n<p>6、&ldquo;先行赔付&rdquo;保障；</p>\r\n<p>7、凡旺派购买的商品五年保修保质；</p>\r\n<p>8、投诉专人负责制，&ldquo;一站式&rdquo;为您服务。</p>\r\n<p>9、产品保修</p>\r\n<p>自交货之日起壹年之后，叁年之内，如产品在正常使用情况下，非人为因素产生的质量问题，消费者将享受免人工维修费（仅收取材料费）的服务。</p>\r\n</span></p>', 1317986736),
 (13, '品牌站点', '', '', '', '<p>&nbsp;品牌站点</p>', 1317986754),
 (9, '订购流程', '', '', '', '<p>&nbsp;订购流程</p>', 1317986794),
 (10, '代理加盟', '', '', '', '<p>&nbsp;代理加盟</p>', 1317986808),
 (5, '公益事业', '', '', '', '<p>&nbsp;公益事业</p>', 1317986874),
-(15, 'kdkdk', '', '', 'IJKKDK', 'dddd', 3);
+(15, 'kdkdk', '', '', 'IJKKDK', 'dddd', 3),
+(17, 'jdkd', '', '', 'ddd', 'jssk', 34),
+(18, 'qqqq', '', '', '', 'qq', 0),
+(19, 'ww', '', '', '', '', 0),
+(20, 'dddd', '', '', 'ddd', 'wsws', 111);
 
 -- --------------------------------------------------------
 
