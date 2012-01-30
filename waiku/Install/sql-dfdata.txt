@@ -1,0 +1,21 @@
+INSERT INTO `#@__config` (`id`, `updown`, `sitetitle`, `sitetitle2`, `sitedescription`, `siteurl`, `sitekeywords`, `sitetcp`, `sitelx`, `tjnum`, `phnum`, `noticeid`, `noticenum`, `rollnum`, `isping`, `isshare`, `sitelogo`, `iszy`, `pingoff`, `postovertime`, `bookoff`, `mood`, `ishits`, `iscopyfrom`, `isauthor`, `isvote`, `xgwz`, `ishomeimg`, `mouseimg`, `artlistnum`,`urlmode`,`suffix`) VALUES
+(1, 1, '歪酷CMS网站系统', '最简单的PHP文章管理系统', '歪酷CMS文章管理系统', 'localhost/waikucms', 'waikucms,歪酷CMS', '移ICP备123456', 'Email:admin@waikucms.com 站长QQ:634150845', '10', '10', 5, 5, 2, 1, 1, 'logo.png', 1, 1, 15, 0, 1, 1, 1, 1, 1, 1, 5, 1, 15,0,0);
+
+INSERT INTO `#@__role` (`id`, `name`, `pid`, `status`, `remark`) VALUES
+(1, 'super', NULL, 1, '超级管理员'),
+(2, 'admin', NULL, 1, '受限管理员');
+
+INSERT INTO `wk_role_admin` (`role_id`, `user_id`) VALUES
+(1, '1');
+
+INSERT INTO `#@__label` (`id`, `title`, `content`, `addtime`) VALUES
+(1, '网站统计', '<!-- 这里是统计代码1 -->', '2011-11-12 14:34:54'),
+(2, '首页自定义导航', '<li><a href="http://pengyong.info"><span>彭勇博客</span></a></li><LI class="menu_line2"></LI>', '2011-11-12 14:37:44'),
+(3, '迷你导航', '<a onclick=this.style.behavior="url(#default#homepage)";this.setHomePage("http://www.waikucms.com");><font color="black">设为首页</font></a>|<a onClick="window.external.AddFavorite(location.href,document.title)"><font color="black">加入收藏</font></a>|<a id="StranLink">繁體中文</a>', '2011-11-12 14:37:49');
+
+
+INSERT INTO `#@__link_type` (`id`, `typename`, `rank`) VALUES
+(1, '友情链接', 1),
+(2, '图片链接', 2);
+
+
