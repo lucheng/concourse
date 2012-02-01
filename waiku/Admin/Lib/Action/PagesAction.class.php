@@ -20,10 +20,10 @@ class PagesAction extends CommonAction
 		<li><span><select name='select' onChange='javascript:window.location.href=(this.options[this.selectedIndex].value);'>%allPage%</select></span></li>\n<li><span>共<font color='#009900'><b>%totalRow%</b></font>篇文章 20篇/每页</span></li>");
 		$this->assign('page',$p->show());*/
 		$this->assign('list',$list);
-		/*$this->moveop();//文章编辑option
-		$this->jumpop();//快速跳转option
-		$this->urlmode();*/
-		$this->display();
+//		$this->moveop();//文章编辑option
+//		$this->jumpop();//快速跳转option
+		$this->urlmode();
+		$this->display("index");
     }
 	
 	  public function add()
@@ -274,112 +274,6 @@ class PagesAction extends CommonAction
 			}
 			alert('操作失败!',1);
 		}
-	}
-	
-	//文章模块 快速跳转栏目option
-	private function jumpop()
-	{
-		$type = M('type');
-		$oplist = $type->where('islink=0')->field("typeid,typename,fid,concat(path,'-',typeid) as bpath")->order('bpath')->select();
-		foreach($oplist as $k=>$v)
-		{
-			if($v['fid'] == 0)
-			{
-				$count[$k]='';
-			}
-			else
-			{
-				for($i = 0;$i < count(explode('-',$v['bpath'])) * 2;$i++)
-				{
-					$count[$k].='&nbsp;';
-				}
-			}
-			$op.="<option value=\"".U('Article/index?typeid='.$v['typeid'])."\">{$count[$k]}|-{$v['typename']}</option>";
-		}
-        $this->assign('op',$op);
-	}
-	
-	//文章模块 添加-栏目option
-	private function addop(){
-		$type = M('type');
-		//获取栏目option
-		$list = $type->where('islink=0')->field("typeid,typename,fid,concat(path,'-',typeid) as bpath")->order('bpath')->select();
-		foreach($list as $k=>$v)
-		{
-			if($v['fid'] == 0)
-			{
-				$count[$k] = '';
-			}
-			else
-			{
-				for($i = 0;$i < count(explode('-',$v['bpath'])) * 2;$i++)
-				{
-					$count[$k].='&nbsp;';
-				}
-			}
-			$option.="<option value=\"{$v['typeid']}\">{$count[$k]}|-{$v['typename']}</option>";
-		}
-		$this->assign('option',$option);
-	}
-	
-	//文章模块-编辑-栏目option
-	private function editop()
-	{
-		$article = M('article');
-		$a = $article->where('aid='.$_GET['aid'])->field('typeid')->find();
-		$type = M('type');
-		$list = $type->where('islink=0')->field("typeid,typename,fid,concat(path,'-',typeid) as bpath")->order('bpath')->select();
-		foreach($list as $k=>$v)
-		{
-			if($v['fid'] == 0)
-			{
-				$count[$k]='';
-			}
-			else
-			{
-				for($i = 0;$i < count(explode('-',$v['bpath'])) * 2;$i++)
-				{
-					$count[$k].='&nbsp;';
-				}
-			}
-			
-			if($v['typeid'] == $a['typeid'])
-			{
-				$option.="<option value=\"{$v['typeid']}\" selected>{$count[$k]}|-{$v['typename']}</option>";
-			}
-			else
-			{
-				$option.="<option value=\"{$v['typeid']}\">{$count[$k]}|-{$v['typename']}</option>";
-			}
-		}
-		$this->assign('option',$option);
-	}
-	
-	//投票模块:for add()
-	private function vote($vid){
-		$vote = M('vote');
-		$vo = $vote->where('status=1')->getField('id,title');
-		if($vid == 0)
-		{
-			$votehtml = '<option value=\"0\" selected>不投票</option>';
-		}
-		else
-		{
-			$votehtml = '<option value=\"0\">不投票</option>';
-		}
-		foreach($vo as $k=>$v)
-		{
-			if($k == $vid)
-			{
-				$votehtml.="<option value=\"{$k}\" selected>{$v}</option>";
-			}
-			else
-			{
-				$votehtml.="<option value=\"{$k}\">{$v}</option>";
-			}
-		}
-		$this->assign('votehtml',$votehtml);
-		unset($votehtml);
 	}
 	
 	private function urlmode()

@@ -13,39 +13,14 @@ function showhelp(){
 	alert(str);
 }
 </script>
-<!-- 
-<table width="95%" border="0" cellspacing="2" cellpadding="3"  align="center" class="admintable" style="margin-bottom:5px;">
-    <tr>
-      <td height="25" bgcolor="f7f7f7">快速查找：
-        <SELECT onChange="javascript:window.open(this.options[this.selectedIndex].value,'main')"  size="1" name="s">
-        <OPTION value="" selected>-=请选择=-</OPTION>
-        <OPTION value="__URL__/index">所有文章</OPTION>
-        <OPTION value="__URL__/index/status/1">已审的文章</OPTION>
-        <OPTION value="__URL__/index/status/0">未审的文章</OPTION>
-        <OPTION value="__URL__/index/istop/1">固顶文章</OPTION>
-        <OPTION value="__URL__/index/ishot/1">推荐文章</OPTION>
-		<OPTION value="__URL__/index/isimg/1">图片文章</OPTION>
-        <OPTION value="__URL__/index/islink/1">转向链接文章</OPTION>
-        <OPTION value="__URL__/index/hits/0">按浏览次数排序</OPTION>
-      </SELECT>      </td>
-      <td align="center" bgcolor="f7f7f7">
-	  <form name="form1" method="get" action="__URL__/index/">
-        <input name="ss" type="text" id="keyword" value="" class="s26">
-        <input type="submit" class="bnt" value="搜索">
-		{__NOTOKEN__}
-      </form></td>
-      <td align="right" bgcolor="f7f7f7">跳转到：
-        <select name="ClassID" id="ClassID" onChange="javascript:window.open(this.options[this.selectedIndex].value,'main')">
-    <option value="">请选择分类</option>{$op}</select></td>
-    </tr>
-</table>
- -->
+
 <form name="myform" id="myform" method="POST" action="__URL__/delall">
 <table width="95%" border="0"  align=center cellpadding="3" cellspacing="1" bgcolor="#F2F9E8" class="admintable">
 <tr> 
 <td colspan="5" align=left class="admintitle">文章列表　[<a href="__URL__/add">添加</a>][<a onclick="showhelp();">操作提示</a>]</td></tr>
     <tr bgcolor="#f1f3f5" style="font-weight:bold;">
     <td width="5%" height="30" align="center" class="ButtonList">&nbsp;</td>
+    <td width="13%" align="center" class="ButtonList">页面ID</td>
     <td width="23%" align="center" class="ButtonList">页面名称</td>
     <td width="20%" height="25" align="center" class="ButtonList">发布时间</td>
 
@@ -55,7 +30,8 @@ function showhelp(){
 	<volist name="list" id="vo"> 
     <tr bgcolor="#ffffff" onMouseOver="this.style.backgroundColor='#EAFCD5';" onMouseOut="this.style.backgroundColor='';this.style.color=''">
     <td height="25" align="CENTER"><input type="checkbox" value="{$vo.aid}" name="aid[]" onClick="unselectall(this.form)" style="border:0;"></td>
-    <td height="25"><a href="__ROOT__/{$urlmode}articles/{$vo.aid}{$suffix}" target="_blank">{$vo.title}</a><eq name="vo.islink" value="1"><font color="red">[英]</font></eq></td>
+    <td height="25" align="CENTER">{$vo.aid}</td>
+    <td height="25"><a href="__ROOT__/{$urlmode}pages/{$vo.aid}{$suffix}" target="_blank">{$vo.title}</a><eq name="vo.islink" value="1"><font color="red">[英]</font></eq></td>
     <td height="25" align="center">{$vo.addtime}</td>
     <td height="25" align="center">{$vo.hits}</td>
     <td align="center"><a href="__URL__/edit/aid/{$vo.aid}">编辑</a>|<a href="__URL__/del/aid/{$vo.aid}" onClick="JavaScript:return confirm('确定要删除？')">删除</a></td>

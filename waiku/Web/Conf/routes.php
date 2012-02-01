@@ -1,6 +1,7 @@
 <?php
 	return array(
-	array('articles','Article/index','aid'), 
+	array('articles','Article/index','aid'),
+	array('pages','Pages/index','aid'), 
 	array('lists','List/index','typeid'),
 	array('votes','Vote/index','id'),
 	array('s','Index/search'),

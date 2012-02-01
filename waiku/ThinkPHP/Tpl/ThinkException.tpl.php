@@ -53,9 +53,8 @@ h2{
 </head>
 <body>
 <div class="notice">
-<p align="center">系统发生错误!具体请访问歪酷CMS官网求助:<a href="http://www.waikucms.com" target="_blank">www.waikucms.com</a></p>
+<p align="center">系统发生错误!</p>
 </div>
-<div align="center" style="color:#FF3300;margin:5pt;font-family:Verdana"> WaiKuCMS <sup style='color:gray;font-size:9pt'><?php echo C('VERSION');?></sup><span style='color:silver'>歪酷CMS网站管理系统</span>
-</div>
+
 </body>
 </html>
