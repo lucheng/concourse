@@ -64,7 +64,8 @@ class ListAction extends BaseAction
 	//释放内存
 		unset($article,$type,$config,$p,$tlist,$alist);
 	//模板输出
-		$this->display('index');  
+		$this->display('index');
+//		$this->display('news');
  }
  
 }

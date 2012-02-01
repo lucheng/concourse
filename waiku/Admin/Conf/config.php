@@ -2,7 +2,7 @@
 $config= require './Public/Config/config.ini.php';
 $admin_config=array(
 	'URL_MODEL'=>1,
-	'APP_DEBUG'=>false,
+	'APP_DEBUG'=>true,
 	'TMPL_CACHE_TIME' => -1,// for 部署模式
 	'USER_AUTH_ON'=>true,
 	'USER_AUTH_TYPE'			=>2,		// 默认认证类型 1 登录认证 2 实时认证

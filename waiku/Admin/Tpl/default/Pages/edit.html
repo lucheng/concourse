@@ -64,35 +64,10 @@ function showhelp(){
 </script>
 </head>
 <body>
-<table width="95%" border="0" cellspacing="2" cellpadding="3"  align=center class="admintable" style="margin-bottom:5px;">
-    <tr>
-      <td height="25" bgcolor="f7f7f7">快速查找：
-        <SELECT onChange="javascript:window.open(this.options[this.selectedIndex].value,'main')"  size="1" name="s">
-        <OPTION value="" selected>-=请选择=-</OPTION>
-        <OPTION value="__URL__/index">所有文章</OPTION>
-        <OPTION value="__URL__/index/status/1">已审的文章</OPTION>
-        <OPTION value="__URL__/index/status/0">未审的文章</OPTION>
-        <OPTION value="__URL__/index/istop/1">固顶文章</OPTION>
-        <OPTION value="__URL__/index/ishot/1">推荐文章</OPTION>
-		<OPTION value="__URL__/index/isimg/1">图片文章</OPTION>
-        <OPTION value="__URL__/index/islink/1">转向链接文章</OPTION>
-        <OPTION value="__URL__/index/hits/0">按浏览次数排序</OPTION>
-      </SELECT>      </td>
-      <td align="center" bgcolor="f7f7f7">
-	  <form name="form1" method="get" action="__URL__/index/">
-        <input name="ss" type="text" id="keyword" value="" class="s26">
-        <input type="submit" name="Submit2" class="bnt" value="搜索">
-      </form></td>
-      <td align="right" bgcolor="f7f7f7">跳转到：
-        <select name="ClassID" id="ClassID" onChange="javascript:window.open(this.options[this.selectedIndex].value,'main')">
-<option value="">请选择分类</option>{$op}</select></td>
-    </tr>
-</table>
-
 <table width="95%" border="0"  align=center cellpadding="3" cellspacing="2" bgcolor="#FFFFFF" class="admintable">
 <form action="__URL__/doedit" onsubmit="return CheckForm();" name="myform" method=post>
 <tr> 
-    <td colspan="2" align=left class="admintitle">修改文章[<a onclick="showhelp();">操作提示</a>]</td></tr>
+    <td colspan="2" align=left class="admintitle">修改单页[<a onclick="showhelp();">操作提示</a>]</td></tr>
 <tr> 
 <td width="20%" class="b1_1">标题</td>
 <td class="b1_1"><input name="title" value="{$list.title}" type="text" id="Title" size="40" maxlength="50"><span class="note">注：最多50个字符</span></td>
@@ -106,25 +81,12 @@ function showhelp(){
   <td class="b1_1">描述</td>
   <td class="b1_1"><input name="description"  value="{$list.description}"  type="text" size="40" maxlength="50">&nbsp;<span class="note">用于搜索引擎抓取</span></td>
 </tr>
-<tr>
-  <td class="b1_1">作者</td>
-  <td class="b1_1">
-    <input name="author" value="{$list.author}" type="text" id="Author" value="不详" size="40" maxlength="200"></td>
-</tr>
-<tr>
-  <td class="b1_1">来源</td>
-  <td class="b1_1"><span class="td">
-    <input name="copyfrom" value="{$list.copyfrom}" type="text" id="CopyFrom" value="网络" size="40" maxlength="200">
-  </span></td>
-</tr>
+
 <tr>
   <td class="b1_1">浏览次数</td>
   <td class="b1_1"><input name="hits" value="{$list.hits}" type="text" id="Hits" size="6" maxlength="10">&nbsp;&nbsp;<input name="get" type="button" class="bnt" onclick="round();" value="随 机"></td>
 </tr>
-<tr>
-  <td class="b1_1">分类</td>
-  <td class="b1_1"><select ID="Typeid" name="typeid">{$option}</select></td>
-</tr>
+
 <tr>
   <td class="b1_1">转向链接</td>
   <td class="b1_1"><input name="linkurl"  type="text" size="50" value="{$list.linkurl}">
@@ -157,27 +119,13 @@ function showhelp(){
 </textarea>
 </td>
 </tr>
-<tr>
-  <td class="b1_1">附加选项</td>
-  <td class="b1_1">固顶
-    <input name="istop" type="checkbox" class="noborder" id="IsTop" value="1" <eq name="list.istop" value="1">checked</eq>>
-    推荐
-    <input name="ishot" type="checkbox" class="noborder" id="IsHot" value="1" <eq name="list.ishot" value="1">checked</eq>>
-	<INPUT type=button class="bnt" onClick="javascript:KE.insertHtml('Content', '[wk_page]');" value="插入分页符">
-</td>
-</tr>
+
 <tr>
   <td class="b1_1">自动分页<strong>字数</strong></td>
   <td class="b1_1"><input name="pagenum" type="text" id="PageNum" value="{$list.pagenum}" size="6" maxlength="4">
     <span class="note">　注:如果在内容中加入了手动分页符,请填写0</span></td>
 </tr>
-<tr>
-  <td bgcolor="#FFFFFF" class="b1_1">本文显示投票</td>
-  <td colspan=4 class=b1_1><select name="voteid" size=4 id="Vote">
-	{$votehtml}
- </select>
-    <span class="note">取消投票请选择不投票</span></td>
-</tr>
+
 <tr> 
 <td width="20%" class="b1_1"></td>
 <td class="b1_1"><input name="submit" type="submit" class="bnt" value="修改">&nbsp;&nbsp;<input type="button" onclick="history.go(-1);" class="bnt" value="返 回"></td>

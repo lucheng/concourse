@@ -8,77 +8,22 @@ class PagesAction extends CommonAction
 	
     public function index()
     {
-		$article = D('Pages');
-		import('@.ORG.Page');
-		if(isset($_GET['typeid']))
-		{
-			$count = $article->where('article.typeid='.$_GET['typeid'])->order('addtime desc')->count();
-			$p = new Page($count,20); 
-			$list = $article->where('article.typeid='.$_GET['typeid'])->order('addtime desc')->limit($p->firstRow.','.$p->listRows)->select();
-		}
-		elseif(isset($_GET['status']))
-		{
-			$count = $article->where('status='.$_GET['status'])->order('addtime desc')->count();
-			$p = new Page($count,20); 
-			$list = $article->where('status='.$_GET['status'])->order('addtime desc')->limit($p->firstRow.','.$p->listRows)->select();
-		}
-		elseif(isset($_GET['istop']))
-		{
-			$count = $article->where('istop='.$_GET['istop'])->order('addtime desc')->count();
-			$p = new Page($count,20); 
-			$list = $article->where('istop='.$_GET['istop'])->order('addtime desc')->limit($p->firstRow.','.$p->listRows)->select();
-		}	
-		elseif(isset($_GET['ishot']))
-		{
-			$count = $article->where('ishot='.$_GET['ishot'])->order('addtime desc')->count();
-			$p = new Page($count,20); 
-			$list = $article->where('ishot='.$_GET['ishot'])->order('addtime desc')->limit($p->firstRow.','.$p->listRows)->select();
-		}
-		elseif(isset($_GET['isimg']))
-		{
-			$count = $article->where('isimg='.$_GET['isimg'])->order('addtime desc')->count();
-			$p = new Page($count,20); 
-			$list=$article->where('isimg='.$_GET['isimg'])->order('addtime desc')->limit($p->firstRow.','.$p->listRows)->select();
-		}
-		elseif(isset($_GET['islink']))
-		{
-			$count=$article->where('islink='.$_GET['islink'])->order('addtime desc')->count();
-			$p = new Page($count,20); 
-			$list=$article->where('islink='.$_GET['islink'])->order('addtime desc')->limit($p->firstRow.','.$p->listRows)->select();
-		}
-		elseif(isset($_GET['hits']))
-		{
-			$count = $article->order('hits desc')->count();
-			$p = new Page($count,20); 
-			$list = $article->order('hits desc')->limit($p->firstRow.','.$p->listRows)->select();
-		}
-		elseif(isset($_GET['ss']))
-		{
-			$map['title'] = array('like','%'.$_GET['ss'].'%');
-			$count = $article->where($map)->order('addtime desc')->count();
-			$p = new Page($count,20); 
-			$list = $article->where($map)->order('addtime desc')->limit($p->firstRow.','.$p->listRows)->select();
-		}
-		else
-		{
-			$count = $article->order('addtime desc')->count();
-			$p = new Page($count,20); 
-			$list = $article->order('addtime desc')->limit($p->firstRow.','.$p->listRows)->select();
-		}
+		$Pages = D('Pages');
+		$list = $Pages->order('addtime desc')->select();
 		
-		$p->setConfig('prev','上一页');
+		/*$p->setConfig('prev','上一页');
 		$p->setConfig('header','篇文章');
 		$p->setConfig('first','首 页');
 		$p->setConfig('last','末 页');
 		$p->setConfig('next','下一页');
 		$p->setConfig('theme',"%first%%upPage%%linkPage%%downPage%%end%
 		<li><span><select name='select' onChange='javascript:window.location.href=(this.options[this.selectedIndex].value);'>%allPage%</select></span></li>\n<li><span>共<font color='#009900'><b>%totalRow%</b></font>篇文章 20篇/每页</span></li>");
-		$this->assign('page',$p->show());
+		$this->assign('page',$p->show());*/
 		$this->assign('list',$list);
-		$this->moveop();//文章编辑option
+		/*$this->moveop();//文章编辑option
 		$this->jumpop();//快速跳转option
-		$this->urlmode();
-		$this->display('index');
+		$this->urlmode();*/
+		$this->display();
     }
 	
 	  public function add()
@@ -108,11 +53,7 @@ class PagesAction extends CommonAction
 			alert('标题不能为空!',1);
 			
 		}
-		if(empty($_POST['typeid']))
-		{
-			alert('请选择栏目!',1);
-			
-		}
+		
 		if(isset($_POST['linkurl']))
 		{
 			$data['linkurl'] = trim($_POST['linkurl']);
@@ -122,12 +63,10 @@ class PagesAction extends CommonAction
 			$data['imgurl'] = trim($_POST['imgurl']);
 		}
 		$data['aid'] = $_POST['aid'];
-		$data['voteid'] = $_POST['voteid'];
 		$data['pagenum'] = $_POST['pagenum'];
 		$data['content'] = $_POST['content'];
 		$data['title'] = trim($_POST['title']);
 		$data['hits'] = trim($_POST['hits']);
-		$data['typeid'] = trim($_POST['typeid']);
 		Load('extend'); //加载扩展函数库
 		empty($_POST['addtime']) ? $data['addtime'] = date('Y-m-d H:i:s') : $data['addtime'] = trim($_POST['addtime']);
 		empty($_POST['author']) ? $data['author'] = '未知' : $data['author'] = trim($_POST['author']);
@@ -139,10 +78,10 @@ class PagesAction extends CommonAction
 		empty($_POST['isimg']) ? $data['isimg'] = '0' : $data['isimg'] = trim($_POST['isimg']);
 		empty($_POST['ishot']) ? $data['ishot'] = '0' : $data['ishot'] = trim($_POST['ishot']);
 		empty($_POST['note']) ? $data['note'] = trim(strip_tags(msubstr($_POST['content'],0,130,'utf-8',false))).'...' : $data['note'] = $_POST['note'];
-		$article = M('article');
-		if($article->save($data))
+		$Pages = M('Pages');
+		if($Pages->save($data))
 		{
-			alert('操作成功!',U('Article/index'));
+			alert('操作成功!',U('Pages/index'));
 			
 		}
 		alert('操作失败!',1);
@@ -191,7 +130,7 @@ class PagesAction extends CommonAction
 		$article = M('article');
 		if($article->data($data)->add())
 		{
-		 alert('操作成功!',U('Article/index'));
+		 alert('操作成功!',U('Pages/index'));
 		 
 		}
 		alert('操作失败!',1);
@@ -202,7 +141,7 @@ class PagesAction extends CommonAction
     {
 		$article=D('Pages');
 		if($article->relation(true)->delete($_GET['aid'])){
-		 alert('操作成功!',U('Article/index'));
+		 alert('操作成功!',U('Pages/index'));
 		 
 		}
 		alert('操作失败!',1);
@@ -237,14 +176,14 @@ class PagesAction extends CommonAction
 			alert('请勾选记录!',1);
 			
 		}
-		$article = D('article');
+		$article = D('Pages');
 		
 		if($_REQUEST['Del'] == '更新时间')
 		{
 			$data['addtime'] = date('Y-m-d H:i:s');
 			if($article->where($map)->save($data))
 			{
-				alert('操作成功!',U('Article/index'));
+				alert('操作成功!',U('Pages/index'));
 				
 			}
 		alert('操作失败!',1);
@@ -256,7 +195,7 @@ class PagesAction extends CommonAction
 			{
 				$article->relation(true)->delete($v);
 			}
-			alert('操作成功!',U('Article/index'));
+			alert('操作成功!',U('Pages/index'));
 			
 		}
 		
@@ -335,29 +274,6 @@ class PagesAction extends CommonAction
 			}
 			alert('操作失败!',1);
 		}
-	}
-	
-	//文章模块 批量移动option
-	private function moveop()
-	{
-		$type = M('type');
-		$oplist = $type->where('islink=0')->field("typeid,typename,fid,concat(path,'-',typeid) as bpath")->order('bpath')->select();
-		foreach($oplist as $k=>$v)
-		{
-			if($v['fid'] == 0)
-			{
-				$count[$k] = '';
-			}
-			else
-			{
-				for($i = 0;$i < count(explode('-',$v['bpath'])) * 2;$i++)
-				{
-					$count[$k].='&nbsp;';
-				}
-			}
-			$op.="<option value=\"{$v['typeid']}\">{$count[$k]}|-{$v['typename']}</option>";
-		}
-        $this->assign('op2',$op);
 	}
 	
 	//文章模块 快速跳转栏目option

@@ -2,7 +2,7 @@
 return array (
   'sitetitle' => '北京九州颐和文化中心',
   'sitetitle2' => '北京九州颐和',
-  'siteurl' => 'http://localhost/uploads',
+  'siteurl' => 'http://localhost/waiku',
   'updown' => '1',
   'xgwz' => '1',
   'sitedescription' => '北京九州颐和文化中心',
