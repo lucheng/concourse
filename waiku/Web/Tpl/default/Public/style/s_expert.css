@@ -1,0 +1,78 @@
+@charset "utf-8";
+/* CSS Document */
+
+.big{
+	height:468px;
+	overflow:hidden;
+	float:none;
+}
+#left{
+	width:679px;
+	margin-left:34px;
+	float:left;
+	margin-right:12px;
+}
+#left .rese{
+	width:678px;
+	height:400px;
+}
+.inexp{
+	margin-top:13px;
+	height:141px;
+	width:660px;
+	border:1px groove #999
+}
+#right{
+	width:276px;
+	margin-right:37px;
+	
+	float:right
+}
+.thumbox{
+	height:100px;
+	width:150px;
+	float:left; 
+	margin-right:5px;
+}
+.thum{
+	width:150px;
+	height:78px;
+	background:#999;
+	overflow:hidden;
+}
+.thumtt{
+	width:100%;
+	height:22px;
+	text-align:center;
+}
+.expbox{
+	float:left;
+	margin-top:4px;
+	margin-left:10px;
+	height:137px;
+	width:92px;
+}
+.expimg{
+	height:114px;
+	width:92px;
+	overflow:hidden;
+	background-color:#999;
+}
+.expbox .exptt{
+	height:23px;
+	width:100px;
+	overflow:hidden;
+	text-align:left;
+	font-size:11px;
+}
+#interdouce{
+	font-size:12px;
+	float:right;
+	margin-left:8px;
+	width:530px;
+	overflow:hidden;
+	padding-right:10px;
+}
+#titlebox{
+	margin-top:15px;
+}
