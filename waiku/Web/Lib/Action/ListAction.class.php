@@ -29,7 +29,7 @@ class ListAction extends BaseAction
 	//第一次释放内存
 		unset($list,$nav,$map);
 	//网站头部
-		R('Public','head');
+//		R('Public','head');
 	//查询数据库和缓存
 		$article = D('ArticleView');
 		$config = F('basic','','./Web/Conf/');
