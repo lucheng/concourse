@@ -3,8 +3,8 @@
      	
      	public function _initialize(){
 		
-     		$category = D("Category")->order("displayorder")->findAll();
-     		$this->assign("category", $category);
+     		//网站头部
+			R('Public','head');
      	}
      	
     }

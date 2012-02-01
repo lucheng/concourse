@@ -1,5 +1,5 @@
 <?php
-class IndexAction extends Action
+class IndexAction extends BaseAction
 {
 	Public function _empty()
 	{ 
@@ -8,9 +8,6 @@ class IndexAction extends Action
 
      public function index()
     {
-		//网站头部
-		R('Public','head');
-		
 		//查询数据库,读取缓存
 		$type = M('type');
 		$article = M('article');

@@ -1,16 +1,5 @@
 <?php
-/***********************************************************
-    [WaiKuCms] (C)2011 - 2011 waikucms.com
-    
-	@function 前台列表页 Action
-
-    @Filename ListAction.class.php $
-
-    @Author pengyong $
-
-    @Date 2011-11-18 08:42:11 $
-*************************************************************/
-class ListAction extends Action
+class ListAction extends BaseAction
 {
 	Public function _empty()
 	{ 
