@@ -1,0 +1,30 @@
+<include file="Public:header" />
+<include file="Public:left" />
+  
+  
+ <div class="col2">
+        <div class="list1">
+          <div class="list1_title"><a href="/">Home</a> > {$disp_text}</div>
+          <div class="list2_content">
+            <div class="news">
+            <fieldset>
+                    <legend>{$disp_text}</legend>
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<iterate name="list" id="vo">
+<tr>
+    <td align="left" height="25"><a href="__ROOT__/{$vo.fileurl}" target="_blank">{$i}.{$vo.title}</a></td>
+    <td align="right">{:toDate($vo['dateline'])}</td>
+  </tr>
+    </iterate>
+  </table>
+                  </fieldset>
+                  
+      
+      </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<include file="Public:footer" />

@@ -1,0 +1,56 @@
+<include file="Public:header" />
+<include file="Public:left" />
+
+ <div class="col2">
+        <div class="list1">
+          <div class="list1_title"><a href="/">Home</a> > Tell A Friend About "{$list['name']}"</div>
+          <div class="list2_content">
+            <div class="friend">
+              <form method="post" action="" name="email_friend"  onsubmit="return Validator.Validate(this,2);">
+<fieldset>
+<legend>Tell A Friend About "{$list['name']}'</legend>
+<div>* Required information</div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="20%" height="30"><label class="inputLabel" for="from-name">Your Name:</label></td>
+    <td><input type="text" id="from-name" value="{$member_Info.lastname} {$member_Info.firstname}" name="from_name" dataType="Require" msg="Error: Your name must not be empty." >&nbsp;<span class="alert">*</span></td>
+  </tr>
+  <tr>
+    <td width="20%" height="30"><label class="inputLabel" for="from-email-address">Your Email:</label></td>
+    <td><input type="text" id="from-email-address" value="{$member_Info.email}" name="from_email_address" dataType="Email" msg="Error: Your email address does not appear to be valid. Please try again.">&nbsp;<span class="alert">*</span></td>
+  </tr>
+  <tr>
+    <td width="20%" height="30"><label class="inputLabel" for="to-name">Friend's Name:</label></td>
+    <td><input type="text" id="to-name" name="to_name" dataType="Require" msg="Error: Your friend's name must not be empty." >&nbsp;<span class="alert">*</span></td>
+  </tr>
+  <tr>
+    <td width="20%" height="30"><label class="inputLabel" for="to-email-address">Friend's Email:</label></td>
+    <td><input type="text" id="to-email-address" name="to_email_address"  dataType="Email" msg="Error: Your friend's email address does not appear to be valid. Please try again.">&nbsp;<span class="alert">*</span></td>
+  </tr>
+  <tr>
+    <td width="20%" height="30"><label for="email-message">Your Message:</label></td>
+    <td><textarea id="email-message" rows="5" cols="30" name="message"  dataType="Require" msg="Error: Your Message must not be empty." ></textarea></td>
+  </tr>
+</table>
+</fieldset>
+
+<div class="buttonRow">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><a href="/"><img src="../Public/images/button_back.gif" alt="Back" title=" Back " width="48" height="29" border="0" /></a></td>
+    <td align="right"><input type="image" src="../Public/images/button_send.gif" alt="Send Now" title=" Send Now " /></td>
+  </tr>
+</table>
+</div>
+<div><strong>This message is included with all emails sent from this site:</strong>
+<strong>IMPORTANT:</strong> For your protection and to prevent malicious use, all emails sent via this web site are logged and the contents recorded and available to the store owner. If you feel that you have received this email in error, please send an email to {:GetSettValue('email')}
+</div>
+
+</form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<include file="Public:footer" />

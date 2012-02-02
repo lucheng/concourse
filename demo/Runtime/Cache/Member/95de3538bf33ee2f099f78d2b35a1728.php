@@ -1,0 +1,84 @@
+<?php if (!defined('THINK_PATH')) exit();?>
+<div class="col2">
+        <div class="list1">
+          <div class="list1_title"><a href="/">Home</a> > Welcome, Please Sign In</div>
+          <div class="list2_content">
+            <div class="login">
+             <form action="<?php echo U('Member-Public/doJoin');?>" method="post" name="dojoin"  onsubmit="return Validator.Validate(this,2);">
+              <fieldset>
+<legend>New? Please Provide Your Billing Information</legend>
+
+<div>Create a customer profile which allows you to shop faster, track the status of your current orders and review your previous orders.</div>
+
+
+<div align="right">* Required information</div>
+<br class="clearBoth" />
+
+
+
+<fieldset>
+<legend>Address Details</legend>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  
+  <tr>
+    <td width="125"><label class="inputLabel" for="firstname">First Name:</label></td>
+    <td><input type="text" name="firstname" size = "33" max = "32" id="firstname"  dataType="Require" msg="firstname is required!" /><span class="alert">*</span></td>
+  </tr>
+  <tr>
+    <td width="125"><label class="inputLabel" for="lastname">Last Name:</label></td>
+    <td><input type="text" name="lastname" size = "33" max = "32" id="lastname" dataType="Require" msg="lastname is required!" /><span class="alert">*</span></td>
+  </tr>
+</table>
+</fieldset>
+
+<fieldset>
+<legend>Login Details</legend>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="125"><label class="inputLabel" for="email-address">Email Address:</label></td>
+    <td><input type="text" name="email" size = "41" max= "96" id="email-address"  dataType="Email" msg="Email format is not correct!"/><span class="alert">*</span></td>
+  </tr>
+  <tr>
+    <td width="125"><label class="inputLabel" for="password-new">Password:</label></td>
+    <td><input type="password" name="password" size = "21" min="3" max= "40" id="password-new" dataType="Require" msg="password is required!"/><span class="alert">* (at least 3  characters)</span></td>
+  </tr>
+  <tr>
+    <td width="125"><label class="inputLabel" for="password-confirm">Confirm Password:</label></td>
+    <td><input type="password" name="repassword" size = "21" min="3" max= "40" id="password-confirm" dataType="Repeat" to="password" msg="Confirm Password is wrong!"/><span class="alert">*</span></td>
+  </tr>
+</table>
+</fieldset>
+
+
+</fieldset>
+
+<div class="buttonRow" style="float:right"><input type="image" src="../Public/images/button_submit.gif" alt="Submit the Information" title=" Submit the Information " /></div>
+</form>
+<div style="padding:10px 0;clear:both" />
+               <form method="POST" name="dologin" action="<?php echo U('Member-Public/doLogin');?>" onsubmit="return Validator.Validate(this,2);"><fieldset>
+<legend>Returning Customers: Please Log In</legend>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="125"><label class="inputLabel" for="login-email-address">Email Address:</label></td>
+    <td><input type="text"  name="email"  size = "41" max= "96" id="login-email-address" dataType="Email" msg="Email format is not correct!" /></td>
+  </tr>
+  <tr>
+    <td><label class="inputLabel" for="login-password">Password:</label></td>
+    <td><input type="password" name="password"  dataType="Require" msg="password is required!" size = "41" min="3" max= "40" id="login-password" /></td>
+  </tr>
+</table>
+</fieldset>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="50">&nbsp;</td>
+    <td><div class="buttonRow"  style="float:right"><input type="image" src="../Public/images/button_login.gif" border="0" alt="Sign In" title=" Sign In " /></div><div class="buttonRow" style="float:right; line-height:40px; padding-right:20px;">&nbsp; &nbsp; &nbsp;<a href="<?php echo U('Member-Public/ForgotPWD');?>">Forgot your password?</a></div></td>
+  </tr>
+</table>
+
+</form>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

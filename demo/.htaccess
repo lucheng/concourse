@@ -1,0 +1,9 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
+
+#RewriteCond %{http_host} ^louisvuittononline.cc [NC]
+#RewriteRule ^(.*)$ http://www.louisvuittononline.cc/$1 [L,R=301]
+
+

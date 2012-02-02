@@ -1,0 +1,42 @@
+<include file="Member:Member-left" />
+ <div class="col2">
+        <div class="list1">
+          <div class="list1_title">Favorites</div>
+          <div class="list2_content">
+            <div class="favorites">
+                                <fieldset>
+                    <legend>The Favorites</legend>
+                    <div class="information">NOTE: Input the order number, can query to orders.</div>
+                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+  
+    <td bgcolor="#F5f5f5" height="30" align="center"><strong>Products ID</strong></td>
+    <td bgcolor="#F5f5f5" height="30" align="center"><strong>IMAGE</strong></td>
+    <td bgcolor="#F5f5f5" height="30" align="center"><strong>PRICE</strong></td>
+    <td bgcolor="#F5f5f5" height="30" align="center"><strong>Operation</strong></td>
+  </tr>
+  <volist name="list" id="vo">
+  <tr>
+  
+    <td bgcolor="#F5f5f5" height="30" align="center"><a href="{:build_url($vo,'pro_url')}" target="_blank">{$vo['id']}</a></td>
+    <td bgcolor="#F5f5f5" height="30" align="center"><a href="{:build_url($vo,'pro_url')}" target="_blank"><img src="{:build_url($vo,'pro_smallimage')}" width="100" height="100" border="0" /></a></td>
+
+    <td bgcolor="#F5f5f5" height="30" align="center"><font color="#FF0000">{:getprice($vo["price"],$vo["pricespe"],false)}</font></td>
+    <td bgcolor="#F5f5f5" height="30" align="center"><a href="{:build_url($vo,'pro_url')}">Add to Cart</a><br/><a href="{:U('Member-Index/Delprofav',array('id'=>$vo['id']))}">Delete</a></td>
+  </tr>
+  
+  </volist>
+  
+    <tr>
+    <td align="center" colspan="7" height="30" bgcolor="#F5f5f5">{$show}</td>
+  </tr>
+</table>
+                  </fieldset>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    

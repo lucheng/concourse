@@ -1,0 +1,28 @@
+<include file="Public:header" />
+<include file="Public:left" />
+
+ <div class="col2">
+        <div class="list1">
+          <div class="list1_title"><a href="/">Home</a> > FAQs</div>
+          <div class="list2_content">
+            <div class="faq">
+              <div class="faq_content">
+                <ul>
+                 <iterate name="faq" id="vo">
+		           <li>{$i}.<a href="__APP__/article-{$vo.id}">{$vo.title}</a></li>
+		           </iterate>
+                </ul>
+              </div>
+              <div class="faq1">
+              {$content}
+                <br /><a href="#"><img src="../Public/images/button_back.gif" alt="" border="0" /></a>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+<include file="Public:footer" />

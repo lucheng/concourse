@@ -1,0 +1,3 @@
+<?php
+//-00000000001a:3:{i:0;a:7:{s:2:"id";s:1:"1";s:4:"name";s:9:"US Dollar";s:4:"code";s:1:"$";s:4:"rate";s:1:"1";s:6:"symbol";s:3:"USD";s:4:"sort";s:1:"0";s:6:"status";s:1:"1";}i:1;a:7:{s:2:"id";s:1:"3";s:4:"name";s:4:"Euro";s:4:"code";s:3:"€";s:4:"rate";s:3:"0.7";s:6:"symbol";s:3:"EUR";s:4:"sort";s:1:"0";s:6:"status";s:1:"1";}i:2;a:7:{s:2:"id";s:1:"4";s:4:"name";s:8:"GB Pound";s:4:"code";s:2:"£";s:4:"rate";s:4:"0.62";s:6:"symbol";s:3:"GBP";s:4:"sort";s:1:"0";s:6:"status";s:1:"1";}}
+?>

@@ -1,0 +1,46 @@
+<include file="Public:header" />
+<include file="Public:left" />
+
+ <div class="col2">
+        <div class="list1">
+          <div class="list1_title"><a href="/">Home</a> >  Sitemap </div>
+          <div class="list2_content">
+            <div class="site">
+              <fieldset>
+                <legend> <span style="color:#669900">All Categoty</span></legend>
+                <div class="cate">
+
+<ul>
+
+ <volist name="catetree" id="vo">
+	  <ul>
+	  
+ <eq name="vo['subcount']" value="0">
+	    <li><a href="{:build_url($vo,'cate_url')}">{:build_url($vo,'cate_name')}</a></li>
+</eq>
+ <gt name="vo['subcount']" value="0">
+ 		 <li><a href="{:build_url($vo,'cate_url')}">{:build_url($vo,'cate_name')}</a>
+ 		
+ 		 <ul>
+ 		 	<li>
+ 		 	<volist name="vo['sub']" id="subvo">
+	        <a href="{:build_url($subvo,'cate_url')}">{:build_url($subvo,'cate_name')}</a>
+	        </volist>
+	        </li>
+	      </ul>
+	    </li>
+ </gt>
+	  </ul>
+	  </volist>
+</ul>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+<include file="Public:footer" />    

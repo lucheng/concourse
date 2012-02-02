@@ -1,0 +1,19 @@
+<IfModule mod_rewrite.c>
+
+
+RewriteEngine on
+
+
+RewriteCond %{REQUEST_FILENAME} !-d
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+
+RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
+
+
+#RewriteCond %{HTTP_HOST} ^xxx\.com$
+#RewriteRule ^(.*)$ http://www.xxx/$1 [R=301]
+
+</IfModule>

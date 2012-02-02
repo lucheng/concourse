@@ -1,0 +1,3 @@
+<?php
+//-00000000001a:14:{s:2:"id";s:3:"334";s:4:"name";s:25:"Louis Vuitton Top Handles";s:6:"imgurl";s:0:"";s:3:"pid";s:3:"315";s:7:"type_id";s:1:"1";s:4:"sort";s:1:"6";s:4:"txt2";N;s:5:"total";N;s:5:"ishot";s:1:"0";s:9:"pagetitle";s:70:"Buy discount  good hot louis vuitton top handles cheap in high quality";s:7:"pagekey";s:63:"Louis Vuitton Top Handles,louis vuitton top handle buy discount";s:7:"pagedec";s:247:"It is really ideal for women buy Louis Vuitton Top Handles ,louis vuitton top accessories. all of them is elegant chic hotest and fashion.the price is reasonable in discount.especially louis vuitton top handles alma mm monogram vernis is very pop.";s:7:"brandid";s:1:"0";s:6:"remark";s:0:"";}
+?>

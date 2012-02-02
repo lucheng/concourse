@@ -1,0 +1,3 @@
+<?php
+//-00000000001a:3:{i:0;a:8:{s:2:"id";s:2:"40";s:7:"img_url";s:27:"./Public/Uploads/Ad/ad2.jpg";s:7:"content";s:0:"";s:4:"code";s:0:"";s:4:"type";s:5:"flash";s:6:"remark";s:10:"幻灯片1";s:4:"sort";s:1:"0";s:4:"link";s:0:"";}i:1;a:8:{s:2:"id";s:2:"39";s:7:"img_url";s:27:"./Public/Uploads/Ad/ad1.jpg";s:7:"content";s:0:"";s:4:"code";s:0:"";s:4:"type";s:5:"flash";s:6:"remark";s:10:"幻灯片2";s:4:"sort";s:1:"0";s:4:"link";s:0:"";}i:2;a:8:{s:2:"id";s:2:"41";s:7:"img_url";s:27:"./Public/Uploads/Ad/ad3.jpg";s:7:"content";s:0:"";s:4:"code";s:0:"";s:4:"type";s:5:"flash";s:6:"remark";s:10:"幻灯片3";s:4:"sort";s:1:"0";s:4:"link";s:0:"";}}
+?>
