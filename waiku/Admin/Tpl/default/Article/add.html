@@ -163,10 +163,10 @@
 </tr>
 <tr>
   <td class="b1_1">附加选项</td>
-  <td class="b1_1">固顶
-    <input name="istop" type="checkbox" class="noborder" id="IsTop" value="1">
-    推荐
-    <input name="ishot" type="checkbox" class="noborder" id="IsHot" value="1">
+  <td class="b1_1">
+  	固顶<input name="istop" type="checkbox" class="noborder" id="IsTop" value="1">
+	推荐<input name="ishot" type="checkbox" class="noborder" id="IsHot" value="1">
+	英文版本<input name="isenglish" type="checkbox" class="noborder" id="isenglish" value="0">
 	<INPUT type=button class="bnt" onClick="javascript:KE.insertHtml('Content', '[wk_page]');" value="插入分页符">
 </td>
 </tr>
@@ -175,14 +175,14 @@
   <td class="b1_1"><input name="pagenum" type="text" id="PageNum" value="0" size="6" maxlength="4">
     <span class="note">　注:如果在内容中加入了手动分页符,请填写0</span></td>
 </tr>
-<tr>
+<!--<tr>
   <td bgcolor="#FFFFFF" class="b1_1">本文显示投票</td>
   <td colspan=4 class=b1_1><select name="voteid" size=4 id="Vote">
 	{$votehtml}
  </select>
     <span class="note">取消投票请选择不投票</span></td>
 </tr>
-
+-->
 <td width="20%" class="b1_1"></td>
 <td class="b1_1"><input name="submit" type="submit" class="bnt" value="添 加">&nbsp;&nbsp;<input type="button" onclick="history.go(-1);" class="bnt" value="返 回"></td>
 </tr>

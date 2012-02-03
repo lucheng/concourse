@@ -9,7 +9,7 @@ class PagesAction extends CommonAction
     public function index()
     {
 		$Pages = D('Pages');
-		$list = $Pages->order('addtime desc')->select();
+		$list = $Pages->order('aid desc')->select();
 		
 		/*$p->setConfig('prev','上一页');
 		$p->setConfig('header','篇文章');
@@ -28,9 +28,9 @@ class PagesAction extends CommonAction
 	
 	  public function add()
     {
-		$this->addop();//文章编辑option
-		$this->jumpop();//快速跳转option
-		$this->vote(0);
+//		$this->addop();//文章编辑option
+//		$this->jumpop();//快速跳转option
+//		$this->vote(0);
 		$this->display('add');
     }
 	
@@ -39,9 +39,9 @@ class PagesAction extends CommonAction
 		$type = M('Pages');
 		$list = $type->where('aid='.$_GET['aid'])->find();
 		$this->assign('list',$list);
-		$this->editop();//文章编辑option
-		$this->jumpop();//快速跳转option
-		$this->vote($list['voteid']);
+//		$this->editop();//文章编辑option
+//		$this->jumpop();//快速跳转option
+//		$this->vote($list['voteid']);
 		$this->display();
     }
 	
@@ -51,38 +51,23 @@ class PagesAction extends CommonAction
 		if(empty($_POST['title']))
 		{
 			alert('标题不能为空!',1);
-			
-		}
-		
-		if(isset($_POST['linkurl']))
-		{
-			$data['linkurl'] = trim($_POST['linkurl']);
 		}
 		if(isset($_POST['imgurl']))
 		{
 			$data['imgurl'] = trim($_POST['imgurl']);
 		}
 		$data['aid'] = $_POST['aid'];
-		$data['pagenum'] = $_POST['pagenum'];
 		$data['content'] = $_POST['content'];
 		$data['title'] = trim($_POST['title']);
 		$data['hits'] = trim($_POST['hits']);
 		Load('extend'); //加载扩展函数库
-		empty($_POST['addtime']) ? $data['addtime'] = date('Y-m-d H:i:s') : $data['addtime'] = trim($_POST['addtime']);
-		empty($_POST['author']) ? $data['author'] = '未知' : $data['author'] = trim($_POST['author']);
 		empty($_POST['keywords']) ? $data['keywords'] = '' : $data['keywords'] = trim($_POST['keywords']);
 		empty($_POST['description']) ? $data['description'] = '' : $data['description'] = trim($_POST['description']);
-		empty($_POST['copyfrom']) ? $data['copyfrom'] = '' : $data['copyfrom'] = trim($_POST['copyfrom']);
-		empty($_POST['islink']) ? $data['islink'] = '0' : $data['islink'] = trim($_POST['islink']);
-		empty($_POST['istop']) ? $data['istop'] = '0' : $data['istop'] = trim($_POST['istop']);
-		empty($_POST['isimg']) ? $data['isimg'] = '0' : $data['isimg'] = trim($_POST['isimg']);
-		empty($_POST['ishot']) ? $data['ishot'] = '0' : $data['ishot'] = trim($_POST['ishot']);
-		empty($_POST['note']) ? $data['note'] = trim(strip_tags(msubstr($_POST['content'],0,130,'utf-8',false))).'...' : $data['note'] = $_POST['note'];
+		empty($_POST['isenglish']) ? $data['isenglish'] = '0' : $data['isenglish'] = trim($_POST['isenglish']);
 		$Pages = M('Pages');
 		if($Pages->save($data))
 		{
 			alert('操作成功!',U('Pages/index'));
-			
 		}
 		alert('操作失败!',1);
     }
@@ -94,61 +79,41 @@ class PagesAction extends CommonAction
 		if(empty($_POST['title']))
 		{
 			alert('标题不能为空!',1);
-			
 		}
-		if(empty($_POST['typeid']))
-		{
-			alert('请选择栏目!',1);
-			
-		}
-		if(isset($_POST['linkurl']))
-		{
-			$data['linkurl'] = trim($_POST['linkurl']);
-		}
+		
 		if(isset($_POST['imgurl']))
 		{
 			$data['imgurl'] = trim($_POST['imgurl']);
 		}
 		$data['status'] = 1;
-		$data['voteid'] = $_POST['voteid'];
-		$data['pagenum'] = $_POST['pagenum'];
 		$data['content'] = $_POST['content'];
 		$data['title'] = trim($_POST['title']);
 		$data['hits'] = trim($_POST['hits']);
-		$data['typeid'] = trim($_POST['typeid']);
 		Load('extend'); //加载扩展函数库
-		empty($_POST['addtime']) ? $data['addtime'] = date('Y-m-d H:i:s') : $data['addtime'] = trim($_POST['addtime']);
-		empty($_POST['author']) ? $data['author'] = '未知' : $data['author'] = trim($_POST['author']);
 		empty($_POST['keywords']) ? $data['keywords'] = '' : $data['keywords'] = trim($_POST['keywords']);
 		empty($_POST['description']) ? $data['description'] = '' : $data['description'] = trim($_POST['description']);
-		empty($_POST['copyfrom']) ? $data['copyfrom'] = '' : $data['copyfrom'] = trim($_POST['copyfrom']);
-		empty($_POST['islink']) ? $data['islink'] = '0' : $data['islink'] = trim($_POST['islink']);
-		empty($_POST['istop']) ? $data['istop'] = '0' : $data['istop']=trim($_POST['istop']);
-		empty($_POST['isimg']) ? $data['isimg'] = '0' : $data['isimg']=trim($_POST['isimg']);
-		empty($_POST['ishot']) ? $data['ishot'] = '0' : $data['ishot']=trim($_POST['ishot']);
-		empty($_POST['note']) ? $data['note'] = trim(strip_tags(msubstr($_POST['content'],0,130,'utf-8',false))) : $data['note']=trim($_POST['note']);
-		$article = M('article');
-		if($article->data($data)->add())
+		empty($_POST['isenglish']) ? $data['isenglish'] = '0' : $data['isenglish']=trim($_POST['isenglish']);
+		$Pages = M('Pages');
+		if($Pages->data($data)->add())
 		{
-		 alert('操作成功!',U('Pages/index'));
-		 
+			alert('操作成功!',U('Pages/index'));
 		}
 		alert('操作失败!',1);
+		
 	}
 		
 		
 	public function del()
     {
-		$article=D('Pages');
-		if($article->relation(true)->delete($_GET['aid'])){
-		 alert('操作成功!',U('Pages/index'));
-		 
+		$Pages=D('Pages');
+		if($Pages->delete($_GET['aid'])){
+			alert('操作成功!',U('Pages/index'));
 		}
 		alert('操作失败!',1);
     }
 	
 	public function status(){
-		$a = M('article');
+		$a = M('Pages');
 		if($_GET['status'] == 0)
 		{
 			$a->where( 'aid='.$_GET['aid'] )-> setField( 'status',1);

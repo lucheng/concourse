@@ -22,17 +22,17 @@ function showhelp(){
     <td width="5%" height="30" align="center" class="ButtonList">&nbsp;</td>
     <td width="13%" align="center" class="ButtonList">页面ID</td>
     <td width="23%" align="center" class="ButtonList">页面名称</td>
-    <td width="20%" height="25" align="center" class="ButtonList">发布时间</td>
+    <td width="20%" height="25" align="center" class="ButtonList">版本</td>
 
     <td width="7%" height="25" align="center" class="ButtonList">浏览</td>
     <td width="20%" height="25" align="center" class="ButtonList">管理</td>    
     </tr>
 	<volist name="list" id="vo"> 
     <tr bgcolor="#ffffff" onMouseOver="this.style.backgroundColor='#EAFCD5';" onMouseOut="this.style.backgroundColor='';this.style.color=''">
-    <td height="25" align="CENTER"><input type="checkbox" value="{$vo.aid}" name="aid[]" onClick="unselectall(this.form)" style="border:0;"></td>
+    <td height="25" align="CENTER">&nbsp;<!--<input type="checkbox" value="{$vo.aid}" name="aid[]" onClick="unselectall(this.form)" style="border:0;">--></td>
     <td height="25" align="CENTER">{$vo.aid}</td>
-    <td height="25"><a href="__ROOT__/{$urlmode}pages/{$vo.aid}{$suffix}" target="_blank">{$vo.title}</a><eq name="vo.islink" value="1"><font color="red">[英]</font></eq></td>
-    <td height="25" align="center">{$vo.addtime}</td>
+    <td height="25"><a href="__ROOT__/{$urlmode}pages/{$vo.aid}{$suffix}" target="_blank">{$vo.title}</a></td>
+    <td height="25" align="center"><eq name="vo.isenglish" value="1"><font color="red">[英文]</font></eq></td>
     <td height="25" align="center">{$vo.hits}</td>
     <td align="center"><a href="__URL__/edit/aid/{$vo.aid}">编辑</a>|<a href="__URL__/del/aid/{$vo.aid}" onClick="JavaScript:return confirm('确定要删除？')">删除</a></td>
     </tr>

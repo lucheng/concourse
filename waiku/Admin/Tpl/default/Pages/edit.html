@@ -86,12 +86,13 @@ function showhelp(){
   <td class="b1_1">浏览次数</td>
   <td class="b1_1"><input name="hits" value="{$list.hits}" type="text" id="Hits" size="6" maxlength="10">&nbsp;&nbsp;<input name="get" type="button" class="bnt" onclick="round();" value="随 机"></td>
 </tr>
-
 <tr>
-  <td class="b1_1">转向链接</td>
-  <td class="b1_1"><input name="linkurl"  type="text" size="50" value="{$list.linkurl}">
-		  <input name="islink" type="checkbox" class="noborder" id="UseLinkUrl" value="1" <eq name='list.islink' value='1'>checked</eq>>
-      使用转向链接		</td>
+  <td class="b1_1">附加选项</td>
+  <td class="b1_1">
+    <input name="isenglish" type="checkbox" class="noborder" id="isenglish" value="1" <eq name="list.isenglish" value="1">checked</eq>>
+    英文版本
+	
+</td>
 </tr>
 <tr>
   <td rowspan="2" class="b1_1">缩略图</td>
@@ -102,28 +103,15 @@ function showhelp(){
 <tr>
   <td class="b1_1"><iframe src="__APP__/File/thumb/" width="400" height="25" frameborder="0" scrolling="no"></iframe></td>
 </tr>
-<tr>
-  <td bgcolor="#FFFFFF" class="b1_1">文章摘要[为空自动截取文章前130字]</td>
-  <td colspan=4 class=b1_1><textarea name="note" id="Note" cols="60" rows="6">{$list.note}</textarea></td></tr>
- <tr>
  <tr>
   <td class="b1_1">附件上传</td>
   <td class="b1_1"><iframe src="__APP__/File/attach/" width="400" height="25" frameborder="0" scrolling="no"></iframe></td>
 </tr>
 <tr>
   <td valign="top" class="b1_1"><p>内容</p>
-    <p>发布时间<br>
-      <input name="addtime" type="text" id="DateAndTime" value="{$list.addtime}">
-    </p>
-  <td class="b1_1"><textarea id="Content" name="content" style="width:700px;height:300px;">{$list.content}
+  <td class="b1_1"><textarea id="content" name="content" style="width:700px;height:300px;">{$list.content}
 </textarea>
 </td>
-</tr>
-
-<tr>
-  <td class="b1_1">自动分页<strong>字数</strong></td>
-  <td class="b1_1"><input name="pagenum" type="text" id="PageNum" value="{$list.pagenum}" size="6" maxlength="4">
-    <span class="note">　注:如果在内容中加入了手动分页符,请填写0</span></td>
 </tr>
 
 <tr> 
