@@ -39,7 +39,7 @@ class IndexAction extends BaseAction
 		$this->assign('list3',$list3);
 		$this->assign('list4',$list4);
 		$this->assign('list5',$list5);
-		dump($list5);
+//		dump($list5);
 		//输出模板
 		$this->display('index');
     }
