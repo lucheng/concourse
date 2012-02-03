@@ -20,16 +20,26 @@ class IndexAction extends BaseAction
 		unset($hd,$flash);
 		
 		//首页栏目内容
-		$list = $type->where('isindex=1')->order('irank asc')->field('typeid,typename,indexnum')->select();
+		/*$list = $type->where('isindex=1')->order('irank asc')->field('typeid,typename,indexnum')->select();
 		foreach ($list as $k=>$v)
 		{
 			$data['status'] = 1;
 			$data['typeid'] = $v['typeid'];
 			$k % 2 ==0 ? $list[$k]['i'] = 0 : $list[$k]['i'] = 1;
 			$list[$k]['article'] = $article->where($data)->order('addtime desc')->field('title,aid')->limit($v['indexnum'])->select();
-		}
-		$this->assign('list',$list);
+		}*/
 		
+		$list1 = $article->where("typeid=1")->order('addtime desc')->field('title,aid')->limit(8)->select();
+		$list2 = $article->where("typeid=2")->order('addtime desc')->field('title,aid')->limit(8)->select();
+		$list3 = $article->where("typeid=3")->order('addtime desc')->field('title,aid')->limit(4)->select();
+		$list4 = $article->where("typeid=4")->order('addtime desc')->field('title,aid')->limit(4)->select();
+		$list5 = $article->where("typeid=5")->order('addtime desc')->field('title,aid,imgurl')->limit(7)->select();
+		$this->assign('list1',$list1);
+		$this->assign('list2',$list2);
+		$this->assign('list3',$list3);
+		$this->assign('list4',$list4);
+		$this->assign('list5',$list5);
+		dump($list5);
 		//输出模板
 		$this->display('index');
     }

@@ -64,30 +64,15 @@
 <div class="big">
 <div class="sm">
 
- <volist name="list" id="vo">
-		<div class="Index<eq name="vo.i" value="1">Left<else/>Rght</eq>">
-		<div class="IndexContentTitle">
-		<div class="IndexContentTitleLeft"><a href='{$vo.typeid|url=lists,###}' class="bold font14">{$vo.typename}</a></div>
-		<div class="IndexContentTitleRight"><a href='{$vo.typeid|url=lists,###}'>更多 &raquo;</a></div>
-		</div>
-		<div class="IndexContentList">
-		<ul>
-		<volist name= "vo['article']" id="sub"> 
-		<li><a href="{$sub.aid|url=articles,###}">{$sub.title}</a></li>
-		</volist> 
-		</ul>
-		</div>
-		</div>
-		</volist>
 
               <div class="englishfont">Academic Research</div>
               <div class="chinese">学术研究</div>
             </div>
             <div class="rese resee" >
 	            <ul>
-					<li><a href="{$sub.aid|url=articles,###}">学术研究</a></li>
-					<li><a href="{$sub.aid|url=articles,###}">学术研究</a></li>
-					<li><a href="{$sub.aid|url=articles,###}">学术研究f</a></li>
+	            	<volist name="list1" id="sub">
+					<li><a title="{$sub.title}" href="{$sub.aid|url=articles,###}">{$sub.title|msubstr1=0,18,'utf-8',true}</a></li>
+					</volist>
 				</ul>
             </div>
         </div>
@@ -98,9 +83,9 @@
             </div>
              <div class="rese resee" >
 	            <ul>
-					<li><a href="{$sub.aid|url=articles,###}">dddd</a></li>
-					<li><a href="{$sub.aid|url=articles,###}">eeee</a></li>
-					<li><a href="{$sub.aid|url=articles,###}">fffffffffff</a></li>
+					<volist name="list2" id="sub">
+					<li><a title="{$sub.title}" href="{$sub.aid|url=articles,###}">{$sub.title|msubstr1=0,18,'utf-8',true}</a></li>
+					</volist>
 				</ul>
             </div>
           </div>
@@ -111,9 +96,9 @@
             </div>
             <div class="resue resee" >
 	            <ul>
-					<li><a href="{$sub.aid|url=articles,###}">学术研究</a></li>
-					<li><a href="{$sub.aid|url=articles,###}">学术研究</a></li>
-					<li><a href="{$sub.aid|url=articles,###}">学术研究f</a></li>
+					<volist name="list3" id="sub">
+					<li><a title="{$sub.title}" href="{$sub.aid|url=articles,###}">{$sub.title|msubstr1=0,18,'utf-8',true}</a></li>
+					</volist>
 				</ul>
             </div>
             <div style="float:right;padding-right:38px;"><a href="#"><img src="../Public/images/index/5.jpg" width="66" height="27" border="0" /></a></div>
@@ -124,10 +109,9 @@
             </div>
              <div class="resu resee" >
 	            <ul>
-					<li><a href="{$sub.aid|url=articles,###}">学术研究</a></li>
-					<li><a href="{$sub.aid|url=articles,###}">学术研究</a></li>
-					<li><a href="{$sub.aid|url=articles,###}">学术研究f</a></li>
-					<li><a href="{$sub.aid|url=articles,###}">学术研究f</a></li>
+					<volist name="list4" id="sub">
+					<li><a title="{$sub.title}" href="{$sub.aid|url=articles,###}">{$sub.title|msubstr1=0,18,'utf-8',true}</a></li>
+					</volist>
 				</ul>
             </div>
           </div>
@@ -151,13 +135,16 @@
                     <div class="chinese">活动新闻照片</div>
                 </div>
                 <div class="sm" style="margin-top:15px">
-                	<div class="thumimg">
+                	<volist name="list5" id="sub">
+                		<div class="thumimg">
                         <div class="image">
-                          	<a href="#"><img src="../Public/images/index/1.png" /></a>
+                          	<a href="{$sub.aid|url=articles,###}"><img src="{$sub.imgurl}" /></a>
                         </div>
-                      <div class="hdTitle">活动标题</div>
+                      <div class="hdTitle">{$sub.title|msubstr1=0,18,'utf-8',true}</div>
                     </div>
-                    <div class="thumimg">
+                	</volist>
+                	
+                    <!--<div class="thumimg">
                         <div class="image">
                        		 <a href="#"><img src="../Public/images/index/1.png" /></a>
                         </div>
@@ -193,7 +180,7 @@
                         </div>
                       <div class="hdTitle">活动标题</div>
                     </div>
-                 
+                -->
                 </div>
       </div>
         <!-- InstanceEndEditable -->

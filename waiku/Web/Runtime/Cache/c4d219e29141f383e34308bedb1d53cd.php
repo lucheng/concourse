@@ -80,26 +80,13 @@
 <div class="big">
 <div class="sm">
 
- <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): ++$i;$mod = ($i % 2 )?><div class="Index<?php if(($vo["i"])  ==  "1"): ?>Left<?php else: ?>Rght<?php endif; ?>">
-		<div class="IndexContentTitle">
-		<div class="IndexContentTitleLeft"><a href='<?php echo (url(lists,$vo["typeid"])); ?>' class="bold font14"><?php echo ($vo["typename"]); ?></a></div>
-		<div class="IndexContentTitleRight"><a href='<?php echo (url(lists,$vo["typeid"])); ?>'>更多 &raquo;</a></div>
-		</div>
-		<div class="IndexContentList">
-		<ul>
-		<?php if(is_array($vo['article'])): $i = 0; $__LIST__ = $vo['article'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sub): ++$i;$mod = ($i % 2 )?><li><a href="<?php echo (url(articles,$sub["aid"])); ?>"><?php echo ($sub["title"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?> 
-		</ul>
-		</div>
-		</div><?php endforeach; endif; else: echo "" ;endif; ?>
 
               <div class="englishfont">Academic Research</div>
               <div class="chinese">学术研究</div>
             </div>
             <div class="rese resee" >
 	            <ul>
-					<li><a href="<?php echo (url(articles,$sub["aid"])); ?>">学术研究</a></li>
-					<li><a href="<?php echo (url(articles,$sub["aid"])); ?>">学术研究</a></li>
-					<li><a href="<?php echo (url(articles,$sub["aid"])); ?>">学术研究f</a></li>
+	            	<?php if(is_array($list1)): $i = 0; $__LIST__ = $list1;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sub): ++$i;$mod = ($i % 2 )?><li><a title="<?php echo ($sub["title"]); ?>" href="<?php echo (url(articles,$sub["aid"])); ?>"><?php echo (msubstr1($sub["title"],0,18,'utf-8',true)); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
 				</ul>
             </div>
         </div>
@@ -110,9 +97,7 @@
             </div>
              <div class="rese resee" >
 	            <ul>
-					<li><a href="<?php echo (url(articles,$sub["aid"])); ?>">dddd</a></li>
-					<li><a href="<?php echo (url(articles,$sub["aid"])); ?>">eeee</a></li>
-					<li><a href="<?php echo (url(articles,$sub["aid"])); ?>">fffffffffff</a></li>
+					<?php if(is_array($list2)): $i = 0; $__LIST__ = $list2;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sub): ++$i;$mod = ($i % 2 )?><li><a title="<?php echo ($sub["title"]); ?>" href="<?php echo (url(articles,$sub["aid"])); ?>"><?php echo (msubstr1($sub["title"],0,18,'utf-8',true)); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
 				</ul>
             </div>
           </div>
@@ -123,9 +108,7 @@
             </div>
             <div class="resue resee" >
 	            <ul>
-					<li><a href="<?php echo (url(articles,$sub["aid"])); ?>">学术研究</a></li>
-					<li><a href="<?php echo (url(articles,$sub["aid"])); ?>">学术研究</a></li>
-					<li><a href="<?php echo (url(articles,$sub["aid"])); ?>">学术研究f</a></li>
+					<?php if(is_array($list3)): $i = 0; $__LIST__ = $list3;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sub): ++$i;$mod = ($i % 2 )?><li><a title="<?php echo ($sub["title"]); ?>" href="<?php echo (url(articles,$sub["aid"])); ?>"><?php echo (msubstr1($sub["title"],0,18,'utf-8',true)); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
 				</ul>
             </div>
             <div style="float:right;padding-right:38px;"><a href="#"><img src="../Public/images/index/5.jpg" width="66" height="27" border="0" /></a></div>
@@ -136,10 +119,7 @@
             </div>
              <div class="resu resee" >
 	            <ul>
-					<li><a href="<?php echo (url(articles,$sub["aid"])); ?>">学术研究</a></li>
-					<li><a href="<?php echo (url(articles,$sub["aid"])); ?>">学术研究</a></li>
-					<li><a href="<?php echo (url(articles,$sub["aid"])); ?>">学术研究f</a></li>
-					<li><a href="<?php echo (url(articles,$sub["aid"])); ?>">学术研究f</a></li>
+					<?php if(is_array($list4)): $i = 0; $__LIST__ = $list4;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sub): ++$i;$mod = ($i % 2 )?><li><a title="<?php echo ($sub["title"]); ?>" href="<?php echo (url(articles,$sub["aid"])); ?>"><?php echo (msubstr1($sub["title"],0,18,'utf-8',true)); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
 				</ul>
             </div>
           </div>
@@ -163,13 +143,14 @@
                     <div class="chinese">活动新闻照片</div>
                 </div>
                 <div class="sm" style="margin-top:15px">
-                	<div class="thumimg">
+                	<?php if(is_array($list5)): $i = 0; $__LIST__ = $list5;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sub): ++$i;$mod = ($i % 2 )?><div class="thumimg">
                         <div class="image">
-                          	<a href="#"><img src="../Public/images/index/1.png" /></a>
+                          	<a href="<?php echo (url(articles,$sub["aid"])); ?>"><img src="<?php echo ($sub["imgurl"]); ?>" /></a>
                         </div>
-                      <div class="hdTitle">活动标题</div>
-                    </div>
-                    <div class="thumimg">
+                      <div class="hdTitle"><?php echo (msubstr1($sub["title"],0,18,'utf-8',true)); ?></div>
+                    </div><?php endforeach; endif; else: echo "" ;endif; ?>
+                	
+                    <!--<div class="thumimg">
                         <div class="image">
                        		 <a href="#"><img src="../Public/images/index/1.png" /></a>
                         </div>
@@ -205,7 +186,7 @@
                         </div>
                       <div class="hdTitle">活动标题</div>
                     </div>
-                 
+                -->
                 </div>
       </div>
         <!-- InstanceEndEditable -->
