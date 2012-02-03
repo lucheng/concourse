@@ -119,13 +119,17 @@ list-style: none;
 .image a img{
 	height:78px;
 	width:134px;
+	border:none;
 }
 .hdTitle{
 	text-align:center;
 	height:30px;
+	font-size:14px;
 }
 #menu{
+	float:left;
 	margin-top:15px;
+	margin-bottom:35px;
 }
 #footer{
 	background-image: url(../images/index/4.jpg);
@@ -182,4 +186,13 @@ height: 30px;
 line-height: 30px;
 padding-left: 18px;
 text-align: left;
+}
+.more{
+	float:right;
+	margin-top:10px;
+	padding-bottom:10px;
+	
+}
+.more img{
+	border:none;
 }

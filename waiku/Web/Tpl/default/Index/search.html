@@ -15,7 +15,7 @@
 <include file="Public:head"/>
 <div id="positionbg">
     <div id="position"><a href="__APP__">{$config.sitetitle}</a>&nbsp;&gt;&nbsp;共搜索到<font color="red"><b>{$num}</b></font>篇文章</div>
-	<div id="sousuo"><form name="search" method="POST" action="{:U('s/search');}"><input type="text" name="k" id="kw" value="{$keyword}" maxlength="60"><input type="submit" value="搜索" class="btn">{__TOKEN__}</form></div>
+	<div id="sousuo"><form name="search" method="post" action="{:U('s/search');}"><input type="text" name="k" id="kw" value="{$keyword}" maxlength="60"><input type="submit" value="搜索" class="btn">{__TOKEN__}</form></div>
 </div>
 
 <div id="wrapper">
