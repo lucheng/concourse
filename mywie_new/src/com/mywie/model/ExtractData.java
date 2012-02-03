@@ -8,9 +8,10 @@ import org.dom4j.Element;
 import com.mywie.utils.XmlHelp;
 
 public class ExtractData {
+	
 	private List<String> titles = null;
 	private List<List<String>> datas = null;
-	private XmlHelp xmlHelp = new XmlHelp();
+//	private XmlHelp xmlHelp = new XmlHelp();
 	
 	public List<String> getTitles() {
 		if (titles == null) {
@@ -54,6 +55,6 @@ public class ExtractData {
 				}
 			}
 		}
-		xmlHelp.writeDocument(path, outdoc);
+		XmlHelp.writeDocument(path, outdoc);
 	}
 }

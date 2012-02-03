@@ -33,7 +33,7 @@ public class WelcomeScreen extends CompositeImpl {
 		title.setFont(new Font(Display.getDefault(), "\u5fae\u8f6f\u96c5\u9ed1", 18, SWT.NORMAL));
 		title.setText("欢迎使用Web信息抽取工具");
 		
-		button_1 = new Button(this, SWT.RADIO);
+		/*button_1 = new Button(this, SWT.RADIO);
 		button_1.setBounds(new Rectangle(100, 120, 120, 40));
 		button_1.setFont(new Font(Display.getDefault(), "\u5fae\u8f6f\u96c5\u9ed1", 14, SWT.NORMAL));
 		button_1.setText("博客类抽取");
@@ -51,9 +51,9 @@ public class WelcomeScreen extends CompositeImpl {
 				
 				
 			}
-		});
+		});*/
 		
-		button_2 = new Button(this, SWT.RADIO);
+		/*button_2 = new Button(this, SWT.RADIO);
 		button_2.setBounds(new Rectangle(100, 160, 120, 40));
 		button_2.setFont(new Font(Display.getDefault(), "\u5fae\u8f6f\u96c5\u9ed1", 14, SWT.NORMAL));
 		button_2.setText("电商类抽取");
@@ -71,7 +71,7 @@ public class WelcomeScreen extends CompositeImpl {
 				
 				System.out.println("widgetDefaultSelected");
 			}
-		});
+		});*/
 		
 	}
 	

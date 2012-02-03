@@ -26,6 +26,7 @@ import org.htmlcleaner.SimpleXmlSerializer;
 import org.htmlcleaner.TagNode;
 
 import com.mywie.model.NodeCompare;
+import com.mywie.operate.DataFilter;
 
 public class XmlHelp {
 	
@@ -343,6 +344,7 @@ public class XmlHelp {
 	}
 	
 	public static void main(String[] args) {
-		
+		Document doc = getDocumentWithClean("file/news.xml");
+		DataFilter.dataFilter(doc.getRootElement());
 	}
 }

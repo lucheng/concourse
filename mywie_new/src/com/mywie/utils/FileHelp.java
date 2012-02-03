@@ -294,7 +294,7 @@ public class FileHelp {
 	}
 
 	public static void main(String argv[]) {
-		FileHelp.copyDirectory("./src/com/mywie/utils/include", "d:/include");
+		
 	}
 
 }

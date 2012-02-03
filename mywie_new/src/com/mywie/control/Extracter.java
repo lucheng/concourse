@@ -1,13 +1,5 @@
 package com.mywie.control;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,7 +9,6 @@ import org.dom4j.Element;
 
 import com.mywie.operate.ExtractInfomation;
 import com.mywie.operate.TemplateOperate;
-import com.mywie.utils.FileHelp;
 import com.mywie.utils.XmlHelp;
 
 
@@ -29,7 +20,6 @@ public class Extracter extends ExtractInfomation {
 	private Element templateRoot;
 	private Document markedDoc;
 
-//	private XmlHelp xmlHelp = new XmlHelp();
 	/**
 	 * @breif 构造函数
 	 * @param templateFile 模板文件的绝对路径
@@ -109,22 +99,23 @@ public class Extracter extends ExtractInfomation {
 			
 			List<Element> extracts = extract(templateRoot, extractRoot);
 			
-			FileHelp.writeFile("file/templateRoot.xml", templateRoot.asXML());
-			FileHelp.writeFile("file/extractRoot.xml", extractRoot.asXML());
+//			FileHelp.writeFile("file/templateRoot.xml", templateRoot.asXML());
+//			FileHelp.writeFile("file/extractRoot.xml", extractRoot.asXML());
 //			System.out.println(templateRoot.asXML());
 //			System.out.println(extractRoot.asXML());
-			System.out.println(extracts.size());
+//			System.out.println(extracts.size());
 			
 			for (Element element : extracts) {
-				String text;
+				/*String text;
 				if ("a".equalsIgnoreCase(element.getName())) {
 					text = element.getStringValue();
 				} else if ("img".equalsIgnoreCase(element.getName())) {
 					text = element.attributeValue("src");
 				} else{
 					text = element.getStringValue();
-				}
-				result.put(element.attributeValue("semantic"), text);
+				}*/
+				
+				result.put(element.attributeValue("semantic"), element.getStringValue());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

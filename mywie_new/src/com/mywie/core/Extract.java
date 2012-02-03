@@ -14,6 +14,7 @@ import org.eclipse.swt.widgets.Text;
 import com.mywie.control.Extracter;
 import com.mywie.gui.WieStatusBar;
 import com.mywie.model.ExtractData;
+import com.mywie.operate.DataFilter;
 import com.mywie.operate.MatchAlign;
 import com.mywie.utils.FileHelp;
 import com.mywie.utils.XmlHelp;
@@ -170,13 +171,14 @@ public class Extract extends Thread {
 			List<Element> matchNodes1 = new ArrayList<Element>();
 			List<Element> matchNodes2 = new ArrayList<Element>();
 			
+			DataFilter.dataFilter(root);
+			
 			matchAlign.match(root, root2, matchNodes1, matchNodes2);
+			
 			for (int j = 0; j < matchNodes1.size(); j++) {
 				if (matchNodes1.get(j).attributeValue("semantic") != null) {
-					
 					matchNodes2.get(j).addAttribute("semantic", matchNodes1.get(j).attributeValue("semantic"));
-						result.add(matchNodes2.get(j));
-					
+					result.add(matchNodes2.get(j));
 				}
 			}
 			List<String> data = new ArrayList<String>();

@@ -25,13 +25,12 @@ public class ViewResult extends CompositeImpl {
 		closeButton = new Button(this, SWT.NONE);
 		closeButton.setBounds(new Rectangle(300, 530, 60, 30));
 		closeButton.setText("¹Ø±Õ");
-		closeButton
-				.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
-					public void widgetSelected(
-							org.eclipse.swt.events.SelectionEvent e) {
-						getShell().close();
-					}
-				});
+		closeButton.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
+			public void widgetSelected(
+					org.eclipse.swt.events.SelectionEvent e) {
+				getShell().close();
+			}
+		});
 	}
 
 	private void createBrowser() {

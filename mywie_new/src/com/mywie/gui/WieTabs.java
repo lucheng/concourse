@@ -77,7 +77,6 @@ public class WieTabs extends Composite {
 		welCom.setStatusBar(statusBar);
 		welComTabItem.setControl(welCom);
 
-		/*
 		genComTabItem = new TabItem(tabFolder, SWT.NONE);
 		genComTabItem.setText("生成模板");
 		genCom = new GenerateComposite(tabFolder, SWT.NONE);
@@ -91,17 +90,10 @@ public class WieTabs extends Composite {
 		ediComTabItem.setControl(ediCom);
 		
 		extOComTabItem = new TabItem(tabFolder, SWT.NONE);
-		extOComTabItem.setText("快速数据");
-		extLCom = new ExtractLocalComposite(tabFolder, SWT.NONE);
-		extLCom.setStatusBar(statusBar);
-		extOComTabItem.setControl(extLCom);
-
-		extLComTabItem = new TabItem(tabFolder, SWT.NONE);
-		extLComTabItem.setText("模板抽取");
-		extOCom = new ExtractOnLineComposite(tabFolder, SWT.NONE);
+		extOComTabItem.setText("模板抽取");
+		extOCom = new ExtractNormalComposite(tabFolder, SWT.NONE);
 		extOCom.setStatusBar(statusBar);
-		extLComTabItem.setControl(extOCom);
-		*/
+		extOComTabItem.setControl(extOCom);
 		
 	}
 
@@ -113,7 +105,7 @@ public class WieTabs extends Composite {
 		this.statusBar = statusBar;
 	}
 	
-	public void selectGenerateTab(){
+	/*public void selectGenerateTab(){
 		
 		removeAll();
 		
@@ -136,9 +128,9 @@ public class WieTabs extends Composite {
 		extOCom.setStatusBar(statusBar);
 		extOComTabItem.setControl(extOCom);
 		
-	}
+	}*/
 	
-	public void selectQuickTab(){
+	/*public void selectQuickTab(){
 		
 		removeAll();
 		
@@ -154,9 +146,9 @@ public class WieTabs extends Composite {
 		extLCom.setStatusBar(statusBar);
 		extLComTabItem.setControl(extLCom);
 
-	}
+	}*/
 	
-	public void removeAll(){
+	/*public void removeAll(){
 		
 		if(genComTabItem != null){
 			genComTabItem.dispose();
@@ -170,6 +162,6 @@ public class WieTabs extends Composite {
 		if(extLComTabItem != null){
 			extLComTabItem.dispose();
 		}
-	}
+	}*/
 
 }

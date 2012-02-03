@@ -1,5 +1,6 @@
 package com.mywie.gui;
 
+import org.dom4j.Document;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Rectangle;
@@ -13,6 +14,7 @@ import org.eclipse.swt.widgets.Text;
 
 import com.mywie.gui.impl.CompositeImpl;
 import com.mywie.utils.FileHelp;
+import com.mywie.utils.XmlHelp;
 
 public class EditComposite extends CompositeImpl {
 	private Label label = null;
@@ -46,58 +48,74 @@ public class EditComposite extends CompositeImpl {
 		openFile.setBounds(new Rectangle(410, 100, 80, 25));
 		openFile.setText("选择");
 		openFile.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
-					public void widgetSelected(
-							org.eclipse.swt.events.SelectionEvent e) {
-						FileDialog fd = new FileDialog(getShell());
-						String[] filterExtensions = {"*.html;*.htm"};
-						fd.setFilterExtensions(filterExtensions);
-						fd.setText("选择文件");
-						String url = fd.open();
-						if (url != null)
-							templateFilePath.setText(url);
-					}
-				});
+			public void widgetSelected(org.eclipse.swt.events.SelectionEvent e) {
+				FileDialog fd = new FileDialog(getShell());
+				String[] filterExtensions = {"*.html;*.htm"};
+				fd.setFilterExtensions(filterExtensions);
+				fd.setText("选择文件");
+				String url = fd.open();
+				if (url != null)
+					templateFilePath.setText(url);
+			}
+		});
 
 		start = new Button(this, SWT.NONE);
 		start.setBounds(new Rectangle(200, 180, 110, 50));
 		start.setText("标  注");
 		start.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
-					public void widgetSelected(
-							org.eclipse.swt.events.SelectionEvent e) {
-						if ("".endsWith(templateFilePath.getText().trim())) {
-							messageBox.setMessage("请先选择一个文件");
-							messageBox.open();
-						} else {
-							try {
-								showEditTemplate(templateFilePath.getText());
-							} catch (Exception e1) {
-								e1.printStackTrace();
-							}
-						}
+			public void widgetSelected(org.eclipse.swt.events.SelectionEvent e) {
+				if ("".endsWith(templateFilePath.getText().trim())) {
+					messageBox.setMessage("请先选择一个文件");
+					messageBox.open();
+				} else {
+					try {
+						showEditTemplate(templateFilePath.getText());
+					} catch (Exception e1) {
+						e1.printStackTrace();
 					}
-				});
+				}
+			}
+		});
 	}
 
 	private void copyFiles(String directory) {
-		System.out.println("directory:" + directory + "/include");
+//		System.out.println("directory:" + directory + "/include");
 		FileHelp.makedir(directory + "/include");
 		FileHelp.copyJarFile("include/jquery.js", directory + "/include/jquery.js");
 		FileHelp.copyJarFile("include/template.css", directory + "/include/template.css");
 		FileHelp.copyJarFile("include/template.js", directory + "/include/template.js");
 	}
 	
+	private String initUrl(String url){
+		
+		Document doc = XmlHelp.cleanHtml(url);
+//		extractions1 = XmlHelp.getExtractions(doc,"semantic");
+//		for (String k : extractions1.keySet()) {
+//			list1.add(k);
+//		}
+		XmlHelp.writeDocument(url + ".htm", doc);
+		return url + ".htm";
+	}
+	
 	private void showEditTemplate(String url) {
+		
 		subShell = new Shell(getDisplay());
 		subShell.setText("编辑器");
-		EditTemplate editTemplate = new EditTemplate(subShell, SWT.NONE);
-		
+		subShell.setMaximized(true);
+//		subShell.setStyle(SWT.APPLICATION_MODAL);
+//		subShell.set
 		String filePath = url.substring(0, url.lastIndexOf("\\"));
-//		FileHelp.copyDirectory("include", filePath+"/include");
+		
+//		final EditTemplate editTemplate = new EditTemplate(subShell, SWT.CLOSE);
+//		editTemplate.setUrl(url);
+		
+		SimpleBrowser simpleBrowser = new SimpleBrowser(subShell, SWT.CLOSE, initUrl(url));
+		simpleBrowser.createContents();
+		
 		copyFiles(filePath);
-//		XmlHelp xmlHelp = new XmlHelp();
-//		String newUrl = xmlHelp.initMarkFile(url);
-		editTemplate.setUrl(url);
 		subShell.pack();
 		subShell.open();
+		
 	}
+	
 }
