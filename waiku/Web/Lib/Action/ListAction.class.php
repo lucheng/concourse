@@ -64,8 +64,23 @@ class ListAction extends BaseAction
 	//释放内存
 		unset($article,$type,$config,$p,$tlist,$alist);
 	//模板输出
-		$this->display('index');
-//		$this->display('news');
+//		$this->display('index');
+//		
+		if($_GET['typeid'] == 1){
+			$this->display('study');
+		}
+		if($_GET['typeid'] == 2){
+			$this->display('view');
+		}
+		if($_GET['typeid'] == 3){
+			$this->display('cases');
+		}
+		if($_GET['typeid'] == 4){
+			$this->display('news');
+		}
+		if($_GET['typeid'] == 5){
+			$this->display('picture');
+		}
  }
  
 }
