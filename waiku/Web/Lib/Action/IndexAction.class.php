@@ -14,28 +14,11 @@ class IndexAction extends BaseAction
 		$flash = M('flash');
 		$config = F('basic','','./Web/Conf/');
 		
-		//网站公告
-		$notice = $article->where('status=1 AND typeid='.$config['noticeid'])->field('aid,title')->order('addtime desc')->limit($config['noticenum'])->select();
-		$this->assign('notice',$notice);
-		unset($notice);
-		
 		//首页幻灯内容
 		$hd = $flash->where('status=1')->order('rank asc')->limit($config['ishomeimg'])->select();
 		$this->assign('hd',$hd);
 		unset($hd,$flash);
 		
-		//首页top 2
-		//head里加载扩展函数库,扩展函数库只能加载一次,所以这里直接使用了!
-		$map['istop'] = 1;
-		$map['ishot'] = 1;
-		$map['status'] = 1;
-		$top = $article->where($map)->field('aid,title,note')->order('addtime desc')->limit(2)->select();
-		$top[0]['title'] = msubstr($top[0]['title'],0,18,'utf-8');
-		$top[0]['note'] =  msubstr($top[0]['note'],0,50,'utf-8');
-		$top[1]['title'] = msubstr($top[1]['title'],0,18,'utf-8');
-		$top[1]['note'] =  msubstr($top[1]['note'],0,50,'utf-8');
-		$this->assign('top',$top);
-		unset($top,$map);
 		//首页栏目内容
 		$list = $type->where('isindex=1')->order('irank asc')->field('typeid,typename,indexnum')->select();
 		foreach ($list as $k=>$v)
@@ -46,26 +29,7 @@ class IndexAction extends BaseAction
 			$list[$k]['article'] = $article->where($data)->order('addtime desc')->field('title,aid')->limit($v['indexnum'])->select();
 		}
 		$this->assign('list',$list);
-		unset($list);
 		
-		//推荐文章
-		$this->assign('recommend',ShowArt(0,$config['tjnum'],0,2));
-		
-		//热门文章
-		$this->assign('hot',ShowArt(0,$config['phnum'],0,0));
-		
-		//首页投票
-		$this->vote($config['isvote']);
-		
-		//释放内存
-		unset($type,$article,$config);
-		//友情链接
-		$link=M('link');
-		$map['islogo'] = 0;
-		$map['status'] = 1;
-		$lk = $link->where($map)->field('url,title')->order('rank')->select();
-		$this->assign('link',$lk);
-		unset($link,$map);
 		//输出模板
 		$this->display('index');
     }
@@ -75,9 +39,6 @@ class IndexAction extends BaseAction
 		if(empty($_POST['k'])){
 			alert('请输入关键字!',1);
 		}
-		
-		//网站头部
-		R('Public','head');
 		
 		//查询数据库准备
 		$article = M('article');

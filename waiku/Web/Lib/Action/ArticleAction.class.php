@@ -10,7 +10,7 @@
 
     @Date 2011-11-15 21:27:09 $
 *************************************************************/
-class ArticleAction extends Action
+class ArticleAction extends BaseAction
 {
 	Public function _empty()
 	{ 
@@ -40,8 +40,6 @@ class ArticleAction extends Action
 		{
 			alert('文章未审核!',__APP__);
 		}
-	//网站头部
-		R('Public','head');
 	//统计处理
 		if($alist['status'] == 1)
 		{

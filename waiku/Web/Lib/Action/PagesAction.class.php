@@ -2,8 +2,8 @@
 class PagesAction extends BaseAction
 {
     public function index(){
-    	
-    	$this->display("expert");
+    	$page = $_GET["page"];
+    	$this->display($page);
     }
 	
     public function expert()
