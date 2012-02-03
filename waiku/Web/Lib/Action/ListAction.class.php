@@ -67,10 +67,10 @@ class ListAction extends BaseAction
 //		$this->display('index');
 //		
 		if($_GET['typeid'] == 1){
-			$this->display('study');
+			$this->display('view');
 		}
 		if($_GET['typeid'] == 2){
-			$this->display('view');
+			$this->display('study');
 		}
 		if($_GET['typeid'] == 3){
 			$this->display('cases');

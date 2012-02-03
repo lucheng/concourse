@@ -4,7 +4,7 @@
         <li><a class="expert_menu" href="__APP__/Pages/index/page/expert" target="_self">专家寄语</a></li>
         <li><a class="introduction_menu" href="__APP__/Pages/index/page/introduction" target="_self">中心介绍</a></li>
         <volist  name="menu" id="vo">
-        	<li><a href="<eq name="vo.islink" value="0">{$vo.typeid|url=lists,###}<else/>{$vo.url}</eq>"  target="_self">{$vo.typename}</a></li>
+        	<li><a class="page{$i}_menu" href="<eq name="vo.islink" value="0">{$vo.typeid|url=lists,###}<else/>{$vo.url}</eq>"  target="_self">{$vo.typename}</a></li>
         </volist>
         <li><a  class="connectus_menu" href="__APP__/Pages/index/page/connectus" target="_self">联系我们</a></li>
         <li><a href="__APP__/Guestbook" target="_self">在线留言</a></li>
