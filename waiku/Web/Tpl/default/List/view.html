@@ -66,11 +66,22 @@
               <div class="englishfont">Forward Views</div>
               <div class="chinese">前沿观点</div>
             </div>
+            
+             <div class="rese resee">
+	            <ul>
+	            	<volist name="list" id="sub">
+					<li><a title="{$sub.title}" href="{$sub.aid|url=articles,###}">{$sub.title|msubstr1=0,28,'utf-8',true}</a></li>
+					</volist>
+				</ul>
+            </div>
+            
+             <!--
             <div class="rese">
             <div class="inexp">
-          
+              
             </div>
             </div>
+            -->
           </div>
            <!-- 左边照片 -->
           <include file="Public:left" />
