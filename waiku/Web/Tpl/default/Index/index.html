@@ -127,12 +127,13 @@
                     <div class="chinese">活动新闻照片</div>
                 </div>
                 <div class="sm" style="margin-top:15px">
-                	<volist name="list5" id="sub">
+                	<volist name="hd" id="sub">
                 		<div class="thumimg">
                         <div class="image">
-                          	<a href="{$sub.aid|url=articles,###}"><img src="{$sub.imgurl}" /></a>
+                          	<a href="{$sub.url}" target="_blank"><img src="__PUBLIC__/Uploads/hd/{$sub.pic}" alt="{$sub.title}" width="300" height="280"/></a>
                         </div>
-                      <div class="hdTitle"><a href="{$sub.aid|url=articles,###}">{$sub.title|msubstr1=0,8,'utf-8',true}</a></div>
+                      <!--<div class="hdTitle"><a href="{$sub.url}">{$sub.title|msubstr1=0,8,'utf-8',true}</a></div>
+                    -->
                     </div>
                 	</volist>
                 	

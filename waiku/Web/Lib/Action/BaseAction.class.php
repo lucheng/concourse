@@ -13,6 +13,12 @@
 			$this->assign('link',$lk);
 			unset($link,$map);
 			
+			//幻灯内容
+			$flash = M('flash');
+			$hd = $flash->where('status=1')->order('rank asc')->select();
+			$this->assign('hd',$hd);
+			unset($hd,$flash);
+			
      	}
      	
     }

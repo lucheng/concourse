@@ -11,13 +11,8 @@ class IndexAction extends BaseAction
 		//查询数据库,读取缓存
 		$type = M('type');
 		$article = M('article');
-		$flash = M('flash');
-		$config = F('basic','','./Web/Conf/');
 		
-		//首页幻灯内容
-		$hd = $flash->where('status=1')->order('rank asc')->limit($config['ishomeimg'])->select();
-		$this->assign('hd',$hd);
-		unset($hd,$flash);
+		$config = F('basic','','./Web/Conf/');
 		
 		//首页栏目内容
 		/*$list = $type->where('isindex=1')->order('irank asc')->field('typeid,typename,indexnum')->select();
@@ -38,7 +33,7 @@ class IndexAction extends BaseAction
 		$this->assign('list2',$list2);
 		$this->assign('list3',$list3);
 		$this->assign('list4',$list4);
-		$this->assign('list5',$list5);
+		/*$this->assign('list5',$list5);*/
 //		dump($list5);
 		//输出模板
 		$this->display('index');

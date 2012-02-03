@@ -8,6 +8,7 @@ class PagesAction extends BaseAction
 	
     public function expert()
     {
+    	
         $this->display();
     }
     
