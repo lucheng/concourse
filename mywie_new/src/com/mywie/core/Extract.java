@@ -14,6 +14,7 @@ import org.eclipse.swt.widgets.Text;
 import com.mywie.control.Extracter;
 import com.mywie.gui.WieStatusBar;
 import com.mywie.model.ExtractData;
+import com.mywie.model.MarkData;
 import com.mywie.operate.DataFilter;
 import com.mywie.operate.MatchAlign;
 import com.mywie.utils.FileHelp;
@@ -39,7 +40,7 @@ public class Extract extends Thread {
 	
 	private static Logger logger = Logger.getLogger(ExtractData.class.getName());
 
-	private XmlHelp xmlHelp = new XmlHelp();
+//	private XmlHelp xmlHelp = new XmlHelp();
 	
 	public String getMarkedFile() {
 		return markedFile;
@@ -94,23 +95,23 @@ public class Extract extends Thread {
 			}
 		}
 		ed.setTitles(titles);
-		List<List<String>> datas = new ArrayList<List<String>>();
+		List<List<MarkData>> datas = new ArrayList<List<MarkData>>();
 		total = titleNodes.size();
 		
 		Extracter extracter = new Extracter(templateFile, markedFile);
 		
 		for (int i = 0; i < extractFiles.length; i++) {
 			
-			Map<String, String> result = extracter.extract(extractFiles[i]);
-			List<String> data = new ArrayList<String>();
-			if (result!= null && result.size() >= total * 8 / 10) {
+			List<MarkData> data = extracter.extract(extractFiles[i]);
+			
+			if (data!= null && data.size() >= total * 8 / 10) {
 				File file = new File(extractFiles[i]);
-				data.add(file.getName());
-				data.addAll(xmlHelp.getData(titles, result));
+//				data.add();
+//				data.addAll(xmlHelp.getData(titles, result));
 				datas.add(data);
 			}
 		}
-		ed.setDatas(datas);
+//		ed.setDatas(datas);
 		ed.printToXML(destDirectory + "/extraction.xml");
 
 		logger.info("#############信息抽取结束#############");
@@ -150,7 +151,7 @@ public class Extract extends Thread {
 		FileHelp.copyJarFile("include/extraction.xsl", destDirectory + "/extraction.xsl");
 
 		ExtractData ed = new ExtractData();
-		System.out.println("root:" + root);
+//		System.out.println("root:" + root);
 		List<Node> titleNodes = root.selectNodes("//*[@semantic]");
 		List<String> titles = new ArrayList<String>();
 		titles.add("网页名称");
@@ -161,7 +162,8 @@ public class Extract extends Thread {
 			}
 		}
 		ed.setTitles(titles);
-		List<List<String>> datas = new ArrayList<List<String>>();
+		
+		List<List<MarkData>> datas = new ArrayList<List<MarkData>>();
 		total = titleNodes.size();
 		for (int i = 0; i < extractFiles.length; i++) {
 			System.out.println("extractFile:" + extractFiles[i]);
@@ -171,26 +173,33 @@ public class Extract extends Thread {
 			List<Element> matchNodes1 = new ArrayList<Element>();
 			List<Element> matchNodes2 = new ArrayList<Element>();
 			
-			DataFilter.dataFilter(root);
+//			DataFilter.dataFilter(root);
 			
 			matchAlign.match(root, root2, matchNodes1, matchNodes2);
 			
 			for (int j = 0; j < matchNodes1.size(); j++) {
 				if (matchNodes1.get(j).attributeValue("semantic") != null) {
 					matchNodes2.get(j).addAttribute("semantic", matchNodes1.get(j).attributeValue("semantic"));
+					if(matchNodes1.get(j).attributeValue("block") != null){
+						matchNodes2.get(j).addAttribute("block", matchNodes1.get(j).attributeValue("block"));
+					}
 					result.add(matchNodes2.get(j));
 				}
 			}
-			List<String> data = new ArrayList<String>();
+			List<MarkData> data = new ArrayList<MarkData>();
+			
 			if (result.size() >= total * 8 / 10) {
 				File file = new File(extractFiles[i]);
-				data.add(file.getName());
+				ed.setExtractData(file.getName(), result);
+				/*MarkData fileName = new MarkData();
+				fileName.setFileName(file.getName());
+				data.add(fileName);
 				data.addAll(XmlHelp.getData(titles, result));
-				datas.add(data);
+				datas.add(data);*/
 			}
 		}
 		System.out.println("datas:"+ datas.size());
-		ed.setDatas(datas);
+//		ed.setDatas(datas);
 		ed.printToXML(destDirectory + "/extraction.xml");
 
 		logger.info("#############信息抽取结束#############");

@@ -52,9 +52,6 @@ public class SimpleBrowser {
 	
 	private List<MarkData> markDatas = new ArrayList<MarkData>();
 	
-//	private Map<String, String> semantics = new HashMap<String, String>();
-//	private Map<String, String> blocks = new HashMap<String, String>();
-	
 	/**
 	 * @wbp.parser.entryPoint
 	 */
@@ -102,7 +99,7 @@ public class SimpleBrowser {
 				MarkInputDialog numberInputDialog = new MarkInputDialog(parent);
 				MarkData data = numberInputDialog.open();
 				gao(data);
-				System.out.println("------" + data + "------");
+//				System.out.println(data);
 			}
 
 			public void widgetDefaultSelected(SelectionEvent e) {
@@ -114,8 +111,8 @@ public class SimpleBrowser {
 			public void widgetSelected(SelectionEvent e) {
 				Shell parent = (Shell) menu.getParent();
 				DataListViewer dataViewViewer = new DataListViewer(parent, markDatas);
-//				dataViewViewer.initData(markDatas);
 				dataViewViewer.open();
+//				System.out.println("ÐÞ¸Äºó£º" + markDatas);
 			}
 
 			public void widgetDefaultSelected(SelectionEvent e) {
@@ -126,8 +123,6 @@ public class SimpleBrowser {
 		exitItem.addSelectionListener(new SelectionListener() {
 			public void widgetSelected(SelectionEvent e) {
 				
-//				editHtml.setExtractions(markDatas);
-//				editHtml.setExtractions(blocks,"block");
 				editHtml.setTemplateFile(url);
 				editHtml.edit(markDatas);
 				shell.dispose();
@@ -313,11 +308,26 @@ class MarkInputDialog extends Dialog {
 class DataListViewer extends Dialog{
 
 //	Display display = new Display();
-	private Shell shell;//= new Shell(display);
-
-	ListViewer listViewer;
-
+	private Shell shell;
+	//= new Shell(display);
 	List<MarkData> viewDatas;
+	List<MarkData> oldViewDatas;
+	
+	ListViewer listViewer;
+	Button buttonRemove;
+	Button buttonOk;
+	Button buttonCancle;
+	
+	public DataListViewer(Shell parent, List<MarkData> viewDatas) {
+		 
+		super(parent);
+		this.viewDatas = viewDatas;
+		this.oldViewDatas = new ArrayList<MarkData>();
+		for(MarkData data : viewDatas){
+			oldViewDatas.add(data);
+		}
+		shell = new Shell(getParent(), SWT.TITLE| SWT.APPLICATION_MODAL | SWT.CLOSE | SWT.CANCEL | SWT.OK);
+	}
 	
 	private void init() {
 		
@@ -379,12 +389,9 @@ class DataListViewer extends Dialog{
 			public int compare(Viewer viewer, Object e1, Object e2) {
 				return ((MarkData) e1).getSemantic().compareTo(((MarkData) e2).getSemantic());
 			}
-
 		});
 
 	}
-
-	Button buttonRemove;
 
 	private void addButtons() {
 		
@@ -395,33 +402,49 @@ class DataListViewer extends Dialog{
 		composite.setLayout(fillLayout);
 
 		buttonRemove = new Button(composite, SWT.PUSH);
-		buttonRemove.setText("Remove");
+		buttonRemove.setText("É¾³ý");
 
 		buttonRemove.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				IStructuredSelection selection = (IStructuredSelection) listViewer.getSelection();
-				MarkData language = (MarkData) selection.getFirstElement();
-				if (language == null) {
+				MarkData data = (MarkData) selection.getFirstElement();
+				if (data == null) {
 					System.out.println("Please select a language first.");
 					return;
 				}
 
-				viewDatas.remove(language);
-				System.out.println("Removed: " + language);
+				viewDatas.remove(data);
+				System.out.println("Removed: " + data);
 
 				listViewer.refresh(false);
 			}
 		});
+		
+		buttonOk = new Button(composite, SWT.PUSH);
+		buttonOk.setText("OK");
+		buttonOk.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				
+				System.out.println("ok:" + viewDatas);
+				shell.dispose();
+			}
+		});
+		
+		buttonCancle = new Button(composite, SWT.PUSH);
+		buttonCancle.setText("Cancle");
+		buttonCancle.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				
+				viewDatas.clear();
+				for(MarkData data : oldViewDatas){
+					viewDatas.add(data);
+				}
+				System.out.println("cancle:" + viewDatas);
+				shell.dispose();
+			}
+		});
 	}
 
-	public DataListViewer(Shell parent, List<MarkData> viewDatas) {
-		 
-		super(parent);
-//		Shell parent = getParent();
-		this.viewDatas = viewDatas;
-		shell = new Shell(getParent(), SWT.TITLE| SWT.APPLICATION_MODAL | SWT.CLOSE);
-	}
-	
 	public void open() {
 		
 		RowLayout rowLayout = new RowLayout();

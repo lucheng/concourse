@@ -132,13 +132,20 @@ public class ExtractNormalComposite extends CompositeImpl {
 	}
 
 	private void showResult(String url) {
+		
 		Shell subShell = new Shell(getDisplay());
-		ViewResult viewResult = new ViewResult(subShell, SWT.NONE);
-		viewResult.setUrl(url);
+		subShell.setMaximized(true);
+//		subShell.setSize(600, 800);
+//		ViewResult viewResult = new ViewResult(subShell, SWT.NONE);
+//		viewResult.setUrl(url);
+		
+		ResultViewBrowser resultViewBrowser = new ResultViewBrowser(subShell, SWT.NONE | SWT.CLOSE, url);
+		resultViewBrowser.createContents();
+		
 		subShell.setText("查看抽取结果");
 		subShell.pack();
 		subShell.open();
-		viewResult.setUrl(url);
+		
 	}
 	
 	

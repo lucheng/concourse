@@ -111,6 +111,7 @@ public class EditHtml {
 	}
 
 	public void setTemplateFile(String templateFile) {
+		System.out.println("TemplateFile is :" + templateFile);
 		root = XmlHelp.getDocumentWithClean(templateFile).getRootElement();
 		this.templateFile = templateFile;
 	}

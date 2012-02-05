@@ -68,12 +68,12 @@ public class EditTemplate extends CompositeImpl{
 	
 private String initList() {
 		
-		Document doc = XmlHelp.cleanHtml(getUrl());
-		extractions1 = XmlHelp.getExtractions(doc,"semantic");
-		for (String k : extractions1.keySet()) {
-			list1.add(k);
-		}
-		XmlHelp.writeDocument(getUrl() + ".htm", doc);
+//		Document doc = XmlHelp.cleanHtml(getUrl());
+//		extractions1 = XmlHelp.getExtractions(doc,"semantic");
+//		for (String k : extractions1.keySet()) {
+//			list1.add(k);
+//		}
+//		XmlHelp.writeDocument(getUrl() + ".htm", doc);
 		return getUrl() + ".htm";
 	}
 

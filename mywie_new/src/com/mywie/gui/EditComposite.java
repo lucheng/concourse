@@ -79,7 +79,7 @@ public class EditComposite extends CompositeImpl {
 	}
 
 	private void copyFiles(String directory) {
-//		System.out.println("directory:" + directory + "/include");
+
 		FileHelp.makedir(directory + "/include");
 		FileHelp.copyJarFile("include/jquery.js", directory + "/include/jquery.js");
 		FileHelp.copyJarFile("include/template.css", directory + "/include/template.css");
@@ -89,10 +89,6 @@ public class EditComposite extends CompositeImpl {
 	private String initUrl(String url){
 		
 		Document doc = XmlHelp.cleanHtml(url);
-//		extractions1 = XmlHelp.getExtractions(doc,"semantic");
-//		for (String k : extractions1.keySet()) {
-//			list1.add(k);
-//		}
 		XmlHelp.writeDocument(url + ".htm", doc);
 		return url + ".htm";
 	}
@@ -102,12 +98,7 @@ public class EditComposite extends CompositeImpl {
 		subShell = new Shell(getDisplay());
 		subShell.setText("±à¼­Æ÷");
 		subShell.setMaximized(true);
-//		subShell.setStyle(SWT.APPLICATION_MODAL);
-//		subShell.set
 		String filePath = url.substring(0, url.lastIndexOf("\\"));
-		
-//		final EditTemplate editTemplate = new EditTemplate(subShell, SWT.CLOSE);
-//		editTemplate.setUrl(url);
 		
 		SimpleBrowser simpleBrowser = new SimpleBrowser(subShell, SWT.CLOSE, initUrl(url));
 		simpleBrowser.createContents();
@@ -115,7 +106,6 @@ public class EditComposite extends CompositeImpl {
 		copyFiles(filePath);
 		subShell.pack();
 		subShell.open();
-		
 	}
 	
 }

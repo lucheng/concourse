@@ -19,6 +19,7 @@ import org.dom4j.Element;
 public class FileHelp {
 
 	private static XmlHelp xmlHelp = new XmlHelp();
+	public static String TEMPDIR = System.getProperty("java.io.tmpdir") + "buptsseTemp/";
 	
 	public static String[] getFiles(String directory) {
 		File file = new File(directory);

@@ -4,7 +4,6 @@
 	<xsl:template match="/">
 		<html>
 			<body>
-				<h2>抽取的数据</h2>
 				<table border="1">
 					<tr bgcolor="#9acd32">
 						<xsl:for-each
@@ -17,13 +16,22 @@
 					</tr>
 					<xsl:for-each select="extractions/datas/data">
 						<tr>
-							<xsl:if test="position()   mod   2=0">
+							<xsl:if test="position() mod 2=0">
 								<xsl:attribute name="style">background:#3366CC</xsl:attribute>
 							</xsl:if>
-
+							<td>
+								<xsl:value-of select="fileName" />
+							</td>
 							<xsl:for-each select="value">
 								<td>
 									<xsl:value-of select="." />
+								</td>
+							</xsl:for-each>
+							<xsl:for-each select="block">
+								<td>
+									<xsl:for-each select="value">
+										<li><xsl:value-of select="." /></li>
+									</xsl:for-each>
 								</td>
 							</xsl:for-each>
 						</tr>

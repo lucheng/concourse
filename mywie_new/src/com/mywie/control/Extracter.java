@@ -1,5 +1,6 @@
 package com.mywie.control;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,6 +8,7 @@ import java.util.Map;
 import org.dom4j.Document;
 import org.dom4j.Element;
 
+import com.mywie.model.MarkData;
 import com.mywie.operate.ExtractInfomation;
 import com.mywie.operate.TemplateOperate;
 import com.mywie.utils.XmlHelp;
@@ -37,20 +39,20 @@ public class Extracter extends ExtractInfomation {
 	 * @return 抽取结果的Map 信息名称-信息内容
 	 */
 	
-	public Map<String, String> extract(String fileName) {
+	public List<MarkData> extract(String fileName) {
 		
-		Map<String, String> result = null;
-		TemplateOperate templateOperate = new TemplateOperate();
+		List<MarkData> result = null;
+//		TemplateOperate templateOperate = new TemplateOperate();
 		Document rawHtmlDoc = XmlHelp.getDocumentWithClean(fileName);
 		
-		Document doc = templateOperate.preTemplate(markedDoc, rawHtmlDoc);
+//		Document doc = templateOperate.preTemplate(markedDoc, rawHtmlDoc);
 		
-		if(doc != null){
-			Element rawRoot = doc.getRootElement();
+		if(rawHtmlDoc != null){
+			Element rawRoot = rawHtmlDoc.getRootElement();
 			result = getExtractResult(rawRoot);// 执行结构化信息抽取
-			for (String key : result.keySet()) {
+			/*for (String key : result.keySet()) {
 				System.out.println((key + ": " + result.get(key) + "\n"));
-			}
+			}*/
 		}
 		return result;
 	}
@@ -92,18 +94,12 @@ public class Extracter extends ExtractInfomation {
 	 * @param extractRoot 抽取网页根结点
 	 * @return
 	 */
-	public Map<String, String> getExtractResult(Element extractRoot) {
+	public List<MarkData> getExtractResult(Element extractRoot) {
 		
-		Map<String, String> result = new HashMap<String, String>();
+		List<MarkData> result = new ArrayList<MarkData>();
 		try {
 			
 			List<Element> extracts = extract(templateRoot, extractRoot);
-			
-//			FileHelp.writeFile("file/templateRoot.xml", templateRoot.asXML());
-//			FileHelp.writeFile("file/extractRoot.xml", extractRoot.asXML());
-//			System.out.println(templateRoot.asXML());
-//			System.out.println(extractRoot.asXML());
-//			System.out.println(extracts.size());
 			
 			for (Element element : extracts) {
 				/*String text;
@@ -114,8 +110,10 @@ public class Extracter extends ExtractInfomation {
 				} else{
 					text = element.getStringValue();
 				}*/
-				
-				result.put(element.attributeValue("semantic"), element.getStringValue());
+				MarkData data = new MarkData();
+				element.attribute("block");
+				result.add(data);
+//				result.put(element.attributeValue("semantic"), element.getStringValue());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

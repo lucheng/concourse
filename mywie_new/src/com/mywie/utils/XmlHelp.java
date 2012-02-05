@@ -120,7 +120,7 @@ public class XmlHelp {
 		}
 		
 		Element tmp = getDocument(fileName+".temp").getRootElement();
-		processTemplate(tmp); 
+		processTemplate(tmp);
 		
 		writeDocument(fileName+".temp" ,tmp.getDocument());
 		return tmp.getDocument();
@@ -316,6 +316,7 @@ public class XmlHelp {
 	}
 
 	public static List<String> getData(List<String> titles, List<Element> result) {
+		
 		List<String> data = new ArrayList<String>();
 		boolean flag;
 		for (int i = 1; i < titles.size(); i++) {
@@ -334,6 +335,7 @@ public class XmlHelp {
 		}
 		return data;
 	}
+	
 	public List<String> getData(List<String> titles, Map<String, String> result) {
 		List<String> data = new ArrayList<String>();
 		for (int i = 1; i < titles.size(); i++) {
