@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<title>特效之多张图片滚动</title>
+		<style type="text/css">
+			#scroller {
+				position: relative;
+				height: 150px;
+				width: 460px;
+				overflow: hidden;
+			/*text-align用于设置它包含的内联元素居中*/
+				margin: auto;
+			}
+			#images {
+				width: 770px;
+			}
+			#images a img {
+				border: 0;
+				position: relative;
+			}
+		</style>
+		<script src="../jquery-1.5.2.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			//$(function() { 下面一行代码也可以用这个替代
+			$(document).ready( function() {
+				var $wrapper = $('#scroller a img');
+				$wrapper.css('left', 0);
+				var animator = function(imgblock) {
+					imgblock.animate(
+						{left:-770}, 8000,
+						function() {
+						   //必须事先设置它的布局为relative布局，left 450即相对于初始位置右边450像素
+						   imgblock.css('left', 450);
+						   animator($(this));
+						}
+					)
+				}
+				animator($wrapper); //该效果也可以用setTimeout(caller, interval)实现
+				
+				//鼠标悬停时停止动画
+				$wrapper.hover(
+					function() {
+						//停止scroller上的动画，这个地方不能用$(this)代替$wrapper，可能与引用有关系
+						$wrapper.stop();
+					},
+					function() {
+						//鼠标离开继续动画
+						animator($wrapper);
+					}
+				);
+			});
+		</script>
+	</head>
+	<body>
+		<div id="scroller">
+			<div id="images">
+				<a class="image" href="#">
+					<img src="1.jpg" width=150px height=150px/>
+				</a>
+				<a class="image" href="#">
+					<img src="2.jpg" width=150px height=150px/>
+				</a>
+				<a class="image" href="#">
+					<img src="3.jpg" width=150px height=150px/>
+				</a>
+				<a class="image" href="#">
+					<img src="4.jpg" width=150px height=150px/>
+				</a>
+				<a class="image" href="#">
+					<img src="5.jpg" width=150px height=150px/>
+				</a>
+			</div>
+		</div>
+	</body>
+</html>
