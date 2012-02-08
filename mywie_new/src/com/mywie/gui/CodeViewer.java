@@ -12,10 +12,11 @@ import org.eclipse.swt.widgets.Shell;
 public class CodeViewer {
 
 	private Shell shell;
-	private String content;
+	private String url;
 	
 	public CodeViewer(Shell shell, String content) {
 		this.shell = shell;
+		this.url = url;
 	}
 
 	
@@ -38,8 +39,8 @@ public class CodeViewer {
 		data.left = new FormAttachment(0, 0);
 		data.right = new FormAttachment(100, 0);
 		browser.setLayoutData(data);
-
-//		browser.setUrl(url);
+//		browser.setText(content);
+		browser.setUrl(url);
 		
 
 		controls.setLayout(new GridLayout(6, false));
@@ -47,8 +48,14 @@ public class CodeViewer {
 	
 	public static void main(String[] args) {
 		Shell shell = new Shell();
-		MarkInputDialog dialog = new MarkInputDialog(shell);
-		dialog.open();
+		String html = "<html><head></head><body>"+
+				"<div class=\"w\">"+
+	    "<div class=\"crumb\">"+
+         "wqweqweqweqwe"+
+        "</div>"+
+	"</div><body>";
+		CodeViewer dialog = new CodeViewer(shell, html);
+		dialog.createContents();
 	}
 	
 }

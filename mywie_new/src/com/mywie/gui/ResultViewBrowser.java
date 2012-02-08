@@ -48,10 +48,4 @@ public class ResultViewBrowser {
 		controls.setLayout(new GridLayout(6, false));
 	}
 	
-	public static void main(String[] args) {
-		Shell shell = new Shell();
-		MarkInputDialog dialog = new MarkInputDialog(shell);
-		dialog.open();
-	}
-	
 }

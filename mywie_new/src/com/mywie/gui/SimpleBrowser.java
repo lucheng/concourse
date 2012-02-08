@@ -149,8 +149,16 @@ public class SimpleBrowser {
 		
 		selectCodeItem.addSelectionListener(new SelectionListener() {
 			public void widgetSelected(SelectionEvent e) {
+				
+				String html = "<html><head></head><body>"+
+						"<div class=\"w\">"+
+			    "<div class=\"crumb\">"+
+		         "wqweqweqweqwe"+
+		        "</div>"+
+			"</div><body>";
 				Shell parent = (Shell) menu.getParent();
-//				CodeViewer codeViewer = new CodeViewer(parent, url, url);
+				CodeViewer codeViewer = new CodeViewer(parent, html);
+				codeViewer.createContents();
 //				codeViewer.open();
 			}
 

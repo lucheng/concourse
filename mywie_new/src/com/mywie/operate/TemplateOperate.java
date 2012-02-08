@@ -52,22 +52,22 @@ public class TemplateOperate {
 		
 		matchAlign.match(templateRoot, alignRoot, matchNodes1, matchNodes2);
 		
-		System.out.println("matchNodes1:"+ matchNodes1.size());
+//		System.out.println("matchNodes1:"+ matchNodes1.size());
 		
 		for (int j = 0; j < matchNodes1.size(); j++) {
 			
-			if (matchNodes1.get(j).attributeValue("remove") != null) {
+			/*if (matchNodes1.get(j).attributeValue("remove") != null) {
 				matchNodes2.get(j).addAttribute("remove", matchNodes1.get(j).attributeValue("remove"));
 //				FileHelp.writeFile("file/remove_"+ j +".xml", matchNodes2.get(j).asXML());
-			}
+			}*/
 			if (matchNodes1.get(j).attributeValue("semantic") != null) {
 				matchNodes2.get(j).addAttribute("semantic", matchNodes1.get(j).attributeValue("semantic"));
 //				FileHelp.writeFile("file/semantic_"+ j +".xml", matchNodes2.get(j).asXML());
 			}
-			if (matchNodes1.get(j).attributeValue("select") != null) {
+			/*if (matchNodes1.get(j).attributeValue("select") != null) {
 				matchNodes2.get(j).addAttribute("select", matchNodes1.get(j).attributeValue("select"));
 //				FileHelp.writeFile("file/select_"+ j +".xml", matchNodes2.get(j).asXML());
-			}
+			}*/
 		}
 		
 		/**
@@ -172,7 +172,7 @@ public class TemplateOperate {
 				newRoots.clear();
 			}
 			nums[templateNum - 1] = total;
-//			xmlHelp.reduceElement(root, (total * 800 / 1000));
+			xmlHelp.reduceElement(root, (total * 800 / 1000));
 			addHtml(root);
 			processTemplate(root);
 			String templateName = "template" + templateNum + "-" + total + ".htm";

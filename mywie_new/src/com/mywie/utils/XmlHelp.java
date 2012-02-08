@@ -240,7 +240,7 @@ public class XmlHelp {
 		List<Element> elementList = element.elements();
 		for (int i = 0; i < elementList.size(); i++) {
 			Element temp = elementList.get(i);
-//			temp.addAttribute("num", i+"");
+			temp.addAttribute("num", "1");
 			/*if (null != temp.attribute("style")) {
 				temp.remove(temp.attribute("style"));
 			}*/
