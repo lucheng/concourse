@@ -1,5 +1,6 @@
 package com.mywie.gui;
 
+import org.apache.log4j.Logger;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -18,6 +19,7 @@ import com.mywie.gui.impl.CompositeImpl;
 
 public class GenerateComposite extends CompositeImpl {
 	
+	private static Logger logger = Logger.getLogger(GenerateComposite.class.getName());
 	private Label FilePathLabel = null;
 	private Label label2 = null;
 	private Text htmlDirectory = null;
@@ -139,7 +141,13 @@ public class GenerateComposite extends CompositeImpl {
 //						htmlMatch.setMarkedFileName(markedFileName.getText());
 						htmlMatch.setRate((double) scale.getSelection() / 100);
 						htmlMatch.setStatusBar(statusBar);
-						htmlMatch.start();
+						try{
+							htmlMatch.start();
+//							int i = 1 / 0;
+						}catch(Exception ee){
+							ee.printStackTrace();
+							logger.error(ee.getMessage());
+						}
 					}
 				}
 			});

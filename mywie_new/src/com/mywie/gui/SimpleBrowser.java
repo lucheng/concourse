@@ -116,8 +116,8 @@ public class SimpleBrowser {
 		final MenuItem editItem = new MenuItem(menu, SWT.CASCADE);
 		editItem.setText("查看");
 
-		final MenuItem selectCodeItem = new MenuItem(menu, SWT.CASCADE);
-		selectCodeItem.setText("查看标签");
+//		final MenuItem selectCodeItem = new MenuItem(menu, SWT.CASCADE);
+//		selectCodeItem.setText("查看标签");
 		
 		final MenuItem exitItem = new MenuItem(menu, SWT.CASCADE);
 		exitItem.setText("保存并退出");
@@ -147,7 +147,7 @@ public class SimpleBrowser {
 			}
 		});
 		
-		selectCodeItem.addSelectionListener(new SelectionListener() {
+		/*selectCodeItem.addSelectionListener(new SelectionListener() {
 			public void widgetSelected(SelectionEvent e) {
 				
 				String html = "<html><head></head><body>"+
@@ -165,16 +165,20 @@ public class SimpleBrowser {
 			public void widgetDefaultSelected(SelectionEvent e) {
 
 			}
-		});
+		});*/
 
 		exitItem.addSelectionListener(new SelectionListener() {
 			public void widgetSelected(SelectionEvent e) {
 				
 				SafeSaveDialog dl = new SafeSaveDialog(shell);
-				editHtml.setSaveFileName(dl.open());
-				editHtml.setTemplateFile(url);
-				editHtml.edit(markDatas);
-				shell.dispose();
+				String fileName = dl.open();
+				if(fileName != null){
+					editHtml.setTemplateFile(url);
+					editHtml.setSaveFileName(fileName);
+					editHtml.edit(markDatas);
+					shell.dispose();
+				}
+				
 			}
 
 			public void widgetDefaultSelected(SelectionEvent e) {
@@ -434,11 +438,11 @@ class DataListViewer extends Dialog{
 			}
 		});*/
 
-		listViewer.setSorter(new ViewerSorter() {
+		/*listViewer.setSorter(new ViewerSorter() {
 			public int compare(Viewer viewer, Object e1, Object e2) {
 				return ((MarkData) e1).getSemantic().compareTo(((MarkData) e2).getSemantic());
 			}
-		});
+		});*/
 
 	}
 

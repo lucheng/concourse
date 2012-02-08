@@ -22,7 +22,7 @@ import com.mywie.utils.XmlHelp;
 
 public class EditComposite extends CompositeImpl {
 	
-	private static Logger logger = Logger.getLogger(ExtractData.class.getName());
+	private static Logger logger = Logger.getLogger(EditComposite.class.getName());
 	private Label label = null;
 	private Text templateFilePath = null;
 	private Button openFile = null;
@@ -78,6 +78,7 @@ public class EditComposite extends CompositeImpl {
 						showEditTemplate(templateFilePath.getText());
 					} catch (Exception e1) {
 						e1.printStackTrace();
+						logger.error(e1);
 					}
 				}
 			}
@@ -114,11 +115,11 @@ public class EditComposite extends CompositeImpl {
 		FileHelp.copyFile(new File(url), new File(tempfile));
 //		String filePath = url.substring(0, url.lastIndexOf("\\"));
 		
-		SimpleBrowser simpleBrowser = new SimpleBrowser(subShell, SWT.CLOSE, initUrl(tempfile));
+		SimpleBrowser simpleBrowser = new SimpleBrowser(subShell, SWT.CLOSE , initUrl(tempfile));
 		try{
 			simpleBrowser.createContents();
 		} catch(Exception e){
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		}
 		
