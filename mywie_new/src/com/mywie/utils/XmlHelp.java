@@ -222,7 +222,7 @@ public class XmlHelp {
 		}
 	}
 
-	/*public static void reduceElement(Element element, int num) {
+	public static void reduceElement(Element element, int num) {
 		List<Element> elementList = element.elements();
 		List<Element> elementList2 = new ArrayList<Element>();
 		for (int i = 0; i < elementList.size(); i++) {
@@ -233,7 +233,7 @@ public class XmlHelp {
 				elementList.get(i).addAttribute("class", "optional");
 			}
 		}
-	}*/
+	}
 
 	@SuppressWarnings("unchecked")
 	public static void initEelment(Element element) {
