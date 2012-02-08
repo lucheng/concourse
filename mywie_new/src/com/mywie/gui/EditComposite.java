@@ -1,5 +1,8 @@
 package com.mywie.gui;
 
+import java.io.File;
+
+import org.apache.log4j.Logger;
 import org.dom4j.Document;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Font;
@@ -13,10 +16,13 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 import com.mywie.gui.impl.CompositeImpl;
+import com.mywie.model.ExtractData;
 import com.mywie.utils.FileHelp;
 import com.mywie.utils.XmlHelp;
 
 public class EditComposite extends CompositeImpl {
+	
+	private static Logger logger = Logger.getLogger(ExtractData.class.getName());
 	private Label label = null;
 	private Text templateFilePath = null;
 	private Button openFile = null;
@@ -98,12 +104,25 @@ public class EditComposite extends CompositeImpl {
 		subShell = new Shell(getDisplay());
 		subShell.setText("编辑器");
 		subShell.setMaximized(true);
-		String filePath = url.substring(0, url.lastIndexOf("\\"));
 		
-		SimpleBrowser simpleBrowser = new SimpleBrowser(subShell, SWT.CLOSE, initUrl(url));
-		simpleBrowser.createContents();
+		/**
+		 * 先将文件copy到临时文件夹中，再对文件进行操
+		 */
+		String tempfile = FileHelp.TEMPDIR + "temp.html";
+		FileHelp.makedir(FileHelp.TEMPDIR);
 		
-		copyFiles(filePath);
+		FileHelp.copyFile(new File(url), new File(tempfile));
+//		String filePath = url.substring(0, url.lastIndexOf("\\"));
+		
+		SimpleBrowser simpleBrowser = new SimpleBrowser(subShell, SWT.CLOSE, initUrl(tempfile));
+		try{
+			simpleBrowser.createContents();
+		} catch(Exception e){
+			logger.error(e.getStackTrace());
+			e.printStackTrace();
+		}
+		
+		copyFiles(FileHelp.TEMPDIR);
 		subShell.pack();
 		subShell.open();
 	}

@@ -1,19 +1,13 @@
 package com.mywie.core;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.log4j.Logger;
 import org.dom4j.Document;
 import org.dom4j.Element;
-import org.dom4j.Node;
 import org.eclipse.swt.widgets.Text;
 
 import com.mywie.control.Generater;
-import com.mywie.gui.WieShell;
 import com.mywie.gui.WieStatusBar;
 import com.mywie.utils.FileHelp;
-import com.mywie.utils.XmlHelp;
 
 public class HtmlMatch extends Thread {
 	
@@ -21,12 +15,12 @@ public class HtmlMatch extends Thread {
 	private String markedFileName;
 	private Text textArea;
 	private int templateNum;
-	private Element root;
-	private String[] files;
-	private int total;
 	private double rate;
-	private List<Element> roots1;
-	private List<Element> roots2;
+//	private Element root;
+//	private String[] files;
+//	private int total;
+//	private List<Element> roots1;
+//	private List<Element> roots2;
 	private WieStatusBar statusBar;
 	private String statusText;
 	private static Logger logger = Logger.getLogger(HtmlMatch.class.getName());
@@ -78,9 +72,9 @@ public class HtmlMatch extends Thread {
 		Generater generate = new Generater();
 //		Generater generate = new Generater(markedFileName);
 		generate.setRate(rate);
-		generate.generateTemplates(directory);
+		templateNum = generate.generateTemplates(directory);
 	
-		copyFiles();
+//		copyFiles();
 		long endTime = System.currentTimeMillis();
 		statusText = "网页集分析结束，共生成" + (templateNum) + "个模板，用时" + (endTime - startTime) + "ms...";
 		logger.info("##########" + statusText + "###########");
@@ -199,7 +193,7 @@ public class HtmlMatch extends Thread {
 		}
 	}
 */
-	private void copyFiles() {
+	/*private void copyFiles() {
 		FileHelp.makedir(directory + "/template/include");
 		FileHelp.copyJarFile("include/jquery.js", directory
 				+ "/template/include/jquery.js");
@@ -207,35 +201,12 @@ public class HtmlMatch extends Thread {
 				+ "/template/include/template.css");
 		FileHelp.copyJarFile("include/template.js", directory
 				+ "/template/include/template.js");
-	}
+	}*/
 
 	public static void main(String argv[]) {
 		
 		Generater generate = new Generater("C:/360buy/template/1.html");
 		generate.generateTemplates("C:/360buy");
-//		for (int i = 0; i < 40; i++) {
-//			HtmlMatch hm = new HtmlMatch();
-//			
-//			hm.setDirectory("C:/Documents and Settings/linzhe/桌面/blog_xinhua/0 ("+i+")");
-//			hm.setRate(0.9);
-//			hm.start();
-//			
-////			try {
-////				hm.execute();
-////			} catch (Exception e) {
-////				e.printStackTrace();
-////			}
-//			
-//		}
-		
-//		HtmlMatch hm = new HtmlMatch();
-//		hm.setDirectory(argv[0]);
-//		hm.setRate(0.9);
-//		try {
-//			hm.execute();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
 	}
 
 	public double getRate() {

@@ -11,12 +11,16 @@ import com.mywie.utils.XmlHelp;
 
 public class EditHtml {
 	private Element root = null;
-	//private Map<String, String> extractions;
-//	private Map<String, String> extractions1;
-//	private Map<String, String> extractions2;
-//	private Map<String, String> extractions3;
 	private String templateFile;
-//	private XmlHelp xmlHelp = new XmlHelp();
+	private String saveFileName;
+
+	public String getSaveFileName() {
+		return saveFileName;
+	}
+
+	public void setSaveFileName(String saveFileName) {
+		this.saveFileName = saveFileName;
+	}
 
 	public void edit(List<MarkData> markDatas) {
 		
@@ -25,86 +29,38 @@ public class EditHtml {
 			if (node != null && Node.ELEMENT_NODE == node.getNodeType()) {
 				Element element = (Element) node;
 				element.remove(element.attribute("semantic"));
+				element.remove(element.attribute("block"));
+				element.remove(element.attribute("num"));
 			}
 		}
 		for (MarkData data : markDatas) {
-			Node node = root.selectSingleNode("//*[@my_count_id='"
-					+ data.getWindowStatus() + "']");
+			Node node = root.selectSingleNode("//*[@my_count_id='" + data.getWindowStatus() + "']");
 			if (node != null && Node.ELEMENT_NODE == node.getNodeType()) {
 				Element temp = (Element) node;
 				temp.addAttribute("semantic", data.getSemantic());
 				
 				if(data.getBlock() != null && !data.getBlock().equals("")){
+					int count = 0;
 					temp.addAttribute("block", data.getBlock());
+					
+					/*List<Element> children = temp.elements();
+					temp.
+					System.out.println(children.size() + "children size");
+					for(Element element : children){
+						element.addAttribute("num", (count++) + "");
+					}*/
+					
 				}
 			}
-			
 		}
+		/**
+		 * 循环加上一个父子结点的标志
+		 */
 		
-		/*oldNodes = root.selectNodes("//*[@block]");
-		for (Node node : oldNodes) {
-			if (node != null && Node.ELEMENT_NODE == node.getNodeType()) {
-				Element element = (Element) node;
-				element.remove(element.attribute("block"));
-			}
-		}
-		for (String name : extractions2.keySet()) {
-			Node node = root.selectSingleNode("//*[@my_count_id='"
-					+ extractions2.get(name) + "']");
-			if (node != null && Node.ELEMENT_NODE == node.getNodeType()) {
-				Element temp = (Element) node;
-				temp.addAttribute("block", name);
-			}
-		}*/
-		/*
-		oldNodes = root.selectNodes("//*[@select]");
-		for (Node node : oldNodes) {
-			if (node != null && Node.ELEMENT_NODE == node.getNodeType()) {
-				Element element = (Element) node;
-				element.remove(element.attribute("select"));
-			}
-		}
-		for (String name : extractions3.keySet()) {
-			Node node = root.selectSingleNode("//*[@my_count_id='"
-					+ extractions3.get(name) + "']");
-			if (node != null && Node.ELEMENT_NODE == node.getNodeType()) {
-				Element temp = (Element) node;
-				temp.addAttribute("select", name);
-			}
-		}*/
-		
-		/*List<Node> nodes = root.selectNodes("//script");
-		for (Node node:nodes){
-			if (node != null && Node.ELEMENT_NODE == node.getNodeType()) {
-				Element temp = (Element) node;
-				temp.setText("");
-			}
-		}*/
-		
-		/*nodes = root.selectNodes("//*");
-		for (Node node : nodes){
-			if (node != null && Node.ELEMENT_NODE == node.getNodeType()) {
-				Element temp = (Element) node;
-				temp.remove(temp.attribute("my_count_id"));
-			}
-		}*/
-		
-		FileHelp.writeFile(templateFile + ".template", root.getDocument().asXML());
-//		XmlHelp.writeDocument(templateFile, root.getDocument());
+		String content = root.getDocument().asXML();
+		content.replace("<?xml version=\"1.0\" encoding=\"GBK\"?>", "");
+		FileHelp.writeFile(saveFileName, content);
 	}
-
-	/*public Map<String, String> getExtractions(String sign) {
-		if (sign.compareTo("semantic")==0) return extractions1;
-		if (sign.compareTo("block")==0) return extractions2;
-//		if (sign.compareTo("select")==0) return extractions3;
-		return null;
-	}
-
-	public void setExtractions(List<MarkData> extractions) {
-		if (sign.compareTo("semantic")==0) this.extractions1 = extractions;
-		if (sign.compareTo("block")==0) this.extractions2 = extractions;
-//		if (sign.compareTo("select")==0) this.extractions3 = extractions;
-	}*/
 
 	public String getTemplateFile() {
 		return templateFile;

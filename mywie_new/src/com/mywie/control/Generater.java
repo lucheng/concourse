@@ -31,7 +31,7 @@ public class Generater extends TemplateOperate{
 	 * @param htmlFilePath 源码文件目录
 	 * 
 	 */
-	public void generateTemplates(String htmlFilePath){
+	public int generateTemplates(String htmlFilePath){
 		
 		Document rawHtmlDoc = null;
 		List<Element> roots = new ArrayList<Element>();// 源代码list
@@ -49,7 +49,8 @@ public class Generater extends TemplateOperate{
 		setRate(0.9);
 		//生成模板文件
 		List<Element> roots1 = XmlHelp.getRootList(roots);
-		generateTemplate(roots1);
+		int tempNum = generateTemplate(roots1);
+		return tempNum;
 	}
 	
 	

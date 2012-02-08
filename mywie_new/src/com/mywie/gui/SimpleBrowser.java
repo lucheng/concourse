@@ -1,10 +1,13 @@
 package com.mywie.gui;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import org.dom4j.Document;
+import org.dom4j.Element;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -32,15 +35,18 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Dialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
+import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 import com.mywie.core.EditHtml;
 import com.mywie.model.MarkData;
+import com.mywie.utils.XmlHelp;
 
 public class SimpleBrowser {
 
@@ -71,14 +77,34 @@ public class SimpleBrowser {
 //		super(shell, style);
 		this.shell = shell;
 		this.url = url;
-//		this.setSize(200, 300);
-//		this.setLocation(x, y)
+		getExtractions(url);
 	}
 
+	@SuppressWarnings("unchecked")
+	public void getExtractions(String url){
+		
+		Document doc = XmlHelp.cleanHtml(url);
+		
+		if (doc != null) {
+			Element root = doc.getRootElement();
+			List<Element> list = root.selectNodes("//*[@semantic]");
+			for (Element element : list) {
+
+				MarkData markData = new MarkData();
+				markData.setSemantic(element.attributeValue("semantic"));
+				markData.setWindowStatus(element.attributeValue("my_count_id"));
+				if(element.attributeValue("block") != null){
+					markData.setBlock(element.attributeValue("my_count_id"));
+				}
+				markDatas.add(markData);
+			}
+		}
+		
+	}
 	/**
 	 * @wbp.parser.entryPoint
 	 */
-	public void createContents() {
+	public void createContents() throws Exception{
 
 		shell.setLayout(new FormLayout());
 
@@ -90,6 +116,9 @@ public class SimpleBrowser {
 		final MenuItem editItem = new MenuItem(menu, SWT.CASCADE);
 		editItem.setText("查看");
 
+		final MenuItem selectCodeItem = new MenuItem(menu, SWT.CASCADE);
+		selectCodeItem.setText("查看标签");
+		
 		final MenuItem exitItem = new MenuItem(menu, SWT.CASCADE);
 		exitItem.setText("保存并退出");
 
@@ -99,7 +128,6 @@ public class SimpleBrowser {
 				MarkInputDialog numberInputDialog = new MarkInputDialog(parent);
 				MarkData data = numberInputDialog.open();
 				gao(data);
-//				System.out.println(data);
 			}
 
 			public void widgetDefaultSelected(SelectionEvent e) {
@@ -112,7 +140,18 @@ public class SimpleBrowser {
 				Shell parent = (Shell) menu.getParent();
 				DataListViewer dataViewViewer = new DataListViewer(parent, markDatas);
 				dataViewViewer.open();
-//				System.out.println("修改后：" + markDatas);
+			}
+
+			public void widgetDefaultSelected(SelectionEvent e) {
+
+			}
+		});
+		
+		selectCodeItem.addSelectionListener(new SelectionListener() {
+			public void widgetSelected(SelectionEvent e) {
+				Shell parent = (Shell) menu.getParent();
+//				CodeViewer codeViewer = new CodeViewer(parent, url, url);
+//				codeViewer.open();
 			}
 
 			public void widgetDefaultSelected(SelectionEvent e) {
@@ -123,6 +162,8 @@ public class SimpleBrowser {
 		exitItem.addSelectionListener(new SelectionListener() {
 			public void widgetSelected(SelectionEvent e) {
 				
+				SafeSaveDialog dl = new SafeSaveDialog(shell);
+				editHtml.setSaveFileName(dl.open());
 				editHtml.setTemplateFile(url);
 				editHtml.edit(markDatas);
 				shell.dispose();
@@ -473,4 +514,135 @@ class DataListViewer extends Dialog{
 	/*public static void main(String[] args) {
 		new DataListViewer(new Shell());
 	}*/
+}
+
+class SafeSaveDialog {
+	
+	public static void main(String[] args){
+		
+		Shell shell = new Shell();
+		SafeSaveDialog dl = new SafeSaveDialog(shell);
+		System.out.println(dl.open());
+	}
+    public SafeSaveDialog(){
+    }
+    FileDialog dlg;
+
+    public SafeSaveDialog(Shell shell) {
+        dlg = new FileDialog(shell, SWT.SAVE);// 设置为保存对话框
+        // 设置保存类型
+        dlg.setFilterNames(new String[] {
+          "Text Files(*.html)"
+        });
+        dlg.setFilterExtensions(new String[] {
+          "*.html"
+        });
+    }
+
+    public String open() {
+        // Store the selected file name in fileName
+        String fileName = null;
+
+        // The user has finished when one of the
+        // following happens:
+        // 1) The user dismisses the dialog by pressing Cancel
+        // 2) The selected file name does not exist
+        // 3) The user agrees to overwrite existing file
+        boolean done = false;
+
+        while (!done) {
+            // Open the File Dialog
+            fileName = dlg.open();
+            if (fileName == null) {
+                // User has cancelled, so quit and return
+                done = true;
+            } else {
+                // User has selected a file; see if it already exists
+                File file = new File(fileName);
+                if (file.exists()) {
+                    // The file already exists; asks for confirmation
+                    MessageBox mb = new MessageBox(dlg.getParent(),
+                            SWT.ICON_WARNING | SWT.YES | SWT.NO);
+                    mb.setText("Tips");
+                    mb.setMessage(fileName
+                            + " already exists. Do you want to replace it?");
+
+                    // If they click Yes, drop out. If they click No,
+                    // redisplay the File Dialog
+                    done = mb.open() == SWT.YES;
+                } else {
+                    // File does not exist, so drop out
+                    done = true;
+                }
+            }
+        }
+        return fileName;
+    }
+    public String getFileName() {
+        return dlg.getFileName();
+      }
+
+      public String[] getFileNames() {
+        return dlg.getFileNames();
+      }
+
+      public String[] getFilterExtensions() {
+        return dlg.getFilterExtensions();
+      }
+
+      public String[] getFilterNames() {
+        return dlg.getFilterNames();
+      }
+
+      public String getFilterPath() {
+        return dlg.getFilterPath();
+      }
+
+      public void setFileName(String string) {
+        dlg.setFileName(string);
+      }
+
+      public void setFilterExtensions(String[] extensions) {
+        dlg.setFilterExtensions(extensions);
+      }
+
+      public void setFilterNames(String[] names) {
+        dlg.setFilterNames(names);
+      }
+
+      public void setFilterPath(String string) {
+        dlg.setFilterPath(string);
+      }
+
+      public Shell getParent() {
+        return dlg.getParent();
+      }
+
+      public int getStyle() {
+        return dlg.getStyle();
+      }
+
+      public String getText() {
+        return dlg.getText();
+      }
+
+      public void setText(String string) {
+        dlg.setText(string);
+      }
+      /**
+         * Runs the application
+         */
+      public void run() {
+        Display display = new Display();
+        Shell shell = new Shell(display);
+        shell.setText("Safe Save");
+       
+        shell.pack();
+        shell.open();
+        while (!shell.isDisposed()) {
+          if (!display.readAndDispatch()) {
+            display.sleep();
+          }
+        }
+      }
 }

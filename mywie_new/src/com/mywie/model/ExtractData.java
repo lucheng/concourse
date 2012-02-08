@@ -59,23 +59,18 @@ public class ExtractData {
 	private WieData extractData(String fileName){
 		
 		List<Element> elements = datas.get(fileName);
-		/*System.out.println("elements.size()" + elements.size());
-		if(elements.size() > 0){
-			for(int i = 0; i < elements.size(); i++){
-				
-				FileHelp.writeFile("file/" + i+".xml", elements.get(i).asXML());
-			}
-		}*/
+		
 		WieData wieData = null;
 		Map<String, String> semanticList = new HashMap<String, String>();
 		Map<String, List<String>> blockMap = new HashMap<String, List<String>>();
 		
 		for (int i = 1; i < titles.size(); i++) {
 			String title = titles.get(i);
-//			flag = false;
+
 			for (Element element : elements) {
+				
 				if (element.attributeValue("semantic").equals(title)) {
-//					flag = true;
+
 					wieData = new WieData();
 					
 					String semantic = element.getStringValue();
@@ -84,13 +79,12 @@ public class ExtractData {
 					List<String> blockValueList = new ArrayList<String>();
 					
 					String blockValue = element.attributeValue("block");
-//					System.out.println("blockValue:" + blockValue);
-//					List<String> semanticValues = new ArrayList<String>();
+
 					if(blockValue != null && !blockValue.equals("")){
 						FileHelp.writeFile("file/" + blockValue+".xml", element.asXML());
-						List<Node> nodes = element.selectNodes("//" + blockValue);
+						List<Node> nodes = element.selectNodes(".//" + blockValue);
 						for (Node node : nodes){
-							if (node != null && Node.ELEMENT_NODE == node.getNodeType() && node.getParent() == element) {
+							if (node != null && Node.ELEMENT_NODE == node.getNodeType()) {
 								Element temp = (Element) node;
 								blockValueList.add(temp.getStringValue());
 							}
@@ -150,7 +144,11 @@ public class ExtractData {
 				} else {
 					Element valueElement = dataElement.addElement("value");
 					valueElement.addAttribute("semantic", value);
-					valueElement.setText(semantic.get(value));
+					String text = semantic.get(value);
+					if(text == null){
+						text = "";
+					}
+					valueElement.setText(text);
 				}
 				
 			}

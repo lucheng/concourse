@@ -55,7 +55,7 @@ public class ExtractNormalComposite extends CompositeImpl {
 							org.eclipse.swt.events.SelectionEvent e) {
 						FileDialog fd = new FileDialog(getShell());
 						fd.setText("选择模板文件");
-						String[] filterExtensions = {"*.template"};
+						String[] filterExtensions = {"*.html"};
 						fd.setFilterExtensions(filterExtensions);
 						String url = fd.open();
 						if (url != null)

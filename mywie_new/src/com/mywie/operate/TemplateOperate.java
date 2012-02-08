@@ -1,7 +1,6 @@
 package com.mywie.operate;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.dom4j.Document;
@@ -113,7 +112,9 @@ public class TemplateOperate {
 		List<Element> elements = new ArrayList<Element>();
 		elements.add(root);
 		int count = 1;
+		
 		while (elements.size() > 0) {
+			
 			Element temp = elements.remove(0);
 			temp.addAttribute("my_count_id", Integer.toString(count++));
 			elements.addAll(temp.elements());
@@ -171,7 +172,7 @@ public class TemplateOperate {
 				newRoots.clear();
 			}
 			nums[templateNum - 1] = total;
-			xmlHelp.reduceElement(root, (total * 800 / 1000));
+//			xmlHelp.reduceElement(root, (total * 800 / 1000));
 			addHtml(root);
 			processTemplate(root);
 			String templateName = "template" + templateNum + "-" + total + ".htm";

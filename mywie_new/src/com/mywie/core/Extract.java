@@ -198,7 +198,7 @@ public class Extract extends Thread {
 				datas.add(data);*/
 			}
 		}
-		System.out.println("datas:"+ datas.size());
+//		System.out.println("datas:"+ datas.size());
 //		ed.setDatas(datas);
 		ed.printToXML(destDirectory + "/extraction.xml");
 

@@ -120,6 +120,9 @@ public class XmlHelp {
 		}
 		
 		Element tmp = getDocument(fileName+".temp").getRootElement();
+		/*if(tmp.selectNodes("//*[@my_count_id]") == null){
+			processTemplate(tmp);
+		}*/
 		processTemplate(tmp);
 		
 		writeDocument(fileName+".temp" ,tmp.getDocument());
@@ -151,15 +154,20 @@ public class XmlHelp {
 		return cleanSrc;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public static void processTemplate(Element root) {
 		
 		List<Element> elements = new ArrayList<Element>();
 		elements.add(addHtml(root));
 		
 		int count = 1;
-		while (elements.size() > 0) {
+		int parentNum = count;
+		while (elements.size() > 0 && root.selectNodes("//*[@my_count_id]") == null) {
+			
 			Element temp = elements.remove(0);
 			temp.addAttribute("my_count_id", Integer.toString(count++));
+			temp.addAttribute("num", Integer.toString(parentNum));
+			
 			elements.addAll(temp.elements());
 		}
 	}
@@ -214,7 +222,7 @@ public class XmlHelp {
 		}
 	}
 
-	public static void reduceElement(Element element, int num) {
+	/*public static void reduceElement(Element element, int num) {
 		List<Element> elementList = element.elements();
 		List<Element> elementList2 = new ArrayList<Element>();
 		for (int i = 0; i < elementList.size(); i++) {
@@ -225,17 +233,17 @@ public class XmlHelp {
 				elementList.get(i).addAttribute("class", "optional");
 			}
 		}
-	}
+	}*/
 
 	@SuppressWarnings("unchecked")
 	public static void initEelment(Element element) {
 		List<Element> elementList = element.elements();
 		for (int i = 0; i < elementList.size(); i++) {
 			Element temp = elementList.get(i);
-			temp.addAttribute("num", i+"");
-			if (null != temp.attribute("style")) {
+//			temp.addAttribute("num", i+"");
+			/*if (null != temp.attribute("style")) {
 				temp.remove(temp.attribute("style"));
-			}
+			}*/
 			if (null != temp.attribute("href")) {
 				temp.attribute("href").setValue("#");
 			}

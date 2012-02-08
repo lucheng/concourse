@@ -9,7 +9,6 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Scale;
 import org.eclipse.swt.widgets.Text;
@@ -18,6 +17,7 @@ import com.mywie.core.HtmlMatch;
 import com.mywie.gui.impl.CompositeImpl;
 
 public class GenerateComposite extends CompositeImpl {
+	
 	private Label FilePathLabel = null;
 	private Label label2 = null;
 	private Text htmlDirectory = null;
@@ -140,7 +140,6 @@ public class GenerateComposite extends CompositeImpl {
 						htmlMatch.setRate((double) scale.getSelection() / 100);
 						htmlMatch.setStatusBar(statusBar);
 						htmlMatch.start();
-						
 					}
 				}
 			});
