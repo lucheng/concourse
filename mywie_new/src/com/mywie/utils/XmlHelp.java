@@ -107,14 +107,14 @@ public class XmlHelp {
 		try {
 			TagNode node = cleaner.clean(file, "gbk");
 			
-			TagNode[] htmlTag = node.getElementsByName("html", true);
+			/*TagNode[] htmlTag = node.getElementsByName("html", true);
 			for(TagNode tagNode : htmlTag){
 				Map<String, String> attrMap = tagNode.getAttributes();
 				for(String attr : attrMap.keySet()){
 					System.out.println("attr:" + attr);
 					tagNode.removeAttribute(attr);
 				}
-			}
+			}*/
 			OutputStream out = new FileOutputStream(temp);
 			new SimpleXmlSerializer(props).writeToStream(node, out, "gbk");
 			out.close();
