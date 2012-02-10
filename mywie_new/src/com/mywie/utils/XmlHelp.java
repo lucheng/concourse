@@ -95,13 +95,10 @@ public class XmlHelp {
 		HtmlCleaner cleaner = new HtmlCleaner();
 		CleanerProperties props = cleaner.getProperties();
 		
+		props.setUseEmptyElementTags(false);
+		props.setOmitUnknownTags(true);
 		props.setPruneTags("script,style,link,iframe,input,textarea");
-		props.setUseCdataForScriptAndStyle(true);  
-        props.setRecognizeUnicodeChars(true);  
-        props.setUseEmptyElementTags(true);  
-        props.setAdvancedXmlEscape(true);
-        props.setTranslateSpecialEntities(true);  
-        props.setBooleanAttributeValues("empty");
+		props.setNamespacesAware(false);
         
         
 		try {
