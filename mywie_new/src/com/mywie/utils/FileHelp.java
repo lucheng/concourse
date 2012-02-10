@@ -14,6 +14,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.dom4j.DocumentException;
 import org.dom4j.Element;
 
 public class FileHelp {
@@ -106,7 +107,7 @@ public class FileHelp {
 		}
 	}
 
-	public static String[] sortFiles(String[] files) {
+	public static String[] sortFiles(String[] files) throws IOException, DocumentException {
 		int a[] = new int[files.length];
 		Element root;
 		for (int i = 0; i < files.length; i++) {

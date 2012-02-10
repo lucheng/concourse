@@ -95,40 +95,39 @@ public class XmlHelp {
 		HtmlCleaner cleaner = new HtmlCleaner();
 		CleanerProperties props = cleaner.getProperties();
 		
-		props.setUseEmptyElementTags(false);
 		props.setOmitUnknownTags(true);
-		props.setPruneTags("script,style,link,iframe,input,textarea");
+		props.setUseEmptyElementTags(false);
+		props.setPruneTags("script,iframe,textarea,input");
 		props.setNamespacesAware(false);
         
-        
+		
+		TagNode node;
 		try {
-			TagNode node = cleaner.clean(file, "gbk");
-			
-			/*TagNode[] htmlTag = node.getElementsByName("html", true);
-			for(TagNode tagNode : htmlTag){
-				Map<String, String> attrMap = tagNode.getAttributes();
-				for(String attr : attrMap.keySet()){
-					System.out.println("attr:" + attr);
-					tagNode.removeAttribute(attr);
-				}
-			}*/
+			node = cleaner.clean(file, "gbk");
 			OutputStream out = new FileOutputStream(temp);
 			new SimpleXmlSerializer(props).writeToStream(node, out, "gbk");
 			out.close();
-			
-			Element tmp = getDocument(fileName+".temp").getRootElement();
-			processTemplate(tmp);
-//			writeDocument(fileName+".temp" ,tmp.getDocument());
-			return tmp.getDocument();
-			/*TagNode node = cleaner.clean(new File(fileName)); 
-			new PrettyXmlSerializer(props).writeXmlToFile(node, fileName + ".temp");*/
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-			return null;
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return null;
 		}
+		
+		/*TagNode[] htmlTag = node.getElementsByName("html", true);
+		for(TagNode tagNode : htmlTag){
+			Map<String, String> attrMap = tagNode.getAttributes();
+			for(String attr : attrMap.keySet()){
+				System.out.println("attr:" + attr);
+				tagNode.removeAttribute(attr);
+			}
+		}*/
+		
+		Element tmp = getDocument(fileName+".temp").getRootElement();
+		processTemplate(tmp);
+//			writeDocument(fileName+".temp" ,tmp.getDocument());
+		return tmp.getDocument();
+		/*TagNode node = cleaner.clean(new File(fileName)); 
+		new PrettyXmlSerializer(props).writeXmlToFile(node, fileName + ".temp");*/
+		
 		
 	}
 	
