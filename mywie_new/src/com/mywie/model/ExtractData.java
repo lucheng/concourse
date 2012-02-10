@@ -94,8 +94,10 @@ public class ExtractData {
 				}
 			}
 		}
-		wieData.setSemantic(semanticList);
-		wieData.setBlock(blockMap);
+		if(semanticList != null){
+			wieData.setSemantic(semanticList);
+			wieData.setBlock(blockMap);
+		}
 //		System.out.println(wieData);
 		return wieData;
 	}
