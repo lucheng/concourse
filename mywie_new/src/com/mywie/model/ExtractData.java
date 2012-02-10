@@ -45,8 +45,6 @@ public class ExtractData {
 			return str;
 		}
 		
-		
-		
 	}
 	private Map<String, List<Element>> datas = new HashMap<String, List<Element>>();
 	private List<String> titles = new ArrayList<String>();
@@ -98,7 +96,7 @@ public class ExtractData {
 		}
 		wieData.setSemantic(semanticList);
 		wieData.setBlock(blockMap);
-		System.out.println(wieData);
+//		System.out.println(wieData);
 		return wieData;
 	}
 	public void printToXML(String path) {
