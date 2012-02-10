@@ -94,7 +94,7 @@ public class ExtractData {
 				}
 			}
 		}
-		if(semanticList != null){
+		if(wieData != null){
 			wieData.setSemantic(semanticList);
 			wieData.setBlock(blockMap);
 		}
