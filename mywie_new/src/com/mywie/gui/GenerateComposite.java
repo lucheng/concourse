@@ -20,6 +20,8 @@ import com.mywie.gui.impl.CompositeImpl;
 public class GenerateComposite extends CompositeImpl {
 	
 	private static Logger logger = Logger.getLogger(GenerateComposite.class.getName());
+	
+	private Composite parent;
 	private Label FilePathLabel = null;
 	private Label label2 = null;
 	private Text htmlDirectory = null;
@@ -31,6 +33,7 @@ public class GenerateComposite extends CompositeImpl {
 
 	public GenerateComposite(Composite parent, int style) {
 		super(parent, style);
+		this.parent = parent;
 		initialize();
 	}
 
@@ -147,6 +150,9 @@ public class GenerateComposite extends CompositeImpl {
 						}catch(Exception ee){
 							ee.printStackTrace();
 							logger.error(ee.getMessage());
+							messageBox.setMessage("³ö´íÁË£º" + ee.getMessage());
+							messageBox.open();
+							htmlMatch.interrupt();
 						}
 					}
 				}

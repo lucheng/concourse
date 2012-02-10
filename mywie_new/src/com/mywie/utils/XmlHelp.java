@@ -8,7 +8,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -22,11 +21,11 @@ import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 import org.htmlcleaner.CleanerProperties;
 import org.htmlcleaner.HtmlCleaner;
+import org.htmlcleaner.PrettyXmlSerializer;
 import org.htmlcleaner.SimpleXmlSerializer;
 import org.htmlcleaner.TagNode;
 
 import com.mywie.model.NodeCompare;
-import com.mywie.operate.DataFilter;
 
 public class XmlHelp {
 	
@@ -38,40 +37,30 @@ public class XmlHelp {
 	}
 
 	public static Document getDocument(String filePath) {
-		File aFile = new File(filePath);
-		//System.out.println(filePath);
 		
+		File aFile = new File(filePath);
 		Document document = null;
 //		document = getDocumentWithClean(filePath);
 		try {
 			document = xmlReader.read(aFile);
 		} catch (DocumentException e) {
 			e.printStackTrace();
+			return null;
 		}
 		return document;
 	}
 
 	public static Document getDocumentWithClean(String filePath) {
-		cleanHtml(filePath);
-		File aFile = new File(filePath + ".temp");
 		Document document = null;
 		try {
+			cleanHtml(filePath);
+			File aFile = new File(filePath + ".temp");
 			document = xmlReader.read(aFile);
+			aFile.delete();
 		} catch (DocumentException e) {
 			e.printStackTrace();
 		}
-		aFile.delete();
-		return document;
-	}
-	
-	public Document getDocumentWithCleanOfSrc(String htmlSrc) {
-		htmlSrc = cleanSrc(htmlSrc);
-		Document document = null;
-		try {
-			document = DocumentHelper.parseText(htmlSrc);
-		} catch (DocumentException e) {
-			e.printStackTrace();
-		}
+		
 		return document;
 	}
 
@@ -102,31 +91,47 @@ public class XmlHelp {
 		
 		File file = new File(fileName);
 		File temp = new File(fileName + ".temp");
+		
 		HtmlCleaner cleaner = new HtmlCleaner();
 		CleanerProperties props = cleaner.getProperties();
-		props.setUseEmptyElementTags(false);
-		props.setOmitUnknownTags(true);
-		props.setPruneTags("script,iframe");
-		props.setNamespacesAware(false);
+		
+		props.setUseCdataForScriptAndStyle(true);  
+        props.setRecognizeUnicodeChars(true);  
+        props.setUseEmptyElementTags(true);  
+        props.setAdvancedXmlEscape(true);
+        props.setTranslateSpecialEntities(true);  
+        props.setBooleanAttributeValues("empty");
+        
+        
 		try {
 			TagNode node = cleaner.clean(file, "gbk");
+			
+			TagNode[] htmlTag = node.getElementsByName("html", true);
+			for(TagNode tagNode : htmlTag){
+				Map<String, String> attrMap = tagNode.getAttributes();
+				for(String attr : attrMap.keySet()){
+					System.out.println("attr:" + attr);
+					tagNode.removeAttribute(attr);
+				}
+			}
 			OutputStream out = new FileOutputStream(temp);
 			new SimpleXmlSerializer(props).writeToStream(node, out, "gbk");
 			out.close();
+			
+			Element tmp = getDocument(fileName+".temp").getRootElement();
+			processTemplate(tmp);
+//			writeDocument(fileName+".temp" ,tmp.getDocument());
+			return tmp.getDocument();
+			/*TagNode node = cleaner.clean(new File(fileName)); 
+			new PrettyXmlSerializer(props).writeXmlToFile(node, fileName + ".temp");*/
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
+			return null;
 		} catch (IOException e) {
 			e.printStackTrace();
+			return null;
 		}
 		
-		Element tmp = getDocument(fileName+".temp").getRootElement();
-		/*if(tmp.selectNodes("//*[@my_count_id]") == null){
-			processTemplate(tmp);
-		}*/
-		processTemplate(tmp);
-		
-		writeDocument(fileName+".temp" ,tmp.getDocument());
-		return tmp.getDocument();
 	}
 	
 	public Document parseWithSAX(String htmlSrc) throws DocumentException {
@@ -308,7 +313,7 @@ public class XmlHelp {
 		return elementCount;
 	}
 
-	@SuppressWarnings("unchecked")
+	/*@SuppressWarnings("unchecked")
 	public static Map<String, String> getExtractions(Document doc,String sign) {
 		Map<String, String> map = new HashMap<String, String>();
 //		File file = new File(filePath);
@@ -321,9 +326,9 @@ public class XmlHelp {
 			}
 		}
 		return map;
-	}
+	}*/
 
-	public static List<String> getData(List<String> titles, List<Element> result) {
+	/*public static List<String> getData(List<String> titles, List<Element> result) {
 		
 		List<String> data = new ArrayList<String>();
 		boolean flag;
@@ -342,19 +347,18 @@ public class XmlHelp {
 			}
 		}
 		return data;
-	}
+	}*/
 	
-	public List<String> getData(List<String> titles, Map<String, String> result) {
+	/*public List<String> getData(List<String> titles, Map<String, String> result) {
 		List<String> data = new ArrayList<String>();
 		for (int i = 1; i < titles.size(); i++) {
 			String title = titles.get(i);
 			data.add(result.get(title));
 		}
 		return data;
-	}
+	}*/
 	
 	public static void main(String[] args) {
-		Document doc = getDocumentWithClean("file/news.xml");
-		DataFilter.dataFilter(doc.getRootElement());
+		Document doc = getDocumentWithClean("D:/data/test1/rjxTest/http---www-sohu-com--1.html");
 	}
 }

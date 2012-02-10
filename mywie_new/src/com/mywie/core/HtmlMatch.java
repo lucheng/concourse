@@ -53,7 +53,7 @@ public class HtmlMatch extends Thread {
 		return doc.getRootElement();
 	}
 
-	public void execute() throws Exception {
+	public void execute() throws InterruptedException {
 		if (this.getStatusBar() != null
 				&& !this.getStatusBar().getDisplay().isDisposed()) {
 			this.getStatusBar().getDisplay().syncExec(new Runnable() {
@@ -203,12 +203,6 @@ public class HtmlMatch extends Thread {
 				+ "/template/include/template.js");
 	}*/
 
-	public static void main(String argv[]) {
-		
-		Generater generate = new Generater("C:/360buy/template/1.html");
-		generate.generateTemplates("C:/360buy");
-	}
-
 	public double getRate() {
 		return rate;
 	}
@@ -228,9 +222,10 @@ public class HtmlMatch extends Thread {
 	public void run() {
 		try {
 			execute();
-		} catch (Exception e) {
+		} catch (InterruptedException e) {
 			logger.error(e.getStackTrace());
 			e.printStackTrace();
+			System.out.println(" InterruptedException e");
 		}
 
 	}

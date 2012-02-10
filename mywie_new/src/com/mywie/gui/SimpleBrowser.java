@@ -116,8 +116,8 @@ public class SimpleBrowser {
 		final MenuItem editItem = new MenuItem(menu, SWT.CASCADE);
 		editItem.setText("查看");
 
-//		final MenuItem selectCodeItem = new MenuItem(menu, SWT.CASCADE);
-//		selectCodeItem.setText("查看标签");
+		final MenuItem selectCodeItem = new MenuItem(menu, SWT.CASCADE);
+		selectCodeItem.setText("查看标签");
 		
 		final MenuItem exitItem = new MenuItem(menu, SWT.CASCADE);
 		exitItem.setText("保存并退出");
@@ -147,7 +147,7 @@ public class SimpleBrowser {
 			}
 		});
 		
-		/*selectCodeItem.addSelectionListener(new SelectionListener() {
+		selectCodeItem.addSelectionListener(new SelectionListener() {
 			public void widgetSelected(SelectionEvent e) {
 				
 				String html = "<html><head></head><body>"+
@@ -165,7 +165,7 @@ public class SimpleBrowser {
 			public void widgetDefaultSelected(SelectionEvent e) {
 
 			}
-		});*/
+		});
 
 		exitItem.addSelectionListener(new SelectionListener() {
 			public void widgetSelected(SelectionEvent e) {
@@ -228,15 +228,6 @@ public class SimpleBrowser {
 			}
 		});
 	}
-
-	/*public static void main(String[] args) {
-		Shell shell = new Shell();
-		MarkInputDialog dialog = new MarkInputDialog(shell);
-		Map<String, String> semantic = new HashMap<String, String>();
-		Map<String, String> block = new HashMap<String, String>();
-		dialog.open();
-		System.out.println();
-	}*/
 	
 }
 

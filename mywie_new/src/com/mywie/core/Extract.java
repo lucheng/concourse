@@ -67,7 +67,7 @@ public class Extract extends Thread {
 	}
 
 	@SuppressWarnings("unchecked")
-	public void extractQuick() throws Exception {
+	public void extractQuick() {
 		
 		if (this.getStatusBar() != null
 				&& !this.getStatusBar().getDisplay().isDisposed()) {
@@ -102,13 +102,16 @@ public class Extract extends Thread {
 		
 		for (int i = 0; i < extractFiles.length; i++) {
 			
-			List<MarkData> data = extracter.extract(extractFiles[i]);
-			
-			if (data!= null && data.size() >= total * 8 / 10) {
-				File file = new File(extractFiles[i]);
-//				data.add();
-//				data.addAll(xmlHelp.getData(titles, result));
-				datas.add(data);
+			try{
+				List<MarkData> data = extracter.extract(extractFiles[i]);
+				if (data!= null && data.size() >= total * 8 / 10) {
+//					File file = new File(extractFiles[i]);
+//					data.add();
+//					data.addAll(xmlHelp.getData(titles, result));
+					datas.add(data);
+				}
+			}catch(Exception e){
+				e.printStackTrace();
 			}
 		}
 //		ed.setDatas(datas);
@@ -130,7 +133,7 @@ public class Extract extends Thread {
 	}
 
 	@SuppressWarnings("unchecked")
-	public void extractNormal() throws Exception {
+	public void extract() {
 		
 		if (this.getStatusBar() != null
 				&& !this.getStatusBar().getDisplay().isDisposed()) {
@@ -163,7 +166,7 @@ public class Extract extends Thread {
 		}
 		ed.setTitles(titles);
 		
-		List<List<MarkData>> datas = new ArrayList<List<MarkData>>();
+//		List<List<MarkData>> datas = new ArrayList<List<MarkData>>();
 		total = titleNodes.size();
 		for (int i = 0; i < extractFiles.length; i++) {
 			System.out.println("extractFile:" + extractFiles[i]);
@@ -186,7 +189,7 @@ public class Extract extends Thread {
 					result.add(matchNodes2.get(j));
 				}
 			}
-			List<MarkData> data = new ArrayList<MarkData>();
+//			List<MarkData> data = new ArrayList<MarkData>();
 			
 			if (result.size() >= total * 8 / 10) {
 				File file = new File(extractFiles[i]);
@@ -250,17 +253,13 @@ public class Extract extends Thread {
 		this.destDirectory = destDirectory;
 	}
 
-	public void run() {
-		try {
+	public void run(){
+		
 			if(this.extractType == Extract.QUICK){
 				extractQuick();
 			}else {
-				extractNormal();
+				extract();
 			}
-		} catch (Exception e) {
-			logger.error(e.getStackTrace());
-			e.printStackTrace();
-		}
 
 	}
 

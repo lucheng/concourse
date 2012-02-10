@@ -119,7 +119,9 @@ public class ExtractData {
 			fileNameElement.setText(key);
 			
 			WieData wieData = extractData(key);
-			
+			if(wieData == null){
+				continue;
+			}
 			Map<String, String> semantic = wieData.getSemantic();
 			Map<String, List<String>> blockMap = wieData.getBlock();
 			

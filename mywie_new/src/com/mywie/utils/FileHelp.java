@@ -26,7 +26,11 @@ public class FileHelp {
 		String[] files = file.list(new FilenameFilter() {
 			public boolean accept(File dir, String name) {
 				File file = new File(dir, name);
-				return file.isFile();
+				if(name.endsWith(".html")){
+					return file.isFile();
+				}else {
+					return false;
+				}
 			}
 		});
 

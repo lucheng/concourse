@@ -112,6 +112,8 @@ public class ExtractNormalComposite extends CompositeImpl {
 								
 							} catch (Exception e1) {
 								e1.printStackTrace();
+								messageBox.setMessage("ณ๖ดํมหฃบ" + e1.getMessage());
+								messageBox.open();
 							}
 						}
 					}
