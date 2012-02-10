@@ -167,12 +167,10 @@ public class XmlHelp {
 		elements.add(addHtml(root));
 		
 		int count = 1;
-		int parentNum = count;
 		while (elements.size() > 0 && root.selectNodes("//*[@my_count_id]") == null) {
 			
 			Element temp = elements.remove(0);
 			temp.addAttribute("my_count_id", Integer.toString(count++));
-			temp.addAttribute("num", Integer.toString(parentNum));
 			
 			elements.addAll(temp.elements());
 		}
