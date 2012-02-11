@@ -12,26 +12,36 @@ import com.mywie.utils.XmlHelp;
 
 public class Generater extends TemplateOperate{
 
-	private Document markedFileDoc;
+	public Generater(String htmlFilePath, double rate){
+		this.htmlFilePath = htmlFilePath;
+		this.rate = rate;
+	}
 	
-	public Generater(){
-		
+	private double rate;
+	private String htmlFilePath;
+	
+	
+	public double getRate() {
+		return rate;
 	}
-	public Generater(String markedFileName){
-		markedFileDoc = XmlHelp.getDocumentWithClean(markedFileName);
+
+
+	public void setRate(double rate) {
+		this.rate = rate;
 	}
-	public Document getMarkedFileDoc() {
-		return markedFileDoc;
+
+
+	public String getHtmlFilePath() {
+		return htmlFilePath;
 	}
-	public void setMarkedFileDoc(Document markedFileDoc) {
-		this.markedFileDoc = markedFileDoc;
+
+
+	public void setHtmlFilePath(String htmlFilePath) {
+		this.htmlFilePath = htmlFilePath;
 	}
-	/**
-	 * 利用预处理的标注文件，生成模板文件
-	 * @param htmlFilePath 源码文件目录
-	 * 
-	 */
-	public int generateTemplates(String htmlFilePath){
+
+
+	public int generateTemplates(){
 		
 		Document rawHtmlDoc = null;
 		List<Element> roots = new ArrayList<Element>();// 源代码list
@@ -46,7 +56,7 @@ public class Generater extends TemplateOperate{
 			setDirectory(htmlFilePath + "/template");
 			roots.add(root);
 		}
-		setRate(0.9);
+		setRate(rate);
 		//生成模板文件
 		List<Element> roots1 = XmlHelp.getRootList(roots);
 		int tempNum = generateTemplate(roots1);
@@ -56,16 +66,16 @@ public class Generater extends TemplateOperate{
 	
 	public static void main(String[] args) {
 		
-		int count = 0;
-		Generater generate = new Generater("C:/360buy/include/1.html");
-		for(String name : FileHelp.getFiles("D:/data/360buy")){
+//		int count = 0;
+//		Generater generate = new Generater("C:/360buy/include/1.html");
+//		for(String name : FileHelp.getFiles("D:/data/360buy")){
 			
 	//		String name = "C:/360buy/http---www-360buy-com-product-1000062100-html.html";
-			Document rawHtmlDoc = XmlHelp.getDocumentWithClean(name);
-			Document htmlDoc = generate.preTemplate(generate.getMarkedFileDoc(), rawHtmlDoc);
-			FileHelp.writeFile("file/" + (count++) + ".html", htmlDoc.asXML());
-			
-		}
+//			Document rawHtmlDoc = XmlHelp.getDocumentWithClean(name);
+//			Document htmlDoc = generate.preTemplate(generate.getMarkedFileDoc(), rawHtmlDoc);
+//			FileHelp.writeFile("file/" + (count++) + ".html", htmlDoc.asXML());
+//			
+//		}
 //		generate.generateTemplates("C:/360buy");
 	}
 	

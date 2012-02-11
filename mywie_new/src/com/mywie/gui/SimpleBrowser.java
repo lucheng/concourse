@@ -15,7 +15,6 @@ import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.jface.viewers.ViewerSorter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.browser.Browser;
 import org.eclipse.swt.browser.StatusTextListener;
@@ -72,9 +71,9 @@ public class SimpleBrowser {
 	/**
 	 * @wbp.parser.entryPoint
 	 */
-	public SimpleBrowser(Shell shell, int style, String url) {
+	public SimpleBrowser(Shell shell, String url) {
 
-//		super(shell, style);
+//		super(shell);
 		this.shell = shell;
 		this.url = url;
 		getExtractions(url);
@@ -150,12 +149,10 @@ public class SimpleBrowser {
 		selectCodeItem.addSelectionListener(new SelectionListener() {
 			public void widgetSelected(SelectionEvent e) {
 				
-				String html = "<html><head></head><body>"+
-						"<div class=\"w\">"+
-			    "<div class=\"crumb\">"+
-		         "wqweqweqweqwe"+
-		        "</div>"+
-			"</div><body>";
+				 String html = "<html><head>"+ 
+							"<base href=\"http://www.eclipse.org/swt/\" >"+ 
+							"<title>HTML Test</title></head>"+ 
+							"<body><a href=\"faq.php\">local link</a></body></html>"; 
 				Shell parent = (Shell) menu.getParent();
 				CodeViewer codeViewer = new CodeViewer(parent, html);
 				codeViewer.createContents();
@@ -169,7 +166,7 @@ public class SimpleBrowser {
 
 		exitItem.addSelectionListener(new SelectionListener() {
 			public void widgetSelected(SelectionEvent e) {
-				
+				try{
 				SafeSaveDialog dl = new SafeSaveDialog(shell);
 				String fileName = dl.open();
 				if(fileName != null){
@@ -178,7 +175,9 @@ public class SimpleBrowser {
 					editHtml.edit(markDatas);
 					shell.dispose();
 				}
-				
+				}catch(Exception ex){
+					
+				}
 			}
 
 			public void widgetDefaultSelected(SelectionEvent e) {
@@ -188,7 +187,7 @@ public class SimpleBrowser {
 
 		shell.setMenuBar(menu);
 
-		Composite controls = new Composite(shell, SWT.NONE);
+		Composite controls = new Composite(shell, SWT.BEGINNING);
 
 		FormData data = new FormData();
 		data.top = new FormAttachment(0, 0);
@@ -203,7 +202,9 @@ public class SimpleBrowser {
 		data.bottom = new FormAttachment(100, 0);
 		data.left = new FormAttachment(0, 0);
 		data.right = new FormAttachment(100, 0);
+		
 		browser.setLayoutData(data);
+
 
 		browser.setUrl(url);
 		browser.addStatusTextListener(new StatusTextListener() {
@@ -217,6 +218,7 @@ public class SimpleBrowser {
 		});
 
 		controls.setLayout(new GridLayout(6, false));
+		
 	}
 	
 	private void gao(final MarkData data) {
@@ -517,6 +519,74 @@ class DataListViewer extends Dialog{
 	/*public static void main(String[] args) {
 		new DataListViewer(new Shell());
 	}*/
+}
+
+
+class CodeViewer {
+
+	private Shell shell;
+	private String url;
+	private String content;
+	
+	public CodeViewer(Shell shell, String content) {
+		this.shell = shell;
+		this.url = "http://www.google.com";
+		this.content = content;
+		System.out.println("codeviewer");
+	}
+
+	
+	public void createContents() {
+
+		shell.setLayout(new FormLayout());
+
+		Composite controls = new Composite(shell, SWT.NONE);
+
+		FormData data = new FormData();
+		data.top = new FormAttachment(0, 0);
+		data.left = new FormAttachment(0, 0);
+		data.right = new FormAttachment(100, 0);
+		controls.setLayoutData(data);
+
+		/*final Browser browser = new Browser(shell, SWT.NONE);
+		data = new FormData();
+		data.top = new FormAttachment(controls);
+		data.bottom = new FormAttachment(100, 0);
+		data.left = new FormAttachment(0, 0);
+		data.right = new FormAttachment(100, 0);
+		browser.setLayoutData(data);
+		browser.setUrl(url);*/
+		
+//		final Text browser = new Text(shell, SWT.SINGLE | SWT.BORDER);
+		
+		final Browser browser = new Browser(shell, SWT.NONE);
+		data = new FormData();
+		data.top = new FormAttachment(controls);
+		data.bottom = new FormAttachment(100, 0);
+		data.left = new FormAttachment(0, 0);
+		data.right = new FormAttachment(100, 0);
+		browser.setLayoutData(data);
+		
+//		browser.setText(content);
+		
+		browser.setUrl(url);
+		
+
+		controls.setLayout(new GridLayout(6, false));
+	}
+	
+	public static void main(String[] args) {
+		Shell shell = new Shell();
+		String html = "<html><head></head><body>"+
+				"<div class=\"w\">"+
+	    "<div class=\"crumb\">"+
+         "wqweqweqweqwe"+
+        "</div>"+
+	"</div><body>";
+		CodeViewer dialog = new CodeViewer(shell, html);
+		dialog.createContents();
+	}
+	
 }
 
 class SafeSaveDialog {

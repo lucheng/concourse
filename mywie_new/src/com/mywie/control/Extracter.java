@@ -20,16 +20,15 @@ import com.mywie.utils.XmlHelp;
 public class Extracter extends ExtractInfomation {
 	
 	private Element templateRoot;
-	private Document markedDoc;
-
+	
 	/**
 	 * @breif 构造函数
 	 * @param templateFile 模板文件的绝对路径
 	 */
 	
-	public Extracter(String templateFileName, String markedFileName) {
-		templateRoot = XmlHelp.getDocument(templateFileName).getRootElement();
-		markedDoc = XmlHelp.getDocument(markedFileName);
+	public Extracter(String templateFileName) {
+		templateRoot = XmlHelp.getDocumentWithClean(templateFileName).getRootElement();
+//		markedDoc = XmlHelp.getDocument(markedFileName);
 	}
 
 	/**
@@ -50,9 +49,6 @@ public class Extracter extends ExtractInfomation {
 		if(rawHtmlDoc != null){
 			Element rawRoot = rawHtmlDoc.getRootElement();
 			result = getExtractResult(rawRoot);// 执行结构化信息抽取
-			/*for (String key : result.keySet()) {
-				System.out.println((key + ": " + result.get(key) + "\n"));
-			}*/
 		}
 		return result;
 	}
@@ -102,18 +98,10 @@ public class Extracter extends ExtractInfomation {
 			List<Element> extracts = extract(templateRoot, extractRoot);
 			
 			for (Element element : extracts) {
-				/*String text;
-				if ("a".equalsIgnoreCase(element.getName())) {
-					text = element.getStringValue();
-				} else if ("img".equalsIgnoreCase(element.getName())) {
-					text = element.attributeValue("src");
-				} else{
-					text = element.getStringValue();
-				}*/
+				
 				MarkData data = new MarkData();
 				element.attribute("block");
 				result.add(data);
-//				result.put(element.attributeValue("semantic"), element.getStringValue());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -121,15 +109,12 @@ public class Extracter extends ExtractInfomation {
 		return result;
 	}
 	
-	
-	
 	public static void main(String[] args){
 		
 		String template = "template3-1.htm";
-		String markedFileName = "template3-1.htm";
 		String extractFileName = "template3-1.htm";
 		
-		Extracter extractFile = new Extracter(template, markedFileName);
+		Extracter extractFile = new Extracter(template);
 		extractFile.extract(extractFileName);
 		
 	}

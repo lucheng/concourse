@@ -14,7 +14,7 @@ public class WieShell{
 	private void createSShell() {
 		display = new Display();
 		sShell = new Shell(display,SWT.CLOSE | SWT.RESIZE);
-		sShell.setText("Web知识获取工具");
+		sShell.setText("Web信息抽取工具");
 		sShell.setLocation(300, 200);
 		
 		initialize();

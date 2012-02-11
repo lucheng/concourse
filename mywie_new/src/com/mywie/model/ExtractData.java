@@ -59,7 +59,7 @@ public class ExtractData {
 		List<Element> elements = datas.get(fileName);
 		
 		WieData wieData = null;
-		Map<String, String> semanticList = new HashMap<String, String>();
+		Map<String, String> semanticMap = new HashMap<String, String>();
 		Map<String, List<String>> blockMap = new HashMap<String, List<String>>();
 		
 		for (int i = 1; i < titles.size(); i++) {
@@ -72,14 +72,14 @@ public class ExtractData {
 					wieData = new WieData();
 					
 					String semantic = element.getStringValue();
-					semanticList.put(title, semantic);
+					semanticMap.put(title, semantic);
 					
 					List<String> blockValueList = new ArrayList<String>();
 					
 					String blockValue = element.attributeValue("block");
 
 					if(blockValue != null && !blockValue.equals("")){
-						FileHelp.writeFile("file/" + blockValue+".xml", element.asXML());
+//						FileHelp.writeFile("file/" + blockValue+".xml", element.asXML());
 						List<Node> nodes = element.selectNodes(".//" + blockValue);
 						for (Node node : nodes){
 							if (node != null && Node.ELEMENT_NODE == node.getNodeType()) {
@@ -95,7 +95,7 @@ public class ExtractData {
 			}
 		}
 		if(wieData != null){
-			wieData.setSemantic(semanticList);
+			wieData.setSemantic(semanticMap);
 			wieData.setBlock(blockMap);
 		}
 //		System.out.println(wieData);

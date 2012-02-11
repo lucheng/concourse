@@ -139,21 +139,23 @@ public class GenerateComposite extends CompositeImpl {
 						messageBox.setMessage("请先选择网页集目录");
 						messageBox.open();
 					} else {
+						start.setEnabled(false);
 						htmlMatch = new HtmlMatch();
+						htmlMatch.setStart(start);
+						
 						htmlMatch.setDirectory(htmlDirectory.getText());
 //						htmlMatch.setMarkedFileName(markedFileName.getText());
 						htmlMatch.setRate((double) scale.getSelection() / 100);
 						htmlMatch.setStatusBar(statusBar);
-						try{
-							htmlMatch.start();
+						htmlMatch.start();
 //							int i = 1 / 0;
-						}catch(Exception ee){
+						/*}catch(Exception ee){
 							ee.printStackTrace();
 							logger.error(ee.getMessage());
 							messageBox.setMessage("出错了：" + ee.getMessage());
 							messageBox.open();
 							htmlMatch.interrupt();
-						}
+						}*/
 					}
 				}
 			});

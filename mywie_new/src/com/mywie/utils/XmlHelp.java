@@ -97,7 +97,7 @@ public class XmlHelp {
 		
 		props.setOmitUnknownTags(true);
 		props.setUseEmptyElementTags(false);
-		props.setPruneTags("script,iframe,textarea,input");
+		props.setPruneTags("script,style,iframe,textarea,input");
 		props.setNamespacesAware(false);
         
 		

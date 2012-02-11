@@ -106,8 +106,11 @@ public class ExtractNormalComposite extends CompositeImpl {
 								extractData.setDestDirectory(extractFilePath.getText()+"/extraction");
 								extractData.setExtractFiles(FileHelp.getFiles(extractFilePath.getText()));
 								extractData.setStatusBar(statusBar);
+								extractData.setStartButton(editButton);
 								extractData.setExtractType(Extract.NORMAL);
 								extractData.start();
+								
+								editButton.setEnabled(false);
 								viewButton.setEnabled(true);
 								
 							} catch (Exception e1) {

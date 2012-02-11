@@ -17,7 +17,7 @@ public class CompositeImpl extends Composite {
 	
 	public CompositeImpl(Composite parent, int style) {
 		super(parent, style);
-		this.setBackground(Display.getDefault().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+//		this.setBackground(Display.getDefault().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
 		createMessageBox();
 	}
 

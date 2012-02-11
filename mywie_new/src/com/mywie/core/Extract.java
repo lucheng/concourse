@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.Node;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Text;
 
 import com.mywie.control.Extracter;
@@ -29,6 +30,17 @@ public class Extract extends Thread {
 	private String destDirectory;
 	private Text textArea;
 	private int total;
+	
+	private Button startButton;
+	
+	public Button getStartButton() {
+		return startButton;
+	}
+
+	public void setStartButton(Button startButton) {
+		this.startButton = startButton;
+	}
+
 	private WieStatusBar statusBar;
 	private String statusText;
 	
@@ -98,7 +110,7 @@ public class Extract extends Thread {
 		List<List<MarkData>> datas = new ArrayList<List<MarkData>>();
 		total = titleNodes.size();
 		
-		Extracter extracter = new Extracter(templateFile, markedFile);
+		Extracter extracter = new Extracter(templateFile);
 		
 		for (int i = 0; i < extractFiles.length; i++) {
 			
@@ -126,6 +138,7 @@ public class Extract extends Thread {
 				public void run() {
 					getStatusBar().changeToStatus();
 					getStatusBar().setStatus(statusText);
+					getStartButton().setEnabled(true);
 				}
 			});
 		}

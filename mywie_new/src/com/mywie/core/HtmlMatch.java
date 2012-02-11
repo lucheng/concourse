@@ -3,6 +3,7 @@ package com.mywie.core;
 import org.apache.log4j.Logger;
 import org.dom4j.Document;
 import org.dom4j.Element;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Text;
 
 import com.mywie.control.Generater;
@@ -23,6 +24,16 @@ public class HtmlMatch extends Thread {
 //	private List<Element> roots2;
 	private WieStatusBar statusBar;
 	private String statusText;
+	private Button start;
+	
+	public Button getStart() {
+		return start;
+	}
+
+	public void setStart(Button start) {
+		this.start = start;
+	}
+
 	private static Logger logger = Logger.getLogger(HtmlMatch.class.getName());
 
 	
@@ -69,10 +80,9 @@ public class HtmlMatch extends Thread {
 		
 		FileHelp.makedir(directory + "/template");
 		
-		Generater generate = new Generater();
-//		Generater generate = new Generater(markedFileName);
-		generate.setRate(rate);
-		templateNum = generate.generateTemplates(directory);
+		Generater generate = new Generater(directory, rate);
+//		generate.setRate();
+		templateNum = generate.generateTemplates();
 	
 //		copyFiles();
 		long endTime = System.currentTimeMillis();
@@ -83,6 +93,7 @@ public class HtmlMatch extends Thread {
 				public void run() {
 					getStatusBar().changeToStatus();
 					getStatusBar().setStatus(statusText);
+					getStart().setEnabled(true);
 				}
 
 			});
@@ -225,7 +236,7 @@ public class HtmlMatch extends Thread {
 		} catch (InterruptedException e) {
 			logger.error(e.getStackTrace());
 			e.printStackTrace();
-			System.out.println(" InterruptedException e");
+			System.out.println("InterruptedException e");
 		}
 
 	}

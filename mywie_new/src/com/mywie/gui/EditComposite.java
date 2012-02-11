@@ -16,7 +16,6 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 import com.mywie.gui.impl.CompositeImpl;
-import com.mywie.model.ExtractData;
 import com.mywie.utils.FileHelp;
 import com.mywie.utils.XmlHelp;
 
@@ -27,7 +26,7 @@ public class EditComposite extends CompositeImpl {
 	private Text templateFilePath = null;
 	private Button openFile = null;
 	private Button start = null;
-	private Shell subShell;
+//	private Shell subShell;
 
 	public EditComposite(Composite parent, int style) {
 		super(parent, style);
@@ -102,22 +101,22 @@ public class EditComposite extends CompositeImpl {
 	
 	private void showEditTemplate(String url) {
 		
-		subShell = new Shell(getDisplay());
-		subShell.setText("编辑器");
-		subShell.setMaximized(true);
-		
 		/**
 		 * 先将文件copy到临时文件夹中，再对文件进行操
 		 */
-		String tempfile = FileHelp.TEMPDIR + "temp.html";
 		FileHelp.makedir(FileHelp.TEMPDIR);
-		
+		String tempfile = FileHelp.TEMPDIR + "temp.html";
 		FileHelp.copyFile(new File(url), new File(tempfile));
-//		String filePath = url.substring(0, url.lastIndexOf("\\"));
+		copyFiles(FileHelp.TEMPDIR);
 		
-		SimpleBrowser simpleBrowser = new SimpleBrowser(subShell, SWT.CLOSE , initUrl(tempfile));
+		/*Shell subShell = new Shell(getDisplay(), SWT.CLOSE);
+		subShell.setText("编辑器");
+		subShell.setMaximized(true);
+		
+		SimpleBrowser simpleBrowser = new SimpleBrowser(subShell, initUrl(tempfile));
 		try{
 			simpleBrowser.createContents();
+//			start.setEnabled(false);
 		} catch(Exception e){
 			logger.error(e.getMessage());
 			e.printStackTrace();
@@ -125,7 +124,30 @@ public class EditComposite extends CompositeImpl {
 		
 		copyFiles(FileHelp.TEMPDIR);
 		subShell.pack();
-		subShell.open();
+		subShell.open();*/
+		
+		Display display = getDisplay();
+		Shell shell = new Shell(display, SWT.CLOSE | SWT.MAX | SWT.APPLICATION_MODAL);
+		SimpleBrowser sb = new SimpleBrowser(shell, initUrl(tempfile));
+	    shell.setText("模板编辑器");
+	    shell.setMaximized(true);
+	    
+	    try {
+			sb.createContents();
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			messageBox.open();
+		}
+	    
+//	    shell.pack();
+	    shell.open();
+	    while (!shell.isDisposed()) {
+	      if (!display.readAndDispatch()) {
+	        display.sleep();
+	      }
+	    }
+//	    display.dispose();
 	}
 	
 }
