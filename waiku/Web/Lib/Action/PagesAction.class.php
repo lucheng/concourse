@@ -1,30 +1,34 @@
 <?php
 class PagesAction extends BaseAction
 {
-    public function index(){
-    	$page = $_GET["page"];
-    	$this->display($page);
-    }
-	
     public function expert()
     {
-    	$User = M("User"); // 实例化User对象
-
-		// 查找status值为1的用户数据以创建时间排序返回10条数据
-		
-		$list = $User->where('status=1')->order('create_time')->limit(1)->select();
-
-    	
+    	$Pages = M("Pages"); // 实例化User对象
+		$list = $Pages->find(1);//中文版本
+//		$list = $Pages->find(2);//中文版本
+		$this->assign("list", $list);
         $this->display();
     }
     
 	public function introduction()
     {
+    	$Pages = M("Pages"); // 实例化User对象
+		
+		$list = $Pages->find(3);//中文版本
+//		$list = $Pages->find(4);//中文版本
+
+		$this->assign("list", $list);
         $this->display();
     }
     
 	public function connectus()
     {
+    	$Pages = M("Pages"); // 实例化User对象
+		
+		$list = $Pages->find(5);//中文版本
+//		$list = $Pages->find(6);//中文版本
+
+		$this->assign("list", $list);
         $this->display();
     }
     
