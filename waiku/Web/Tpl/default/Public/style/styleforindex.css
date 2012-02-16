@@ -110,13 +110,15 @@ list-style: none;
 	font-size:14px;
 	text-align:center;
 }
-.big {
-	width:346px;
-	height:300px;
+
+.right_side{
+	width:310px;
+	margin-bottom:20px;
 	float:left;
-	
-	} 
+}
 .sm{
+	    width:310px;
+		float:left;
 		padding-left:30px;
 	}
 .clear{
@@ -164,8 +166,6 @@ list-style: none;
 	border-right-width: 1px;
 	border-right-style: groove;
 	border-right-color: #999;
-	width:345px;
-	height:255px;
 }
 .resu{
 	width:345px;
@@ -204,6 +204,9 @@ text-align: left;
 border-bottom:1px dashed;
 border-color:#ccc;
 }
+.resee a:hover{
+	color:#734D10;
+}
 .more{
 	float:right;
 	margin-top:10px;
@@ -218,4 +221,27 @@ border-color:#ccc;
 	height:130px;
 	padding-bottom:10px;
 	float:left;
+}
+.case_flash{
+	 width:460px;
+	 float:left;
+	 margin-top:15px;
+}
+.case_titles{
+	width:200px;
+	float:left;
+}
+.case_titles li {
+background: url(../images/index/bg2010.gif) no-repeat -6px -545px;
+width:90%;
+float:left;
+height: 30px;
+line-height: 30px;
+padding-left: 18px;
+text-align: left;
+border-bottom:1px dashed;
+border-color:#ccc;
+}
+.case_titles  a:hover{
+	color:#734D10;
 }

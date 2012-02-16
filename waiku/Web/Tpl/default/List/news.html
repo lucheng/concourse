@@ -40,12 +40,15 @@
               <div class="englishfont">Academic Research</div>
               <div class="chinese">要闻纪事</div>
             </div>
-            <div class="rese">
-            <div style="width:265px;margin-top:15px;background-color:#ccdae5;height:150px">
-            </div>
-           	<div style="width:265px;margin-top:7px;background-color:#ddd;height:240px;border:1px #CCC groove">
-            <div class="chinese" style="text-align:left;">近期简要</div>
-            </div>
+            <div class="category_pic">
+                <img width="630px" height="128px" src="../Public/images/index/demo.jpg"></img>
+             </div>
+            <div class="rese resee">
+	            <ul>
+	            	<volist name="list" id="sub">
+					<li><a title="{$sub.title}" href="{$sub.aid|url=articles,###}">{$sub.title|msubstr1=0,38,'utf-8',true}</a></li>
+					</volist>
+				</ul>
             </div>
             </div>
            <!-- 左边照片 -->

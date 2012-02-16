@@ -41,10 +41,13 @@
               <div class="englishfont">Academic Research</div>
               <div class="chinese">学术研究</div>
             </div>
+            <div class="category_pic">
+                <img width="630px" height="128px" src="../Public/images/index/demo.jpg"></img>
+             </div>
             <div class="rese resee">
 	            <ul>
 	            	<volist name="list" id="sub">
-					<li><a title="{$sub.title}" href="{$sub.aid|url=articles,###}">{$sub.title|msubstr1=0,28,'utf-8',true}</a></li>
+					<li><a title="{$sub.title}" href="{$sub.aid|url=articles,###}">{$sub.title|msubstr1=0,38,'utf-8',true}</a></li>
 					</volist>
 				</ul>
             </div>
