@@ -216,5 +216,6 @@ border-color:#ccc;
 .category_pic{
 	width:678px;
 	height:130px;
+	padding-bottom:10px;
 	float:left;
 }
