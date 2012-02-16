@@ -94,7 +94,22 @@ list-style: none;
 	color: #734d10;
 	height:15px;
 	font-size: 15px;
+	padding-top:5px;
+	padding-bottom:15px;
 	}
+.message{
+	padding-bottom:10px;
+}
+.info{
+	width:670px;
+	float:left;
+	padding-bottom:5px;
+}
+.info input{
+	width:200px;
+	font-size:14px;
+	text-align:center;
+}
 .big {
 	width:346px;
 	height:300px;
@@ -181,10 +196,13 @@ padding: 8px 10px 0 10px;
 }
 .resee li {
 background: url(../images/index/bg2010.gif) no-repeat -6px -545px;
+width:90%;
 height: 30px;
 line-height: 30px;
 padding-left: 18px;
 text-align: left;
+border-bottom:1px dashed;
+border-color:#ccc;
 }
 .more{
 	float:right;
