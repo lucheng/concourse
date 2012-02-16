@@ -18,8 +18,9 @@
 }
 .inexp{
 	margin-top:13px;
-	height:141px;
 	width:660px;
+	padding-bottom:10px;
+	float:left;
 	border:1px groove #999
 }
 #right{
@@ -67,9 +68,9 @@
 }
 #interdouce{
 	font-size:12px;
-	float:right;
-	margin-left:8px;
-	width:530px;
+	float:left;
+	margin-left:18px;
+	width:630px;
 	overflow:hidden;
 	padding-right:10px;
 }

@@ -213,3 +213,8 @@ border-color:#ccc;
 .more img{
 	border:none;
 }
+.category_pic{
+	width:678px;
+	height:130px;
+	float:left;
+}
