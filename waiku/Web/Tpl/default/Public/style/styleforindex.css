@@ -192,7 +192,7 @@ list-style: none;
 .resee ul {
 clear: both;
 background: white;
-padding: 8px 10px 0 10px;
+padding: 0px 10px 0 10px;
 }
 .resee li {
 background: url(../images/index/bg2010.gif) no-repeat -6px -545px;
@@ -225,7 +225,6 @@ border-color:#ccc;
 .case_flash{
 	 width:460px;
 	 float:left;
-	 margin-top:15px;
 }
 .case_titles{
 	width:200px;
@@ -245,3 +244,16 @@ border-color:#ccc;
 .case_titles  a:hover{
 	color:#734D10;
 }
+.index_rese{
+	border-right-width: 1px;
+	border-right-style: groove;
+	border-right-color: #999;
+	width:345px;
+	overflow:hidden;
+	height:255px;
+}
+.index_big {
+	width:346px;
+	height:300px;
+	float:left;
+	} 
