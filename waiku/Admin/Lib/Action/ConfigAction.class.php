@@ -1,15 +1,4 @@
 <?php
-/***********************************************************
-    [WaiKuCms] (C)2011 - 2011 waikucms.com
-    
-	@function 系统全局配置
-
-    @Filename ConfigAction.class.php $
-
-    @Author pengyong $
-
-    @Date 2011-11-17 11:41:34 $
-*************************************************************/
 class ConfigAction extends CommonAction
 {
 	Public function _empty()

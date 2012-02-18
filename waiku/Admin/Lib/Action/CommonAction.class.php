@@ -1,15 +1,4 @@
 <?php
-/***********************************************************
-    [WaiKuCms] (C)2011 - 2011 waikucms.com
-    
-	@function 系统RBAC认证
-
-    @Filename CommonAction.class.php $
-
-    @Author pengyong $
-
-    @Date 2011-11-17 14:57:09 $
-*************************************************************/
 class CommonAction extends Action
 {
 	function _initialize() 
