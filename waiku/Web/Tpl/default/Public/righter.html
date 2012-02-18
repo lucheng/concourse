@@ -7,7 +7,7 @@
 	            <volist name="hd" id="vo">
 		            <div class="thumbox">
 		            	<div class="thum"><img title="{$vo.title}" src="__PUBLIC__/Uploads/hd/{$vo.pic}" alt="{$vo.title}"></div>
-		                <div class="thumtt">{$vo.title}</div>
+		                <div class="thumtt">{$vo.title|msubstr1=0,6,'utf-8',true}</div>
 		            </div>
 	            </volist>
             </div>
