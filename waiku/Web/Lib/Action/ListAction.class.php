@@ -8,7 +8,7 @@ class ListAction extends BaseAction
 	
 	public function index()
 	{
-	//读取数据库&判断
+		
 		$type = M('type');
 		$list = $type->where('typeid='.$_GET['typeid'])->field('typename,fid,keywords,description,islink,url')->find();
 		if(!$list)
@@ -77,9 +77,6 @@ class ListAction extends BaseAction
 		}
 		if($_GET['typeid'] == 4){
 			$this->display('news');
-		}
-		if($_GET['typeid'] == 5){
-			$this->display('picture');
 		}
  }
  

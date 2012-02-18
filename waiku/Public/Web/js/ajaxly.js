@@ -89,8 +89,8 @@ function showlist()
 /* 发送留言 */
 function AddNew() {
     document.getElementById("sendGuest").disabled = true;
-    var Author = document.getElementById("Author").value;
-    var Content = document.getElementById("plContent").value;
+    var Author = document.getElementById("author").value;
+    var Content = document.getElementById("content").value;
 	var precontent=document.getElementById("plContent").value;
     if (Author == "" || Content == "") {
 	    alert("请填写完整！");
