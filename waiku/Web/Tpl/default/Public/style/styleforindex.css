@@ -118,9 +118,17 @@ list-style: none;
 }
 .sm{
 	    width:310px;
+	    height:47px;
 		float:left;
 		padding-left:30px;
 	}
+.index_pic{
+	width:345;
+	height:90px;
+	border-right:1px solid #999;
+	float:left;
+	padding-left:20px;
+}
 .clear{
 	clear:both;
 }
@@ -169,12 +177,12 @@ list-style: none;
 }
 .resu{
 	width:345px;
-     height:110px;
+     height:150px;
      overflow:hidden;
 }
 .resue{
 	width:345px;
-	height:92px;
+	height:122px;
 	overflow:hidden;
 }
 /*menu*/
@@ -219,6 +227,7 @@ border-color:#ccc;
 .category_pic{
 	width:678px;
 	height:130px;
+	border-right:1px groove #999;
 	padding-bottom:10px;
 	float:left;
 }
@@ -245,15 +254,15 @@ border-color:#ccc;
 	color:#734D10;
 }
 .index_rese{
-	border-right-width: 1px;
-	border-right-style: groove;
-	border-right-color: #999;
 	width:345px;
+	border-right:1px solid #999;
+	float:left;
+	text-align:left;
 	overflow:hidden;
 	height:255px;
 }
 .index_big {
 	width:346px;
-	height:300px;
+	
 	float:left;
 	} 
