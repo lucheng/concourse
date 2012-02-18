@@ -13,8 +13,8 @@
         <SELECT onChange="javascript:window.open(this.options[this.selectedIndex].value,'main')"  size="1" name="s">
         <OPTION value="" selected>-=请选择=-</OPTION>
         <OPTION value="__URL__/index/">所有留言</OPTION>
-        <OPTION value="__URL__/index/status/1">已审的留言</OPTION>
-        <OPTION value="__URL__/index/status/0">未审的留言</OPTION>
+        <OPTION value="__URL__/index/status/1">已回复的留言</OPTION>
+        <OPTION value="__URL__/index/status/0">未回复的留言</OPTION>
       </SELECT> </td>
       <td bgcolor="f7f7f7">
 	  <form name="form1" method="get" action="__URL__/index/">
@@ -29,22 +29,26 @@
 <form name="myform" method="POST" action="__URL__/delall">
 <table width="95%" border="0"  align=center cellpadding="3" cellspacing="2" bgcolor="#FFFFFF" class="admintable">
 <tr> 
-  <td colspan="6" align=left class="admintitle">留言列表</td>
+  <td colspan="8" align=left class="admintitle">留言列表</td>
 </tr>
     <tr bgcolor="#f1f3f5" style="font-weight:bold;">
     <td width="5%" height="30" align="center" class="ButtonList">&nbsp;</td>
-    <td width="47%" align="center" class="ButtonList">留言内容</td>
-    <td width="17%" align="center" class="ButtonList">发布人</td>
-    <td width="16%" height="25" align="center" class="ButtonList">发布时间</td>
+    <td width="30%" align="center" class="ButtonList">留言内容</td>
+    <td width="10%" align="center" class="ButtonList">发布人</td>
+    <td width="10%" align="center" class="ButtonList">邮箱</td>
+    <td width="10%" align="center" class="ButtonList">电话</td>
+    <td width="15%" height="25" align="center" class="ButtonList">发布时间</td>
     <td width="15%" height="25" align="center" class="ButtonList">管理</td>    
     </tr>
 	<volist name="list" id="vo"> 
     <tr>
     <td height="25" align="center" bgcolor="f7f7f7"><input type="checkbox" value="{$vo.id}" name="id[]" onClick="unselectall(this.form)" style="border:0;"></td>
-    <td height="25" bgcolor="f7f7f7"><a href="__ROOT__/index.php/Guestbook" target="_blank">{$vo.content|msubstr=###,0,30,'utf-8'}...</a></td>
-    <td height="25" align="center" bgcolor="f7f7f7">{$vo.author}</td>
-    <td height="25" align="center" bgcolor="f7f7f7"><span class="td">{$vo.addtime}</span></td>
-    <td align="center" bgcolor="f7f7f7"><a href="__URL__/status/id/{$vo.id}/status/{$vo.status}"><eq name="vo.status" value="1">已审<else/><font color='red'>未审</font></eq></a>|<a href="__URL__/edit/id/{$vo.id}">回复</a>|<a href="__URL__/del/id/{$vo.id}" onClick="JavaScript:return confirm('确定要删除?')">删除</a></td>
+    <td height="25" bgcolor="f7f7f7"><a href="__URL__/edit/id/{$vo.id}" target="_blank">{$vo.content|msubstr=###,0,30,'utf-8'}...</a></td>
+    <td height="7" align="center" bgcolor="f7f7f7">{$vo.author}</td>
+    <td height="8" align="center" bgcolor="f7f7f7">{$vo.email}</td>
+    <td height="8" align="center" bgcolor="f7f7f7">{$vo.tel}</td>
+    <td height="15" align="center" bgcolor="f7f7f7"><span class="td">{$vo.addtime}</span></td>
+    <td align="center" bgcolor="f7f7f7"><a href="__URL__/status/id/{$vo.id}/status/{$vo.status}"><eq name="vo.status" value="1">已回复<else/><font color='red'>未回复</font></eq></a>|<a href="__URL__/edit/id/{$vo.id}">查看</a>|<a href="__URL__/del/id/{$vo.id}" onClick="JavaScript:return confirm('确定要删除?')">删除</a></td>
     </tr>
 	</volist>
 <tr><td align="center" bgcolor="f7f7f7"><input name="Action" type="hidden"  value="Del"><input name="chkAll" type="checkbox" id="chkAll" onClick=CheckAll(this.form) value="checkbox" style="border:0"></td>

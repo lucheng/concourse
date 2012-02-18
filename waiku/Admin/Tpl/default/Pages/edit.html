@@ -8,7 +8,7 @@
 <script charset="utf-8" src="__PUBLIC__/Editor/kindeditor-min.js"></script>
 <script> 
         KE.show({
-                id : 'Content',
+                id : 'content',
 				autoSetDataMode: false,
 				afterCreate : function(id) {
 					KE.event.add(KE.$('myform'), 'submit', function() {
@@ -70,7 +70,7 @@ function showhelp(){
     <td colspan="2" align=left class="admintitle">修改单页[<a onclick="showhelp();">操作提示</a>]</td></tr>
 <tr> 
 <td width="20%" class="b1_1">标题</td>
-<td class="b1_1"><input name="title" value="{$list.title}" type="text" id="Title" size="40" maxlength="50"><span class="note">注：最多50个字符</span></td>
+<td class="b1_1"><input name="title" disabled="true" value="{$list.title}" type="text" id="Title" size="40" maxlength="50"><span class="note">注：最多50个字符</span></td>
 </tr>
 <tr>
   <td class="b1_1">关键字</td>
@@ -89,23 +89,9 @@ function showhelp(){
 <tr>
   <td class="b1_1">附加选项</td>
   <td class="b1_1">
-    <input name="isenglish" type="checkbox" class="noborder" id="isenglish" value="1" <eq name="list.isenglish" value="1">checked</eq>>
+    <input name="isenglish" type="checkbox" disabled="true" class="noborder" id="isenglish" value="1" <eq name="list.isenglish" value="1">checked</eq>>
     英文版本
-	
 </td>
-</tr>
-<tr>
-  <td rowspan="2" class="b1_1">缩略图</td>
-  <td class="b1_1"><input name="imgurl" type="text" id="Images" size="50" maxlength="200" value="{$list.imgurl}">
-  <input name="isimg" type="checkbox" class="noborder" id="Useimg" value="1" <eq name='list.isimg' value='1'>checked</eq>>
-      使用缩略图</td>
-</tr>
-<tr>
-  <td class="b1_1"><iframe src="__APP__/File/thumb/" width="400" height="25" frameborder="0" scrolling="no"></iframe></td>
-</tr>
- <tr>
-  <td class="b1_1">附件上传</td>
-  <td class="b1_1"><iframe src="__APP__/File/attach/" width="400" height="25" frameborder="0" scrolling="no"></iframe></td>
 </tr>
 <tr>
   <td valign="top" class="b1_1"><p>内容</p>
