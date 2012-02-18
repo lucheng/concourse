@@ -44,23 +44,24 @@
 			<div class="message">
           		请您留下咨询问题及联系方式（Email及电话号码等信息），我们的专家会在第一时间给您答复
             </div>
+            <form action="__APP__/Guestbook/update" method="post" name="messageform">
             <div class="personal_info">
-             <form>
                 <div class="info">
-                	<span>姓名：</span><input name="name"></input>
+                	<span>姓名：</span><input name="author" id="author"></input>
                 </div>
                 <div class="info">
-                	<span>邮箱：</span><input namw="email"></input>
+                	<span>邮箱：</span><input name="email" id="email"></input>
                 </div>
                 <div class="info">
-                	<span>电话：</span><input name="tel"></input>
+                	<span>电话：</span><input name="tel" id="tel"></input>
                 </div>
-             </form>
+             
             </div>
-            <form action="" method="post" name="messageform" enctype="application/x-www-form-urlencoded">
-            <textarea name="msg" cols="80" rows="8">请点击留言</textarea>
+            
+            <textarea name="content" cols="80" rows="8" id="content">请点击留言</textarea>
              <div style="margin-left:476px;margin-top:15px"><input type="image" src="../Public/images/index/subimg.jpg" name="submit" width="101" height="24" alt="确定" /></div>
             </form>
+            
            </div>
           </div>
            <!-- 右边照片 -->
