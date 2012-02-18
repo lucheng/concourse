@@ -1,10 +1,15 @@
 <?php
      class BaseAction extends Action {
      	
-     	private $et;
+     	protected $et;
+     	
      	public function _initialize(){
 		
-     		$_SESSION["et"];
+     		$et = $_SESSION["et"];
+     		if ($et == null){
+     			$et = 0;
+     		}
+//     		dump($et);
      		//网站头部
 			R('Public','head');
 			//友情链接

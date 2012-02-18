@@ -28,14 +28,12 @@ class IndexAction extends BaseAction
 		$list2 = $article->where("typeid=2")->order('addtime desc')->field('title,aid')->limit(8)->select();
 		$list3 = $article->where("typeid=3")->order('addtime desc')->field('title,aid')->limit(3)->select();
 		$list4 = $article->where("typeid=4")->order('addtime desc')->field('title,aid')->limit(3)->select();
-		$list5 = $article->where("typeid=5")->order('addtime desc')->field('title,aid,imgurl')->limit(7)->select();
+
 		$this->assign('list1',$list1);
 		$this->assign('list2',$list2);
 		$this->assign('list3',$list3);
 		$this->assign('list4',$list4);
-		/*$this->assign('list5',$list5);*/
-//		dump($list5);
-		//输出模板
+
 		$this->display('index');
     }
 	
