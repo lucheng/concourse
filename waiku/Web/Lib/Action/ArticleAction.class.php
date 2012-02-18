@@ -1,15 +1,4 @@
 <?php
-/***********************************************************
-    [WaiKuCms] (C)2011 - 2011 waikucms.com
-   
-    @function 文章模块
- 
-    @Filename ArticleAction.class.php $
-
-    @Author pengyong $
-
-    @Date 2011-11-15 21:27:09 $
-*************************************************************/
 class ArticleAction extends BaseAction
 {
 	Public function _empty()
