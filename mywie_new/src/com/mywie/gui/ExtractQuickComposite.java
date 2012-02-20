@@ -124,9 +124,9 @@ public class ExtractQuickComposite extends CompositeImpl {
 							extractData= new Extract();
 							extractData.setMarkedFile(markedFilePath.getText());
 //							extractData.setTempalteFile(templateFilePath.getText());
-							extractData.setTempalteFile(markedFilePath.getText());
-							extractData.setExtractFiles(FileHelp.getFiles(extractFilesPath.getText()));
-							extractData.setDestDirectory(extractFilesPath.getText()+"/extraction");
+//							extractData.setTempalteFile(markedFilePath.getText());
+//							extractData.setExtractFiles(FileHelp.getFiles(extractFilesPath.getText()));
+//							extractData.setDestDirectory(extractFilesPath.getText()+"/extraction");
 							extractData.setStatusBar(statusBar);
 							extractData.setExtractType(Extract.QUICK);
 							extractData.start();

@@ -49,17 +49,15 @@ import com.mywie.utils.XmlHelp;
 
 public class SimpleBrowser {
 
+	private Display display;
 	private Shell shell;
 	private String url;
 	private String windowStatus;
-//	private boolean markState = false;
 	private EditHtml editHtml = new EditHtml();
 	
 	private List<MarkData> markDatas = new ArrayList<MarkData>();
 	
-	/**
-	 * @wbp.parser.entryPoint
-	 */
+	
 	public String getWindowStatus() {
 		return windowStatus;
 	}
@@ -68,13 +66,10 @@ public class SimpleBrowser {
 		this.windowStatus = windowStatus;
 	}
 
-	/**
-	 * @wbp.parser.entryPoint
-	 */
-	public SimpleBrowser(Shell shell, String url) {
+	public SimpleBrowser(Display display, String url) {
 
-//		super(shell);
-		this.shell = shell;
+		this.display = display;
+		this.shell = new Shell(display, SWT.CLOSE | SWT.MAX | SWT.APPLICATION_MODAL);
 		this.url = url;
 		getExtractions(url);
 	}
@@ -100,13 +95,12 @@ public class SimpleBrowser {
 		}
 		
 	}
-	/**
-	 * @wbp.parser.entryPoint
-	 */
-	public void createContents() throws Exception{
+	
+	public boolean open(){
 
 		shell.setLayout(new FormLayout());
-
+		shell.setMaximized(true);
+		
 		final Menu menu = new Menu(shell, SWT.BAR);
 
 		final MenuItem selectItem = new MenuItem(menu, SWT.PUSH);
@@ -120,7 +114,7 @@ public class SimpleBrowser {
 		
 		final MenuItem exitItem = new MenuItem(menu, SWT.CASCADE);
 		exitItem.setText("保存并退出");
-
+		
 		selectItem.addSelectionListener(new SelectionListener() {
 			public void widgetSelected(SelectionEvent e) {
 				Shell parent = (Shell) menu.getParent();
@@ -176,7 +170,7 @@ public class SimpleBrowser {
 					shell.dispose();
 				}
 				}catch(Exception ex){
-					
+					ex.printStackTrace();
 				}
 			}
 
@@ -219,8 +213,26 @@ public class SimpleBrowser {
 
 		controls.setLayout(new GridLayout(6, false));
 		
+		return true;
 	}
 	
+	public void close(){
+		
+		shell.dispose();
+	}
+	
+	public void run(){
+		
+		shell.setText("模板标注");
+		open();
+		shell.open();
+		while (!shell.isDisposed()) {
+			if (!display.readAndDispatch()) {
+				display.sleep();
+			}
+		}
+	}
+
 	private void gao(final MarkData data) {
 		Display.getDefault().asyncExec(new Runnable() {
 			public void run() {
@@ -231,48 +243,44 @@ public class SimpleBrowser {
 		});
 	}
 	
+	
 }
 
 class MarkInputDialog extends Dialog {
 
-	/**
-	 * @param parent
-	 */
+	
 	public MarkInputDialog(Shell parent) {
 		super(parent);
 	}
 
-	/**
-	 * @param parent
-	 * @param style
-	 */
+	
 	public MarkInputDialog(Shell parent, int style) {
 		super(parent, style);
 	}
 
-	/**
-	 * Makes the dialog visible.
-	 * 
-	 * @return
-	 */
+	
 	public MarkData open() {
 		
 		final MarkData data = new MarkData();
 		
 		Shell parent = getParent();
-		final Shell shell = new Shell(parent, SWT.TITLE| SWT.APPLICATION_MODAL | SWT.CLOSE);
+		final Shell shell = new Shell(parent, SWT.CLOSE | SWT.APPLICATION_MODAL | SWT.CLOSE);
 		shell.setText("标注文件");
 		
 		GridLayout gridLayout = new GridLayout(2, false);
-		gridLayout.horizontalSpacing = 30;
-		gridLayout.verticalSpacing = 30;
-		gridLayout.marginLeft = 10;
-		gridLayout.marginRight = 10;
-		gridLayout.marginTop = 10;
-		gridLayout.marginBottom = 10;
+		gridLayout.horizontalSpacing = 100;
+		gridLayout.verticalSpacing = 100;
+		gridLayout.marginLeft = 50;
+		gridLayout.marginRight = 50;
+		gridLayout.marginTop = 30;
+		gridLayout.marginBottom = 30;
 		
 		shell.setLayout(gridLayout);
-
+//		System.out.println(shell.getLocation());
+		LayoutUtil.centerSell(shell.getDisplay(), shell);
+//		shell.setLocation(100, 299);
+//		System.out.println(shell.getLocation());
+		
 		Label label = new Label(shell, SWT.NULL);
 		label.setText("标注名:");
 
@@ -372,7 +380,7 @@ class DataListViewer extends Dialog{
 		for(MarkData data : viewDatas){
 			oldViewDatas.add(data);
 		}
-		shell = new Shell(getParent(), SWT.TITLE| SWT.APPLICATION_MODAL | SWT.CLOSE | SWT.CANCEL | SWT.OK);
+		shell = new Shell(getParent(), SWT.TITLE| SWT.APPLICATION_MODAL | SWT.CLOSE);
 	}
 	
 	private void init() {
@@ -419,23 +427,6 @@ class DataListViewer extends Dialog{
 				System.out.println(sb);
 			}
 		});
-
-		/*listViewer.addFilter(new ViewerFilter() {
-			public boolean select(Viewer viewer, Object parentElement,
-					Object element) {
-
-				if (((MarkData) element).isBlock())
-					return true;
-				else
-					return false;
-			}
-		});*/
-
-		/*listViewer.setSorter(new ViewerSorter() {
-			public int compare(Viewer viewer, Object e1, Object e2) {
-				return ((MarkData) e1).getSemantic().compareTo(((MarkData) e2).getSemantic());
-			}
-		});*/
 
 	}
 
@@ -494,6 +485,13 @@ class DataListViewer extends Dialog{
 	public void open() {
 		
 		RowLayout rowLayout = new RowLayout();
+		rowLayout.marginBottom = 10;
+		rowLayout.marginTop = 10;
+		rowLayout.marginHeight = 100;
+		rowLayout.marginWidth = 100;
+		rowLayout.marginLeft = 20;
+		rowLayout.marginRight = 20;
+		
 		shell.setLayout(rowLayout);
 
 		(new Label(shell, SWT.NULL)).setText("列表");

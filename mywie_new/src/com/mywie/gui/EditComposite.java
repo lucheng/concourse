@@ -26,7 +26,6 @@ public class EditComposite extends CompositeImpl {
 	private Text templateFilePath = null;
 	private Button openFile = null;
 	private Button start = null;
-//	private Shell subShell;
 
 	public EditComposite(Composite parent, int style) {
 		super(parent, style);
@@ -109,45 +108,21 @@ public class EditComposite extends CompositeImpl {
 		FileHelp.copyFile(new File(url), new File(tempfile));
 		copyFiles(FileHelp.TEMPDIR);
 		
-		/*Shell subShell = new Shell(getDisplay(), SWT.CLOSE);
-		subShell.setText("编辑器");
-		subShell.setMaximized(true);
 		
-		SimpleBrowser simpleBrowser = new SimpleBrowser(subShell, initUrl(tempfile));
-		try{
-			simpleBrowser.createContents();
-//			start.setEnabled(false);
-		} catch(Exception e){
-			logger.error(e.getMessage());
-			e.printStackTrace();
-		}
-		
-		copyFiles(FileHelp.TEMPDIR);
-		subShell.pack();
-		subShell.open();*/
 		
 		Display display = getDisplay();
-		Shell shell = new Shell(display, SWT.CLOSE | SWT.MAX | SWT.APPLICATION_MODAL);
-		SimpleBrowser sb = new SimpleBrowser(shell, initUrl(tempfile));
-	    shell.setText("模板编辑器");
-	    shell.setMaximized(true);
+//		Shell shell = new Shell(display, SWT.CLOSE | SWT.MAX | SWT.APPLICATION_MODAL);
+		SimpleBrowser sb = new SimpleBrowser(display, initUrl(tempfile));
 	    
 	    try {
-			sb.createContents();
+			sb.run();
 		} catch (Exception e) {
-			
+			sb.close();
 			e.printStackTrace();
+			messageBox.setMessage("打开模板文件出错！");
 			messageBox.open();
 		}
 	    
-//	    shell.pack();
-	    shell.open();
-	    while (!shell.isDisposed()) {
-	      if (!display.readAndDispatch()) {
-	        display.sleep();
-	      }
-	    }
-//	    display.dispose();
 	}
 	
 }

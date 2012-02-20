@@ -14,9 +14,8 @@ import org.eclipse.swt.widgets.Text;
 
 import com.mywie.core.Extract;
 import com.mywie.gui.impl.CompositeImpl;
-import com.mywie.utils.FileHelp;
 
-public class ExtractNormalComposite extends CompositeImpl {
+public class ExtractComposite extends CompositeImpl {
 
 	private Label label;
 	private Text templateFilePath;
@@ -25,9 +24,9 @@ public class ExtractNormalComposite extends CompositeImpl {
 	private Button openURls;
 	private Button editButton;
 	private Button viewButton;
-	private Extract extractData = new Extract();
+	private Extract extract = new Extract();
 
-	public ExtractNormalComposite(Composite parent, int style) {
+	public ExtractComposite(Composite parent, int style) {
 		super(parent, style);
 		initialize();
 	}
@@ -101,14 +100,16 @@ public class ExtractNormalComposite extends CompositeImpl {
 						} else {
 							
 							try {
-								extractData= new Extract();
-								extractData.setTempalteFile(templateFilePath.getText());
-								extractData.setDestDirectory(extractFilePath.getText()+"/extraction");
-								extractData.setExtractFiles(FileHelp.getFiles(extractFilePath.getText()));
-								extractData.setStatusBar(statusBar);
-								extractData.setStartButton(editButton);
-								extractData.setExtractType(Extract.NORMAL);
-								extractData.start();
+								extract= new Extract();
+								extract.setMessageBox(messageBox);
+								extract.setTemplateFile(templateFilePath.getText());
+								extract.setDirectory(extractFilePath.getText());
+//								System.out.println(extractFilePath.getText() + "extractFilePath.getText()");
+//								extract.setExtractFiles(FileHelp.getFiles(extractFilePath.getText()));
+								extract.setStatusBar(statusBar);
+								extract.setStartButton(editButton);
+								extract.setExtractType(Extract.NORMAL);
+								extract.start();
 								
 								editButton.setEnabled(false);
 								viewButton.setEnabled(true);

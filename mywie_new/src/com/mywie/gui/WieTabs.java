@@ -14,7 +14,7 @@ public class WieTabs extends Composite {
 	public WelcomeScreen welCom; // welcome composite
 	public GenerateComposite genCom; // generate template composite
 	public EditComposite ediCom; // edit template composite
-	public ExtractNormalComposite extOCom; // extract online data composite
+	public ExtractComposite extOCom; // extract online data composite
 	public ExtractQuickComposite extLCom; // extract local data composite
 	
 	public TabItem welComTabItem;
@@ -91,7 +91,7 @@ public class WieTabs extends Composite {
 		
 		extOComTabItem = new TabItem(tabFolder, SWT.NONE);
 		extOComTabItem.setText("Ä£°å³éÈ¡");
-		extOCom = new ExtractNormalComposite(tabFolder, SWT.NONE);
+		extOCom = new ExtractComposite(tabFolder, SWT.NONE);
 		extOCom.setStatusBar(statusBar);
 		extOComTabItem.setControl(extOCom);
 		
