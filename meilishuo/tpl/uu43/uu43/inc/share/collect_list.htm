@@ -1,0 +1,5 @@
+<!--{loop $collects $user}-->
+<li>
+	<a target="_blank" href="{u u/index uid=$user['uid']}"><img src="{avatar $user['uid'] s 1}" alt="{$user['user_name']}" class="icard r3 GUID" width="{$img_size}" uid="{$user['uid']}"></a>
+</li>
+<!--{/loop}-->

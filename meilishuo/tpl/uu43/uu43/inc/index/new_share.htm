@@ -1,0 +1,33 @@
+<div class="fanwe_talk">
+	<ul>
+		<!--{loop $shares $share}-->
+		<li>
+			<a href="{$share['url']}" target="_blank" class="user_avatar"><img class="icard GUID" alt="{$share['user']['user_name']}" uid="{$share['uid']}" height="32" src="{avatar $share['uid'] s 1}"></a>
+			<div class="inf">
+				<a class="icard" target="_blank" href="{$share['user']['url']}">{$share['user']['user_name']}</a>
+				<span>{lang now_shou}</span>
+				<p>{date $share['user']['reg_time'] 'Y-m-d'}&nbsp;{lang jia_ru}</p>
+			</div>
+			<p class="sms">{$share['content']}</p>
+			<div class="pic">
+				<!--{eval $index = 0;}-->
+				<!--{loop $share['imgs'] $img}-->
+				<!--{if $img['type'] == 'g'}-->
+				<div class="r3 g">
+					<a target="_blank" href="{$img['url']}"><img alt="{$share['name']}" src="{getimg $img['img'] 100 100}" class="fl"></a><img src="./tpl/images/goods_tag.png" class="tag">
+				</div>
+				<!--{else}-->
+				<div class="r3">
+					<a target="_blank" href="{$img['url']}"><img src="{getimg $img['img'] 100 100}" class="fl"></a>
+				</div>
+				<!--{/if}-->
+				<!--{eval $index++;}-->
+				<!--{if $index > 2}-->
+				<!--{eval break;}-->
+				<!--{/if}-->
+				<!--{/loop}-->
+			</div>
+		</li>
+		<!--{/loop}-->
+	</ul>
+</div>

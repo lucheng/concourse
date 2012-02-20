@@ -1,0 +1,18 @@
+<div class="mogu_pub">
+	<p class="fl">
+		<span>{lang new_forum_event}</span>
+		<!--{eval $br = '';}-->
+		<!--{loop $new_events $topic}-->
+		{$br}<a href="{$topic['url']}" target="_blank">{cutstr $topic['title'] 30}</a>
+		<!--{eval $br = '<br>';}-->
+		<!--{/loop}-->
+	</p>
+	<p class="fr">
+		<span>{lang hot_forum_thread}</span>
+		<!--{eval $br = '';}-->
+		<!--{loop $hot_topics $topic}-->
+		{$br}<a class="b" href="{$topic['url']}" target="_blank">{cutstr $topic['title'] 30}</a>
+		<!--{eval $br = '<br>';}-->
+		<!--{/loop}-->
+	</p>
+</div>

@@ -1,0 +1,10 @@
+<li class="c_f" id="COMMENT_{$comment['comment_id']}">
+	<a target="_blank" href="{$comment['user']['url']}"><img alt="{$comment['user']['user_name']}" class="avt icard" src="{avatar $comment['uid'] m 1}" width="36"></a>
+	<p class="sms"><a class="n icard" target="_blank" href="{$comment['user']['url']}">{$comment['user']['user_name']}</a>：回复{$comment['content']}<span>（{$comment['time']}）</span></p>
+	<div>
+		<!--{if $is_remove_comment}-->
+		<a onclick="$.Delete_Comment($comment['comment_id'],this);" class="del" w="f" href="javascript:void(0);">删除</a>
+		<!--{/if}-->
+		<a class="rpl" w="f" href="javascript:;" uname='{$comment['user']['user_name']}' cid="{$comment['comment_id']}" onclick="$.Reply_Comment(this);">回复</a>
+	</div>
+</li>

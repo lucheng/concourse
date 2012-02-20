@@ -1,0 +1,65 @@
+<div class="club-title">
+	<b>{lang club}Club</b>
+</div>
+<div class="piece1_bd">
+	<div class="bar_list">
+		<ul>
+			<!--{eval $forum_index = 0;}-->
+			<!--{loop $_FANWE['cache']['forums']['root'] $fid}-->
+			<!--{eval $forum = $_FANWE['cache']['forums']['all'][$fid];}-->
+			<li>
+				<a href="{u club/forum fid=$fid}" target="_blank">
+					<img class="fl" src="{$forum['logo']}">
+				</a>
+				<a target="_blank" href="{u club/forum fid=$fid}">{$forum['name']}</a>
+				<br>Total:{$forum['thread_count']}
+			</li>
+			<!--{if $forum_index > 8}-->
+			<!--{eval break;}-->
+			<!--{/if}-->
+			<!--{eval $forum_index++;}-->
+			<!--{/loop}-->
+		</ul>
+	</div>
+	<div class="bar_jg"></div>
+	<div class="fl bar_box_l">
+		<div class="top_topic">
+			<div class="piece_title_s">{lang now_top_topic}</div>
+			<!--{loop $top_list $topic}-->
+			<div class="ht_f">
+				<a href="{$topic['url']}"  target="_blank" class="ht_pic r10"><img class="fl lazyload" src="{getimg $topic['imgs'][0]['img'] 90 70}"></a>
+				<p class="ht_info">
+					<a class="ht_title" href="{$topic['url']}" target="_blank">{cutstr $topic['title'] 42}</a>
+					<a class="icard ht_name GUID" href="{$topic['user']['url']}" uid="{$topic['uid']}">{$topic['user']['user_name']}</a>
+					<span class="ht_content">{cutstr $topic['content'] 100}</span>
+				</p>
+			</div>
+			<!--{/loop}-->
+		</div>
+	</div>
+	<div class="fr bar_box_r">
+		<div class="piece_title_s">{lang new_topic}</div>
+		<ul class="topic_list_new">
+			<!--{loop $new_list $topic}-->
+			<li class="tl_f">
+				<div class="tl_c">
+					<a target="_blank" href="{$topic['url']}"><img height="32" src="{getimg $topic['imgs'][0]['img'] 100 100}" class="pic lazyload"></a>
+					<p class="ct">
+						<a target="_blank" href="{$topic['url']}" class="tit">{cutstr $topic['title'] 42}</a><br>
+						<a class="n gc" href="{$topic['user']['url']}">{$topic['user']['user_name']}</a>
+						<!--{if !empty($topic['last'])}-->
+						<span class="p_time">
+							{lang last_post} : <a href="{$topic['last']['user']}" target="_blank" class="n">{$topic['last']['user_name']}</a>
+							{$topic['last_time']}
+						</span>
+						<!--{/if}-->
+					</p>
+				</div>
+				<div class="count">{$topic['post_count']}</div>
+				<a target="_blank" class="all" href="{$topic['url']}">{lang view_full_text}</a>
+			</li>
+			<!--{/loop}-->
+		</ul>
+	</div>
+	<div class="blank9"></div>
+</div>

@@ -1,0 +1,25 @@
+<?php
+return array (
+  0 => 'share_id',
+  1 => 'uid',
+  2 => 'user_name',
+  3 => 'parent_id',
+  4 => 'rec_id',
+  5 => 'rec_share_id',
+  6 => 'content',
+  7 => 'collect_count',
+  8 => 'comment_count',
+  9 => 'relay_count',
+  10 => 'click_count',
+  11 => 'create_time',
+  12 => 'title',
+  13 => 'type',
+  14 => 'share_data',
+  15 => 'base_id',
+  16 => 'is_best',
+  17 => 'is_rec_best',
+  18 => 'collect_share',
+  '_autoinc' => true,
+  '_pk' => 'share_id',
+);
+?>

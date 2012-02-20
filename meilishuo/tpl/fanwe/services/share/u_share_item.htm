@@ -1,0 +1,88 @@
+<li class="t_f" id="SHARE_LIST_{$share_item['share_id']}">
+	<div class="t_tag"> <a class="t" href="{$share_item['url']}" target="_blank">{$share_item['time']}</a> </div>
+	<div class="hd">
+		<a target="_blank" href="{$share_item['user']['url']}"><img width="48" height="48" class="avt icard r5 GUID" src="{avatar $share_item['uid'] m 1}" alt="{$share_item['user']['user_name']}" uid="{$share_item['uid']}"></a>
+	</div>
+	<div class="tk">
+		<div class="inf">
+			<a href="{$share_item['user']['url']}" target="_blank" class="icard n {if $share_item['user']['gender'] == 1}bc{else}gc{/if} GUID" uid="{$share_item['uid']}">{$share_item['user']['user_name']}</a>
+			<!--{if $share_item['user']['is_daren'] == 1}-->
+			<img class="v" src="./tpl/images/tag_daren_s.png" title="达人">
+			<!--{/if}-->
+			<span></span>
+		</div>
+		<p class="sms">{$share_item['content']}</p>
+		<!--{if !empty($share_item['tags']['user']) || $share_item['is_eidt_tag']}-->
+		<?php
+			$is_eidt_tag = $share_item['is_eidt_tag'];
+			$share_tags_share_id = $share_item['share_id'];
+			$share_tags = $share_item['tags']['user'];
+		?>
+		<!--{subtemplate inc/share/tags}-->
+		<!--{/if}-->
+		<!--{if !empty($share_item['imgs'])}-->
+		<div class="pic" style="position:relative;">
+			<!--{loop $share_item['imgs'] $share_item_img}-->
+			<div class="r3 fl">
+			<!--{if $share_item_img['type'] == 'g'}-->
+			<img alt="{$share_item_img['name']}" src="{getimg $share_item_img['img'] 160 160}" height="160" class="fl"><img class="tag" src="./tpl/images/goods_tag.png">
+			<!--{else}-->
+			<img height="160" src="{getimg $share_item_img['img'] 160 160}">
+			<!--{/if}-->
+			</div>
+			<!--{/loop}-->
+		</div>
+		<ul class="pic_b">
+			<!--{loop $share_item['imgs'] $share_item_img}-->
+			<li style="width: 468px; display: list-item; display:none;" class="pic_b_f r5">
+				<!--{if $share_item_img['type'] == 'g'}-->
+				<div class="pic_b_hd">
+					<a ref="nofollow" target="_blank" href="{$share_item_img['to_url']}" class="mg_slink ofh">{$share_item_img['name']}</a>
+					<div class="g_p">{$share_item_img['price_format']}</div>
+					<a target="_blank" class="buy_it" href="{$share_item_img['to_url']}"></a>					
+				</div>
+				<div class="pic_b_bd">
+					<img alt="{$share_item_img['name']}" src="{getimg $share_item_img['img'] 468 468}" r="1">
+				</div>
+				<!--{else}-->
+				<div class="show_big" style="display: block;">
+					<div w="tpc" class="show_ori_pic"></div>
+					<img class="big_cur" src="./tpl/images/big_15x14.png">
+					<a ref="nofollow" target="_blank" href="{$share_item_img['img']}">查看原图</a>
+				</div>
+				<div class="pic_b_bd">
+					<img d-src="{getimg $share_item_img['img'] 468 468}" src="{getimg $share_item_img['img'] 468 468}" r="1">
+				</div>				  
+				<!--{/if}-->
+			</li>
+			<!--{/loop}-->
+		</ul>
+		<div class="clear"></div>
+		<!--{/if}-->
+		<div class="tl">
+			<a w="f" href="javascript:;" class="add_fav fav" onclick="$.Fav_Share({$share_item['share_id']},this,32,'#SHARE_LIST_{$share_item['share_id']}');"></a>
+			<div class="favDiv">
+				<a href="{$share_item['url']}" target="_blank" class="SHARE_FAV_COUNT favCount">{$share_item['collect_count']}</a><i></i>
+			</div>
+			<!--{if $share_item['authoritys'] > 0}-->
+			<a w="f" href="javascript:;" class="mg SHARE_MANAGE">管理</a>
+			<!--{/if}-->
+			<a w="f" href="javascript:;" class="fw ed" onclick="$.Relay_Share($share_item['share_id']);">转发({$share_item['relay_count']})</a>
+			<a w="f" href="javascript:;" class="cmt ed" shareID="{$share_item['share_id']}" onclick="$.Get_Share_Comment_List(this);">评论({$share_item['comment_count']})</a>
+		</div>
+		<ul class="SHARE_FAV_LIST u_like">
+			<!--{loop $share_item['collects'] $share_item_collect}-->
+			<li><a href="{$share_item_collect['url']}" target="_blank"><img class="icard r3 GUID" alt="{$share_item_collect['user_name']}" src="{avatar $share_item_collect['uid'] m 1}" uid="{$share_item_collect['uid']}"></a></li>
+			<!--{/loop}-->
+		</ul>
+		<ul class="t_m_l_h SHARE_MANAGE_LIST">
+			<!--{if $share_item['authoritys'] > 0}-->
+			<li><a class="del" onclick="$.Tweet_Delete($share_item['share_id'])" href="javascript:void(0);">删除</a></li>
+			<!--{if $share_item['authoritys'] > 1}-->
+			<li><a class="del" onclick="$.Tweet_Delete($share_item['share_id'],1)" href="javascript:void(0);">剔除</a></li>
+			<!--{/if}-->
+			<!--{/if}-->
+		</ul>
+	</div>
+	<div class="clear"></div>
+</li>

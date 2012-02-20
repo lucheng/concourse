@@ -1,0 +1,129 @@
+<ul class="t_l ">
+	<li class="t_f" style="">
+		<div class="hd">
+			<a href="{$share_user['url']}"><img alt="{$share_user['user_name']}" src="{avatar $share_detail['uid'] m 1}" class="avt icard r5" width="48"></a> </div>
+		<div class="tk">
+			<div class="inf">
+				<a class="icard n gc" alt="{$share_user['user_name']}" href="{$share_user['url']}">{$share_user['user_name']}</a>
+				<a class="t fr">{$share_detail['time']}</a>
+				<!--{if $share_detail['is_relay']}-->
+				<!--{if $share_detail['type'] == 'ask'}-->
+				<span>关联问题《<a target="_blank" title="{$share_detail['title']}" class="from" href="{u ask/detail tid=$share_detail['rec_id']}">{cutstr $share_detail['title'] 40}</a>》</span>
+				<!--{elseif $share_detail['type'] == 'bar'}-->
+				<span>关联主题《<a target="_blank" title="{$share_detail['title']}" class="from" href="{u club/detail tid=$share_detail['rec_id']}">{cutstr $share_detail['title'] 40}</a>》</span>
+				<!--{elseif $share_detail['type'] == 'ask_post'}-->
+				<span>关联问题《<a target="_blank" title="{$share_detail['title']}" class="from" href="{u ask/detail tid=$share_detail['rec_id']}">{cutstr $share_detail['title'] 40}</a>》</span>
+				<!--{elseif $share_detail['type'] == 'bar_post'}-->
+				<span>关联主题《<a target="_blank" title="{$share_detail['title']}" class="from" href="{u club/detail tid=$share_detail['rec_id']}">{cutstr $share_detail['title'] 40}</a>》</span>
+				<!--{/if}-->
+				<!--{/if}-->
+				<!--{if $share_detail['is_rec']}-->
+				<!--{if $share_detail['type'] == 'ask'}-->
+				<span>创建问题《<a target="_blank" title="{$share_detail['title']}" class="from" href="{u ask/detail tid=$share_detail['rec_id']}">{cutstr $share_detail['title'] 40}</a>》</span>
+				<!--{elseif $share_detail['type'] == 'bar'}-->
+				<span>创建主题《<a target="_blank" title="{$share_detail['title']}" class="from" href="{u club/detail tid=$share_detail['rec_id']}">{cutstr $share_detail['title'] 40}</a>》</span>
+				<!--{elseif $share_detail['type'] == 'ask_post'}-->
+				<span>回答问题《<a target="_blank" title="{$share_detail['title']}" class="from" href="{u ask/detail tid=$share_detail['rec_id']}">{cutstr $share_detail['title'] 40}</a>》</span>
+				<!--{elseif $share_detail['type'] == 'bar_post'}-->
+				<span>回应主题《<a target="_blank" title="{$share_detail['title']}" class="from" href="{u club/detail tid=$share_detail['rec_id']}">{cutstr $share_detail['title'] 40}</a>》</span>
+				<!--{/if}-->
+				<!--{/if}-->
+			</div>
+			<p class="sms">{$share_detail['content']}</p>
+			<!--{if $share_detail['is_relay'] || $share_detail['is_rec']}-->
+			<div class="q r5">
+				<img src="./tpl/images/quote_arrow.png" class="q_a">
+				<p class="sms">
+					<a href="{$parent_share['user']['url']}" class="icard n" target="_blank">{$parent_share['user']['user_name']}</a>：{cutstr $parent_share['content'] 200} 
+					<!--{if $parent_share['type'] == 'ask'}-->
+					<a title="详情查看" href="{u ask/detail tid=$parent_share['rec_id']}" target="_blank">详情查看</a> 
+					<!--{elseif $parent_share['type'] == 'bar'}-->
+					<a title="详情查看" href="{u club/detail tid=$parent_share['rec_id']}" target="_blank">详情查看</a> 
+					<!--{/if}-->
+					<a href="{$parent_share['url']}" target="_blank">原文转发({$parent_share['relay_count']})</a> 
+					<a href="{$parent_share['url']}" target="_blank">原文评论({$parent_share['comment_count']})</a>
+				</p>
+				<!--{if !empty($parent_share['imgs'])}-->
+				<div class="pic" style="display: block;">
+					<!--{loop $parent_share['imgs'] $parent_share_img}-->
+					<div class="r3">
+						<img{if $parent_share_img['type'] == 'g'} alt="{$parent_share_img['name']}"{/if} class="fl" d-src="{getimg $parent_share_img['img'] 100 100}" src="{getimg $parent_share_img['img'] 100 100}" />
+						<!--{if $parent_share_img['type'] == 'g'}-->
+						<img class="tag" src="./tpl/images/goods_tag.png" />
+						<!--{/if}-->
+					</div>
+					<!--{/loop}-->
+					<br class="clear">                       
+				</div>
+				<ul class="pic_b">
+					<!--{loop $parent_share['imgs'] $parent_share_img}-->
+					<!--{if $parent_share_img['type'] == 'g'}-->
+					<li class="pic_b_f r5" style="display: none;"> 
+						<div class="pic_b_hd">
+							<a ref="nofollow" target="_blank" s="t_16r3im" c="1lcb0" href="{$parent_share_img['to_url']}" class="mg_slink ofh">{$parent_share_img['name']}</a>
+							<div class="g_p"><span>{$parent_share_img['price_format']}</span></div>
+							<a target="_blank" class="buy_it" href="{$parent_share_img['to_url']}"></a>
+						</div>                
+						<div class="pic_b_bd">
+							<img alt="{$parent_share_img['name']}" d-src="{getimg $parent_share_img['img'] 468 468}" src="{getimg $parent_share_img['img'] 468 468}" r="1">
+						</div>
+					</li>
+					<!--{else}-->
+					<li class="pic_b_f r5" style="display: none;">
+						<div class="show_big" style="display: block;">
+							<div w="tpc" class="show_ori_pic"></div>
+							<img class="big_cur" src="./tpl/images/big_15x14.png">
+							<a ref="nofollow" target="_blank" href="{$parent_share_img['img']}">查看原图</a>
+						</div>  
+						<div class="pic_b_bd">
+							<img d-src="{getimg $parent_share_img['img'] 468 468}" src="{getimg $parent_share_img['img'] 468 468}" r="1">
+						</div>
+					</li>
+					<!--{/if}-->
+					<!--{/loop}-->
+				</ul>
+				<!--{/if}-->
+			</div>
+			<!--{/if}-->
+			<div class="tl">
+				<a class="add_fav fav" w="f" href="javascript:;"  onclick="$.FavShare({$share_detail['share_id']},this,32,'#note_{$share_detail['share_id']}');"></a>
+				<div class="favDiv">
+					<a class="SHARE_FAV_COUNT favCount" href="{$share_detail['url']}" target="_blank">{$share_detail['collect_count']}</a>
+					<i></i>
+				</div>
+				<!--{if $is_eidt_share}-->
+				<a w="f" href="javascript:;" class="mg">管理</a>
+				<!--{/if}-->
+				<a w="f" href="javascript:;" onclick="$.RelayShare($share_detail['share_id']);" class="fw">转发({$share_detail['relay_count']})</a>
+			</div>
+			<ul class="SHARE_FAV_LIST u_like">
+				<!--{loop $share_detail['collects'] $share_detail_collect}-->
+				<li><a href="{$share_detail_collect['url']}" target="_blank"><img class="icard r3" alt="{$share_detail_collect['user_name']}" src="{avatar $share_detail_collect['uid'] m 1}"></a></li>
+				<!--{/loop}-->
+			</ul>
+			<!--{if $is_eidt_share}-->
+			<ul class="t_m_l_h">
+				<li><a class="del" onclick="MOGU.Note_Delete('16wfq8','note')" href="javascript:void(0);">删除</a></li>
+			</ul>
+			<!--{/if}-->
+		</div>
+	</li>
+</ul>
+<script type="text/javascript">
+jQuery(function($){
+	$('.t_l .pic div').click(function(){
+		var parent = $(this).parent();
+		var index = $('div',parent).index(this);
+		var picb = parent.next();
+		parent.hide();
+		$('li',picb).eq(index).show();
+		return false;
+	});
+	
+	$('.t_l .pic_b .pic_b_bd').click(function(){
+		var parent = $(this).parent();
+		parent.hide();
+		parent.parent().prev().show();
+	});
+});
+</script>

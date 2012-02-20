@@ -1,0 +1,14 @@
+<div class="new_user">
+	<div class="nu_head">
+		<strong>{lang uu_new_user}</strong>
+	</div>
+	<div class="list">
+		<ul>
+			<!--{loop $users $user}-->
+			<li>
+				<a href="{u u/index uid=$user['uid']}" target="_blank" title="{$user['user_name']}"><img class="icard GUID" alt="{$user['user_name']}" uid="{$user['uid']}" height="32" src="{avatar $user['uid'] s 1}"></a>
+			</li>
+			<!--{/loop}-->
+		</ul>
+	</div>
+</div>

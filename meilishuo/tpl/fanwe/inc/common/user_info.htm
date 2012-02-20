@@ -1,0 +1,32 @@
+<!--{if $_FANWE['uid'] > 0}-->
+<div class="fr" style="margin-top:20px">
+	<div class="my_btn">
+		<a href="{u u/me}" class="mb_bd{if $_FANWE['user']['gender'] == 1} b{/if}">
+			<img class="mb_avt" src="{avatar $_FANWE['uid'] s 1}" height="24">
+			<span class="mb_name{if $_FANWE['user']['gender'] == 1} bc{else} gc{/if}">{$_FANWE['user_name']}<b>{lang de_home}</b></span>
+			<span class="mb_rb"></span>
+		</a>
+	</div>
+	<div class="my_shotcuts">
+		<a href="{u u/index}" class="publish">{lang publish}</a>
+		<a href="{u u/fav uid=$_FANWE['uid']}" class="myfavs">{lang fav}</a>
+		<a href="{u settings/personal}" class="setting">{lang settings}</a>
+		<a href="{u u/message uid=$_FANWE['uid']}" class="message{if $_FANWE['user_notice'][5] > 0} h{/if}">{lang message}{if $_FANWE['user_notice'][5] > 0}({$_FANWE['user_notice'][5]}){/if}</a>
+		<a href="{u user/logout}" >{lang logout}</a>
+	</div>
+</div>
+<!--{else}-->
+<ul class="l">
+	<li class="o_l">
+		<span><img class="fl" src="./tpl/images/icon_sina.png"><a class="fl" href="{$_FANWE[site_root]}login.php?mod=sina">{lang signsina}</a></span>
+		<span><img class="fl" src="./tpl/images/icon_qq_qq.png"><a class="fl" href="{$_FANWE[site_root]}login.php?mod=qq">{lang signqq}</a></span>
+		<span><img class="fl" src="./tpl/images/tao.png"><a class="fl" href="{$_FANWE[site_root]}login.php?mod=taobao">{lang signtaobao}</a></span>
+	</li>
+	<li class="f">
+		<a href="{u user/login}">{lang login}</a>
+	</li>
+	<li class="login">
+		<a href="{u user/register}" target="_blank">{lang register}</a>
+	</li>
+</ul>
+<!--{/if}-->

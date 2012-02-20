@@ -1,0 +1,114 @@
+<?php
+$cate_index = 0;
+$cate_display = array(
+	'1'=>array(2,15),
+	'2'=>array(6),
+	'3'=>array(4),
+	'4'=>array(7),
+);
+?>
+<!--{loop $cate_list $cid $cate}-->
+<?php
+$cate_index++;
+$big_index = array();
+$share_index = 0;
+$share_count = 18;
+$tag_index = 0;
+$user_index = 0;
+$cate_big_displays = array();
+
+if($cate_index == 1)
+	$share_count = 27;
+
+if(isset($cate_display[$cate_index]))
+	$big_index = $cate_display[$cate_index];
+else
+	$big_index[] = rand(1,8);
+
+$cate_item = $_FANWE['cache']['goods_category']['all'][$cid];
+?>
+<div class="piece1 mb20">
+	<div class="piece1_hd"></div>
+	<div class="piece1_bd" style="padding:15px 25px 15px">
+		<div class="share_title">
+			{sprintf ics_title $cate_item['short_name']}
+			<span class="st_key">
+				<a target="_blank" href="{u book/cate cate=$cate_item['cate_code'],sort=hot7}">热门</a>
+				<a target="_blank" href="{u book/cate cate=$cate_item['cate_code'],sort=new}">最新</a>
+				<span>|</span>
+				<!--{loop $cate['tags'] $tag $encode}-->
+				<a target="_blank" href="{u book/cate cate=$cate_item['cate_code'],sort=hot7,tag=$encode}">$tag</a>
+				<!--{if $tag_index > 11}-->
+				<!--{eval break;}-->
+				<!--{/if}-->
+				<!--{eval $tag_index++;}-->
+				<!--{/loop}-->
+			</span>
+		</div>
+		<!--{if $cate_index == 1}-->
+		<div class="share_tetris" style="height:302px;overflow:hidden">
+		<!--{else}-->
+		<div class="share_tetris" style="height:201px;overflow:hidden">
+		<!--{/if}-->
+			<!--{loop $cate['shares'] $sid $share_item}-->
+			<?php
+			$share = $share_item['share'];
+			$size = 101;
+			$width = 100;
+			$share_index++;
+			$class = 't1';
+			if($share_index > $share_count)
+				break;
+			
+			$mod_index = $share_index % 9;
+			$top = floor($share_index / 9);
+			
+			if(isset($cate_big_displays[$mod_index]))
+			{
+				unset($cate_big_displays[$mod_index]);
+				unset($big_index[array_search($share_index,$big_index)]);
+				$share_index+=2;
+				$mod_index = $share_index % 9;
+				$top = floor($share_index / 9);
+			}
+			
+			if(in_array($share_index,$big_index))
+			{
+				$width = 200;
+				$share_index++;
+				$cate_big_displays[$mod_index] = 1;
+				$class = 't2';
+			}
+			
+			if($mod_index == 0)
+			{
+				$mod_index = 9;
+				$top--;
+			}
+			
+			$top = $top * $size;
+			$left = ($mod_index - 1) * $size;
+			?>
+			<div class="cate_tag_item {$class}" style="top:{$top}px;left:{$left}px;">
+				<img src="{getimg $share['imgs'][0]['img'] $width $width}">
+				<div class="sk" style="display:none; ">
+					<div class="fc"><span>{$share['collect_count']}</span><i></i></div>
+					<a href="{u book/index cate=$cate_item['cate_code'],tag=$share_item['tag_encode']}" target="_blank" class="kw">{$share_item['tag_name']}</a>
+					<a href="{u u/index uid=$share['uid']}" target="_blank" class="au">@{$share['user_name']}</a>
+				</div>
+			</div>
+			<!--{/loop}-->
+		</div>
+		<div class="share_who">
+			{lang tamen_share}{$cate_item['short_name']}：
+			<!--{loop $cate['user'] $user}-->
+			<!--{if $user_index > 20}-->
+			<!--{eval break;}-->
+			<!--{/if}-->
+			<!--{eval $user_index++;}-->
+			<a target="_blank" href="{u u/index uid=$user['uid']}"><img class="r3 icard" height="24" src="{avatar $user['uid'] s 1}" alt="{$user['user_name']}" /></a>
+			<!--{/loop}-->
+		</div>
+	</div>
+</div>
+<!--{/loop}-->

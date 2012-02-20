@@ -1,0 +1,40 @@
+<?php
+	$css_list[0]['url'] = './tpl/css/welcome.css';
+	$js_list[0] = './tpl/js/welcome.js';
+?>
+<!--{template inc/header}-->
+<div id="body" class="fm960">
+	<div class="piece1 mb20">
+		<div class="piece1_hd"></div>
+		<div class="piece1_bd" style="overflow:auto;height:310px">
+			<!--{dynamic getIndexTodayDaren}-->
+			<div class="mogu_news">
+				<span class="sharing"><b>{lang zhe_now}，</b>{lang tamen_share}：</span>
+				<!--{dynamic getNewShare}-->
+				<!--{dynamic getHotTopic}-->
+			</div>
+		</div>
+		<div class="piece1_ft"></div>
+	</div>
+	<!--{dynamic getDayCateShare}-->
+	<div class="piece1 mb20">
+		<div class="piece1_hd"></div>
+		<!--{dynamic getIndexTopic}-->
+		<div class="piece1_ft"></div>
+	</div>
+	<div class="piece1">
+		<div class="piece1_hd"></div>
+		<div class="piece1_bd plr10 sh_girl">
+			<div class="piece_title">{lang index_daren_list}<a target="_blank" href="{u daren/index}" class="more_in">{lang click_go}</a></div>
+			<div class="s_g" id="daren_list">
+				<!--{dynamic getDarenLists}-->
+			</div>
+			<div>
+				<a class="s_g_all" onclick="addUserFollows()" href="javascript:;"></a>
+				<a href="javascript:;" class="s_g_next">{lang change_group}</a>
+			</div>
+		</div>
+		<div class="piece1_ft"></div>
+	</div>
+</div>
+<!--{template inc/footer}-->
