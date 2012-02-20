@@ -12,8 +12,8 @@ if (isset($read_modules) && $read_modules == true)
 	 *  查询主要用like方式检索相应的模型, 如：domain设置为 http://item.taobao.com与http://taobao.com。
 	 *  采集来路为http://taobao.com/item.php?id=xxxxx时将也会检索到该模型
 	 *
-     *  */
-    $module['domain'] = 'http://item.taobao.com,http://item.tmall.com';
+     **/
+    $module['domain'] = 'http://item.taobao.com,http://detail.tmall.com,http://item.tmall.com';
     return $module;
 }
 
