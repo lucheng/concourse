@@ -17,11 +17,10 @@ public class HtmlMatch extends Thread {
 	private Text textArea;
 	private int templateNum;
 	private double rate;
-//	private Element root;
-//	private String[] files;
-//	private int total;
-//	private List<Element> roots1;
-//	private List<Element> roots2;
+	
+	private long endTime;
+	private long startTime;
+
 	private WieStatusBar statusBar;
 	private String statusText;
 	private Button start;
@@ -64,7 +63,7 @@ public class HtmlMatch extends Thread {
 		return doc.getRootElement();
 	}
 
-	public void execute() throws InterruptedException {
+	public void execute() {
 		if (this.getStatusBar() != null
 				&& !this.getStatusBar().getDisplay().isDisposed()) {
 			this.getStatusBar().getDisplay().syncExec(new Runnable() {
@@ -75,22 +74,28 @@ public class HtmlMatch extends Thread {
 
 			});
 		}
-		long startTime = System.currentTimeMillis();
+		startTime = System.currentTimeMillis();
 		logger.info("#############开始分析网页集#################");
 		
-		FileHelp.makedir(directory + "/template");
+		try{
+			Generater generate = new Generater(directory, rate);
+			templateNum = generate.generateTemplates();
+		}catch(Exception e){
+			logger.error(e.getMessage());
+			e.printStackTrace();
+		}
 		
-		Generater generate = new Generater(directory, rate);
-//		generate.setRate();
-		templateNum = generate.generateTemplates();
-	
-//		copyFiles();
-		long endTime = System.currentTimeMillis();
-		statusText = "网页集分析结束，共生成" + (templateNum) + "个模板，用时" + (endTime - startTime) + "ms...";
-		logger.info("##########" + statusText + "###########");
+		endTime = System.currentTimeMillis();
+		
 		if (this.getStatusBar() != null && !this.getStatusBar().getDisplay().isDisposed()) {
 			this.getStatusBar().getDisplay().syncExec(new Runnable() {
 				public void run() {
+					if(templateNum <= 0){
+						statusText = "网页集分析出错！";
+					} else {
+						statusText = "网页集分析结束，共生成" + (templateNum) + "个模板，用时" + (endTime - startTime) + "ms...";
+						logger.info("##########" + statusText + "###########");
+					}
 					getStatusBar().changeToStatus();
 					getStatusBar().setStatus(statusText);
 					getStart().setEnabled(true);
@@ -233,10 +238,9 @@ public class HtmlMatch extends Thread {
 	public void run() {
 		try {
 			execute();
-		} catch (InterruptedException e) {
+		} catch (Exception e) {
 			logger.error(e.getStackTrace());
 			e.printStackTrace();
-			System.out.println("InterruptedException e");
 		}
 
 	}

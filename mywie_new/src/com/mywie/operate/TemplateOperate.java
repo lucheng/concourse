@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.dom4j.Document;
-import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.Node;
 
-import com.mywie.utils.FileHelp;
 import com.mywie.utils.XmlHelp;
 
 public class TemplateOperate {
@@ -17,7 +15,7 @@ public class TemplateOperate {
 	private int templateNum;
 	private Element root;
 	private int total;
-	private double rate = 0.9;
+	protected double rate;
 	private List<Element> srcRoots;
 	private List<Element> newRoots;
 	
@@ -30,62 +28,42 @@ public class TemplateOperate {
 	 * @param rawHtmlDoc
 	 * @return 提取出来的Document
 	 */
-	@SuppressWarnings("unchecked")
+	/*@SuppressWarnings("unchecked")
 	public Document preTemplate(Document markedFileDoc, Document rawHtmlDoc){
 		
 		Element templateRoot = markedFileDoc.getRootElement();
 		Element alignRoot = rawHtmlDoc.getRootElement();
-		
-		/*List<Node> nodes = alignRoot.selectNodes("//*");
-		for (Node node : nodes){
-			if (node != null && Node.ELEMENT_NODE == node.getNodeType()) {
-				Element temp = (Element) node;
-				temp.remove(temp.attribute("my_count_id"));
-			}
-		}*/
-		
-//		FileHelp.writeFile("file/markedFileDoc.xml", markedFileDoc.asXML());
-//		FileHelp.writeFile("file/rawHtmlDoc.xml", rawHtmlDoc.asXML());
 		
 		List<Element> matchNodes1 = new ArrayList<Element>();
 		List<Element> matchNodes2 = new ArrayList<Element>();
 		
 		matchAlign.match(templateRoot, alignRoot, matchNodes1, matchNodes2);
 		
-//		System.out.println("matchNodes1:"+ matchNodes1.size());
-		
 		for (int j = 0; j < matchNodes1.size(); j++) {
 			
-			/*if (matchNodes1.get(j).attributeValue("remove") != null) {
+			if (matchNodes1.get(j).attributeValue("remove") != null) {
 				matchNodes2.get(j).addAttribute("remove", matchNodes1.get(j).attributeValue("remove"));
 //				FileHelp.writeFile("file/remove_"+ j +".xml", matchNodes2.get(j).asXML());
-			}*/
+			}
 			if (matchNodes1.get(j).attributeValue("semantic") != null) {
 				matchNodes2.get(j).addAttribute("semantic", matchNodes1.get(j).attributeValue("semantic"));
 //				FileHelp.writeFile("file/semantic_"+ j +".xml", matchNodes2.get(j).asXML());
 			}
-			/*if (matchNodes1.get(j).attributeValue("select") != null) {
+			if (matchNodes1.get(j).attributeValue("select") != null) {
 				matchNodes2.get(j).addAttribute("select", matchNodes1.get(j).attributeValue("select"));
 //				FileHelp.writeFile("file/select_"+ j +".xml", matchNodes2.get(j).asXML());
-			}*/
+			}
 		}
 		
-		/**
-		 * 取出标注有select有节点
-		 */
 		String selectNode = null;
 		for (int j = 0; j < matchNodes1.size(); j++) {
 			if (matchNodes1.get(j).attributeValue("select") != null) {
 				matchNodes2.get(j).addAttribute("select", matchNodes1.get(j).attributeValue("select"));
 				selectNode = matchNodes2.get(j).asXML();
-				
-//				FileHelp.writeFile("file/select"+ j +".xml", matchNodes2.get(j).asXML());
-				
 			}
 		}
 		Document doc = null;
 		try {
-//			String ss = xmlHelp.getDocumentWithCleanOfSrc();
 			if(selectNode == null){
 				return null;
 			}
@@ -101,11 +79,8 @@ public class TemplateOperate {
 		} catch (DocumentException e) {
 			e.printStackTrace();
 		}
-//		System.out.println(selectNode);
-//		FileHelp.writeFile("file/selectNode"+new Date().getTime()+".html", doc.asXML());
-//		FileHelp.writeFile("file/markedFileDoc.html", markedFileDoc.asXML());
 		return doc;
-	}
+	}*/
 	
 	@SuppressWarnings("unchecked")
 	private void processTemplate(Element root) {
@@ -178,7 +153,7 @@ public class TemplateOperate {
 			String templateName = "template" + templateNum + "-" + total + ".htm";
 			xmlHelp.writeDocument(directory + "/" + templateName, root.getDocument());
 		}
-		copyFiles();
+//		copyFiles();
 		return templateNum;
 	}
 
@@ -206,12 +181,12 @@ public class TemplateOperate {
 		}
 	}
 
-	private void copyFiles() {
+	/*private void copyFiles() {
 		FileHelp.makedir(directory + "/include");
 		FileHelp.copyJarFile("include/jquery.js", directory	+ "/include/jquery.js");
 		FileHelp.copyJarFile("include/template.css", directory + "/include/template.css");
 		FileHelp.copyJarFile("include/template.js", directory + "/include/template.js");
-	}
+	}*/
 
 	public double getRate() {
 		return rate;

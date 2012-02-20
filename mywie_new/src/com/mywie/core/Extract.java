@@ -1,22 +1,17 @@
 package com.mywie.core;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.dom4j.Document;
 import org.dom4j.Element;
-import org.dom4j.Node;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Text;
 
-import com.mywie.control.Extracter;
 import com.mywie.gui.WieStatusBar;
 import com.mywie.model.ExtractData;
-import com.mywie.model.MarkData;
-import com.mywie.operate.DataFilter;
 import com.mywie.operate.MatchAlign;
 import com.mywie.utils.FileHelp;
 import com.mywie.utils.XmlHelp;
@@ -25,14 +20,23 @@ public class Extract extends Thread {
 	
 	private static String templateFile;
 	private String markedFile;
-	private String[] extractFiles;
+//	private String[] extractFiles;
 	private Element root;
-	private String destDirectory;
+	private String directory;
 	private Text textArea;
-	private int total;
+//	private int total;
 	
 	private Button startButton;
+	private MessageBox messageBox;
 	
+	public MessageBox getMessageBox() {
+		return messageBox;
+	}
+
+	public void setMessageBox(MessageBox messageBox) {
+		this.messageBox = messageBox;
+	}
+
 	public Button getStartButton() {
 		return startButton;
 	}
@@ -52,8 +56,6 @@ public class Extract extends Thread {
 	
 	private static Logger logger = Logger.getLogger(ExtractData.class.getName());
 
-//	private XmlHelp xmlHelp = new XmlHelp();
-	
 	public String getMarkedFile() {
 		return markedFile;
 	}
@@ -78,7 +80,6 @@ public class Extract extends Thread {
 		this.textArea = textArea;
 	}
 
-	@SuppressWarnings("unchecked")
 	public void extractQuick() {
 		
 		if (this.getStatusBar() != null
@@ -92,11 +93,13 @@ public class Extract extends Thread {
 		}
 		logger.info("#############信息抽取开始#############");
 		long startTime = System.currentTimeMillis();
-		System.out.println("destDirectory:" + destDirectory);
-		FileHelp.makedir(destDirectory);
-		FileHelp.copyJarFile("include/extraction.xsl", destDirectory + "/extraction.xsl");
+//		System.out.println("destDirectory:" + directory);
+		
+		
+//		FileHelp.makedir(destDirectory);
+//		FileHelp.copyJarFile("include/extraction.xsl", destDirectory + "/extraction.xsl");
 
-		ExtractData ed = new ExtractData();
+		/*ExtractData ed = new ExtractData();
 		List<Node> titleNodes = root.selectNodes("//*[@semantic]");
 		List<String> titles = new ArrayList<String>();
 		titles.add("网页名称");
@@ -117,17 +120,13 @@ public class Extract extends Thread {
 			try{
 				List<MarkData> data = extracter.extract(extractFiles[i]);
 				if (data!= null && data.size() >= total * 8 / 10) {
-//					File file = new File(extractFiles[i]);
-//					data.add();
-//					data.addAll(xmlHelp.getData(titles, result));
 					datas.add(data);
 				}
 			}catch(Exception e){
 				e.printStackTrace();
 			}
-		}
-//		ed.setDatas(datas);
-		ed.printToXML(destDirectory + "/extraction.xml");
+		}*/
+//		ed.printToXML(destDirectory + "/extraction.xml");
 
 		logger.info("#############信息抽取结束#############");
 		long endTime = System.currentTimeMillis();
@@ -145,7 +144,6 @@ public class Extract extends Thread {
 		logger.info(statusText);
 	}
 
-	@SuppressWarnings("unchecked")
 	public void extract() {
 		
 		if (this.getStatusBar() != null
@@ -163,91 +161,82 @@ public class Extract extends Thread {
 		logger.info("#############信息抽取开始#############");
 		long startTime = System.currentTimeMillis();
 
-		FileHelp.makedir(destDirectory);
-		FileHelp.copyJarFile("include/extraction.xsl", destDirectory + "/extraction.xsl");
-
-		ExtractData ed = new ExtractData();
-//		System.out.println("root:" + root);
-		List<Node> titleNodes = root.selectNodes("//*[@semantic]");
-		List<String> titles = new ArrayList<String>();
-		titles.add("网页名称");
-		for (Node node : titleNodes) {
-			if (node instanceof Element) {
-				Element element = (Element) node;
-				titles.add(element.attributeValue("semantic"));
-			}
-		}
-		ed.setTitles(titles);
-		
-//		List<List<MarkData>> datas = new ArrayList<List<MarkData>>();
-		total = titleNodes.size();
-		for (int i = 0; i < extractFiles.length; i++) {
-			System.out.println("extractFile:" + extractFiles[i]);
-			Document doc = XmlHelp.getDocumentWithClean(extractFiles[i]);
-			Element root2 = doc.getRootElement();
-			List<Element> result = new ArrayList<Element>();
-			List<Element> matchNodes1 = new ArrayList<Element>();
-			List<Element> matchNodes2 = new ArrayList<Element>();
+		try{
 			
-//			DataFilter.dataFilter(root);
+			ExtractData ed = new ExtractData(directory, templateFile);
 			
-			matchAlign.match(root, root2, matchNodes1, matchNodes2);
+			String[] extractFiles = FileHelp.getFiles(directory);
 			
-			for (int j = 0; j < matchNodes1.size(); j++) {
-				if (matchNodes1.get(j).attributeValue("semantic") != null) {
-					matchNodes2.get(j).addAttribute("semantic", matchNodes1.get(j).attributeValue("semantic"));
-					if(matchNodes1.get(j).attributeValue("block") != null){
-						matchNodes2.get(j).addAttribute("block", matchNodes1.get(j).attributeValue("block"));
+			for (int i = 0; i < extractFiles.length; i++) {
+				
+				Document doc = XmlHelp.getDocumentWithClean(extractFiles[i]);
+				Element root2 = doc.getRootElement();
+				List<Element> result = new ArrayList<Element>();
+				List<Element> matchNodes1 = new ArrayList<Element>();
+				List<Element> matchNodes2 = new ArrayList<Element>();
+				
+				/**
+				 * 进行简单树匹配，得到所要抽取的节点
+				 */
+				matchAlign.match(root, root2, matchNodes1, matchNodes2);
+				
+				for (int j = 0; j < matchNodes1.size(); j++) {
+					if (matchNodes1.get(j).attributeValue("semantic") != null) {
+						matchNodes2.get(j).addAttribute("semantic", matchNodes1.get(j).attributeValue("semantic"));
+					
+						if(matchNodes1.get(j).attributeValue("block") != null){
+							matchNodes2.get(j).addAttribute("block", matchNodes1.get(j).attributeValue("block"));
+						}
+						result.add(matchNodes2.get(j));
 					}
-					result.add(matchNodes2.get(j));
 				}
+				if (result.size() > 0) {
+					ed.extract(extractFiles[i], result);
+				}
+				
 			}
-//			List<MarkData> data = new ArrayList<MarkData>();
+			ed.close();
 			
-			if (result.size() >= total * 8 / 10) {
-				File file = new File(extractFiles[i]);
-				ed.setExtractData(file.getName(), result);
-				/*MarkData fileName = new MarkData();
-				fileName.setFileName(file.getName());
-				data.add(fileName);
-				data.addAll(XmlHelp.getData(titles, result));
-				datas.add(data);*/
+			logger.info("#############信息抽取结束#############");
+			long endTime = System.currentTimeMillis();
+			statusText = "数据抽取结束，用时" + (endTime - startTime) + "ms...";
+			if (this.getStatusBar() != null
+					&& !this.getStatusBar().getDisplay().isDisposed()) {
+				this.getStatusBar().getDisplay().syncExec(new Runnable() {
+					public void run() {
+						getStatusBar().changeToStatus();
+						getStatusBar().setStatus(statusText);
+						getStartButton().setEnabled(true);
+					}
+				});
+			}
+			logger.info(statusText);
+		}catch(Exception e){
+			e.printStackTrace();
+			logger.error("抽取错误：" + e.getMessage());
+			statusText = "抽取错误...";
+			if (this.getStatusBar() != null
+					&& !this.getStatusBar().getDisplay().isDisposed()) {
+				this.getStatusBar().getDisplay().syncExec(new Runnable() {
+					public void run() {
+						getStatusBar().changeToStatus();
+						getStatusBar().setStatus(statusText);
+						getStartButton().setEnabled(true);
+						messageBox.setMessage("抽取错误");
+						messageBox.open();
+					}
+				});
 			}
 		}
-//		System.out.println("datas:"+ datas.size());
-//		ed.setDatas(datas);
-		ed.printToXML(destDirectory + "/extraction.xml");
-
-		logger.info("#############信息抽取结束#############");
-		long endTime = System.currentTimeMillis();
-		statusText = "数据抽取结束，用时" + (endTime - startTime) + "ms...";
-		if (this.getStatusBar() != null
-				&& !this.getStatusBar().getDisplay().isDisposed()) {
-			this.getStatusBar().getDisplay().syncExec(new Runnable() {
-				public void run() {
-					getStatusBar().changeToStatus();
-					getStatusBar().setStatus(statusText);
-				}
-			});
-		}
-		logger.info(statusText);
 	}
 
-	public String getTempalteFile() {
+	public void setTemplateFile(String templateFile) {
+		this.templateFile = templateFile;
+		this.root = XmlHelp.getDocument(templateFile).getRootElement();
+	}
+
+	public static String getTemplateFile() {
 		return templateFile;
-	}
-
-	public void setTempalteFile(String tempalteFile) {
-		this.templateFile = tempalteFile;
-		this.root = XmlHelp.getDocument(tempalteFile).getRootElement();
-	}
-
-	public String[] getExtractFiles() {
-		return extractFiles;
-	}
-
-	public void setExtractFiles(String[] extractFiles) {
-		this.extractFiles = extractFiles;
 	}
 
 	public Element getRoot() {
@@ -258,12 +247,13 @@ public class Extract extends Thread {
 		this.root = root;
 	}
 
-	public String getDestDirectory() {
-		return destDirectory;
+
+	public String getDirectory() {
+		return directory;
 	}
 
-	public void setDestDirectory(String destDirectory) {
-		this.destDirectory = destDirectory;
+	public void setDirectory(String directory) {
+		this.directory = directory;
 	}
 
 	public void run(){

@@ -1,16 +1,15 @@
 package com.mywie.control;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.dom4j.Document;
 import org.dom4j.Element;
 
-import com.mywie.model.MarkData;
+import com.mywie.model.ExtractData;
 import com.mywie.operate.ExtractInfomation;
-import com.mywie.operate.TemplateOperate;
+import com.mywie.operate.MatchAlign;
+import com.mywie.utils.FileHelp;
 import com.mywie.utils.XmlHelp;
 
 
@@ -20,15 +19,15 @@ import com.mywie.utils.XmlHelp;
 public class Extracter extends ExtractInfomation {
 	
 	private Element templateRoot;
+	private MatchAlign matchAlign = new MatchAlign();
+	private ExtractData extractData = new ExtractData();
 	
-	/**
-	 * @breif 构造函数
-	 * @param templateFile 模板文件的绝对路径
-	 */
+	public Extracter(Element templateRoot) {
+		this.templateRoot = templateRoot;
+	}
 	
 	public Extracter(String templateFileName) {
 		templateRoot = XmlHelp.getDocumentWithClean(templateFileName).getRootElement();
-//		markedDoc = XmlHelp.getDocument(markedFileName);
 	}
 
 	/**
@@ -37,85 +36,60 @@ public class Extracter extends ExtractInfomation {
 	 *            带抽取的文件的绝对路径
 	 * @return 抽取结果的Map 信息名称-信息内容
 	 */
-	
-	public List<MarkData> extract(String fileName) {
+	public Element extract(String fileName) {
 		
-		List<MarkData> result = null;
-//		TemplateOperate templateOperate = new TemplateOperate();
-		Document rawHtmlDoc = XmlHelp.getDocumentWithClean(fileName);
+		Element extractElement = null;
+		Document doc = XmlHelp.getDocumentWithClean(fileName);
+		Element root2 = doc.getRootElement();
+		List<Element> result = new ArrayList<Element>();
+		List<Element> matchNodes1 = new ArrayList<Element>();
+		List<Element> matchNodes2 = new ArrayList<Element>();
 		
-//		Document doc = templateOperate.preTemplate(markedDoc, rawHtmlDoc);
+		/**
+		 * 进行简单树匹配，得到所要抽取的节点
+		 */
+		matchAlign.match(templateRoot, root2, matchNodes1, matchNodes2);
+//		FileHelp.writeFile("file/tem.xml", templateRoot.asXML());
+//		FileHelp.writeFile("file/tem2.xml", matchNodes2.asXML());
 		
-		if(rawHtmlDoc != null){
-			Element rawRoot = rawHtmlDoc.getRootElement();
-			result = getExtractResult(rawRoot);// 执行结构化信息抽取
+//		System.out.println(matchNodes1.size());
+//		System.out.println(matchNodes2.size());
+		for(Element e : matchNodes1){
+			System.out.println(e.asXML());
 		}
-		return result;
-	}
-	/*public Map<String, String> extract(String extractFile) {
-		
-		Map<String, String> result = new HashMap<String, String>();
-		
-		try {
-			
-			Document doc = xmlHelp.getDocumentWithClean(extractFile);
-			Element extractRoot = doc.getRootElement();
-			List<Element> extracts = extract(templateRoot, extractRoot);
-			
-			for (Element element : extracts) {
-				String text;
-				if ("a".equalsIgnoreCase(element.getName())) {
-//					text = "curl:" + element.attributeValue("href") + ",text:" + element.getStringValue();
-					text = element.getStringValue();
-				} else if ("img".equalsIgnoreCase(element.getName())) {
-//					text = "curl:" + element.attributeValue("href") + ",text:" + element.getStringValue();
-					text = element.attributeValue("src");
-				} else {
-					text = element.getStringValue();
+		for (int j = 0; j < matchNodes1.size(); j++) {
+			if (matchNodes1.get(j).attributeValue("semantic") != null) {
+				matchNodes2.get(j).addAttribute("semantic", matchNodes1.get(j).attributeValue("semantic"));
+				System.out.println("matchNodes2:" + j);
+				if(matchNodes1.get(j).attributeValue("block") != null){
+					matchNodes2.get(j).addAttribute("block", matchNodes1.get(j).attributeValue("block"));
 				}
-				result.put(element.attributeValue("semantic"), text);
+				result.add(matchNodes2.get(j));
 			}
-			result.put("allPageJsonHtml", extractRoot.asXML());
-			result.put("allPageJsonTitle", extractRoot.selectSingleNode("//title").getText());
-			extracts = null;
-		} catch (Exception e) {
-			e.printStackTrace();
+		}
+		System.out.println(result.size());
+		if (result.size() > 0) {
+			extractElement = extractData.createDataElement(fileName, result);
 		}
 		
-		return result;
-	}*/
-
-	/**
-	 * @param templateRoot 模板根结点
-	 * @param extractRoot 抽取网页根结点
-	 * @return
-	 */
-	public List<MarkData> getExtractResult(Element extractRoot) {
-		
-		List<MarkData> result = new ArrayList<MarkData>();
-		try {
-			
-			List<Element> extracts = extract(templateRoot, extractRoot);
-			
-			for (Element element : extracts) {
-				
-				MarkData data = new MarkData();
-				element.attribute("block");
-				result.add(data);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return result;
+		return extractElement;
 	}
-	
+
 	public static void main(String[] args){
 		
-		String template = "template3-1.htm";
-		String extractFileName = "template3-1.htm";
+		String templateFile = "C:/Users/Administrator/Desktop/360/template/360buy.html";
+		String extractDir = "C:/Users/Administrator/Desktop/360";
+		String[] extractFiles = FileHelp.getFiles(extractDir);
+		Extracter extractFile = new Extracter(templateFile);
 		
-		Extracter extractFile = new Extracter(template);
-		extractFile.extract(extractFileName);
+		try{
+			for(String extractFileName : extractFiles){
+				extractFile.extract(extractFileName);
+				System.out.println("extractFileName:" + extractFileName);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		
 	}
 }

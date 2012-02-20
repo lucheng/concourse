@@ -22,9 +22,6 @@ public class MatchAlign {
 		int templateSize = templateElements.size();
 		int alignSize = alignRootElements.size();
 		
-//		System.out.println("templateSize:" + templateSize);
-//		System.out.println("alignSize:" + alignSize);
-		
 		int c[][] = new int[templateSize + 1][alignSize + 1];
 		int b[][] = new int[templateSize + 1][alignSize + 1];
 		

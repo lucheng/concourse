@@ -14,7 +14,7 @@
 							</th>
 						</xsl:for-each>
 					</tr>
-					<xsl:for-each select="extractions/datas/data">
+					<xsl:for-each select="extractions/data">
 						<tr>
 							<xsl:if test="position() mod 2=0">
 								<xsl:attribute name="style">background:#3366CC</xsl:attribute>

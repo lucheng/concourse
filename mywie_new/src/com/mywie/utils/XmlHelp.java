@@ -97,7 +97,8 @@ public class XmlHelp {
 		
 		props.setOmitUnknownTags(true);
 		props.setUseEmptyElementTags(false);
-		props.setPruneTags("script,style,iframe,textarea,input");
+		props.setPruneTags("script");
+//		props.setPruneTags("script,style,iframe,textarea,input");
 		props.setNamespacesAware(false);
         
 		
@@ -108,27 +109,19 @@ public class XmlHelp {
 			new SimpleXmlSerializer(props).writeToStream(node, out, "gbk");
 			out.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
-		
-		/*TagNode[] htmlTag = node.getElementsByName("html", true);
-		for(TagNode tagNode : htmlTag){
-			Map<String, String> attrMap = tagNode.getAttributes();
-			for(String attr : attrMap.keySet()){
-				System.out.println("attr:" + attr);
-				tagNode.removeAttribute(attr);
-			}
-		}*/
-		
-		Element tmp = getDocument(fileName+".temp").getRootElement();
-		processTemplate(tmp);
-//			writeDocument(fileName+".temp" ,tmp.getDocument());
+	
+		Element tmp = null;
+		try{
+			tmp = getDocument(fileName+".temp").getRootElement();
+			processTemplate(tmp);
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
 		return tmp.getDocument();
-		/*TagNode node = cleaner.clean(new File(fileName)); 
-		new PrettyXmlSerializer(props).writeXmlToFile(node, fileName + ".temp");*/
-		
-		
 	}
 	
 	public Document parseWithSAX(String htmlSrc) throws DocumentException {
@@ -141,7 +134,7 @@ public class XmlHelp {
 		CleanerProperties props = cleaner.getProperties();
 		props.setOmitUnknownTags(true);
 		props.setUseEmptyElementTags(false);
-		props.setPruneTags("script,iframe");
+		props.setPruneTags("script");
 		props.setNamespacesAware(false);
 		String cleanSrc = null;
 		try {
@@ -167,7 +160,6 @@ public class XmlHelp {
 			
 			Element temp = elements.remove(0);
 			temp.addAttribute("my_count_id", Integer.toString(count++));
-			
 			elements.addAll(temp.elements());
 		}
 	}
@@ -241,9 +233,7 @@ public class XmlHelp {
 		for (int i = 0; i < elementList.size(); i++) {
 			Element temp = elementList.get(i);
 			temp.addAttribute("num", "1");
-			/*if (null != temp.attribute("style")) {
-				temp.remove(temp.attribute("style"));
-			}*/
+			
 			if (null != temp.attribute("href")) {
 				temp.attribute("href").setValue("#");
 			}
@@ -307,51 +297,6 @@ public class XmlHelp {
 		}
 		return elementCount;
 	}
-
-	/*@SuppressWarnings("unchecked")
-	public static Map<String, String> getExtractions(Document doc,String sign) {
-		Map<String, String> map = new HashMap<String, String>();
-//		File file = new File(filePath);
-		if (doc != null) {
-			Element root = doc.getRootElement();
-//			Element root = XmlHelp.getDocumentWithClean(filePath).getRootElement();
-			List<Element> list = root.selectNodes("//*[@" + sign + "]");
-			for (Element element : list) {
-				map.put(element.attributeValue(sign), element.attributeValue("my_count_id"));
-			}
-		}
-		return map;
-	}*/
-
-	/*public static List<String> getData(List<String> titles, List<Element> result) {
-		
-		List<String> data = new ArrayList<String>();
-		boolean flag;
-		for (int i = 1; i < titles.size(); i++) {
-			String title = titles.get(i);
-			flag = false;
-			for (Element element : result) {
-				if (element.attributeValue("semantic").equals(title)) {
-					flag = true;
-					data.add(element.getStringValue());
-					break;
-				}
-			}
-			if (flag == false) {
-				data.add("");
-			}
-		}
-		return data;
-	}*/
-	
-	/*public List<String> getData(List<String> titles, Map<String, String> result) {
-		List<String> data = new ArrayList<String>();
-		for (int i = 1; i < titles.size(); i++) {
-			String title = titles.get(i);
-			data.add(result.get(title));
-		}
-		return data;
-	}*/
 	
 	public static void main(String[] args) {
 		Document doc = getDocumentWithClean("D:/data/test1/rjxTest/http---www-sohu-com--1.html");

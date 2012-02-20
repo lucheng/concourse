@@ -40,16 +40,7 @@ public class EditHtml {
 				temp.addAttribute("semantic", data.getSemantic());
 				
 				if(data.getBlock() != null && !data.getBlock().equals("")){
-					int count = 0;
 					temp.addAttribute("block", data.getBlock());
-					
-					/*List<Element> children = temp.elements();
-					temp.
-					System.out.println(children.size() + "children size");
-					for(Element element : children){
-						element.addAttribute("num", (count++) + "");
-					}*/
-					
 				}
 			}
 		}

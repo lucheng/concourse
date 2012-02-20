@@ -13,11 +13,12 @@ import com.mywie.utils.XmlHelp;
 public class Generater extends TemplateOperate{
 
 	public Generater(String htmlFilePath, double rate){
+		FileHelp.makedir(htmlFilePath + "/template");
 		this.htmlFilePath = htmlFilePath;
 		this.rate = rate;
 	}
 	
-	private double rate;
+//	private double rate;
 	private String htmlFilePath;
 	
 	
@@ -48,7 +49,6 @@ public class Generater extends TemplateOperate{
 		for (String name : FileHelp.getFiles(htmlFilePath)) {
 			System.out.println(name);
 			rawHtmlDoc = XmlHelp.getDocumentWithClean(name);
-//			Document doc = preTemplate(markedFileDoc, rawHtmlDoc);
 			if(rawHtmlDoc == null){
 				continue;
 			}
@@ -59,6 +59,7 @@ public class Generater extends TemplateOperate{
 		setRate(rate);
 		//生成模板文件
 		List<Element> roots1 = XmlHelp.getRootList(roots);
+	
 		int tempNum = generateTemplate(roots1);
 		return tempNum;
 	}
