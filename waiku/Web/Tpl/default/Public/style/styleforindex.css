@@ -1,8 +1,8 @@
 @charset "utf-8";
 /* CSS Document */
 body{
-	margin:auto;
-	margin-top:0px;
+	margin:0px;
+	padding:0px;
 	text-align:center;
 	font-family: "微软雅黑", "黑体", "宋体";
 }
@@ -160,6 +160,7 @@ list-style: none;
 	background-repeat: repeat-x;
 	height: 82px;
 	margin-bottom:-8px;
+	padding-top:1px;
 }
 
 #swf{
@@ -198,9 +199,8 @@ list-style: none;
 	font-size:13px;
 }
 .resee ul {
-clear: both;
-background: white;
 padding: 0px 10px 0 10px;
+padding-top:0px;
 }
 .resee li {
 background: url(../images/index/bg2010.gif) no-repeat -6px -545px;
@@ -252,6 +252,11 @@ border-color:#ccc;
 }
 .case_titles  a:hover{
 	color:#734D10;
+}
+.thum img{
+	width:145px;
+	height:78px;
+	float:right;
 }
 .index_rese{
 	width:345px;

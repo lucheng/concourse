@@ -13,7 +13,7 @@
 #left .rese{
 	width:678px;
 	float:left;
-	margin-bottom:20px;
+	margin-top:20px;
 }
 .inexp{
 	width:660px;
@@ -32,15 +32,17 @@
 	width:150px;
 	float:left; 
 	margin-right:5px;
+	margin-bottom:15px;
 }
 .thum{
 	width:150px;
 	height:78px;
-	background:#999;
 	overflow:hidden;
 }
 .thumtt{
 	width:100%;
+	padding-left:10px;
+	margin-top:5px;
 	height:22px;
 	text-align:center;
 }
@@ -74,4 +76,18 @@
 }
 #titlebox{
 	margin-top:15px;
+}
+#expert_interdouce{
+	font-size: 12px;
+	float: right;
+	margin-left: 8px;
+	width: 530px;
+	overflow: hidden;
+	padding-right: 10px;
+}
+.left_box{
+	width:678px;
+	float:left;
+	border-right:1px groove #999;
+	margin-bottom:50px;
 }
