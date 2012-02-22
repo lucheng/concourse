@@ -3,7 +3,8 @@
 body{
 	margin:0px;
 	padding:0px;
-	text-align:center;
+	text-align:center;\
+	font-size:13px;
 	font-family: "微软雅黑", "黑体", "宋体";
 }
 a {
@@ -208,8 +209,8 @@ padding-top:0px;
 .resee li {
 background: url(../images/index/bg2010.gif) no-repeat -6px -545px;
 width:90%;
-height: 30px;
-line-height: 30px;
+height: 25px;
+line-height: 25px;
 padding-left: 18px;
 text-align: left;
 _border-bottom:1px dashed;
@@ -246,12 +247,11 @@ border-color:#ccc;
 background: url(../images/index/bg2010.gif) no-repeat -6px -545px;
 width:90%;
 float:left;
-height: 30px;
-line-height: 30px;
+height: 25px;
+font-size:13px;
+line-height: 25px;
 padding-left: 18px;
 text-align: left;
-border-bottom:1px dashed;
-border-color:#ccc;
 }
 .case_titles  a:hover{
 	color:#734D10;

@@ -40,7 +40,7 @@
               <div class="englishfont">Successful Cases</div>
               <div class="chinese">成功案例</div>
             </div>
-			 <div class="rese">
+			 <div class="rese" style="margin-top:0px;">
              	<div class="case_flash">
              	  <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="453" height="350" id="FlashID2" title="点击查看">
              	    <param name="movie" value="../Public/swf/map.swf" />
@@ -70,7 +70,7 @@
              	<div class="case_titles">
              		<ul>
 	            	<volist name="list" id="sub">
-					<li><a title="{$sub.title}" href="{$sub.aid|url=articles,###}">{$sub.title|msubstr1=0,8,'utf-8',true}</a></li>
+					<li><a title="{$sub.title}" href="{$sub.aid|url=articles,###}">{$sub.title|msubstr1=0,10,'utf-8',true}</a></li>
 					</volist>
 				</ul>
              	</div>
