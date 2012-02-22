@@ -21,6 +21,9 @@
 	float:left;
 	border:1px groove #999
 }
+.rese .inexp{
+	border:none;
+}
 #right{
 	width:276px;
 	margin-right:37px;
