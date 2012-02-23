@@ -24,7 +24,7 @@ public class Extract extends Thread {
 	private Element root;
 	private String directory;
 	private Text textArea;
-//	private int total;
+	private int total;
 	
 	private Button startButton;
 	private MessageBox messageBox;
@@ -80,36 +80,6 @@ public class Extract extends Thread {
 		this.textArea = textArea;
 	}
 
-	/*public void extractQuick() {
-		
-		if (this.getStatusBar() != null
-				&& !this.getStatusBar().getDisplay().isDisposed()) {
-			this.getStatusBar().getDisplay().syncExec(new Runnable() {
-				public void run() {
-					getStatusBar().changeToRunning();
-					getStatusBar().setStatus("正在抽取数据...");
-				}
-			});
-		}
-		logger.info("#############信息抽取开始#############");
-		long startTime = System.currentTimeMillis();
-
-		logger.info("#############信息抽取结束#############");
-		long endTime = System.currentTimeMillis();
-		statusText = "数据抽取结束，用时" + (endTime - startTime) + "ms...";
-		if (this.getStatusBar() != null
-				&& !this.getStatusBar().getDisplay().isDisposed()) {
-			this.getStatusBar().getDisplay().syncExec(new Runnable() {
-				public void run() {
-					getStatusBar().changeToStatus();
-					getStatusBar().setStatus(statusText);
-					getStartButton().setEnabled(true);
-				}
-			});
-		}
-		logger.info(statusText);
-	}*/
-
 	public void extract() {
 		
 		if (this.getStatusBar() != null
@@ -145,7 +115,6 @@ public class Extract extends Thread {
 				 * 进行简单树匹配，得到所要抽取的节点
 				 */
 				matchAlign.match(root, root2, matchNodes1, matchNodes2);
-				
 				for (int j = 0; j < matchNodes1.size(); j++) {
 					if (matchNodes1.get(j).attributeValue("semantic") != null) {
 						matchNodes2.get(j).addAttribute("semantic", matchNodes1.get(j).attributeValue("semantic"));

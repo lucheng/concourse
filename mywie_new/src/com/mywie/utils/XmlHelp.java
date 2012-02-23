@@ -98,6 +98,7 @@ public class XmlHelp {
 		props.setUseEmptyElementTags(false);
 		props.setOmitUnknownTags(true);
 		props.setPruneTags("script,style,link,iframe,input,textarea");
+//		props.setPruneTags("script");
 		props.setNamespacesAware(false);
         
 		
@@ -134,6 +135,7 @@ public class XmlHelp {
 		props.setUseEmptyElementTags(false);
 		props.setOmitUnknownTags(true);
 		props.setPruneTags("script,style,link,iframe,input,textarea");
+//		props.setPruneTags("script");
 		props.setNamespacesAware(false);
 		String cleanSrc = null;
 		try {
@@ -217,7 +219,8 @@ public class XmlHelp {
 		List<Element> elementList = element.elements();
 		List<Element> elementList2 = new ArrayList<Element>();
 		for (int i = 0; i < elementList.size(); i++) {
-			int temp = Integer.valueOf(elementList.get(i).attributeValue("num"));
+			int temp = Integer
+					.valueOf(elementList.get(i).attributeValue("num"));
 			if (temp >= num) {
 				reduceElement(elementList.get(i), num);
 			} else {
