@@ -24,7 +24,6 @@ public class Extract extends Thread {
 	private Element root;
 	private String directory;
 	private Text textArea;
-	private int total;
 	
 	private Button startButton;
 	private MessageBox messageBox;
@@ -115,10 +114,13 @@ public class Extract extends Thread {
 				 * 进行简单树匹配，得到所要抽取的节点
 				 */
 				matchAlign.match(root, root2, matchNodes1, matchNodes2);
+				
 				for (int j = 0; j < matchNodes1.size(); j++) {
-					if (matchNodes1.get(j).attributeValue("semantic") != null) {
-						matchNodes2.get(j).addAttribute("semantic", matchNodes1.get(j).attributeValue("semantic"));
 					
+					if (matchNodes1.get(j).attributeValue("semantic") != null) {
+						
+						matchNodes2.get(j).addAttribute("semantic", matchNodes1.get(j).attributeValue("semantic"));
+						
 						if(matchNodes1.get(j).attributeValue("block") != null){
 							matchNodes2.get(j).addAttribute("block", matchNodes1.get(j).attributeValue("block"));
 						}
