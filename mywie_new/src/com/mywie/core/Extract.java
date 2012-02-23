@@ -80,7 +80,7 @@ public class Extract extends Thread {
 		this.textArea = textArea;
 	}
 
-	public void extractQuick() {
+	/*public void extractQuick() {
 		
 		if (this.getStatusBar() != null
 				&& !this.getStatusBar().getDisplay().isDisposed()) {
@@ -93,40 +93,6 @@ public class Extract extends Thread {
 		}
 		logger.info("#############信息抽取开始#############");
 		long startTime = System.currentTimeMillis();
-//		System.out.println("destDirectory:" + directory);
-		
-		
-//		FileHelp.makedir(destDirectory);
-//		FileHelp.copyJarFile("include/extraction.xsl", destDirectory + "/extraction.xsl");
-
-		/*ExtractData ed = new ExtractData();
-		List<Node> titleNodes = root.selectNodes("//*[@semantic]");
-		List<String> titles = new ArrayList<String>();
-		titles.add("网页名称");
-		for (Node node : titleNodes) {
-			if (node instanceof Element) {
-				Element element = (Element) node;
-				titles.add(element.attributeValue("semantic"));
-			}
-		}
-		ed.setTitles(titles);
-		List<List<MarkData>> datas = new ArrayList<List<MarkData>>();
-		total = titleNodes.size();
-		
-		Extracter extracter = new Extracter(templateFile);
-		
-		for (int i = 0; i < extractFiles.length; i++) {
-			
-			try{
-				List<MarkData> data = extracter.extract(extractFiles[i]);
-				if (data!= null && data.size() >= total * 8 / 10) {
-					datas.add(data);
-				}
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-		}*/
-//		ed.printToXML(destDirectory + "/extraction.xml");
 
 		logger.info("#############信息抽取结束#############");
 		long endTime = System.currentTimeMillis();
@@ -142,7 +108,7 @@ public class Extract extends Thread {
 			});
 		}
 		logger.info(statusText);
-	}
+	}*/
 
 	public void extract() {
 		
@@ -258,12 +224,12 @@ public class Extract extends Thread {
 
 	public void run(){
 		
-			if(this.extractType == Extract.QUICK){
-				extractQuick();
-			}else {
-				extract();
-			}
-
+		extract();
+		/*if(this.extractType == Extract.QUICK){
+			extractQuick();
+		}else {
+			extract();
+		}*/
 	}
 
 	public WieStatusBar getStatusBar() {

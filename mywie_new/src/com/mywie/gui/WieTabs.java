@@ -15,7 +15,7 @@ public class WieTabs extends Composite {
 	public GenerateComposite genCom; // generate template composite
 	public EditComposite ediCom; // edit template composite
 	public ExtractComposite extOCom; // extract online data composite
-	public ExtractQuickComposite extLCom; // extract local data composite
+//	public ExtractQuickComposite extLCom; // extract local data composite
 	
 	public TabItem welComTabItem;
 	

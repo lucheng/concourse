@@ -95,10 +95,9 @@ public class XmlHelp {
 		HtmlCleaner cleaner = new HtmlCleaner();
 		CleanerProperties props = cleaner.getProperties();
 		
-		props.setOmitUnknownTags(true);
 		props.setUseEmptyElementTags(false);
-		props.setPruneTags("script");
-//		props.setPruneTags("script,style,iframe,textarea,input");
+		props.setOmitUnknownTags(true);
+		props.setPruneTags("script,style,link,iframe,input,textarea");
 		props.setNamespacesAware(false);
         
 		
@@ -132,9 +131,9 @@ public class XmlHelp {
 		
 		HtmlCleaner cleaner = new HtmlCleaner();
 		CleanerProperties props = cleaner.getProperties();
-		props.setOmitUnknownTags(true);
 		props.setUseEmptyElementTags(false);
-		props.setPruneTags("script");
+		props.setOmitUnknownTags(true);
+		props.setPruneTags("script,style,link,iframe,input,textarea");
 		props.setNamespacesAware(false);
 		String cleanSrc = null;
 		try {

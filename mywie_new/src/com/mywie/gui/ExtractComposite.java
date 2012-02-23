@@ -104,8 +104,6 @@ public class ExtractComposite extends CompositeImpl {
 								extract.setMessageBox(messageBox);
 								extract.setTemplateFile(templateFilePath.getText());
 								extract.setDirectory(extractFilePath.getText());
-//								System.out.println(extractFilePath.getText() + "extractFilePath.getText()");
-//								extract.setExtractFiles(FileHelp.getFiles(extractFilePath.getText()));
 								extract.setStatusBar(statusBar);
 								extract.setStartButton(editButton);
 								extract.setExtractType(Extract.NORMAL);
@@ -130,7 +128,6 @@ public class ExtractComposite extends CompositeImpl {
 				.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
 					public void widgetSelected(org.eclipse.swt.events.SelectionEvent e) {
 						String filename = "file:///"+ extractFilePath.getText() + "/extraction/extraction.xml";
-//						System.out.println("filename:" + filename);
 						showResult(filename);
 					}
 				});
@@ -141,9 +138,6 @@ public class ExtractComposite extends CompositeImpl {
 		
 		Shell subShell = new Shell(getDisplay());
 		subShell.setMaximized(true);
-//		subShell.setSize(600, 800);
-//		ViewResult viewResult = new ViewResult(subShell, SWT.NONE);
-//		viewResult.setUrl(url);
 		
 		ResultViewBrowser resultViewBrowser = new ResultViewBrowser(subShell, SWT.NONE | SWT.CLOSE, url);
 		resultViewBrowser.createContents();

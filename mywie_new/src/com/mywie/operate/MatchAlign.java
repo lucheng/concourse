@@ -13,7 +13,7 @@ public class MatchAlign {
 
 	private NodeCompare nodeCompare = new NodeCompare();
 	
-	@SuppressWarnings({ "unchecked", "static-access" })
+	@SuppressWarnings("unchecked")
 	public int match(Element templateRoot, Element alignRoot, List<Element> matchNodes1, List<Element> matchNodes2) {
 
 		List<Element> templateElements = templateRoot.elements();
@@ -63,7 +63,6 @@ public class MatchAlign {
 				j++;
 				
 				if (matchType == NodeCompare.EQUALITY){
-//					System.out.println("equality");
 					break;
 				}
 			}

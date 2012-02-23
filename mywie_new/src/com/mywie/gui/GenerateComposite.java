@@ -24,7 +24,6 @@ public class GenerateComposite extends CompositeImpl {
 	private Label FilePathLabel = null;
 	private Label label2 = null;
 	private Text htmlDirectory = null;
-	private Text markedFileName = null;
 	private Button openFilePathFile = null;
 	private Button start = null;
 	private Scale scale = null;
@@ -42,36 +41,6 @@ public class GenerateComposite extends CompositeImpl {
 				"\u5fae\u8f6f\u96c5\u9ed1", 18, SWT.NORMAL));
 		title.setText("生成模板");
 
-		/*FilePathLabel = new Label(this, SWT.NONE);
-		FilePathLabel.setBounds(new Rectangle(20, 65, 70, 25));
-		FilePathLabel.setText("标注网页");
-
-		markedFileName = new Text(this, SWT.BORDER);
-		markedFileName.setBounds(new Rectangle(100, 65, 300, 25));
-		
-		openFilePathFile = new Button(this, SWT.NONE);
-		openFilePathFile.setBounds(new Rectangle(410, 65, 80, 25));
-		openFilePathFile.setText("选择");
-		openFilePathFile.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
-					public void widgetSelected(
-							org.eclipse.swt.events.SelectionEvent e) {
-						
-						FileDialog fd = new FileDialog(getShell());
-						fd.setText("选择标注文件");
-						String[] filterExtensions = { "标注文件 (*.html;*.htm" };
-						fd.setFilterExtensions(filterExtensions);
-						String url = fd.open();
-						if (url != null)
-							markedFileName.setText(url);
-						
-						DirectoryDialog dd = new DirectoryDialog(getShell());
-						dd.setText("选择网页集目录");
-						String url = dd.open();
-						if (url != null)
-							markedhtmlFile.setText(url);
-					}
-				});*/
-		
 		FilePathLabel = new Label(this, SWT.NONE);
 		FilePathLabel.setBounds(new Rectangle(20, 105, 70, 25));
 		FilePathLabel.setText("网页集目录");
@@ -112,7 +81,7 @@ public class GenerateComposite extends CompositeImpl {
 		scale.setMaximum(100);
 		scale.setMinimum(0);
 		scale.setIncrement(1);
-		scale.setSelection(90);
+		scale.setSelection(85);
 		scale.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				label2.setText(Double
@@ -140,10 +109,8 @@ public class GenerateComposite extends CompositeImpl {
 						start.setEnabled(false);
 						htmlMatch = new HtmlMatch();
 						htmlMatch.setStart(start);
-						
 						htmlMatch.setDirectory(htmlDirectory.getText());
 						htmlMatch.setRate((double) scale.getSelection() / 100);
-						System.out.println((double) scale.getSelection() / 100);
 						htmlMatch.setStatusBar(statusBar);
 						htmlMatch.start();
 					}

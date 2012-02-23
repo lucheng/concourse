@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.Node;
@@ -15,9 +14,9 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 import org.xml.sax.SAXException;
 
-import com.mywie.control.Extracter;
 import com.mywie.utils.FileHelp;
 import com.mywie.utils.XmlHelp;
+//import com.mywie.utils.XmlHelp;
 /**
  * 抽取数据
  * 为了解决outofmemory的情况，必须修改这抽取一个文件为数据写一次xml文件，
@@ -85,7 +84,7 @@ public class ExtractData {
 
 	public void setTemplateFile(String templateFile) {
 		this.templateFile = templateFile;
-		this.templateRoot = XmlHelp.getDocument(templateFile).getRootElement();
+//		this.templateRoot = XmlHelp.getDocument(templateFile).getRootElement();
 	}
 	
 	public Element getTemplateRoot() {

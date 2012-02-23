@@ -102,6 +102,7 @@ public class TemplateOperate {
 		
 		int w = matchAlign.match(templateRoot, alignRoot, nodes1, nodes2);
 		int m = XmlHelp.getElementCount(alignRoot);
+		System.out.println("ÏàËÆ¶È£º" + rate);
 		if ((double) w / m >= rate) {
 			matchAlign.alignTrees(templateRoot, alignRoot, nodes1, nodes2);
 			return true;
@@ -181,12 +182,6 @@ public class TemplateOperate {
 		}
 	}
 
-	/*private void copyFiles() {
-		FileHelp.makedir(directory + "/include");
-		FileHelp.copyJarFile("include/jquery.js", directory	+ "/include/jquery.js");
-		FileHelp.copyJarFile("include/template.css", directory + "/include/template.css");
-		FileHelp.copyJarFile("include/template.js", directory + "/include/template.js");
-	}*/
 
 	public double getRate() {
 		return rate;
