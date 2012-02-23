@@ -1,0 +1,7 @@
+2012-01-05 10:52:47,170-[TS] INFO Thread-1 com.mywie.core.HtmlMatch - #############开始分析网页集#################
+2012-01-05 10:52:55,027-[TS] INFO Thread-1 com.mywie.core.HtmlMatch - ##########网页集分析结束，共生成6个模板，用时7857ms...###########
+2012-01-05 10:55:37,996-[TS] INFO Thread-1 com.mywie.core.HtmlMatch - #############开始分析网页集#################
+2012-01-05 10:55:53,406-[TS] INFO Thread-1 com.mywie.core.HtmlMatch - ##########网页集分析结束，共生成17个模板，用时15412ms...###########
+2012-01-05 10:59:51,140-[TS] INFO Thread-2 com.mywie.model.ExtractData - #############信息抽取开始#############
+2012-01-05 11:00:05,647-[TS] INFO Thread-2 com.mywie.model.ExtractData - #############信息抽取结束#############
+2012-01-05 11:00:05,688-[TS] INFO Thread-2 com.mywie.model.ExtractData - 数据抽取结束，用时14506ms...
