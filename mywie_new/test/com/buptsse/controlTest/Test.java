@@ -9,8 +9,8 @@ public class Test {
 		/**
 		 * 生成模板文件
 		 */
-		Generater generater = new Generater("C:/Users/Administrator/Desktop/data/template/1.html");
-		generater.generateTemplates("C:/Users/Administrator/Desktop/data");
+		Generater generater = new Generater("C:/Users/Administrator/Desktop/data/template/1.html", 0);
+		generater.generateTemplates();
 		/**
 		 * 抽取数据
 		 */
