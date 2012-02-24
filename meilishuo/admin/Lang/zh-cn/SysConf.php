@@ -24,6 +24,7 @@ $array = array(
 	'TITLE_SITE_KEYWORDS' => 'SEO关键词',
 	'TITLE_SITE_DESCRIPTION' => 'SEO描述',
 	'TITLE_FOOTER_HTML' => '页面底部内容',
+	'TITLE_TONGJI' => '百度统计',
 	'TITLE_DEFAULT_LANG' => '默认语言',
     'TITLE_URL_MODEL' => 'URL重写',
     'TITLE_URL_MODEL_0' => '否',
