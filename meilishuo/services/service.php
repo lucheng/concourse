@@ -3,12 +3,15 @@ define('ROOT_PATH', str_replace('services/service.php', '', str_replace('\\', '/
 define('SUB_DIR','/services');
 define('MODULE_NAME','service');
 
+///service.php?m=share&a=collectgoods&url=http%3A//item.taobao.com
+
 if(isset($_REQUEST['m']) && isset($_REQUEST['a']))
 {
 	$module = strtolower($_REQUEST['m']);
 	$action = strtolower($_REQUEST['a']);
 	define('ACTION_NAME',$action);
 	define('HANDLER_FILE',ROOT_PATH.'services/module/'.$module.'/'.$action.'.php');
+	//  'services/module/share/collectgoods.php  分享商品
 	if(!file_exists(HANDLER_FILE))
 		exit;
 	define('COMMON_FILE',ROOT_PATH.'services/module/'.$module.'/common.php');
