@@ -33,8 +33,6 @@ class taobao_sharegoods implements interface_sharegoods
 			
 		$key = 'taobao_'.$id;
 
-        //http://container.open.taobao.com/container?appkey=12324287&encode=utf-8
-
 		$client = new TopClient;
 		$client->appkey = $_FANWE['setting']['tao_app_key'];
 		$client->secretKey = $_FANWE['setting']['tao_app_secret'];
@@ -66,12 +64,14 @@ class taobao_sharegoods implements interface_sharegoods
 
         $tao_ke_pid = $_FANWE['setting']['tao_ke_key'];
         $shop_click_url = '';
+        
         if(!empty($tao_ke_pid))
         {
             $req = new TaobaokeItemsDetailGetRequest;
             $req->setFields("click_url,shop_click_url");
             $req->setNumIids($id);
-            $req->setPid($tao_ke_pid);
+//            $req->setPid($tao_ke_pid);
+            $req->setNick($tao_ke_pid);
             $resp = $client->execute($req);
 
             if(isset($resp->taobaoke_item_details))
