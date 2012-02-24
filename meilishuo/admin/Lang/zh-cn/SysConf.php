@@ -52,8 +52,8 @@ $array = array(
 	'TITLE_AUTO_GEN_IMAGE_1'		=>	'是',
 	'TITLE_AUTO_GEN_IMAGE_0'		=>	'否',
 
-	'TITLE_TAO_KE_KEY' => '淘宝客PID',
-    'TITLE_TAO_KE_KEY_TIPS' => '例：PID为mm_xxxxxxxx_0_0，填写xxxxxxxx即可',
+	'TITLE_TAO_KE_KEY' => '淘宝客昵称',
+    'TITLE_TAO_KE_KEY_TIPS' => '请准确填写，否则无法获返现',
 	'TITLE_TAO_APP_KEY' => '淘宝应用App Key',
     'TITLE_TAO_APP_KEY_TIPS' => '淘宝应用用于获取淘宝商品、店铺信息，可到 http://open.taobao.com/ 点击 申请成为合作伙伴',
     'TITLE_TAO_APP_SECRET' => '淘宝应用App Secret',
