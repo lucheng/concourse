@@ -13,6 +13,7 @@ $lang = array(
 	'club'=>'主题',
 	'ask'=>'问答',
 	'daren'=>'达人',
+	'gezipu'=>'格子铺',
 	'follow_site'=>'关注我们',
 	'sina_weibo'=>'新浪微博',
 	'qq_zone'=>'QQ空间',
