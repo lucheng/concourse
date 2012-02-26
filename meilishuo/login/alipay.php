@@ -1,9 +1,5 @@
 <?php
-// 淘宝登录接口
-include_once FANWE_ROOT.'core/class/sharegoods/taobao/TopClient.php';
-include_once FANWE_ROOT.'core/class/sharegoods/taobao/request/UserGetRequest.php';
-include_once FANWE_ROOT.'core/class/sharegoods/taobao/request/ItemGetRequest.php';
-
+// 支付宝快捷登录接口
 class taobao{
 
 	private $config;
@@ -16,7 +12,7 @@ class taobao{
 
 	public function get_bind_info()
 	{
-		$data['name'] = "淘宝登录";
+		$data['name'] = "支付宝快捷登录";
 		$data['logo'] = APP_ROOT.'/login/taobao/bind_taobao.png';
 		$uid = intval($GLOBALS['_FANWE']['uid']);
 		if(FDB::resultFirst("select taobao_id from ".FDB::table("user")." where uid = ".$uid)!='')
@@ -39,39 +35,20 @@ class taobao{
 	{
 		@session_start();
 		$url = APP_ROOT."/login.php?mod=taobao";
-		$str = "<a href='".$url."' title='淘宝登录'><img src='".APP_ROOT."/login/taobao/login_taobao.png' alt='淘宝登录' /></a>&nbsp;";
+		$str = "<a href='".$url."' title='支付宝快捷登录'><img src='".APP_ROOT."/login/taobao/login_taobao.png' alt='支付宝快捷登录' /></a>&nbsp;";
 		return $str;
 	}
 
 	public function jump()
 	{
 		@session_start();
-		require_once FANWE_ROOT."login/taobao/taobao_service.class.php";
-		$taobao_config['app_key']		= $this->config['app_key'];
-		$taobao_config['app_secret']	=  $this->config['app_secret'];
-		$taobao_config['return_url']	= get_domain().APP_ROOT."/login.php?rel=taobao";
-		$taobao_config['sign_type']		= 'MD5';
-		$taobao_config['encode'] = 'utf-8';
-		$taobao_config['transport']		= 'http';
-		$taobao_config['login_url']		= 'http://container.open.taobao.com/container';
-		$taobao_config['service_url']	= 'http://gw.api.taobao.com/router/rest';
-		
-		//构造快捷登录接口
-		$taobaoService = new TaobaoService($taobao_config);
-		$html_text = $taobaoService->taobao_auth_authorize();
-		echo $html_text;
-	}
-
-	public function bindjump()
-	{
-		@session_start();
-		require_once FANWE_ROOT."login/taobao/taobao_service.class.php";
-		$taobao_config['partner']		= $this->config['app_key'];
-		$taobao_config['key']			=  $this->config['app_secret'];
-		$taobao_config['return_url']   = get_domain().APP_ROOT."/login.php?bindrel=taobao";
-		$taobao_config['sign_type']    = 'MD5';
-		$taobao_config['input_charset']      = 'utf-8';
-		$taobao_config['transport']    = 'http';
+		require_once FANWE_ROOT."login/taobao/alipay_service.class.php";
+		$aliapy_config['partner']		= $this->config['app_key'];
+		$aliapy_config['key']			=  $this->config['app_secret'];
+		$aliapy_config['return_url']   = get_domain().APP_ROOT."/login.php?rel=taobao";
+		$aliapy_config['sign_type']    = 'MD5';
+		$aliapy_config['input_charset']      = 'utf-8';
+		$aliapy_config['transport']    = 'http';
 		$anti_phishing_key  = '';
 		$exter_invoke_ip = '';
 
@@ -82,8 +59,33 @@ class taobao{
 		);
 
 		//构造快捷登录接口
-		$taobaoService = new TaobaoService($taobao_config);
-		$html_text = $taobaoService->taobao_auth_authorize($parameter);
+		$alipayService = new AlipayService($aliapy_config);
+		$html_text = $alipayService->alipay_auth_authorize($parameter);
+		echo $html_text;
+	}
+
+	public function bindjump()
+	{
+		@session_start();
+		require_once FANWE_ROOT."login/taobao/alipay_service.class.php";
+		$aliapy_config['partner']		= $this->config['app_key'];
+		$aliapy_config['key']			=  $this->config['app_secret'];
+		$aliapy_config['return_url']   = get_domain().APP_ROOT."/login.php?bindrel=taobao";
+		$aliapy_config['sign_type']    = 'MD5';
+		$aliapy_config['input_charset']      = 'utf-8';
+		$aliapy_config['transport']    = 'http';
+		$anti_phishing_key  = '';
+		$exter_invoke_ip = '';
+
+		$parameter = array(
+		        //扩展功能参数——防钓鱼
+		        "anti_phishing_key"	=> $anti_phishing_key,
+				"exter_invoke_ip"	=> $exter_invoke_ip,
+		);
+
+		//构造快捷登录接口
+		$alipayService = new AlipayService($aliapy_config);
+		$html_text = $alipayService->alipay_auth_authorize($parameter);
 		echo $html_text;
 	}
 
@@ -91,16 +93,16 @@ class taobao{
 	{
 
 		@session_start();
-		$taobao_config['partner']		= $this->config['app_key'];
-		$taobao_config['key']			=  $this->config['app_secret'];
-		$taobao_config['return_url']   = get_domain().APP_ROOT."/login.php?bindrel=taobao";
-		$taobao_config['sign_type']    = 'MD5';
-		$taobao_config['input_charset']      = 'utf-8';
-		$taobao_config['transport']    = 'http';
-		require_once FANWE_ROOT."login/taobao/taobao_notify.class.php";
+		$aliapy_config['partner']		= $this->config['app_key'];
+		$aliapy_config['key']			=  $this->config['app_secret'];
+		$aliapy_config['return_url']   = get_domain().APP_ROOT."/login.php?bindrel=taobao";
+		$aliapy_config['sign_type']    = 'MD5';
+		$aliapy_config['input_charset']      = 'utf-8';
+		$aliapy_config['transport']    = 'http';
+		require_once FANWE_ROOT."login/taobao/alipay_notify.class.php";
 
 
-		$alipayNotify = new AlipayNotify($taobao_config);
+		$alipayNotify = new AlipayNotify($aliapy_config);
 		$verify_result = $alipayNotify->verifyReturn();
 		if($verify_result) {//验证成功
 			/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -144,44 +146,33 @@ class taobao{
 	{
 
 		@session_start();
-		$taobao_config['app_key']		= $this->config['app_key'];
-		$taobao_config['app_secret']	=  $this->config['app_secret'];
-		$taobao_config['return_url']	= get_domain().APP_ROOT."/login.php?bindrel=taobao";
-		$taobao_config['sign_type']		= 'MD5';
-		$taobao_config['input_charset']	= 'utf-8';
-		$taobao_config['transport']		= 'http';
-		require_once FANWE_ROOT."login/taobao/taobao_notify.class.php";
+		$aliapy_config['partner']		= $this->config['app_key'];
+		$aliapy_config['key']			=  $this->config['app_secret'];
+		$aliapy_config['return_url']   = get_domain().APP_ROOT."/login.php?bindrel=taobao";
+		$aliapy_config['sign_type']    = 'MD5';
+		$aliapy_config['input_charset']      = 'utf-8';
+		$aliapy_config['transport']    = 'http';
+		require_once FANWE_ROOT."login/taobao/alipay_notify.class.php";
 
 
-		$taobaoNotify = new TaobaoNotify($taobao_config);
-		$verify_result = $taobaoNotify->verifyReturn();
+		$alipayNotify = new AlipayNotify($aliapy_config);
+		$verify_result = $alipayNotify->verifyReturn();
 		if($verify_result)
-		{
+		{//验证成功
+			/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			//请在这里加上商户的业务逻辑程序代码
 
-			$top_parameters = $_GET["top_parameters"];
-			$sessionKey = $_GET["top_session"];
-			$top_sign = $_GET["top_sign"];
-			
-			$client = new TopClient;
-			$client->appkey = $taobao_config['app_key'];
-			$client->secretKey = $taobao_config['app_secret'];
-	
-			echo $sessionKey;
-			
-			$req = new UserGetRequest;
-			
-			$req->setFields("user_id,uid,nick,sex,alipay_account,email");
-			$resp = $client->execute($req, $sessionKey);
-			
-			$jsonArray = get_object_vars($resp);
-			$user = get_object_vars($jsonArray['user']);
-			
-			if(!isset($user)){
-				return false;
-			}
+			//——请根据您的业务逻辑来编写程序（以下代码仅作参考）——
+			//获取支付宝的通知返回参数，可参考技术文档中页面跳转同步通知参数列表
+			$user_id	= $_GET['user_id'];	//支付宝用户id
+			$token		= $_GET['token'];	//授权令牌
+			$real_name=$_GET['real_name'];
 
-			$msg['id'] = $user['uid'];
-			$msg['name'] = $user['nick'];
+			//执行商户的业务程序
+			$msg['id'] = $user_id;
+			$msg['name'] = $real_name;
+
+
 
 			$sql = 'SELECT uid,password FROM '.FDB::table('user')." WHERE taobao_id = '".$msg['id']."'";
 			$user = FDB::fetchFirst($sql);
@@ -197,8 +188,8 @@ class taobao{
 			else
 			{
                 $password = random(6,1);
-				$max_count = FDB::resultFirst("select count(*) from ".FDB::table("user")." where user_name like 'taobao_".$msg['name']."%' and taobao_id <> ''");
-				$user_name = "taobao_".$msg['name']."_".($max_count+rand(10,99));
+				$max_count = FDB::resultFirst("select count(*) from ".FDB::table("user")." where user_name like 'ali_".$msg['name']."%' and taobao_id <> ''");
+				$user_name = "ali_".$msg['name']."_".($max_count+rand(10,99));
 				//开始自动注册会员
 				$data = array(
 					'user_name'       => $user_name,
@@ -249,6 +240,9 @@ class taobao{
 		{
 			fHeader("location: ".FU('index'));
 		}
+
+
+
 	}
 }
 ?>
