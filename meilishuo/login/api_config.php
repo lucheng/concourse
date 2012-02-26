@@ -14,13 +14,6 @@ $install_mod = array(
 		'app_key'	=>	'100247974', 
 		'app_secret'	=>'892435b449369579c3bfc19b08530225', 
 	),
-	/*'alipay'=>array(
-		'name'	=>	'支付宝快捷登录',
-		'short_name' => '支付宝帐号',	
-		'is_syn'	=>	false,
-		'app_key'	=>	'2088102007672902', 
-		'app_secret'	=>'5ztd0d1dx8lq0mf0gz5lrqj1n2pxv0p9', 
-	),*/
 	'taobao'=>array(
 		'name'	=>	'淘宝登录',
 		'short_name' => '淘宝帐号',	
@@ -28,12 +21,19 @@ $install_mod = array(
 		'app_key'	=>	'12513803', 
 		'app_secret'	=>'dea8fda425660b9311af46cd3bd16fc6', 
 	),
+	/*'alipay'=>array(
+		'name'	=>	'支付宝快捷登录',
+		'short_name' => '支付宝帐号',	
+		'is_syn'	=>	false,
+		'app_key'	=>	'2088102007672902', 
+		'app_secret'	=>'5ztd0d1dx8lq0mf0gz5lrqj1n2pxv0p9', 
+	),*/
 	/*'tqq'=>array(
 		'name'	=>	'腾讯微博',
 		'short_name' => '腾讯微博',
-		'is_syn'	=>	true,
-		'app_key'	=>	'a24fb5f514aa4353a98342cc99b68ef5',
-		'app_secret'	=>'7407e531800c7a5dd11a06d04788d0cf', 
+		'is_syn'	=>	false,
+		'app_key'	=>	'801102192',
+		'app_secret'	=>'5c4f773149b33120df7ba471c8c47943', 
 	),*/
 	/*'renren'=>array(
 		'name'	=>	'人人登录',
