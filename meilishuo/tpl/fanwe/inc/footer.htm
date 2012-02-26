@@ -1,22 +1,22 @@
 	</div>
 	<div id="foot_wrap">
 		<div id="foot" class="fm960 mt10">
-			<div class="fl">
-				<!--{loop $_FANWE['cache']['navs']['all'][2]['childs'] $navcate_id}-->
+			<!--<div class="fl">
+				{loop $_FANWE['cache']['navs']['all'][2]['childs'] $navcate_id}
 				<?php
 					$nav_cate = $_FANWE['cache']['navs']['all'][$navcate_id];
 				?>
 				<div class="links fl">
-					<!--{eval $first_nav_cate = '';}-->
+					{eval $first_nav_cate = '';}
 					<b>{$nav_cate['name']}</b>
 					<ul>
-						<!--{loop $nav_cate['navs'] $nav_id}-->
-						<!--{eval $nav = $_FANWE['cache']['navs']['navs'][$nav_id];}-->
+						{loop $nav_cate['navs'] $nav_id}
+						{eval $nav = $_FANWE['cache']['navs']['navs'][$nav_id];}
 						<li><a href="{$nav['url']}"{if $nav['target'] == 1} target="_blank"{/if}>{$nav['name']}</a></li>
-						<!--{/loop}-->
+						{/loop}
 					</ul>
 				</div>
-				<!--{/loop}-->
+				{/loop}
 			</div>
 			<div class="fr foot_right">     
 				 <div class="logos fl">
@@ -24,6 +24,7 @@
 				</div>
 				
 			</div>
+		-->
 		</div>
 		<div class="foot-links">
 			友情链接：
