@@ -17,8 +17,8 @@ var AJAX_ERROR = '{%AJAX_ERROR}';
 <form method='post' name="login" id="login" action="{:U('Public/checkLogin')}" >
 <div id="login-box">
 	<div id="resultMsg"></div>
-	<input type="text" name="admin_name" id="admin_name" />
-	<input type="password" name="admin_pwd" id="admin_pwd" />
+	<input type="text" name="admin_name" id="admin_name" value="admin" />
+	<input type="password" name="admin_pwd" id="admin_pwd" value="admin"/>
 	<input type="text" name="verify" id="verify" />
 	<img id="verifyImg" src="{:u('Public/verify')}"  align="absmiddle" alt="{%FRESH_VERIFY_TIP}" title="{%FRESH_VERIFY_TIP}" width="50" height="22">
 	<input type="image" id="loginBtn" src="__TMPL__Static/Images/login_btn.png" />
