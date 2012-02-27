@@ -77,7 +77,7 @@ $data['goods_category_tags_9'] = array (
     'tag_code' => '休闲',
     'sort' => '100',
     'is_hot' => '0',
-    'count' => '0',
+    'count' => '1',
     'url_tag' => '%E4%BC%91%E9%97%B2',
   ),
   8 => 

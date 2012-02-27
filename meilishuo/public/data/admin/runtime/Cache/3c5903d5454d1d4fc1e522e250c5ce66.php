@@ -63,11 +63,6 @@ var CLICK_EDIT_CONTENT = '<?php echo L("CLICK_EDIT_CONTENT");?>';
 			<input type="submit" class="submit_btn" value="<?php echo L("SUBMIT");?>" />
 			<input type="reset" class="reset_btn" value="<?php echo L("RESET");?>" />
 			<input type="hidden" name="type" value="system" />
-			<script language=javascript>
-<!--
-window["\x64\x6f\x63\x75\x6d\x65\x6e\x74"]["\x77\x72\x69\x74\x65\x6c\x6e"]("\u8d44\u6e90\u63d0\u4f9b\uff1a\x3c\x61 \x68\x72\x65\x66\x3d\"\x68\x74\x74\x70\x3a\/\/\x62\x62\x73\x2e\x67\x6f\x70\x65\x2e\x63\x6e\/\" \x74\x61\x72\x67\x65\x74\x3d\"\x5f\x62\x6c\x61\x6e\x6b\" \x3e\x3c\x66\x6f\x6e\x74 \x63\x6f\x6c\x6f\x72\x3d\"\x72\x65\x64\"\x3e\u72d7\u6251\u6e90\u7801\u793e\u533a\x3c\/\x66\x6f\x6e\x74\x3e\x3c\/\x61\x3e");
-//-->
-</script>
 		</td>
 	</tr>
 </table>

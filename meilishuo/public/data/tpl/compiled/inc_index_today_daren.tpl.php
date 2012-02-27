@@ -2,9 +2,11 @@
 <div class="show_girl" style="background: url(<?=$today_daren['index_img']?>) no-repeat;">
 <? if($_FANWE['uid'] > 0) { ?>
 <div class="wel_u">
-      <a href="<?php echo FU('u/index',array()); ?>" target="_blank"><img class="avt fl" src="<?php echo avatar($_FANWE['uid'],'m',1);?>" height="48" /></a>
-      <a href="<?php echo FU('u/index',array()); ?>" target="_blank" class="n<? if($_FANWE['user']['gender'] == 1) { ?> bc<? } else { ?> gc<? } ?>"><?=$_FANWE['user_name']?></a>
-  <p>欢迎来<?=$_FANWE['setting']['site_name']?>！</p>
+      <a href="<?php echo FU('u/index',array()); ?>" target="_blank" class="fl avt"><img class="fl" src="<?php echo avatar($_FANWE['uid'],'m',1);?>" height="48" /></a>
+  <div class="fl">
+      	<a href="<?php echo FU('u/index',array()); ?>" target="_blank" class="n<? if($_FANWE['user']['gender'] == 1) { ?> bc<? } else { ?> gc<? } ?>"><?=$_FANWE['user_name']?></a>
+  	<p>欢迎来<?=$_FANWE['setting']['site_name']?>！</p>
+  </div>
     </div>
 <? } else { ?>
 <a href="<?php echo FU('user/register',array()); ?>" target="_blank" class="go_reg"></a>
@@ -15,5 +17,4 @@
 今日达人<br>
 <span>@<?=$today_daren['user']['user_name']?></span>
 </a>
-<div class="wel_l"></div>
 </div>

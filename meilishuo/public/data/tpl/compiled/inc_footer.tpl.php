@@ -2,7 +2,7 @@
 	</div>
 <div id="foot_wrap">
 <div id="foot" class="fm960 mt10">
-<div class="fl"><? if(is_array($_FANWE['cache']['navs']['all']['2']['childs'])) { foreach($_FANWE['cache']['navs']['all']['2']['childs'] as $navcate_id) { ?><?php 
+<!--<div class="fl"><? if(is_array($_FANWE['cache']['navs']['all']['2']['childs'])) { foreach($_FANWE['cache']['navs']['all']['2']['childs'] as $navcate_id) { ?><?php 
 $nav_cate = $_FANWE['cache']['navs']['all'][$navcate_id];
  ?>
 <div class="links fl"><?php $first_nav_cate = ''; ?><b><?=$nav_cate['name']?></b>
@@ -18,6 +18,7 @@ $nav_cate = $_FANWE['cache']['navs']['all'][$navcate_id];
 </div>
 
 </div>
+-->
 </div>
 <div class="foot-links">
 友情链接：<?php $link_index = 1; if(is_array($_FANWE['cache']['links']['all'])) { foreach($_FANWE['cache']['links']['all'] as $link) { if($link_index > 12) { ?><?php break; } ?>
@@ -28,6 +29,9 @@ $nav_cate = $_FANWE['cache']['navs']['all'][$navcate_id];
 <div class="copyright"><?=$_FANWE['setting']['footer_html']?></div>
 </div>
 <div id="back2top"><a href="#"><span class="arrow">▲</span>回顶部</a></div>
+<!-- 百度统计开始 -->
+<?=$_FANWE['setting']['tongji']?>
+<!-- 百度统计结束 -->
 </body>
 <?php 
 $default_js[] = './public/js/lang.js';

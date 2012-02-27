@@ -10,7 +10,7 @@ $data['asks'] = array (
     'create_time' => '1308802605',
     'status' => '1',
     'thread_count' => '0',
-    'url' => '/meilishuo/ask.php?action=forum&aid=1',
+    'url' => '/ask.php?action=forum&aid=1',
   ),
   2 => 
   array (
@@ -22,7 +22,7 @@ $data['asks'] = array (
     'create_time' => '1308802605',
     'status' => '1',
     'thread_count' => '0',
-    'url' => '/meilishuo/ask.php?action=forum&aid=2',
+    'url' => '/ask.php?action=forum&aid=2',
   ),
   3 => 
   array (
@@ -34,7 +34,7 @@ $data['asks'] = array (
     'create_time' => '1308802605',
     'status' => '1',
     'thread_count' => '0',
-    'url' => '/meilishuo/ask.php?action=forum&aid=3',
+    'url' => '/ask.php?action=forum&aid=3',
   ),
   4 => 
   array (
@@ -46,7 +46,7 @@ $data['asks'] = array (
     'create_time' => '1308802605',
     'status' => '1',
     'thread_count' => '0',
-    'url' => '/meilishuo/ask.php?action=forum&aid=4',
+    'url' => '/ask.php?action=forum&aid=4',
   ),
   5 => 
   array (
@@ -58,7 +58,7 @@ $data['asks'] = array (
     'create_time' => '1308802605',
     'status' => '1',
     'thread_count' => '0',
-    'url' => '/meilishuo/ask.php?action=forum&aid=5',
+    'url' => '/ask.php?action=forum&aid=5',
   ),
   6 => 
   array (
@@ -70,7 +70,7 @@ $data['asks'] = array (
     'create_time' => '1308802605',
     'status' => '1',
     'thread_count' => '0',
-    'url' => '/meilishuo/ask.php?action=forum&aid=6',
+    'url' => '/ask.php?action=forum&aid=6',
   ),
   7 => 
   array (
@@ -82,7 +82,7 @@ $data['asks'] = array (
     'create_time' => '1308802605',
     'status' => '1',
     'thread_count' => '0',
-    'url' => '/meilishuo/ask.php?action=forum&aid=7',
+    'url' => '/ask.php?action=forum&aid=7',
   ),
   8 => 
   array (
@@ -94,7 +94,7 @@ $data['asks'] = array (
     'create_time' => '1308802605',
     'status' => '1',
     'thread_count' => '0',
-    'url' => '/meilishuo/ask.php?action=forum&aid=8',
+    'url' => '/ask.php?action=forum&aid=8',
   ),
   9 => 
   array (
@@ -106,7 +106,7 @@ $data['asks'] = array (
     'create_time' => '1308802605',
     'status' => '1',
     'thread_count' => '0',
-    'url' => '/meilishuo/ask.php?action=forum&aid=9',
+    'url' => '/ask.php?action=forum&aid=9',
   ),
   10 => 
   array (
@@ -118,7 +118,7 @@ $data['asks'] = array (
     'create_time' => '1308802605',
     'status' => '1',
     'thread_count' => '0',
-    'url' => '/meilishuo/ask.php?action=forum&aid=10',
+    'url' => '/ask.php?action=forum&aid=10',
   ),
   11 => 
   array (
@@ -130,7 +130,7 @@ $data['asks'] = array (
     'create_time' => '1308802605',
     'status' => '1',
     'thread_count' => '0',
-    'url' => '/meilishuo/ask.php?action=forum&aid=11',
+    'url' => '/ask.php?action=forum&aid=11',
   ),
   12 => 
   array (
@@ -142,7 +142,7 @@ $data['asks'] = array (
     'create_time' => '1308802605',
     'status' => '1',
     'thread_count' => '0',
-    'url' => '/meilishuo/ask.php?action=forum&aid=12',
+    'url' => '/ask.php?action=forum&aid=12',
   ),
   13 => 
   array (
@@ -154,7 +154,7 @@ $data['asks'] = array (
     'create_time' => '1308802605',
     'status' => '1',
     'thread_count' => '0',
-    'url' => '/meilishuo/ask.php?action=forum&aid=13',
+    'url' => '/ask.php?action=forum&aid=13',
   ),
   14 => 
   array (
@@ -166,7 +166,7 @@ $data['asks'] = array (
     'create_time' => '1308802605',
     'status' => '1',
     'thread_count' => '0',
-    'url' => '/meilishuo/ask.php?action=forum&aid=14',
+    'url' => '/ask.php?action=forum&aid=14',
   ),
 );
 

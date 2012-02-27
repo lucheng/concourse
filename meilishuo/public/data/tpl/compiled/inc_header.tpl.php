@@ -6,6 +6,7 @@
 <title><? if(!empty($_FANWE['nav_title'])) { ?><?=$_FANWE['nav_title']?> - <? } if(empty($no_site_name)) { ?><?=$_FANWE['setting']['site_title']?><? } ?></title>
 <meta name="keywords" content="<?=$_FANWE['seo_keywords']?><?=$_FANWE['setting']['site_keywords']?>" />
 <meta name="description" content="<?=$_FANWE['seo_description']?><?=$_FANWE['setting']['site_description']?>" />
+<meta property="qc:admins" content="35400377776305526416375" />
 <link rel="icon" href="<?=$_FANWE['site_root']?>favicon.ico" type="image/x-icon" />
 <script src="./public/js/jquery.js" type="text/javascript"></script>
 <script src="./public/js/base.js" type="text/javascript"></script>
@@ -72,6 +73,9 @@ $cate_active = '';
 </li>
 <li>
 <a href="<?php echo FU('daren/index',array()); ?>"<? if(MODULE_NAME == 'Daren') { ?> class="c"<? } ?>>达人</a>
+</li>
+<li>
+<a href="<?php echo FU('shop/index',array()); ?>"<? if(MODULE_NAME == 'Shop') { ?> class="c"<? } ?>>格子铺</a>
 </li>
 </ul>
 

@@ -1,6 +1,6 @@
 <? if(!defined('IN_FANWE')) exit('Access Denied'); 
 0
-|| checkTplRefresh('./tpl/fanwe/page/book/book_index.htm', './tpl/fanwe/inc/pages.htm', 1329666740, './data/tpl/compiled/page_book_book_index.tpl.php', './tpl/fanwe', 'page/book/book_index')
+|| checkTplRefresh('./tpl/uu43/page/book/book_index.htm', './tpl/uu43/inc/pages.htm', 1330265335, './data/tpl/compiled/page_book_book_index.tpl.php', './tpl/uu43', 'page/book/book_index')
 ;?>
 <?php 
 $css_list[0]['url'][] = './tpl/css/general.css';
@@ -51,7 +51,7 @@ $tag_width = intval((750 - ($total_tag_col * 30)) / $total_tag_col);
 <a style="width:180px;" href="<?=$share_img['url']?>" target="_blank">
 <img src="<?php echo getImgName($share_img['img'],180,999); ?>" width=180 />
 </a>
-<span class="p"><span><?=$share_img['price_format']?></span><i></i></span>
+<span class="p"><span class="price"><?=$share_img['price_format']?></span><i></i></span>
 </li>
 <? } else { ?>
 <li>

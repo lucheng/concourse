@@ -16,7 +16,6 @@
 			<a class="browse-index" href="../" target="brank">浏览首页</a>
 			<a href="<?php echo U('Cache/system');?>" target="mainFrame">更新缓存</a>
 			<a href="<?php echo U('Public/logout');?>" target="mainFrame">退出</a>
-			<a href="http://bbs.gope.cn/" target="_blank" >狗扑源码社区</a>
 		</div>
 		<div class="fht-navs">
 			<?php if(is_array($role_navs)): foreach($role_navs as $key=>$nav): ?><div class="<?php if($key == 0): ?>active<?php endif; ?>">

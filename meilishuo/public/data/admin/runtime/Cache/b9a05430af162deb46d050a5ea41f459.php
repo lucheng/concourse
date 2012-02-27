@@ -12,7 +12,7 @@
 </head>
 <body style="padding:0">
 	<div class="fanwe-footer">
-		福州财易通软件技术有限公司 版权所有 系统版本 <span id="version_tip"></span>
+		cheerfly.com版权所有 系统版本 <span id="version_tip"></span>
 	</div>
 </body>
 </html>

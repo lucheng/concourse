@@ -12,13 +12,13 @@ $data['forums'] = array (
       'sort' => '1',
       'create_time' => '1310766076',
       'status' => '1',
-      'thread_count' => '0',
+      'thread_count' => '1',
       'desc' => '血拼归来啰！包裹到手啦! 新货入荷要上蘑菇街来秀一秀。无论是得意的宝贝，还是恼人的次品，与 蘑菇们一起分享吧。',
       'seo_keywords' => '',
       'seo_desc' => '',
       'logo' => './public/upload/images/201108/18/4e4c3d36ef43a.jpg',
       'img' => './public/upload/images/201108/18/4e4c3d3700552.jpg',
-      'url' => '/meilishuo/club.php?action=forum&fid=1',
+      'url' => '/club.php?action=forum&fid=1',
       'childs' => 
       array (
         0 => '10',
@@ -30,20 +30,20 @@ $data['forums'] = array (
     2 => 
     array (
       'fid' => '2',
-      'name' => '方维Show',
+      'name' => '搭配Show',
       'uid' => '0',
       'user_name' => '',
       'parent_id' => '0',
       'sort' => '2',
       'create_time' => '1310766092',
       'status' => '1',
-      'thread_count' => '0',
+      'thread_count' => '1',
       'desc' => '小蘑菇们，来蘑菇街露个脸，互相熟悉一下吧。当然笑笑更cute哦：）',
       'seo_keywords' => '',
       'seo_desc' => '',
       'logo' => './public/upload/images/201108/18/4e4c3d8103d07.png',
       'img' => './public/upload/images/201108/18/4e4c3d81044b3.jpg',
-      'url' => '/meilishuo/club.php?action=forum&fid=2',
+      'url' => '/club.php?action=forum&fid=2',
       'childs' => 
       array (
         0 => '14',
@@ -68,7 +68,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => './public/upload/images/201108/18/4e4c3db681396.jpg',
       'img' => './public/upload/images/201108/18/4e4c3db6819aa.jpg',
-      'url' => '/meilishuo/club.php?action=forum&fid=3',
+      'url' => '/club.php?action=forum&fid=3',
       'childs' => 
       array (
         0 => '18',
@@ -95,7 +95,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => './public/upload/images/201108/18/4e4c3e173115f.jpg',
       'img' => './public/upload/images/201108/18/4e4c3e1731781.jpg',
-      'url' => '/meilishuo/club.php?action=forum&fid=4',
+      'url' => '/club.php?action=forum&fid=4',
       'childs' => 
       array (
         0 => '22',
@@ -120,7 +120,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => './public/upload/images/201108/18/4e4c3e686baf3.jpg',
       'img' => './public/upload/images/201108/18/4e4c3e686c0ef.jpg',
-      'url' => '/meilishuo/club.php?action=forum&fid=5',
+      'url' => '/club.php?action=forum&fid=5',
       'childs' => 
       array (
         0 => '26',
@@ -145,7 +145,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => './public/upload/images/201108/18/4e4c3ea63269d.jpg',
       'img' => './public/upload/images/201108/18/4e4c3ea632c94.jpg',
-      'url' => '/meilishuo/club.php?action=forum&fid=6',
+      'url' => '/club.php?action=forum&fid=6',
       'childs' => 
       array (
         0 => '30',
@@ -171,7 +171,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => './public/upload/images/201108/18/4e4c3ed3eb234.jpg',
       'img' => './public/upload/images/201108/18/4e4c3ed3eb824.jpg',
-      'url' => '/meilishuo/club.php?action=forum&fid=7',
+      'url' => '/club.php?action=forum&fid=7',
       'childs' => 
       array (
         0 => '35',
@@ -185,7 +185,7 @@ $data['forums'] = array (
     8 => 
     array (
       'fid' => '8',
-      'name' => '方维大水塘',
+      'name' => '搭配大水塘',
       'uid' => '0',
       'user_name' => '',
       'parent_id' => '0',
@@ -198,12 +198,12 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => './public/upload/images/201108/18/4e4c3ef744f84.png',
       'img' => './public/upload/images/201108/18/4e4c3ef7455b1.jpg',
-      'url' => '/meilishuo/club.php?action=forum&fid=8',
+      'url' => '/club.php?action=forum&fid=8',
     ),
     9 => 
     array (
       'fid' => '9',
-      'name' => '方维活动吧',
+      'name' => '搭配活动吧',
       'uid' => '0',
       'user_name' => '',
       'parent_id' => '0',
@@ -211,12 +211,12 @@ $data['forums'] = array (
       'create_time' => '1310766160',
       'status' => '1',
       'thread_count' => '0',
-      'desc' => '蘑菇街官方活动吧，来许下你的礼物愿望吧，蘑菇街帮你实现。',
+      'desc' => '官方活动吧，来许下你的礼物愿望吧，帮你实现。',
       'seo_keywords' => '',
       'seo_desc' => '',
       'logo' => './public/upload/images/201108/18/4e4c3f1ab95aa.png',
       'img' => './public/upload/images/201108/18/4e4c3f1ab9b72.jpg',
-      'url' => '/meilishuo/club.php?action=forum&fid=9',
+      'url' => '/club.php?action=forum&fid=9',
       'childs' => 
       array (
         0 => '41',
@@ -233,13 +233,13 @@ $data['forums'] = array (
       'sort' => '10',
       'create_time' => '1310766185',
       'status' => '1',
-      'thread_count' => '0',
+      'thread_count' => '1',
       'desc' => '',
       'seo_keywords' => '',
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=10',
+      'url' => '/club.php?action=forum&fid=10',
     ),
     11 => 
     array (
@@ -257,7 +257,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=11',
+      'url' => '/club.php?action=forum&fid=11',
     ),
     12 => 
     array (
@@ -275,7 +275,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=12',
+      'url' => '/club.php?action=forum&fid=12',
     ),
     13 => 
     array (
@@ -293,7 +293,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=13',
+      'url' => '/club.php?action=forum&fid=13',
     ),
     14 => 
     array (
@@ -305,13 +305,13 @@ $data['forums'] = array (
       'sort' => '14',
       'create_time' => '1310766257',
       'status' => '1',
-      'thread_count' => '0',
+      'thread_count' => '1',
       'desc' => '',
       'seo_keywords' => '',
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=14',
+      'url' => '/club.php?action=forum&fid=14',
     ),
     15 => 
     array (
@@ -329,7 +329,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=15',
+      'url' => '/club.php?action=forum&fid=15',
     ),
     16 => 
     array (
@@ -347,7 +347,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=16',
+      'url' => '/club.php?action=forum&fid=16',
     ),
     17 => 
     array (
@@ -365,7 +365,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=17',
+      'url' => '/club.php?action=forum&fid=17',
     ),
     18 => 
     array (
@@ -383,7 +383,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=18',
+      'url' => '/club.php?action=forum&fid=18',
     ),
     19 => 
     array (
@@ -401,7 +401,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=19',
+      'url' => '/club.php?action=forum&fid=19',
     ),
     20 => 
     array (
@@ -419,7 +419,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=20',
+      'url' => '/club.php?action=forum&fid=20',
     ),
     21 => 
     array (
@@ -437,7 +437,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=21',
+      'url' => '/club.php?action=forum&fid=21',
     ),
     22 => 
     array (
@@ -455,7 +455,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=22',
+      'url' => '/club.php?action=forum&fid=22',
     ),
     23 => 
     array (
@@ -473,7 +473,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=23',
+      'url' => '/club.php?action=forum&fid=23',
     ),
     24 => 
     array (
@@ -491,7 +491,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=24',
+      'url' => '/club.php?action=forum&fid=24',
     ),
     25 => 
     array (
@@ -509,7 +509,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=25',
+      'url' => '/club.php?action=forum&fid=25',
     ),
     26 => 
     array (
@@ -527,7 +527,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=26',
+      'url' => '/club.php?action=forum&fid=26',
     ),
     27 => 
     array (
@@ -545,7 +545,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=27',
+      'url' => '/club.php?action=forum&fid=27',
     ),
     28 => 
     array (
@@ -563,7 +563,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=28',
+      'url' => '/club.php?action=forum&fid=28',
     ),
     29 => 
     array (
@@ -581,7 +581,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=29',
+      'url' => '/club.php?action=forum&fid=29',
     ),
     30 => 
     array (
@@ -599,7 +599,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=30',
+      'url' => '/club.php?action=forum&fid=30',
     ),
     31 => 
     array (
@@ -617,7 +617,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=31',
+      'url' => '/club.php?action=forum&fid=31',
     ),
     32 => 
     array (
@@ -635,7 +635,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=32',
+      'url' => '/club.php?action=forum&fid=32',
     ),
     33 => 
     array (
@@ -653,7 +653,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=33',
+      'url' => '/club.php?action=forum&fid=33',
     ),
     34 => 
     array (
@@ -671,7 +671,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=34',
+      'url' => '/club.php?action=forum&fid=34',
     ),
     35 => 
     array (
@@ -689,7 +689,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=35',
+      'url' => '/club.php?action=forum&fid=35',
     ),
     36 => 
     array (
@@ -707,7 +707,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=36',
+      'url' => '/club.php?action=forum&fid=36',
     ),
     37 => 
     array (
@@ -725,7 +725,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=37',
+      'url' => '/club.php?action=forum&fid=37',
     ),
     38 => 
     array (
@@ -743,7 +743,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=38',
+      'url' => '/club.php?action=forum&fid=38',
     ),
     39 => 
     array (
@@ -761,7 +761,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=39',
+      'url' => '/club.php?action=forum&fid=39',
     ),
     40 => 
     array (
@@ -779,7 +779,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=40',
+      'url' => '/club.php?action=forum&fid=40',
     ),
     41 => 
     array (
@@ -797,7 +797,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=41',
+      'url' => '/club.php?action=forum&fid=41',
     ),
     42 => 
     array (
@@ -815,7 +815,7 @@ $data['forums'] = array (
       'seo_desc' => '',
       'logo' => '',
       'img' => '',
-      'url' => '/meilishuo/club.php?action=forum&fid=42',
+      'url' => '/club.php?action=forum&fid=42',
     ),
   ),
   'root' => 

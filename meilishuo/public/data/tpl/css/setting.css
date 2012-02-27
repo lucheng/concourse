@@ -1,6 +1,6 @@
 #head { padding-bottom:25px; }
 #body { padding-top:20px; }
-#setting_box { font-size:14px; }
+#setting_box { font-size:14px; width:650px}
 #setting_box .head_bd { border:3px solid #e3e3e3; margin-right:15px; vertical-align:top; }
 #setting_box h1 { font-size:18px; color:#82af00; line-height:130%; }
 #setting_bar { margin:25px 0 0 45px; font-size:14px; width:200px; }
@@ -24,7 +24,7 @@
 .setting_basic .location select { width:70px; }
 .setting_basic .birthday select { width:60px; }
 .setting_basic .birthday input { width:54px; color:#333; }
-.setting_basic textarea { height:120px; width:466px; border:1px solid #999; color:#999; padding:5px; }
+.setting_basic textarea { height:120px; width:450px; border:1px solid #999; color:#999; padding:5px; }
 .setting_password .gray_text { height:24px; line-height:24px; width:194px; padding:0 5px; font-size:14px; }
 .setting_avartar dt { font-size:12px; }
 .setting_avartar span { color:#82af00; }
@@ -72,14 +72,14 @@
 .account_bind .bind_logo li a { color:#09e; float:left; }
 .account_bind .bind_logo li a.binded { color:#5e7d08; }
 .account_bind .bind_logo li a.binded { color:#5e7d08; }
-.account_bind .bind_logo .bind_web .addSync { background:url(/meilishuo/tpl/fanwe/images/addSync.png); display:block; width:91px; height:23px; margin-top:10px; clear:both; }
+.account_bind .bind_logo .bind_web .addSync { background:url(/tpl/uu43/images/addSync.png); display:block; width:91px; height:23px; margin-top:10px; clear:both; }
 .account_bind .bind_logo .bind_web .addSuccess { color:#690; line-height:23px; padding-left:12px; padding-top:10px; }
 .account_bind p { font-size:12px; line-height:180%; margin-top:40px; color:#333; }
 .bind_box { width:274px; height:118px; font-size:12px; background-color:#f5f5f5; margin-top:10px; position:absolute; display:none; }
-.bind_box .top_r { background:url(/meilishuo/tpl/fanwe/images/top_r.png) no-repeat scroll; height:4px; font-size:0; }
-.bind_box .bottom_r { background:url(/meilishuo/tpl/fanwe/images/bottom_r.png) no-repeat scroll; height:4px; }
+.bind_box .top_r { background:url(/tpl/uu43/images/top_r.png) no-repeat scroll; height:4px; font-size:0; }
+.bind_box .bottom_r { background:url(/tpl/uu43/images/bottom_r.png) no-repeat scroll; height:4px; }
 .bind_box.succ { display:block; }
-.bind_box .bind_arrow { position:absolute; left:0; top:-10px; width:12px; height:11px; _height:5px; background:#fff url(/meilishuo/tpl/fanwe/images/renren_arrow.png) no-repeat; }
+.bind_box .bind_arrow { position:absolute; left:0; top:-10px; width:12px; height:11px; _height:5px; background:#fff url(/tpl/uu43/images/renren_arrow.png) no-repeat; }
 .bind_box .bind_close { text-align:right; height:25px; line-height:25px; padding-right:10px; }
 .bind_box .bind_close a { color:#666; font-size:12px; float:right; }
 .bind_box dd { color:#333; width:75px; text-align:right; clear:both; }
@@ -94,6 +94,6 @@
 .bind_box .bind_cancel a { color:#09e; font-weight:bold; }
 .bind_box .bind_cancel a:hover { color:#fff; background-color:#09e; }
 .bind_box .bind_login { width:200px; padding-left:20px; float:left; }
-#renren_bind { background:url(/meilishuo/tpl/fanwe/images/bind_btn.png); display:block; width:41px; height:23px; }
+#renren_bind { background:url(/tpl/uu43/images/bind_btn.png); display:block; width:41px; height:23px; }
 #welcome { width:640px; height:100px; background-color:#d4edfe; margin-top:15px; font-size:14px; line-height:30px; padding:5px 45px 0 15px; }
 #welcome img { height:26px; width:26px; vertical-align:middle; }

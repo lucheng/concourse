@@ -67,7 +67,7 @@ $data['goods_category_tags_23'] = array (
     'tag_code' => '高帮',
     'sort' => '100',
     'is_hot' => '0',
-    'count' => '0',
+    'count' => '2',
     'url_tag' => '%E9%AB%98%E5%B8%AE',
   ),
   7 => 

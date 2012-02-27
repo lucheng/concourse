@@ -1,8 +1,8 @@
 <? if(!defined('IN_FANWE')) exit('Access Denied'); 
 0
-|| checkTplRefresh('./tpl/fanwe/page/daren.htm', './tpl/fanwe/inc/header.htm', 1329666724, './data/tpl/compiled/page_daren.tpl.php', './tpl/fanwe', 'page/daren')
-|| checkTplRefresh('./tpl/fanwe/page/daren.htm', './tpl/fanwe/inc/pages.htm', 1329666724, './data/tpl/compiled/page_daren.tpl.php', './tpl/fanwe', 'page/daren')
-|| checkTplRefresh('./tpl/fanwe/page/daren.htm', './tpl/fanwe/inc/footer.htm', 1329666724, './data/tpl/compiled/page_daren.tpl.php', './tpl/fanwe', 'page/daren')
+|| checkTplRefresh('./tpl/uu43/page/daren.htm', './tpl/uu43/inc/header.htm', 1330265339, './data/tpl/compiled/page_daren.tpl.php', './tpl/uu43', 'page/daren')
+|| checkTplRefresh('./tpl/uu43/page/daren.htm', './tpl/uu43/inc/pages.htm', 1330265339, './data/tpl/compiled/page_daren.tpl.php', './tpl/uu43', 'page/daren')
+|| checkTplRefresh('./tpl/uu43/page/daren.htm', './tpl/uu43/inc/footer.htm', 1330265339, './data/tpl/compiled/page_daren.tpl.php', './tpl/uu43', 'page/daren')
 ;?>
 <?php 
 $css_list[0]['url'] = './tpl/css/daren.css';
@@ -13,6 +13,7 @@ $css_list[0]['url'] = './tpl/css/daren.css';
 <title><? if(!empty($_FANWE['nav_title'])) { ?><?=$_FANWE['nav_title']?> - <? } if(empty($no_site_name)) { ?><?=$_FANWE['setting']['site_title']?><? } ?></title>
 <meta name="keywords" content="<?=$_FANWE['seo_keywords']?><?=$_FANWE['setting']['site_keywords']?>" />
 <meta name="description" content="<?=$_FANWE['seo_description']?><?=$_FANWE['setting']['site_description']?>" />
+<meta property="qc:admins" content="35400377776305526416375" />
 <link rel="icon" href="<?=$_FANWE['site_root']?>favicon.ico" type="image/x-icon" />
 <script src="./public/js/jquery.js" type="text/javascript"></script>
 <script src="./public/js/base.js" type="text/javascript"></script>
@@ -79,6 +80,9 @@ $cate_active = '';
 </li>
 <li>
 <a href="<?php echo FU('daren/index',array()); ?>"<? if(MODULE_NAME == 'Daren') { ?> class="c"<? } ?>>达人</a>
+</li>
+<li>
+<a href="<?php echo FU('shop/index',array()); ?>"<? if(MODULE_NAME == 'Shop') { ?> class="c"<? } ?>>格子铺</a>
 </li>
 </ul>
 
@@ -214,7 +218,7 @@ $(obj).remove();
 </script>	</div>
 <div id="foot_wrap">
 <div id="foot" class="fm960 mt10">
-<div class="fl"><? if(is_array($_FANWE['cache']['navs']['all']['2']['childs'])) { foreach($_FANWE['cache']['navs']['all']['2']['childs'] as $navcate_id) { ?><?php 
+<!--<div class="fl"><? if(is_array($_FANWE['cache']['navs']['all']['2']['childs'])) { foreach($_FANWE['cache']['navs']['all']['2']['childs'] as $navcate_id) { ?><?php 
 $nav_cate = $_FANWE['cache']['navs']['all'][$navcate_id];
  ?>
 <div class="links fl"><?php $first_nav_cate = ''; ?><b><?=$nav_cate['name']?></b>
@@ -230,6 +234,7 @@ $nav_cate = $_FANWE['cache']['navs']['all'][$navcate_id];
 </div>
 
 </div>
+-->
 </div>
 <div class="foot-links">
 友情链接：<?php $link_index = 1; if(is_array($_FANWE['cache']['links']['all'])) { foreach($_FANWE['cache']['links']['all'] as $link) { if($link_index > 12) { ?><?php break; } ?>
@@ -240,6 +245,9 @@ $nav_cate = $_FANWE['cache']['navs']['all'][$navcate_id];
 <div class="copyright"><?=$_FANWE['setting']['footer_html']?></div>
 </div>
 <div id="back2top"><a href="#"><span class="arrow">▲</span>回顶部</a></div>
+<!-- 百度统计开始 -->
+<?=$_FANWE['setting']['tongji']?>
+<!-- 百度统计结束 -->
 </body>
 <?php 
 $default_js[] = './public/js/lang.js';

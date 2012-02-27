@@ -89,7 +89,7 @@
 .plr10 { padding:0 10px; }
 .psb { padding:20px 0 15px 25px; }
 .gc { color:#E71F8D; }
-.bc { color:#09E; }
+.bc { color:#333; }
 .nc { color:#A3A9B5; }
 .ofh { white-space:nowrap; word-wrap:normal; word-break:normal; text-overflow:ellipsis; -o-text-overflow:ellipsis; overflow:hidden; }
 .clr { clear:both; }
@@ -106,3 +106,4 @@
 .blank12 {clear:both; height:12px; overflow:hidden; display:block;}
 .blank15 {clear:both; height:15px; overflow:hidden; display:block;}
 .blank20 {clear:both; height:20px; overflow:hidden; display:block;}
+.price{background-color: #E71F8D;}

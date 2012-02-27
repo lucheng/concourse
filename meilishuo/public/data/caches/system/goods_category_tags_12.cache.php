@@ -107,7 +107,7 @@ $data['goods_category_tags_12'] = array (
     'tag_code' => '印花',
     'sort' => '100',
     'is_hot' => '0',
-    'count' => '0',
+    'count' => '1',
     'url_tag' => '%E5%8D%B0%E8%8A%B1',
   ),
   11 => 
