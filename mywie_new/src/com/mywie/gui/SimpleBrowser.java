@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 
 import org.dom4j.Document;
 import org.dom4j.Element;
+import org.dom4j.Node;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -28,6 +29,7 @@ import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.layout.RowData;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
@@ -96,6 +98,15 @@ public class SimpleBrowser {
 		
 	}
 	
+	private String getHtmlSrc(String url, String windowStatus){
+		
+		Document doc = XmlHelp.cleanHtml(url);
+		Element root = doc.getRootElement();
+		Node selectNode = root.selectSingleNode("//*[@my_count_id='"+ windowStatus +"']");
+		
+		return selectNode.asXML();
+	}
+	
 	public boolean open(){
 
 		shell.setLayout(new FormLayout());
@@ -131,8 +142,13 @@ public class SimpleBrowser {
 		editItem.addSelectionListener(new SelectionListener() {
 			public void widgetSelected(SelectionEvent e) {
 				Shell parent = (Shell) menu.getParent();
+				
 				DataListViewer dataViewViewer = new DataListViewer(parent, markDatas);
 				dataViewViewer.open();
+				
+//				Sample1 sample1 = new Sample1(parent.getDisplay(), markDatas);
+//				sample1.open();
+				
 			}
 
 			public void widgetDefaultSelected(SelectionEvent e) {
@@ -142,15 +158,17 @@ public class SimpleBrowser {
 		
 		selectCodeItem.addSelectionListener(new SelectionListener() {
 			public void widgetSelected(SelectionEvent e) {
-				
-				 String html = "<html><head>"+ 
-							"<base href=\"http://www.eclipse.org/swt/\" >"+ 
-							"<title>HTML Test</title></head>"+ 
-							"<body><a href=\"faq.php\">local link</a></body></html>"; 
-				Shell parent = (Shell) menu.getParent();
-				CodeViewer codeViewer = new CodeViewer(parent, html);
-				codeViewer.createContents();
-//				codeViewer.open();
+				if(windowStatus == null){
+					MessageBox messagebox = new MessageBox(shell);
+					messagebox.setMessage("请先选择标签！！！");
+					messagebox.setText("出现错误！");
+					messagebox.open();
+				}else {
+					String html = getHtmlSrc(url, windowStatus);
+					Shell parent = (Shell) menu.getParent();
+					CodeViewer codeViewer = new CodeViewer(parent.getDisplay());
+					codeViewer.open(html);
+				}
 			}
 
 			public void widgetDefaultSelected(SelectionEvent e) {
@@ -265,9 +283,10 @@ class MarkInputDialog extends Dialog {
 		
 		Shell parent = getParent();
 		final Shell shell = new Shell(parent, SWT.CLOSE | SWT.APPLICATION_MODAL | SWT.CLOSE);
+		shell.setSize(319, 238);
 		shell.setText("标注文件");
 		
-		GridLayout gridLayout = new GridLayout(2, false);
+		GridLayout gridLayout = new GridLayout(3, true);
 		gridLayout.horizontalSpacing = 100;
 		gridLayout.verticalSpacing = 100;
 		gridLayout.marginLeft = 50;
@@ -283,40 +302,52 @@ class MarkInputDialog extends Dialog {
 		
 		Label label = new Label(shell, SWT.NULL);
 		label.setText("标注名:");
+		
+				final Text text = new Text(shell, SWT.SINGLE | SWT.BORDER);
+				text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 2, 1));
+				text.setText("");
 
-		final Text text = new Text(shell, SWT.SINGLE | SWT.BORDER);
+
+				final Button button = new Button(shell, SWT.CHECK);
+				button.setText("块选择");
+				
+				final Text text1 = new Text(shell, SWT.SINGLE | SWT.BORDER);
+				text1.setEnabled(false);
+				text1.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 2, 1));
+				text1.setText("");
 		
-		final Button button = new Button(shell, SWT.CHECK);
-		button.setText("块选择");
-		
-		final Text text1 = new Text(shell, SWT.SINGLE | SWT.BORDER);
-		text1.setEnabled(false);
+				
+				button.addSelectionListener(new SelectionListener(){
+
+					@Override
+					public void widgetDefaultSelected(SelectionEvent arg0) {
+						
+						
+					}
+
+					@Override
+					public void widgetSelected(SelectionEvent e) {
+						
+						if(text1.getEnabled()){
+							text1.setEnabled(false);
+						} else {
+							text1.setEnabled(true);
+						}
+					}
+					
+				});
 		
 		final Button buttonOK = new Button(shell, SWT.PUSH);
 		buttonOK.setText("确定");
-		buttonOK.setLayoutData(new GridData(GridData.HORIZONTAL_ALIGN_END));
+		GridData gd_buttonOK = new GridData(GridData.HORIZONTAL_ALIGN_END);
+		gd_buttonOK.widthHint = 80;
+		buttonOK.setLayoutData(gd_buttonOK);
+		
 		Button buttonCancel = new Button(shell, SWT.PUSH);
+		GridData gd_buttonCancel = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
+		gd_buttonCancel.widthHint = 80;
+		buttonCancel.setLayoutData(gd_buttonCancel);
 		buttonCancel.setText("取消");
-
-		button.addSelectionListener(new SelectionListener(){
-
-			@Override
-			public void widgetDefaultSelected(SelectionEvent arg0) {
-				
-				
-			}
-
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				
-				if(text1.getEnabled()){
-					text1.setEnabled(false);
-				} else {
-					text1.setEnabled(true);
-				}
-			}
-			
-		});
 		
 		buttonOK.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(Event event) {
@@ -340,11 +371,9 @@ class MarkInputDialog extends Dialog {
 					event.doit = false;
 			}
 		});
-
-		text.setText("");
-		text1.setText("");
 		
 		shell.pack();
+		new Label(shell, SWT.NONE);
 		shell.open();
 
 		Display display = parent.getDisplay();
@@ -386,6 +415,8 @@ class DataListViewer extends Dialog{
 	private void init() {
 		
 		listViewer = new ListViewer(shell);
+		org.eclipse.swt.widgets.List list = listViewer.getList();
+		list.setLayoutData(new RowData(270, SWT.DEFAULT));
 
 		listViewer.setContentProvider(new IStructuredContentProvider() {
 			public Object[] getElements(Object inputElement) {
@@ -403,7 +434,7 @@ class DataListViewer extends Dialog{
 		});
 
 		listViewer.setInput(viewDatas);
-
+		
 		listViewer.setLabelProvider(new LabelProvider() {
 			public Image getImage(Object element) {
 				return null;
@@ -485,16 +516,19 @@ class DataListViewer extends Dialog{
 	public void open() {
 		
 		RowLayout rowLayout = new RowLayout();
+		
 		rowLayout.marginBottom = 10;
 		rowLayout.marginTop = 10;
-		rowLayout.marginHeight = 100;
-		rowLayout.marginWidth = 100;
+//		rowLayout.marginHeight = 100;
+//		rowLayout.marginWidth = 100;
 		rowLayout.marginLeft = 20;
 		rowLayout.marginRight = 20;
 		
 		shell.setLayout(rowLayout);
 
-		(new Label(shell, SWT.NULL)).setText("列表");
+		Label label = new Label(shell, SWT.NULL);
+		label.setLayoutData(new RowData(39, 25));
+		label.setText("列表");
 
 		init();
 
@@ -514,87 +548,177 @@ class DataListViewer extends Dialog{
 		shell.dispose();
 	}
 
-	/*public static void main(String[] args) {
-		new DataListViewer(new Shell());
-	}*/
 }
 
-
 class CodeViewer {
+	
+	Display display;// = new Display();
+	Shell shell;// = new Shell(display);
 
+	public CodeViewer(Display display){
+		this.display = display;
+		this.shell = new Shell(display, SWT.APPLICATION_MODAL | SWT.CLOSE);
+	}
+	public void open(String htmlSrc) {
+
+		shell.setText("查看标签");
+
+		GridLayout gridLayout = new GridLayout(4, false);
+		gridLayout.verticalSpacing = 8;
+
+		shell.setLayout(gridLayout);
+
+		Label label = new Label(shell, SWT.NULL);
+		label.setText("标签源码：");
+
+		Text bookAbstract = new Text(shell, SWT.WRAP | SWT.MULTI | SWT.BORDER
+				| SWT.H_SCROLL | SWT.V_SCROLL);
+		GridData gridData = new GridData(GridData.HORIZONTAL_ALIGN_FILL
+				| GridData.VERTICAL_ALIGN_FILL);
+		gridData.horizontalSpan = 3;
+		gridData.grabExcessVerticalSpace = true;
+		gridData.minimumHeight = 200;
+
+		bookAbstract.setLayoutData(gridData);
+
+		bookAbstract.setText(htmlSrc);
+
+		shell.pack();
+		shell.open();
+
+		// Set up the event loop.
+		while (!shell.isDisposed()) {
+			if (!display.readAndDispatch()) {
+				// If no more entries in event queue
+				display.sleep();
+			}
+		}
+
+		shell.dispose();
+	}
+
+}
+
+class Sample1 {
+	
+	private Display display;
 	private Shell shell;
-	private String url;
-	private String content;
 	
-	public CodeViewer(Shell shell, String content) {
-		this.shell = shell;
-		this.url = "http://www.google.com";
-		this.content = content;
-		System.out.println("codeviewer");
-	}
-
+	private int selection;
 	
-	public void createContents() {
-
-		shell.setLayout(new FormLayout());
-
-		Composite controls = new Composite(shell, SWT.NONE);
-
-		FormData data = new FormData();
-		data.top = new FormAttachment(0, 0);
-		data.left = new FormAttachment(0, 0);
-		data.right = new FormAttachment(100, 0);
-		controls.setLayoutData(data);
-
-		/*final Browser browser = new Browser(shell, SWT.NONE);
-		data = new FormData();
-		data.top = new FormAttachment(controls);
-		data.bottom = new FormAttachment(100, 0);
-		data.left = new FormAttachment(0, 0);
-		data.right = new FormAttachment(100, 0);
-		browser.setLayoutData(data);
-		browser.setUrl(url);*/
+	private List<MarkData> viewDatas;
+	private List<MarkData> oldViewDatas;
+	private org.eclipse.swt.widgets.List listViewer;
+	
+	public Sample1(Display display, List<MarkData> viewDatas){
+		this.display = display;
+		this.shell = new Shell(display, SWT.APPLICATION_MODAL| SWT.CLOSE);
 		
-//		final Text browser = new Text(shell, SWT.SINGLE | SWT.BORDER);
-		
-		final Browser browser = new Browser(shell, SWT.NONE);
-		data = new FormData();
-		data.top = new FormAttachment(controls);
-		data.bottom = new FormAttachment(100, 0);
-		data.left = new FormAttachment(0, 0);
-		data.right = new FormAttachment(100, 0);
-		browser.setLayoutData(data);
-		
-//		browser.setText(content);
-		
-		browser.setUrl(url);
-		
-
-		controls.setLayout(new GridLayout(6, false));
+		this.viewDatas = viewDatas;
+		this.oldViewDatas = new ArrayList<MarkData>();
+		for(MarkData data : viewDatas){
+			oldViewDatas.add(data);
+		}
 	}
 	
-	public static void main(String[] args) {
-		Shell shell = new Shell();
-		String html = "<html><head></head><body>"+
-				"<div class=\"w\">"+
-	    "<div class=\"crumb\">"+
-         "wqweqweqweqwe"+
-        "</div>"+
-	"</div><body>";
-		CodeViewer dialog = new CodeViewer(shell, html);
-		dialog.createContents();
+	public void open() {
+
+		shell.setText("标注列表");
+
+		GridLayout gridLayout = new GridLayout(6, true);
+		gridLayout.verticalSpacing = 8;
+
+		shell.setLayout(gridLayout);
+
+		Label label = new Label(shell, SWT.NULL);
+		label.setText("标注列表");
+
+		GridData gridData = new GridData(GridData.HORIZONTAL_ALIGN_FILL
+				| GridData.VERTICAL_ALIGN_FILL);
+		gridData.horizontalSpan = 5;
+		gridData.grabExcessVerticalSpace = true;
+
+		listViewer = new org.eclipse.swt.widgets.List(shell, SWT.MAX);
+		
+	    for (int loopIndex = 0; loopIndex < viewDatas.size(); loopIndex++) {
+	    	listViewer.add(viewDatas.get(loopIndex).getSemantic());
+	    }
+	    
+	    listViewer.setLayoutData(gridData);
+	    listViewer.addListener(SWT.Selection, new Listener() {
+	        public void handleEvent(Event e) {
+	            int[] selections = listViewer.getSelectionIndices();
+	            for (int i = 0; i < selections.length; i++)
+	            	selection = selections[i];
+	            System.out.println("DefaultSelection={" + selection + "}");
+	          }
+	        });
+		label = new Label(shell, SWT.NONE);
+		
+		Button deleBtn = new Button(shell, SWT.PUSH);
+		deleBtn.setText("删除");
+
+		gridData = new GridData();
+		gridData.horizontalSpan = 1;
+//		gridData.horizontalAlignment = GridData.END;
+		deleBtn.setLayoutData(gridData);
+		
+		deleBtn.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				
+				MarkData data = (MarkData) viewDatas.get(selection);
+				if (data == null) {
+					System.out.println("Please select a language first.");
+					return;
+				}
+
+				viewDatas.remove(data);
+				System.out.println("Removed: " + data);
+
+				shell.redraw();
+			}
+		});
+
+		
+		Button cancleBtn = new Button(shell, SWT.PUSH);
+		cancleBtn.setText("取消");
+
+		gridData = new GridData();
+		gridData.horizontalSpan = 1;
+//		gridData.horizontalAlignment = GridData.END;
+		cancleBtn.setLayoutData(gridData);
+		
+		Button confirmBtn = new Button(shell, SWT.PUSH);
+		confirmBtn.setText("确定");
+		gridData = new GridData();
+		gridData.horizontalSpan = 1;
+		confirmBtn.setLayoutData(gridData);
+		
+
+		shell.pack();
+		shell.open();
+
+		// Set up the event loop.
+		while (!shell.isDisposed()) {
+			if (!display.readAndDispatch()) {
+				// If no more entries in event queue
+				display.sleep();
+			}
+		}
+
+		shell.dispose();
 	}
 	
 }
 
 class SafeSaveDialog {
 	
-	public static void main(String[] args){
+	/*public static void main(String[] args){
 		
 		Shell shell = new Shell();
 		SafeSaveDialog dl = new SafeSaveDialog(shell);
 		System.out.println(dl.open());
-	}
+	}*/
     public SafeSaveDialog(){
     }
     FileDialog dlg;

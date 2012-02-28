@@ -49,25 +49,21 @@ public class Extracter extends ExtractInfomation {
 		 * 进行简单树匹配，得到所要抽取的节点
 		 */
 		matchAlign.match(templateRoot, root2, matchNodes1, matchNodes2);
-//		FileHelp.writeFile("file/tem.xml", templateRoot.asXML());
-//		FileHelp.writeFile("file/tem2.xml", matchNodes2.asXML());
 		
-//		System.out.println(matchNodes1.size());
-//		System.out.println(matchNodes2.size());
-		for(Element e : matchNodes1){
-			System.out.println(e.asXML());
-		}
 		for (int j = 0; j < matchNodes1.size(); j++) {
+			
 			if (matchNodes1.get(j).attributeValue("semantic") != null) {
+				
+				System.out.println("not null!!");
 				matchNodes2.get(j).addAttribute("semantic", matchNodes1.get(j).attributeValue("semantic"));
-				System.out.println("matchNodes2:" + j);
+				
 				if(matchNodes1.get(j).attributeValue("block") != null){
 					matchNodes2.get(j).addAttribute("block", matchNodes1.get(j).attributeValue("block"));
 				}
 				result.add(matchNodes2.get(j));
 			}
 		}
-		System.out.println(result.size());
+		
 		if (result.size() > 0) {
 			extractElement = extractData.createDataElement(fileName, result);
 		}

@@ -63,22 +63,5 @@ public class Generater extends TemplateOperate{
 		int tempNum = generateTemplate(roots1);
 		return tempNum;
 	}
-	
-	
-	public static void main(String[] args) {
-		
-//		int count = 0;
-//		Generater generate = new Generater("C:/360buy/include/1.html");
-//		for(String name : FileHelp.getFiles("D:/data/360buy")){
-			
-	//		String name = "C:/360buy/http---www-360buy-com-product-1000062100-html.html";
-//			Document rawHtmlDoc = XmlHelp.getDocumentWithClean(name);
-//			Document htmlDoc = generate.preTemplate(generate.getMarkedFileDoc(), rawHtmlDoc);
-//			FileHelp.writeFile("file/" + (count++) + ".html", htmlDoc.asXML());
-//			
-//		}
-//		generate.generateTemplates("C:/360buy");
-	}
-	
 
 }

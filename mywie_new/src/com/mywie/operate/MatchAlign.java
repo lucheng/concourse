@@ -11,7 +11,92 @@ import com.mywie.model.NodeList;
 
 public class MatchAlign {
 
-//	private NodeCompare nodeCompare = new NodeCompare();
+	private NodeCompare nodeCompare = new NodeCompare();
+	
+	public int simpleTreeMatch(Element templateRoot, Element alignRoot, List<Element> matchNodes1, List<Element> matchNodes2) {
+
+		List<Element> templateElements = templateRoot.elements();
+		List<Element> alignRootElements = alignRoot.elements();
+		
+		int templateSize = templateElements.size();
+		int alignSize = alignRootElements.size();
+		
+		int c[][] = new int[templateSize + 1][alignSize + 1];
+		int b[][] = new int[templateSize + 1][alignSize + 1];
+		
+		NodeList p[][] = new NodeList[templateSize + 1][alignSize + 1];
+		NodeList q[][] = new NodeList[templateSize + 1][alignSize + 1];
+
+		for (int i = 0; i <= templateSize; i++) {
+			for (int j = 0; j <= alignSize; j++) {
+				c[i][j] = 0;
+				b[i][j] = 0;
+				p[i][j] = new NodeList();
+				q[i][j] = new NodeList();
+			}
+		}
+		
+		for (int i = 1; i <= templateSize; i++) {
+			
+			int j = 1;
+			int matchType;
+			int w;
+			while (j <= alignSize) {
+				
+				matchType = NodeCompare.compare(templateElements.get(i - 1), alignRootElements.get(j - 1));
+				
+				w = 0;
+				if (matchType != NodeCompare.DIFFERENT) {
+					w = simpleTreeMatch(templateElements.get(i - 1), alignRootElements.get(j - 1), p[i][j].getNodes(), q[i][j].getNodes());
+				}
+				
+				c[i][j] = c[i - 1][j - 1] + w;
+				if (c[i][j - 1] > c[i][j]) {
+					c[i][j] = c[i][j - 1];
+					b[i][j] = 1;
+				}
+				if (c[i - 1][j] > c[i][j]) {
+					c[i][j] = c[i - 1][j];
+					b[i][j] = 2;
+				}
+				j++;
+				
+				if (matchType == NodeCompare.EQUALITY){
+					break;
+				}
+			}
+			for (int k = j; k <= alignSize; k++) {
+				c[i][k] = c[i][k - 1];
+				b[i][k] = 1;
+			}
+		}
+
+		int i = templateSize;
+		int j = alignSize;
+		
+		while (i != 0 && j != 0) {
+			if (b[i][j] == 0) {
+				matchNodes1.addAll(p[i][j].getNodes());
+				matchNodes2.addAll(q[i][j].getNodes());
+				i--;
+				j--;
+			} else {
+				if (b[i][j] == 1) {
+					j--;
+				} else {
+					if (b[i][j] == 2) {
+						i--;
+					}
+				}
+			}
+		}
+
+		matchNodes1.add(templateRoot);
+		matchNodes2.add(alignRoot);
+		
+		int result = c[templateSize][alignSize] + 1;
+		return result;
+	}
 	
 	@SuppressWarnings("unchecked")
 	public int match(Element node1, Element node2,
@@ -44,20 +129,15 @@ public class MatchAlign {
 			int matchType;
 			int w;
 			while (j <= m) {
-				matchType = NodeCompare.compare(elements1.get(i - 1), elements2.get(j - 1));
+				matchType = nodeCompare.compare(elements1.get(i - 1), elements2
+						.get(j - 1));
 				w = 0;
-				if (matchType != NodeCompare.DIFFERENT) {
+				if (matchType != nodeCompare.DIFFERENT) {
 					w = match(elements1.get(i - 1), elements2.get(j - 1),
 							p[i][j].getNodes(), q[i][j].getNodes());
 				}
-				// System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-				// System.out.println(elements1.get(i - 1).asXML());
-				// System.out.println("##############################");
-				// System.out.println(elements2.get(j - 1).asXML());
-				// System.out.println(matchType);
-				// System.out.println(w);
-				if (NodeCompare.isListNode(elements1.get(i - 1))){
-					w=3;
+				if (nodeCompare.isListNode(elements1.get(i - 1))) {
+					w = 3;
 				}
 				c[i][j] = c[i - 1][j - 1] + w;
 				if (c[i][j - 1] > c[i][j]) {
@@ -69,7 +149,7 @@ public class MatchAlign {
 					b[i][j] = 2;
 				}
 				j++;
-				if (matchType == NodeCompare.EQUALITY) {
+				if (matchType == nodeCompare.EQUALITY) {
 					low = j;
 					break;
 				}
@@ -99,11 +179,13 @@ public class MatchAlign {
 				}
 			}
 		}
-		
 		matchNodes1.add(node1);
 		matchNodes2.add(node2);
 
-		return c[n][m] + 1;
+		int result = c[n][m] + 1;
+		c = null;
+		b = null;
+		return result;
 	}
 	
 

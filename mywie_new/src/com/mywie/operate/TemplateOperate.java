@@ -97,10 +97,11 @@ public class TemplateOperate {
 	}
 
 	protected boolean matchAlign(Element templateRoot, Element alignRoot) {
+		
 		List<Element> nodes1 = new ArrayList<Element>();
 		List<Element> nodes2 = new ArrayList<Element>();
 		
-		int w = matchAlign.match(templateRoot, alignRoot, nodes1, nodes2);
+		int w = matchAlign.simpleTreeMatch(templateRoot, alignRoot, nodes1, nodes2);
 		int m = XmlHelp.getElementCount(alignRoot);
 		System.out.println("ÏàËÆ¶È£º" + rate);
 		if ((double) w / m >= rate) {
@@ -112,7 +113,6 @@ public class TemplateOperate {
 	}
 
 	protected int generateTemplate(List<Element> roots) {
-		
 		srcRoots = roots;
 		newRoots = new ArrayList<Element>();
 		int num = roots.size();
@@ -154,7 +154,6 @@ public class TemplateOperate {
 			String templateName = "template" + templateNum + "-" + total + ".htm";
 			xmlHelp.writeDocument(directory + "/" + templateName, root.getDocument());
 		}
-//		copyFiles();
 		return templateNum;
 	}
 
