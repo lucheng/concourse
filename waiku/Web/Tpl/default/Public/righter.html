@@ -6,8 +6,8 @@
            <div id="titlebox">
 	            <volist name="hd" id="vo">
 		            <div class="thumbox">
-		            	<div class="thum"><img title="{$vo.title}" src="__PUBLIC__/Uploads/hd/{$vo.pic}" alt="{$vo.title}"></div>
-		                <div class="thumtt">{$vo.title|msubstr1=0,6,'utf-8',true}</div>
+		            	<div class="thum"><a href="{$vo.url}" target="_blank" ><img title="{$vo.title}" src="__PUBLIC__/Uploads/hd/{$vo.pic}" alt="{$vo.title}"></a></div>
+		                <div class="thumtt"><a href="{$vo.url}" target="_blank" >{$vo.title|msubstr1=0,6,'utf-8',true}</a></div>
 		            </div>
 	            </volist>
             </div>
