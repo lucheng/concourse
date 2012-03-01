@@ -1,0 +1,13 @@
+package com.htmlparser;
+
+public class HtmlParser {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
