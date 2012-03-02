@@ -16,7 +16,6 @@ import org.xml.sax.SAXException;
 
 import com.mywie.utils.FileHelp;
 import com.mywie.utils.XmlHelp;
-//import com.mywie.utils.XmlHelp;
 /**
  * 抽取数据
  * 为了解决outofmemory的情况，必须修改这抽取一个文件为数据写一次xml文件，
@@ -38,7 +37,6 @@ public class ExtractData {
 	}
 	
 	private XMLWriter out;
-//	private Map<String, List<Element>> datas = new HashMap<String, List<Element>>();
 	private List<String> titles = new ArrayList<String>();
 	
 	private String destDirectory;
@@ -84,7 +82,6 @@ public class ExtractData {
 
 	public void setTemplateFile(String templateFile) {
 		this.templateFile = templateFile;
-//		this.templateRoot = XmlHelp.getDocument(templateFile).getRootElement();
 	}
 	
 	public Element getTemplateRoot() {
@@ -110,8 +107,15 @@ public class ExtractData {
 				if (element.attributeValue("semantic").equals(title)) {
 
 					wieData = new WieData();
-					
-					String semantic = element.getStringValue();
+					//如果是图片
+					String semantic = "";
+					if(element.getName().equalsIgnoreCase("img")){
+						semantic = element.attribute("src").getStringValue();
+					}else if(element.getName().equalsIgnoreCase("a")){
+						semantic = element.attribute("src").getStringValue();
+					}else {
+						semantic = element.getStringValue();
+					}
 					semanticMap.put(title, semantic);
 					
 					List<String> blockValueList = new ArrayList<String>();
@@ -124,7 +128,15 @@ public class ExtractData {
 						for (Node node : nodes){
 							if (node != null && Node.ELEMENT_NODE == node.getNodeType()) {
 								Element temp = (Element) node;
-								blockValueList.add(temp.getStringValue());
+								String blockStr = "";
+								if(temp.getName().equalsIgnoreCase("img")){
+									blockStr = temp.attribute("src").getStringValue();
+								}else if(temp.getName().equalsIgnoreCase("a")){
+									blockStr = temp.attribute("src").getStringValue();
+								}else {
+									blockStr = temp.getStringValue();
+								}
+								blockValueList.add(blockStr);
 							}
 						}
 						
