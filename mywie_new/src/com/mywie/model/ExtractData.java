@@ -33,7 +33,14 @@ public class ExtractData {
 		
 		this.directory = directory;
 		this.templateFile = templateFile;
+		this.templateRoot = XmlHelp.getDocument(templateFile).getRootElement();
 		init();
+	}
+	
+	public ExtractData(String templateFile){
+		
+		this.templateFile = templateFile;
+		this.templateRoot = XmlHelp.getDocument(templateFile).getRootElement();
 	}
 	
 	private XMLWriter out;
@@ -112,7 +119,7 @@ public class ExtractData {
 					if(element.getName().equalsIgnoreCase("img")){
 						semantic = element.attribute("src").getStringValue();
 					}else if(element.getName().equalsIgnoreCase("a")){
-						semantic = element.attribute("src").getStringValue();
+						semantic = element.attribute("href").getStringValue();
 					}else {
 						semantic = element.getStringValue();
 					}
@@ -201,8 +208,6 @@ public class ExtractData {
 	
 	private void init(){
 		
-		this.templateRoot = XmlHelp.getDocument(templateFile).getRootElement();
-		
 		destDirectory = directory + "/extraction";
 		FileHelp.makedir(destDirectory);
 		FileHelp.copyJarFile("include/extraction.xsl", destDirectory + "/extraction.xsl");
@@ -217,6 +222,7 @@ public class ExtractData {
 			out = new XMLWriter(new FileWriter(destDirectory + "/extraction.xml"), outputFormat);
 			out.startDocument();
 			out.processingInstruction("xml-stylesheet", "type='text/xsl' href='extraction.xsl'");
+			
 			rootElement = DocumentHelper.createElement("extractions");
 			Element titlesElement = rootElement.addElement("titles");
 			List<Node> titleNodes = templateRoot.selectNodes("//*[@semantic]");
@@ -239,9 +245,6 @@ public class ExtractData {
 		} catch (SAXException e) {
 			e.printStackTrace();
 		}
-		
-		
-		
 	}
 	
 	public void close(){
