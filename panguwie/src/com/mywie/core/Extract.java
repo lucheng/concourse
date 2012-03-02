@@ -20,7 +20,6 @@ public class Extract extends Thread {
 	
 	private static String templateFile;
 	private String markedFile;
-//	private String[] extractFiles;
 	private Element root;
 	private String directory;
 	private Text textArea;
@@ -87,7 +86,6 @@ public class Extract extends Thread {
 				public void run() {
 					getStatusBar().changeToRunning();
 					getStatusBar().setStatus("正在抽取数据...");
-
 				}
 
 			});
@@ -194,13 +192,7 @@ public class Extract extends Thread {
 	}
 
 	public void run(){
-		
 		extract();
-		/*if(this.extractType == Extract.QUICK){
-			extractQuick();
-		}else {
-			extract();
-		}*/
 	}
 
 	public WieStatusBar getStatusBar() {
