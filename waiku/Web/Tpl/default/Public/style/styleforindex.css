@@ -128,7 +128,7 @@ ul, li{
 	}
 .index_pic{
 	width:345;
-	height:90px;
+	height:150px;
 	border-right:1px solid #999;
 	float:left;
 	padding-left:20px;
@@ -182,12 +182,12 @@ ul, li{
 }
 .resu{
 	width:345px;
-     height:136px;
+     height:166px;
      overflow:hidden;
 }
 .resue{
 	width:345px;
-	height:135px;
+	height:165px;
 	overflow:hidden;
 }
 /*menu*/

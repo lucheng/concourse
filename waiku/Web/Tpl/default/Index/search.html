@@ -10,9 +10,33 @@
 <link href="__PUBLIC__/Web/images/default.css" rel="stylesheet" type="text/css"/>
 <script src="__PUBLIC__/Web/js/common.js" type="text/javascript"></script>
 <script src="__PUBLIC__/Web/js/marquee.js" type="text/javascript"></script>
+<script type="text/javascript" defer="defer">
+	var value=3;
+</script>
+<!-- InstanceEndEditable -->
+<link href="../Public/style/styleforindex.css" rel="stylesheet" type="text/css" />
+<!-- InstanceBeginEditable name="head" -->
+<link href="../Public/style/s_expert.css" rel="stylesheet" type="text/css" />
+<!-- InstanceEndEditable -->
+
+<style>
+  .index_menu{
+	background-image:url(../Public/images/index/bg.jpg);
+}
+</style>
 </head>
 <body>
-<include file="Public:head"/>
+
+<div id=contener>
+<include file="Public:top" />
+        <div class="clear"></div>
+	<div id="context">
+		<include file="Public:menu" />
+ 			<div id="bgimage">
+ 			 <img src="../Public/images/index/bging.jpg" width="1038" height="150" />
+ 			</div> 
+   		 <include file="Public:top_flash" />
+    </div>
 <div id="positionbg">
     <div id="position"><a href="__APP__">{$config.sitetitle}</a>&nbsp;&gt;&nbsp;共搜索到<font color="red"><b>{$num}</b></font>篇文章</div>
 	<div id="sousuo"><form name="search" method="post" action="{:U('s/search');}"><input type="text" name="k" id="kw" value="{$keyword}" maxlength="60"><input type="submit" value="搜索" class="btn">{__TOKEN__}</form></div>
@@ -43,6 +67,9 @@
 		      <div class="RHList"><ul>{:ShowArt(0,5,0,0);}</ul></div>
          </div>
 	</div>
-</div><include file="Public:footer"/>
+</div>
+<div class="clear"></div>
+<include file="Public:footer"/>
+</div>
 </body>
 </html>
