@@ -98,29 +98,40 @@ public class MatchAlign {
 		return result;
 	}
 	
-	@SuppressWarnings("unchecked")
-	public int match(Element node1, Element node2,
-			List<Element> matchNodes1, List<Element> matchNodes2) {
+	/**
+	 * 用于抽取数据时进行节点匹配的方法
+	 * @param templateNode
+	 * @param rawNode
+	 * @param templateMatchNodes
+	 * @param rawMatchNodes
+	 * @return
+	 */
+	@SuppressWarnings({ "unchecked", "static-access" })
+	public int match(Element templateNode, Element rawNode, List<Element> templateMatchNodes, List<Element> rawMatchNodes) {
 
-		List<Element> elements1 = node1.elements();
-		List<Element> elements2 = node2.elements();
-		int n = elements1.size();
-		int m = elements2.size();
-		int c[][] = new int[n + 1][m + 1];
-		int b[][] = new int[n + 1][m + 1];
-		NodeList p[][] = new NodeList[n + 1][m + 1];
-		NodeList q[][] = new NodeList[n + 1][m + 1];
+		List<Element> templateElements = templateNode.elements();
+		List<Element> rawElements = rawNode.elements();
+		
+		int templateSize = templateElements.size();
+		int rawSize = rawElements.size();
+		
+		int c[][] = new int[templateSize + 1][rawSize + 1];
+		int b[][] = new int[templateSize + 1][rawSize + 1];
+		
+		NodeList p[][] = new NodeList[templateSize + 1][rawSize + 1];
+		NodeList q[][] = new NodeList[templateSize + 1][rawSize + 1];
 
-		for (int i = 0; i <= n; i++) {
-			for (int j = 0; j <= m; j++) {
+		for (int i = 0; i <= templateSize; i++) {
+			for (int j = 0; j <= rawSize; j++) {
 				c[i][j] = 0;
 				b[i][j] = 0;
 				p[i][j] = new NodeList();
 				q[i][j] = new NodeList();
 			}
 		}
+		
 		int low = 1;
-		for (int i = 1; i <= n; i++) {
+		for (int i = 1; i <= templateSize; i++) {
 			for (int k = 1; k < low; k++) {
 				c[i][k] = c[i - 1][k];
 				b[i][k] = 2;
@@ -128,15 +139,17 @@ public class MatchAlign {
 			int j = low;
 			int matchType;
 			int w;
-			while (j <= m) {
-				matchType = nodeCompare.compare(elements1.get(i - 1), elements2
-						.get(j - 1));
+			while (j <= rawSize) {
+				
+				if(templateElements.get(i - 1).attribute("semantic") != null){
+					System.out.println(templateElements.get(i - 1).attributeValue("my_count_id"));
+				}
+				matchType = nodeCompare.compare(templateElements.get(i - 1), rawElements.get(j - 1));
 				w = 0;
 				if (matchType != nodeCompare.DIFFERENT) {
-					w = match(elements1.get(i - 1), elements2.get(j - 1),
-							p[i][j].getNodes(), q[i][j].getNodes());
+					w = match(templateElements.get(i - 1), rawElements.get(j - 1), p[i][j].getNodes(), q[i][j].getNodes());
 				}
-				if (nodeCompare.isListNode(elements1.get(i - 1))) {
+				if (nodeCompare.isListNode(templateElements.get(i - 1))) {
 					w = 3;
 				}
 				c[i][j] = c[i - 1][j - 1] + w;
@@ -154,19 +167,19 @@ public class MatchAlign {
 					break;
 				}
 			}
-			for (int k = j; k <= m; k++) {
+			for (int k = j; k <= rawSize; k++) {
 				c[i][k] = c[i][k - 1];
 				b[i][k] = 1;
 
 			}
 		}
 
-		int i = n;
-		int j = m;
+		int i = templateSize;
+		int j = rawSize;
 		while (i != 0 && j != 0) {
 			if (b[i][j] == 0) {
-				matchNodes1.addAll(p[i][j].getNodes());
-				matchNodes2.addAll(q[i][j].getNodes());
+				templateMatchNodes.addAll(p[i][j].getNodes());
+				rawMatchNodes.addAll(q[i][j].getNodes());
 				i--;
 				j--;
 			} else {
@@ -179,10 +192,10 @@ public class MatchAlign {
 				}
 			}
 		}
-		matchNodes1.add(node1);
-		matchNodes2.add(node2);
+		templateMatchNodes.add(templateNode);
+		rawMatchNodes.add(rawNode);
 
-		int result = c[n][m] + 1;
+		int result = c[templateSize][rawSize] + 1;
 		c = null;
 		b = null;
 		return result;

@@ -14,6 +14,7 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 import org.xml.sax.SAXException;
 
+import com.mywie.operate.TemplateOperate;
 import com.mywie.utils.FileHelp;
 import com.mywie.utils.XmlHelp;
 /**
@@ -117,10 +118,11 @@ public class ExtractData {
 					//Èç¹ûÊÇÍ¼Æ¬
 					String semantic = "";
 					if(element.getName().equalsIgnoreCase("img")){
-						semantic = element.attribute("src").getStringValue();
-					}else if(element.getName().equalsIgnoreCase("a")){
+//						semantic = element.attribute("src").getStringValue();
+						semantic = element.asXML();
+					}/*else if(element.getName().equalsIgnoreCase("a")){
 						semantic = element.attribute("href").getStringValue();
-					}else {
+					}*/else {
 						semantic = element.getStringValue();
 					}
 					semanticMap.put(title, semantic);

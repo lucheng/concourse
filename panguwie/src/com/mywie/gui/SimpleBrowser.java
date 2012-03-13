@@ -73,6 +73,7 @@ public class SimpleBrowser {
 		this.display = display;
 		this.shell = new Shell(display, SWT.CLOSE | SWT.MAX | SWT.APPLICATION_MODAL);
 		this.url = url;
+		System.out.println("template url:" + this.url);
 		getExtractions(url);
 	}
 
@@ -145,9 +146,6 @@ public class SimpleBrowser {
 				
 				DataListViewer dataViewViewer = new DataListViewer(parent, markDatas);
 				dataViewViewer.open();
-				
-//				Sample1 sample1 = new Sample1(parent.getDisplay(), markDatas);
-//				sample1.open();
 				
 			}
 

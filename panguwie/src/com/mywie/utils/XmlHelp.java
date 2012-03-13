@@ -157,7 +157,13 @@ public class XmlHelp {
 		elements.add(addHtml(root));
 		
 		int count = 1;
-		while (elements.size() > 0 && root.selectNodes("//*[@my_count_id]") == null) {
+		
+		/*System.out.println(elements.size());
+		List<Element> element = root.selectNodes("//*[@my_count_id]");
+		for(Element e : element){
+			System.out.println(e.asXML());
+		}*/
+		while (elements.size() > 0 && root.selectNodes("//*[@my_count_id]").size() == 0) {
 			
 			Element temp = elements.remove(0);
 			temp.addAttribute("my_count_id", Integer.toString(count++));

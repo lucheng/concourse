@@ -6,6 +6,7 @@ import org.dom4j.Element;
 import org.dom4j.Node;
 
 import com.mywie.model.MarkData;
+import com.mywie.model.NodeCompare;
 import com.mywie.utils.FileHelp;
 import com.mywie.utils.XmlHelp;
 
@@ -29,12 +30,14 @@ public class EditHtml {
 			if (node != null && Node.ELEMENT_NODE == node.getNodeType()) {
 				Element element = (Element) node;
 				element.remove(element.attribute("semantic"));
-				element.remove(element.attribute("block"));
-				element.remove(element.attribute("num"));
 			}
 		}
 		for (MarkData data : markDatas) {
+			/**
+			 * 将标记的标签写入标注文件中
+			 */
 			Node node = root.selectSingleNode("//*[@my_count_id='" + data.getWindowStatus() + "']");
+			
 			if (node != null && Node.ELEMENT_NODE == node.getNodeType()) {
 				Element temp = (Element) node;
 				temp.addAttribute("semantic", data.getSemantic());
@@ -42,8 +45,24 @@ public class EditHtml {
 				if(data.getBlock() != null && !data.getBlock().equals("")){
 					temp.addAttribute("block", data.getBlock());
 				}
+				/**
+				 * 将相似结点也标注上信息
+				 */
+				/*int count = 1;
+				List<Element> nodeSimilar = root.selectNodes(node.getPath());
+				for(Element e : nodeSimilar){
+					
+					if(NodeCompare.simslarAttribute(e, (Element)node)){
+						e.addAttribute("semantic", data.getSemantic() + count);
+						if(data.getBlock() != null && !data.getBlock().equals("")){
+							e.addAttribute("block", data.getBlock() + count);
+						}
+						count++;
+					}
+				}*/
 			}
 		}
+		
 		/**
 		 * 循环加上一个父子结点的标志
 		 */

@@ -7,6 +7,8 @@ import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.Node;
 
+import com.mywie.model.NodeCompare;
+import com.mywie.utils.FileHelp;
 import com.mywie.utils.XmlHelp;
 
 public class TemplateOperate {
@@ -180,7 +182,43 @@ public class TemplateOperate {
 			addScript("include/template.js", headElement);
 		}
 	}
+	
+	/*public static void markSimilerNodes(List<Element> matchNodes){
+		
+		for(int i = 0; i < matchNodes.size(); i++){
+			if (matchNodes.get(i).attributeValue("semantic") != null) {
+				for(int j = i+1; j < matchNodes.size(); j++){
+					if(matchNodes.get(j).attributeValue("semantic") == null && NodeCompare.compare(matchNodes.get(i), matchNodes.get(j)) > NodeCompare.DIFFERENT){
+						
+						matchNodes.get(j).addAttribute("semantic", matchNodes.get(i).attributeValue("semantic"));
+						
+						if(matchNodes.get(i).attributeValue("block") != null){
+							matchNodes.get(j).addAttribute("block", matchNodes.get(i).attributeValue("block"));
+						}
+					}
+				}
+			}
+		}
+	}*/
 
+		
+
+	/*public static Element markSimilerElements(Element root){
+		
+		List<Element> semanticNodes = root.selectNodes("//*[@semantic]");
+		for(int i = 0; i < semanticNodes.size(); i++){
+			List<Element> sublings = semanticNodes.get(i).getParent().elements();
+			
+			for(int j = 0; j < sublings.size(); j++){
+//				if(semanticNodes.get(i).getName().equalsIgnoreCase(sublings.get(j).getName())){
+				if(NodeCompare.compare(semanticNodes.get(i), sublings.get(j)) > NodeCompare.DIFFERENT){
+					((Element)sublings.get(j)).addAttribute("semantic", ((Element)semanticNodes.get(i)).attributeValue("semantic"));
+				}
+			}
+
+		}
+		return root;
+	}*/
 
 	public double getRate() {
 		return rate;
@@ -202,4 +240,12 @@ public class TemplateOperate {
 		return doc.getRootElement();
 	}
 
+	public static void main(String[] args){
+		
+		String fileName = "C:/Users/Administrator/Desktop/buptssewie/baike/template/template.html";
+		Element root = XmlHelp.getDocumentWithClean(fileName).getRootElement();
+		System.out.println(root.selectNodes("//*[@semantic]").size());
+//		FileHelp.writeFile("similar.xml", markSimilerElements(root).asXML());
+		
+	}
 }

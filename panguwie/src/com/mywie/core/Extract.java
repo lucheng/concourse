@@ -12,7 +12,9 @@ import org.eclipse.swt.widgets.Text;
 
 import com.mywie.gui.WieStatusBar;
 import com.mywie.model.ExtractData;
+import com.mywie.model.NodeCompare;
 import com.mywie.operate.MatchAlign;
+import com.mywie.operate.TemplateOperate;
 import com.mywie.utils.FileHelp;
 import com.mywie.utils.XmlHelp;
 
@@ -111,7 +113,10 @@ public class Extract extends Thread {
 				/**
 				 * 进行简单树匹配，得到所要抽取的节点
 				 */
+//				TemplateOperate.markSimilerElements(root);
 				matchAlign.match(root, root2, matchNodes1, matchNodes2);
+				
+//				TemplateOperate.markSimilerNodes(matchNodes1);
 				
 				for (int j = 0; j < matchNodes1.size(); j++) {
 					
