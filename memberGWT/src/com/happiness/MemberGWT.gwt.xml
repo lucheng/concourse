@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='membergwt'>
+
+	<inherits name="com.google.gwt.user.User" />
+	<inherits name="com.google.gwt.json.JSON" /> 
+	<inherits name="com.google.gwt.xml.XML" />
+	<inherits name="com.google.gwt.http.HTTP" />
+	<inherits name="com.google.gwt.i18n.I18N"/> 
+    <inherits name="com.smartgwt.SmartGwt"/>
+    <inherits name="com.axeiya.gwtckeditor.Gwtckeditor"/>
+    
+	<entry-point class='com.happiness.client.MemberGWT'/>
+
+  <source path='client'/>
+  <source path='shared'/>
+
+</module>
