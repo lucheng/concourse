@@ -1,0 +1,570 @@
+http://zh.wikipedia.org/wiki/Ê®Áù‡ø PAGE 1
+- start time: Thu Mar 15 11:09:19 CST 2012
+- end time: Thu Mar 15 11:09:40 CST 2012
+- file name: http---zh-wikipedia-org-wiki-Ê®Áù‡ø-1.html
+- file size: 309K
+
+http://www.baidu.com/search/error.html PAGE 1
+- start time: Thu Mar 15 11:18:53 CST 2012
+- end time: Thu Mar 15 11:18:55 CST 2012
+- file name: http---www-baidu-com-search-error-html-1.html
+- file size: 2K
+
+http://www.baidu.com/search/error.html PAGE 1
+- start time: Thu Mar 15 11:19:09 CST 2012
+- end time: Thu Mar 15 11:19:11 CST 2012
+- file name: http---www-baidu-com-search-error-html-1.html
+- file size: 2K
+
+http://baike.baidu.com/view/1.htm PAGE 1
+- start time: Thu Mar 15 11:19:26 CST 2012
+- end time: Thu Mar 15 11:19:32 CST 2012
+- file name: http---baike-baidu-com-view-1-htm-1.html
+- file size: 110K
+
+http://baike.baidu.com/view/1.htm PAGE 1
+- start time: Thu Mar 15 11:20:44 CST 2012
+- end time: Thu Mar 15 11:20:51 CST 2012
+- file name: http---baike-baidu-com-view-1-htm-1.html
+- file size: 110K
+
+http://baike.baidu.com/view/1.htm PAGE 1
+- start time: Thu Mar 15 11:21:19 CST 2012
+- end time: Thu Mar 15 11:21:25 CST 2012
+- file name: http---baike-baidu-com-view-1-htm-1.html
+- file size: 110K
+
+http://baike.baidu.com/view/1.htm PAGE 1
+- start time: Thu Mar 15 11:23:26 CST 2012
+- end time: Thu Mar 15 11:23:33 CST 2012
+- file name: http---baike-baidu-com-view-1-htm-1.html
+- file size: 110K
+
+http://baike.baidu.com/view/2.htm PAGE 1
+- start time: Thu Mar 15 11:23:33 CST 2012
+- end time: Thu Mar 15 11:23:36 CST 2012
+- file name: http---baike-baidu-com-view-2-htm-1.html
+- file size: 28K
+
+http://baike.baidu.com/view/3.htm PAGE 1
+- start time: Thu Mar 15 11:23:36 CST 2012
+- end time: Thu Mar 15 11:23:40 CST 2012
+- file name: http---baike-baidu-com-view-3-htm-1.html
+- file size: 72K
+
+http://baike.baidu.com/view/4.htm PAGE 1
+- start time: Thu Mar 15 11:23:40 CST 2012
+- end time: Thu Mar 15 11:23:46 CST 2012
+- file name: http---baike-baidu-com-view-4-htm-1.html
+- file size: 104K
+
+http://baike.baidu.com/error/fail PAGE 1
+- start time: Thu Mar 15 11:23:46 CST 2012
+- end time: Thu Mar 15 11:23:48 CST 2012
+- file name: http---baike-baidu-com-error-fail-1.html
+- file size: 3K
+
+http://baike.baidu.com/view/6.htm PAGE 1
+- start time: Thu Mar 15 11:23:48 CST 2012
+- end time: Thu Mar 15 11:23:57 CST 2012
+- file name: http---baike-baidu-com-view-6-htm-1.html
+- file size: 104K
+
+http://baike.baidu.com/view/7.htm PAGE 1
+- start time: Thu Mar 15 11:23:57 CST 2012
+- end time: Thu Mar 15 11:24:00 CST 2012
+- file name: http---baike-baidu-com-view-7-htm-1.html
+- file size: 31K
+
+http://baike.baidu.com/view/8.htm PAGE 1
+- start time: Thu Mar 15 11:24:00 CST 2012
+- end time: Thu Mar 15 11:24:07 CST 2012
+- file name: http---baike-baidu-com-view-8-htm-1.html
+- file size: 59K
+
+http://baike.baidu.com/view/9.htm PAGE 1
+- start time: Thu Mar 15 11:24:07 CST 2012
+- end time: Thu Mar 15 11:24:11 CST 2012
+- file name: http---baike-baidu-com-view-9-htm-1.html
+- file size: 46K
+
+http://baike.baidu.com/view/10.htm PAGE 1
+- start time: Thu Mar 15 11:24:11 CST 2012
+- end time: Thu Mar 15 11:24:14 CST 2012
+- file name: http---baike-baidu-com-view-10-htm-1.html
+- file size: 37K
+
+http://baike.baidu.com/view/11.htm PAGE 1
+- start time: Thu Mar 15 11:24:14 CST 2012
+- end time: Thu Mar 15 11:24:18 CST 2012
+- file name: http---baike-baidu-com-view-11-htm-1.html
+- file size: 48K
+
+http://baike.baidu.com/view/12.htm PAGE 1
+- start time: Thu Mar 15 11:24:18 CST 2012
+- end time: Thu Mar 15 11:24:27 CST 2012
+- file name: http---baike-baidu-com-view-12-htm-1.html
+- file size: 179K
+
+http://baike.baidu.com/view/13.htm PAGE 1
+- start time: Thu Mar 15 11:24:27 CST 2012
+- end time: Thu Mar 15 11:24:31 CST 2012
+- file name: http---baike-baidu-com-view-13-htm-1.html
+- file size: 35K
+
+http://baike.baidu.com/view/14.htm PAGE 1
+- start time: Thu Mar 15 11:24:31 CST 2012
+- end time: Thu Mar 15 11:24:37 CST 2012
+- file name: http---baike-baidu-com-view-14-htm-1.html
+- file size: 88K
+
+http://baike.baidu.com/error/fail PAGE 1
+- start time: Thu Mar 15 11:24:37 CST 2012
+- end time: Thu Mar 15 11:24:39 CST 2012
+- file name: http---baike-baidu-com-error-fail-1.html
+- file size: 3K
+
+http://baike.baidu.com/view/16.htm PAGE 1
+- start time: Thu Mar 15 11:24:39 CST 2012
+- end time: Thu Mar 15 11:24:44 CST 2012
+- file name: http---baike-baidu-com-view-16-htm-1.html
+- file size: 86K
+
+http://baike.baidu.com/view/17.htm PAGE 1
+- start time: Thu Mar 15 11:24:44 CST 2012
+- end time: Thu Mar 15 11:24:48 CST 2012
+- file name: http---baike-baidu-com-view-17-htm-1.html
+- file size: 36K
+
+http://baike.baidu.com/view/18.htm PAGE 1
+- start time: Thu Mar 15 11:24:48 CST 2012
+- end time: Thu Mar 15 11:24:53 CST 2012
+- file name: http---baike-baidu-com-view-18-htm-1.html
+- file size: 84K
+
+http://baike.baidu.com/view/19.htm PAGE 1
+- start time: Thu Mar 15 11:24:53 CST 2012
+- end time: Thu Mar 15 11:24:56 CST 2012
+- file name: http---baike-baidu-com-view-19-htm-1.html
+- file size: 35K
+
+http://baike.baidu.com/view/20.htm PAGE 1
+- start time: Thu Mar 15 11:24:56 CST 2012
+- end time: Thu Mar 15 11:24:59 CST 2012
+- file name: http---baike-baidu-com-view-20-htm-1.html
+- file size: 25K
+
+http://baike.baidu.com/view/21.htm PAGE 1
+- start time: Thu Mar 15 11:24:59 CST 2012
+- end time: Thu Mar 15 11:25:02 CST 2012
+- file name: http---baike-baidu-com-view-21-htm-1.html
+- file size: 32K
+
+http://baike.baidu.com/error/fail PAGE 1
+- start time: Thu Mar 15 11:25:03 CST 2012
+- end time: Thu Mar 15 11:25:05 CST 2012
+- file name: http---baike-baidu-com-error-fail-1.html
+- file size: 3K
+
+http://baike.baidu.com/view/23.htm PAGE 1
+- start time: Thu Mar 15 11:25:05 CST 2012
+- end time: Thu Mar 15 11:25:11 CST 2012
+- file name: http---baike-baidu-com-view-23-htm-1.html
+- file size: 30K
+
+http://baike.baidu.com/error/fail PAGE 1
+- start time: Thu Mar 15 11:25:11 CST 2012
+- end time: Thu Mar 15 11:25:13 CST 2012
+- file name: http---baike-baidu-com-error-fail-1.html
+- file size: 3K
+
+http://baike.baidu.com/view/25.htm PAGE 1
+- start time: Thu Mar 15 11:25:13 CST 2012
+- end time: Thu Mar 15 11:25:17 CST 2012
+- file name: http---baike-baidu-com-view-25-htm-1.html
+- file size: 68K
+
+http://baike.baidu.com/view/26.htm PAGE 1
+- start time: Thu Mar 15 11:25:17 CST 2012
+- end time: Thu Mar 15 11:25:20 CST 2012
+- file name: http---baike-baidu-com-view-26-htm-1.html
+- file size: 108K
+
+http://baike.baidu.com/view/27.htm PAGE 1
+- start time: Thu Mar 15 11:25:20 CST 2012
+- end time: Thu Mar 15 11:25:25 CST 2012
+- file name: http---baike-baidu-com-view-27-htm-1.html
+- file size: 68K
+
+http://baike.baidu.com/view/28.htm PAGE 1
+- start time: Thu Mar 15 11:25:25 CST 2012
+- end time: Thu Mar 15 11:25:29 CST 2012
+- file name: http---baike-baidu-com-view-28-htm-1.html
+- file size: 60K
+
+http://baike.baidu.com/view/29.htm PAGE 1
+- start time: Thu Mar 15 11:25:29 CST 2012
+- end time: Thu Mar 15 11:25:36 CST 2012
+- file name: http---baike-baidu-com-view-29-htm-1.html
+- file size: 110K
+
+http://baike.baidu.com/view/30.htm PAGE 1
+- start time: Thu Mar 15 11:25:36 CST 2012
+- end time: Thu Mar 15 11:25:41 CST 2012
+- file name: http---baike-baidu-com-view-30-htm-1.html
+- file size: 75K
+
+http://baike.baidu.com/view/31.htm PAGE 1
+- start time: Thu Mar 15 11:25:41 CST 2012
+- end time: Thu Mar 15 11:25:46 CST 2012
+- file name: http---baike-baidu-com-view-31-htm-1.html
+- file size: 53K
+
+http://baike.baidu.com/view/32.htm PAGE 1
+- start time: Thu Mar 15 11:25:46 CST 2012
+- end time: Thu Mar 15 11:25:54 CST 2012
+- file name: http---baike-baidu-com-view-32-htm-1.html
+- file size: 116K
+
+http://baike.baidu.com/view/33.htm PAGE 1
+- start time: Thu Mar 15 11:25:54 CST 2012
+- end time: Thu Mar 15 11:26:04 CST 2012
+- file name: http---baike-baidu-com-view-33-htm-1.html
+- file size: 67K
+
+http://baike.baidu.com/view/34.htm PAGE 1
+- start time: Thu Mar 15 11:26:04 CST 2012
+- end time: Thu Mar 15 11:26:09 CST 2012
+- file name: http---baike-baidu-com-view-34-htm-1.html
+- file size: 88K
+
+http://baike.baidu.com/view/35.htm PAGE 1
+- start time: Thu Mar 15 11:26:09 CST 2012
+- end time: Thu Mar 15 11:26:13 CST 2012
+- file name: http---baike-baidu-com-view-35-htm-1.html
+- file size: 36K
+
+http://baike.baidu.com/view/36.htm PAGE 1
+- start time: Thu Mar 15 11:26:13 CST 2012
+- end time: Thu Mar 15 11:26:22 CST 2012
+- file name: http---baike-baidu-com-view-36-htm-1.html
+- file size: 108K
+
+http://baike.baidu.com/view/37.htm PAGE 1
+- start time: Thu Mar 15 11:26:22 CST 2012
+- end time: Thu Mar 15 11:26:26 CST 2012
+- file name: http---baike-baidu-com-view-37-htm-1.html
+- file size: 72K
+
+http://baike.baidu.com/view/38.htm PAGE 1
+- start time: Thu Mar 15 11:26:26 CST 2012
+- end time: Thu Mar 15 11:26:30 CST 2012
+- file name: http---baike-baidu-com-view-38-htm-1.html
+- file size: 47K
+
+http://baike.baidu.com/view/39.htm PAGE 1
+- start time: Thu Mar 15 11:26:30 CST 2012
+- end time: Thu Mar 15 11:26:34 CST 2012
+- file name: http---baike-baidu-com-view-39-htm-1.html
+- file size: 51K
+
+http://baike.baidu.com/view/40.htm PAGE 1
+- start time: Thu Mar 15 11:26:34 CST 2012
+- end time: Thu Mar 15 11:26:38 CST 2012
+- file name: http---baike-baidu-com-view-40-htm-1.html
+- file size: 58K
+
+http://baike.baidu.com/view/41.htm PAGE 1
+- start time: Thu Mar 15 11:26:38 CST 2012
+- end time: Thu Mar 15 11:26:42 CST 2012
+- file name: http---baike-baidu-com-view-41-htm-1.html
+- file size: 47K
+
+http://baike.baidu.com/view/42.htm PAGE 1
+- start time: Thu Mar 15 11:26:42 CST 2012
+- end time: Thu Mar 15 11:26:48 CST 2012
+- file name: http---baike-baidu-com-view-42-htm-1.html
+- file size: 25K
+
+http://baike.baidu.com/view/43.htm PAGE 1
+- start time: Thu Mar 15 11:26:48 CST 2012
+- end time: Thu Mar 15 11:26:54 CST 2012
+- file name: http---baike-baidu-com-view-43-htm-1.html
+- file size: 103K
+
+http://baike.baidu.com/view/44.htm PAGE 1
+- start time: Thu Mar 15 11:26:54 CST 2012
+- end time: Thu Mar 15 11:26:57 CST 2012
+- file name: http---baike-baidu-com-view-44-htm-1.html
+- file size: 55K
+
+http://baike.baidu.com/view/45.htm PAGE 1
+- start time: Thu Mar 15 11:26:57 CST 2012
+- end time: Thu Mar 15 11:27:01 CST 2012
+- file name: http---baike-baidu-com-view-45-htm-1.html
+- file size: 39K
+
+http://baike.baidu.com/view/46.htm PAGE 1
+- start time: Thu Mar 15 11:27:01 CST 2012
+- end time: Thu Mar 15 11:27:04 CST 2012
+- file name: http---baike-baidu-com-view-46-htm-1.html
+- file size: 35K
+
+http://baike.baidu.com/view/47.htm PAGE 1
+- start time: Thu Mar 15 11:27:04 CST 2012
+- end time: Thu Mar 15 11:27:07 CST 2012
+- file name: http---baike-baidu-com-view-47-htm-1.html
+- file size: 31K
+
+http://baike.baidu.com/view/48.htm PAGE 1
+- start time: Thu Mar 15 11:27:07 CST 2012
+- end time: Thu Mar 15 11:27:14 CST 2012
+- file name: http---baike-baidu-com-view-48-htm-1.html
+- file size: 124K
+
+http://baike.baidu.com/view/49.htm PAGE 1
+- start time: Thu Mar 15 11:27:14 CST 2012
+- end time: Thu Mar 15 11:27:18 CST 2012
+- file name: http---baike-baidu-com-view-49-htm-1.html
+- file size: 62K
+
+http://baike.baidu.com/view/50.htm PAGE 1
+- start time: Thu Mar 15 11:27:18 CST 2012
+- end time: Thu Mar 15 11:27:21 CST 2012
+- file name: http---baike-baidu-com-view-50-htm-1.html
+- file size: 31K
+
+http://baike.baidu.com/view/51.htm PAGE 1
+- start time: Thu Mar 15 11:27:21 CST 2012
+- end time: Thu Mar 15 11:27:24 CST 2012
+- file name: http---baike-baidu-com-view-51-htm-1.html
+- file size: 33K
+
+http://baike.baidu.com/view/52.htm PAGE 1
+- start time: Thu Mar 15 11:27:24 CST 2012
+- end time: Thu Mar 15 11:27:28 CST 2012
+- file name: http---baike-baidu-com-view-52-htm-1.html
+- file size: 30K
+
+http://baike.baidu.com/view/53.htm PAGE 1
+- start time: Thu Mar 15 11:27:28 CST 2012
+- end time: Thu Mar 15 11:27:31 CST 2012
+- file name: http---baike-baidu-com-view-53-htm-1.html
+- file size: 29K
+
+http://baike.baidu.com/view/54.htm PAGE 1
+- start time: Thu Mar 15 11:27:31 CST 2012
+- end time: Thu Mar 15 11:27:34 CST 2012
+- file name: http---baike-baidu-com-view-54-htm-1.html
+- file size: 85K
+
+http://baike.baidu.com/view/55.htm PAGE 1
+- start time: Thu Mar 15 11:27:34 CST 2012
+- end time: Thu Mar 15 11:27:37 CST 2012
+- file name: http---baike-baidu-com-view-55-htm-1.html
+- file size: 37K
+
+http://baike.baidu.com/error/fail PAGE 1
+- start time: Thu Mar 15 11:27:37 CST 2012
+- end time: Thu Mar 15 11:27:39 CST 2012
+- file name: http---baike-baidu-com-error-fail-1.html
+- file size: 3K
+
+http://baike.baidu.com/view/57.htm PAGE 1
+- start time: Thu Mar 15 11:27:40 CST 2012
+- end time: Thu Mar 15 11:27:43 CST 2012
+- file name: http---baike-baidu-com-view-57-htm-1.html
+- file size: 45K
+
+http://baike.baidu.com/view/58.htm PAGE 1
+- start time: Thu Mar 15 11:27:43 CST 2012
+- end time: Thu Mar 15 11:27:46 CST 2012
+- file name: http---baike-baidu-com-view-58-htm-1.html
+- file size: 47K
+
+http://baike.baidu.com/view/59.htm PAGE 1
+- start time: Thu Mar 15 11:27:46 CST 2012
+- end time: Thu Mar 15 11:27:51 CST 2012
+- file name: http---baike-baidu-com-view-59-htm-1.html
+- file size: 65K
+
+http://baike.baidu.com/view/60.htm PAGE 1
+- start time: Thu Mar 15 11:27:51 CST 2012
+- end time: Thu Mar 15 11:27:57 CST 2012
+- file name: http---baike-baidu-com-view-60-htm-1.html
+- file size: 25K
+
+http://baike.baidu.com/view/61.htm PAGE 1
+- start time: Thu Mar 15 11:27:57 CST 2012
+- end time: Thu Mar 15 11:27:59 CST 2012
+- file name: http---baike-baidu-com-view-61-htm-1.html
+- file size: 25K
+
+http://baike.baidu.com/view/62.htm PAGE 1
+- start time: Thu Mar 15 11:28:00 CST 2012
+- end time: Thu Mar 15 11:28:05 CST 2012
+- file name: http---baike-baidu-com-view-62-htm-1.html
+- file size: 101K
+
+http://baike.baidu.com/view/63.htm PAGE 1
+- start time: Thu Mar 15 11:28:05 CST 2012
+- end time: Thu Mar 15 11:28:09 CST 2012
+- file name: http---baike-baidu-com-view-63-htm-1.html
+- file size: 43K
+
+http://baike.baidu.com/view/64.htm PAGE 1
+- start time: Thu Mar 15 11:28:09 CST 2012
+- end time: Thu Mar 15 11:28:12 CST 2012
+- file name: http---baike-baidu-com-view-64-htm-1.html
+- file size: 57K
+
+http://baike.baidu.com/view/65.htm PAGE 1
+- start time: Thu Mar 15 11:28:12 CST 2012
+- end time: Thu Mar 15 11:28:15 CST 2012
+- file name: http---baike-baidu-com-view-65-htm-1.html
+- file size: 66K
+
+http://baike.baidu.com/view/66.htm PAGE 1
+- start time: Thu Mar 15 11:28:15 CST 2012
+- end time: Thu Mar 15 11:28:20 CST 2012
+- file name: http---baike-baidu-com-view-66-htm-1.html
+- file size: 118K
+
+http://baike.baidu.com/view/67.htm PAGE 1
+- start time: Thu Mar 15 11:28:20 CST 2012
+- end time: Thu Mar 15 11:28:23 CST 2012
+- file name: http---baike-baidu-com-view-67-htm-1.html
+- file size: 33K
+
+http://baike.baidu.com/view/68.htm PAGE 1
+- start time: Thu Mar 15 11:28:23 CST 2012
+- end time: Thu Mar 15 11:28:26 CST 2012
+- file name: http---baike-baidu-com-view-68-htm-1.html
+- file size: 32K
+
+http://baike.baidu.com/error/fail PAGE 1
+- start time: Thu Mar 15 11:28:26 CST 2012
+- end time: Thu Mar 15 11:28:29 CST 2012
+- file name: http---baike-baidu-com-error-fail-1.html
+- file size: 3K
+
+http://baike.baidu.com/error/fail PAGE 1
+- start time: Thu Mar 15 11:28:29 CST 2012
+- end time: Thu Mar 15 11:28:31 CST 2012
+- file name: http---baike-baidu-com-error-fail-1.html
+- file size: 3K
+
+http://baike.baidu.com/view/71.htm PAGE 1
+- start time: Thu Mar 15 11:28:31 CST 2012
+- end time: Thu Mar 15 11:28:34 CST 2012
+- file name: http---baike-baidu-com-view-71-htm-1.html
+- file size: 40K
+
+http://baike.baidu.com/error/fail PAGE 1
+- start time: Thu Mar 15 11:28:34 CST 2012
+- end time: Thu Mar 15 11:28:37 CST 2012
+- file name: http---baike-baidu-com-error-fail-1.html
+- file size: 3K
+
+http://baike.baidu.com/view/73.htm PAGE 1
+- start time: Thu Mar 15 11:28:37 CST 2012
+- end time: Thu Mar 15 11:28:40 CST 2012
+- file name: http---baike-baidu-com-view-73-htm-1.html
+- file size: 37K
+
+http://baike.baidu.com/view/74.htm PAGE 1
+- start time: Thu Mar 15 11:28:40 CST 2012
+- end time: Thu Mar 15 11:28:46 CST 2012
+- file name: http---baike-baidu-com-view-74-htm-1.html
+- file size: 69K
+
+http://baike.baidu.com/view/75.htm PAGE 1
+- start time: Thu Mar 15 11:28:46 CST 2012
+- end time: Thu Mar 15 11:28:49 CST 2012
+- file name: http---baike-baidu-com-view-75-htm-1.html
+- file size: 38K
+
+http://baike.baidu.com/view/76.htm PAGE 1
+- start time: Thu Mar 15 11:28:49 CST 2012
+- end time: Thu Mar 15 11:28:54 CST 2012
+- file name: http---baike-baidu-com-view-76-htm-1.html
+- file size: 85K
+
+http://baike.baidu.com/view/77.htm PAGE 1
+- start time: Thu Mar 15 11:28:54 CST 2012
+- end time: Thu Mar 15 11:28:57 CST 2012
+- file name: http---baike-baidu-com-view-77-htm-1.html
+- file size: 29K
+
+http://baike.baidu.com/view/78.htm PAGE 1
+- start time: Thu Mar 15 11:28:57 CST 2012
+- end time: Thu Mar 15 11:29:04 CST 2012
+- file name: http---baike-baidu-com-view-78-htm-1.html
+- file size: 34K
+
+http://baike.baidu.com/error/fail PAGE 1
+- start time: Thu Mar 15 11:29:04 CST 2012
+- end time: Thu Mar 15 11:29:06 CST 2012
+- file name: http---baike-baidu-com-error-fail-1.html
+- file size: 3K
+
+http://baike.baidu.com/view/80.htm PAGE 1
+- start time: Thu Mar 15 11:29:06 CST 2012
+- end time: Thu Mar 15 11:29:10 CST 2012
+- file name: http---baike-baidu-com-view-80-htm-1.html
+- file size: 42K
+
+http://baike.baidu.com/error/fail PAGE 1
+- start time: Thu Mar 15 11:29:10 CST 2012
+- end time: Thu Mar 15 11:29:12 CST 2012
+- file name: http---baike-baidu-com-error-fail-1.html
+- file size: 3K
+
+http://baike.baidu.com/error/fail PAGE 1
+- start time: Thu Mar 15 11:29:12 CST 2012
+- end time: Thu Mar 15 11:29:15 CST 2012
+- file name: http---baike-baidu-com-error-fail-1.html
+- file size: 3K
+
+http://baike.baidu.com/view/83.htm PAGE 1
+- start time: Thu Mar 15 11:29:15 CST 2012
+- end time: Thu Mar 15 11:29:21 CST 2012
+- file name: http---baike-baidu-com-view-83-htm-1.html
+- file size: 113K
+
+http://baike.baidu.com/view/84.htm PAGE 1
+- start time: Thu Mar 15 11:29:21 CST 2012
+- end time: Thu Mar 15 11:29:25 CST 2012
+- file name: http---baike-baidu-com-view-84-htm-1.html
+- file size: 47K
+
+http://baike.baidu.com/error/fail PAGE 1
+- start time: Thu Mar 15 11:29:25 CST 2012
+- end time: Thu Mar 15 11:29:28 CST 2012
+- file name: http---baike-baidu-com-error-fail-1.html
+- file size: 3K
+
+http://baike.baidu.com/view/86.htm PAGE 1
+- start time: Thu Mar 15 11:29:28 CST 2012
+- end time: Thu Mar 15 11:29:31 CST 2012
+- file name: http---baike-baidu-com-view-86-htm-1.html
+- file size: 39K
+
+http://baike.baidu.com/view/87.htm PAGE 1
+- start time: Thu Mar 15 11:29:31 CST 2012
+- end time: Thu Mar 15 11:29:36 CST 2012
+- file name: http---baike-baidu-com-view-87-htm-1.html
+- file size: 69K
+
+http://baike.baidu.com/view/88.htm PAGE 1
+- start time: Thu Mar 15 11:29:36 CST 2012
+- end time: Thu Mar 15 11:29:44 CST 2012
+- file name: http---baike-baidu-com-view-88-htm-1.html
+- file size: 84K
+
+http://baike.baidu.com/error/fail PAGE 1
+- start time: Thu Mar 15 11:29:44 CST 2012
+- end time: Thu Mar 15 11:29:46 CST 2012
+- file name: http---baike-baidu-com-error-fail-1.html
+- file size: 3K
+
