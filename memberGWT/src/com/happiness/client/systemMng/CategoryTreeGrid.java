@@ -1,4 +1,4 @@
-package com.happiness.client;
+package com.happiness.client.systemMng;
 
 import com.smartgwt.client.data.DataSource;
 import com.smartgwt.client.types.SelectionStyle;

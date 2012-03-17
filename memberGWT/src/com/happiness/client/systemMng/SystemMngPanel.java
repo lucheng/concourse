@@ -17,11 +17,6 @@ package com.happiness.client.systemMng;
  */
 
 import com.google.gwt.core.client.EntryPoint;
-import com.happiness.client.CategoryTreeGrid;
-import com.happiness.client.HelpPane;
-import com.happiness.client.ItemDetailTabPane;
-import com.happiness.client.ItemListGrid;
-import com.happiness.client.SearchForm;
 import com.happiness.client.data.ItemSupplyXmlDS;
 import com.happiness.client.data.SupplyCategoryXmlDS;
 import com.smartgwt.client.data.Criteria;

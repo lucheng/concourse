@@ -1,4 +1,4 @@
-package com.happiness.client;
+package com.happiness.client.systemMng;
 /*
  * SmartGWT (GWT for SmartClient)
  * Copyright 2008 and beyond, Isomorphic Software, Inc.
