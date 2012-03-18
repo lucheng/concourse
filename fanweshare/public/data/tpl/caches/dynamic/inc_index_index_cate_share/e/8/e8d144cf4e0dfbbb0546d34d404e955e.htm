@@ -1,0 +1,74 @@
+<div class="piece1 mb20">
+<div class="piece1_hd"></div>
+<div class="piece1_bd" style="padding:5px 25px ">
+<div class="share_title">
+<em><a target="_blank" href="/book.php?action=cate&cate=home"><span>分享</span>家居</a></em>
+<span class="st_key">
+<a target="_blank" href="/book.php?action=cate&cate=home&sort=hot7">热门</a>
+<a target="_blank" href="/book.php?action=cate&cate=home&sort=new">最新</a>
+<span>|</span><a target="_blank" href="/book.php?action=shopping&sort=hot7&tag=%25E6%25B4%2597%25E5%258F%2591%25E6%25B0%25B4">洗发水</a>
+</span>
+<span class="more fr">
+<a href="/book.php?action=cate&cate=home">更多>></a>
+</span>
+</div>
+<div class="cate_share_box">
+<ul>
+<li ckass="first"><!--dynamic advLayoutName args=分类右侧大图广告185X330,,home--></li><li class="two" style="top:0px;left:195px">
+<a href="/note.php?action=index&sid=1" target="_blank"><img class="img" src="./public/upload/share/000/000/000/01/679af0582bf3f9223a5760161542997ds23SSj_150x160.jpg" />
+</a>
+<a class="trsp_bg w150" href="/note.php?action=index&sid=1" target="_blank">
+<h4>
+<span class="likeit fl">
+<b class="nums red">0</b>
+</span>
+<span class="f12 fr">洗发水</span>
+</h4>
+</a>
+</li></ul>
+</div>
+<div class="cate_share_who  clearfix">
+<div class="t fl">
+分享 <a target="_blank" href="/book.php?action=cate&cate=home">家居</a> 的<br>美丽们
+</div>
+<ul class="fl clearfix"><li>
+<a title="m23linzhe" href="/u.php?action=index&uid=1" target="_blank"><img class="GUID r3 icard lazyload" uid="1" original="./public/upload/avatar/noavatar_small.jpg" src="./tpl/images/lazyload.gif" width="32"  alt="m23linzhe"/></a><a href="/u.php?action=index&uid=1" target="blank" class="fl"><span class="name" title="m23linzhe">m23linzh...</span></a>
+<div class="follow fl">
+<a onclick="$.User_Follow(1,this,CateUpdateUserFollow);" href="javascript:;" class="addfollow"><img src="./tpl/images/to_flow.gif" /></a>
+</div>
+</li>
+</ul>
+<div class="share_count fr">
+<b>1人</b><br>
+<span>正在分享</span>
+</div>
+</div>
+</div>
+<div class="piece1_ft"></div>
+</div>
+<script>
+function CateUpdateUserFollow(obj,result)
+{
+if(result.status == 1)
+{
+$(obj).before('<img src="./tpl/images/flow_ok.gif" />');
+$(obj).remove();
+}
+else{
+$(obj).before('<img src="./tpl/images/to_flow.gif" />');
+$(obj).remove();
+}
+}
+
+jQuery(function(){
+$('.cate_share_box li').hover(function(){
+$(this).children('.trsp_bg').stop().animate( { height: "80px" }, 300 );
+$(this).children('.trsp_bg').find('h4 .f12').stop().animate({ fontSize: "18px" }, 50);
+},
+function(){
+$(this).children('.trsp_bg').stop().animate( { height: "30px" }, 300 );
+$(this).children('.trsp_bg').find('h4 .f12').stop().animate({ fontSize: "12px" }, 50);
+});
+});
+
+</script>
