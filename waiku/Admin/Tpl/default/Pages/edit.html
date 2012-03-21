@@ -6,10 +6,10 @@
 <link rel="shortcut icon" href="__PUBLIC__/Admin/images/myfav.ico" type="image/x-icon" />
 <import file= "Admin.js.admin,Admin.js.Jquery"/>
 <script charset="utf-8" src="__PUBLIC__/Editor/kindeditor-min.js"></script>
-<script> 
+<script><!-- 
         KE.show({
-                id : 'content',
-				autoSetDataMode: false,
+                id : 'Content',
+				autoSetDataMode: true,
 				afterCreate : function(id) {
 					KE.event.add(KE.$('myform'), 'submit', function() {
 						KE.sync(id);
@@ -70,7 +70,7 @@ function showhelp(){
     <td colspan="2" align=left class="admintitle">修改单页[<a onclick="showhelp();">操作提示</a>]</td></tr>
 <tr> 
 <td width="20%" class="b1_1">标题</td>
-<td class="b1_1"><input name="title" disabled="true" value="{$list.title}" type="text" id="Title" size="40" maxlength="50"><span class="note">注：最多50个字符</span></td>
+<td class="b1_1"><input name="title" _disabled="true" value="{$list.title}" type="text" id="Title" size="40" maxlength="50"><span class="note">注：最多50个字符</span></td>
 </tr>
 <tr>
   <td class="b1_1">关键字</td>
@@ -89,13 +89,13 @@ function showhelp(){
 <tr>
   <td class="b1_1">附加选项</td>
   <td class="b1_1">
-    <input name="isenglish" type="checkbox" disabled="true" class="noborder" id="isenglish" value="1" <eq name="list.isenglish" value="1">checked</eq>>
+    <input name="isenglish" type="checkbox" _disabled="true" class="noborder" id="isenglish" value="1" <eq name="list.isenglish" value="1">checked</eq>>
     英文版本
 </td>
 </tr>
 <tr>
   <td valign="top" class="b1_1"><p>内容</p>
-  <td class="b1_1"><textarea id="content" name="content" style="width:700px;height:300px;">{$list.content}
+  <td class="b1_1"><textarea id="Content" name="content" style="width:700px;height:300px;">{$list.content}
 </textarea>
 </td>
 </tr>

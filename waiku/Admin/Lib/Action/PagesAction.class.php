@@ -52,10 +52,11 @@ class PagesAction extends CommonAction
 		{
 			alert('标题不能为空!',1);
 		}
-		if(isset($_POST['imgurl']))
+    	if(empty($_POST['content']))
 		{
-			$data['imgurl'] = trim($_POST['imgurl']);
+			alert('内容不能为空!',1);
 		}
+		
 		$data['aid'] = $_POST['aid'];
 		$data['content'] = $_POST['content'];
 		$data['title'] = trim($_POST['title']);
@@ -65,6 +66,7 @@ class PagesAction extends CommonAction
 		empty($_POST['description']) ? $data['description'] = '' : $data['description'] = trim($_POST['description']);
 		empty($_POST['isenglish']) ? $data['isenglish'] = '0' : $data['isenglish'] = trim($_POST['isenglish']);
 		$Pages = M('Pages');
+		
 		if($Pages->save($data))
 		{
 			alert('操作成功!',U('Pages/index'));
