@@ -1,0 +1,57 @@
+	</div>
+	<div id="foot_wrap">
+		<div class="blank20 mt10"></div>
+		<div class="blank20 mt10"></div>
+		<!--{if MODULE_NAME == 'Index'}-->
+		<div class="foot-links clearfix">
+			<span class="fl">
+			友情链接：
+				<!--{eval $link_index = 1;}-->
+				<!--{loop $_FANWE['cache']['links']['all'] $link}-->
+				<!--{if $link_index > 12}-->
+				<!--{eval break;}-->
+				<!--{/if}-->
+				<a href="{$link['url']}" target="_blank">{$link['name']}</a>&nbsp;&nbsp;
+				<!--{eval $link_index++;}-->
+				<!--{/loop}-->
+			</span>
+				<a href="{u link}" target="_blank" class="fr">更多...</a>
+			</ul>
+		</div>
+		<!--{/if}-->
+		<div class="copyright">$_FANWE['setting']['footer_html']</div>
+	</div>
+	<div id="back2top"><a href="#"><span class="arrow">▲</span>{lang go_top}</a></div>
+	<div id="USER_INFO_TIP" style="display:none;">
+		<div class="tip_info">
+			<img class="avatar" alt="" src="./tpl/images/loading_60.gif">
+			<div>
+				<p><a href="#">&nbsp;</a></p>
+				<p>获取用户信息...</p>
+				<p>&nbsp;</p>
+			</div>
+		</div>
+		<div class="tip_toolbar">&nbsp;</div>
+		<div class="tip_arrow"></div>
+	</div>
+</body>
+<?php
+    $default_js = array();
+	$default_js[] = './public/js/lang.js';
+	$default_js[] = './public/js/setting.js';
+	$default_js[] = './public/js/jquery.bgiframe.js';
+	$default_js[] = './public/js/jquery.weebox.js';
+	$default_js[] = './public/js/ajaxfileupload.js';
+	$default_js[] = './public/js/jquery.dragsort.js';
+?>
+<script type="text/javascript" src="{script $default_js}" defer="true"></script>
+<!--{loop $js_list $js}-->
+<script type="text/javascript" src="{script $js}"></script>
+<!--{/loop}-->
+<!--{dynamic getScript}-->
+<script type="text/javascript">
+jQuery(function($){
+	$(".lazyload").lazyload({"placeholder":"./tpl/images/lazyload.gif"});
+});
+</script>
+</html>
