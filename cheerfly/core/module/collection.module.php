@@ -43,8 +43,7 @@ class CollectionModule
 		
 		if(!@include($cache_file))
 		{
-				
-				include template($tmpl);
+			include template($tmpl);
 		}
 		
 		display($cache_args);
@@ -65,16 +64,72 @@ class CollectionModule
 		{
 			FanweService::instance()->cache->loadCache('albums');
 			$imgs = $_FANWE['request']['imgUrl'];
-			$pageUrl = $_FANWE['request']['pageUrl'];
+			$url = $_FANWE['request']['pageUrl'];
 			$img_list = explode(",",$imgs);
-			$count_img = count($img_list);
-			if($_FANWE['request']['showType'] == 1)
-				include template("page/collection/collection_photos");
+//			$count_img = count($img_list);
+			if(empty($url))
+				exit;
+			
+			$result = array();
+			require fimport('service/sharegoods');
+			$url = urldecode($url);
+			
+			$share_module = new SharegoodsService($url);
+			
+			$goods_list = $_FANWE['request']['goods'];
+			if(!is_array($goods_list))
+				$goods_list = array();
+			
+			//检测是否已经采集此商品
+			if($share_module->getExists($goods_list))
+			{
+				$result['status'] = -1;
+				outputJson($result);
+			}
+			
+			//一个分享最多能发布多少商品
+			if(count($goods_list) >= $_FANWE['setting']['share_goods_count'])
+			{
+				$result['status'] = -2;
+			}
+			
+			$goods = $share_module->fetch();
+			if($goods)
+			{
+				if($goods['status'] == -1)
+				{
+					$result['status'] = -3;
+					$result['url'] = FU('note/g',array('sid'=>$goods['share_id'],'id'=>$goods['goods_id']));
+				}
+				else
+				{
+					$result['status'] = 1;
+					$result['info'] = authcode(serialize($goods), 'ENCODE');
+					$result['type'] = 'g'; //商品
+					$result['img'] = $goods['item']['pic_url'];
+					$result['key'] = $goods['item']['key'];
+					$result['tag'] = FS('Words')->segment($goods['item']['name'],$_FANWE['setting']['share_tag_count']);
+					$result['tags'] = implode(' ',FS('Words')->segment($goods['item']['name'],$_FANWE['setting']['share_tag_count']));
+					$args = array('imgs'=>$img_list, 'goods'=>$goods);
+					$result['item'] = tplFetch("services/share/img_item",$args);
+//					$result['item'] = tplFetch("services/share/goods_item",$args);
+//					$result['html'] = tplFetch("services/share/goods_result",$args);
+					$result['image_server'] = $goods['image_server'];
+					foreach ($result['tag'] as $value){
+						$result['html'] = $result['html'].'<li>'.$value.'</li>';
+					}
+				}
+			}
 			else
-				include template("page/collection/collection_photo");
+			{
+				$result['status'] = 0;
+			}
+			
+			include template("page/collection/collection_photo");
 		}
 		display();
 	}
+	
 	public function success()
 	{
 		global $_FANWE;
@@ -83,7 +138,7 @@ class CollectionModule
 		{
 			$go_url = FU('u/index',array("uid"=>$_FANWE['uid']));
 			include template('page/collection/collection_success');
-		}			
+		}
 		display($cache_file);
 	}
 	
