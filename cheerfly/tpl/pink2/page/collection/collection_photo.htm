@@ -1,131 +1,88 @@
+<?php
+	$css_list[0]['url'][] = './tpl/css/tweetlist.css';
+	$css_list[0]['url'][] = './tpl/css/zone.css';
+	$js_list[0] = './tpl/js/zone.js';
+?>
+<?php
+	$css_list[0]['url'][] = './tpl/css/tweetlist.css';
+	$css_list[0]['url'][] = './tpl/css/zone.css';
+?>
 <!--{template inc/collection/collection_header}-->
-<form method="post" id="u_zone_form">
-<input type="hidden" id="pageUrl" value="{$pageUrl}" name="pageUrl">
-<div class="pinlayout cf">
-	<div class="index-img" id="thumb0">
-		<ul class="cf">
-        	<!--{if $count_img <= 1}-->
-			<li class="onlyone">
-            		<img src="{$imgs}" class="SHARE_IMG">
-    		</li>
-            <!--{else}-->
-            	<!--{loop $img_list $img}-->
-                <li>
-            		<img src="{$img}" class="SHARE_IMG">
-                </li>
-            	<!--{/loop}-->
-            <!--{/if}-->
-		</ul>
-	</div>
-	<div class="grouplayout">
-		<div class="pin-fixed">
-        	<!--{if $count_img > 1}-->
-        	<p class="say f14">
-				批量添加后，这些图片会被放入同一个图格，<br> 并且都使用同样的描述，要分开添加，请
-                <a class="blue underline" id="jquery-submitfrom">分别设置这些图片</a>
-			</p>
-            <!--{/if}-->
-            
-			<div class="selectgroup">
-                 <span class="combox" style="width:372px;">
-                 	<input class="comboxText" style="width:335px" readonly="readonly" type="text" value="选择杂志社">
-                    <span class="comboxArrow"></span>
-                    <input class="comboxValue" type="hidden" value="">
-                    <div class="pannel" id="pannel" style="width: 372px; display: none; ">
-                    </div>
-                 </span>
-			</div>
-            
-			<div class="commentbox margin">
-				<textarea id="addTitle0" class="PUB_TXT" name="content" length="140" position="0"></textarea>
-					<div class="saynumber">
-						<span class="floatright"><em id="sharenumid0" class="blue WORD_COUNT">0</em>/140</span>
+<div id="body" class="fm960">
+	<div class="homews_bd clearfix">
+		<div id="content" class="fl" style="width:730px;">
+			<div class="content fr" style="width:595px;">
+				<div id="publish_me" class="pub_box">
+				<form method="post" id="u_zone_form">
+				<img src="/tpl/pink2/images/pub_arrow.png" class="pub_arr">
+				<div class="pub_area r5">
+				<div class="pub_edit r5">
+				<div id="zone_select_album" class="zone_select_album clearfix">
+				<span class="fw_count">还可以输入<em class="word_count WORD_COUNT">140</em>个字符</span>
+				</div>
+				<textarea name="content" class="PUB_TXT pub_txt fl rl5" length="140"
+					position="0"></textarea> <input type="button" class="pub_btn fl rr5"
+					value="发表" onclick="$.Share_Save(this)"> <input type="hidden"
+					name="albumid" class="PUB_ALBUM_ID" value="0"> <input
+					type="hidden" name="module" value="share"> <input type="hidden"
+					name="action" value="save">
+				<div class="fl pub_tags PUB_SHARE_TAG_BOX">
+					<span class="fl tag_title">标签：</span>
+					<input type="text" class="fl tag_txt PUB_SHARE_TAG" name="tags" title="最多可以设置10个标签,标签之间用空格隔开">
+					<ul>
+						{$result['html']}
+					</ul>
+				</div>
+				
+				<div class="pub_ext">
+					<div class="pub_opt fl">
+						<span class="fl">添加：</span>
+						<a w="pub" href="javascript:;" onclick="$.Show_Expression(this)" style="background-position: -2px -3px;" class="add_face">表情</a>
+						<a class="add_goods" w="pub" href="javascript:;" onclick="$.Goods_Add(this)" style="background-position: -2px -74px;">商品</a>
+						<a class="add_event" w="pub" href="javascript:;" onclick="$.Event_Add(this)" style="background-position: -2px -97px;">话题</a>
+						<a w="pub" style="background-position: -2px -27px;" href="javascript:;" onclick="$.Pic_Add(this)" class="add_pic">图片</a>
+					</div>
+					<div class="pub_out fr">
+						<input type="checkbox" checked="checked" name="pub_out_check" value="1"> <label for="pub_out_check">同步</label>
+						（<a href="/settings.php?action=bind" target="_blank">设置</a>）
 					</div>
 				</div>
-			<div class="submit" id="submitDiv">
-				<span class="floatright share">
-                    <span class="size" id="pin-chechbox" style="">同步到微博:</span>
-                    <span>
-                        <input id="checkbox-4" type="checkbox"">
-                    </span>
-				</span>
-				<span id="msgTips" class="smstips smserror" style="display: none; ">
-                	<em class="smstips"></em>
-                </span>
-				<a id="btnSaveBoardPic0" class="bigbutton bigbuttongray calloff" href="javascript:void(0);">分享</a>
-                <input type="hidden" name="albumid" class="PUB_ALBUM_ID" value="0"  id="albumid" />
-				<input type="hidden" name="module" value="collectshare" />
-				<input type="hidden" name="action" value="save" />
+				</div>
+				</div>
+				<ul class="pub_img PUB_IMG" style="position: relative;">
+					{$result['item']}
+					<!--<li class="g_f PUB_SHARTE_GOODS" title="拖动图片进行排序">
+						<div class="r5 g">
+							<a class="del" href="javascript:;" onclick="$.Pub_Share_Img_Remove(this)"></a>
+							<p>
+								<img src="http://img04.taobaocdn.com/bao/uploaded/i4/T1gciQXetXXXcm.Lzb_124026.jpg_100x100.jpg" height="80" title="¥35.00">
+							</p>
+							<img alt="" class="tag" src="/tpl/pink2/images/goods_tag.png">
+							<input type="hidden" name="goods[taobao_14113579799]" value="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">
+							<input type="hidden" class="GOODS_ITEM_TAG" name="goods_tags[taobao_14113579799]" value="珍珠 领子 衣领 蕾丝 复古 手工 优雅 AL33 VIVI">
+							<input type="hidden" class="share_sort" name="goods_sort[taobao_14113579799]" value="">
+						</div>
+					</li>
+					<li class="g_f PUB_SHARTE_GOODS" title="拖动图片进行排序">
+						<div class="r5 g"><a class="del" href="javascript:;" onclick="$.Pub_Share_Img_Remove(this)"></a>
+						<p>
+							<img src="http://img04.taobaocdn.com/bao/uploaded/i4/T14ISwXfROXXXSdDw7_065756.jpg_100x100.jpg"
+							height="80" title="¥29.00">
+						</p>
+						<img alt="" class="tag" src="/tpl/pink2/images/goods_tag.png">
+						<input type="hidden" name="goods[taobao_13051629181]" value="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">
+						<input type="hidden" class="GOODS_ITEM_TAG" name="goods_tags[taobao_13051629181]" value="围脖 珍珠 领子 韩国 披肩 订做 超值 手工 独家 装饰">
+						<input type="hidden" class="share_sort" name="goods_sort[taobao_13051629181]" value="">
+					</div>
+					</li>
+				-->
+				</ul>
+				<div class="clear"></div>
+				</form>
+				</div>
 			</div>
 		</div>
 	</div>
+	<div class="homews_ft"></div>
 </div>
-</form>
-<script>
-var isUpload = false;
-
-var ALBUM_SELECT_ID = 0;
-$("#jquery-submitfrom").click(function(){
-	var url = location.href;
-	location.href = url + "&showType=1";	
-});
-
-$(".combox").hover(function(){
-	$(this).css("border","1px solid #65c5b3");		
-},function(){
-	$(this).css("border","1px solid #EDEDED");		
-});
-$("#pannel li").live("mouseover",function(){
-	$(this).removeClass("out");
-	$(this).addClass("over");	
-}).live('mouseout',function(){
-	$(this).removeClass("over");
-	$(this).addClass("out");	
-}).live('click',function(){
-	$(".comboxText").val($(this).attr("default"));
-	alert($(this).attr("defaultValue"));
-	$("#albumid").val($(this).attr("value"));
-	$.checkForm();
-	$("#pannel").hide();	
-});
-$(".comboxArrow").click(function(){
-	getAlbumList();
-});
-
-$("#btnSaveBoardPic0").click(function(){
-	if ( $(this).hasClass("calloff") )
-	{
-		return false;
-	}
-	else
-	{
-		$(this).removeClass("callon").addClass("calloff").html("发送中...");
-		var loc_url = location.href;
-		$.Collect_Share_Save(this,loc_url);	
-	}
-});
-		
-$(".comboxText").click(function(){
-	getAlbumList();
-});
-$.Pub_Count_Bind($("#u_zone_form .PUB_TXT"));
-
-function getAlbumList()
-{
-	var query = new Object();
-	query.aid = ALBUM_SELECT_ID;
-	
-	$.ajax({
-		url: SITE_PATH+"services/service.php?m=share&a=selectalbum",
-		type: "POST",
-		data:query,
-		dataType: "json",
-		success: function(result){
-			$("#pannel").html(result.html);
-			$("#pannel").show();
-		}
-	});
-}
-
-</script>
 <!--{template inc/collection/collection_footer}-->
