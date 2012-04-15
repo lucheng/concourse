@@ -1,3 +1,16 @@
+	</div>
+	<div id="USER_INFO_TIP" style="display:none;">
+		<div class="tip_info">
+			<img class="avatar" alt="" src="./tpl/images/loading_60.gif">
+			<div>
+				<p><a href="#">&nbsp;</a></p>
+				<p>获取用户信息...</p>
+				<p>&nbsp;</p>
+			</div>
+		</div>
+		<div class="tip_toolbar">&nbsp;</div>
+		<div class="tip_arrow"></div>
+	</div>
 </body>
 <?php
     $default_js = array();
@@ -13,3 +26,9 @@
 <script type="text/javascript" src="{script $js}"></script>
 <!--{/loop}-->
 <!--{dynamic getScript}-->
+<script type="text/javascript">
+jQuery(function($){
+	$(".lazyload").lazyload({"placeholder":"./tpl/images/lazyload.gif"});
+});
+</script>
+</html>
