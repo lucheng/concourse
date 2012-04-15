@@ -1,7 +1,7 @@
 <?php 
 define('MODULE_NAME','Collection');
 
-$actions = array('index','photo','success');
+$actions = array('index','photo','product','success');
 $action = 'index';
 if(isset($_REQUEST['action']))
 {
