@@ -11,14 +11,15 @@ import java.util.regex.Pattern;
  *
  */
 
+
 class Match {
 	private Pattern expression1, expression2;
 
 	private Matcher matcher1, matcher2;
 
 	public Match() {
-		expression1 = Pattern.compile("[0-9a-zA-ZÒ»-ý›]+(/n|/vn)$");
-		expression2 = Pattern.compile("[0-9a-zA-ZÒ»-ý›]+(/n|/vn)$");
+		expression1 = Pattern.compile("[0-9a-zA-Zä¸€-é¾¥]+(/n|/vn|/un)$");
+		expression2 = Pattern.compile("[0-9a-zA-Zä¸€-é¾¥]+(/n|/vn|/un)$");
 	}
 
 	/**

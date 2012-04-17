@@ -1,23 +1,42 @@
 package com.buptsse.ate.topicmain;
 
 import java.io.IOException;
+import java.util.Map;
 
 
 /**
- * Ö÷Ìâ´Ê³éÈ¡
+ * ä¸»é¢˜è¯æŠ½å–
  * 
  * @author shicunyu
  * 
  */
+
 public class TextClassification {
 
 	public static void main(String[] args) throws IOException {
 
-		// ¶ÔÑµÁ·ÎÄ±¾½øĞĞ·Ö´Ê´¦Àí£¬Éú³ÉresÎÄ¼ş
-		String inputTrainPath = "input/input";   // ÑµÁ·ÎÄ±¾µÄÊäÈëÂ·¾¶
-		String outputTrainPath = "input/output";  // ÑµÁ·ÎÄ±¾µÄÊä³öÂ·¾¶
+		// å¯¹è®­ç»ƒæ–‡æœ¬è¿›è¡Œåˆ†è¯å¤„ç†ï¼Œç”Ÿæˆresæ–‡ä»¶
+		String inputTrainPath = "input/input";   // è®­ç»ƒæ–‡æœ¬çš„è¾“å…¥è·¯å¾„
+		String outputTrainPath = "input/output";  // è®­ç»ƒæ–‡æœ¬çš„è¾“å‡ºè·¯å¾„
 		ATE ate = new ATE();
-		ate.pretreatmentTrain(inputTrainPath, outputTrainPath); // ·Ö´Ê
+		ate.pretreatmentTrain(inputTrainPath, outputTrainPath); // åˆ†è¯
+		Map<String, Integer> fq = ate.getFqMap();
+		
+		int[] array = new int[fq.size()];
+		int pos = 0;
+		for(String key : fq.keySet()){
+			array[pos] = fq.get(key);
+			pos++;
+		}
+		HeapSort hsort = new HeapSort();
+		hsort.HeapSorting(array);
+		
+		for(String key : fq.keySet()){
+			if(fq.get(key) > array[8]){
+				System.out.println(key);
+			}
+		}
+//		System.out.println(array);
 	}
 
 }

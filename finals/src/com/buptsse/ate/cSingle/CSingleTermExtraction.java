@@ -13,7 +13,6 @@ import java.util.HashSet;
 import java.util.Map.Entry;
 import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -28,7 +27,6 @@ import com.buptsse.ate.utils.SplitWord;
  * @author ZhuYan
  * 
  */
-
 public class CSingleTermExtraction {
 
 	private Logger log = Logger.getLogger(getClass());
@@ -55,9 +53,6 @@ public class CSingleTermExtraction {
 	 */
 	public void createMap() {
 		
-		// ÒÔ118£¬168¿ªÊ¼µÄ´ÊµÄÄ£Ê½
-		Pattern expression1 = Pattern.compile("118.*(/m|/n)$");
-		Pattern expression2 = Pattern.compile("168.*(/m|/n)$");
 		StopList stopList = new StopList();
 		Match match = new Match();
 		SplitWord splitWord = new SplitWord();
@@ -92,21 +87,19 @@ public class CSingleTermExtraction {
 							for (int j = 0; j < result.length; j++) 
 							{
 								temp[j] = result[j];
+//								log.info(temp[j]);
 							}
 							vector.add(temp);
+							
 							for (int i = 0; i < result.length; i++) {
 
-								if (result[i].length() > 3) { // È¥µôÒ»¸ö×ÖµÄ´Ê
-									// ½«ÒÔ118ºÍ168¿ªÊ¼µÄ´Ê£¨Ãû´Ê»òÊı´Ê£©¶¼×ª»»³É"118/n","168/n"
-									if (expression1.matcher(result[i]).find()) {
-										result[i] = "118/n";
-									} else if (expression2.matcher(result[i])
-											.find()) {
-										result[i] = "168/n";
-									}
+								// å»æ‰ä¸€ä¸ªå­—çš„è¯
+								if (result[i].length() > 3) {
+									
 									if (match.match(result[i])) {
 										result[i] = splitWord.split(result[i]);
-                                        //result[i].replaceAll( "\\s", ""); 
+                                        //result[i].replaceAll( "\\s", "");
+//										log.info(result[i]);
 										if (!stopList.find(result[i])) {
 											if (map.containsKey(result[i])) {
 												int count = map.get(result[i]);
@@ -114,7 +107,7 @@ public class CSingleTermExtraction {
 												//System.out.println(result[i]+(count + 1));
 											} else {
 												map.put(result[i], 1);
-												//System.out.println(result[i]+"1");
+//												log.info(result[i]+"1");
 											}
 										}
 									}
@@ -124,7 +117,7 @@ public class CSingleTermExtraction {
 						bin.close();
 						fin.close();
 						map.put(name[0], -999);
-						
+						log.info("name:" + name[0]);
 						vecList.add(vector);
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -144,32 +137,26 @@ public class CSingleTermExtraction {
 	public void extract() throws IOException {
 		
 		BufferedWriter bw = new BufferedWriter(new FileWriter(Constant.RESULT_FILE,true));
-		/*FileOutputStream fileOutputStream = new FileOutputStream(Constant.RESULT_FILE); //¶¨ÒåÒ»¸ö   
-		OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream,"UTF-8");   
-		  
-		BufferedWriter bw = new BufferedWriter(outputStreamWriter);       */
 		
 		for (int i = 0; i < maps.size(); i++) {
 			HashMap<String, Integer> map = maps.get(i);
 			ConcurrentHashMap<String, Integer> conMap = new ConcurrentHashMap<String, Integer>(map);
 			for (Entry<String, Integer> entry : conMap.entrySet()) {
 				int k = entry.getValue();
-				// ±£ÁôÎÄ¼şÂ·¾¶ºÍÃû³Æ£¬Èô²»ÊÇÔòĞè¶Ô¸Ã´Ê½øĞĞÅĞ¶Ïºó³éÈ¡
+				// ä¿ç•™æ–‡ä»¶è·¯å¾„å’Œåç§°ï¼Œè‹¥ä¸æ˜¯åˆ™éœ€å¯¹è¯¥è¯è¿›è¡Œåˆ¤æ–­åæŠ½å–
 				if (k != -999) {
 					String key = entry.getKey();
 					
-					// Èç¹û²»ÊÇÓÃ»§×ÖµäÀïµÄ´Ê£¬ÇÒ¸Ã´Ê³öÏÖµÄ´ÎÊıĞ¡ÓÚµ¥ÊõÓï´ÎÊıµÄ·§Öµ3£¬¾ÍÈ¥µô¸Ã´Ê¡£·ñÔò£¬½«Æä´ÎÊı¼Ó2
+					// å¦‚æœä¸æ˜¯ç”¨æˆ·å­—å…¸é‡Œçš„è¯ï¼Œä¸”è¯¥è¯å‡ºç°çš„æ¬¡æ•°å°äºå•æœ¯è¯­æ¬¡æ•°çš„é˜€å€¼3ï¼Œå°±å»æ‰è¯¥è¯ã€‚å¦åˆ™ï¼Œå°†å…¶æ¬¡æ•°åŠ 2
 					if (!userDictList.contains(key)) {
 						if (k < Constant.SINGLETHRESHOLD) {
 							conMap.remove(key);
-						}
-						else
-						{
+						} else {
 //							log.info(key+k);
 							bw.write(key+k);
 							bw.newLine();
 						}
-					} 
+					}
 				}
 			}
 			map.clear();

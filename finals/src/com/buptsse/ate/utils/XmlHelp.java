@@ -27,7 +27,7 @@ import org.htmlcleaner.TagNode;
 
 public class XmlHelp {
 	
-	private String charset = "GBK";
+	private static String charset = "GBK";
 	private static SAXReader xmlReader = new SAXReader();
 
 	public Document parseWithSAX(File aFile) throws DocumentException {
@@ -78,7 +78,7 @@ public class XmlHelp {
 		List<Element> roots = new ArrayList<Element>();
 		// FileHelp.sortFiles(files);
 		for (Element srcRoot : rawRoots) {
-			//¶ÔÍøÒ³½øÐÐÒ»ÏÂ´¦Àí
+			//ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Â´ï¿½ï¿½ï¿½
 			initEelment(srcRoot);
 			roots.add(srcRoot);
 		}
@@ -126,14 +126,13 @@ public class XmlHelp {
 		return DocumentHelper.parseText(htmlSrc);
 	}
 	
-	public String cleanSrc(String src) {
+	public static String cleanSrc(String src) {
 		
 		HtmlCleaner cleaner = new HtmlCleaner();
 		CleanerProperties props = cleaner.getProperties();
 		props.setUseEmptyElementTags(false);
 		props.setOmitUnknownTags(true);
-		props.setPruneTags("script,style,link,iframe,input,textarea");
-//		props.setPruneTags("script");
+		props.setPruneTags("script,style,link,iframe");
 		props.setNamespacesAware(false);
 		String cleanSrc = null;
 		try {

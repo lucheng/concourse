@@ -4,6 +4,7 @@ package com.buptsse.ate.utils;
  * 
  * @author ZhuYan
  */
+
 public class Constant {
 	public final static String DELIMITER = "\\s";
 
@@ -13,17 +14,17 @@ public class Constant {
 	
 	public final static String EPATH = PREPATH + "/etfiles";
 
-	public final static String CPATH = PREPATH + "/ctfiles";     // ´æ·ÅÑµÁ·¼¯µÄtagÎÄ¼ş
+	public final static String CPATH = PREPATH + "/ctfiles";     // å­˜æ”¾è®­ç»ƒé›†çš„tagæ–‡ä»¶
 	
-	public final static String CTPATH = PREPATH + "/ctestfiles"; // ´æ·Å²âÊÔ¼¯µÄtagÎÄ¼ş
+	public final static String CTPATH = PREPATH + "/ctestfiles"; // å­˜æ”¾æµ‹è¯•é›†çš„tagæ–‡ä»¶
 	
-	public final static String RESULT_FILE = PREPATH + "/output/result.txt"; // ²âÊÔ½á¹ûÂ·¾¶
+	public final static String RESULT_FILE = PREPATH + "/output/result.txt"; // æµ‹è¯•ç»“æœè·¯å¾„
 	
-	public final static int TRAIN_FLAG = 1;                    // ÑµÁ·¼¯±êÖ¾
+	public final static int TRAIN_FLAG = 1;                    // è®­ç»ƒé›†æ ‡å¿—
 	
-	public final static int TEST_FLAG = 2;                     // ²âÊÔ¼¯±êÖ¾
+	public final static int TEST_FLAG = 2;                     // æµ‹è¯•é›†æ ‡å¿—
 	
-	public final static String USERDICT = "ICTCLAS_CONFIG/userdict.txt"; // ÓÃ»§´ÊµäµÄÂ·¾¶
+	public final static String USERDICT = "./ICTCLAS_CONFIG/userdict.txt"; // ç”¨æˆ·è¯å…¸çš„è·¯å¾„
 	
 	public final static String PRECSTOPLIST = PREPATH + "/cate/StopLists/stop-list-prefix.txt";
 	
@@ -41,18 +42,18 @@ public class Constant {
 	
 	public final static String MIDDLEESTOPLIST = PREPATH + "/eate/StopLists/stop-list-middle.txt";
 	
-	public final static int SINGLETHRESHOLD = 2;     // ¹ıÂËµ¥ÊõÓïµÄ·§Öµ
+	public final static int SINGLETHRESHOLD = 2;     // è¿‡æ»¤å•æœ¯è¯­çš„é˜€å€¼
 	
-	public final static int DOUBLETHRESHOLD = 1;     // ¹ıÂËË«ÊõÓïµÄ·§Öµ
+	public final static int DOUBLETHRESHOLD = 1;     // è¿‡æ»¤åŒæœ¯è¯­çš„é˜€å€¼
 	
-	public final static int TRIPLETHRESHOLD = 1;     // ¹ıÂËÈıÊõÓïµÄ·§Öµ
+	public final static int TRIPLETHRESHOLD = 1;     // è¿‡æ»¤ä¸‰æœ¯è¯­çš„é˜€å€¼
 	
 	public final static double MI = 200.0;
 	
 	public final static double LOGLR = 50.0;
 	
-	public final static int K = 10;                   // KNNËã·¨ËùÈ¡µÄKÖµ
+	public final static int K = 10;                   // KNNç®—æ³•æ‰€å–çš„Kå€¼
 	
-	public final static int KTHRESHOLD = 1;          // ¹ıÂËÀàµÄ·§Öµ
+	public final static int KTHRESHOLD = 1;          // è¿‡æ»¤ç±»çš„é˜€å€¼
 	
 }

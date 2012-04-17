@@ -15,7 +15,6 @@ import com.buptsse.ate.utils.Constant;
  * 
  * @author zhuyan
  */
-
 public class StopList {
 	private HashSet<String> wordsPrefix, wordsPostfix, words;
 	private Logger log = Logger.getLogger(getClass());

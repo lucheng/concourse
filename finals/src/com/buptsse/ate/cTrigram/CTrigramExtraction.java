@@ -1,6 +1,5 @@
 package com.buptsse.ate.cTrigram;
 
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -117,7 +116,7 @@ public class CTrigramExtraction {
 							conMap.remove(key);
 						else
 						{	
-							log.info(key+k);
+//							log.info(key+k);
 							bw.write(key+k);
 							bw.newLine();
 						}

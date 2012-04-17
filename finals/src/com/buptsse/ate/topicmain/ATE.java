@@ -1,7 +1,10 @@
 package com.buptsse.ate.topicmain;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -13,7 +16,7 @@ import com.buptsse.ate.utils.Constant;
 
 
 /**
- * ¶ÔÑµÁ·ÎÄ±¾½øĞĞ·Ö´Ê´¦Àí
+ * å¯¹è®­ç»ƒæ–‡æœ¬è¿›è¡Œåˆ†è¯å¤„ç†
  * 
  * @author ZhuYan
  * @version 2008/05/21
@@ -25,10 +28,19 @@ public class ATE {
 	public ATE(){
 		PropertyConfigurator.configure(Constant.LOG4J);
 	}
+	
+	private Map<String, Integer> fqMap = null;
+	
+	public Map<String, Integer> getFqMap() {
+		return fqMap;
+	}
+	public void setFqMap(Map<String, Integer> fqMap) {
+		this.fqMap = fqMap;
+	}
 	/**
-	 * ¶ÔÑµÁ·ÎÄ±¾½øĞĞ·Ö´Ê´¦Àí£¬Éú³ÉresÎÄ¼ş
-	 * @param inputPath ÑµÁ·ÎÄ±¾µÄÂ·¾¶
-	 * @param outputPath ÑµÁ·ÎÄ±¾·Ö´Êºó´æ·ÅresÎÄ¼şµÄÂ·¾¶
+	 * å¯¹è®­ç»ƒæ–‡æœ¬è¿›è¡Œåˆ†è¯å¤„ç†ï¼Œç”Ÿæˆresæ–‡ä»¶
+	 * @param inputPath è®­ç»ƒæ–‡æœ¬çš„è·¯å¾„
+	 * @param outputPath è®­ç»ƒæ–‡æœ¬åˆ†è¯åå­˜æ”¾resæ–‡ä»¶çš„è·¯å¾„
 	 * @throws IOException 
 	 */
 	public void pretreatmentTrain(String inputPath, String outputPath) throws IOException {
@@ -41,24 +53,37 @@ public class ATE {
 		// get words in the user dictionary
 		UserDict userDict = new UserDict();
 		HashSet<String> userDictList = userDict.getUserDict();
-		String path = Constant.CPATH; // tagÎÄ¼şµÄÄ¿Â¼
+		String path = Constant.CPATH; // tagæ–‡ä»¶çš„ç›®å½•
 	
-		// µ¥´Ê³éÈ¡
+		log.info("userDictList size:" + userDictList.size());
+		for(Iterator it = userDictList.iterator(); it.hasNext();){
+			log.info(it.next());
+		}
+		// å•è¯æŠ½å–
 		CSingleTermExtraction cste = new CSingleTermExtraction(path, userDictList);
 		cste.createMap();
 	    cste.extract();
-//		System.out.println();
-		
-		// Ë«´Ê³éÈ¡
+	    fqMap = cste.getMaps().get(0);
+	    /*log.info("========size:" + cste.getMaps().get(0).size());
+		for(String key : cste.getMaps().get(0).keySet()){
+			log.info(key + "=========" + cste.getMaps().get(0).get(key));
+		}*/
+		/*// åŒè¯æŠ½å–
 		CBigramExtraction cbe = new CBigramExtraction(userDictList, cste);
 		cbe.createMaps();
 		cbe.extract();
-//		System.out.println();
-		
-		// Èı´Ê³éÈ¡
+		log.info("size:" + cbe.getMaps().get(0).size());
+		for(String key : cbe.getMaps().get(0).keySet()){
+			log.info(key + "=========" + cbe.getMaps().get(0).get(key));
+		}
+		// ä¸‰è¯æŠ½å–
 		CTrigramExtraction cte = new CTrigramExtraction(userDictList, cste);
 		cte.createMaps();
-		cte.extract(); 
+		cte.extract();
+		log.info("size:" + cte.getMaps().get(0).size());*/
+		/*for(String key : cte.getMaps().get(0).keySet()){
+			log.info(key + "=========" + cte.getMaps().get(0).get(key));
+		}*/
 	}
 
 }

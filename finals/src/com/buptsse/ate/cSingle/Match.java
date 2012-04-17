@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
  * 
  */
 
+
 public class Match {
 	
 	private Pattern expression1;
@@ -18,7 +19,7 @@ public class Match {
 
 	public Match() {
 		
-		expression1 = Pattern.compile("[0-9a-zA-ZÒ»-ý›]+(/n|/vn)$");
+		expression1 = Pattern.compile("[0-9a-zA-Zä¸€-é¾¥]+(/n|/un)$");
 		
 	}
 

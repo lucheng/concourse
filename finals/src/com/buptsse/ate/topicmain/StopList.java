@@ -10,7 +10,6 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 import com.buptsse.ate.utils.Constant;
-
 /**
  * This class check whether a string exists in the stoplist.
  * 

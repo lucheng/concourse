@@ -9,7 +9,6 @@ import java.util.HashSet;
 import com.buptsse.ate.utils.Constant;
 
 public class UserDict {
-
 	/**
 	 * read the user dictionary
 	 * 

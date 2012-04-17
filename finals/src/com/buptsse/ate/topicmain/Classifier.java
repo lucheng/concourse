@@ -11,20 +11,21 @@ import ICTCLAS.I3S.AC.ICTCLAS50;
 import com.buptsse.ate.utils.Constant;
 
 /**
- * ¶ÔÎÄ¼ş½øĞĞ·Ö´Ê£¬Éú³ÉtagÎÄ¼ş
+ * å¯¹æ–‡ä»¶è¿›è¡Œåˆ†è¯ï¼Œç”Ÿæˆtagæ–‡ä»¶
  * 
  * @author ZhuYan
  */
 
+
 public class Classifier {
 
-	private String filePath; // ĞèÒª½øĞĞ·Ö´Ê´¦ÀíµÄÎÄ±¾µÄÂ·¾¶
-	private String outPath;  // ÎÄ±¾½øĞĞ·Ö´Êºó£¬´æ·Å.resÎÄ¼şµÄÂ·¾¶
+	private String filePath; // éœ€è¦è¿›è¡Œåˆ†è¯å¤„ç†çš„æ–‡æœ¬çš„è·¯å¾„
+	private String outPath;  // æ–‡æœ¬è¿›è¡Œåˆ†è¯åï¼Œå­˜æ”¾.resæ–‡ä»¶çš„è·¯å¾„
 	private Logger log = Logger.getLogger(getClass());
-	private int flag; // ÓÃÓÚÇø·ÖÊÇ¶ÔÑµÁ·¼¯»¹ÊÇ¶Ô²âÊÔ¼¯½øĞĞ·Ö´Ê£¬1ÎªÑµÁ·¼¯£¬2Îª²âÊÔ¼¯ºÏ
+	private int flag; // ç”¨äºåŒºåˆ†æ˜¯å¯¹è®­ç»ƒé›†è¿˜æ˜¯å¯¹æµ‹è¯•é›†è¿›è¡Œåˆ†è¯ï¼Œ1ä¸ºè®­ç»ƒé›†ï¼Œ2ä¸ºæµ‹è¯•é›†åˆ
 
 	/*
-	 * ¹¹Ôìº¯Êı
+	 * æ„é€ å‡½æ•°
 	 */
 	public Classifier(String path, String outputsPath, int f) {
 		filePath = path;
@@ -44,9 +45,7 @@ public class Classifier {
 		ArrayList<File> dir = new ArrayList<File>();
 		dir.add(path);
 		
-		log.info(filePath);
-		
-		// Ê¹ÓÃ·Ö´ÊÏµÍ³Ê±£¬Ê×ÏÈ±ØĞë½øĞĞ³õÊ¼»¯£¬³õÊ¼»¯³É¹¦Ôò¿É½øĞĞ·Ö´Ê£¬·ñÔò²»ÄÜ
+		// ä½¿ç”¨åˆ†è¯ç³»ç»Ÿæ—¶ï¼Œé¦–å…ˆå¿…é¡»è¿›è¡Œåˆå§‹åŒ–ï¼Œåˆå§‹åŒ–æˆåŠŸåˆ™å¯è¿›è¡Œåˆ†è¯ï¼Œå¦åˆ™ä¸èƒ½
 		ICTCLAS50 testICTCLAS2010 = new ICTCLAS50();
 
 		/**
@@ -57,16 +56,16 @@ public class Classifier {
 
 			path = dir.remove(0);
 			String inDirPath = path.getAbsolutePath();
-			String newInDirPath = inDirPath.replace('¡ª', '-'); // ½«ÎÄ¼şÂ·¾¶ÖĞµÄ¡°¡ª¡±×ª»»³É¡°-¡±£¬·ñÔò²»ÄÜÉú³É.tagÎÄ¼ş
+			String newInDirPath = inDirPath.replace('â€”', '-'); // å°†æ–‡ä»¶è·¯å¾„ä¸­çš„â€œâ€”â€è½¬æ¢æˆâ€œ-â€ï¼Œå¦åˆ™ä¸èƒ½ç”Ÿæˆ.tagæ–‡ä»¶
 			String outDirPath = inDirPath.substring(filePath.length());
-			String newOutDirPath = outDirPath.replace('¡ª', '-');
+			String newOutDirPath = outDirPath.replace('â€”', '-');
 			File tempF = new File(newInDirPath);
 			path.renameTo(tempF);
 
 			// Make an directory in the tag files' directory
 			File outDir = null;
 			
-			if (flag == 1) { // ÑµÁ·¼¯
+			if (flag == 1) { // è®­ç»ƒé›†
 				outDir = new File(Constant.CPATH + newOutDirPath);
 				// Make an directory in the res files' directory
 				File resDir = new File(outPath + newOutDirPath);
@@ -75,7 +74,7 @@ public class Classifier {
 				}
 			}
 			
-			if (flag == 2) { // ²âÊÔ¼¯
+			if (flag == 2) { // æµ‹è¯•é›†
 				outDir = new File(Constant.CTPATH + newOutDirPath);
 			}
 
@@ -89,14 +88,14 @@ public class Classifier {
 					// form tag file
 					String temp1 = tempF.getAbsolutePath();
 					String temp2 = "";
-					if (flag == 1) { // ÑµÁ·¼¯
+					if (flag == 1) { // è®­ç»ƒé›†
 						temp2 = Constant.CPATH + "/" + rename(tempF.getName());
 					}
-					if (flag == 2) { // ²âÊÔ¼¯
+					if (flag == 2) { // æµ‹è¯•é›†
 						temp2 = Constant.CTPATH + "/" + rename(tempF.getName());
 					}
 					
-					//¡¡¶ÔÎÄ±¾½øĞĞ·Ö´Ê£¬Éú³É.tagÎÄ¼ş
+					//ã€€å¯¹æ–‡æœ¬è¿›è¡Œåˆ†è¯ï¼Œç”Ÿæˆ.tagæ–‡ä»¶
 					testICTCLAS2010.ICTCLAS_FileProcess(temp1.getBytes("GB2312"), temp2.getBytes("GB2312"), 1);
 				} catch (UnsupportedEncodingException e) {
 					e.printStackTrace();
@@ -111,22 +110,22 @@ public class Classifier {
 						dir.add(files[i]);
 					} else { 
 						String argu1 = files[i].getAbsolutePath();
-						String newName = argu1.replace('¡ª', '-'); // ½«ÎÄ¼şÂ·¾¶ÖĞµÄ¡°¡ª¡±×ª»»³É¡°-¡±£¬·ñÔò²»ÄÜÉú³É.tagÎÄ¼ş
+						String newName = argu1.replace('â€”', '-'); // å°†æ–‡ä»¶è·¯å¾„ä¸­çš„â€œâ€”â€è½¬æ¢æˆâ€œ-â€ï¼Œå¦åˆ™ä¸èƒ½ç”Ÿæˆ.tagæ–‡ä»¶
 						File f = new File(newName);
 						files[i].renameTo(f);
 						String temp1 = f.getAbsolutePath();
 						// the path of tag file
 						String argu2 = "";
-						if (flag == 1) { // ÑµÁ·¼¯
+						if (flag == 1) { // è®­ç»ƒé›†
 							argu2 = Constant.CPATH + "/"
 									+ rename(files[i].getName());
 						}
-						if (flag == 2) { // ²âÊÔ¼¯
+						if (flag == 2) { // æµ‹è¯•é›†
 							argu2 = Constant.CTPATH + "/"
 									+ rename(files[i].getName());
 						}
 
-						String temp2 = argu2.replace('¡ª', '-');
+						String temp2 = argu2.replace('â€”', '-');
 						try {
 							// form tag file
 							testICTCLAS2010.ICTCLAS_FileProcess(temp1.getBytes("GB2312"), temp2.getBytes("GB2312"), 1);
@@ -140,11 +139,10 @@ public class Classifier {
 		}
 
 		testICTCLAS2010.ICTCLAS_Exit();
-
 	}
 
 	/**
-	 * change the suffix of the file be tagged from ".txt" to ".tag"
+	 * change the suffix of the file be tagged from ".txt" to ".seg"
 	 * 
 	 * @param name the name of the file be tagged
 	 * @return the changed name

@@ -21,14 +21,14 @@ import com.buptsse.ate.utils.SplitWord;
  * This class has two functions. First, it find out every 
  * word's frequency of occurrence in a single file.
  * Second, it calculate the amount of the words in all the
- * files.
+ * files. 
  * 
  * @author ZhuYan
  */
 
 class Frequency {
 	
-	// ´æ·Å´ÓËùÓĞÎÄ¼şÖĞ³éÈ¡³öÀ´µÄ´Ê£¬¼°Æä´ÎÊı
+	// å­˜æ”¾ä»æ‰€æœ‰æ–‡ä»¶ä¸­æŠ½å–å‡ºæ¥çš„è¯ï¼ŒåŠå…¶æ¬¡æ•°
 	private Map<String, Integer> map;
 	private String inPath;	
 	private Logger log = Logger.getLogger(getClass());
@@ -59,7 +59,7 @@ class Frequency {
 			}
 			BufferedReader bin = new BufferedReader(fin);
 			String str;
-			Pattern expression = Pattern.compile("[Ò»-ı›]+/[a-zA-Z]+");
+			Pattern expression = Pattern.compile("[ä¸€-é¾¥]+/[a-zA-Z]+");
 			Matcher matcher;
 			SplitWord splitWord = new SplitWord();
 			try {
@@ -105,7 +105,7 @@ class Frequency {
 						}
 						BufferedReader bin = new BufferedReader(fin);
 						String str;
-						Pattern expression = Pattern.compile("[Ò»-ı›]+/[a-zA-Z]+");
+						Pattern expression = Pattern.compile("[ä¸€-é¾¥]+/[a-zA-Z]+");
 						Matcher matcher;
 						SplitWord splitWord = new SplitWord();
 						try {
@@ -160,7 +160,7 @@ class Frequency {
 	public int sum(){
 		
 		int sum = 0;
-		Pattern expression = Pattern.compile("[Ò»-ı›]+/[a-zA-Z]+");
+		Pattern expression = Pattern.compile("[ä¸€-é¾¥]+/[a-zA-Z]+");
 		Matcher matcher;
 		File file = new File(inPath);
 		if(file.isFile()){

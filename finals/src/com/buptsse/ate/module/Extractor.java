@@ -1,11 +1,19 @@
-package com.buptsse.ate.utils;
+package com.buptsse.ate.module;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.buptsse.ate.utils.FileHelp;
 
-public class SeperateWords {
+public class Extractor {
+	
+	private int id;
+	private int baiduId;
+	private String title;
+	private List<String> contents = new ArrayList<String>();
 	
 	public static void main(String[] args) {
 		

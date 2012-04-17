@@ -15,7 +15,6 @@ import com.buptsse.ate.utils.Constant;
  * 
  * @author zhuyan
  */
-
 public class StopList {
 	private HashSet<String> wordsPrefix;
 	private HashSet<String> wordsMiddle;

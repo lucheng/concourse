@@ -5,7 +5,7 @@ import org.apache.log4j.PropertyConfigurator;
 
 import com.buptsse.ate.utils.Constant;
 import com.buptsse.ate.utils.FileHelp;
-
+ 
 public class ICTCLAS50
 {
 	//public enum eCodeType
@@ -34,36 +34,37 @@ public class ICTCLAS50
 		PropertyConfigurator.configure(Constant.LOG4J);
 	}
 	
-	public String getWordsSeg(String sInput) {
+	private String charset = "UTF-8";
+	/*public String getWordsSeg(String sInput) {
 		try {
 			ICTCLAS50 testICTCLAS50 = new ICTCLAS50();
 			String argu = "./ICTCLAS_CONFIG";
-			// ³õÊ¼»¯
+			// åˆå§‹åŒ–
 			if (testICTCLAS50.ICTCLAS_Init(argu.getBytes("GB2312")) == false) {
 				log.error("ICTCLAS Init Fail!");
 				return null;
 			}
 
-			// ÉèÖÃ´ÊĞÔ±ê×¢¼¯(0 ¼ÆËãËù¶ş¼¶±ê×¢¼¯£¬1 ¼ÆËãËùÒ»¼¶±ê×¢¼¯£¬2 ±±´ó¶ş¼¶±ê×¢¼¯£¬3 ±±´óÒ»¼¶±ê×¢¼¯)
-			testICTCLAS50.ICTCLAS_SetPOSmap(2);
+			// è®¾ç½®è¯æ€§æ ‡æ³¨é›†(0 è®¡ç®—æ‰€äºŒçº§æ ‡æ³¨é›†ï¼Œ1 è®¡ç®—æ‰€ä¸€çº§æ ‡æ³¨é›†ï¼Œ2 åŒ—å¤§äºŒçº§æ ‡æ³¨é›†ï¼Œ3 åŒ—å¤§ä¸€çº§æ ‡æ³¨é›†)
+			testICTCLAS50.ICTCLAS_SetPOSmap(1);
 
-			// µ¼ÈëÓÃ»§×Öµä
+			// å¯¼å…¥ç”¨æˆ·å­—å…¸
 			int nCount = 0;
-//			String usrdir = "./ICTCLAS_CONFIG/userdict.txt"; // ÓÃ»§×ÖµäÂ·¾¶
-			byte[] usrdirb = Constant.USERDICT.getBytes();// ½«string×ª»¯ÎªbyteÀàĞÍ
-			// µ¼ÈëÓÃ»§×Öµä,·µ»Øµ¼ÈëÓÃ»§´ÊÓï¸öÊıµÚÒ»¸ö²ÎÊıÎªÓÃ»§×ÖµäÂ·¾¶£¬µÚ¶ş¸ö²ÎÊıÎªÓÃ»§×ÖµäµÄ±àÂëÀàĞÍ
+//			String usrdir = "./ICTCLAS_CONFIG/userdict.txt"; // ç”¨æˆ·å­—å…¸è·¯å¾„
+			byte[] usrdirb = Constant.USERDICT.getBytes();// å°†stringè½¬åŒ–ä¸ºbyteç±»å‹
+			// å¯¼å…¥ç”¨æˆ·å­—å…¸,è¿”å›å¯¼å…¥ç”¨æˆ·è¯è¯­ä¸ªæ•°ç¬¬ä¸€ä¸ªå‚æ•°ä¸ºç”¨æˆ·å­—å…¸è·¯å¾„ï¼Œç¬¬äºŒä¸ªå‚æ•°ä¸ºç”¨æˆ·å­—å…¸çš„ç¼–ç ç±»å‹
 			nCount = testICTCLAS50.ICTCLAS_ImportUserDictFile(usrdirb, 0);
-//			System.out.println("µ¼ÈëÓÃ»§´Ê¸öÊı" + nCount);
+//			System.out.println("å¯¼å…¥ç”¨æˆ·è¯ä¸ªæ•°" + nCount);
 			nCount = 0;
 
-			// µ¼ÈëÓÃ»§×ÖµäºóÔÙ·Ö´Ê
+			// å¯¼å…¥ç”¨æˆ·å­—å…¸åå†åˆ†è¯
 			byte nativeBytes1[] = testICTCLAS50.ICTCLAS_ParagraphProcess(sInput.getBytes("GB2312"), 2, 1);
 //			System.out.println(nativeBytes1.length);
 			String nativeStr1 = new String(nativeBytes1, 0, nativeBytes1.length, "GB2312");
-//			System.out.println("µ¼ÈëÓÃ»§´ÊµäºóµÄ·Ö´Ê½á¹û£º " + nativeStr1);
-			// ±£´æÓÃ»§×Öµä
+//			System.out.println("å¯¼å…¥ç”¨æˆ·è¯å…¸åçš„åˆ†è¯ç»“æœï¼š " + nativeStr1);
+			// ä¿å­˜ç”¨æˆ·å­—å…¸
 			testICTCLAS50.ICTCLAS_SaveTheUsrDic();
-			// ÊÍ·Å·Ö´Ê×é¼ş×ÊÔ´
+			// é‡Šæ”¾åˆ†è¯ç»„ä»¶èµ„æº
 			testICTCLAS50.ICTCLAS_Exit();
 			
 			return nativeStr1;
@@ -72,31 +73,31 @@ public class ICTCLAS50
 			return null;
 		}
 
-	}
+	}*/
 	
 	public void ICTCLAS_FileProcess(byte[] sSrcFilename, byte[] sDestFilename, int bPOSTagged) {
 		
 		try {
 			ICTCLAS50 testICTCLAS50 = new ICTCLAS50();
-			// ·Ö´ÊËùĞè¿âµÄÂ·¾¶
+			// åˆ†è¯æ‰€éœ€åº“çš„è·¯å¾„
 			String argu = "./ICTCLAS_CONFIG";
-			// ³õÊ¼»¯
-			if (testICTCLAS50.ICTCLAS_Init(argu.getBytes("GB2312")) == false) {
+			// åˆå§‹åŒ–
+			if (testICTCLAS50.ICTCLAS_Init(argu.getBytes("UTF-8")) == false) {
 				log.error("Init Fail!");
 				return;
 			}
-
-			testICTCLAS50.ICTCLAS_SetPOSmap(2);
+			// è®¾ç½®è¯æ€§æ ‡æ³¨é›†(0 è®¡ç®—æ‰€äºŒçº§æ ‡æ³¨é›†ï¼Œ1 è®¡ç®—æ‰€ä¸€çº§æ ‡æ³¨é›†ï¼Œ2 åŒ—å¤§äºŒçº§æ ‡æ³¨é›†ï¼Œ3 åŒ—å¤§ä¸€çº§æ ‡æ³¨é›†)
+			testICTCLAS50.ICTCLAS_SetPOSmap(3);
 			
-			// ÓÃ»§×ÖµäÂ·¾¶
-			byte[] usrdirb = Constant.USERDICT.getBytes();// ½«string×ª»¯ÎªbyteÀàĞÍ
-			// µÚÒ»¸ö²ÎÊıÎªÓÃ»§×ÖµäÂ·¾¶£¬µÚ¶ş¸ö²ÎÊıÎªÓÃ»§×ÖµäµÄ±àÂëÀàĞÍ(0:type
-			// unknown;1:ASCIIÂë;2:GB2312,GBK,GB10380;3:UTF-8;4:BIG5)
-			int nCount = testICTCLAS50.ICTCLAS_ImportUserDictFile(usrdirb, 0);// µ¼ÈëÓÃ»§×Öµä,·µ»Øµ¼ÈëÓÃ»§´ÊÓï¸öÊı
-			log.info("µ¼ÈëÓÃ»§´Ê¸öÊı" + nCount);
-			// ÎÄ¼ş·Ö´Ê(µÚÒ»¸ö²ÎÊıÎªÊäÈëÎÄ¼şµÄÃû,µÚ¶ş¸ö²ÎÊıÎªÎÄ¼ş±àÂëÀàĞÍ,µÚÈı¸ö²ÎÊıÎªÊÇ·ñ±ê¼Ç´ÊĞÔ¼¯1 yes,0
-			// no,µÚËÄ¸ö²ÎÊıÎªÊä³öÎÄ¼şÃû)
-			testICTCLAS50.ICTCLAS_FileProcess(sSrcFilename, 0, bPOSTagged, sDestFilename);
+			// ç”¨æˆ·å­—å…¸è·¯å¾„
+			byte[] usrdirb = Constant.USERDICT.getBytes();// å°†stringè½¬åŒ–ä¸ºbyteç±»å‹
+			// ç¬¬ä¸€ä¸ªå‚æ•°ä¸ºç”¨æˆ·å­—å…¸è·¯å¾„ï¼Œç¬¬äºŒä¸ªå‚æ•°ä¸ºç”¨æˆ·å­—å…¸çš„ç¼–ç ç±»å‹(0:type
+			// unknown;1:ASCIIç ;2:GB2312,GBK,GB10380;3:UTF-8;4:BIG5)
+			int nCount = testICTCLAS50.ICTCLAS_ImportUserDictFile(usrdirb, 2);// å¯¼å…¥ç”¨æˆ·å­—å…¸,è¿”å›å¯¼å…¥ç”¨æˆ·è¯è¯­ä¸ªæ•°
+			log.info("å¯¼å…¥ç”¨æˆ·è¯ä¸ªæ•°" + nCount);
+			// æ–‡ä»¶åˆ†è¯(ç¬¬ä¸€ä¸ªå‚æ•°ä¸ºè¾“å…¥æ–‡ä»¶çš„å,ç¬¬äºŒä¸ªå‚æ•°ä¸ºæ–‡ä»¶ç¼–ç ç±»å‹,ç¬¬ä¸‰ä¸ªå‚æ•°ä¸ºæ˜¯å¦æ ‡è®°è¯æ€§é›†1 yes,0
+			// no,ç¬¬å››ä¸ªå‚æ•°ä¸ºè¾“å‡ºæ–‡ä»¶å)
+			testICTCLAS50.ICTCLAS_FileProcess(sSrcFilename, 3, bPOSTagged, sDestFilename);
 			
 		} catch (Exception ex) {
 			ex.printStackTrace();

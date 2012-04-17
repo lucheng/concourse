@@ -1,6 +1,5 @@
 package com.buptsse.ate.cBigram;
 
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -32,7 +31,6 @@ public class CBigramExtraction {
 	private Logger log = Logger.getLogger(getClass());
 	
 	private ArrayList<HashMap<String, Integer>> maps;
-//	private String inPath;
 	private HashSet<String> userDictList;
 	private ArrayList<Vector<String[]>> vecList;
 
@@ -40,7 +38,6 @@ public class CBigramExtraction {
 			CSingleTermExtraction ste) {
 		maps = new ArrayList<HashMap<String, Integer>>();
 		vecList = ste.getVecList();
-//		this.inPath = inPath;
 		this.userDictList = userDictList;
 		PropertyConfigurator.configure(Constant.LOG4J);
 	}
@@ -64,16 +61,16 @@ public class CBigramExtraction {
 				for (int j = 0; j < tempRes.length; j++) {
 					result[j] = tempRes[j];
 				}
-				for (int k = 0; k < result.length - 1; k++) { // µ±Ò»ĞĞÓĞ¶àÓÚÒ»¸ö´ÊµÄÊ±ºò£¬½øÈëÑ­»·
+				for (int k = 0; k < result.length - 1; k++) { // å½“ä¸€è¡Œæœ‰å¤šäºä¸€ä¸ªè¯çš„æ—¶å€™ï¼Œè¿›å…¥å¾ªç¯
 					if (result[k].length() > 0 && result[k + 1].length() > 0) {
-						if (matchObject.match(result[k], result[k + 1])) { // ÅĞ¶Ï°¤×ÅµÄÁ½¸ö´ÊÊÇ·ñ¶¼Ê±n»òÕßvn
+						if (matchObject.match(result[k], result[k + 1])) { // åˆ¤æ–­æŒ¨ç€çš„ä¸¤ä¸ªè¯æ˜¯å¦éƒ½æ—¶næˆ–è€…vn
 							subStr = result[k] +" "+ result[k + 1];
-							subStr = splitWord.split(subStr); // ½«Á½¸öÃû´ÊºÏ³ÉË«ÊõÓï
-								if (map.containsKey(subStr)) { // ÈômapÖĞÒÑĞ´Èë¸ÃË«ÊõÓï£¬Ôò½«¸ÃË«ÊõÓïµÄ´ÎÊı¼Ó1
+							subStr = splitWord.split(subStr); // å°†ä¸¤ä¸ªåè¯åˆæˆåŒæœ¯è¯­
+								if (map.containsKey(subStr)) { // è‹¥mapä¸­å·²å†™å…¥è¯¥åŒæœ¯è¯­ï¼Œåˆ™å°†è¯¥åŒæœ¯è¯­çš„æ¬¡æ•°åŠ 1
 									int count = map.get(subStr);
 									count += 1;
 									map.put(subStr,count);									
-								} else { // ÈômapÖĞ»¹Ã»Ğ´Èë¸ÃË«ÊõÓï£¬ÔòÔö¼Ó¸ÃË«ÊõÓï£¬ÇÒ¼ÇÆä´ÎÊıÎª1
+								} else { // è‹¥mapä¸­è¿˜æ²¡å†™å…¥è¯¥åŒæœ¯è¯­ï¼Œåˆ™å¢åŠ è¯¥åŒæœ¯è¯­ï¼Œä¸”è®°å…¶æ¬¡æ•°ä¸º1
 									int temp = 1;
 									map.put(subStr, temp);										
 								}							
@@ -94,19 +91,19 @@ public class CBigramExtraction {
 	public void extract() throws IOException {
 		BufferedWriter bw = new BufferedWriter(new FileWriter(Constant.RESULT_FILE,true));
 		bw.newLine();
-		// ÑµÁ·ÎÄ±¾ÖĞµÄËùÓĞµ¥´ÊÊıÄ¿
+		// è®­ç»ƒæ–‡æœ¬ä¸­çš„æ‰€æœ‰å•è¯æ•°ç›®
 		for (int i = 0; i < maps.size(); i++) {
 			HashMap<String, Integer> map = maps.get(i);
 			ConcurrentHashMap<String, Integer> conMap = new ConcurrentHashMap<String, Integer>(map);
 			for (Entry<String, Integer> entry : conMap.entrySet()) {
 				int temp = entry.getValue();
 				String key = entry.getKey();
-					// ÅĞ¶Ï¸Ã´ÊÊÇ·ñÔÚÓÃ»§´ÊµäÖĞ
+					// åˆ¤æ–­è¯¥è¯æ˜¯å¦åœ¨ç”¨æˆ·è¯å…¸ä¸­
 					if (!userDictList.contains(key)) {
 						if (temp < Constant.DOUBLETHRESHOLD) {
 							conMap.remove(key);
 						} else {
-								log.info(key+temp);
+//								log.info(key+temp);
 								bw.write(key+temp);
 								bw.newLine();
 							}
