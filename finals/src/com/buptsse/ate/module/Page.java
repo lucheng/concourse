@@ -14,6 +14,7 @@ import org.jsoup.select.Elements;
 public class Page {
 	
 	private String title;
+	private String baibeId;
 	private String html;
 	private String url;
 	private List<Content> contents = new ArrayList<Content>();
@@ -30,6 +31,9 @@ public class Page {
 		}
 	}
 
+	public Page(){
+		
+	}
 
 	public String getTitle() {
 		return title;
@@ -75,6 +79,14 @@ public class Page {
 		this.url = url;
 	}
 
+
+	public String getBaibeId() {
+		return baibeId;
+	}
+
+	public void setBaibeId(String baibeId) {
+		this.baibeId = baibeId;
+	}
 
 	private void formByXml(){
 			
