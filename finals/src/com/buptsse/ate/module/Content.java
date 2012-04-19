@@ -8,8 +8,9 @@ import java.util.Map;
 public class Content {
 	
 	private String subTitle;
+	private String summary;
 	private String text;
-	private Map<String, String> links = new HashMap<String, String>();
+	private List<Link> links = new ArrayList<Link>();
 	private List<String> taglist = new ArrayList<String>();
 	
 	public String getText() {
@@ -21,6 +22,14 @@ public class Content {
 		this.text = text;
 	}
 	
+	public String getSummary() {
+		return summary;
+	}
+
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+	
 	public String getSubTitle() {
 		return subTitle;
 	}
@@ -30,12 +39,11 @@ public class Content {
 		this.subTitle = subTitle;
 	}
 	
-	public Map<String, String> getLinks() {
+	public List<Link> getLinks() {
 		return links;
 	}
 
-
-	public void setLinks(Map<String, String> links) {
+	public void setLinks(List<Link> links) {
 		this.links = links;
 	}
 
@@ -50,28 +58,6 @@ public class Content {
 	}
 
 
-	/*public void formByPage(){
-		
-		rootElement = DocumentHelper.createElement("content");
-		
-		Element subtitleElement = rootElement.addElement("subtitle");
-		subtitleElement.addText(this.subTitle);
-		
-		Element contentElement = rootElement.addElement("html");
-		contentElement.addCDATA(this.html);
-		
-		Element taglistElement = rootElement.addElement("taglist");
-		List<Element> list = contentElement.selectNodes(".//dl[@id='viewExtCati']/dd/a");
-		System.out.println("list:" + list.size());
-		for(Element element : list){
-			Element tagElement = taglistElement.addElement("tag");
-			tagElement.addText(element.getStringValue());
-		}
-		
-		
-	}*/
-
-	
 	public static void main(String[] args) {
 		
 //		Page page = new Page("http://baike.baidu.com/view/2653231.htm");

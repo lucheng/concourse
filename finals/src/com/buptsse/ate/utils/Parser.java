@@ -13,7 +13,9 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 
 import com.buptsse.ate.module.Content;
+import com.buptsse.ate.module.Link;
 import com.buptsse.ate.module.Page;
+import com.buptsse.ate.module.Reinforce;
 
 
 public class Parser {
@@ -26,13 +28,11 @@ public class Parser {
 		Element root = doc.getRootElement();
 		Element data = (Element) root.selectSingleNode("//datas");
 		String title = data.element("title").getStringValue();
-		String fileId = fileName.substring(fileName.lastIndexOf("/") + 1, fileName.lastIndexOf("_"));
+		String fileId = fileName.substring(fileName.lastIndexOf("/") + 1, fileName.lastIndexOf("."));
 		
 		page.setTitle(title);
 		
 		List<Element> elements = data.element("contents").elements();
-		System.out.println(fileId);
-		System.out.println(title);
 		
 		List<Content> contents = new ArrayList<Content>();
 		for(Element e : elements){
@@ -40,13 +40,13 @@ public class Parser {
 			
 			String subTitle  = e.selectSingleNode(".//subtitle").getStringValue();
 			String text  = e.selectSingleNode(".//text").getStringValue();
+			String summary  = e.selectSingleNode(".//summary").getStringValue();
 			
 			List<Element> links  = e.selectNodes(".//links//link");
-			Map<String, String> linkMap = new HashMap<String, String>();
-			for(Element link : links){
-				String linkText = link.getStringValue();
-				String linkUrl = link.attributeValue("url");
-				linkMap.put(linkText, linkUrl);
+			List<Link> linkList = new ArrayList<Link>();
+			for(Element element : links){
+				Link link = new Link(Integer.parseInt(element.attributeValue("index")), element.getStringValue(), element.attributeValue("url"));
+				linkList.add(link);
 			}
 			
 			List<Element> tagElements  = e.selectNodes(".//tags//tag");
@@ -58,23 +58,26 @@ public class Parser {
 			
 			content.setSubTitle(subTitle);
 			content.setText(text);
-			content.setLinks(linkMap);
+			content.setSummary(summary);
+			content.setLinks(linkList);
 			content.setTaglist(tags);
 			contents.add(content);
 		}
 		
 		page.setContents(contents);
 		
-		Map<String, String> reinforceMap = new HashMap<String, String>();
+		List<Reinforce> reinforceList = new ArrayList<Reinforce>();
 		List<Element> reinforces = data.element("reinforces").elements();
-		for(Element e : reinforces){
-			String url = e.attributeValue("url");
-			String text = e.getStringValue();
-			reinforceMap.put(text, url);
+		for(int i = 0; i < reinforces.size(); i++){
+			String url = reinforces.get(i).attributeValue("url");
+			String index = reinforces.get(i).attributeValue("index");
+			String text = reinforces.get(i).getStringValue();
+			Reinforce reinforce = new Reinforce(Integer.parseInt(index), text, url);
+			reinforceList.add(reinforce);
 			
 		}
 		
-		page.setReinforce(reinforceMap);
+		page.setReinforces(reinforceList);
 		
 		return page;
 	}
@@ -107,14 +110,18 @@ public class Parser {
 				Element subtitleElement = contentElement.addElement("subtitle");
 				subtitleElement.addText(content.getSubTitle());
 				
+				Element summaryElement = contentElement.addElement("summary");
+				summaryElement.addText(content.getSummary());
+				
 				Element textElement = contentElement.addElement("text");
 				textElement.addText(content.getText());
 				
 				Element linksElement = contentElement.addElement("links");
-				for(String key : content.getLinks().keySet()){
+				for(Link link : content.getLinks()){
 					Element linkElement = linksElement.addElement("link");
-					linkElement.addText(key);
-					linkElement.addAttribute("url", content.getLinks().get(key));
+					linkElement.addText(link.getText());
+					linkElement.addAttribute("url", link.getUrl());
+					linkElement.addAttribute("index", link.getIndex()+"");
 				}
 				
 				Element tagsElement = contentElement.addElement("tags");
@@ -124,10 +131,11 @@ public class Parser {
 				}
 			}
 			
-			for(String key : page.getReinforce().keySet()){
+			for(Reinforce reinforce : page.getReinforces()){
 				Element linkElement = reinforceElement.addElement("reinforce");
-				linkElement.addText(key);
-				linkElement.addAttribute("url", page.getReinforce().get(key));
+				linkElement.addText(reinforce.getText());
+				linkElement.addAttribute("url", reinforce.getUrl());
+				linkElement.addAttribute("index", reinforce.getIndex()+"");
 			}
 			
 			out.writeOpen(rootElement);

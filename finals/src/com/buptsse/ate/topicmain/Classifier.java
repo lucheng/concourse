@@ -102,7 +102,7 @@ public class Classifier {
 					log.info(e.getMessage());
 				}
 			} else {
-				log.info(tempF);
+//				log.info(tempF);
 				File[] files = tempF.listFiles();
 				
 				for (int i = 0; i < files.length; i++) {

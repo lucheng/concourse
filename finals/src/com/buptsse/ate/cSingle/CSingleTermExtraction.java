@@ -117,7 +117,7 @@ public class CSingleTermExtraction {
 						bin.close();
 						fin.close();
 						map.put(name[0], -999);
-						log.info("name:" + name[0]);
+//						log.info("name:" + name[0]);
 						vecList.add(vector);
 					} catch (Exception e) {
 						e.printStackTrace();

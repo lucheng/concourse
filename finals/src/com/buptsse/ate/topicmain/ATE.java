@@ -29,14 +29,11 @@ public class ATE {
 		PropertyConfigurator.configure(Constant.LOG4J);
 	}
 	
-	private Map<String, Integer> fqMap = null;
+	private Map<String, Integer> singleTermMap = null;
+	private Map<String, Integer> bigramTermMap = null;
+	private Map<String, Integer> trigramTermMap = null;
 	
-	public Map<String, Integer> getFqMap() {
-		return fqMap;
-	}
-	public void setFqMap(Map<String, Integer> fqMap) {
-		this.fqMap = fqMap;
-	}
+	
 	/**
 	 * 对训练文本进行分词处理，生成res文件
 	 * @param inputPath 训练文本的路径
@@ -55,35 +52,67 @@ public class ATE {
 		HashSet<String> userDictList = userDict.getUserDict();
 		String path = Constant.CPATH; // tag文件的目录
 	
-		log.info("userDictList size:" + userDictList.size());
+		/*log.info("userDictList size:" + userDictList.size());
 		for(Iterator it = userDictList.iterator(); it.hasNext();){
 			log.info(it.next());
-		}
+		}*/
 		// 单词抽取
 		CSingleTermExtraction cste = new CSingleTermExtraction(path, userDictList);
 		cste.createMap();
 	    cste.extract();
-	    fqMap = cste.getMaps().get(0);
+	    singleTermMap = cste.getMaps().get(0);
 	    /*log.info("========size:" + cste.getMaps().get(0).size());
 		for(String key : cste.getMaps().get(0).keySet()){
 			log.info(key + "=========" + cste.getMaps().get(0).get(key));
 		}*/
-		/*// 双词抽取
+		// 双词抽取
 		CBigramExtraction cbe = new CBigramExtraction(userDictList, cste);
 		cbe.createMaps();
 		cbe.extract();
-		log.info("size:" + cbe.getMaps().get(0).size());
+		bigramTermMap = cbe.getMaps().get(0);
+		/*log.info("size:" + cbe.getMaps().get(0).size());
 		for(String key : cbe.getMaps().get(0).keySet()){
 			log.info(key + "=========" + cbe.getMaps().get(0).get(key));
-		}
+		}*/
 		// 三词抽取
 		CTrigramExtraction cte = new CTrigramExtraction(userDictList, cste);
 		cte.createMaps();
 		cte.extract();
-		log.info("size:" + cte.getMaps().get(0).size());*/
+		trigramTermMap = cte.getMaps().get(0);
+//		log.info("size:" + cte.getMaps().get(0).size());
 		/*for(String key : cte.getMaps().get(0).keySet()){
 			log.info(key + "=========" + cte.getMaps().get(0).get(key));
 		}*/
+	}
+
+
+	public Map<String, Integer> getSingleTermMap() {
+		return singleTermMap;
+	}
+
+
+	public void setSingleTermMap(Map<String, Integer> singleTermMap) {
+		this.singleTermMap = singleTermMap;
+	}
+
+
+	public Map<String, Integer> getBigramTermMap() {
+		return bigramTermMap;
+	}
+
+
+	public void setBigramTermMap(Map<String, Integer> bigramTermMap) {
+		this.bigramTermMap = bigramTermMap;
+	}
+
+
+	public Map<String, Integer> getTrigramTermMap() {
+		return trigramTermMap;
+	}
+
+
+	public void setTrigramTermMap(Map<String, Integer> trigramTermMap) {
+		this.trigramTermMap = trigramTermMap;
 	}
 
 }
