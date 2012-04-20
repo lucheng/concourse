@@ -23,7 +23,7 @@ import com.buptsse.ate.utils.Parser;
  * 
  */
 
-public class TextClassification {
+public class KeyWordsExtractor {
 
 	private static String filePath = "D:/panguso/baidu/xmltest/";
 	private static String preUrl = "http://baike.baidu.com";
@@ -36,7 +36,7 @@ public class TextClassification {
 	
 	private Page page = null;
 	
-	public TextClassification(){
+	public KeyWordsExtractor(){
 		PropertyConfigurator.configure(Constant.LOG4J);
 	}
 	//对文件进行预处理，下载相关的文件
@@ -155,7 +155,7 @@ public class TextClassification {
 	public static void main(String[] args) throws IOException {
 
 		String url = "http://baike.baidu.com/view/15938.htm";
-		TextClassification test = new TextClassification();
+		KeyWordsExtractor test = new KeyWordsExtractor();
 		test.pretreatment(url);
 		List<Link> links = test.getContentLinks(test.getPage().getContents().get(0));
 		for(Link link : links){
