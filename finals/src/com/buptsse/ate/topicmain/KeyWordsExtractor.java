@@ -154,7 +154,7 @@ public class KeyWordsExtractor {
 	}
 	public static void main(String[] args) throws IOException {
 
-		String url = "http://baike.baidu.com/view/15938.htm";
+		String url = "http://baike.baidu.com/view/1538.htm";
 		KeyWordsExtractor test = new KeyWordsExtractor();
 		test.pretreatment(url);
 		List<Link> links = test.getContentLinks(test.getPage().getContents().get(0));

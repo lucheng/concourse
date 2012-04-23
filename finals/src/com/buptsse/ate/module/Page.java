@@ -2,9 +2,7 @@ package com.buptsse.ate.module;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -148,13 +146,4 @@ public class Page {
 		}
 	}
 
-	public static void main(String[] args) {
-
-		// Page page = new Page(new
-		// File("D:/panguso/baidu/page/http---baike-baidu-com-view-210-htm-1.html"));
-		// Page page = new Page("http://baike.baidu.com/view/2653231.htm");
-		// Page page = new Page("http://baike.baidu.com/view/64453.htm");
-		// Page page = new Page("http://baike.baidu.com/view/1719.htm");
-		// page.saveAsXml("D:/panguso/baidu/page/2653231.xml");
-	}
 }
