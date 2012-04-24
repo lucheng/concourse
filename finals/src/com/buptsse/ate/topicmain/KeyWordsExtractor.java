@@ -93,16 +93,16 @@ public class KeyWordsExtractor {
 
 	public void getWordsFrequency() throws IOException{
 		
-		String text = page.getContents().get(0).getText();
-		text.replaceAll("编辑本段", "");
-		FileHelp.writeFile("input/input/" + page.getBaibeId() + ".txt", text);
+//		String text = page.getContents().get(0).getText();
+//		text.replaceAll("编辑本段", "");
+//		FileHelp.writeFile("input/input/" + page.getBaibeId() + ".txt", text);
 		// 对训练文本进行分词处理，生成res文件
 		String inputTrainPath = "input/input";   // 训练文本的输入路径
 		String outputTrainPath = "input/output";  // 训练文本的输出路径
 		ATE ate = new ATE();
 		ate.pretreatmentTrain(inputTrainPath, outputTrainPath); // 分词
 		
-		log.info(page.getTitle());
+//		log.info(page.getTitle());
 		singleTermMap = ate.getSingleTermMap();
 		bigramTermMap = ate.getBigramTermMap();
 		trigramTermMap = ate.getTrigramTermMap();
@@ -147,14 +147,14 @@ public class KeyWordsExtractor {
 		hsort.HeapSorting(array);
 		
 		for(String key : trigramTermMap.keySet()){
-			if(trigramTermMap.get(key) > array[8]){
+			if(trigramTermMap.get(key) > array[3]){
 				log.info(key);
 			}
 		}
 	}
 	public static void main(String[] args) throws IOException {
 
-		String url = "http://baike.baidu.com/view/1538.htm";
+		/*String url = "http://baike.baidu.com/view/1538.htm";
 		KeyWordsExtractor test = new KeyWordsExtractor();
 		test.pretreatment(url);
 		List<Link> links = test.getContentLinks(test.getPage().getContents().get(0));
@@ -162,8 +162,9 @@ public class KeyWordsExtractor {
 			test.pretreatment(preUrl + link.getUrl());
 		}
 		
-		test.getReinforce();
-//		test.getWordsFrequency();
+		test.getReinforce();*/
+		KeyWordsExtractor test = new KeyWordsExtractor();
+		test.getWordsFrequency();
 	}
 
 	public Page getPage() {

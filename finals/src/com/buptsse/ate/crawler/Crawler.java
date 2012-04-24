@@ -113,6 +113,7 @@ public abstract class Crawler extends Thread{
 			Element rootElement = DocumentHelper.createElement("datas");
 			Element titleElement = rootElement.addElement("title");
 			Element authorElement = rootElement.addElement("author");
+			Element publishedElement = rootElement.addElement("published");
 			Element urlElement = rootElement.addElement("url");
 			Element updateTimeElement = rootElement.addElement("updateTime");
 			Element summaryElement = rootElement.addElement("summary");
@@ -129,6 +130,9 @@ public abstract class Crawler extends Thread{
 				tagElement.addText(tag.getTag());
 				tagElement.addAttribute("url", tag.getLink());
 			}
+			
+			publishedElement.addText(this.getPublished());
+			
 			out.writeOpen(rootElement);
 			out.write(titleElement);
 			out.write(authorElement);
