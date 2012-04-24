@@ -1,8 +1,11 @@
 package com.buptsse.ate.extractor;
 
+import java.util.List;
+
 import org.jsoup.select.Elements;
 
 import com.buptsse.ate.crawler.Crawler;
+import com.buptsse.ate.utils.FileHelp;
 
 public class KrCrawler extends Crawler {
 	
@@ -37,6 +40,24 @@ public class KrCrawler extends Crawler {
 //		this.setTagList(tags);
 		this.setTitle(blog_title);
 		this.setSummary(blog_content);
+	}
+	
+	public static void main(String[] args){
+		
+		List<String> fileNames = FileHelp.getURLs("36kr.txt");
+		for(String url : fileNames){
+	//		String url = "http://www.36kr.com/p/97503.html";
+			try{
+				Crawler crawler2 = new KrCrawler(url);
+				crawler2.fetch();
+				String newFileName = "D:/panguso/36kr/xml" + url.substring(url.lastIndexOf("/"), url.lastIndexOf("."))+".xml";
+				System.out.println(newFileName);
+				crawler2.saveFile(newFileName);
+			}catch(Exception e){
+				e.printStackTrace();
+				continue;
+			}
+		}
 	}
 	
 }

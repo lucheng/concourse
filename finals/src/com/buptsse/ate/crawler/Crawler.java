@@ -1,10 +1,12 @@
 package com.buptsse.ate.crawler;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.io.OutputFormat;
@@ -12,8 +14,10 @@ import org.dom4j.io.XMLWriter;
 import org.jsoup.Jsoup;
 
 import com.buptsse.ate.extractor.KrCrawler;
+import com.buptsse.ate.utils.FileHelp;
+import com.buptsse.ate.utils.XmlHelp;
 
-public abstract class Crawler {
+public abstract class Crawler extends Thread{
 
 	protected org.jsoup.nodes.Document doc;
 	
@@ -72,6 +76,7 @@ public abstract class Crawler {
 	}
 	
 	public Crawler(String url) {
+		
 		try {
 			this.doc = Jsoup.connect(url)
 					.userAgent("Mozilla/5.0 (Windows NT 6.1; rv:5.0)")
@@ -81,11 +86,18 @@ public abstract class Crawler {
 			e.printStackTrace();
 		}
 	}
+	
+	public Crawler() {
+	}
 
 	public abstract void fetch();
 	
 	public void saveFile(String filePath){
 		
+		if(new File(filePath).exists()){
+			System.out.println("网页已存在！");
+			return;
+		}
 		if(this.getTitle().equals("")){
 			System.out.println("网页不存在！");
 			return;
@@ -131,6 +143,16 @@ public abstract class Crawler {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+	}
+	
+	public void extrcatText(String fileName, String textFileName){
+		
+		Document doc = XmlHelp.getDocument(fileName);
+		Element root = doc.getRootElement();
+		Element data = (Element) root.selectSingleNode("//datas");
+		String text = data.element("summary").getStringValue();
+		text.replace("<br />", "");
+		FileHelp.writeFile(textFileName, text);
 	}
 //	http://www.google.com/reader/atom/feed/
 //	http://www.36kr.com/feed
@@ -195,11 +217,19 @@ public abstract class Crawler {
 	
 	public static void main(String[] args){
 		
-		
-		String url = "http://www.36kr.com/p/97503.html";
-		Crawler crawler2 = new KrCrawler(url);
-		crawler2.fetch();
-		crawler2.saveFile("1490510.xml");
-		
+		List<String> fileNames = FileHelp.getURLs("36kr.txt");
+		for(String url : fileNames){
+	//		String url = "http://www.36kr.com/p/97503.html";
+			try{
+				Crawler crawler2 = new KrCrawler(url);
+				crawler2.fetch();
+				String newFileName = "D:/panguso/36kr/xml" + url.substring(url.lastIndexOf("/"), url.lastIndexOf("."))+".xml";
+				System.out.println(newFileName);
+				crawler2.saveFile(newFileName);
+			}catch(Exception e){
+				e.printStackTrace();
+				continue;
+			}
+		}
 	}
 }
