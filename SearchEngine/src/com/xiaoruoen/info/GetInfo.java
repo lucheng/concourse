@@ -53,21 +53,7 @@ public class GetInfo extends TimerTask {
 	 */
 	private void retrieveInfo(String url) throws ParserException,
 			IllegalArgumentException, IOException {
-		/*URL myurl = new URL(url);
-		Node node = null;
-		Lexer lexer = new Lexer(myurl.openConnection());
-		while (null != (node = lexer.nextNode())) {
-			if (node instanceof TagNode) {
-				// 找到id为J_itemViewed的结点，提取其value值
-				if ("blog_content".equalsIgnoreCase(((TagNode) node)
-						.getAttribute("id"))) {
-					String content = "url:" + url + "\r\n" + "data:"
-							+ ((TagNode) node).getAttribute("data-value")
-							+ "\r\n";
-					FileOut.instance().write(content);
-				}
-			}
-		}*/
+	
 		Document doc = Jsoup.connect(url)
 				.userAgent("Mozilla/5.0 (Windows NT 6.1; rv:5.0)")
 				.cookie("auth", "token").timeout(1000).get();
