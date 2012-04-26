@@ -30,6 +30,8 @@ import weblech.util.Logger;
 import weblech.util.Log4j;
 
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.io.*;
 import java.net.URL;
 
@@ -296,7 +298,7 @@ public class Spider extends Logger implements Runnable, Constants
 
     private List filterURLs(List URLs)
     {
-        String match = config.getURLMatch();
+        String regExMatch = config.getURLMatch();
         ArrayList retVal = new ArrayList();
 
         synchronized(urlsDownloadedOrScheduled)
@@ -310,7 +312,13 @@ public class Spider extends Logger implements Runnable, Constants
                 }
 
                 String s = u.toExternalForm();
-                if(s.indexOf(match) != -1)
+                
+//                String regEx = "([http://]|[//w//.//-/:])?techweb.com.cn/[a-z0-9]+/[[0-9]{4}-[0-9]{2}-[0-9]{2}]+/[\\d]+.shtml"; // 表示a或f
+        		Pattern p = Pattern.compile(regExMatch);
+        		Matcher m = p.matcher(s);
+    
+        		if(m.find())
+//              if(s.indexOf(match) != -1)
                 {
                     retVal.add(u);
                 }
