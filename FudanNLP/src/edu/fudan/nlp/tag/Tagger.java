@@ -43,7 +43,6 @@ import edu.fudan.nlp.pipe.SplitDataAndTarget;
 import edu.fudan.nlp.pipe.StringTokenizer;
 import edu.fudan.nlp.pipe.Target2Label;
 import edu.fudan.nlp.tag.Format.BasicFormatter;
-import edu.fudan.nlp.tag.Format.SimpleFormatter;
 
 /**
  * 序列标注入口程序
