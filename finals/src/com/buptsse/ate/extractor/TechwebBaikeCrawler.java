@@ -45,7 +45,7 @@ public class TechwebBaikeCrawler extends Crawler {
 			}
 		}
 		
-		FileHelp.writeFile("d:\text\baike.txt", title);
+		FileHelp.writeFile("output\baike.txt", title);
 	}
 	
 }
