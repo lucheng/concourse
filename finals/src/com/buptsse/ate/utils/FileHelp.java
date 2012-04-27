@@ -149,7 +149,7 @@ public class FileHelp {
 		}
 	}
 
-	private static void deleteFoder(File foder) {
+	public static void deleteFoder(File foder) {
 		for (File file : foder.listFiles()) {
 			if (file.isFile()) {
 				file.delete();
@@ -211,27 +211,27 @@ public class FileHelp {
 	}
 
 	public static String getAppPath(Class cls) {
-		// ¼ì²éÓÃ»§´«ÈëµÄ²ÎÊıÊÇ·ñÎª¿Õ
+		// ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Îªï¿½ï¿½
 		if (cls == null)
-			throw new java.lang.IllegalArgumentException("²ÎÊı²»ÄÜÎª¿Õ£¡");
+			throw new java.lang.IllegalArgumentException("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½Õ£ï¿½");
 		ClassLoader loader = cls.getClassLoader();
-		// »ñµÃÀàµÄÈ«Ãû£¬°üÀ¨°üÃû
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½
 		String clsName = cls.getName() + ".class";
-		// »ñµÃ´«Èë²ÎÊıËùÔÚµÄ°ü
+		// ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÚµÄ°ï¿½
 		Package pack = cls.getPackage();
 		String path = "";
-		// Èç¹û²»ÊÇÄäÃû°ü£¬½«°üÃû×ª»¯ÎªÂ·¾¶
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ÎªÂ·ï¿½ï¿½
 		if (pack != null) {
 			String packName = pack.getName();
-			// ´Ë´¦¼òµ¥ÅĞ¶¨ÊÇ·ñÊÇJava»ù´¡Àà¿â£¬·ÀÖ¹ÓÃ»§´«ÈëJDKÄÚÖÃµÄÀà¿â
+			// ï¿½Ë´ï¿½ï¿½ï¿½ï¿½Ğ¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Javaï¿½ï¿½ï¿½ï¿½â£¬ï¿½ï¿½Ö¹ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½JDKï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½
 			if (packName.startsWith("java.") || packName.startsWith("javax."))
-				throw new java.lang.IllegalArgumentException("²»Òª´«ËÍÏµÍ³Àà£¡");
-			// ÔÚÀàµÄÃû³ÆÖĞ£¬È¥µô°üÃûµÄ²¿·Ö£¬»ñµÃÀàµÄÎÄ¼şÃû
+				throw new java.lang.IllegalArgumentException("ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½à£¡");
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ£ï¿½È¥ï¿½ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
 			clsName = clsName.substring(packName.length() + 1);
-			// ÅĞ¶¨°üÃûÊÇ·ñÊÇ¼òµ¥°üÃû£¬Èç¹ûÊÇ£¬ÔòÖ±½Ó½«°üÃû×ª»»ÎªÂ·¾¶£¬
+			// ï¿½Ğ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Ç¼òµ¥°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç£ï¿½ï¿½ï¿½Ö±ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ÎªÂ·ï¿½ï¿½ï¿½ï¿½
 			if (packName.indexOf(".") < 0)
 				path = packName + "/";
-			else {// ·ñÔò°´ÕÕ°üÃûµÄ×é³É²¿·Ö£¬½«°üÃû×ª»»ÎªÂ·¾¶
+			else {// ï¿½ï¿½ï¿½ï¿½ï¿½Õ°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É²ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ÎªÂ·ï¿½ï¿½
 				int start = 0, end = 0;
 				end = packName.indexOf(".");
 				while (end != -1) {
@@ -242,25 +242,25 @@ public class FileHelp {
 				path = path + packName.substring(start) + "/";
 			}
 		}
-		// µ÷ÓÃClassLoaderµÄgetResource·½·¨£¬´«Èë°üº¬Â·¾¶ĞÅÏ¢µÄÀàÎÄ¼şÃû
+		// ï¿½ï¿½ï¿½ï¿½ClassLoaderï¿½ï¿½getResourceï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
 		java.net.URL url = loader.getResource(path + clsName);
-		// ´ÓURL¶ÔÏóÖĞ»ñÈ¡Â·¾¶ĞÅÏ¢
+		// ï¿½ï¿½URLï¿½ï¿½ï¿½ï¿½ï¿½Ğ»ï¿½È¡Â·ï¿½ï¿½ï¿½ï¿½Ï¢
 		String realPath = url.getPath();
-		// È¥µôÂ·¾¶ĞÅÏ¢ÖĞµÄĞ­ÒéÃû"file:"
+		// È¥ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½Ğµï¿½Ğ­ï¿½ï¿½ï¿½ï¿½"file:"
 		int pos = realPath.indexOf("file:");
 		if (pos > -1)
 			realPath = realPath.substring(pos + 5);
-		// È¥µôÂ·¾¶ĞÅÏ¢×îºó°üº¬ÀàÎÄ¼şĞÅÏ¢µÄ²¿·Ö£¬µÃµ½ÀàËùÔÚµÄÂ·¾¶
+		// È¥ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ï¢ï¿½Ä²ï¿½ï¿½Ö£ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½Â·ï¿½ï¿½
 		pos = realPath.indexOf(path + clsName);
 		realPath = realPath.substring(0, pos - 1);
-		// Èç¹ûÀàÎÄ¼ş±»´ò°üµ½JARµÈÎÄ¼şÖĞÊ±£¬È¥µô¶ÔÓ¦µÄJARµÈ´ò°üÎÄ¼şÃû
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½JARï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ê±ï¿½ï¿½È¥ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½JARï¿½È´ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
 		if (realPath.endsWith("!"))
 			realPath = realPath.substring(0, realPath.lastIndexOf("/"));
 		/*------------------------------------------------------------ 
-		 ClassLoaderµÄgetResource·½·¨Ê¹ÓÃÁËutf-8¶ÔÂ·¾¶ĞÅÏ¢½øĞĞÁË±àÂë£¬µ±Â·¾¶ 
-		  ÖĞ´æÔÚÖĞÎÄºÍ¿Õ¸ñÊ±£¬Ëû»á¶ÔÕâĞ©×Ö·û½øĞĞ×ª»»£¬ÕâÑù£¬µÃµ½µÄÍùÍù²»ÊÇÎÒÃÇÏëÒª 
-		  µÄÕæÊµÂ·¾¶£¬ÔÚ´Ë£¬µ÷ÓÃÁËURLDecoderµÄdecode·½·¨½øĞĞ½âÂë£¬ÒÔ±ãµÃµ½Ô­Ê¼µÄ 
-		  ÖĞÎÄ¼°¿Õ¸ñÂ·¾¶ 
+		 ClassLoaderï¿½ï¿½getResourceï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½utf-8ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½Ë±ï¿½ï¿½ë£¬ï¿½ï¿½Â·ï¿½ï¿½ 
+		  ï¿½Ğ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÄºÍ¿Õ¸ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ©ï¿½Ö·ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òª 
+		  ï¿½ï¿½ï¿½ï¿½ÊµÂ·ï¿½ï¿½ï¿½ï¿½ï¿½Ú´Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½URLDecoderï¿½ï¿½decodeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ½ï¿½ï¿½ë£¬ï¿½Ô±ï¿½Ãµï¿½Ô­Ê¼ï¿½ï¿½ 
+		  ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Õ¸ï¿½Â·ï¿½ï¿½ 
 		-------------------------------------------------------------*/
 		try {
 			realPath = java.net.URLDecoder.decode(realPath, "utf-8");
@@ -268,7 +268,7 @@ public class FileHelp {
 			throw new RuntimeException(e);
 		}
 		return realPath.substring(1);
-	}// getAppPath¶¨Òå½áÊø
+	}// getAppPathï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	public static void copyJarFile(String source, String dest) {
 		InputStream in = FileHelp.class.getResourceAsStream(source);
@@ -323,7 +323,8 @@ public class FileHelp {
 	}
 
 	public static void main(String argv[]) {
-		
+	
+		deleteFoder(new File("D:/sites/www.jiathis.com"));
 	}
 
 }

@@ -17,7 +17,7 @@ import com.buptsse.ate.extractor.KrCrawler;
 import com.buptsse.ate.utils.FileHelp;
 import com.buptsse.ate.utils.XmlHelp;
 
-public abstract class Crawler extends Thread{
+public class RSSCrawler {
 
 	protected org.jsoup.nodes.Document doc;
 	
@@ -75,7 +75,7 @@ public abstract class Crawler extends Thread{
 		
 	}
 	
-	public Crawler(String url) {
+	public RSSCrawler(String url) {
 		
 		try {
 			this.doc = Jsoup.connect(url)
@@ -87,44 +87,21 @@ public abstract class Crawler extends Thread{
 		}
 	}
 	
-	public Crawler(File file) {
-		
-		try {
-			this.doc = Jsoup.parse(file, "UTF-8");
-			this.url = file.getName();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public Crawler() {
+	public RSSCrawler() {
 	}
 
-	public abstract void fetch();
-	
-	public void saveText(String filePath){
-			
-		if(new File(filePath).exists()){
-			System.out.println("网页已存在！");
-			return;
-		}
-		if(this.getTitle().equals("")){
-			System.out.println("网页不存在！");
-			return;
-		}
-		FileHelp.writeFile(filePath, summary.substring(0, summary.lastIndexOf("除非注明")));
+	public void fetch(){
+		
 	}
+	
 	public void saveFile(String filePath){
 		
 		if(new File(filePath).exists()){
 			System.out.println("网页已存在！");
 			return;
 		}
-		if(this.getTitle().equals("")){
-			System.out.println("网页不存在！");
-			return;
-		}
-		XMLWriter out;
+		FileHelp.writeFile("rss.xml", doc.html());
+		/*XMLWriter out;
 		OutputFormat outputFormat = OutputFormat.createPrettyPrint();
 		outputFormat.setEncoding("UTF-8");
 		
@@ -168,18 +145,17 @@ public abstract class Crawler extends Thread{
 			out.close();
 		}catch(Exception e){
 			e.printStackTrace();
-		}
+		}*/
 	}
 	
-	public void extrcatText(String fileName, String textFileName){
+	/*public void extrcatText(String fileName, String textFileName){
 		
 		Document doc = XmlHelp.getDocument(fileName);
 		Element root = doc.getRootElement();
 		Element data = (Element) root.selectSingleNode("//datas");
 		String text = data.element("summary").getStringValue();
-		text.replace("<br />", "");
 		FileHelp.writeFile(textFileName, text);
-	}
+	}*/
 //	http://www.google.com/reader/atom/feed/
 //	http://www.36kr.com/feed
 //	http://robbin.iteye.com/rss
@@ -243,19 +219,16 @@ public abstract class Crawler extends Thread{
 	
 	public static void main(String[] args){
 		
-		List<String> fileNames = FileHelp.getURLs("36kr.txt");
-		for(String url : fileNames){
-	//		String url = "http://www.36kr.com/p/97503.html";
-			try{
-				Crawler crawler2 = new KrCrawler(url);
-				crawler2.fetch();
-				String newFileName = "D:/panguso/36kr/xml" + url.substring(url.lastIndexOf("/"), url.lastIndexOf("."))+".xml";
-				System.out.println(newFileName);
-				crawler2.saveFile(newFileName);
-			}catch(Exception e){
-				e.printStackTrace();
-				continue;
-			}
+		String url = "http://fuliang.iteye.com/rss";
+		try{
+			RSSCrawler crawler2 = new RSSCrawler(url);
+//			crawler2.fetch();
+//			String newFileName = "D:/panguso/36kr/xml" + url.substring(url.lastIndexOf("/"), url.lastIndexOf("."))+".xml";
+			String newFileName = "";
+			System.out.println(newFileName);
+			crawler2.saveFile(newFileName);
+		}catch(Exception e){
+			e.printStackTrace();
 		}
 	}
 }

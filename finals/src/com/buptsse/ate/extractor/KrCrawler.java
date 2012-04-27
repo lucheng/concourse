@@ -1,6 +1,6 @@
 package com.buptsse.ate.extractor;
 
-import java.util.List;
+import java.io.File;
 
 import org.jsoup.select.Elements;
 
@@ -13,46 +13,41 @@ public class KrCrawler extends Crawler {
 		super(url);
 	}
 
+	public KrCrawler(File file) {
+		super(file);
+	}
 	public void fetch() {
 
 		Elements main = doc.body().select("article");
 		
 		String author = doc.body().select("div.row>div>strong>a").text();
+		String published = doc.body().select("div.row>div>strong").get(1).text();
 		String blog_title = main.select("h2").text();
 		
 		main.select("div.alert-box").remove();
 		main.select("div.row").remove();
 		main.select("h2").remove();
-//		main.select("div[]").remove();
 		
-		String blog_content = main.html();
-//		Elements blog_tags = main.select("div.news_tag>a");
-//		List<Tag> tags = new ArrayList<Tag>();
-		
-		/*for(Element e : blog_tags){
-			String link = e.attr("href");
-			String text = e.text();
-			Tag tag = new Tag(link, text);
-			tags.add(tag);
-		}*/
+		String blog_content = main.text();
 	
 		this.setAuthor(author);
-//		this.setTagList(tags);
 		this.setTitle(blog_title);
+		this.setPublished(published);
+//		System.out.println(blog_content);
 		this.setSummary(blog_content);
 	}
 	
 	public static void main(String[] args){
 		
-		List<String> fileNames = FileHelp.getURLs("36kr.txt");
+		String[] fileNames = FileHelp.getFiles("D:/sites/www.36kr.com/p");
 		for(String url : fileNames){
-	//		String url = "http://www.36kr.com/p/97503.html";
 			try{
-				Crawler crawler2 = new KrCrawler(url);
+				Crawler crawler2 = new KrCrawler(new File(url));
 				crawler2.fetch();
-				String newFileName = "D:/panguso/36kr/xml" + url.substring(url.lastIndexOf("/"), url.lastIndexOf("."))+".xml";
-				System.out.println(newFileName);
-				crawler2.saveFile(newFileName);
+				String newFileName = "D:/text/www.36kr.com/p" + url.substring(url.lastIndexOf("/"), url.lastIndexOf("."))+".txt";
+				System.out.println(url);
+//				crawler2.saveFile(newFileName);
+				crawler2.saveText(newFileName);
 			}catch(Exception e){
 				e.printStackTrace();
 				continue;

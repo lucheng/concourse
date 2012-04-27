@@ -117,9 +117,9 @@ public class KeyWordsExtractor {
 		hsort.HeapSorting(array);
 		
 		for(String key : singleTermMap.keySet()){
-			if(singleTermMap.get(key) > array[8]){
+//			if(singleTermMap.get(key) > array[8]){
 				log.info(key);
-			}
+//			}
 		}
 		
 		array = new int[bigramTermMap.size()];
@@ -132,9 +132,9 @@ public class KeyWordsExtractor {
 		hsort.HeapSorting(array);
 		
 		for(String key : bigramTermMap.keySet()){
-			if(bigramTermMap.get(key) > array[8]){
+//			if(bigramTermMap.get(key) > array[8]){
 				log.info(key);
-			}
+//			}
 		}
 		
 		array = new int[trigramTermMap.size()];
@@ -147,9 +147,9 @@ public class KeyWordsExtractor {
 		hsort.HeapSorting(array);
 		
 		for(String key : trigramTermMap.keySet()){
-			if(trigramTermMap.get(key) > array[3]){
+//			if(trigramTermMap.get(key) > array[3]){
 				log.info(key);
-			}
+//			}
 		}
 	}
 	public static void main(String[] args) throws IOException {
