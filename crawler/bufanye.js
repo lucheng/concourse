@@ -1,1 +1,0 @@
-function aaa(){try{scrollBy(0,10000)}catch(a){ww.genErrorMsg(a)}finally{setTimeout("bbb()",2000)}}function bbb(){ww.emitClickSignal();ww.singleUrlFinished();return true}aaa();
