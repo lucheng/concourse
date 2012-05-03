@@ -24,7 +24,7 @@ public class IndexCreateUtil {
 	@SuppressWarnings("unchecked")
 	public void createIndexForNews() throws Exception {
 		//存放索引的文件夹
-		File indexFile = new File("d:/data/index/news");
+		File indexFile = new File("\\\\x200/data/index/news");
 		//使用了庖丁解牛分词器
 		Analyzer analyzer = new PaodingAnalyzer();
 		//使用索引文件夹，庖丁解牛分词器创建IndexWriter

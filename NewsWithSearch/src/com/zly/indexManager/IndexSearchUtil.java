@@ -25,7 +25,7 @@ public class IndexSearchUtil {
 	
 	public List<SearchResultBean> getSearchResult(String searchWhich , String searchParam , int firstResult , int maxResult) throws Exception{
 		//索引所在文件夹
-		File indexFile = new File("d:/data/index/news");
+		File indexFile = new File("\\\\x200/data/index/news");
 		//读取索引的indexReader
 		IndexReader reader = IndexReader.open(indexFile);
 		//庖丁解牛分词器
