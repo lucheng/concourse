@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.dom4j.DocumentException;
@@ -43,6 +44,61 @@ public class FileHelp {
 		return files;
 	}
 
+	public static List<String> getSuperFile(String directory) {
+        
+		List<String> fileNames = new ArrayList<String>();
+        long a = System.currentTimeMillis();
+        
+        LinkedList list = new LinkedList();
+        File dir = new File(directory);
+        File file[] = dir.listFiles();
+        for (int i = 0; i < file.length; i++) {
+            if (file[i].isDirectory())
+                list.add(file[i]);
+            else
+            	fileNames.add(file[i].getAbsolutePath());
+        }
+        File tmp;
+        while (!list.isEmpty()) {
+            tmp = (File) list.removeFirst();
+            if (tmp.isDirectory()) {
+                file = tmp.listFiles();
+                if (file == null)
+                    continue;
+                for (int i = 0; i < file.length; i++) {
+                    if (file[i].isDirectory())
+                        list.add(file[i]);
+                    else
+                    	fileNames.add(file[i].getAbsolutePath());
+                }
+            } else {
+            	fileNames.add(tmp.getAbsolutePath());
+            }
+        }
+        
+//        System.out.println(fileNames.size());
+//        System.out.println(System.currentTimeMillis() - a);
+        return fileNames;
+    }
+	
+	public static void refreshFileList(String strPath, List<String> filelist, final String suffix) { 
+        
+		File dir = new File(strPath); 
+        File[] files = dir.listFiles(); 
+        
+        if (files == null) 
+            return; 
+        for (int i = 0; i < files.length; i++) { 
+            if (files[i].isDirectory()) { 
+                refreshFileList(files[i].getAbsolutePath(), filelist, suffix); 
+            } else { 
+                String strFileName = files[i].getAbsolutePath().toLowerCase();
+                if(strFileName.endsWith(suffix)){
+                	filelist.add(strFileName);                    
+                }
+            } 
+        } 
+    }
 	public static String[] getFiles(String directory, final String suffix) {
 		File file = new File(directory);
 		String[] files = file.list(new FilenameFilter() {
