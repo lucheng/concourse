@@ -28,7 +28,24 @@ public abstract class Crawler extends Thread{
 	protected long updateTime;
 	protected String summary;
 	protected List<Tag> tagList = new ArrayList<Tag>();
+	protected List<Entity> entityList = new ArrayList<Entity>();
 	
+	public long getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(long updateTime) {
+		this.updateTime = updateTime;
+	}
+
+	public List<Entity> getEntityList() {
+		return entityList;
+	}
+
+	public void setEntityList(List<Entity> entityList) {
+		this.entityList = entityList;
+	}
+
 	public String getAuthor() {
 		return author;
 	}
@@ -53,6 +70,7 @@ public abstract class Crawler extends Thread{
 	public void setTagList(List<Tag> tagList) {
 		this.tagList = tagList;
 	}
+	
 	protected class Tag {
 		public Tag(String link, String tag) {
 			this.link = link;
@@ -73,6 +91,36 @@ public abstract class Crawler extends Thread{
 		public void setLink(String link) {
 			this.link = link;
 		}
+		
+	}
+	
+	protected class Entity {
+		
+		private String name;
+		private int weight;
+		
+		public Entity(String name, int weight) {
+			this.name = name;
+			this.weight = weight;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public int getWeight() {
+			return weight;
+		}
+
+		public void setWeight(int weight) {
+			this.weight = weight;
+		}
+		
+		
 		
 	}
 	
@@ -116,6 +164,7 @@ public abstract class Crawler extends Thread{
 		}
 		FileHelp.writeFile(filePath, summary.substring(0, summary.lastIndexOf("除非注明")));
 	}
+	
 	public void saveFile(String filePath){
 		
 		/*if(new File(filePath).exists()){
@@ -143,6 +192,7 @@ public abstract class Crawler extends Thread{
 			Element updateTimeElement = rootElement.addElement("updateTime");
 			Element summaryElement = rootElement.addElement("summary");
 			Element tagsElement = rootElement.addElement("tags");
+			Element entitiesElement = rootElement.addElement("entities");
 			
 			titleElement.addText(this.getTitle());
 			authorElement.addText(this.getAuthor()+"");
@@ -156,6 +206,12 @@ public abstract class Crawler extends Thread{
 				tagElement.addAttribute("url", tag.getLink());
 			}
 			
+			for(Entity entity : this.getEntityList()){
+				Element entityElement = tagsElement.addElement("entity");
+				entityElement.addText(entity.getName());
+				entityElement.addAttribute("weight", entity.getWeight()+"");
+			}
+			
 			publishedElement.addText(this.getPublished());
 			
 			out.writeOpen(rootElement);
@@ -165,6 +221,7 @@ public abstract class Crawler extends Thread{
 			out.write(urlElement);
 			out.write(summaryElement);
 			out.write(tagsElement);
+			out.write(entitiesElement);
 			
 			out.writeClose(rootElement);
 			out.endDocument();
