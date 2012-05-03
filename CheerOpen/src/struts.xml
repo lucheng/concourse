@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+
+	<constant name="struts.action.extension" value="action"></constant>
+	<constant name="struts.i18n.encoding" value="utf-8"></constant>
+	<constant name="struts.locale" value="utf-8"></constant>
+	<constant name="struts.devMode" value="true"></constant>
+	<constant name="struts.ui.theme" value="simple"></constant>
+
+	<package name="/" extends="struts-default">
+		<default-action-ref name="index" />
+
+		<global-results>
+			<result name="error">/error/error.jspl</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.exception"></exception-mapping>
+		</global-exception-mappings>
+
+		<action name="index">
+			<result>/index.jsp</result>
+		</action>
+
+		<action name="registerAction" class="com.hs.web.RegisterAction">
+			<result>/registerSuccess.jsp</result>
+		</action>
+		<action name="showUserAction" class="com.hs.web.ShowUsersAction">
+			<result>/showAllUsers.jsp</result>
+		</action>
+		
+	<!-- Random验证码 -->
+	<action name="rand" class="com.hs.web.RandomAction">   
+       <result type="stream">   
+            <param name="contentType">image/jpeg</param>   
+            <param name="inputName">inputStream</param>   
+       </result>
+   </action>
+	</package>
+	<!-- <include file="example.xml"/> -->
+
+</struts>

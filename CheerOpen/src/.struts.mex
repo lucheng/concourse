@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="/" location="184,10" size="280,420">
+    <action name="index" location="65,57" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="index.jsp" />
+      </result>
+    </action>
+    <action name="registerAction" location="65,232" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="registerSuccess.jsp" />
+      </result>
+    </action>
+    <action name="showUserAction" location="65,337" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="showAllUsers.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="index.jsp" path="/index.jsp" location="29,30" size="150,55" />
+  <webResource name="registerSuccess.jsp" path="/registerSuccess.jsp" location="9,205" size="150,55" />
+  <webResource name="showAllUsers.jsp" path="/showAllUsers.jsp" location="506,310" size="150,55" />
+</Struts2Diagram>
+

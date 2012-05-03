@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.hs.po.UserInfo" table="userInfo">
+		<id name="id" type="java.lang.Integer">
+			<column name="id" sql-type="int(2)"></column>
+			<generator class="native"/>
+		</id>
+		<property name="name"  type="java.lang.String">
+			<column name="username" sql-type="varchar(10)"></column>
+		</property>
+		<property name="age"  type="java.lang.Integer">
+			<column name="age" sql-type="int(2)"></column>
+		</property>
+	</class>
+</hibernate-mapping>
