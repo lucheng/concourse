@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd"
+       >
+       
+    <!-- Hibernate SessionFactory 配置-->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <!-- 注入数据源 -->
+        <property name="dataSource" ref="dataSource"/>
+		
+		<!-- 实体类映射类表 -->
+		<property name="annotatedClasses">
+			<list>
+				<!--
+				<value>edu.hzu.cms.model.BigCategory</value>
+				<value>edu.hzu.cms.model.Category</value>
+				<value>edu.hzu.cms.model.Content</value>
+				<value>edu.hzu.cms.model.Tag</value>
+				-->
+				<value>com.zly.test.entity.NewsItem</value>
+				<value>com.zly.test.entity.NewsType</value>
+			</list>
+		</property>
+		
+		<!-- hibernate属性配置 -->
+        <property name="hibernateProperties">
+            <value>
+                hibernate.dialect=org.hibernate.dialect.MySQLDialect
+                hibernate.query.substitutions=true 'Y', false 'N'
+                hibernate.cache.use_second_level_cache=true
+                hibernate.cache.provider_class=org.hibernate.cache.EhCacheProvider
+                hibernate.show_sql=true
+                hibernate.hbm2ddl.auto=update
+            </value>
+        </property>
+    </bean>
+
+	<!-- 抽象的dao hibernate.hbm2ddl.auto=update -->
+	<bean id="abstractDao" abstract="true">
+		<!-- sessionFactory的注入 -->
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<!--
+		<bean id="bigCategoryDao" parent="abstractDao" class="edu.hzu.dao.hibernate.BigCategoryDaoHibernate"/>
+		<bean id="categoryDao" parent="abstractDao" class="edu.hzu.dao.hibernate.CategoryDaoHibernate"/>
+		<bean id="contentDao" parent="abstractDao" class="edu.hzu.dao.hibernate.ContentDaoHibernate"/>
+		<bean id="tagDao" parent="abstractDao" class="edu.hzu.dao.hibernate.TagDaoHibernate"/>
+	-->
+		<bean id="newsItemDao" parent="abstractDao" class="com.zly.test.dao.hibernate.NewsItemDaoHibernate" />
+	
+</beans>

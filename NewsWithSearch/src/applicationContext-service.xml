@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+	
+	
+	<!--	
+		<bean id="cmsManager" class="edu.hzu.service.impl.CmsManagerImpl">
+			<property name="bigCategoryDao" ref="bigCategoryDao"></property>
+			<property name="categoryDao" ref="categoryDao"></property>
+			<property name="contentDao" ref="contentDao"></property>
+			<property name="tagDao" ref="tagDao"></property>
+		</bean>
+	-->
+	<bean id="newsManager" class="com.zly.test.service.impl.NewsManagerImpl">
+		<property name="newsItemDao" ref="newsItemDao"></property>
+	</bean>
+	
+	<bean id="map" class="java.util.HashMap">
+	   <constructor-arg>
+	    <map>
+	   		<entry key="china" value="1###国内新闻" />
+	      	<entry key="world" value="2###国际新闻" />
+	      	<entry key="society" value="3###社会新闻" />
+	      	<entry key="compatriot" value="4###港台新闻" />
+	      	<entry key="taiwan" value="5###台湾新闻" />
+	      	<entry key="huaren" value="6###华人新闻" />
+	      	<entry key="economic" value="7###经济新闻" />
+	      	<entry key="wenhua" value="8###文化新闻" />
+	      	<entry key="entertainment" value="9###娱乐新闻" />
+	      	<entry key="sports" value="10###体育新闻" />
+	      	<entry key="jiaoyu" value="11###教育新闻" />
+	      	<entry key="jiankang" value="12###健康新闻" />
+	      	<entry key="life" value="13###生活新闻" />
+	      	<entry key="keji" value="14###科技新闻" />
+	    </map>
+	   </constructor-arg>
+	</bean>
+
+	<bean id="map1" class="java.util.HashMap">
+	   <constructor-arg>
+	    <map>
+	   		<entry key="1" value="china###国内新闻" />
+	      	<entry key="2" value="world###国际新闻" />
+	      	<entry key="3" value="society###社会新闻" />
+	      	<entry key="4" value="compatriot###港台新闻" />
+	      	<entry key="5" value="taiwan###台湾新闻" />
+	      	<entry key="6" value="huaren###华人新闻" />
+	      	<entry key="7" value="economic###经济新闻" />
+	      	<entry key="8" value="wenhua###文化新闻" />
+	      	<entry key="9" value="entertainment###娱乐新闻" />
+	      	<entry key="10" value="sports###体育新闻" />
+	      	<entry key="11" value="jiaoyu###教育新闻" />
+	      	<entry key="12" value="jiankang###健康新闻" />
+	      	<entry key="13" value="life###生活新闻" />
+	      	<entry key="14" value="keji###科技新闻" />
+	    </map>
+	   </constructor-arg>
+	</bean>
+	
+
+	<bean id="indexSearcher" class="com.zly.indexManager.IndexSearchUtil"></bean>
+	
+		<!-- 事务管理配置  -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+    	<!-- sessionFactory的注入 -->
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+	<tx:annotation-driven proxy-target-class="true" transaction-manager="transactionManager"/>
+</beans>

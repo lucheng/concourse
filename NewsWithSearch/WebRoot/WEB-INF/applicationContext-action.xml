@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+	
+	<!-- 
+		<bean class="edu.hzu.web.ContentAction" id="cmsAction" scope="request">
+			<property name="cmsManager" ref="cmsManager"></property>
+		</bean>
+	 -->
+	 	<bean class="com.zly.test.action.NewsAction" id="newsAction" scope="request">
+	 		<property name="newsManager" ref="newsManager"></property>
+	 		<property name="map" ref="map"></property>
+	 		<property name="map1" ref="map1"></property>
+		</bean>
+
+	 	<bean class="com.zly.test.action.SearchAction" id="searchAction" scope="request">
+	 		<property name="indexSearcher" ref="indexSearcher"></property>
+	 	</bean>
+	 	
+	 	
+	 	
+</beans>
