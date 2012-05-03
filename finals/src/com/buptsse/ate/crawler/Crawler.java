@@ -66,6 +66,7 @@ public abstract class Crawler extends Thread{
 		}
 		protected String tag;
 		protected String link;
+		
 		public String getLink() {
 			return link;
 		}
@@ -91,13 +92,14 @@ public abstract class Crawler extends Thread{
 		
 		try {
 			this.doc = Jsoup.parse(file, "UTF-8");
-			this.url = file.getName();
+			this.url = file.getAbsolutePath();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
 	public Crawler() {
+		
 	}
 
 	public abstract void fetch();
@@ -116,12 +118,13 @@ public abstract class Crawler extends Thread{
 	}
 	public void saveFile(String filePath){
 		
-		if(new File(filePath).exists()){
+		/*if(new File(filePath).exists()){
 			System.out.println("网页已存在！");
 			return;
-		}
+		}*/
 		if(this.getTitle().equals("")){
-			System.out.println("网页不存在！");
+			
+			System.out.println(this.getUrl() +"网页不存在！");
 			return;
 		}
 		XMLWriter out;
@@ -145,7 +148,7 @@ public abstract class Crawler extends Thread{
 			authorElement.addText(this.getAuthor()+"");
 			urlElement.addText(this.getUrl());
 			updateTimeElement.addText(System.currentTimeMillis()+"");
-			summaryElement.addCDATA(this.getSummary());
+			summaryElement.addText(this.getSummary());
 			
 			for(Tag tag : this.getTagList()){
 				Element tagElement = tagsElement.addElement("tag");
@@ -177,38 +180,9 @@ public abstract class Crawler extends Thread{
 		Element root = doc.getRootElement();
 		Element data = (Element) root.selectSingleNode("//datas");
 		String text = data.element("summary").getStringValue();
-		text.replace("<br />", "");
 		FileHelp.writeFile(textFileName, text);
 	}
-//	http://www.google.com/reader/atom/feed/
-//	http://www.36kr.com/feed
-//	http://robbin.iteye.com/rss
-//	http://www.cyzone.cn/rss
-//	?n=200
-	public void login(){
-		
-		/*HttpClient httpclient = new HttpClient(); 
-		//httpclient.getParams().setParameter(HTTP.CONTENT_ENCODING, "UTF-8");
-		String url="http://www.kanmenzhu.com/user/login.php";
-		HttpPost client=new HttpPost(url);
-		List<NameValuePair> nvList=new ArrayList<NameValuePair>(2);
-		nvList.add(new BasicNameValuePair("user","u"));
-		nvList.add(new BasicNameValuePair("password","p"));
-		
-		client.setEntity(new UrlEncodedFormEntity(nvList, "UTF-8"));
-		logger.info("尝试登录"+host);
-		HttpResponse response=httpclient.execute(client);
-		if(response.getStatusLine().getStatusCode() == HttpStatus.SC_OK){
-			HttpEntity entity = response.getEntity();
-			EntityUtils.consume(entity);
-			logger.info("成功登录"+host);
-			//String res=EntityUtils.toString(entity);
-			//logger.info(res);
-		}else{
-			logger.warn("登录失败");
-			System.exit(0);
-		}*/
-	}
+
 	public org.jsoup.nodes.Document getDoc() {
 		return doc;
 	}

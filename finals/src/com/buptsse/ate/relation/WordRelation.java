@@ -34,7 +34,7 @@ public class WordRelation {
 				
 				
 				if(count % 3 == 0){
-					System.out.println("1级" + text);
+					System.out.println(text);
 					Catalog catalog = new Catalog();
 					catalog.setTitle(text);
 					catalog.setLevel(1);
@@ -47,10 +47,10 @@ public class WordRelation {
 					for(String str : texts){
 						if(!str.equals("")){
 							String title = str.substring(0,str.indexOf("("));
-							System.out.println("2级" + title);
+							System.out.println(title);
 							secondClass.add(str.substring(0,str.indexOf("(")));
 							String NewStr=str.substring(str.indexOf("(")+1, str.lastIndexOf(")"));
-						    System.out.println("2级个数" + NewStr);
+						    System.out.println(NewStr);
 						    secondClassNum.add(Integer.parseInt(NewStr));
 						    Catalog catalog = new Catalog();
 						    String sql = "select id from t_catalog where title like '" + pTitle + "'";
@@ -68,7 +68,7 @@ public class WordRelation {
 				if(count % 3  == 2){
 					String[] texts = text.split(" +");
 					for(String str : texts){
-						System.out.println("3级" + str);
+						System.out.println(str);
 						Catalog catalog = new Catalog();
 						catalog.setTitle(str);
 						catalog.setLevel(3);
@@ -116,7 +116,6 @@ public class WordRelation {
 							String title = str.substring(0,str.indexOf("("));
 							
 							String NewStr=str.substring(str.indexOf("(")+1, str.lastIndexOf(")"));
-//						    System.out.println("2级个数" + NewStr);
 						    secondClass.add(title);
 						    secondClassNum.put(title,Integer.parseInt(NewStr));
 						    

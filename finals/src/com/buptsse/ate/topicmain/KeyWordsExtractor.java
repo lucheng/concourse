@@ -19,7 +19,6 @@ import com.buptsse.ate.utils.Parser;
 
 
 /**
- * 关键词抽取
  * 
  */
 
@@ -39,7 +38,6 @@ public class KeyWordsExtractor {
 	public KeyWordsExtractor(){
 		PropertyConfigurator.configure(Constant.LOG4J);
 	}
-	//对文件进行预处理，下载相关的文件
 	public void pretreatment(String url){
 		
 		String baikeId = url.substring(url.lastIndexOf("/")+1 , url.lastIndexOf("."));
@@ -57,7 +55,6 @@ public class KeyWordsExtractor {
 		}
 		
 		if(page == null){
-			log.info("文件出现错误！");
 			return;
 		}
 	}
@@ -94,13 +91,13 @@ public class KeyWordsExtractor {
 	public void getWordsFrequency() throws IOException{
 		
 //		String text = page.getContents().get(0).getText();
-//		text.replaceAll("编辑本段", "");
+//		text.replaceAll("", "");
 //		FileHelp.writeFile("input/input/" + page.getBaibeId() + ".txt", text);
-		// 对训练文本进行分词处理，生成res文件
-		String inputTrainPath = "input/input";   // 训练文本的输入路径
-		String outputTrainPath = "input/output";  // 训练文本的输出路径
+		// 瀵硅缁冩枃鏈繘琛屽垎璇嶅鐞嗭紝鐢熸垚res鏂囦欢
+		String inputTrainPath = "input/input";   // 璁粌鏂囨湰鐨勮緭鍏ヨ矾寰�
+		String outputTrainPath = "input/output";  // 璁粌鏂囨湰鐨勮緭鍑鸿矾寰�
 		ATE ate = new ATE();
-		ate.pretreatmentTrain(inputTrainPath, outputTrainPath); // 分词
+		ate.pretreatmentTrain(inputTrainPath, outputTrainPath); // 鍒嗚瘝
 		
 //		log.info(page.getTitle());
 		singleTermMap = ate.getSingleTermMap();
