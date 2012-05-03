@@ -25,8 +25,6 @@
 			</c:forEach>		
 		</div>
 		
-		
-		
 		<%@ include file="searchPage.jsp" %>
 		
 	</div>
