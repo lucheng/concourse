@@ -90,7 +90,7 @@ public class IndexSearchUtil {
 	}
 	//取得符合搜索条件的所有记录总数，以便分页 , 与上面方法类似
 	public int getResultCount(String searchWhich , String searchParam) throws Exception {
-		File indexFile = new File("c:/index/news");
+		File indexFile = new File("\\\\x200/data/index/news");
 		IndexReader reader = IndexReader.open(indexFile);
 		Analyzer analyzer = new PaodingAnalyzer();
 		QueryParser parser = new QueryParser(searchWhich , analyzer);
