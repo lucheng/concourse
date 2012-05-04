@@ -13,10 +13,13 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
+import org.htmlparser.NodeFilter;
 import org.htmlparser.Parser;
 import org.htmlparser.Tag;
 import org.htmlparser.filters.NodeClassFilter;
+import org.htmlparser.filters.TagNameFilter;
 import org.htmlparser.tags.Div;
+import org.htmlparser.tags.HeadingTag;
 import org.htmlparser.tags.LinkTag;
 import org.htmlparser.util.NodeList;
 import org.htmlparser.visitors.NodeVisitor;
@@ -25,6 +28,7 @@ import com.zly.test.entity.NewsItem;
 import com.zly.test.entity.NewsType;
 
 public class GetNews {
+	
 	public static void main(String[] args) throws Exception {
 		//插入数据新闻类型
 //		insertAllTypes();
@@ -32,7 +36,7 @@ public class GetNews {
 		//插入所有新闻数据
 		
 		//国内新闻
-		//insertNewsItems("http://www.chinanews.com.cn/scroll-news/gn/2009/05" ,"/news.shtml" ,1);
+		insertNewsItems("http://www.chinanews.com" ,"/china.shtml" ,1);
 		//国际新闻
 		//insertNewsItems("http://www.chinanews.com.cn/scroll-news/gj/2009/05" ,"/news.shtml" ,2);
 		//社会新闻
@@ -92,11 +96,11 @@ public class GetNews {
 		//获取5月1日-5月5日的新闻
 		for (int i = 1; i <= 5; i++) {
 			String src = before;
-			if(i < 10) {
+			/*if(i < 10) {
 				src = src + "0" + i;
 			}else {
 				src = src + i ; 
-			}
+			}*/
 			src = src + after;
 			//使用htmlParser获取每一条新闻的超链接
 			Parser parser = new Parser(src);
@@ -106,14 +110,14 @@ public class GetNews {
 				Div div = (Div) divList.elementAt(j);
 				String divClass = div.getAttribute("id");
 				//取得id为news_list的div
-				if(divClass != null && divClass.equals("news_list")) {
+				if(divClass != null && divClass.equals("content_right")) {
 					div.accept(new NodeVisitor() {
 						//遍历news_list里面的所有超链接
 						public void visitTag(Tag tag) {
 							if(tag instanceof LinkTag) {
 								String href = ((LinkTag)tag).getLink();
 								if(!href.startsWith("http")) {
-									href = "http://www.chinanews.com.cn" + href;
+									href = "http://www.chinanews.com" + href;
 								}
 								System.out.println(href);
 								//找到超链接，将这个超链接所在的页面进行处理，抓取新闻数据，并将其保存在Set中。
@@ -142,9 +146,22 @@ public class GetNews {
 	public static void insertOneNews(String src , Set<NewsItem> set) throws Exception {
 		Parser parser = new Parser(src);
 		parser.setEncoding("gb2312");
+		
+		String title = "";
+		NodeFilter titleFilter = new TagNameFilter("h1");
+		NodeList titleNodeList = (NodeList) parser.parse(titleFilter);
+		for (int i = 0; i < titleNodeList.size(); i++) {
+			HeadingTag titleTag = (HeadingTag) titleNodeList.elementAt(i);
+			title = titleTag.getStringText();
+			if(!title.equals("")){
+				break;
+			}
+		}
 		NodeList divList = parser.extractAllNodesThatMatch(new NodeClassFilter(Div.class));
 		NewsItem newsItem = new NewsItem();
-		String title = "";
+		
+		System.out.println("title:" + title);
+		
 		Date parse = null;
 		String content = "";
 		String editor = "";
@@ -154,9 +171,10 @@ public class GetNews {
 			String divString = div.getAttribute("class");
 			if(divString != null) {
 				//设置标题
-				if(divString.equals("left_bt")) {
+				/*if(divString.equals("left_bt")) {
 					title = div.toPlainTextString();
-				}
+					System.out.println("title:" + title);
+				}*/
 				//设置发布时间
 				if(divString.equals("left_time")) {
 					String publishStr = "";
@@ -176,6 +194,7 @@ public class GetNews {
 				if(divString.equals("left_name")) {
 					editor = div.toPlainTextString().trim();
 					editor = editor.substring(editor.indexOf(":") + 1, editor.lastIndexOf("】"));
+					System.out.println(editor);
 				}
 			}
 			
