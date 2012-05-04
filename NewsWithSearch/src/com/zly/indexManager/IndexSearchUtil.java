@@ -22,10 +22,10 @@ import org.apache.lucene.search.highlight.SimpleHTMLFormatter;
 import com.zly.test.entity.SearchResultBean;
 
 public class IndexSearchUtil {
-	
+
 	public List<SearchResultBean> getSearchResult(String searchWhich , String searchParam , int firstResult , int maxResult) throws Exception{
 		//索引所在文件夹
-		File indexFile = new File("\\\\x200/data/index/news");
+		File indexFile = new File(Constant.INDEX_PATH);
 		//读取索引的indexReader
 		IndexReader reader = IndexReader.open(indexFile);
 		//庖丁解牛分词器
@@ -90,7 +90,7 @@ public class IndexSearchUtil {
 	}
 	//取得符合搜索条件的所有记录总数，以便分页 , 与上面方法类似
 	public int getResultCount(String searchWhich , String searchParam) throws Exception {
-		File indexFile = new File("\\\\x200/data/index/news");
+		File indexFile = new File(Constant.INDEX_PATH);
 		IndexReader reader = IndexReader.open(indexFile);
 		Analyzer analyzer = new PaodingAnalyzer();
 		QueryParser parser = new QueryParser(searchWhich , analyzer);

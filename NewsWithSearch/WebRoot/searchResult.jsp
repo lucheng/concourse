@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>${searchParam} 的搜查结果 -- 最快新闻网</title>
+<title>${searchParam} 的搜查结果 -- 实体搜索</title>
 </head>
 <body>
 	<jsp:include page="index.jsp"></jsp:include>

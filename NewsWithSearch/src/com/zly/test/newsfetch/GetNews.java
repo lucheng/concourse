@@ -27,7 +27,7 @@ import com.zly.test.entity.NewsType;
 public class GetNews {
 	public static void main(String[] args) throws Exception {
 		//插入数据新闻类型
-		//insertAllTypes();
+//		insertAllTypes();
 		
 		//插入所有新闻数据
 		
@@ -60,11 +60,14 @@ public class GetNews {
 		//IT新闻
 		//insertNewsItems("http://www.chinanews.com.cn/scroll-news/it/2009/05" ,"/news.shtml" ,14);		
 	}
+	
 	public static void insertAllTypes() {
+		
 		Configuration cfg = new AnnotationConfiguration().configure();
 		SessionFactory factory = cfg.buildSessionFactory();
 		Session session = factory.openSession();
-		String str = new String("国内 国际 社会 港澳 台湾 华人 经济 文化 娱乐 体育 教育 健康 生活 IT");
+//		String str = new String("国内 国际 社会 港澳 台湾 华人 经济 文化 娱乐 体育 教育 健康 生活 IT");
+		String str = "互联网 移动 数码 创业 业界 软件 设计 编程 网络 云计算 存储架构 操作系统";
 		String[] typesStr = str.split(" ");
 		NewsType[] types = new NewsType[typesStr.length];
 		session.beginTransaction();
