@@ -13,13 +13,14 @@
 		border:solid 1px yellow;
 	}
 </style>
-<script type="text/javascript">
+<%--<script type="text/javascript">
 	window.onload = function() {
 		document.all.back.onclick = function() {
 			window.history.back().location.reload();
 		};
 	};
 </script>
+--%>
 </head>
 <body>
 		
@@ -39,8 +40,8 @@
 				<span><font color="purple">编辑：${news.editor }</font></span>
 			</div>
 			<br />
-			<a href="#" id="back">返回</a>
-		</div>
+			<%--<a href="#" id="back">返回</a>
+		--%></div>
 		
 </body>
 </html>
