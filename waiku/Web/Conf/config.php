@@ -1,6 +1,7 @@
 <?php
 $config= require './Public/Config/config.ini.php';
 $web_config=array(
+	'APP_DEBUG'=>true,
 	'URL_MODEL'=>1,//rewrite模式改为2
 	'URL_ROUTER_ON'=>true,
 	'URL_HTML_SUFFIX'=>'.html',
