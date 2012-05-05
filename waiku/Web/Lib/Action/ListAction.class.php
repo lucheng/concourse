@@ -35,6 +35,7 @@ class ListAction extends BaseAction
 		$config = F('basic','','./Web/Conf/');
 	//封装条件
 		$map['status'] = 1;
+		$map['isenglish'] = $_SESSION['isenglish'];
 	//导入分页类
 		import('@.ORG.Page');
 	//准备工作

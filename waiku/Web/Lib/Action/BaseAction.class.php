@@ -3,9 +3,9 @@
      	
      	public function _initialize(){
 		
-     		if ($et == null){
-     			$et = 0;
-     		}
+     		if($_SESSION['isenglish']==null){
+	     		$_SESSION['isenglish']=0;
+	     	}
 //     		dump($et);
      		//网站头部
 			R('Public','head');

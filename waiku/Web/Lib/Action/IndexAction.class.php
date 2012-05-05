@@ -14,6 +14,13 @@ class IndexAction extends BaseAction
 		
 		$config = F('basic','','./Web/Conf/');
 		
+		$isenglish=$_GET['isenglish'];
+		
+     	if($isenglish==null){
+     		$isenglish=0;
+     	}
+     	$_SESSION['isenglish']=$isenglish;
+		
 		//首页栏目内容
 		/*$list = $type->where('isindex=1')->order('irank asc')->field('typeid,typename,indexnum')->select();
 		foreach ($list as $k=>$v)
@@ -24,10 +31,10 @@ class IndexAction extends BaseAction
 			$list[$k]['article'] = $article->where($data)->order('addtime desc')->field('title,aid')->limit($v['indexnum'])->select();
 		}*/
 		
-		$list1 = $article->where("typeid=1")->order('addtime desc')->field('title,aid')->limit(9)->select();
-		$list2 = $article->where("typeid=2")->order('addtime desc')->field('title,aid')->limit(9)->select();
-		$list3 = $article->where("typeid=3")->order('addtime desc')->field('title,aid')->limit(5)->select();
-		$list4 = $article->where("typeid=4")->order('addtime desc')->field('title,aid')->limit(5)->select();
+		$list1 = $article->where("typeid=1 and isenglish=".$isenglish)->order('addtime desc')->field('title,aid')->limit(9)->select();
+		$list2 = $article->where("typeid=2 and isenglish=".$isenglish)->order('addtime desc')->field('title,aid')->limit(9)->select();
+		$list3 = $article->where("typeid=3 and isenglish=".$isenglish)->order('addtime desc')->field('title,aid')->limit(5)->select();
+		$list4 = $article->where("typeid=4 and isenglish=".$isenglish)->order('addtime desc')->field('title,aid')->limit(5)->select();
 
 		$this->assign('list1',$list1);
 		$this->assign('list2',$list2);
