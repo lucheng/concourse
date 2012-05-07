@@ -151,10 +151,15 @@ public class KeyWordsExtractor {
 	}
 	public static void main(String[] args) throws IOException {
 
-		for(int i = 8000; i < 99999999; i++){
-			String url = "http://baike.baidu.com/view/"+ i +".htm";
-			KeyWordsExtractor test = new KeyWordsExtractor();
-			test.pretreatment(url);
+		for(int i = 3547; i < 99999999; i++){
+			try{
+				String url = "http://baike.baidu.com/view/"+ i +".htm";
+				KeyWordsExtractor test = new KeyWordsExtractor();
+				test.pretreatment(url);
+			}catch(Exception e){
+				e.printStackTrace();
+				continue;
+			}
 		}
 //		List<Link> links = test.getContentLinks(test.getPage().getContents().get(0));
 //		for(Link link : links){
