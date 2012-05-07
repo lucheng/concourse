@@ -151,7 +151,7 @@ public class KeyWordsExtractor {
 	}
 	public static void main(String[] args) throws IOException {
 
-		for(int i = 0; i < 99999999; i++){
+		for(int i = 8000; i < 99999999; i++){
 			String url = "http://baike.baidu.com/view/"+ i +".htm";
 			KeyWordsExtractor test = new KeyWordsExtractor();
 			test.pretreatment(url);
