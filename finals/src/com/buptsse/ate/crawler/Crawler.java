@@ -139,7 +139,7 @@ public abstract class Crawler extends Thread{
 	public Crawler(File file) {
 		
 		try {
-			this.doc = Jsoup.parse(file, "UTF-8");
+			this.doc = Jsoup.parse(file, "GBK");
 			this.url = file.getAbsolutePath();
 		} catch (IOException e) {
 			e.printStackTrace();
