@@ -24,7 +24,7 @@ import com.buptsse.ate.utils.Parser;
 
 public class KeyWordsExtractor {
 
-	private static String filePath = "D:/panguso/baidu/xmltest/";
+	private static String filePath = "\\\\buptsse215-02/data/baidu/";
 	private static String preUrl = "http://baike.baidu.com";
 	
 	private Map<String, Integer> singleTermMap = null;
@@ -93,11 +93,11 @@ public class KeyWordsExtractor {
 //		String text = page.getContents().get(0).getText();
 //		text.replaceAll("", "");
 //		FileHelp.writeFile("input/input/" + page.getBaibeId() + ".txt", text);
-		// 瀵硅缁冩枃鏈繘琛屽垎璇嶅鐞嗭紝鐢熸垚res鏂囦欢
-		String inputTrainPath = "input/input";   // 璁粌鏂囨湰鐨勮緭鍏ヨ矾寰�
-		String outputTrainPath = "input/output";  // 璁粌鏂囨湰鐨勮緭鍑鸿矾寰�
+		
+		String inputTrainPath = "input/input";   
+		String outputTrainPath = "input/output"; 
 		ATE ate = new ATE();
-		ate.pretreatmentTrain(inputTrainPath, outputTrainPath); // 鍒嗚瘝
+		ate.pretreatmentTrain(inputTrainPath, outputTrainPath); 
 		
 //		log.info(page.getTitle());
 		singleTermMap = ate.getSingleTermMap();
@@ -151,17 +151,19 @@ public class KeyWordsExtractor {
 	}
 	public static void main(String[] args) throws IOException {
 
-		/*String url = "http://baike.baidu.com/view/1538.htm";
-		KeyWordsExtractor test = new KeyWordsExtractor();
-		test.pretreatment(url);
-		List<Link> links = test.getContentLinks(test.getPage().getContents().get(0));
-		for(Link link : links){
-			test.pretreatment(preUrl + link.getUrl());
+		for(int i = 0; i < 99999999; i++){
+			String url = "http://baike.baidu.com/view/"+ i +".htm";
+			KeyWordsExtractor test = new KeyWordsExtractor();
+			test.pretreatment(url);
 		}
-		
-		test.getReinforce();*/
-		KeyWordsExtractor test = new KeyWordsExtractor();
-		test.getWordsFrequency();
+//		List<Link> links = test.getContentLinks(test.getPage().getContents().get(0));
+//		for(Link link : links){
+//			test.pretreatment(preUrl + link.getUrl());
+//		}
+//		
+//		test.getReinforce();
+		/*KeyWordsExtractor test = new KeyWordsExtractor();
+		test.getWordsFrequency();*/
 	}
 
 	public Page getPage() {
