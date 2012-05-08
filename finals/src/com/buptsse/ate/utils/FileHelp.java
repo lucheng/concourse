@@ -94,7 +94,8 @@ public class FileHelp {
             } else { 
                 String strFileName = files[i].getAbsolutePath().toLowerCase();
                 if(strFileName.endsWith(suffix)){
-                	filelist.add(strFileName);                    
+                	filelist.add(strFileName);
+                	System.out.println(strFileName);
                 }
             } 
         } 
