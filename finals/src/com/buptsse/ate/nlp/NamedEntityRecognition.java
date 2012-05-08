@@ -24,8 +24,12 @@ public class NamedEntityRecognition {
 		
 		NERTagger tag = new NERTagger("./models/ner.p111014.gz");
 		
-		String str = FileHelp.readText("d:/workspace/finals/text_example/100059.txt");
-		HashMap<String, String> s = tag.tag(str);
-		System.out.println(s);
+		String strs[] = FileHelp.getFiles("d:/workspace/finals/text_example/");
+		for(String str : strs){
+			String text = FileHelp.readText(str);
+			HashMap<String, String> s = tag.tag(text);
+			System.out.println(s);
+		}
+		
 	}
 }
