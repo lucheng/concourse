@@ -37,14 +37,14 @@ public class Index {
 	
 	public static void main(String[] args){
 		
-//		createBaiKeTitleIndex();
-		List<Document> list = new ArrayList<Document>();
+		createBaiKeTitleIndex();
+		/*List<Document> list = new ArrayList<Document>();
 		list = queryByString("百度");
 		for(Document str : list){
 			System.out.println(str.get("title"));
 			System.out.println(str.get("relation"));
 			System.out.println(str.get("id"));
-		}
+		}*/
 //		searchIKIndexByString("百度");
 	}
 	
@@ -147,7 +147,7 @@ public class Index {
 	        Directory dir= FSDirectory.open(indexDir);
 	        indexWriter = new IndexWriter(dir,analyzer,IndexWriter.MaxFieldLength.LIMITED);
 	        
-	        for(int i = 1; i < 10000; i++){
+	        for(int i = 1; i < 5000000; i++){
 	        	
 	            id=i;
 	            fileName = filePath + i +".xml";
