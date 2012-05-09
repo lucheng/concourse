@@ -33,7 +33,12 @@ public class Reinforce {
 	public void setText(String text) {
 		this.text = text;
 	}
-	
+
+	@Override
+	public String toString() {
+		
+		return "("+ this.getText()+","+ this.index+","+ this.url.substring(url.lastIndexOf("/")+1, url.lastIndexOf("."))+")";
+	}
 	
 }
 
