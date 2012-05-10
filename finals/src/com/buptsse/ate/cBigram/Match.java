@@ -18,8 +18,8 @@ class Match {
 
 	public Match() {
 		
-		expression1 = Pattern.compile("[0-9a-zA-Z一-龥]+(/n|/vn|/un)$");
-		expression2 = Pattern.compile("[0-9a-zA-Z一-龥]+(/n|/vn|/un)$");
+		expression1 = Pattern.compile("[0-9a-zA-Z一-龥]+(/n|/vn|/un|/x)$");
+		expression2 = Pattern.compile("[0-9a-zA-Z一-龥]+(/n|/vn|/un|/x)$");
 		
 	}
 

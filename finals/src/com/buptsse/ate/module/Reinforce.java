@@ -36,9 +36,17 @@ public class Reinforce {
 
 	@Override
 	public String toString() {
-		String id = this.url.substring(url.lastIndexOf("/")+1, url.lastIndexOf("."));
-		if(!id.equals("baike_help")){
-			return "("+ this.getText()+","+ this.index+","+ id +")";
+		
+		int beginIndex = url.lastIndexOf("/")+1;
+		int endIndex = url.lastIndexOf(".");
+		
+		if(beginIndex > 0 && endIndex > 0){
+			String id = this.url.substring(beginIndex, endIndex);
+			if(!id.equals("baike_help")){
+				return "("+ this.getText()+","+ this.index+","+ id +")";
+			}else {
+				return "";
+			}
 		}
 		return "";
 	}

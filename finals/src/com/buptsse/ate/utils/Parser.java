@@ -3,12 +3,17 @@ package com.buptsse.ate.utils;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
+import org.jsoup.Jsoup;
+import org.jsoup.select.Elements;
 
 import com.buptsse.ate.module.Content;
 import com.buptsse.ate.module.Link;
@@ -17,6 +22,78 @@ import com.buptsse.ate.module.Reinforce;
 
 
 public class Parser {
+	
+	private static Logger logger = Logger.getLogger(Parser.class);
+	
+	public static Page parse(String fileName){
+		
+		Page page = new Page();
+		
+		org.jsoup.nodes.Document doc = Jsoup.parse(fileName,"UTF-8");
+		
+		Elements datas = doc.body().select("datas");
+		
+//		System.out.println(doc.html());
+		
+		for(org.jsoup.nodes.Element value : datas){
+			System.out.println(value.html());
+		}
+		/*Element root = doc.getRootElement();
+		Element data = (Element) root.selectSingleNode("//datas");
+		String title = data.element("title").getStringValue();
+		String fileId = fileName.substring(fileName.lastIndexOf("/") + 1, fileName.lastIndexOf("."));
+		
+		page.setTitle(title);
+		
+		List<Element> elements = data.element("contents").elements();
+		
+		List<Content> contents = new ArrayList<Content>();
+		for(Element e : elements){
+			Content content = new Content();
+			
+			String subTitle  = e.selectSingleNode(".//subtitle").getStringValue();
+			String text  = e.selectSingleNode(".//text").getStringValue();
+			String summary  = e.selectSingleNode(".//summary").getStringValue();
+			
+			List<Element> links  = e.selectNodes(".//links//link");
+			List<Link> linkList = new ArrayList<Link>();
+			for(Element element : links){
+				Link link = new Link(Integer.parseInt(element.attributeValue("index")), element.getStringValue(), element.attributeValue("url"));
+				linkList.add(link);
+			}
+			
+			List<Element> tagElements  = e.selectNodes(".//tags//tag");
+			List<String> tags = new ArrayList<String>();
+			for(Element tag : tagElements){
+				String tagText = tag.getStringValue();
+				tags.add(tagText);
+			}
+			
+			content.setSubTitle(subTitle);
+			content.setText(text);
+			content.setSummary(summary);
+			content.setLinks(linkList);
+			content.setTaglist(tags);
+			contents.add(content);
+		}
+		
+		page.setContents(contents);
+		
+		List<Reinforce> reinforceList = new ArrayList<Reinforce>();
+		List<Element> reinforces = data.element("reinforces").elements();
+		for(int i = 0; i < reinforces.size(); i++){
+			String url = reinforces.get(i).attributeValue("url");
+			String index = reinforces.get(i).attributeValue("index");
+			String text = reinforces.get(i).getStringValue();
+			Reinforce reinforce = new Reinforce(Integer.parseInt(index), text, url);
+			reinforceList.add(reinforce);
+			
+		}
+		
+		page.setReinforces(reinforceList);*/
+		
+		return page;
+	}
 	
 	public static Page parseXmlFile(String fileName){
 		
@@ -83,7 +160,7 @@ public class Parser {
 	public static void saveAsXml(Page page, String filePath){
 		
 		if(page.getTitle().equals("")){
-			System.out.println("网页不存在！");
+			logger.info("网页不存在！");
 			return;
 		}
 		XMLWriter out;
@@ -150,8 +227,8 @@ public class Parser {
 	
 	public static void main(String[] args) {
 		
-		Page page = parseXmlFile("D:/panguso/baidu/xml/1_百度百科.xml");
-		saveAsXml(page, "D:/panguso/baidu/xml/1.xml");
+		Page page = parse("\\\\buptsse215-02/data/baidu/1.xml");
+//		saveAsXml(page, "1.xml");
 	}
 }
 

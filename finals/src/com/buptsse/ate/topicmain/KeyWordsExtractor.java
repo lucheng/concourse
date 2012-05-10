@@ -9,6 +9,9 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
+import ICTCLAS.I3S.AC.ICTCLAS50;
+import ICTCLAS.I3S.AC.MatchPage;
+
 import com.buptsse.ate.module.Content;
 import com.buptsse.ate.module.Link;
 import com.buptsse.ate.module.Page;
@@ -87,6 +90,22 @@ public class KeyWordsExtractor {
 	/*private int getTags(Content content, Content dest){
 		content.getTaglist();
 	}*/
+	
+	public List<String> getWords(String fileName){
+		
+		List<String> words = new ArrayList<String>();
+		ICTCLAS50 testICTCLAS2010 = new ICTCLAS50();
+		String sInput = FileHelp.readText(fileName);
+		String segment = testICTCLAS2010.testICTCLAS_ParagraphProcess(sInput);
+		MatchPage matchObject = new MatchPage();
+		String[] wordsStr = segment.split(" ");
+		for(String str : wordsStr){
+			if(matchObject.match(str)){
+				System.out.println(str);
+			}
+		}
+		return words;
+	}
 
 	public void getWordsFrequency() throws IOException{
 		
@@ -151,7 +170,8 @@ public class KeyWordsExtractor {
 	}
 	public static void main(String[] args) throws IOException {
 
-		for(int i = 953705; i < 99999999; i=i+2){
+		//fetch data from url
+		/*for(int i = 1; i < 99999999; i++){
 			try{
 				String url = "http://baike.baidu.com/view/"+ i +".htm";
 				KeyWordsExtractor test = new KeyWordsExtractor();
@@ -160,15 +180,39 @@ public class KeyWordsExtractor {
 				e.printStackTrace();
 				continue;
 			}
-		}
+		}*/
+		
+		//read data from xml
+		/*String fileName="";
+		for(int i = 1; i < 99999999; i++){
+			try{
+				fileName = filePath + i +".xml";
+				File file = new File(fileName);
+				System.out.println(fileName);
+				if(file.exists()){
+					Page page = Parser.parseXmlFile(fileName);
+					System.out.println(page.getTitle());
+				}else{
+//					System.out.println("file is not exists");
+				}
+			}catch(Exception e){
+//				e.printStackTrace();
+//				System.out.println(fileName);
+				String newfilename = "D:/data/error"+fileName.substring(fileName.lastIndexOf("/",fileName.length()));
+				FileHelp.copyFile(new File(fileName), new File(newfilename));
+				continue;
+			}
+		}*/
+		
 //		List<Link> links = test.getContentLinks(test.getPage().getContents().get(0));
 //		for(Link link : links){
 //			test.pretreatment(preUrl + link.getUrl());
 //		}
 //		
 //		test.getReinforce();
-		/*KeyWordsExtractor test = new KeyWordsExtractor();
-		test.getWordsFrequency();*/
+		KeyWordsExtractor test = new KeyWordsExtractor();
+		test.getWordsFrequency();
+//		test.getWords("input/input/100049.txt");
 	}
 
 	public Page getPage() {
