@@ -54,7 +54,7 @@ public class Index {
 	        Directory dir= FSDirectory.open(indexDir);
 	        indexWriter = new IndexWriter(dir,analyzer,IndexWriter.MaxFieldLength.UNLIMITED);
 	        
-	        for(int i = 1; i < 2000000; i++){
+	        for(int i = 1; i < 1000000; i++){
 	        	
 	            id=i;
 	            fileName = filePath + i +".xml";
@@ -89,15 +89,15 @@ public class Index {
 							tag += "}";
 						}
 						
-						logger.info("tag:" + tag);
-						logger.info("relation:" + relation);
+//						logger.info("tag:" + tag);
+//						logger.info("relation:" + relation);
 						
 						Document document = new Document();
 			            //向docment对象加入索引字段
 			            document.add(new Field("id",id+"",Field.Store.YES, Field.Index.NOT_ANALYZED));
-			            document.add(new Field("title",title,Field.Store.YES, Field.Index.NOT_ANALYZED));
-			            document.add(new Field("relation",relation,Field.Store.YES, Field.Index.NOT_ANALYZED));
-			            document.add(new Field("tag",tag,Field.Store.YES, Field.Index.NOT_ANALYZED));
+			            document.add(new Field("title",title,Field.Store.YES, Field.Index.ANALYZED));
+			            document.add(new Field("relation",relation,Field.Store.YES, Field.Index.ANALYZED));
+			            document.add(new Field("tag",tag,Field.Store.YES, Field.Index.ANALYZED));
 			            indexWriter.addDocument(document);
 					}catch(Exception e){
 						e.printStackTrace();
