@@ -54,7 +54,7 @@ public class Index {
 	        Directory dir= FSDirectory.open(indexDir);
 	        indexWriter = new IndexWriter(dir,analyzer,IndexWriter.MaxFieldLength.UNLIMITED);
 	        
-	        for(int i = 1; i < 364; i++){
+	        for(int i = 1; i < 6838809; i++){
 	        	
 	            id=i;
 	            fileName = filePath + i +".xml";
