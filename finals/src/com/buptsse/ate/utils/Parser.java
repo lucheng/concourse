@@ -160,7 +160,7 @@ public class Parser {
 	public static void saveAsXml(Page page, String filePath){
 		
 		if(page.getTitle().equals("")){
-			logger.info(filePath + "不存在！");
+//			logger.info(filePath + "不存在！");
 			return;
 		}
 		
