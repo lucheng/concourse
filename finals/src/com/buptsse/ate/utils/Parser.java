@@ -160,9 +160,10 @@ public class Parser {
 	public static void saveAsXml(Page page, String filePath){
 		
 		if(page.getTitle().equals("")){
-			logger.info("网页不存在！");
+			logger.info(filePath + "不存在！");
 			return;
 		}
+		
 		XMLWriter out;
 		OutputFormat outputFormat = OutputFormat.createPrettyPrint();
 		outputFormat.setEncoding("UTF-8");
@@ -220,6 +221,7 @@ public class Parser {
 			out.writeClose(rootElement);
 			out.endDocument();
 			out.close();
+			logger.info("网页已保存：" + filePath);
 		}catch(Exception e){
 			e.printStackTrace();
 		}
