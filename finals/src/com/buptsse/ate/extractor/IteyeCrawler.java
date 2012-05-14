@@ -1,16 +1,16 @@
 package com.buptsse.ate.extractor;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.buptsse.ate.crawler.Crawler;
+import com.buptsse.ate.crawler.ItemParser;
+import com.buptsse.ate.crawler.Tag;
 import com.buptsse.ate.utils.FileHelp;
 
-public class IteyeCrawler extends Crawler {
+public class IteyeCrawler extends ItemParser {
 	
 	public IteyeCrawler(String url) {
 		super(url);
@@ -36,21 +36,21 @@ public class IteyeCrawler extends Crawler {
 		}
 		String author = doc.body().select("div#blog_owner_name").text();
 	
-		this.setAuthor(author);
-		this.setTagList(tags);
-		this.setTitle(blog_title);
-		this.setSummary(blog_content);
+		this.getNewsItem().setAuthor(author);
+		this.getNewsItem().setTagList(tags);
+		this.getNewsItem().setTitle(blog_title);
+		this.getNewsItem().setSummary(blog_content);
 	}
 	
 	public static void main(String[] args){
 		
-		Crawler crawler = new IteyeCrawler();
+		/*Crawler crawler = new IteyeCrawler();
 		String[] xmlfiles = FileHelp.getFiles("D:/panguso/36kr/xml");
 		for(String fileName : xmlfiles){
 			String textFileName = fileName.replace("xml", "txt");
 			System.out.println(textFileName);
 			crawler.extrcatText(fileName, textFileName);
-		}
+		}*/
 		
 		/*List<String> fileNames = new ArrayList<String>();
 		

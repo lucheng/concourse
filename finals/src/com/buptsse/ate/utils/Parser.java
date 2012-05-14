@@ -95,7 +95,7 @@ public class Parser {
 		return page;
 	}
 	
-	public static Page parseXmlFile(String fileName){
+	public static Page parseXmlFile(String fileName) throws Exception{
 		
 		Page page = new Page();
 		
@@ -187,7 +187,7 @@ public class Parser {
 				subtitleElement.addText(content.getSubTitle());
 				
 				Element summaryElement = contentElement.addElement("summary");
-				summaryElement.addText(content.getSummary());
+				summaryElement.addCDATA(content.getSummary());
 				
 				Element textElement = contentElement.addElement("text");
 				textElement.addText(content.getText());

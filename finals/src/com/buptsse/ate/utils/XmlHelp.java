@@ -34,7 +34,7 @@ public class XmlHelp {
 		return xmlReader.read(aFile);
 	}
 
-	public static Document getDocument(String filePath) {
+	public static Document getDocument(String filePath) throws Exception{
 		
 		File aFile = new File(filePath);
 		Document document = null;
@@ -78,7 +78,7 @@ public class XmlHelp {
 		List<Element> roots = new ArrayList<Element>();
 		// FileHelp.sortFiles(files);
 		for (Element srcRoot : rawRoots) {
-			//����ҳ����һ�´���
+			//
 			initEelment(srcRoot);
 			roots.add(srcRoot);
 		}

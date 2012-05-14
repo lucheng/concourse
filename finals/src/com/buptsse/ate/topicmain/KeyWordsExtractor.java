@@ -54,7 +54,11 @@ public class KeyWordsExtractor {
 			page = new Page(url);
 			Parser.saveAsXml(page, filePath + baikeId +".xml");
 		} else {
-			page = Parser.parseXmlFile(fileName);
+			try {
+				page = Parser.parseXmlFile(fileName);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		if(page == null){

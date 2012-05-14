@@ -4,10 +4,10 @@ import java.io.File;
 
 import org.jsoup.select.Elements;
 
-import com.buptsse.ate.crawler.Crawler;
+import com.buptsse.ate.crawler.ItemParser;
 import com.buptsse.ate.utils.FileHelp;
 
-public class KrCrawler extends Crawler {
+public class KrCrawler extends ItemParser {
 	
 	public KrCrawler(String url) {
 		super(url);
@@ -30,11 +30,11 @@ public class KrCrawler extends Crawler {
 		
 		String blog_content = main.text();
 	
-		this.setAuthor(author);
-		this.setTitle(blog_title);
-		this.setPublished(published);
+		this.getNewsItem().setAuthor(author);
+		this.getNewsItem().setTitle(blog_title);
+		this.getNewsItem().setPublished(published);
 //		System.out.println(blog_content);
-		this.setSummary(blog_content);
+		this.getNewsItem().setSummary(blog_content);
 	}
 	
 	public static void main(String[] args){
@@ -42,12 +42,12 @@ public class KrCrawler extends Crawler {
 		String[] fileNames = FileHelp.getFiles("D:/sites/www.36kr.com/p");
 		for(String url : fileNames){
 			try{
-				Crawler crawler2 = new KrCrawler(new File(url));
+				ItemParser crawler2 = new KrCrawler(new File(url));
 				crawler2.fetch();
 				String newFileName = "D:/text/www.36kr.com/p" + url.substring(url.lastIndexOf("/"), url.lastIndexOf("."))+".txt";
 				System.out.println(url);
 //				crawler2.saveFile(newFileName);
-				crawler2.saveText(newFileName);
+//				crawler2.saveText(newFileName);
 			}catch(Exception e){
 				e.printStackTrace();
 				continue;

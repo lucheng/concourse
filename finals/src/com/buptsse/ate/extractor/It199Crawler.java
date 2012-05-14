@@ -1,24 +1,20 @@
 package com.buptsse.ate.extractor;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.buptsse.ate.crawler.Crawler;
-import com.buptsse.ate.utils.FileHelp;
+import com.buptsse.ate.crawler.ItemParser;
+import com.buptsse.ate.crawler.Tag;
 
-public class It199Crawler extends Crawler {
+public class It199Crawler extends ItemParser {
 	
 	public It199Crawler(String url) {
 		super(url);
 	}
 
-	public It199Crawler() {
-		// TODO Auto-generated constructor stub
-	}
 
 	public void fetch() {
 
@@ -42,21 +38,21 @@ public class It199Crawler extends Crawler {
 		}
 		
 	
-		this.setAuthor("");
-		this.setPublished(published);
-		this.setTagList(tags);
-		this.setTitle(blog_title);
-		this.setSummary(blog_content.html());
+		this.getNewsItem().setAuthor("");
+		this.getNewsItem().setPublished(published);
+		this.getNewsItem().setTagList(tags);
+		this.getNewsItem().setTitle(blog_title);
+		this.getNewsItem().setSummary(blog_content.html());
 	}
 	
 	public static void main(String[] args){
 		
 		String url = "http://www.199it.com/archives/34210.html";
-		Crawler crawler = new It199Crawler(url);
+		ItemParser crawler = new It199Crawler(url);
 		String newFileName = "D:/panguso/it199/xml/" + url.substring(url.lastIndexOf("/")+1, url.lastIndexOf("."))+".xml";
 		crawler.fetch();
 		System.out.println(newFileName);
-		crawler.saveFile(newFileName);
+		crawler.saveFile(newFileName,true);
 		
 		/*Crawler crawler = new It199Crawler();
 		String[] xmlfiles = FileHelp.getFiles("D:/panguso/36kr/xml");
@@ -102,7 +98,6 @@ public class It199Crawler extends Crawler {
 				try {
 					sleep(3000);
 				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				continue;

@@ -7,10 +7,11 @@ import java.util.List;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.buptsse.ate.crawler.Crawler;
+import com.buptsse.ate.crawler.ItemParser;
+import com.buptsse.ate.crawler.Tag;
 import com.buptsse.ate.utils.FileHelp;
 
-public class TechwebCrawler extends Crawler {
+public class TechwebCrawler extends ItemParser {
 	
 	public TechwebCrawler(String url) {
 		super(url);
@@ -35,11 +36,11 @@ public class TechwebCrawler extends Crawler {
 			tagList.add(new Tag(element.attr("href"),element.text()));
 		}
 	
-		this.setPublished(published);
-		this.setAuthor(author);
-		this.setTitle(blog_title);
-		this.setSummary(blog_content);
-		this.setTagList(tagList);
+		this.getNewsItem().setPublished(published);
+		this.getNewsItem().setAuthor(author);
+		this.getNewsItem().setTitle(blog_title);
+		this.getNewsItem().setSummary(blog_content);
+		this.getNewsItem().setTagList(tagList);
 	}
 	
 	public static void main(String[] args){

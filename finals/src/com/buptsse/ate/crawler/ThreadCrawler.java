@@ -13,12 +13,8 @@ import com.buptsse.ate.utils.FileHelp;
 public class ThreadCrawler extends Thread {
 
 	private Document doc;
-	private int id;
 	private static int counter = 0;
 	
-	public ThreadCrawler(int id) {
-		this.id = id;
-	}
 	public static synchronized int getCounter(){
 		return ++counter;
 	}
@@ -50,7 +46,7 @@ public class ThreadCrawler extends Thread {
 		
 		List<ThreadCrawler> list = new ArrayList<ThreadCrawler>();
 		for(int i = 0; i < 5; i++){
-			ThreadCrawler crawler = new ThreadCrawler(i);
+			ThreadCrawler crawler = new ThreadCrawler();
 			list.add(crawler);
 		}
 		

@@ -14,6 +14,8 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
@@ -81,19 +83,22 @@ public class FileHelp {
         return fileNames;
     }
 	
-	public static void refreshFileList(String strPath, List<String> filelist, final String suffix) { 
+	public static void refreshFileList(String strPath, List<String> filelist, final String regex) { 
         
 		File dir = new File(strPath); 
         File[] files = dir.listFiles(); 
+        
+        Pattern p = Pattern.compile(regex);
         
         if (files == null) 
             return; 
         for (int i = 0; i < files.length; i++) { 
             if (files[i].isDirectory()) { 
-                refreshFileList(files[i].getAbsolutePath(), filelist, suffix); 
+                refreshFileList(files[i].getAbsolutePath(), filelist, regex); 
             } else { 
                 String strFileName = files[i].getAbsolutePath().toLowerCase();
-                if(strFileName.endsWith(suffix)){
+                Matcher m = p.matcher(strFileName);
+                if(m.find()){
                 	filelist.add(strFileName);
                 	System.out.println(strFileName);
                 }
@@ -381,7 +386,8 @@ public class FileHelp {
 
 	public static void main(String argv[]) {
 	
-		deleteFoder(new File("D:/sites/www.jiathis.com"));
+//		deleteFoder(new File("D:/sites/www.jiathis.com"));
+		deleteFiles("D:/data/xml/tech2ipo.com", ".temp");
 	}
 
 }

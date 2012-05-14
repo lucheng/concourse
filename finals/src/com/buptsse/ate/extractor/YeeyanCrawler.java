@@ -6,9 +6,9 @@ import java.util.List;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.buptsse.ate.crawler.Crawler;
+import com.buptsse.ate.crawler.ItemParser;
 
-public class YeeyanCrawler extends Crawler {
+public class YeeyanCrawler extends ItemParser {
 	
 	public YeeyanCrawler(String url) {
 		super(url);
@@ -23,9 +23,9 @@ public class YeeyanCrawler extends Crawler {
 		
 		String blog_content = main.select("div#conBox").html();
 	
-		this.setAuthor(author);
-		this.setTitle(blog_title);
-		this.setSummary(blog_content);
+		this.getNewsItem().setAuthor(author);
+		this.getNewsItem().setTitle(blog_title);
+		this.getNewsItem().setSummary(blog_content);
 	}
 	
 	public static void main(String[] args){
@@ -50,7 +50,7 @@ public class YeeyanCrawler extends Crawler {
 		List<String> fileNames = new ArrayList<String>();
 		
 		String url1 = "http://article.yeeyan.org/list_articles/410";
-		Crawler crawler = new YeeyanCrawler(url1);
+		ItemParser crawler = new YeeyanCrawler(url1);
 		Elements h3 = crawler.getDoc().select("h5>a[href]");
 		for(Element e : h3){
 			fileNames.add(e.attr("href"));
@@ -61,7 +61,7 @@ public class YeeyanCrawler extends Crawler {
 			String url = "http://article.yeeyan.org/list_articles/410?page=" + i;
 			System.out.println(url);
 			
-			Crawler crawler2 = new YeeyanCrawler(url);
+			ItemParser crawler2 = new YeeyanCrawler(url);
 			h3 = crawler2.getDoc().select("h5>a[href]");
 			for(Element e : h3){
 				fileNames.add(e.attr("href"));
@@ -71,11 +71,11 @@ public class YeeyanCrawler extends Crawler {
 		
 		for(String url : fileNames){
 			try{
-				Crawler crawler2 = new IteyeCrawler(url);
+				ItemParser crawler2 = new IteyeCrawler(url);
 				crawler2.fetch();
 				String newFileName = "D:/panguso/yeeyan/xml" + url.substring(url.lastIndexOf("/"), url.length())+".xml";
 				System.out.println(newFileName);
-				crawler2.saveFile(newFileName);
+				crawler2.saveFile(newFileName,true);
 			}catch(Exception e){
 				e.printStackTrace();
 				continue;

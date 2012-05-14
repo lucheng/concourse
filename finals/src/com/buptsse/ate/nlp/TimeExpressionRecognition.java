@@ -18,8 +18,13 @@ public class TimeExpressionRecognition {
 				"考虑到明天和后天人还是那么多，决定下周日再去。";
 		TimeNormalizer normalizer;
 		normalizer = new TimeNormalizer("./models/TimeExp.gz");
-		normalizer.parse(target);
+//		normalizer.parse(target);
+		normalizer.parse("2012年04月24日下午8:45");
 		TimeUnit[] unit = normalizer.getTimeUnit();
+		
+		System.out.println();
+		System.out.println(normalizer.getTimeBase());
+		
 		for(int i = 0; i < unit.length; i++){
 			System.out.println(unit[i]);
 		}
