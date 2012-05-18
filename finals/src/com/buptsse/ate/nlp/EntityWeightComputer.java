@@ -2,7 +2,9 @@ package com.buptsse.ate.nlp;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -14,49 +16,67 @@ import com.buptsse.ate.crawler.Tag;
 import com.buptsse.ate.extractor.Tech2ipoCrawler;
 import com.buptsse.ate.utils.Constant;
 
-import edu.fudan.nlp.keyword.Extractor;
-import edu.fudan.nlp.keyword.WordExtract;
-
 public class EntityWeightComputer {
 
-	private static Logger logger = Logger.getLogger(EntityWeightComputer.class);
+	private Logger logger = Logger.getLogger(getClass());
+	
+	private List<Entity> entityList = new ArrayList<Entity>();
+	private SegmentParser segmentParser = new SegmentParser();
+	private Map<String, Integer> weightMap = new HashMap<String, Integer>();
+	
+	
+	final public static int TAG = 5;
+	final public static int TITLE = 4;
+	final public static int RELATION_TITLE = 3;
+	final public static int CONTENT = 1;
+//	final public static int KEYWORD = 3;
+//	final public static int DESCRIPTION = 4;
 	
 	public EntityWeightComputer(){
 		PropertyConfigurator.configure(Constant.LOG4J);
 	}
 	
-	public void comput(NewsItem item){
-		
-		List<Entity> entityList = new ArrayList<Entity>();
+	public void compute(NewsItem item) throws Exception{
 		
 		List<Tag> tags = item.getTagList();
-		String keyword = item.getKeyword();
-		String description = item.getDescription();
-		
-		List<Relation> relationList = item.getRelationList();
 		String title = item.getTitle();
-		
+//		String keyword = item.getKeyword();
+//		String description = item.getDescription();
 		String summary = item.getSummary();
+		List<Relation> relationList = item.getRelationList();
 		
-
 		for(Tag tag : tags){
-			entityList.add(new Entity(tag.getTag(), 2));
+			logger.info(tag.getTag());
+			merge(segmentParser.singleProcess(tag.getTag(), TAG));
 		}
 		
-		try {
-			Extractor key = new WordExtract("models/seg.c7.110918.gz","models/stopwords");
-			logger.info(key.extract(summary, 100,true));
-			logger.info(key.extract(title, 100,true));
-		} catch (Exception e) {
-			e.printStackTrace();
+//		logger.info(title);
+		merge(segmentParser.singleProcess(title, TITLE));
+		
+		merge(segmentParser.singleProcess(summary, CONTENT));
+		
+		merge(segmentParser.singleProcess(summary, CONTENT));
+		
+		for(Relation relation : relationList){
+			merge(segmentParser.singleProcess(relation.getTitle(), RELATION_TITLE));
 		}
 		
-		for(Entity entity : entityList){
-			
-			entity.setWeight(10);
-		}
+//		logger.info(keyword);
+//		extract(keyword, KEYWORD);
+//		extract(description, DESCRIPTION);
+//		extract(summary, CONTENT);
 		
 		item.setEntityList(entityList);
+	}
+	
+	private void merge(Map<String, Integer> map) {
+		
+		for(String key : map.keySet())
+		if(weightMap.get(key) == null){
+			weightMap.put(key, map.get(key));
+		}else {
+			weightMap.put(key, (weightMap.get(key)+map.get(key)));
+		}
 	}
 	
 	public static void main(String[] args){
@@ -66,9 +86,20 @@ public class EntityWeightComputer {
 		crawler.setFile(new File(fileName));
 		crawler.fetch();
 		crawler.getNewsItem().setSource("Tech2IPO");
-		logger.info(fileName);
-		crawler.saveFile(fileName.replace("sites", "xml").replace(".html", ".xml"), true);
+		NewsItem item = crawler.getNewsItem();
 		
+		EntityWeightComputer computer = new EntityWeightComputer();
+		try {
+			computer.compute(item);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		Map<String, Integer> map = computer.weightMap;
+		for(String key : map.keySet()){
+			System.out.println(key + "--" + map.get(key));
+		}
+//		crawler.saveFile(fileName.replace("sites", "xml").replace(".html", ".xml"), true);
 	}
 	
 }
