@@ -94,8 +94,8 @@ $().ready( function() {
 	</div>
 	<div class="body">
 		<form id="validateForm1" action="<%=path %>/admin/save" method="post">
-			<%--<input type="hidden" name="id" value="">
-			--%><ul id="tab" class="tab">
+			<input type="hidden" name="id" value="0">
+			<ul id="tab" class="tab">
 				<li>
 					<input type="button" value="基本信息" hidefocus="" class="current">
 				</li>
@@ -168,7 +168,7 @@ $().ready( function() {
 						部门: 
 					</th>
 					<td>
-						<input type="text" name="admin.department" class="formText" value="">
+						<input type="text" name="department" class="formText" value="">
 					</td>
 				</tr>
 				<tr>
@@ -176,7 +176,7 @@ $().ready( function() {
 						姓名: 
 					</th>
 					<td>
-						<input type="text" name="admin.name" class="formText" value="">
+						<input type="text" name="name" class="formText" value="">
 					</td>
 				</tr>
 			</tbody></table>

@@ -8,7 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -47,6 +49,12 @@ public class Admin {
     @Pattern(regexp = "[A-Za-z0-9]{5,20}", message = "{password.illegal}") 
     private String password;
     
+    @NotNull
+    @Size(min = 1, max = 255)
+    @NotEmpty(message = "{email.illegal}")
+    @Email(message = "{email.illegal}") //错误消息会自动到MessageSource中查找
+    private String email;
+    
     private String department;
     
     @DateFormat( message="{register.date.error}")//自定义的验证器
@@ -54,14 +62,10 @@ public class Admin {
     
     private String loginIp;
     
-    private int isAccountEnabled;
+    private boolean isAccountEnabled;
     
     @DateFormat( message="{register.date.error}")//自定义的验证器
     private Date createDate;
-    
-    @NotEmpty(message = "{email.illegal}")
-    @Email(message = "{email.illegal}") //错误消息会自动到MessageSource中查找
-    private String email;
     
 	public int getId() {
 		return id;
@@ -135,11 +139,11 @@ public class Admin {
 		this.email = email;
 	}
 
-	public int getIsAccountEnabled() {
+	public boolean isAccountEnabled() {
 		return isAccountEnabled;
 	}
 
-	public void setIsAccountEnabled(int isAccountEnabled) {
+	public void setAccountEnabled(boolean isAccountEnabled) {
 		this.isAccountEnabled = isAccountEnabled;
 	}
 

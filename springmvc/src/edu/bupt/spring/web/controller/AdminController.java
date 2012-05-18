@@ -56,7 +56,7 @@ public class AdminController {
         System.out.println("admin:" + admin.getUsername());
         System.out.println("admin:" + admin.getEmail());
         System.out.println("admin:" + admin.getId());
-//        adminService.save(admin);
+        adminService.save(admin);
         return "redirect:/user/success";
     }
     
