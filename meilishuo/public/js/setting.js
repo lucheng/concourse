@@ -1,1 +1,0 @@
-var SETTING = {"tongji":"","share_goods_count":"5","share_pic_count":"5","share_tag_count":"10"};
