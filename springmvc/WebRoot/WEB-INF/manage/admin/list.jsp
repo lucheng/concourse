@@ -12,7 +12,7 @@
 		管理员列表&nbsp;总记录数: 1 (共1页)
 	</div>
 	<div class="body">
-		<form id="listForm" action="admin!list.action" method="post">
+		<form id="listForm" action="<%=path %>/admin/list" method="post">
 			<div class="listBar">
 				<input type="button" class="formButton" onclick="location.href='<%=path %>/admin/add'" value="添加管理员" hidefocus="">
 				&nbsp;&nbsp;
@@ -44,71 +44,75 @@
 				</select>
 			</div>
 			<table id="listTable" class="listTable">
-				<tbody><tr>
-					<th class="check">
-						<input type="checkbox" class="allCheck">
-					</th>
-					<th>
-						<a href="#" class="sort" name="username" hidefocus="">用户名</a>
-					</th>
-					<th>
-						<a href="#" class="sort" name="email" hidefocus="">E-mail</a>
-					</th>
-					<th>
-						<a href="#" class="sort" name="name" hidefocus="">姓名</a>
-					</th>
-					<th>
-						<a href="#" class="sort" name="department" hidefocus="">所属部门</a>
-					</th>
-					<th>
-						<a href="#" class="sort" name="loginDate" hidefocus="">最后登录时间</a>
-					</th>
-					<th>
-						<a href="#" class="sort" name="loginIp" hidefocus="">最后登录IP</a>
-					</th>
-					<th>
-						<span>状态</span>
-					</th>
-					<th>
-						<a href="#" class="sort desc" name="createDate" hidefocus="">创建日期</a>
-					</th>
-					<th>
-						<span>操作</span>
-					</th>
-				</tr>
+				<tbody>
+					<tr>
+						<th class="check">
+							<input type="checkbox" class="allCheck">
+						</th>
+						<th>
+							<a href="#" class="sort" name="username" hidefocus="">用户名</a>
+						</th>
+						<th>
+							<a href="#" class="sort" name="email" hidefocus="">E-mail</a>
+						</th>
+						<th>
+							<a href="#" class="sort" name="name" hidefocus="">姓名</a>
+						</th>
+						<th>
+							<a href="#" class="sort" name="department" hidefocus="">所属部门</a>
+						</th>
+						<th>
+							<a href="#" class="sort" name="loginDate" hidefocus="">最后登录时间</a>
+						</th>
+						<th>
+							<a href="#" class="sort" name="loginIp" hidefocus="">最后登录IP</a>
+						</th>
+						<th>
+							<span>状态</span>
+						</th>
+						<th>
+							<a href="#" class="sort desc" name="createDate" hidefocus="">创建日期</a>
+						</th>
+						<th>
+							<span>操作</span>
+						</th>
+					</tr>
+					<c:forEach items="${list}" var="entry">
 					<tr>
 						<td>
 							<input type="checkbox" name="ids" value="0731dcsoft2010031200000000000017">
 						</td>
 						<td>
-							admin
+							${entry.username}
 						</td>
 						<td>
-							admin@shopxx.net
+							${entry.email}
 						</td>
 						<td>
-							ADMIN
+							${entry.name}
 						</td>
 						<td>
-							技术部
+							${entry.department}
 						</td>
 						<td>
-							<span title="2012-05-17 08:21:15">2012-05-17</span>
+							<span title="${entry.loginDate}">${entry.loginDate}</span>
 						</td>
 						<td>
-							1.202.148.194
+							${entry.loginIp}
 						</td>
 						<td>
-								<span class="green">正常</span>
+							<span class="green">正常</span>
 						</td>
 						<td>
-							<span title="2011-01-01 00:00:00">2011-01-01</span>
+							<span title="${entry.createDate}">${entry.createDate}</span>
 						</td>
 						<td>
-							<a href="admin!edit.action?id=0731dcsoft2010031200000000000017" title="编辑">[编辑]</a>
+							<a href="<%=path %>/admin/edit/${entry.id}" title="编辑">[编辑]</a>
 						</td>
 					</tr>
-			</tbody></table>
+					</c:forEach>
+				</tbody>
+			</table>
 				<div class="pagerBar">
 					<div class="delete">
 						<input type="button" id="deleteButton" class="formButton" url="admin!delete.action" value="删 除" disabled="" hidefocus="">

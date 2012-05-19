@@ -62,10 +62,10 @@
 					<span>品牌管理&nbsp;</span>
 				</dt>
 				<dd>
-					<a href="brand!list.action" target="mainFrame">品牌列表</a>
+					<a href="<%=path %>/brand/list" target="mainFrame">品牌列表</a>
 				</dd>
 				<dd>
-					<a href="brand!add.action" target="mainFrame">添加品牌</a>
+					<a href="<%=path %>/brand/add" target="mainFrame">添加品牌</a>
 				</dd>
 			</dl>
 	</div>

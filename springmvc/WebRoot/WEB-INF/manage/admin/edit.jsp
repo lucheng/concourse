@@ -93,8 +93,8 @@ $().ready( function() {
 		<ul></ul>
 	</div>
 	<div class="body">
-		<form id="validateForm1" action="<%=path %>/admin/save" method="post">
-			<input type="hidden" name="id" value="0">
+		<form id="validateForm1" action="<%=path %>/admin/update" method="post">
+			<input type="hidden" name="id" value="${entity.id}">
 			<ul id="tab" class="tab">
 				<li>
 					<input type="button" value="基本信息" hidefocus="" class="current">
@@ -109,8 +109,8 @@ $().ready( function() {
 						用户名: 
 					</th>
 					<td>
-							<input type="text" name="username" class="formText" title="用户名只允许包含中文、英文、数字和下划线">
-							<label class="requireField">*</label>
+						<input type="text" name="username" class="formText" title="用户名只允许包含中文、英文、数字和下划线" value="${entity.username}">
+						<label class="requireField">*</label>
 					</td>
 				</tr>
 				<tr>
@@ -118,7 +118,7 @@ $().ready( function() {
 						密 码: 
 					</th>
 					<td>
-						<input type="password" name="password" id="password" class="formText" title="密码长度只允许在4-20之间">
+						<input type="password" name="password" id="password" class="formText" title="密码长度只允许在4-20之间" value="${entity.password}">
 						<label class="requireField">*</label>
 					</td>
 				</tr>
@@ -136,7 +136,7 @@ $().ready( function() {
 						E-mail: 
 					</th>
 					<td>
-						<input type="text" name="email" class="formText" value="">
+						<input type="text" name="email" class="formText" value="${entity.email}">
 						<label class="requireField">*</label>
 					</td>
 				</tr>
@@ -157,7 +157,8 @@ $().ready( function() {
 					</th>
 					<td>
 						<label>
-							<input type="checkbox" name="isAccountEnabled" value="true" id="admin_isAccountEnabled" checked="checked"><input type="hidden" id="__checkbox_admin_isAccountEnabled" name="__checkbox_admin.isAccountEnabled" value="true">启用
+							<input type="checkbox" name="isAccountEnabled" value="true" id="admin_isAccountEnabled" checked="checked">
+							<input type="hidden" id="__checkbox_admin_isAccountEnabled" name="__checkbox_admin.isAccountEnabled" value="true">启用
 						</label>
 					</td>
 				</tr>
@@ -168,7 +169,7 @@ $().ready( function() {
 						部门: 
 					</th>
 					<td>
-						<input type="text" name="department" class="formText" value="">
+						<input type="text" name="department" class="formText" value="${entity.department}">
 					</td>
 				</tr>
 				<tr>
@@ -176,7 +177,7 @@ $().ready( function() {
 						姓名: 
 					</th>
 					<td>
-						<input type="text" name="name" class="formText" value="">
+						<input type="text" name="name" class="formText" value="${entity.name}">
 					</td>
 				</tr>
 			</tbody></table>
