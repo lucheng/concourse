@@ -15,11 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller("menuController")
 public class MenuController {
-    
-    @RequestMapping(value = "/admin")
-    public String index(HttpServletRequest request){
-        return "admin";
-    }
 
     @RequestMapping(value = "/menu/setting")
     public String menuSetting(HttpServletRequest request){

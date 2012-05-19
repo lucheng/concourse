@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.bupt.spring.entity.Admin;
 import edu.bupt.spring.service.AdminService;
@@ -34,31 +33,6 @@ public class AdminController {
 	@Autowired
     @Qualifier("adminServiceImpl")
 	private AdminService adminService;
-	
-	
-	@RequestMapping(value = "/admin/login")
-    public String login(HttpServletRequest request){
-
-        return "login";
-    }
-	
-	@RequestMapping(value = "/admin/login/check", method = {RequestMethod.POST})
-    public String checkLogin(@RequestParam("username") String username,
-			@RequestParam("password") String password, 
-			@RequestParam("isRememberUsername") boolean isRememberUsername, 
-			HttpServletRequest request){
-    	
-		Admin loginAdmin = adminService.checkLogin(username, password);
-		
-		if(loginAdmin == null){
-			return "error_all";
-		}
-		if(isRememberUsername){
-			
-		}
-		request.getSession().setAttribute("loginAdmin", loginAdmin);
-        return "index";
-    }
 	
 	@RequestMapping(value = "/admin/list")
     public String list(HttpServletRequest request){

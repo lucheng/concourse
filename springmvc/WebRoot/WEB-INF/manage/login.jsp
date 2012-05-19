@@ -81,7 +81,7 @@ $().ready( function() {
 	<div class="blank"></div>
 	<div class="blank"></div>
 	<div class="body">
-		<form id="loginForm" action="<%=path %>/admin/login/check" method="post">
+		<form id="loginForm" action="<%=path %>/checkLogin" method="post">
             <table class="loginTable">
             	<tbody><tr>
             		<td rowspan="3">

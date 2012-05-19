@@ -17,7 +17,7 @@ public class ClassInfo {
 	
 	private int id;
 	private String name;
-	private Set<Student> students=new HashSet<Student>();;
+	private Set<Student> students=new HashSet<Student>();
 	
 	
 	@Id
