@@ -1,4 +1,4 @@
-package edu.bupt.spring.demo.dao;
+package edu.bupt.spring.base;
 
 import java.io.Serializable;
 import java.util.LinkedHashMap;

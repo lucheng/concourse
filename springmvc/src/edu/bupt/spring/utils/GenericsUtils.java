@@ -1,4 +1,4 @@
-package edu.bupt.spring.demo.utils;
+package edu.bupt.spring.utils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

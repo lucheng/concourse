@@ -1,10 +1,10 @@
-package edu.bupt.spring.demo.service;
+package edu.bupt.spring.service;
 
 import java.util.List;
 
 
-import edu.bupt.spring.demo.dao.DAO;
-import edu.bupt.spring.demo.entity.Admin;
+import edu.bupt.spring.base.DAO;
+import edu.bupt.spring.entity.Admin;
 
 /**
  * 
@@ -15,4 +15,6 @@ import edu.bupt.spring.demo.entity.Admin;
 public interface AdminService extends DAO<Admin> {
 
 	public List<Admin> findByType(String type);
+	public List<Admin> findAll();
+	public Admin checkLogin(String username, String password);
 }

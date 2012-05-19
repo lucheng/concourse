@@ -1,17 +1,24 @@
 package edu.bupt.spring.web.controller;
 
+import java.util.Date;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import edu.bupt.spring.demo.entity.Admin;
-import edu.bupt.spring.demo.service.AdminService;
+import edu.bupt.spring.entity.Admin;
+import edu.bupt.spring.service.AdminService;
 
 /**
  * 
@@ -22,23 +29,41 @@ import edu.bupt.spring.demo.service.AdminService;
 @Controller("adminController")
 public class AdminController {
     
+	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
+	
 	@Autowired
     @Qualifier("adminServiceImpl")
-//	@Resource(name="memberServiceBean")
 	private AdminService adminService;
-//    @Resource(name="memberServiceBean")private MemberService memberService;
 	
-	public AdminService getAdminService() {
-		return adminService;
-	}
+	
+	@RequestMapping(value = "/admin/login")
+    public String login(HttpServletRequest request){
 
-	public void setAdminService(AdminService adminService) {
-		this.adminService = adminService;
-	}
-
+        return "login";
+    }
+	
+	@RequestMapping(value = "/admin/login/check", method = {RequestMethod.POST})
+    public String checkLogin(@RequestParam("username") String username,
+			@RequestParam("password") String password, 
+			@RequestParam("isRememberUsername") boolean isRememberUsername, 
+			HttpServletRequest request){
+    	
+		Admin loginAdmin = adminService.checkLogin(username, password);
+		
+		if(loginAdmin == null){
+			return "error_all";
+		}
+		if(isRememberUsername){
+			
+		}
+		request.getSession().setAttribute("loginAdmin", loginAdmin);
+        return "index";
+    }
+	
 	@RequestMapping(value = "/admin/list")
     public String list(HttpServletRequest request){
-    	
+    	List<Admin> list = adminService.findAll();
+    	request.setAttribute("list", list);
         return "admin/list";
     }
     
@@ -49,15 +74,40 @@ public class AdminController {
     }
     
     @RequestMapping(value = "/admin/save", method = {RequestMethod.POST})
-    public String save(@ModelAttribute("admin") Admin admin) {
-//    public String save(@RequestBody Admin admin) {
+    public String save(@ModelAttribute("admin") Admin admin, HttpServletRequest request) {
         
-        //如果有验证错误 返回到form页面
-        System.out.println("admin:" + admin.getUsername());
-        System.out.println("admin:" + admin.getEmail());
-        System.out.println("admin:" + admin.getId());
+        admin.setCreateDate(new Date());
+        admin.setLoginDate(new Date());
+        String loginIp = request.getRemoteAddr();
+        admin.setLoginIp(loginIp);
+        
         adminService.save(admin);
-        return "redirect:/user/success";
+        return "redirect:/admin/list";
     }
+    
+    @RequestMapping(value = "/admin/edit/{id}", method = {RequestMethod.GET})
+    public String edit(@PathVariable Integer id, HttpServletRequest request) {
+        
+    	Admin admin = adminService.find(id);
+    	logger.info(admin.toString());
+        request.setAttribute("entity", admin);
+        return "admin/edit";
+    }
+    
+    @RequestMapping(value = "/admin/update", method = {RequestMethod.POST})
+    public String update(@ModelAttribute("admin") Admin admin, HttpServletRequest request) {
+        
+    	Admin admin1 = adminService.find(admin.getId());
+    	
+    	logger.info(admin1.toString());
+    	
+    	admin1.setCreateDate(admin.getCreateDate());
+    	admin1.setLoginDate(admin.getLoginDate());
+    	admin1.setLoginIp(admin.getLoginIp());
+    	
+    	adminService.update(admin1);
+        return "redirect:/admin/list";
+    }
+    
     
 }

@@ -1,4 +1,4 @@
-package edu.bupt.spring.demo.dao;
+package edu.bupt.spring.base;
 
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
@@ -15,7 +15,7 @@ import javax.persistence.Query;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.bupt.spring.demo.utils.GenericsUtils;
+import edu.bupt.spring.utils.GenericsUtils;
 
 
 @SuppressWarnings("unchecked")
@@ -50,6 +50,7 @@ public abstract class DaoSupport<T> implements DAO<T>{
 	}
 	
 	public void update(Object entity) {
+		System.out.println("==================update==============");
 		em.merge(entity);
 	}
 	

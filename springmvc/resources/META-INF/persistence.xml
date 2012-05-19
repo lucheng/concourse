@@ -6,11 +6,7 @@
     
 	<persistence-unit name="jpatestPU" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<!--<class>edu.bupt.spring.demo.entity.ClassInfo</class>
-		<class>edu.bupt.spring.demo.entity.Student</class>
-		-->
 		<properties>
-		    
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
 			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
 			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/school_db" />
@@ -27,5 +23,4 @@
 			<property name="hibernate.cache.use_query_cache" value="false"></property>
 		</properties> 
 	</persistence-unit>
-
 </persistence>

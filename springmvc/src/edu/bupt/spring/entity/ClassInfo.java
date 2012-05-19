@@ -1,4 +1,4 @@
-package edu.bupt.spring.demo.entity;
+package edu.bupt.spring.entity;
 
 import java.util.HashSet;
 import java.util.Set;

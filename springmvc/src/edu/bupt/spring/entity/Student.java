@@ -1,4 +1,4 @@
-package edu.bupt.spring.demo.entity;
+package edu.bupt.spring.entity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

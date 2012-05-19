@@ -1,4 +1,4 @@
-package edu.bupt.spring.demo.entity;
+package edu.bupt.spring.entity;
 
 import java.util.Date;
 
@@ -29,8 +29,7 @@ import edu.bupt.spring.web.validator.DateFormat;
 @Table(name = "tbl_admin")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Admin {
-
-    /**
+	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
@@ -159,4 +158,12 @@ public class Admin {
             return false;
         return true;
     }
+
+	@Override
+	public String toString() {
+		
+		return "username:" + this.username + "createDate:" + this.createDate;
+	}
+	
+	
 }

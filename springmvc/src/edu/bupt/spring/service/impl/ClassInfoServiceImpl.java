@@ -1,4 +1,4 @@
-package edu.bupt.spring.demo.service.impl;
+package edu.bupt.spring.service.impl;
 
 import java.util.List;
 
@@ -7,9 +7,9 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Service;
 
 
-import edu.bupt.spring.demo.dao.DaoSupport;
-import edu.bupt.spring.demo.entity.ClassInfo;
-import edu.bupt.spring.demo.service.ClassInfoService;
+import edu.bupt.spring.base.DaoSupport;
+import edu.bupt.spring.entity.ClassInfo;
+import edu.bupt.spring.service.ClassInfoService;
 
 @Service
 public class ClassInfoServiceImpl extends DaoSupport<ClassInfo> implements ClassInfoService {
