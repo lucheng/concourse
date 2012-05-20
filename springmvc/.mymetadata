@@ -3,11 +3,11 @@
   type="WEB"
   name="springmvc"
   id="myeclipse.1337259727743"
-  context-root="/springmvc"
+  context-root="/ROOT"
   j2ee-spec="5.0"
   archive="springmvc.war">
   <attributes>
-    <attribute name="webrootdir" value="WebRoot" />
+    <attribute name="webrootdir" value="/WebRoot" />
   </attributes>
 </project-module>
 
