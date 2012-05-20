@@ -9,15 +9,16 @@
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
 			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+			<!--  -->
 			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/test" />
+			<property name="hibernate.connection.username" value="root" />
+			<property name="hibernate.connection.password" value="root" />
+			<!--  -->
 			<!--
 			<property name="hibernate.connection.url" value="jdbc:mysql://mysql-cheerfly.jelastic.servint.net/test?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;autoReconnect=true&amp;characterEncoding=UTF-8" />
 			<property name="hibernate.connection.username" value="root" />
-			<property name="hibernate.connection.password" value="root" />
-			-->
-			
-			<property name="hibernate.connection.username" value="root" />
 			<property name="hibernate.connection.password" value="O8xmRgsAmJ" />
+			-->
 			
 			<property name="hibernate.hbm2ddl.auto" value="update"/>
 			<property name="hibernate.show_sql" value="true" />
