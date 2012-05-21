@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="cheerblog"
+  id="myeclipse.1337571670596"
+  context-root="/cheerblog"
+  j2ee-spec="5.0"
+  archive="cheerblog.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
