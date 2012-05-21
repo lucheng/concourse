@@ -17,12 +17,9 @@
 				<input type="button" class="formButton" onclick="location.href='<%=path %>/category/add'" value="添加分类" hidefocus="">
 				&nbsp;&nbsp;
 				<select name="pager.searchBy">
-					<option value="username">
+					<option value="categoryName">
 						用户名
 					</option>
-					<option value="name">
-						姓名
-					</option> 
 				</select>
 				<input type="text" name="pager.keyword" value="">
 				<input type="button" id="searchButton" class="formButton" value="搜 索" hidefocus="">
@@ -50,31 +47,13 @@
 							<input type="checkbox" class="allCheck">
 						</th>
 						<th>
-							<a href="#" class="sort" name="username" hidefocus="">用户名</a>
+							<a href="#" class="sort" name="categoryname" hidefocus="">用户名</a>
 						</th>
 						<th>
-							<a href="#" class="sort" name="email" hidefocus="">E-mail</a>
+							<a href="#" class="sort desc" name="createDate" hidefocus="">级别</a>
 						</th>
 						<th>
-							<a href="#" class="sort" name="name" hidefocus="">姓名</a>
-						</th>
-						<th>
-							<a href="#" class="sort" name="department" hidefocus="">所属部门</a>
-						</th>
-						<th>
-							<a href="#" class="sort" name="loginDate" hidefocus="">最后登录时间</a>
-						</th>
-						<th>
-							<a href="#" class="sort" name="loginIp" hidefocus="">最后登录IP</a>
-						</th>
-						<th>
-							<span>状态</span>
-						</th>
-						<th>
-							<a href="#" class="sort desc" name="createDate" hidefocus="">创建日期</a>
-						</th>
-						<th>
-							<span>操作</span>
+							<a href="#" class="sort desc" name="createDate" hidefocus="">操作</a>
 						</th>
 					</tr>
 					<c:forEach items="${list}" var="entry">
@@ -83,31 +62,13 @@
 							<input type="checkbox" name="ids" value="0731dcsoft2010031200000000000017">
 						</td>
 						<td>
-							${entry.username}
-						</td>
-						<td>
-							${entry.email}
-						</td>
-						<td>
 							${entry.name}
 						</td>
 						<td>
-							${entry.department}
+							${entry.parentID}
 						</td>
 						<td>
-							<span title="${entry.loginDate}">${entry.loginDate}</span>
-						</td>
-						<td>
-							${entry.loginIp}
-						</td>
-						<td>
-							<span class="green">正常</span>
-						</td>
-						<td>
-							<span title="${entry.createDate}">${entry.createDate}</span>
-						</td>
-						<td>
-							<a href="<%=path %>/admin/edit/${entry.id}" title="编辑">[编辑]</a>
+							<a href="<%=path %>/category/edit/${entry.id}" title="编辑">[编辑]</a>
 						</td>
 					</tr>
 					</c:forEach>
@@ -115,7 +76,7 @@
 			</table>
 				<div class="pagerBar">
 					<div class="delete">
-						<input type="button" id="deleteButton" class="formButton" url="admin!delete.action" value="删 除" disabled="" hidefocus="">
+						<input type="button" id="deleteButton" class="formButton" url="category!delete.action" value="删 除" disabled="" hidefocus="">
 					</div>
 					<div class="pager">
 <script type="text/javascript">

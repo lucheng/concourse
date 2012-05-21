@@ -110,7 +110,7 @@ $().ready( function() {
 						分类名: 
 					</th>
 					<td>
-							<input type="text" name="categoryname" class="formText" title="用户名只允许包含中文、英文、数字和下划线">
+							<input type="text" name="name" class="formText" title="用户名只允许包含中文、英文、数字和下划线">
 							<label class="requireField">*</label>
 					</td>
 				</tr>
@@ -119,7 +119,7 @@ $().ready( function() {
 						级别: 
 					</th>
 					<td>
-						<input type="text" name="classes"  class="formText" title="密码长度只允许在4-20之间">
+						<input type="text" name="parentID"  class="formText" title="密码长度只允许在4-20之间">
 						<label class="requireField">*</label>
 					</td>
 				</tr>
