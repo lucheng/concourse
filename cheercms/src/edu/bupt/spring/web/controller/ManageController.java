@@ -63,7 +63,7 @@ public class ManageController {
 			
 		}
 		request.getSession().setAttribute("loginAdmin", loginAdmin);*/
-        return "redirect:/index";
+        return "redirect:/manage";
     }
 	
 }
