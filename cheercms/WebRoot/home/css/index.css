@@ -1,0 +1,530 @@
+@charset "utf-8";
+
+/***
+ *	SHOP++ Index Style
+ *
+ *	http://www.shopxx.net
+ *
+ *	Copyright © 2010 shopxx.net All Rights Reserved.
+ **/
+
+.index .body {
+	width: 1000px;
+	margin: 0px auto;
+}
+
+.index .bodyLeft {
+	width: 720px;
+	float: left;
+}
+
+.index .bodyRight {
+	width: 270px;
+	float: right;
+}
+
+.index .bodyLeft .slider {
+	width: 712px;
+	height: 260px;
+	clear: both;
+	margin: 0px 3px;
+	overflow: hidden;
+	border: 1px solid #e8e8e8;
+}
+
+.index .bodyLeft .slider .scrollable {
+	width: 712px;
+	height: 260px;
+	overflow: hidden;
+	position: relative;
+	z-index: 0;
+}
+
+.index .bodyLeft .slider .items {
+	width: 20000em;
+	position: absolute;
+	z-index: 1;
+	clear: both;
+}
+
+.index .bodyLeft .slider .scrollable .items div {
+	width: 712px;
+	float: left;
+	overflow: hidden;
+}
+
+.index .bodyLeft .slider .scrollable .navi {
+	height: 10px;
+	margin: 0px 10px;
+	position: absolute;
+	z-index: 2;
+	right: 50px;
+	bottom: 12px;
+}
+
+.index .bodyLeft .slider .scrollable .navi a {
+	width: 10px;
+	height: 10px;
+	float: left;
+	margin-left: 5px;
+	display: block;
+	outline: none;
+	overflow: hidden;
+	background: url(../images/index_slider_navi_bg.gif) -1px -40px no-repeat;
+}
+
+.index .bodyLeft .slider .scrollable .navi a:hover {
+	background-position: -1px -60px;
+}
+
+.index .bodyLeft .slider .scrollable .navi a.active {
+	background-position: -1px -60px;
+}
+
+.index .bodyLeft .slider .scrollable .prevNext {
+	height: 15px;
+	width: 40px;
+	position: absolute;
+	z-index: 2;
+	right: 10px;
+	bottom: 10px;
+	display: block;
+	float: left;
+}
+
+.index .bodyLeft .slider .scrollable a.browse {
+	height: 15px;
+	width: 20px;
+	display: block;
+	float: left;
+	cursor: pointer;
+	overflow: hidden;
+	background: url(../images/index_slider_navi_bg.gif) no-repeat;
+}
+
+.index .bodyLeft .slider .scrollable a.right {
+	background-position: -21px 0px;
+}
+
+.index .bodyLeft .slider .scrollable .right:hover {
+	background-position: -21px -19px;
+}
+
+.index .bodyLeft .slider .scrollable .left:hover {
+	background-position: 0px -19px;
+}
+
+.index .bodyLeft .slider .scrollable a.disabled {
+	visibility: hidden !important;
+}
+
+.index .bodyLeft .about {
+	width: 720px;
+	height: 110px;
+	clear: both;
+}
+
+.index .bodyLeft .about .left {
+	width: 10px;
+	height: 110px;
+	float: left;
+	background: url(../images/index_bg.gif) 0px 0px no-repeat;
+}
+
+.index .bodyLeft .about .middle {
+	width: 680px;
+	height: 110px;
+	position: relative;
+	float: left;
+	padding: 0px 10px;
+	background: url(../images/index_x_bg.gif) 0px 0px repeat-x;
+}
+
+.index .bodyLeft .about .productIcon {
+	width: 90px;
+	height: 100px;
+	float: left;
+	background: url(../images/index_bg.png) 0px 0px no-repeat;
+}
+
+.index .bodyLeft .about .description {
+	width: 560px;
+	height: 100px;
+	line-height: 25px;
+	float: left;
+	padding: 10px 0px 0px 10px;
+	font-family: "Microsoft YaHei";
+	font-size: 12px;
+	color: #666666;
+}
+
+.index .bodyLeft .about .detail {
+	width: 67px;
+	height: 21px;
+	line-height: 21px;
+	display: block;
+	padding-left: 13px;
+	font-family: "Microsoft YaHei";
+	font-size: 12px;
+	color: #ffffff;
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	background: url(../images/index_bg.gif) -360px 0px no-repeat;
+}
+
+.index .bodyLeft .about .right {
+	width: 10px;
+	height: 120px;
+	float: right;
+	background: url(../images/index_bg.gif) -30px 0px no-repeat;
+}
+
+.index .bodyLeft .advantage {
+	width: 714px;
+	clear: both;
+}
+
+.index .bodyLeft .advantage .top {
+	width: 714px;
+	height: 30px;
+	line-height: 30px;
+	clear: both;
+	font-size: 14px;
+	font-weight: bold;
+	color: #2866a6;
+}
+
+.index .bodyLeft .advantage .top .icon {
+	width: 19px;
+	height: 21px;
+	line-height: 21px;
+	display: inline-block;
+	display: -moz-inline-stack;
+	zoom: 1;
+	*display: inline;
+	margin: 0px 2px;
+	background: url(../images/index_bg.png) -240px 0px no-repeat;
+}
+
+.index .bodyLeft .advantage .top span {
+	font-size: 12px;
+	font-weight: normal;
+	color: #cecece;
+}
+
+.index .bodyLeft .advantage .bottom {
+	width: 714px;
+	height: 286px;
+	padding-top: 10px;
+	background: url(../images/index_bg.gif) 0px -210px no-repeat;
+}
+
+.index .bodyLeft .advantage .bottom td {
+	width: 357px;
+	height: 89px;
+	line-height: 25px;
+	color: #505050;
+	cursor: default;
+}
+
+.index .bodyLeft .advantage .bottom p {
+	padding: 1px 3px;
+}
+
+.index .bodyLeft .advantage .bottom td:hover strong {
+	color: #e13808;
+}
+
+.index .bodyLeft .advantage .bottom td:hover p {
+	padding: 0px 2px;
+	border: 1px solid #ffe1a0;
+	background-color: #fff2c2;
+}
+
+.index .bodyLeft .advantage .bottom td .openIcon {
+	width: 80px;
+	height: 80px;
+	float: left;
+	background: url(../images/index_bg.png) 0px -120px no-repeat;
+}
+
+.index .bodyLeft .advantage .bottom td .efficientIcon {
+	width: 80px;
+	height: 80px;
+	float: left;
+	background: url(../images/index_bg.png) -90px -120px no-repeat;
+}
+
+.index .bodyLeft .advantage .bottom td .securityIcon {
+	width: 80px;
+	height: 80px;
+	float: left;
+	background: url(../images/index_bg.png) -180px -120px no-repeat;
+}
+
+.index .bodyLeft .advantage .bottom td .transplantationIcon {
+	width: 80px;
+	height: 80px;
+	float: left;
+	background: url(../images/index_bg.png) -0px -210px no-repeat;
+}
+
+.index .bodyLeft .advantage .bottom td .seoIcon {
+	width: 80px;
+	height: 80px;
+	float: left;
+	background: url(../images/index_bg.png) -90px -210px no-repeat;
+}
+
+.index .bodyLeft .advantage .bottom td .templateIcon {
+	width: 80px;
+	height: 80px;
+	float: left;
+	background: url(../images/index_bg.png) -180px -210px no-repeat;
+}
+
+.index .bodyLeft .advantage .bottom td .content {
+	width: 270px;
+	height: 80px;
+	float: left;
+}
+
+.index .bodyLeft .advantage .bottom td strong {
+	line-height: 30px;
+	color: #144166;
+	font-size: 14px;
+}
+
+.index .bodyLeft .business {
+	width: 714px;
+	clear: both;
+	padding: 0px 3px;
+}
+
+.index .bodyLeft .business .certificate {
+	width: 345px;
+	height: 61px;
+	line-height: 20px;
+	float: left;
+	padding: 5px;
+	color: #666666;
+	background: url(../images/index_bg.gif) 0px -510px no-repeat;
+}
+
+.index .bodyLeft .business .certificate .title {
+	width: 130px;
+	height: 61px;
+	line-height: 61px;
+	float: left;
+	text-align: center;
+	font-weight: bold;
+}
+
+.index .bodyLeft .business .certificate .content {
+	width: 205px;
+	height: 61px;
+	float: right;
+	padding: 0px 5px;
+}
+
+.index .bodyLeft .business .service {
+	width: 345px;
+	height: 61px;
+	line-height: 20px;
+	float: right;
+	padding: 5px;
+	color: #666666;
+	background: url(../images/index_bg.gif) 0px -510px no-repeat;
+}
+
+.index .bodyLeft .business .service .title {
+	width: 130px;
+	height: 61px;
+	line-height: 61px;
+	float: left;
+	text-align: center;
+	font-weight: bold;
+}
+
+.index .bodyLeft .business .service .content {
+	width: 205px;
+	height: 61px;
+	float: right;
+	padding: 0px 5px;
+}
+
+.index .bodyRight .contact {
+	width: 274px;
+	clear: both;
+	margin-top: -4px;
+	margin-left: -4px;
+}
+
+.index .bodyRight .contact .top {
+	width: 274px;
+	height: 30px;
+	clear: both;
+	background: url(../images/index_bg.gif) 0px -150px no-repeat;
+}
+
+.index .bodyRight .contact .middle {
+	width: 268px;
+	clear: both;
+	padding: 0px 1px 0px 5px;
+	background: url(../images/index_y_bg.gif) -270px 0px repeat-y;
+}
+
+.index .bodyRight .contact .middle ul {
+	padding: 6px 10px;
+	background: url(../images/index_contact_bg.jpg) bottom right no-repeat;
+}
+
+.index .bodyRight .contact .middle ul li {
+	line-height: 35px;
+	width: 180px;
+	border-bottom: 1px dotted #ffe7cd;
+}
+
+.index .bodyRight .contact .middle ul li strong {
+	color: #ec8648;
+	font-size: 16px;
+}
+
+.index .bodyRight .contact .middle ul li span {
+	color: #666666;
+}
+
+.index .bodyRight .contact .bottom {
+	width: 274px;
+	height: 5px;
+	clear: both;
+	background: url(../images/index_bg.gif) 0px -180px no-repeat;
+}
+
+.index .bodyRight .news {
+	width: 270px;
+	clear: both;
+}
+
+.index .bodyRight .news .top {
+	width: 260px;
+	height: 30px;
+	line-height: 30px;
+	clear: both;
+	padding-left: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	background: url(../images/index_bg.gif) -300px -150px no-repeat;
+}
+
+.index .bodyRight .news .middle {
+	width: 258px;
+	line-height: 23px;
+	clear: both;
+	padding: 0px 6px;
+	color: #4b628d;
+	overflow: hidden;
+	background: url(../images/index_y_bg.gif) 0px 0px repeat-y;
+}
+
+.index .bodyRight .news li {
+	line-height: 24px;
+	clear: both;
+}
+
+.index .bodyRight .news li a {
+	float: left;
+}
+
+.index .bodyRight .news li .icon {
+	width: 15px;
+	height: 23px;
+	line-height: 23px;
+	display: inline-block;
+	display: -moz-inline-stack;
+	zoom: 1;
+	*display: inline;
+	background: url(../images/index_bg.gif) -570px -150px no-repeat;
+}
+
+.index .bodyRight .news li .date {
+	float: right;
+}
+
+.index .bodyRight .news .bottom {
+	width: 270px;
+	height: 3px;
+	overflow: hidden;
+	clear: both;
+	background: url(../images/index_bg.gif) -300px -180px no-repeat;
+}
+
+.index .customerService {
+	width: 123px;
+	display: none;
+	position: absolute;
+	right: 5px;
+	top: 185px;
+	overflow: hidden;
+}
+
+.index .customerService .top {
+	width: 123px;
+	height: 29px;
+	line-height: 29px;
+	clear: both;
+	background: url(../images/customer_service_bg.gif) 0px 0px no-repeat;
+}
+
+.index .customerService .middle {
+	width: 115px;
+	clear: both;
+	padding: 0px 4px;
+	background: url(../images/customer_service_y_bg.gif) 0px 0px repeat-y;
+}
+
+.index .customerService .middle dt {
+	width: 113px;
+	height: 30px;
+	line-height: 30px;
+	clear: both;
+	padding-left: 10px;
+	font-family: "Microsoft YaHei";
+	color: #3f83cf;
+	background: url(../images/customer_service_bg.gif) 0px -60px repeat-y;
+}
+
+.index .customerService .middle dd {
+	width: 113px;
+	line-height: 25px;
+	clear: both;
+	padding: 2px 10px;
+	color: #2460a3;
+}
+
+.index .customerService .bottom {
+	width: 123px;
+	height: 22px;
+	line-height: 22px;
+	clear: both;
+	cursor: pointer;
+	background: url(../images/customer_service_bg.gif) 0px -30px no-repeat;
+}
+
+.index #shopKeywords {
+	clear: both;
+	padding: 2px 0px;
+}
+
+.index #shopKeywords li {
+	line-height: 25px;
+	padding: 0px 5px;
+	font-size: 12px;
+	float: left;
+}
+
+.index #shopKeywords li h1,.index #shopKeywords li strong {
+	font-size: 12px;
+	font-weight: normal;
+}

@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+/***
+ *	SHOP++ Footer Style
+ *
+ *	http://www.shopxx.net
+ *
+ *	Copyright © 2010 shopxx.net All Rights Reserved.
+ **/
+
+.footer {
+	width: 100%;
+	clear: both;
+	padding: 5px 0px;
+}
+
+.footer .footerInfo {
+	width: 1000px;
+	margin: 0px auto;
+	clear: both;
+	text-align: center;
+	color: #999999;
+}
+
+.footer .footerInfo ul {
+	clear: both;
+}
+
+.footer .footerInfo ul li {
+	line-height: 30px;
+	display: inline;
+	color: #999999;
+}
+
+.footer .footerInfo ul li a {
+	margin: 0px 5px;
+}
+
+.footer .footerInfo p {
+	line-height: 30px;
+	padding: 3px 0px;
+}
+
+.footer .footerInfo p img {
+	margin: 0px 5px;
+}
+
+.footer .systemName {
+	color: #000000;
+	font-weight: bold;
+}
+.footer .systemName span {
+	color: #ff6600;
+}
