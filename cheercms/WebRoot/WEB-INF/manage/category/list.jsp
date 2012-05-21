@@ -1,109 +1,111 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../../inc/header.jsp"%>
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-<title>管理员列表 - Powered By SHOP++</title>
-<meta name="Author" content="SHOP++ Team">
-<meta name="Copyright" content="SHOP++">
-<script type="text/javascript" src="<%=path %>/js/jquery.pager.js"></script>
-</head>
-<body class="list">
-	<div class="bar">
-		分类列表&nbsp;总记录数: 1 (共1页)
-	</div>
-	<div class="body">
-		<form id="listForm" action="<%=path %>/admin/list" method="post">
-			<div class="listBar">
-				<input type="button" class="formButton" onclick="location.href='<%=path %>/category/add'" value="添加分类" hidefocus="">
-				&nbsp;&nbsp;
-				<select name="pager.searchBy">
-					<option value="categoryName">
-						用户名
-					</option>
-				</select>
-				<input type="text" name="pager.keyword" value="">
-				<input type="button" id="searchButton" class="formButton" value="搜 索" hidefocus="">
-				&nbsp;&nbsp;
-				<label>每页显示: </label>
-				<select name="pager.pageSize" id="pageSize">
-					<option value="10">
-						10
-					</option>
-					<option value="20" selected="">
-						20
-					</option>
-					<option value="50">
-						50
-					</option>
-					<option value="100">
-						100
-					</option>
-				</select>
-			</div>
-			<table id="listTable" class="listTable">
-				<tbody>
-					<tr>
-						<th class="check">
-							<input type="checkbox" class="allCheck">
-						</th>
-						<th>
-							<a href="#" class="sort" name="categoryname" hidefocus="">用户名</a>
-						</th>
-						<th>
-							<a href="#" class="sort desc" name="createDate" hidefocus="">级别</a>
-						</th>
-						<th>
-							<a href="#" class="sort desc" name="createDate" hidefocus="">操作</a>
-						</th>
-					</tr>
-					<c:forEach items="${list}" var="entry">
-					<tr>
-						<td>
-							<input type="checkbox" name="ids" value="0731dcsoft2010031200000000000017">
-						</td>
-						<td>
-							${entry.name}
-						</td>
-						<td>
-							${entry.parentID}
-						</td>
-						<td>
-							<a href="<%=path %>/category/edit/${entry.id}" title="编辑">[编辑]</a>
-						</td>
-					</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-				<div class="pagerBar">
-					<div class="delete">
-						<input type="button" id="deleteButton" class="formButton" url="category!delete.action" value="删 除" disabled="" hidefocus="">
-					</div>
-					<div class="pager">
-<script type="text/javascript">
-$().ready( function() {
+<html>
+<head>
+	<title>文章分类列表 - Powered By SHOP++</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="Author" content="SHOP++ Team">
+	<meta name="Copyright" content="SHOP++">
+	<script type="text/javascript">
+	$(document).ready(function() {
 	
-	var $pager = $("#pager");
+		var $deleteArticleCategory = $("#listTable .deleteArticleCategory");
+		var $articleCategoryName = $("#listTable .articleCategoryName");
 	
-	$pager.pager({
-		pagenumber: 1,
-		pagecount: 1,
-		buttonClickCallback: $.gotoPage
-	});
-
-})
-</script>
-<span id="pager">
-<ul class="pages">
-	<li class="pgNext pgEmpty">首页</li>
-	<li class="pgNext pgEmpty">上一页</li>
-	<li class="page-number pgCurrent">1</li>
-	<li class="pgNext pgEmpty">下一页</li>
-	<li class="pgNext pgEmpty">末页</li>
-</ul>
-</span>
-<input type="hidden" name="pager.pageNumber" id="pageNumber" value="1">
-<input type="hidden" name="pager.orderBy" id="orderBy" value="createDate">
-<input type="hidden" name="pager.order" id="order" value="desc"></div>
-<div>
-</div>
-</div></form></div></body></html>
+		// 删除商品分类
+		$deleteArticleCategory.click( function() {
+			if (confirm("您确定要删除此文章分类吗?") == false) {
+				return false;
+			}
+		});
+	
+		// 树折叠
+		$articleCategoryName.click( function() {
+			var $this = $(this);
+			var grade = $this.parent().attr("grade");
+			var isHide;
+			$this.parent().nextAll("tr").each(function(){
+				$this = $(this);
+				var thisLevel = $this.attr("grade");
+				if(thisLevel <=  grade) {
+					return false;
+				}
+				if(isHide == null) {
+					if($this.is(":hidden")){
+						isHide = true;
+					} else {
+						isHide = false;
+					}
+				}
+				if(isHide) {
+					$this.show();
+				} else {
+					$this.hide();
+				}
+			});
+		});	
+	})
+	</script>
+	</head>
+	<body class="list">
+		<div class="bar">
+			文章分类列表&nbsp;总记录数: 12
+		</div>
+		<div class="body articleCategory">
+			<form id="listForm" action="/category/list" method="post">
+				<div class="listBar">
+					<input type="button" class="formButton" onclick="location.href='<%=path %>/category/add'" value="添加分类" hidefocus="">
+				</div>
+				<table id="listTable" class="listTable">
+					<tbody>
+						<tr>
+							<th>
+								<span>分类名称</span>
+							</th>
+							<th>
+								<span>排序</span>
+							</th>
+							<th>
+								<span>操作</span>
+							</th>
+						</tr>
+						<c:forEach items="${pageView.records}" var="entry">
+						<tr grade="0">
+							<td class="articleCategoryName">
+									<span class="pointer firstCategory" style="margin-left: 0px;">
+										${entry.name}
+									</span>
+							</td>
+							<td>
+								${entry.listOrder}
+							</td>
+							<td>
+								<a href="/shop/article_list/about_us.htm" target="_blank" title="浏览">[浏览]</a>
+									<a href="/category/delete/${entry.id}" class="deleteArticleCategory" title="删除">[删除]</a>
+								<a href="/category/edit/${entry.id}" title="编辑">[编辑]</a>
+							</td>
+						</tr>
+							<c:forEach items="entry.childrens" var="child">
+							<tr grade="1">
+								<td class="articleCategoryName">
+										<span class="pointer category" style="margin-left: 20px;">
+											${child.name}
+										</span>
+								</td>
+								<td>
+									${child.listOrder}
+								</td>
+								<td>
+									<a href="/shop/article_list/terms.htm" target="_blank" title="浏览">[浏览]</a>
+										<a href="/category/delete/${child.id}" class="deleteArticleCategory" title="删除">[删除]</a>
+									<a href="/category/edit/${child.id}" title="编辑">[编辑]</a>
+								</td>
+							</tr>
+							</c:forEach>
+						</c:forEach>
+					</tbody>
+				</table>
+			</form>
+		</div>
+	</body>
+</html>

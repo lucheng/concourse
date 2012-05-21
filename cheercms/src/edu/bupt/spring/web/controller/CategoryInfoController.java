@@ -1,7 +1,5 @@
 package edu.bupt.spring.web.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -14,7 +12,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
+import edu.bupt.spring.base.BaseController;
+import edu.bupt.spring.base.PageView;
+import edu.bupt.spring.base.QueryResult;
 import edu.bupt.spring.entity.CategoryInfo;
 import edu.bupt.spring.service.CategoryInfoService;
 
@@ -25,7 +27,7 @@ import edu.bupt.spring.service.CategoryInfoService;
  * @email  m23linzhe@gmail.com
  */
 @Controller("categoryController")
-public class CategoryInfoController {
+public class CategoryInfoController extends BaseController{
     
 	private static final Logger logger = LoggerFactory.getLogger(CategoryInfoController.class);
 	
@@ -34,10 +36,13 @@ public class CategoryInfoController {
 	private CategoryInfoService categoryInfoService;
 	
 	@RequestMapping(value = "/category/list")
-    public String list(HttpServletRequest request){
-    	List<CategoryInfo> list = categoryInfoService.findAll();
-    	request.setAttribute("list", list);
-        return "category/list";
+    public ModelAndView list(HttpServletRequest request){
+		
+		PageView<CategoryInfo> pageView = new PageView<CategoryInfo>(10, page);
+		QueryResult<CategoryInfo> qr = categoryInfoService.getScrollData(pageView.getFirstResult(), pageView.getMaxresult(), jpql.toString(), queryParams.toArray(), orderby);
+		pageView.setQueryResult(qr);
+		
+		return new ModelAndView("category/list").addObject("pageView",pageView);
     }
     
     @RequestMapping(value = "/category/add")
@@ -48,8 +53,11 @@ public class CategoryInfoController {
     
     @RequestMapping(value = "/category/save", method = {RequestMethod.POST})
     public String save(@ModelAttribute("category") CategoryInfo category, HttpServletRequest request) {
-        
-        categoryInfoService.save(category);
+        if(category.getId() > 0){
+        	categoryInfoService.save(category);
+        }else {
+        	categoryInfoService.update(category);
+        }
         return "redirect:/category/list";
     }
     

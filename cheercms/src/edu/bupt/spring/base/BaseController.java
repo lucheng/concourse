@@ -12,7 +12,7 @@ public class BaseController {
 	
 	protected Integer[] ids;
 	protected StringBuffer jpql = new StringBuffer("");
-	protected List<Object> params = new ArrayList<Object>();
+	protected List<Object> queryParams = new ArrayList<Object>();
 	protected Integer page = new Integer(1);
 	protected LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
 	
@@ -45,16 +45,25 @@ public class BaseController {
 		return jpql;
 	}
 
+	public List<Object> getQueryParams() {
+		return queryParams;
+	}
+
+	public void setQueryParams(List<Object> queryParams) {
+		this.queryParams = queryParams;
+	}
+
+	public LinkedHashMap<String, String> getOrderby() {
+		return orderby;
+	}
+
+	public void setOrderby(LinkedHashMap<String, String> orderby) {
+		this.orderby = orderby;
+	}
+
 	public void setJpql(StringBuffer jpql) {
 		this.jpql = jpql;
 	}
 
-	public List<Object> getParams() {
-		return params;
-	}
-
-	public void setParams(List<Object> params) {
-		this.params = params;
-	}
 	
 }

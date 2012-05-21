@@ -18,7 +18,7 @@ public class CategoryInfo {
 	private int id;
 	private String name;
 	private String status;
-	private String parentID;
+	private CategoryInfo parent;
 	
 	
 	@Id
@@ -48,13 +48,6 @@ public class CategoryInfo {
 		this.status = status;
 	}
 	
-	@Column(name="parentID")
-	public String getParentID() {
-		return parentID;
-	}
-	public void setParentID(String parentID) {
-		this.parentID = parentID;
-	}
 	
 	
 }
