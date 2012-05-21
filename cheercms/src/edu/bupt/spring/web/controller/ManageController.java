@@ -42,7 +42,7 @@ public class ManageController {
         return "login";
     }
 	
-	@RequestMapping(value = "/index")
+	@RequestMapping(value = "/manage")
     public String index(HttpServletRequest request){
 
         return "index";
