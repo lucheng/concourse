@@ -42,7 +42,7 @@ $().ready(function() {
 			</div>
 			<div id="menu" class="menu">
 				<ul>
-						<li class="menuItem">
+						<%--<li class="menuItem">
 							<a href="<%=path %>/menu/goods" target="menuFrame" hidefocus="">商品管理</a>
 						</li>
 						<li class="menuItem">
@@ -51,6 +51,7 @@ $().ready(function() {
 						<li class="menuItem">
 							<a href="<%=path %>/menu/member" target="menuFrame" hidefocus="">会员管理</a>
 						</li>
+						--%>
 						<li class="menuItem">
 							<a href="<%=path %>/menu/content" target="menuFrame" hidefocus="">页面内容</a>
 						</li>
