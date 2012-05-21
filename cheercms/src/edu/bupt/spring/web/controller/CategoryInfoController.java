@@ -30,7 +30,7 @@ public class CategoryInfoController {
 	private static final Logger logger = LoggerFactory.getLogger(CategoryInfoController.class);
 	
 	@Autowired
-    @Qualifier("CategoryInfoServiceImpl")
+    @Qualifier("categoryInfoServiceImpl")
 	private CategoryInfoService categoryInfoService;
 	
 	@RequestMapping(value = "/category/list")
