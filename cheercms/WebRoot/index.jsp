@@ -4,19 +4,21 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<title>SHOP++演示商城 - Powered By SHOP++</title>
+<title>SHOP++官方网站 - 网店系统|商城系统|独立网店|购物系统|开店程序|电子商务系统|网上开店|网上购物系统|网上商城系统</title>
 <meta name="Author" content="SHOP++ Team">
 <meta name="Copyright" content="SHOP++">
+<meta name="keywords" content="网店系统,商城系统,独立网店,购物系统,开店程序,电子商务系统,网上开店,网上购物系统,网上商城系统">
+<meta name="description" content="SHOP++网店系统是基于JAVA技术的企业级电子商务管理软件，是国内最具影响力和技术实力的商城系统、网上商城系统、网上商店系统、独立网店系统、独立商城系统、购物系统、网上购物系统、开店系统、开店程序，为您打造最优秀的电子商务系统平台，是您网上开店的最佳选择。">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
-<meta name="keywords" content="SHOP++体验商城">
-<meta name="description" content="SHOP++是基于JAVA技术的开源网店系统，主要应用于电子商务领域内的网上购物、网上交易、交易信息发布等系统的构建。致力于为个人和企业提供安全、稳定、高效、强大的电子商务解决方案，并推进国内电子商务技术和开源技术的发展而不断努力。">
-<link href="<%=path %>/shop/css/base.css" rel="stylesheet" type="text/css">
-<link href="<%=path %>/shop/css/shop.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="<%=path %>/shop/js/jquery.js"></script>
-<script type="text/javascript" src="<%=path %>/shop/js/base.js"></script>
+<link href="/template/common/css/base.css" rel="stylesheet" type="text/css">
+<link href="/template/home/css/index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/template/common/js/jquery.js"></script>
+<script type="text/javascript" src="/template/common/js/jquery.tools.js"></script>
+<script type="text/javascript" src="/template/home/js/index.js"></script>
+<script type="text/javascript" src="/template/home/js/header.js"></script>
+<script type="text/javascript" src="/template/home/js/friend_link.js"></script>
 <!--[if lte IE 6]>
 	<script type="text/javascript" src="/template/common/js/belatedPNG.js"></script>
 	<script type="text/javascript">
@@ -24,211 +26,79 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		DD_belatedPNG.fix(".belatedPNG");
 	</script>
 <![endif]-->
-<script type="text/javascript">
-$().ready( function() {
-	
-	if (getCookie("isShowWelcome") == null) {
-		$.dialog({type: "warn", content: '欢迎访问SHOP++ 演示商城<br /><a href="/admin/">点击进入管理后台>></a>', modal: true, autoCloseTime: 5000});
-		setCookie("isShowWelcome", "false")
-	}
-	
-});
-</script>
 </head>
 <body class="index">
-<div id="header" class="header belatedPNG">
-	<div class="headerTop belatedPNG">
-		<div class="headerTopContent">
-			<div class="headerLoginInfo">
-				您好<span id="headerLoginMemberUsername"></span>, 欢迎来到SHOP++演示商城!
-				<a href="javascript: void(0);" id="headerShowLoginWindow" style="display: inline; ">登录</a>
-				<a href="/shop/member_center!index.action" id="headerMemberCenter" style="display: none; ">会员中心</a>
-				<a href="javascript: void(0);" id="headerShowRegisterWindow" style="display: inline; ">注册</a>
-				<a href="/shop/member!logout.action" id="headerLogout" style="display: none; ">[退出]</a>
-			</div>
-			<div class="headerTopNav">
-						<a href="javascript: addFavorite('http://localhost','SHOP++演示商城')">收藏本站
-						</a>
-						|
-						<a href="/shop/article_list/about_us.htm">关于我们
-						</a>
-						|
-						<a href="/shop/article_list/help.htm">帮助中心
-						</a>
-						|
-						<a href="http://bbs.shopxx.net" target="_blank">SHOP++论坛
-						</a>
-						|
-						<a href="http://www.shopxx.net" target="_blank">SHOP++网站
-						</a>
-						
-			</div>
-		</div>
-	</div>
-	<div class="headerMiddle">
-		<div class="headerInfo">
-				7×24小时服务热线: <strong>400-8888888</strong>
-		</div>
+<link href="/template/home/css/header.css" rel="stylesheet" type="text/css">
+<div class="header">
+	<div class="headerTop">
 		<div class="headerLogo">
-			<a href="/"><img class="belatedPNG" src="<%=path %>/shop/images/logo.jpg" alt="SHOP++演示商城"></a>
+			<a href="/"><img src="/upload/image/logo.gif" title="SHOP++官方网站 - 网店系统|商城系统|独立网店|购物系统|开店程序|电子商务系统|网上开店|网上购物系统|网上商城系统"></a>
 		</div>
-		<div class="headerSearch belatedPNG">
-			<form id="goodsSearchForm" action="/shop/goods!search.action" method="post">
-				<div class="headerSearchText">
-					<input type="text" id="goodsSearchKeyword" name="pager.keyword" value="请输入关键词...">
-				</div>
-				<input type="submit" class="headerSearchButton" value="">
-				<div class="hotKeyword">
-					热门关键词: 
-						<a href="/shop/goods!search.action?pager.keyword=%E8%8B%B9%E6%9E%9C">苹果</a>
-						<a href="/shop/goods!search.action?pager.keyword=%E6%9D%BE%E4%B8%8B">松下</a>
-						<a href="/shop/goods!search.action?pager.keyword=%E7%B4%A2%E5%B0%BC">索尼</a>
-						<a href="/shop/goods!search.action?pager.keyword=%E4%B8%89%E6%98%9F">三星</a>
-						<a href="/shop/goods!search.action?pager.keyword=%E8%AF%BA%E5%9F%BA%E4%BA%9A">诺基亚</a>
-						<a href="/shop/goods!search.action?pager.keyword=%E6%B5%B7%E5%B0%94">海尔</a>
-						<a href="/shop/goods!search.action?pager.keyword=%E6%83%A0%E6%99%AE">惠普</a>
-						<a href="/shop/goods!search.action?pager.keyword=%E4%B8%9C%E8%8A%9D">东芝</a>
-						<a href="/shop/goods!search.action?pager.keyword=LG">LG</a>
-						<a href="/shop/goods!search.action?pager.keyword=%E8%81%94%E6%83%B3">联想</a>
-				</div>
-			</form>
-		</div>
+		<span class="phoneTile">咨询热线：</span><span class="phone">400-000-7477</span>
+		<a href="/license.html">
+			<span class="certificateIcon">&nbsp;</span>授权查询
+		</a>
+		<a href="/service.html">
+			<span class="serviceIcon">&nbsp;</span>客服中心
+		</a>
+		<a href="/help.html">
+			<span class="helpIcon">&nbsp;</span>帮助中心
+		</a>
 	</div>
-	<div class="headerBottom">
-		<input type="button" class="cartItemListButton" value="" onclick="window.open('/shop/cart_item!list.action')">
-		<input type="button" class="orderButton" value="" onclick="window.open('/shop/cart_item!list.action')">
-		<div class="headerMiddleNav">
-			<div class="headerMiddleNavLeft belatedPNG"></div>
-			<ul class="headerMiddleNavContent belatedPNG">
-						<li>
-							<a href="/">首页
-							</a>
-						</li>
-						<li>
-							<a href="/shop/goods_list/office_computer.htm">电脑办公
-							</a>
-						</li>
-						<li>
-							<a href="/shop/goods_list/mobile_digita.htm">手机数码
-							</a>
-						</li>
-						<li>
-							<a href="/shop/goods_list/fashion_video.htm">时尚影音
-							</a>
-						</li>
-						<li>
-							<a href="/shop/goods_list/home_appliances.htm">家用电器
-							</a>
-						</li>
-						<li>
-							<a href="/shop/article_list/help.htm">帮助中心
-							</a>
-						</li>
-						<li>
-							<a href="/shop/leave_message.htm">在线留言
-							</a>
-						</li>
-			</ul>
-			<div class="headerMiddleNavRight belatedPNG"></div>
-		</div>
+	<div class="headerNavigation belatedPNG">
+		<ul>
+				<li>
+					<a href="/">首页</a>
+				</li>
+				<li>
+					<a href="/home/article!list.action?id=402881862c3dca7d012c3dd91a760003">新闻中心</a>
+				</li>
+				<li>
+					<a href="/download.html">产品下载</a>
+				</li>
+				<li>
+					<a href="/business.html">商业购买</a>
+				</li>
+				<li>
+					<a href="/home/article!list.action?id=402881862c3dca7d012c3ddbd3d90006">模板风格</a>
+				</li>
+				<li>
+					<a href="/idc.html">商务合作</a>
+				</li>
+				<li>
+					<a href="http://demo.shopxx.net" target="_blank">在线演示</a>
+				</li>
+		</ul>
+		<a class="bbsNavigation" href="http://bbs.shopxx.net"></a>
+		<form id="headerSearchForm" action="/home/article!search.action" method="get">
+			<div class="searchFormText"><input type="text" id="headerSearchKeyword" name="pager.keyword" value="请输入搜索关键词"></div><input type="submit" class="searchFormButton" value="">
+		</form>
 	</div>
 </div>	<div class="body">
 		<div class="bodyLeft">
-			<div class="goodsCategory">
-            	<div class="top">商品分类</div>
-            	<div class="middle">
-            		<ul id="goodsCategoryMenu" class="menu">
-	            				<li class="mainCategory">
-									<a href="/shop/goods_list/office_computer.htm">电脑办公</a>
-								</li>
-										<li>
-											<a href="/shop/goods_list/computer_circcity.htm">
-												<span class="icon">&nbsp;</span>电脑整机
-											</a>
-										</li>
-										<li>
-											<a href="/shop/goods_list/computer_accessories.htm">
-												<span class="icon">&nbsp;</span>电脑配件
-											</a>
-										</li>
-										<li>
-											<a href="/shop/goods_list/office_equipment.htm">
-												<span class="icon">&nbsp;</span>办公设备
-											</a>
-										</li>
-										<li>
-											<a href="/shop/goods_list/office_fallen.htm">
-												<span class="icon">&nbsp;</span>办公耗材
-											</a>
-										</li>
-	            				<li class="mainCategory">
-									<a href="/shop/goods_list/mobile_digita.htm">手机数码</a>
-								</li>
-										<li>
-											<a href="/shop/goods_list/mobile_communication.htm">
-												<span class="icon">&nbsp;</span>手机通讯
-											</a>
-										</li>
-										<li>
-											<a href="/shop/goods_list/mobile_phone_accessories.htm">
-												<span class="icon">&nbsp;</span>手机配件
-											</a>
-										</li>
-										<li>
-											<a href="/shop/goods_list/digital_imaging.htm">
-												<span class="icon">&nbsp;</span>数码影像
-											</a>
-										</li>
-										<li>
-											<a href="/shop/goods_list/digital_accessories.htm">
-												<span class="icon">&nbsp;</span>数码配件
-											</a>
-										</li>
-	            				<li class="mainCategory">
-									<a href="/shop/goods_list/fashion_video.htm">时尚影音</a>
-								</li>
-										<li>
-											<a href="/shop/goods_list/mp3mp4.htm">
-												<span class="icon">&nbsp;</span>MP3/MP4
-											</a>
-										</li>
-										<li>
-											<a href="/shop/goods_list/apple_accessories.htm">
-												<span class="icon">&nbsp;</span>苹果配件
-											</a>
-										</li>
-										<li>
-											<a href="/shop/goods_list/audio_instruments.htm">
-												<span class="icon">&nbsp;</span>音频乐器
-											</a>
-										</li>
-										<li>
-											<a href="/shop/goods_list/electronic_dictionary.htm">
-												<span class="icon">&nbsp;</span>电子词典
-											</a>
-										</li>
-					</ul>
-            	</div>
-                <div class="bottom"></div>
-			</div>
-		</div>
-		<div class="bodyRight">
 			<div class="slider">
 				<div id="sliderScrollable" class="scrollable">
-					<div class="items" style="left: -3925.6682798810807px; "><div class="cloned">
-							<img src="http://demo.image.shopxx.net/201101/banner3.jpg">
+					<div class="items" style="left: -2136px; "><div class="cloned">
+							<a href="/html/article_content/201011/alipay.html">
+								<img src="/upload/image/banner3.jpg" alt="SHOP++携手支付通，共同打造在线支付便捷通道"> 							</a>
 						</div>
 						<div>
-							<img src="http://demo.image.shopxx.net/201101/banner1.jpg">
+						        <a href="/html/article_content/201105/d039bfd015344c4c809177390478a6b7.html">
+								<img src="/upload/image/banner_2011_5_23.jpg">
+							</a>
 						</div>
 						<div>
-							<img src="http://demo.image.shopxx.net/201101/banner2.jpg">
+							<a href="/html/article_content/201012/tenpay.html">
+								<img src="/upload/image/banner2.jpg" alt="SHOP++携手财付通，打造优质支付通道"> 							</a>
 						</div>
 						<div>
-							<img src="http://demo.image.shopxx.net/201101/banner3.jpg">
+							<a href="/html/article_content/201011/alipay.html">
+								<img src="/upload/image/banner3.jpg" alt="SHOP++携手支付通，共同打造在线支付便捷通道"> 							</a>
 						</div>
 					<div class="cloned">
-							<img src="http://demo.image.shopxx.net/201101/banner1.jpg">
+						        <a href="/html/article_content/201105/d039bfd015344c4c809177390478a6b7.html">
+								<img src="/upload/image/banner_2011_5_23.jpg">
+							</a>
 						</div></div>
 					<div class="navi"><a href="#0" class=""></a><a href="#1" class=""></a><a href="#2" class="active"></a></div>
 					<div class="prevNext">
@@ -238,637 +108,427 @@ $().ready( function() {
 				</div>
 			</div>
 			<div class="blank"></div>
-			<div class="hotGoodsSlider">
-				<div class="title">
-					<strong>热卖商品</strong>HOT
+			<div class="about">
+				<div class="left"></div>
+				<div class="middle">
+					<div class="productIcon belatedPNG"></div>
+					<div class="description">
+						SHOP++是基于JAVA技术的电子商务管理软件，以其安全稳定、强大易用、高效专业等优势赢得了用户的广泛好评。SHOP++为大、中、小企业提供一个安全、高效、强大的电子商务解决方案，协助企业快速构建、部署和管理其电子商务平台，拓展企业销售渠道，突显电子商务商业价值，致力于推动J2EE技术和电子商务技术的发展而不断努力。
+					</div>
+					<a href="/about.html" class="detail">详细介绍</a>
 				</div>
-				<a class="prev browse"></a>
-						<div id="hotGoodsScrollable" class="scrollable">
-							<div class="items" style="left: -700px; "><div class="cloned">
-										<ul>
-									<li>
-										<a href="/html/201101/6c05df4400ea40d48ad6ba81647fe1e7.html">
-											<img src="<%=path %>/shop/images/26f7a05de6c440c0bbd3f3c7bf470204.jpg" alt="索尼爱立信 E15I 3G手机">
-											<p title="索尼爱立信 E15I 3G手机">索尼爱立信 E15I 3G...</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/d5bb387563d040059bbec5a51a61e4e7.html">
-											<img src="<%=path %>/shop/images/38268d2199e14a36b542f3fd32ddbe74.jpg" alt="苹果 iPhone 4 16G版 3G手机">
-											<p title="苹果 iPhone 4 16G版 3G手机">苹果 iPhone 4 16G版...</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/6b8adc20d5aa430491ecc448a6c1a3a9.html">
-											<img src="<%=path %>/shop/images/149495706cec460f863b57a328ddfc9e.jpg" alt="诺基亚（Nokia）N97 mini 3G手机 导航版">
-											<p title="诺基亚（Nokia）N97 mini 3G手机 导航版">诺基亚（Nokia）N97...</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/01c691c02c9f45759565509000b592cf.html">
-											<img src="<%=path %>/shop/images/00aa6c02badd47b6af72e1eead97b6c9.jpg" alt="LG GD580 3G手机">
-											<p title="LG GD580 3G手机">LG GD580 3G手机</p>
-										</a>
-									</li>
-										</ul>
-										</div>
-										<div>
-										<ul>
-									<li>
-										<a href="/html/201101/98969b4400b14a0ba8b1c13190b2d20d.html">
-											<img src="<%=path %>/shop/images/f8152caf7a054092a2c3f3b48bc783b6.jpg" alt="苹果 MacBook Air MC504CH/A">
-											<p title="苹果 MacBook Air MC504CH/A">苹果 MacBook Air M...</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/5b234054ff9a43bc9551d40ac475c826.html">
-											<img src="<%=path %>/shop/images/505730b3adf6450e8b481265a201f6c6.jpg" alt="三星 NP-RV520-S01CN">
-											<p title="三星 NP-RV520-S01CN">三星 NP-RV520-S01C...</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/18da31776b5e4fcaaf25cac1b080cb0a.html">
-											<img src="<%=path %>/shop/images/3f55d96c7c9d46a6933020125440c75d.jpg" alt="戴尔 Inspiron 13R">
-											<p title="戴尔 Inspiron 13R">戴尔 Inspiron 13R</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/38f00f0a26694a5290c62e66782fa1be.html">
-											<img src="<%=path %>/shop/images/556f44fec7934b37adaeda5c2880d4f9.jpg" alt="联想 Y560D">
-											<p title="联想 Y560D">联想 Y560D</p>
-										</a>
-									</li>
-										</ul>
-										</div>
-										<div>
-										<ul>
-									<li>
-										<a href="/html/201101/6c05df4400ea40d48ad6ba81647fe1e7.html">
-											<img src="<%=path %>/shop/images/26f7a05de6c440c0bbd3f3c7bf470204.jpg" alt="索尼爱立信 E15I 3G手机">
-											<p title="索尼爱立信 E15I 3G手机">索尼爱立信 E15I 3G...</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/d5bb387563d040059bbec5a51a61e4e7.html">
-											<img src="<%=path %>/shop/images/38268d2199e14a36b542f3fd32ddbe74.jpg" alt="苹果 iPhone 4 16G版 3G手机">
-											<p title="苹果 iPhone 4 16G版 3G手机">苹果 iPhone 4 16G版...</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/6b8adc20d5aa430491ecc448a6c1a3a9.html">
-											<img src="<%=path %>/shop/images/149495706cec460f863b57a328ddfc9e.jpg" alt="诺基亚（Nokia）N97 mini 3G手机 导航版">
-											<p title="诺基亚（Nokia）N97 mini 3G手机 导航版">诺基亚（Nokia）N97...</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/01c691c02c9f45759565509000b592cf.html">
-											<img src="<%=path %>/shop/images/00aa6c02badd47b6af72e1eead97b6c9.jpg" alt="LG GD580 3G手机">
-											<p title="LG GD580 3G手机">LG GD580 3G手机</p>
-										</a>
-									</li>
-										</ul>
-										</div>
-							<div class="cloned">
-										<ul>
-									<li>
-										<a href="/html/201101/98969b4400b14a0ba8b1c13190b2d20d.html">
-											<img src="<%=path %>/shop/images/f8152caf7a054092a2c3f3b48bc783b6.jpg" alt="苹果 MacBook Air MC504CH/A">
-											<p title="苹果 MacBook Air MC504CH/A">苹果 MacBook Air M...</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/5b234054ff9a43bc9551d40ac475c826.html">
-											<img src="<%=path %>/shop/images/505730b3adf6450e8b481265a201f6c6.jpg" alt="三星 NP-RV520-S01CN">
-											<p title="三星 NP-RV520-S01CN">三星 NP-RV520-S01C...</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/18da31776b5e4fcaaf25cac1b080cb0a.html">
-											<img src="<%=path %>/shop/images/3f55d96c7c9d46a6933020125440c75d.jpg" alt="戴尔 Inspiron 13R">
-											<p title="戴尔 Inspiron 13R">戴尔 Inspiron 13R</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/38f00f0a26694a5290c62e66782fa1be.html">
-											<img src="<%=path %>/shop/images/556f44fec7934b37adaeda5c2880d4f9.jpg" alt="联想 Y560D">
-											<p title="联想 Y560D">联想 Y560D</p>
-										</a>
-									</li>
-										</ul>
-										</div></div>
-						</div>
-				<a class="next browse"></a>
+				<div class="right"></div>
 			</div>
-		</div>
-		<div class="blank"></div>
-		<img src="http://demo.image.shopxx.net/201101/banner4.jpg">
-		<div class="blank"></div>
-		<div class="newGoods">
-			<div class="left">
-				<ul id="newGoodsTab" class="newGoodsTab">
-							<li class="current">电脑办公</li>
-							<li class="">手机数码</li>
-							<li class="">时尚影音</li>
-							<li class="">家用电器</li>
-				</ul>
+			<div class="blank"></div>
+			<div class="advantage">
+				<div class="top">SHOP++<span class="icon"> </span>大优势 <span>Advantage</span></div>
+				<div class="bottom">
+					<table>
+						<tbody><tr>
+							<td class="left">
+								<div class="openIcon belatedPNG" title="完全开源的网店系统"></div>
+								<div class="content">
+									<strong>开放源代码</strong>
+									<p>开放源代码并提供完整注释，更好的满足您的二次开发需求</p>
+								</div>
+							</td>
+							<td class="right">
+								<div class="efficientIcon belatedPNG" title="高效稳定的商城系统"></div>
+								<div class="content">
+									<strong>高效稳定</strong>
+									<p>采用HTML静态页面生成技术和多级缓存技术，使得系统的响应速度和负载能力大大提升</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="left">
+								<div class="securityIcon belatedPNG" title="安全可靠的独立网店"></div>
+								<div class="content">
+									<strong>安全可靠</strong>
+									<p>强大的管理权限控制机制，多重安全拦截保护技术，有效的保障您的数据和系统安全</p>
+								</div>
+							</td>
+							<td class="right">
+								<div class="transplantationIcon belatedPNG" title="跨平台/跨数据库的购物系统"></div>
+								<div class="content">
+									<strong>跨平台/数据库机制</strong>
+									<p>强大的跨平台特性，让您的系统的部署更简单；特有的多数据库支持，让您的数据迁移不再困难</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="left">
+								<div class="seoIcon belatedPNG" title="支持SEO优化设置的网购系统"></div>
+								<div class="content">
+									<strong>SEO优化</strong>
+									<p>全站生成HTML静态页面搜索引擎收录更容易，强大的SEO设置使您的搜索排名更靠前</p>
+								</div>
+							</td>
+							<td class="right">
+								<div class="templateIcon belatedPNG" title="拥有强大的模板引擎的网店程序"></div>
+								<div class="content">
+									<strong>强大的模板引擎</strong>
+									<p>采用MVC架构模式，强大的模板管理引擎，使得您在系统风格修改方面也能得心应手</p>
+								</div>
+							</td>
+						</tr>
+					</tbody></table>
+				</div>
 			</div>
-			<div class="right">
-						<ul class="newGoodsTabContent hidden" style="display: block; ">
-									<li>
-										<a href="/html/201101/beff02f06ad9454aa925e4a86d1d1389.html">
-											<img src="<%=path %>/shop/images/5fdacad7d3e64dff9b78e99608983c7f.jpg" alt="汉王 TouchPad">
-											<p title="汉王 TouchPad">汉王 TouchPad</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/01065a4e46fa44a79af00514c497daa3.html">
-											<img src="<%=path %>/shop/images/1e76a6ae7d044443af75dc36a5d89afa.jpg" alt="三星P1000 GALAXY">
-											<p title="三星P1000 GALAXY">三星P1000 GALAXY</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/3b3c9b0f235b469885c6c0b4665caa03.html">
-											<img src="<%=path %>/shop/images/f2963d187c3749888caa8f1481cb1845.jpg" alt="苹果ipad 4代">
-											<p title="苹果ipad 4代">苹果ipad 4代</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/000f24dab0804470974a154900a94b5d.html">
-											<img src="<%=path %>/shop/images/66fdf3ee55514149bd4095c178de1089.jpg" alt="摩托罗拉MZ606">
-											<p title="摩托罗拉MZ606">摩托罗拉MZ606</p>
-										</a>
-									</li>
-						</ul>
-						<ul class="newGoodsTabContent hidden" style="display: none; ">
-									<li>
-										<a href="/html/201101/b3562298526a421c90ca7034dfcdbccd.html">
-											<img src="<%=path %>/shop/images/8dc06c85f78d44778fa7d974c481ec12.jpg" alt="富士 JZ305">
-											<p title="富士 JZ305">富士 JZ305</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/5b47a20dc8da4595a3db3d873541af84.html">
-											<img src="<%=path %>/shop/images/d630b5af2961400893c6a15a87915c8f.jpg" alt="三星 PL210">
-											<p title="三星 PL210">三星 PL210</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/1bc7f720795f4f1a9e0066f020acb0a4.html">
-											<img src="<%=path %>/shop/images/0a49446119f34c569c749f8b15aef089.jpg" alt="索尼 DSC-HX7">
-											<p title="索尼 DSC-HX7">索尼 DSC-HX7</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/f9ce3398acdb4f79b9fad315fe7979ad.html">
-											<img src="<%=path %>/shop/images/337c9c8d76134c158a175a8334e5b398.jpg" alt="尼康 COOLPIX S3100">
-											<p title="尼康 COOLPIX S3100">尼康 COOLPIX S3100...</p>
-										</a>
-									</li>
-						</ul>
-						<ul class="newGoodsTabContent hidden" style="display: none; ">
-									<li>
-										<a href="/html/201101/2f598fb0f68c4e55be2d71b46469838c.html">
-											<img src="<%=path %>/shop/images/983a2ed1826743bb9faa046b12c8e83e.jpg" alt="索尼 E453 4G MP4播放器">
-											<p title="索尼 E453 4G MP4播放器">索尼 E453 4G MP4播...</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/7c685741a49f4969a33a2fe7d62d42e4.html">
-											<img src="<%=path %>/shop/images/fe4fc1f1a151451fa9ec4cf924a7eb7b.jpg" alt="索爱V-70（4GB）">
-											<p title="索爱V-70（4GB）">索爱V-70（4GB）</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/7c367193aa3a42ee807e82bfcbafd0b8.html">
-											<img src="<%=path %>/shop/images/386d630fd92245308fb20ed8577855fb.jpg" alt="苹果 iPod touch 4代 32G 多媒体播放器">
-											<p title="苹果 iPod touch 4代 32G 多媒体播放器">苹果 iPod touch 4代...</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/9b9e06a8ea774802b886df77175d5df1.html">
-											<img src="<%=path %>/shop/images/0de8937c7d8e49cd9b6c931df23f0d96.jpg" alt="苹果 iPod classic 3代 160G MP3播放器">
-											<p title="苹果 iPod classic 3代 160G MP3播放器">苹果 iPod classic ...</p>
-										</a>
-									</li>
-						</ul>
-						<ul class="newGoodsTabContent hidden" style="display: none; ">
-									<li>
-										<a href="/html/201101/1aa809957c6e46d495f6c28937fa6c31.html">
-											<img src="<%=path %>/shop/images/8b6215f4cf594ffaad30bceba191f83c.jpg" alt="TCL 4212C3DS">
-											<p title="TCL 4212C3DS">TCL 4212C3DS</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/f4b1cc616fbb45d88d55b5f87329ae6f.html">
-											<img src="<%=path %>/shop/images/f06b3ae1e44e4685b836551dfdc3bd13.jpg" alt="夏普 LCD-52GE220A">
-											<p title="夏普 LCD-52GE220A">夏普 LCD-52GE220A</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/66a34454849f4d4590b5ba5e83f73d1f.html">
-											<img src="<%=path %>/shop/images/7530dc0dd04b408785cf6e784ea52805.jpg" alt="三星 LCD630">
-											<p title="三星 LCD630">三星 LCD630</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/55a35fe9afd0437aa55f09e8ac3353a7.html">
-											<img src="<%=path %>/shop/images/d13df6f2038347f097a8bcc302324bca.jpg" alt="索尼 KDL-40EX52">
-											<p title="索尼 KDL-40EX52">索尼 KDL-40EX52</p>
-										</a>
-									</li>
-						</ul>
+			<div class="blank"></div>
+			<div class="business">
+				<div class="certificate">
+					<div class="title" title="SHOP++网店系统商业授权">SHOP++商业授权</div>
+					<div class="content">SHOP++商业运营授权许可证，经过认证后您将拥有商业授权用户身份，标识了用户商业运营的合法性</div>
+				</div>
+				<div class="service">
+					<div class="title" title="SHOP++网店系统商业服务">SHOP++商业服务</div>
+					<div class="content">SHOP++商业服务提供多项技术支持和定制服务，为用户网店的快速稳定发展提供更多保障</div>
+				</div>
 			</div>
-		</div>
-		<div class="blank"></div>
-		<div class="bodyLeft">
-					<div class="hotGoods">
-						<div class="top">热销排行</div>
-						<div class="middle">
-							<ul>
-									<li class="number1">
-										<span class="icon">&nbsp;</span>
-										<a href="/html/201101/98969b4400b14a0ba8b1c13190b2d20d.html" title="苹果 MacBook Air MC504CH/A">苹果 MacBook Air MC504CH...</a>
-									</li>
-									<li class="number2">
-										<span class="icon">&nbsp;</span>
-										<a href="/html/201101/5b234054ff9a43bc9551d40ac475c826.html" title="三星 NP-RV520-S01CN">三星 NP-RV520-S01CN</a>
-									</li>
-									<li class="number3">
-										<span class="icon">&nbsp;</span>
-										<a href="/html/201101/18da31776b5e4fcaaf25cac1b080cb0a.html" title="戴尔 Inspiron 13R">戴尔 Inspiron 13R</a>
-									</li>
-									<li class="number4">
-										<span class="icon">&nbsp;</span>
-										<a href="/html/201101/38f00f0a26694a5290c62e66782fa1be.html" title="联想 Y560D">联想 Y560D</a>
-									</li>
-									<li class="number5">
-										<span class="icon">&nbsp;</span>
-										<a href="/html/201101/6c05df4400ea40d48ad6ba81647fe1e7.html" title="索尼爱立信 E15I 3G手机">索尼爱立信 E15I 3G手机</a>
-									</li>
-									<li class="number6">
-										<span class="icon">&nbsp;</span>
-										<a href="/html/201101/d5bb387563d040059bbec5a51a61e4e7.html" title="苹果 iPhone 4 16G版 3G手机">苹果 iPhone 4 16G版 3G手...</a>
-									</li>
-									<li class="number7">
-										<span class="icon">&nbsp;</span>
-										<a href="/html/201101/6b8adc20d5aa430491ecc448a6c1a3a9.html" title="诺基亚（Nokia）N97 mini 3G手机 导航版">诺基亚（Nokia）N97 mini ...</a>
-									</li>
-									<li class="number8">
-										<span class="icon">&nbsp;</span>
-										<a href="/html/201101/01c691c02c9f45759565509000b592cf.html" title="LG GD580 3G手机">LG GD580 3G手机</a>
-									</li>
-							</ul>
-						</div>
-						<div class="bottom"></div>
-					</div>
-					<div class="blank"></div>
-					<div class="hotArticle">
-						<div class="top">热点文章</div>
-						<div class="middle">
-							<ul>
-									<li class="number1">
-										<span class="icon">&nbsp;</span>
-										<a href="/html/201101/02389f10a29143fb9d116029597d7ec8.html" title="商城所售商品都是正品行货吗？有售后保修吗？">商城所售商品都是正品行货...</a>
-									</li>
-									<li class="number2">
-										<span class="icon">&nbsp;</span>
-										<a href="/html/201101/57c2331641264504a6d82bf70b97261b.html" title="联系我们">联系我们</a>
-									</li>
-									<li class="number3">
-										<span class="icon">&nbsp;</span>
-										<a href="/html/201101/e79389781fb94b7ab1d38d36f46269c1.html" title="关于我们">关于我们</a>
-									</li>
-									<li class="number4">
-										<span class="icon">&nbsp;</span>
-										<a href="/html/201101/59d6edea841c42bfa2a5eac20d50da75.html" title="无货商品什么时候能到货？">无货商品什么时候能到货？...</a>
-									</li>
-									<li class="number5">
-										<span class="icon">&nbsp;</span>
-										<a href="/html/201101/af4134d789694b4bb124339cd27e5814.html" title="支付方式">支付方式</a>
-									</li>
-									<li class="number6">
-										<span class="icon">&nbsp;</span>
-										<a href="/html/201101/5d82028ad6124d8b829bef19a797f7f4.html" title="购物流程">购物流程</a>
-									</li>
-									<li class="number7">
-										<span class="icon">&nbsp;</span>
-										<a href="/html/201101/cab605b089cd44a5af83975915e55087.html" title="网站制度">网站制度</a>
-									</li>
-									<li class="number8">
-										<span class="icon">&nbsp;</span>
-										<a href="/html/201101/f5bba10d81384f09a9b60b94ef434685.html" title="会员注册协议">会员注册协议</a>
-									</li>
-									<li class="number9">
-										<span class="icon">&nbsp;</span>
-										<a href="/html/201101/e19ba40e85c84b4097b21d2ab533c5fd.html" title="下单后何时可以收到货？">下单后何时可以收到货？</a>
-									</li>
-									<li class="number10">
-										<span class="icon">&nbsp;</span>
-										<a href="/html/201101/03b2364218504b8980732f857b15dee2.html" title="所有权声明">所有权声明</a>
-									</li>
-							</ul>
-						</div>
-						<div class="bottom"></div>
-					</div>
 		</div>
 		<div class="bodyRight">
-					<div class="bestGoods">
-						<div class="top">
-							<strong>精品推荐</strong>BEST
-						</div>
-						<div class="middle">
-							<ul>
-									<li>
-										<a href="/html/201101/602a921d310c40278b982b9403a9a1af.html">
-											<img src="<%=path %>/shop/images/3e8dd6673120465d8ae92a5432f09f0b.jpg" alt="西门子">
-											<p title="西门子">西门子</p>
-											<p class="red">￥10000.00元</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/b38c55d0af88404b8ae0ee7a6cb8b282.html">
-											<img src="<%=path %>/shop/images/ef24b427877c4e15bc5604632017427e.jpg" alt="海尔">
-											<p title="海尔">海尔</p>
-											<p class="red">￥14000.00元</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/9d5d6c6aa49d4d799a718b14500b0fa1.html">
-											<img src="<%=path %>/shop/images/27dff711a1c94e6b8dbe34dce71911d5.jpg" alt="美的 BCD-555WKM">
-											<p title="美的 BCD-555WKM">美的 BCD-555WKM</p>
-											<p class="red">￥1400.00元</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/575fc10c896440358825330aa3c37a40.html">
-											<img src="<%=path %>/shop/images/4e293c1f1e884de7803afe57b1f5d8e5.jpg" alt="松下 NR-W56G1-S">
-											<p title="松下 NR-W56G1-S">松下 NR-W56G1-S</p>
-											<p class="red">￥16000.00元</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/2ab83ffc384849ec8210a9887d6db686.html">
-											<img src="<%=path %>/shop/images/3440939579404cb3a989425fed09e706.jpg" alt="宏碁 AM3660">
-											<p title="宏碁 AM3660">宏碁 AM3660</p>
-											<p class="red">￥5999.00元</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/d8308e45574741dfad5bf9d80faf6e91.html">
-											<img src="<%=path %>/shop/images/68bc2b19f39c411aa042802be37f5117.jpg" alt="戴尔 V230SR-456">
-											<p title="戴尔 V230SR-456">戴尔 V230SR-456</p>
-											<p class="red">￥3600.00元</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/bfbff584bbd44261b907f30986eb826a.html">
-											<img src="<%=path %>/shop/images/b10b62d5f7474b83b4bdf567ed243ba1.jpg" alt="飞利浦 234CL2SB">
-											<p title="飞利浦 234CL2SB">飞利浦 234CL2SB</p>
-											<p class="red">￥1500.00元</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/04fccfe751754d99a82e9d52825bef24.html">
-											<img src="<%=path %>/shop/images/e2d955b235364aca80d29cd9349aed88.jpg" alt="惠普 CQ3300CX">
-											<p title="惠普 CQ3300CX">惠普 CQ3300CX</p>
-											<p class="red">￥2999.00元</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/86c0f7deb02d4df487f3198e541e225c.html">
-											<img src="<%=path %>/shop/images/5c578d2eefe64a7fa073a2dc2eef3b1b.jpg" alt="明基 GL2231">
-											<p title="明基 GL2231">明基 GL2231</p>
-											<p class="red">￥1100.00元</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/a869a5db56ce4e4882825ec54cc9e198.html">
-											<img src="<%=path %>/shop/images/b6395f2af162498eacdf2ac80cc1b9ed.jpg" alt="三星 S22A330BW">
-											<p title="三星 S22A330BW">三星 S22A330BW</p>
-											<p class="red">￥2200.00元</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/cdd9372b40ac4730854a5478d44701ce.html">
-											<img src="<%=path %>/shop/images/48aec23f7c7841cbb32e589ba0ca7f48.jpg" alt="联想 新圆梦F318">
-											<p title="联想 新圆梦F318">联想 新圆梦F318</p>
-											<p class="red">￥3999.00元</p>
-										</a>
-									</li>
-									<li>
-										<a href="/html/201101/44b03706f91a436cbc32582591f766ae.html">
-											<img src="<%=path %>/shop/images/d174f622592740a78b205ea0ad1f89a2.jpg" alt="戴尔 UltraSharp U2311H">
-											<p title="戴尔 UltraSharp U2311H">戴尔 UltraSharp U2...</p>
-											<p class="red">￥1450.00元</p>
-										</a>
-									</li>
-							</ul>
-						</div>
-						<div class="bottom"></div>
-					</div>
+			<div class="contact">
+				<div class="top"></div>
+				<div class="middle">
+					<ul>
+						<li>
+							咨询热线: <strong>400-000-7477</strong>
+						</li>
+						<li>
+							<span>(周一至周六8:30 - 17:30)</span>
+						</li>
+						<li>
+							客服邮箱: service@shopxx.net
+						</li>
+					</ul>
+				</div>
+				<div class="bottom"></div>
+			</div>
+			<div class="blank"></div>
+			<div class="news">
+				<div class="top">
+					<a href="/home/article!list.action?id=402881862c3dca7d012c3ddb638b0004">活动公告</a>
+				</div>
+				<div class="middle">
+					<ul>
+							<li class="number1">
+									<a href="/html/article_content/201204/07d773ffa2134e4ba6f120052fb70e38.html" title="五一放假通知" target="_blank">五一放假通知</a><span class="date">04-27</span>
+							</li>
+							<li class="number2">
+									<a href="/html/article_content/201204/7bc07b02d2234b01903ac858d0e24230.html" title="SHOP++ '五一' 优惠活动" target="_blank">SHOP++ '五一' 优惠活动</a><span class="date">04-25</span>
+							</li>
+							<li class="number3">
+									<a href="/html/article_content/201203/5fb4a027fcff484e9ad8ddce6d03313a.html" title="清明节放假通知" target="_blank">清明节放假通知</a><span class="date">03-26</span>
+							</li>
+							<li class="number4">
+									<a href="/html/article_content/201201/9bb1da5e0c794e7ea46890777dfbf79f.html" title="SHOP++交流论坛全面更新" target="_blank">SHOP++交流论坛全面更新</a><span class="date">01-11</span>
+							</li>
+							<li class="number5">
+									<a href="/html/article_content/201201/c0bf1640cb5d4f02ab906d4f11b69ef6.html" title="SHOP++交流论坛升级公告" target="_blank">SHOP++交流论坛升级公告</a><span class="date">01-09</span>
+							</li>
+							<li class="number6">
+									<a href="/html/article_content/201112/b4ec7df5db7f494ca3595df93f5448b2.html" title="在线咨询服务变更通知" target="_blank">在线咨询服务变更通知</a><span class="date">12-30</span>
+							</li>
+					</ul>
+				</div>
+				<div class="bottom"></div>
+			</div>
+			<div class="blank"></div>
+			<div class="news">
+				<div class="top">
+					<a href="/home/article!list.action?id=402881862c3dca7d012c3dd91a760003">新闻中心</a>
+				</div>
+				<div class="middle">
+					<ul>
+							<li class="number1">
+									<a href="/html/article_content/201205/86105f5b672e4195b2171eccb48dbf59.html" title="腾讯一季度进账96亿 马化腾更像二次创业" target="_blank">腾讯一季度进账96亿 马化腾更像</a><span class="date">05-18</span>
+							</li>
+							<li class="number2">
+									<a href="/html/article_content/201205/72d6541931454826bc35f411b78c0e03.html" title="2012谷歌Android系统仍将主导智能手机市场" target="_blank">2012谷歌Android系统仍</a><span class="date">05-18</span>
+							</li>
+							<li class="number3">
+									<a href="/html/article_content/201205/e21177b459274afe84b1b190a565aec9.html" title="家电业春光乍泄：补贴265亿拉动销售2000亿" target="_blank">家电业春光乍泄：补贴265亿拉动</a><span class="date">05-18</span>
+							</li>
+							<li class="number4">
+									<a href="/html/article_content/201205/84f8181192f04d9ea11982b99025e0d5.html" title="工信部副部长尚冰：全国3G用户达1.52亿" target="_blank">工信部副部长尚冰：全国3G用户达</a><span class="date">05-18</span>
+							</li>
+							<li class="number5">
+									<a href="/html/article_content/201205/32956e8030334da48942757432dfa619.html" title="电子发票试点月底前启动申报 电商成本加大" target="_blank">电子发票试点月底前启动申报 电商</a><span class="date">05-17</span>
+							</li>
+							<li class="number6">
+									<a href="/html/article_content/201205/4d4a8370efad4ebb9ab45963da5a9470.html" title="腾讯明日公布架构调整 核心战略直指移动互联网" target="_blank">腾讯明日公布架构调整 核心战略直</a><span class="date">05-17</span>
+							</li>
+							<li class="number7">
+									<a href="/html/article_content/201205/e97c620dabfa4308841fd6cc6e4d704e.html" title="互联网“右脑化”：女人主导的感性新王国" target="_blank">互联网“右脑化”：女人主导的感性</a><span class="date">05-17</span>
+							</li>
+							<li class="number8">
+									<a href="/html/article_content/201205/8eb11099312b4d299ef58a4f6dcee27f.html" title="天猫当当升级配送服务 物流或成电商终极战场" target="_blank">天猫当当升级配送服务 物流或成电</a><span class="date">05-16</span>
+							</li>
+					</ul>
+				</div>
+				<div class="bottom"></div>
+			</div>
+			<div class="blank"></div>
+			<div class="news">
+				<div class="top">
+					<a href="/home/article!list.action?id=402881862c3dca7d012c3ddca6aa0007">开店指南</a>
+				</div>
+				<div class="middle">
+					<ul>
+							<li class="number1">
+									<a href="/html/article_content/201205/6125b67088584c639fb611c45af6d53a.html" title="多购模式引来2千万美元融资 电商或将进入新纪元" target="_blank">多购模式引来2千万美元融资 电商</a><span class="date">05-18</span>
+							</li>
+							<li class="number2">
+									<a href="/html/article_content/201205/00a181c69beb46da8677862d941e5542.html" title="中国电信称已在南方21省普遍覆盖8M带宽接入" target="_blank">中国电信称已在南方21省普遍覆盖</a><span class="date">05-18</span>
+							</li>
+							<li class="number3">
+									<a href="/html/article_content/201205/384d65bb666e432eb92065e9e0ae7746.html" title="腾讯重组分拆电商业务 或欲打造中国版亚马逊" target="_blank">腾讯重组分拆电商业务 或欲打造中</a><span class="date">05-18</span>
+							</li>
+							<li class="number4">
+									<a href="/html/article_content/201205/8890f06ebb8a49b0ba7e7bacee1a2354.html" title="中国成全球最大智能手机市场 发货量超过美国" target="_blank">中国成全球最大智能手机市场 发货</a><span class="date">05-17</span>
+							</li>
+							<li class="number5">
+									<a href="/html/article_content/201205/fb7a03cff51441aea1d0c4044ba32204.html" title="联通20元3G套餐卡今日开售 电商渠道转型加速" target="_blank">联通20元3G套餐卡今日开售 电</a><span class="date">05-17</span>
+							</li>
+							<li class="number6">
+									<a href="/html/article_content/201205/12675728b23e449eb658dc9276e92a62.html" title="当当网向一淘开放数据 接入一账通支持全网比价" target="_blank">当当网向一淘开放数据 接入一账通</a><span class="date">05-16</span>
+							</li>
+							<li class="number7">
+									<a href="/html/article_content/201205/471ade43857d43028e6eff1eba758365.html" title="互联网企业“混战”低价智能机" target="_blank">互联网企业“混战”低价智能机</a><span class="date">05-16</span>
+							</li>
+							<li class="number8">
+									<a href="/html/article_content/201205/2d714eb2902d4a598d3e446b460eecd6.html" title="苹果联合创始人：无论价格多高都会买Facebook股票" target="_blank">苹果联合创始人：无论价格多高都会</a><span class="date">05-15</span>
+							</li>
+					</ul>
+				</div>
+				<div class="bottom"></div>
+			</div>
 		</div>
-		<div class="blank"></div>
-<div id="friendLink" class="friendLink">
-	<div class="pictureFriendLink">
-		<div class="left"></div>
-		<div class="middle">
+		<script type="text/javascript">
+			eval(unescape('document.write%28%27%3Cdiv%20style%3D%22display%3A%20none%22%3E%27%29%3B'));
+		</script><div style="display: none">
+		<div id="shopKeywords">
 			<ul>
-										<li>
-							<a href="http://www.shopxx.net" title="SHOP++官方网站" target="_blank">
-								<img src="<%=path %>/shop/images/1a1b183f3c124b2dae0e9d83818628d9.png">
-							</a>
-						</li>
-						<li>
-							<a href="https://www.tenpay.com" title="财付通" target="_blank">
-								<img src="<%=path %>/shop/images/64f5f4313c834b1caa7181deda4075c1.gif">
-							</a>
-						</li>
-						<li>
-							<a href="https://cmpay.10086.cn" title="手机支付" target="_blank">
-								<img src="<%=path %>/shop/images/a52ee3e2af9c46fda95127a4029bdaa0.gif">
-							</a>
-						</li>
-						<li>
-							<a href="http://www.icbc.com.cn" title="中国工商银行" target="_blank">
-								<img src="<%=path %>/shop/images/3fbb0969f70d4c0e8a47cf9684a6e821.gif">
-							</a>
-						</li>
-						<li>
-							<a href="https://www.alipay.com" title="支付宝" target="_blank">
-								<img src="<%=path %>/shop/images/ea773d0bf3b34c3faa9d7abb5bb8f16a.png">
-							</a>
-						</li>
-						<li>
-							<a href="http://bbs.shopxx.net" title="SHOP++官方论坛" target="_blank">
-								<img src="<%=path %>/shop/images/216a503ffc1c48fa97ab5a9430ec4d75.png">
-							</a>
-						</li>
-						<li>
-							<a href="http://www.boc.cn" title="中国银行" target="_blank">
-								<img src="<%=path %>/shop/images/3e2a5e38765342a3b9aa485cc118897b.gif">
-							</a>
-						</li>
-						<li>
-							<a href="https://www.99bill.com" title="快钱" target="_blank">
-								<img src="<%=path %>/shop/images/1cd7d017e6a843f081363ece98eef31f.gif">
-							</a>
-						</li>
+				<li>
+					<a href="/home/article!list.action?id=2fe680f62c85a54d012c8758b7f2000a"><strong>名词解释：</strong></a>
+				</li>
+					<li>
+						<h1>
+							<a href="/html/article_content/201101/331e353dff1948c79e66657c91e87f99.html" title="网上开店" target="_blank"><strong>网上开店</strong></a>
+						</h1>
+					</li>
+					<li>
+						<h1>
+							<a href="/html/article_content/201101/018b75d576514aac81b98afcc99e92e8.html" title="网上商城系统" target="_blank"><strong>网上商城系统</strong></a>
+						</h1>
+					</li>
+					<li>
+						<h1>
+							<a href="/html/article_content/201011/5d389cfc78934a579e1a9478cbb1c059.html" title="网店程序" target="_blank"><strong>网店程序</strong></a>
+						</h1>
+					</li>
+					<li>
+						<h1>
+							<a href="/html/article_content/201011/1d59635614774aee8b7e7f3383caf31f.html" title="B2C系统" target="_blank"><strong>B2C系统</strong></a>
+						</h1>
+					</li>
+					<li>
+						<h1>
+							<a href="/html/article_content/201011/d0c81e564bb143c3acb9bb4a555d1bf6.html" title="商城系统" target="_blank"><strong>商城系统</strong></a>
+						</h1>
+					</li>
+					<li>
+						<h1>
+							<a href="/html/article_content/201011/f58625a22207430a97758732b5fa9257.html" title="购物系统" target="_blank"><strong>购物系统</strong></a>
+						</h1>
+					</li>
+					<li>
+						<h1>
+							<a href="/html/article_content/201011/816675f258b64970bad42e62082fb39b.html" title="开店程序" target="_blank"><strong>开店程序</strong></a>
+						</h1>
+					</li>
+					<li>
+						<h1>
+							<a href="/html/article_content/201011/e789e5e372404f07ab6291a9ad5073a5.html" title="网购系统" target="_blank"><strong>网购系统</strong></a>
+						</h1>
+					</li>
+					<li>
+						<h1>
+							<a href="/html/article_content/201011/3802590356634b5e80ee4887ba5a7be1.html" title="电子商务系统" target="_blank"><strong>电子商务系统</strong></a>
+						</h1>
+					</li>
+					<li>
+						<h1>
+							<a href="/html/article_content/201011/4c095edbafbf440997f223ee95af9932.html" title="独立网店" target="_blank"><strong>独立网店</strong></a>
+						</h1>
+					</li>
+					<li>
+						<h1>
+							<a href="/html/article_content/201011/60a0a85bbbda4613b1b5e76d375f181e.html" title="网上商城" target="_blank"><strong>网上商城</strong></a>
+						</h1>
+					</li>
+					<li>
+						<h1>
+							<a href="/html/article_content/201011/6d0aebbe212a418a8fd84d71ae721477.html" title="电子商务" target="_blank"><strong>电子商务</strong></a>
+						</h1>
+					</li>
+					<li>
+						<h1>
+							<a href="/html/article_content/201011/0f68770be379477c9a83ef2a66542325.html" title="网上购物系统" target="_blank"><strong>网上购物系统</strong></a>
+						</h1>
+					</li>
+					<li>
+						<h1>
+							<a href="/html/article_content/201011/d232842d8d5b41ada1b16e24dd168f94.html" title="网店模板" target="_blank"><strong>网店模板</strong></a>
+						</h1>
+					</li>
+					<li>
+						<h1>
+							<a href="/html/article_content/201011/fb42232005f04b7f9bdc8bf4006cc1df.html" title="开源网店系统" target="_blank"><strong>开源网店系统</strong></a>
+						</h1>
+					</li>
+					<li>
+						<h1>
+							<a href="/html/article_content/201011/ac564fceb4314c69a552edc38eff60c1.html" title="网店" target="_blank"><strong>网店</strong></a>
+						</h1>
+					</li>
+				<li>
+					<a href="/home/article!list.action?id=2fe680f62c85a54d012c8758b7f2000a"><strong>更多</strong></a>
+				</li>
 			</ul>
 		</div>
-		<div class="right"></div>
+		<script type="text/javascript">var yctouProtocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cscript src='" + yctouProtocol + "www.oray.com/yctou/yctou.php?style=3' type='text/javascript'%3E%3C/script%3E"));</script><script src="http://www.oray.com/yctou/yctou.php?style=3" type="text/javascript"></script><a href="http://www.oray.com/yctou/" target="_blank"><img src="http://www.oray.com/yctou/icon/icon_3.gif" style="border:none"></a>
+		<script type="text/javascript">
+			eval(unescape('document.write%28%22%3C/div%3E%22%29%3B'));
+		</script></div>
+		<div class="blank"></div>
+<link href="/template/home/css/friend_link.css" type="text/css" rel="stylesheet">
+<div class="friendLink">
+	<div class="pictureFriendLink">
+		<div class="left prev disabled"></div>
+		<div id="pictureFriendLinkScrollable" class="middle scrollable">
+			<ul class="items">
+					<li>
+						<a href="http://demo.shopxx.net" target="_blank" title="SHOP++体验商城" style="opacity: 0.5; ">
+							<img src="/upload/image/db0758b985b24e2f936e5a279d702b62.png">
+						</a>
+					</li>
+					<li>
+						<a href="http://www.shopxx.net" target="_blank" title="淘宝网" style="opacity: 0.5; ">
+							<img src="/upload/image/802391020b7d4ecd9a442d89569e4b32.png">
+						</a>
+					</li>
+					<li>
+						<a href="http://www.shopxx.net" target="_blank" title="快钱" style="opacity: 0.5; ">
+							<img src="/upload/image/e031800c927440da85e19a879b2ff2e3.gif">
+						</a>
+					</li>
+					<li>
+						<a href="http://www.shopxx.net" target="_blank" title="支付宝" style="opacity: 0.5; ">
+							<img src="/upload/image/aee40e6e802844ac9f1298d55f25b7ac.png">
+						</a>
+					</li>
+					<li>
+						<a href="http://www.shopxx.net" target="_blank" title="财付通" style="opacity: 0.5; ">
+							<img src="/upload/image/563e652d5d61444aa5e53910fb876269.png">
+						</a>
+					</li>
+					<li>
+						<a href="http://www.shopxx.net" target="_blank" title="腾讯网" style="opacity: 0.5; ">
+							<img src="/upload/image/42a5edb5185f42ceb4467752203f411e.png">
+						</a>
+					</li>
+					<li>
+						<a href="http://www.shopxx.net" target="_blank" title="手机支付" style="opacity: 0.5; ">
+							<img src="/upload/image/d31dccedee60496d9d3f61394d0b9482.gif">
+						</a>
+					</li>
+			</ul>
+		</div>
+		<div class="right next"></div>
 	</div>
 	<div class="textFriendLink">
 		<div class="left"></div>
 		<div class="middle">
 			<ul>
-						<li>
-							<a href="http://www.shopxx.net" title="SHOP++官方网站" target="_blank">SHOP++官方网站</a>
-						</li>
-						<li>
-							<a href="http://bbs.shopxx.net" title="SHOP++官方论坛" target="_blank">SHOP++官方论坛</a>
-						</li>
-						<li>
-							<a href="http://www.pbc.gov.cn" title="中国人民银行" target="_blank">中国人民银行</a>
-						</li>
-						<li>
-							<a href="http://www.ccb.com" title="中国建设银行" target="_blank">中国建设银行</a>
-						</li>
-						<li>
-							<a href="http://www.icbc.com.cn" title="中国工商银行" target="_blank">中国工商银行</a>
-						</li>
-						<li>
-							<a href="https://www.tenpay.com" title="财付通" target="_blank">财付通</a>
-						</li>
-						<li>
-							<a href="https://cmpay.10086.cn" title="移动手机支付" target="_blank">移动手机支付</a>
-						</li>
-						<li>
-							<a href="https://www.99bill.com" title="快钱" target="_blank">快钱</a>
-						</li>
-						<li>
-							<a href="https://www.alipay.com" title="支付宝" target="_blank">支付宝</a>
-						</li>
-						<li>
-							<a href="http://www.ct10000.com" title="中国电信" target="_blank">中国电信</a>
-						</li>
+					<li>
+						<a href="http://demo.shopxx.net" target="_blank" title="SHOP++体验商城">SHOP++体验商城</a>
+					</li>
+					<li>
+						<a href="http://bbs.shopxx.net" target="_blank" title="SHOP++官方论坛">SHOP++官方论坛</a>
+					</li>
+					<li>
+						<a href="http://www.17daili.com" target="_blank" title="网店代理货源网">网店代理货源网</a>
+					</li>
+					<li>
+						<a href="http://www.lapss.com" target="_blank" title="商城系统">商城系统</a>
+					</li>
+					<li>
+						<a href="http://www.hxsk.net" target="_blank" title="遮天">遮天</a>
+					</li>
+					<li>
+						<a href="http://www.shopxx.net" target="_blank" title="中国工商银行">中国工商银行</a>
+					</li>
+					<li>
+						<a href="http://www.shopxx.net" target="_blank" title="中国建设银行">中国建设银行</a>
+					</li>
+					<li>
+						<a href="http://www.shopxx.net" target="_blank" title="支付宝">支付宝</a>
+					</li>
+					<li>
+						<a href="http://www.shopxx.net" target="_blank" title="财付通">财付通</a>
+					</li>
+					<li>
+						<a href="http://b.qq.com/" target="_blank" title="腾讯企业QQ">腾讯企业QQ</a>
+					</li>
+					<li>
+						<a href="http://www.shopxx.net" target="_blank" title="快钱">快钱</a>
+					</li>
 			</ul>
 		</div>
 		<div class="right"></div>
 	</div>
 </div>	</div>
 	<div class="blank"></div>
+<link href="/template/home/css/footer.css" type="text/css" rel="stylesheet">
 <div class="footer">
-	<div class="bottomNavigation">
-							<dl>
-					<dd>
-						<a href="/shop/article_list/questions.htm">常见问题</a>
-					</dd>
-					<dd>
-						<a href="/shop/article_list/privacy.htm">隐私申明</a>
-					</dd>
-					<dd>
-						<a href="/shop/article_list/terms.htm">交易条款</a>
-					</dd>
-					</dl>
-					<dl>
-					<dd>
-						<a href="/shop/article_list/newbie.htm">新手上路</a>
-					</dd>
-					<dd>
-						<a href="/shop/article_list/payment.htm">支付方式</a>
-					</dd>
-					<dd>
-						<a href="/shop/article_list/shipping_method.htm">配送方式</a>
-					</dd>
-					</dl>
-					<dl>
-					<dd>
-						<a href="/shop/article_list/service.htm">售后服务</a>
-					</dd>
-					<dd>
-						<a href="/shop/article_list/service_guarantee.htm">服务保证</a>
-					</dd>
-					<dd>
-						<a href="/shop/article_list/website_system.htm">网站制度</a>
-					</dd>
-					</dl>
-					<dl>
-					<dd>
-						<a href="/shop/article_list/about_us.htm">关于我们</a>
-					</dd>
-					<dd>
-						<a href="/shop/article_list/help.htm">帮助中心</a>
-					</dd>
-					<dd>
-						<a href="/shop/article_list/shopping_guide.htm">购物指南</a>
-					</dd>
-					</dl>
-	</div>
 	<div class="footerInfo">
 		<ul>
-			<li><a href="#">关于商城</a>|</li>
-			<li><a href="#">帮助中心</a>|</li>
-			<li><a href="#">网站地图</a>|</li>
-			<li><a href="#">诚聘英才</a>|</li>
-			<li><a href="#">联系我们</a>|</li>
-			<li><a href="#">版权说明</a></li>
+			<li><a href="/about.html">产品介绍</a> | </li>
+			<li><a href="/company.html">公司简介</a> | </li>
+			<li><a href="/contact.html">联系我们</a> | </li>
+			<li><a href="/hr.html">诚聘英才</a> | </li>
+			<li><a href="/pay.html">支付方式</a> | </li>
+			<li><a href="/legal.html">法律声明</a> | </li>
+			<li><a href="/license/">许可协议</a> | </li>
+			<li><a href="/link.html">友情链接</a></li>
 		</ul>
-		<p>Copyright © 2011 SHOP++. All rights reserved. 长沙鼎诚软件有限公司</p>
-			<p>Powered by <a class="systemName" href="http://www.shopxx.net" target="_blank">SHOP<span>++</span> V2.0</a></p>
+		<p>ICP备案许可证号: 湘ICP备10003747号&nbsp;&nbsp;&nbsp;&nbsp;Copyright 2011 SHOP++. All Rights Reserved.   长沙鼎诚软件有限公司</p>
+		<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F96cff931eaf40ae9073c5935cb9ae3b3' type='text/javascript'%3E%3C/script%3E"));
+		</script><script src=" http://hm.baidu.com/h.js?96cff931eaf40ae9073c5935cb9ae3b3" type="text/javascript"></script>
+		<span style="display: none;">
+			<script type="text/javascript">
+				var locationUrl = escape(document.location.href);     document.write(unescape("%3Cscript")+" charset='utf-8' src='http://union.rising.com.cn//InfoManage/TrojanInspect.aspx?p1=N2PmKkcKwdKdHNynIYMiCzO1ARPSeGLH&p2=R9CB3KuISh4=&p3=N2PmKkcKwdKdHNynIYMiCxS3Cb5M9fu4&url="+ locationUrl  + "' type='text/javascript'"+unescape("%3E%3C/script%3E"));
+			</script><script charset="utf-8" src="http://union.rising.com.cn//InfoManage/TrojanInspect.aspx?p1=N2PmKkcKwdKdHNynIYMiCzO1ARPSeGLH&amp;p2=R9CB3KuISh4=&amp;p3=N2PmKkcKwdKdHNynIYMiCxS3Cb5M9fu4&amp;url=http%3A//www.shopxx.net/" type="text/javascript"></script><a target="_blank" href="http://union.rising.com.cn/InfoManage/attestation.aspx?p0=N2PmKkcKwdKdHNynIYMiCzO1ARPSeGLH"><img src="http://union.rising.com.cn/images/tdflagx1.gif" alt="您访问的网站目前没有发现被挂马行为" title="您访问的网站目前没有发现被挂马行为" style="border:0px;"></a>
+		</span>
+		<p>
+			<a href="http://www.51honest.org/fiveIndex.credit?action=preLevel&amp;creditCode=9992324110143099" target="_blank">
+				<img src="/upload/image/51honest.gif" alt="国家商务部授权预评级">
+			</a>
+			<a href="http://open.soft.360.cn/zhengshu.htm?id=140281" target="_blank">
+				<img src="/upload/image/360.gif" alt="360软件安全认证">
+			</a>
+			<a href="http://union.rising.com.cn/InfoManage/attestation.aspx?p0=N2PmKkcKwdKdHNynIYMiCzO1ARPSeGLH" target="_blank">
+				<img src="/upload/image/rising.gif" alt="瑞星云安全网站联盟认证">
+			</a>
+			<a href="http://net.china.com.cn" target="_blank">
+				<img src="/upload/image/china.gif" alt="中国互联网违法和不良信息举报中心">
+			</a>
+		</p>
 	</div>
 </div>
-	<%--<script type="text/javascript" src="<%=path %>/shop/js/jquery.js"></script>
-	--%>
-	<script type="text/javascript" src="<%=path %>/shop/js/jquery.tools.js"></script>
-	<script type="text/javascript" src="<%=path %>/shop/js/base.js"></script>
-	<script type="text/javascript" src="<%=path %>/shop/js/shop.js"></script>
-
- <div id="instantMessagingLayer" class="instantMessagingLayer rightInstantMessagingLayer" style="display: block; top: 155px; ">
- <div id="instantMessagingMin" class="instantMessagingMin"></div>
- <div id="instantMessagingMain" class="instantMessagingMain">
- 	<div class="top"></div>
- 	<div class="middle">
- 		<dl>
- 			<dt>7 × 24小时服务</dt>
- 			<dd>
- 				<a href="http://wpa.qq.com/msgrd?v=3&amp;uin=在线客服1&amp;site=SHOPXX_NET&amp;menu=yes" target="_blank">
- 					<img src="http://wpa.qq.com/pa?p=2:在线客服1:45" alt="QQ在线客服" align="absmiddle"> 在线客服1
- 				</a>
- 			</dd>
- 			<dd>
- 				<a href="http://wpa.qq.com/msgrd?v=3&amp;uin=在线客服2&amp;site=SHOPXX_NET&amp;menu=yes" target="_blank">
- 					<img src="http://wpa.qq.com/pa?p=2:在线客服2:45" alt="QQ在线客服" align="absmiddle"> 在线客服2 
- 				</a>
- 			</dd>
- 			<dd>
- 				<a href="http://wpa.qq.com/msgrd?v=3&amp;uin=在线客服3&amp;site=SHOPXX_NET&amp;menu=yes" target="_blank">
- 					<img src="http://wpa.qq.com/pa?p=2:在线客服3:45" alt="QQ在线客服" align="absmiddle"> 在线客服3 
- 				</a>
- 			</dd>
- 			<dd>
- 				<a href="msnim:chat?contact=在线客服4" target="_blank">
- 					<img src="<%=path %>/shop/images/instant_messaging_msn.gif" alt="MSN在线客服" align="absmiddle"> 在线客服4
- 				</a>
- 			</dd>
- 			<dd>
- 				<a href="msnim:chat?contact=在线客服5" target="_blank">
- 					<img src="<%=path %>/shop/images/instant_messaging_msn.gif" alt="MSN在线客服" align="absmiddle"> 在线客服5
- 				</a>
- 			</dd>
- 			<dd>
- 				<a href="http://amos1.taobao.com/msg.ww?v=2&amp;uid=在线客服6&amp;s=2" target="_blank">
- 					<img src="<%=path %>/shop/images/instant_messaging_wangwang.gif" alt="旺旺在线客服" align="absmiddle"> 在线客服6
- 				</a>
- 			</dd>
- 			<dd>
- 				<a href="callto://在线客服7" target="_blank">
- 					<img src="<%=path %>/shop/images/instant_messaging_skype.gif" alt="Skype在线客服" align="absmiddle"> 在线客服7
- 				</a>
- 			</dd>
- 		</dl>
- 	</div>
- 	<div id="closeInstantMessagingMain" class="bottom" title="关 闭"></div>
- 	</div>
- </div>
-</body>
-</html>
+<script type="text/javascript" src="http://static.b.qq.com/account/bizqq/js/wpa.js?type=13&amp;kfuin=4000007477&amp;ws=www.shopxx.net&amp;title=&amp;cot1=%E5%91%A8%E4%B8%80%20%E8%87%B3%20%E5%91%A8%E5%85%AD%0A08%3A30%20-%2017%3A30&amp;btn1=%E7%AB%8B%E5%88%BB%E5%92%A8%E8%AF%A2&amp;fsty=0&amp;fposX=2&amp;fposY=1&amp;tx=2&amp;aty=0&amp;a=" tag="isInit"></script><div style="z-index: 88888888; left: auto; right: 8px; margin-left: 0px; bottom: auto; position: absolute; margin-top: 0px; display: block; top: 177.5px; "><iframe id="__WPA_Iframe__" frameborder="0" scrolling="no" width="138" height="320" src="http://static.b.qq.com/account/bizqq/wpa/wpa_b04.html?type=13&amp;kfuin=4000007477&amp;ws=www.shopxx.net&amp;title=&amp;cot1=%E5%91%A8%E4%B8%80%20%E8%87%B3%20%E5%91%A8%E5%85%AD%0A08%3A30%20-%2017%3A30&amp;btn1=%E7%AB%8B%E5%88%BB%E5%92%A8%E8%AF%A2&amp;fsty=0&amp;fposX=2&amp;fposY=1&amp;tx=2&amp;aty=0&amp;a="></iframe><div id="__WPA_CLOSEBTN__" style="display: block; width: 39px; height: 18px; position: absolute; top: 6px; right: 10px; cursor: pointer; "></div></div>
+</body></html>
