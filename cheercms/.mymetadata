@@ -3,7 +3,7 @@
   type="WEB"
   name="cheercms"
   id="myeclipse.1337259727743"
-  context-root="/ROOT"
+  context-root="/cheercms"
   j2ee-spec="5.0"
   archive="cheercms.war">
   <attributes>
