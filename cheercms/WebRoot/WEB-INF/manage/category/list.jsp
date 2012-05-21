@@ -14,7 +14,7 @@
 	<div class="body">
 		<form id="listForm" action="<%=path %>/admin/list" method="post">
 			<div class="listBar">
-				<input type="button" class="formButton" onclick="location.href='<%=path %>/admin/add'" value="添加管理员" hidefocus="">
+				<input type="button" class="formButton" onclick="location.href='<%=path %>/category/add'" value="添加分类" hidefocus="">
 				&nbsp;&nbsp;
 				<select name="pager.searchBy">
 					<option value="username">

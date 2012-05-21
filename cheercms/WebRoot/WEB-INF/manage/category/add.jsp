@@ -85,6 +85,49 @@ $().ready( function() {
 </script>
 </head>
 <body class="input admin">
-	添加分类
+	<div class="bar">
+		添加分类
+	</div>
+	<div id="validateErrorContainer" class="validateErrorContainer">
+		<div class="validateErrorTitle">以下信息填写有误,请重新填写</div>
+		<ul></ul>
+	</div>
+	<div class="body">
+		<form id="validateForm1" action="<%=path %>/category/save" method="post">
+			<%--<input type="hidden" name="id" value="0">
+			--%>
+			<ul id="tab" class="tab">
+				<li>
+					<input type="button" value="基本信息" hidefocus="" class="current">
+				</li>
+				<li>
+					<input type="button" value="个人资料" hidefocus="" class="">
+				</li>
+			</ul>
+			<table class="inputTable tabContent" style="display: table; ">
+				<tbody><tr>
+					<th>
+						分类名: 
+					</th>
+					<td>
+							<input type="text" name="categoryname" class="formText" title="用户名只允许包含中文、英文、数字和下划线">
+							<label class="requireField">*</label>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						级别: 
+					</th>
+					<td>
+						<input type="text" name="classes"  class="formText" title="密码长度只允许在4-20之间">
+						<label class="requireField">*</label>
+					</td>
+				</tr>
+			<div class="buttonArea">
+				<input type="submit" class="formButton" value="确  定" hidefocus="">&nbsp;&nbsp;
+				<input type="button" class="formButton" onclick="window.history.back(); return false;" value="返  回" hidefocus="">
+			</div>
+		</form>
+	</div>
 
 </body></html>
