@@ -21,7 +21,7 @@
 						<a href="article!list.action" target="mainFrame">文章管理</a>
 					</dd>
 					<dd>
-						<a href="article_category!list.action" target="mainFrame">文章分类</a>
+						<a href="../category/list" target="mainFrame">文章分类</a>
 					</dd>
 					<dd>
 						<a href="friend_link!list.action" target="mainFrame">友情链接</a>
