@@ -50,11 +50,6 @@ public class AdminController {
     @RequestMapping(value = "/admin/save", method = {RequestMethod.POST})
     public String save(@ModelAttribute("admin") Admin admin, HttpServletRequest request) {
         
-        admin.setCreateDate(new Date());
-        admin.setLoginDate(new Date());
-        String loginIp = request.getRemoteAddr();
-        admin.setLoginIp(loginIp);
-        
         adminService.save(admin);
         return "redirect:/admin/list";
     }
@@ -71,15 +66,7 @@ public class AdminController {
     @RequestMapping(value = "/admin/update", method = {RequestMethod.POST})
     public String update(@ModelAttribute("admin") Admin admin, HttpServletRequest request) {
         
-    	Admin admin1 = adminService.find(admin.getId());
-    	
-    	logger.info(admin1.toString());
-    	
-    	admin1.setCreateDate(admin.getCreateDate());
-    	admin1.setLoginDate(admin.getLoginDate());
-    	admin1.setLoginIp(admin.getLoginIp());
-    	
-    	adminService.update(admin1);
+    	adminService.update(admin);
         return "redirect:/admin/list";
     }
     

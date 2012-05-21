@@ -56,15 +56,7 @@ public class Admin {
     
     private String department;
     
-    @DateFormat( message="{register.date.error}")//自定义的验证器
-    private Date loginDate;
-    
-    private String loginIp;
-    
     private boolean isAccountEnabled;
-    
-    @DateFormat( message="{register.date.error}")//自定义的验证器
-    private Date createDate;
     
 	public int getId() {
 		return id;
@@ -106,30 +98,6 @@ public class Admin {
 		this.department = department;
 	}
 
-	public Date getLoginDate() {
-		return loginDate;
-	}
-
-	public void setLoginDate(Date loginDate) {
-		this.loginDate = loginDate;
-	}
-
-	public String getLoginIp() {
-		return loginIp;
-	}
-
-	public void setLoginIp(String loginIp) {
-		this.loginIp = loginIp;
-	}
-
-	public Date getCreateDate() {
-		return createDate;
-	}
-
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
-
 	public String getEmail() {
 		return email;
 	}
@@ -159,11 +127,4 @@ public class Admin {
         return true;
     }
 
-	@Override
-	public String toString() {
-		
-		return "username:" + this.username + "createDate:" + this.createDate;
-	}
-	
-	
 }
