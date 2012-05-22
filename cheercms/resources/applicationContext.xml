@@ -62,12 +62,13 @@
 		--></tx:attributes>
 	</tx:advice>
 	
+	<bean name="openEntityManagerInViewInterceptor" class="org.springframework.orm.jpa.support.OpenEntityManagerInViewInterceptor">  
+	    <property name="entityManagerFactory">  
+	        <ref bean="entityManagerFactory" />  
+	    </property>
+	</bean>
+	
 	<!-- 配置哪些类哪些方法使用事务 -->
- 
-	<!--<aop:config>
-		<aop:advisor advice-ref="txAdvice" pointcut="execution(* edu.bupt.service.*.*.*(..))" />
-	</aop:config>
-	-->
 	<aop:config>
         <!-- 只对业务逻辑层实施事务 -->
         <aop:pointcut id="txPointcut" expression="execution(* edu.bupt.spring.service.*.*(..))" />

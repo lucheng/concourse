@@ -84,7 +84,7 @@
 			<ul></ul>
 		</div>
 		<div class="body">
-			<form id="validateForm" action="/category/save" method="post">
+			<form id="validateForm" action="<%=path %>/category/save" method="post">
 				
 				<c:if test="${entity != null}">
 					<input type="hidden" name="id" value="${entry.id}">

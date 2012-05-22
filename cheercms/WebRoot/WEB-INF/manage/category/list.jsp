@@ -2,6 +2,7 @@
 <%@ include file="../../inc/header.jsp"%>
 <html>
 <head>
+	<base href="<%=basePath%>">
 	<title>文章分类列表 - Powered By SHOP++</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="Author" content="SHOP++ Team">
@@ -77,7 +78,7 @@
 									</span>
 							</td>
 							<td>
-								${entry.listOrder}
+								${entry.orderList}
 							</td>
 							<td>
 								<a href="/shop/article_list/about_us.htm" target="_blank" title="浏览">[浏览]</a>
@@ -85,24 +86,24 @@
 								<a href="/category/edit/${entry.id}" title="编辑">[编辑]</a>
 							</td>
 						</tr>
-							<c:forEach items="entry.childrens" var="child">
-							<tr grade="1">
-								<td class="articleCategoryName">
-										<span class="pointer category" style="margin-left: 20px;">
-											${child.name}
-										</span>
-								</td>
-								<td>
-									${child.listOrder}
-								</td>
-								<td>
-									<a href="/shop/article_list/terms.htm" target="_blank" title="浏览">[浏览]</a>
-										<a href="/category/delete/${child.id}" class="deleteArticleCategory" title="删除">[删除]</a>
-									<a href="/category/edit/${child.id}" title="编辑">[编辑]</a>
-								</td>
-							</tr>
+							<c:forEach items="${entry.children}" var="child">
+								<tr grade="1">
+									<td class="articleCategoryName">
+											<span class="pointer category" style="margin-left: 20px;">
+												${child.name}
+											</span>
+									</td>
+									<td>
+										${child.orderList}
+									</td>
+									<td>
+										<a href="/shop/article_list/terms.htm" target="_blank" title="浏览">[浏览]</a>
+											<a href="/category/delete/${child.id}" class="deleteArticleCategory" title="删除">[删除]</a>
+										<a href="/category/edit/${child.id}" title="编辑">[编辑]</a>
+									</td>
+								</tr>
 							</c:forEach>
-						</c:forEach>
+						</c:forEach>	
 					</tbody>
 				</table>
 			</form>
