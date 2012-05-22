@@ -21,7 +21,6 @@ import edu.fudan.ml.types.Instance;
 import edu.fudan.ml.types.LabelAlphabet;
 import edu.fudan.nlp.pipe.Pipe;
 import edu.fudan.nlp.pipe.PreTokenByDict;
-import edu.fudan.nlp.pipe.Sequence2FeatureSequence;
 import edu.fudan.nlp.pipe.Sequence2FeatureSequence_Dict;
 import edu.fudan.nlp.pipe.SeriesPipes;
 import edu.fudan.nlp.tag.Format.Seq2String;
