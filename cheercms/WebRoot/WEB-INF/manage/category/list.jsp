@@ -70,7 +70,7 @@
 								<span>操作</span>
 							</th>
 						</tr>
-						<c:forEach items="${pageView.records}" var="entry">
+						<c:forEach items="${entity}" var="entry">
 						<tr grade="0">
 							<td class="articleCategoryName">
 									<span class="pointer firstCategory" style="margin-left: 0px;">

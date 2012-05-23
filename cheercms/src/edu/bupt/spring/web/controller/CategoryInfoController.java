@@ -38,11 +38,12 @@ public class CategoryInfoController extends BaseController{
 	@RequestMapping(value = "/category/list")
     public ModelAndView list(HttpServletRequest request){
 		
-		PageView<CategoryInfo> pageView = new PageView<CategoryInfo>(10, page);
-		QueryResult<CategoryInfo> qr = categoryInfoService.getScrollData(pageView.getFirstResult(), pageView.getMaxresult(), jpql.toString(), queryParams.toArray(), orderby);
-		pageView.setQueryResult(qr);
+		/*PageView<CategoryInfo> pageView = new PageView<CategoryInfo>(100, page);
+		QueryResult<CategoryInfo> qr = categoryInfoService.getScrollData(pageView.getFirstResult(), pageView.getMaxresult(), " o.parent is null", queryParams.toArray(), orderby);
+		pageView.setQueryResult(qr);*/
 		
-		return new ModelAndView("category/list").addObject("pageView",pageView);
+		
+		return new ModelAndView("category/list").addObject("entity", categoryInfoService.findFirdLevel());
     }
     
     @RequestMapping(value = "/category/add")

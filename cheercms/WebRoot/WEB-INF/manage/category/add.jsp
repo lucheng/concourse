@@ -108,9 +108,10 @@
 									<option value="">顶级分类</option>
 									<c:forEach items="${parentCategories}" var="parent">
 										<option value="${parent.id}">${parent.name}</option>
-										<c:forEach items="${parent.children}" var="child">
+										<%--<c:forEach items="${parent.children}" var="child">
 											<option value="${child.id}">${child.name}</option>
 										</c:forEach>
+									--%>
 									</c:forEach>
 								</select>
 						</td>
