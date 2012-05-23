@@ -106,46 +106,11 @@
 						<td>
 								<select name="parentId">
 									<option value="">顶级分类</option>
-										<option value="4028818330556c7c0130558322ad0015">
-											关于我们
-										</option>
-										<option value="402881833054c381013054ef39bf0006">
-											网站制度
-										</option>
-										<option value="402881833054a24b013054aff8e0000f">
-											服务保证
-										</option>
-										<option value="402881833054a24b013054b1eadd0015">
-											售后服务
-										</option>
-										<option value="402881833054a24b013054b1326a0011">
-											配送方式
-										</option>
-										<option value="402881833054a24b013054b18d5b0013">
-											支付方式
-										</option>
-										<option value="402881833054a24b013054ae2818000d">
-											购物指南
-										</option>
-										<option value="402881833054a24b013054b43b26001a">
-													&nbsp;&nbsp;
-											新手上路
-										</option>
-										<option value="402881833054a24b013054b33a010017">
-													&nbsp;&nbsp;
-											交易条款
-										</option>
-										<option value="402881833054a24b013054b63976001c">
-											帮助中心
-										</option>
-										<option value="402881833054a24b013054bb054e002a">
-													&nbsp;&nbsp;
-											隐私申明
-										</option>
-										<option value="402881833054a24b013054b928030025">
-													&nbsp;&nbsp;
-											常见问题
-										</option>
+									<c:forEach items="${entity.parent}" var="parent">
+										<c:forEach items="${parent.children}" var="children">
+											<option value="${children.parentId}">${children.name}</option>
+										</c:forEach>
+									</c:forEach>
 								</select>
 						</td>
 					</tr>
