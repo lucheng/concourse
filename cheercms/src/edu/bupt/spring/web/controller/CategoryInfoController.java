@@ -70,8 +70,9 @@ public class CategoryInfoController extends BaseController{
     public String edit(@PathVariable Integer id, HttpServletRequest request) {
         
     	CategoryInfo category = categoryInfoService.find(id);
-    	logger.info(category.toString());
+    	 
         request.setAttribute("entity", category);
+        request.setAttribute("parentCategories", categoryInfoService.findFirdLevel());
         return "category/add";
     }
     
