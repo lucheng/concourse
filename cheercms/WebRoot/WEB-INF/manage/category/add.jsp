@@ -106,13 +106,14 @@
 						<td>
 								<select name="parentId">
 									<option value="">顶级分类</option>
-									<c:forEach items="${parentCategories}" var="parent">
-										<option value="${parent.id}">${parent.name}</option>
+									<c:forEach items="${parentCategories}" var="parent" >
+										<option value="${parent.id}" <c:if test="${entity.parent.id == parent.id}"> selected="selected"</c:if> >${parent.name}</option>
 										<%--<c:forEach items="${parent.children}" var="child">
 											<option value="${child.id}">${child.name}</option>
 										</c:forEach>
 									--%>
 									</c:forEach>
+								
 								</select>
 						</td>
 					</tr>

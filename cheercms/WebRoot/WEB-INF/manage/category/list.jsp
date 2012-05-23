@@ -99,7 +99,7 @@
 									<td>
 										<a href="/shop/article_list/terms.htm" target="_blank" title="浏览">[浏览]</a>
 											<a href="/category/delete/${child.id}" class="deleteArticleCategory" title="删除">[删除]</a>
-										<a href="/category/edit/${child.id}" title="编辑">[编辑]</a>
+										<a href="<%=path%>/category/edit/${child.id}" title="编辑">[编辑]</a>
 									</td>
 								</tr>
 							</c:forEach>
