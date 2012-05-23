@@ -109,7 +109,7 @@
 									<c:forEach items="${entity}" var="parent">
 										<option value="${parent.id}">${parent.name}</option>
 										<c:forEach items="${parent.children}" var="child">
-											<option value="${children.id}">${children.name}</option>
+											<option value="${child.id}">${child.name}</option>
 										</c:forEach>
 									</c:forEach>
 								</select>
