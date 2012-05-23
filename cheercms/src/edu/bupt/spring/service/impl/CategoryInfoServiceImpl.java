@@ -18,6 +18,11 @@ public class CategoryInfoServiceImpl extends DaoSupport<CategoryInfo> implements
 		return query.getResultList();
 	}
 
+	public List<CategoryInfo> findFirdLevel() {
+		Query query = em.createQuery("select o from CategoryInfo o where o.parent is null");
+		return query.getResultList();
+	}
+
 	
 
 }

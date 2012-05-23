@@ -106,7 +106,7 @@
 						<td>
 								<select name="parentId">
 									<option value="">顶级分类</option>
-									<c:forEach items="${entity}" var="parent">
+									<c:forEach items="${parentCategories}" var="parent">
 										<option value="${parent.id}">${parent.name}</option>
 										<c:forEach items="${parent.children}" var="child">
 											<option value="${child.id}">${child.name}</option>

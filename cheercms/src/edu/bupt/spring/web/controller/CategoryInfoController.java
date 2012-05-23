@@ -46,14 +46,18 @@ public class CategoryInfoController extends BaseController{
     }
     
     @RequestMapping(value = "/category/add")
-    public String add(Model model){
+    public ModelAndView add(){
         
-    	return "category/add";
+    	return new ModelAndView("category/add").addObject("parentCategories", categoryInfoService.findFirdLevel());
     }
     
     @RequestMapping(value = "/category/save", method = {RequestMethod.POST})
-    public String save(@ModelAttribute("category") CategoryInfo category, HttpServletRequest request) {
-        if(category.getId() > 0){
+    public String save(@ModelAttribute("category") CategoryInfo category, @ModelAttribute("parentId")int parentId, HttpServletRequest request) {
+        
+    	CategoryInfo parent = categoryInfoService.find(parentId);
+    	category.setParent(parent);
+    	
+    	if(category.getId() > 0){
         	categoryInfoService.update(category);
         }else {
         	categoryInfoService.save(category);

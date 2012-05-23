@@ -3,8 +3,6 @@ package edu.bupt.spring.service;
 import java.util.List;
 
 import edu.bupt.spring.base.DAO;
-import edu.bupt.spring.entity.Admin;
-import edu.bupt.spring.entity.ClassInfo;
 import edu.bupt.spring.entity.CategoryInfo;
 
 /**
@@ -16,4 +14,5 @@ import edu.bupt.spring.entity.CategoryInfo;
 public interface CategoryInfoService extends DAO<CategoryInfo> {
 
 	public List<CategoryInfo> findAll();
+	public List<CategoryInfo> findFirdLevel();
 }
