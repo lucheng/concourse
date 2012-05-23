@@ -10,8 +10,6 @@ import org.springframework.validation.BindException;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractCommandController;
 
-import edu.bupt.spring.entity.Student;
-
 /**
  * @@org.springframework.web.servlet.handler.commonsattributes.PathMap("/home.mvc");
  */
@@ -24,7 +22,7 @@ public class FreemarkerHomeController extends AbstractCommandController {
 		return null;
 	}
 
-	protected ModelAndView handleRequestInternal(HttpServletRequest arg0,
+	/*protected ModelAndView handleRequestInternal(HttpServletRequest arg0,
 			HttpServletResponse arg1) throws Exception {
 		Student stu1 = new Student();
 		stu1.setName("gaoxiang1");
@@ -35,6 +33,6 @@ public class FreemarkerHomeController extends AbstractCommandController {
 		a.add(stu2);
 		System.out.println(a);
 		return new ModelAndView("success", "studentList", a);
-	}
+	}*/
 
 }

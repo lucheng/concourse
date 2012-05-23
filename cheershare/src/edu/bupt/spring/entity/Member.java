@@ -1,71 +1,63 @@
 package edu.bupt.spring.entity;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
-
-import edu.bupt.spring.web.validator.DateFormat;
 
 /**
- * 
+ * 用户表
  * @author linzhe
  * @date   2012-5-17
  * @email  m23linzhe@gmail.com
  */
 @Entity
-@Table(name = "share_admin")
+@Table(name = "share_member")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Admin {
+public class Member {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
+	
     private int id;
-    
-    @Pattern(regexp = "[A-Za-z0-9]{5,20}", message = "{username.illegal}") //java validator验证（用户名字母数字组成，长度为5-10）
     private String username;
-    
-//    @Pattern(regexp = "[A-Za-z0-9]{5,20}", message = "{username.illegal}") 
     private String name;
-    
-    @Pattern(regexp = "[A-Za-z0-9]{5,20}", message = "{password.illegal}") 
     private String password;
-    
-    @NotNull
-    @Size(min = 1, max = 255)
-    @NotEmpty(message = "{email.illegal}")
-    @Email(message = "{email.illegal}") //错误消息会自动到MessageSource中查找
     private String email;
-    
     private String department;
     
-    @DateFormat( message="{register.date.error}")//自定义的验证器
     private Date loginDate;
-    
     private String loginIp;
-    
     private boolean isAccountEnabled;
-    
-    @DateFormat( message="{register.date.error}")//自定义的验证器
     private Date createDate;
     
+    private Set<Comment> comments = new HashSet<Comment>();
+    
+	private Set<Member> owners = new HashSet<Member>();
+    private Set<Member> fans = new HashSet<Member>();
+    
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
 	public int getId() {
 		return id;
 	}
@@ -146,24 +138,37 @@ public class Admin {
 		this.isAccountEnabled = isAccountEnabled;
 	}
 
-	public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Admin other = (Admin) obj;
-        if (id != other.id)
-            return false;
-        return true;
-    }
+	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy="member")
+	public Set<Comment> getComments() {
+		return comments;
+	}
 
-	@Override
-	public String toString() {
-		
-		return "username:" + this.username + "createDate:" + this.createDate;
+	public void setComments(Set<Comment> comments) {
+		this.comments = comments;
 	}
 	
+	/***********************************/
+	/**** id owner_id fans_id ********/
+	/**********************************/
 	
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(name = "share_owner_fans", joinColumns = { @JoinColumn(name ="owner_id" )}, inverseJoinColumns = { @JoinColumn(name = "fans_id") })
+    @OrderBy("id")
+	public Set<Member> getOwners() {
+		return owners;
+	}
+
+	public void setOwners(Set<Member> owners) {
+		this.owners = owners;
+	}
+	
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "owners", fetch = FetchType.LAZY)
+	public Set<Member> getFans() {
+		return fans;
+	}
+
+	public void setFans(Set<Member> fans) {
+		this.fans = fans;
+	}
+
 }

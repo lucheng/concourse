@@ -3,7 +3,7 @@ package edu.bupt.spring.test;
 import java.util.HashMap;
 import java.util.Map;
 
-import edu.bupt.spring.entity.Student;
+import edu.bupt.spring.entity.Product;
 import edu.bupt.spring.utils.FreeMarkertUtil;
 
 /**
@@ -18,7 +18,7 @@ import edu.bupt.spring.utils.FreeMarkertUtil;
 public class CreateHtmlTest {
 	public static void main(String[] args) {
 		
-		Student content = new Student();
+		Product content = new Product();
 		content.setName("张三");
 		Map<String, Object> root = new HashMap<String, Object>();
 		root.put("content", content);

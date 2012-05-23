@@ -1,7 +1,5 @@
 package edu.bupt.spring.entity;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,27 +7,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
-
-import edu.bupt.spring.web.validator.DateFormat;
 
 /**
  * 
- * @author linzhe
- * @date   2012-5-17
- * @email  m23linzhe@gmail.com
+ * @author  linzhe
+ * @Date    2012-5-23
+ * @email   m23linzhe@gmail.com
+ * @qq      398024808
+ * @version 1.0
+ *
  */
 @Entity
-@Table(name = "share_brand")
+@Table(name = "share_setting")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Brand {
+public class Setting {
 	/**
 	 * 
 	 */
@@ -49,8 +44,6 @@ public class Brand {
     private String url;
     
     private String logoPath;
-    
-    private int orderList;
     
 	public int getId() {
 		return id;
@@ -92,11 +85,4 @@ public class Brand {
 		this.logoPath = logoPath;
 	}
 
-	public int getOrderList() {
-		return orderList;
-	}
-
-	public void setOrderList(int orderList) {
-		this.orderList = orderList;
-	}
 }
