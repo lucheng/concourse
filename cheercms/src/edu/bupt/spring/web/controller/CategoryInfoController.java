@@ -54,9 +54,9 @@ public class CategoryInfoController extends BaseController{
     @RequestMapping(value = "/category/save", method = {RequestMethod.POST})
     public String save(@ModelAttribute("category") CategoryInfo category, HttpServletRequest request) {
         if(category.getId() > 0){
-        	categoryInfoService.save(category);
-        }else {
         	categoryInfoService.update(category);
+        }else {
+        	categoryInfoService.save(category);
         }
         return "redirect:/category/list";
     }
@@ -67,13 +67,20 @@ public class CategoryInfoController extends BaseController{
     	CategoryInfo category = categoryInfoService.find(id);
     	logger.info(category.toString());
         request.setAttribute("entity", category);
-        return "category/edit";
+        return "category/add";
     }
     
     @RequestMapping(value = "/category/update", method = {RequestMethod.POST})
     public String update(@ModelAttribute("category") CategoryInfo category, HttpServletRequest request) {
         
     	categoryInfoService.update(category);
+        return "redirect:/category/list";
+    }
+    
+    @RequestMapping(value = "/category/delete/{id}", method = {RequestMethod.GET})
+    public String delete(@ModelAttribute("category") CategoryInfo category, HttpServletRequest request) {
+        
+    	categoryInfoService.delete(category.getId());
         return "redirect:/category/list";
     }
     

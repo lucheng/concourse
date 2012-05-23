@@ -82,8 +82,8 @@
 							</td>
 							<td>
 								<a href="/shop/article_list/about_us.htm" target="_blank" title="浏览">[浏览]</a>
-									<a href="/category/delete/${entry.id}" class="deleteArticleCategory" title="删除">[删除]</a>
-								<a href="/category/edit/${entry.id}" title="编辑">[编辑]</a>
+									<a href="<%=path%>/category/delete/${entry.id}" class="deleteArticleCategory" title="删除">[删除]</a>
+								<a href="<%=path%>/category/edit/${entry.id}" title="编辑">[编辑]</a>
 							</td>
 						</tr>
 							<c:forEach items="${entry.children}" var="child">

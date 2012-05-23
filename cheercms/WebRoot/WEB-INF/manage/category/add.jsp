@@ -77,7 +77,7 @@
 	</head>
 	<body class="input">
 		<div class="bar">
-			添加文章分类
+			添加分类
 		</div>
 		<div id="validateErrorContainer" class="validateErrorContainer">
 			<div class="validateErrorTitle">以下信息填写有误,请重新填写</div>
@@ -87,7 +87,7 @@
 			<form id="validateForm" action="<%=path %>/category/save" method="post">
 				
 				<c:if test="${entity != null}">
-					<input type="hidden" name="id" value="${entry.id}">
+					<input type="hidden" name="id" value="${entity.id}">
 				</c:if>
 				<table class="inputTable">
 					<tbody><tr>
@@ -95,7 +95,7 @@
 							分类名称: 
 						</th>
 						<td>
-							<input type="text" id="articleCategoryName" name="name" class="formText" value="${entry.name}">
+							<input type="text" id="articleCategoryName" name="name" class="formText" value="${entity.name}">
 							<label class="requireField">*</label>
 						</td>
 					</tr>
@@ -151,28 +151,10 @@
 					</tr>
 					<tr>
 						<th>
-							标识: 
-						</th>
-						<td>
-							<input type="text" id="articleCategorySign" name="articleCategory.sign" class="formText" value="" title="该分类的唯一标识，用于分类路径和模板标识">
-							<label class="requireField">*</label>
-							<span id="articleCategorySignLoadingIcon" class="loadingIcon hidden">&nbsp;</span>
-						</td>
-					</tr>
-					<tr>
-						<th>
 							排序: 
 						</th>
 						<td>
-							<input type="text" name="articleCategory.orderList" class="formText" value="" title="只允许输入零或正整数">
-						</td>
-					</tr>
-					<tr>
-						<th>
-							页面关键词: 
-						</th>
-						<td>
-							<input type="text" class="formText" name="articleCategory.metaKeywords" value="">
+							<input type="text" name="orderList" class="formText" value="${entity.orderList}" title="只允许输入零或正整数">
 						</td>
 					</tr>
 					<tr>
@@ -193,7 +175,7 @@
 					</tr>
 				</tbody></table>
 				<div class="buttonArea">
-					<input type="submit" class="formButton" value="确  定" hidefocus="">&nbsp;&nbsp;
+					<input type="submit" class="formButton" value="确  定" >&nbsp;&nbsp;
 					<input type="button" class="formButton" onclick="window.history.back(); return false;" value="返  回" hidefocus="">
 				</div>
 			</form>
