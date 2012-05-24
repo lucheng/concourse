@@ -79,7 +79,7 @@ public class Article {
 	}
 	
 	@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
-	@JoinColumn(name="parentid")	
+	@JoinColumn(name="category_id")	
 	public CategoryInfo getCategory() {
 		return category;
 	}

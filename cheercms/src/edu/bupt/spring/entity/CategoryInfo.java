@@ -85,7 +85,7 @@ public class CategoryInfo {
 	
 	
 	@OneToMany(cascade = { CascadeType.PERSIST, CascadeType.REFRESH,  
-            CascadeType.MERGE, CascadeType.REMOVE }, fetch = FetchType.EAGER,   
+            CascadeType.MERGE, CascadeType.REMOVE }, fetch = FetchType.LAZY,   
                        mappedBy = "category")  
 	public Set<Article> getArticles() {
 		return articles;
