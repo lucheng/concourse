@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.bupt.spring.base.BaseController;
-import edu.bupt.spring.base.PageView;
-import edu.bupt.spring.base.QueryResult;
 import edu.bupt.spring.entity.CategoryInfo;
 import edu.bupt.spring.service.CategoryInfoService;
 
@@ -53,10 +50,12 @@ public class CategoryInfoController extends BaseController{
     }
     
     @RequestMapping(value = "/category/save", method = {RequestMethod.POST})
-    public String save(@ModelAttribute("category") CategoryInfo category, @ModelAttribute("parentId")int parentId, HttpServletRequest request) {
+    public String save(@ModelAttribute("category") CategoryInfo category, @ModelAttribute("parentId")Integer parentId) {
         
-    	CategoryInfo parent = categoryInfoService.find(parentId);
-    	category.setParent(parent);
+    	if(parentId != null && parentId > 0){
+    		CategoryInfo parent = categoryInfoService.find(parentId);
+    		category.setParent(parent);	
+    	}
     	
     	if(category.getId() > 0){
         	categoryInfoService.update(category);
