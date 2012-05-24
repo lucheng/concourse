@@ -18,7 +18,7 @@
 						<a href="navigation!list.action" target="mainFrame">导航管理</a>
 					</dd>
 					<dd>
-						<a href="article!list.action" target="mainFrame">文章管理</a>
+						<a href="../article/list" target="mainFrame">文章管理</a>
 					</dd>
 					<dd>
 						<a href="../category/list" target="mainFrame">文章分类</a>
