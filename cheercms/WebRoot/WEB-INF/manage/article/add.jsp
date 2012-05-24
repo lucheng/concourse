@@ -54,7 +54,7 @@
 						文章标题: 
 					</th>
 					<td>
-						<input type="text" name="title" class="formText" value="">
+						<input type="text" name="title" class="formText" value="${entity.title}">
 						<label class="requireField">*</label>
 					</td>
 				</tr>
@@ -74,7 +74,7 @@
 						作者: 
 					</th>
 					<td>
-						<input type="text" class="formText" name="author" value="">
+						<input type="text" class="formText" name="author" value="${entity.author}">
 					</td>
 				</tr>
 				<tr>
@@ -98,7 +98,7 @@
 						内容: 
 					</th>
 					<td>
-						<textarea name="content" style="width:700px;height:200px;visibility:hidden;">KindEditor</textarea>
+						<textarea name="content" style="width:700px;height:200px;visibility:hidden;">${entity.content}</textarea>
 					</td>
 					
 				</tr>

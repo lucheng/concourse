@@ -120,16 +120,16 @@
 							${article.categoryName}
 						</td>
 						<td>
-							<span class="trueIcon">${article.status}</span>
+							<span>${article.status}</span>
 						</td>
 						<td>
-							<span class="falseIcon">${article.author}</span>
+							<span>${article.author}</span>
 						</td>
 						<td>
 							<span title="${article.createDate}">${article.createDate}</span>
 						</td>
 						<td>
-							<a href="article!edit.action?id=402881833054c381013054f0df410009" title="编辑">[编辑]</a>
+							<a href="<%=path%>/article/edit/${article.id}" title="编辑">[编辑]</a>
 								<a href="/html/201101/cab605b089cd44a5af83975915e55087.html" target="_blank" title="浏览">[浏览]</a>
 						</td>
 					</tr>
