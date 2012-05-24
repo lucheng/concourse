@@ -52,7 +52,10 @@ public class ArticleController extends BaseController{
     }
     
     @RequestMapping(value = "/article/save", method = {RequestMethod.POST})
-    public String save(@ModelAttribute("article") Article article) {
+    public String save(@ModelAttribute("article") Article article, HttpServletRequest request) {
+    	
+    	 request.setAttribute("parentCategories", articleService.findFirdLevel());	
+		
     	if(article.getId() > 0){
     		articleService.update(article);
         }else {
