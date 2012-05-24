@@ -45,17 +45,14 @@ public class ArticleController extends BaseController{
 		return new ModelAndView("article/list").addObject("entity", articleService.findAll());
     }
     
-    @RequestMapping(value = "/article/add")
-    public String add(Model model){
-        
+    @RequestMapping(value = "/article/add", method = {RequestMethod.GET})
+    public String add(Model model, HttpServletRequest request){
+    	request.setAttribute("parentCategories", articleService.findFirdLevel());	
     	return "article/add";
     }
     
     @RequestMapping(value = "/article/save", method = {RequestMethod.POST})
-    public String save(@ModelAttribute("article") Article article, HttpServletRequest request) {
-    	
-    	 request.setAttribute("parentCategories", articleService.findFirdLevel());	
-		
+    public String save(@ModelAttribute("article") Article article) {
     	if(article.getId() > 0){
     		articleService.update(article);
         }else {
