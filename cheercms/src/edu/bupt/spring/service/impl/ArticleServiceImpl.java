@@ -17,5 +17,12 @@ public class ArticleServiceImpl extends DaoSupport<Article> implements ArticleSe
 		Query query = em.createQuery("select o from Article o ");
 		return query.getResultList();
 	}
+	
+	public List<Article> findCategory(Article article){
+		
+		Query query = em.createQuery("select o from Article o where o.parentid = artile.getCategory.getId() ");
+		return query.getResultList();
+	}
+	
 
 }
