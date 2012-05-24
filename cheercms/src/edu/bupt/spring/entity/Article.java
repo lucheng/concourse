@@ -21,11 +21,12 @@ public class Article {
 	
 	private int id;
 	private String title;
-	private String categoryName;
 	private String author;
 	private Date createDate;
 	private String content;
 	private String status;
+	private CategoryInfo category;
+	
 	
 	@Id
 	@GeneratedValue
@@ -43,14 +44,6 @@ public class Article {
 	}
 	public void setTitle(String title) {
 		this.title = title;
-	}
-	
-	@Column(name="categoryName")
-	public String getCategoryName() {
-		return categoryName;
-	}
-	public void setCategoryName(String categoryName) {
-		this.categoryName = categoryName;
 	}
 	
 	@Column(name="author")
@@ -83,6 +76,15 @@ public class Article {
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	
+	@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@JoinColumn(name="parentid")	
+	public CategoryInfo getCategory() {
+		return category;
+	}
+	public void setCategory(CategoryInfo category) {
+		this.category = category;
 	}
 }
 	

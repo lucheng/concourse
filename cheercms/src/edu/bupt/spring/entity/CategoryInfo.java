@@ -27,6 +27,10 @@ public class CategoryInfo {
 	/** 所属父类 **/
 	private CategoryInfo parent;
 	
+	/** 文章 **/
+	private Set<Article> articles = new HashSet<Article>();
+	
+	
 	@Id
 	@GeneratedValue
 	@Column(name="id",unique = true)
@@ -79,4 +83,14 @@ public class CategoryInfo {
 		this.status = status;
 	}
 	
+	
+	@OneToMany(cascade = { CascadeType.PERSIST, CascadeType.REFRESH,  
+            CascadeType.MERGE, CascadeType.REMOVE }, fetch = FetchType.EAGER,   
+                       mappedBy = "category")  
+	public Set<Article> getArticles() {
+		return articles;
+	}
+	public void setArticles(Set<Article> articles) {
+		this.articles = articles;
+	}
 }
