@@ -66,8 +66,9 @@ public class ArticleController extends BaseController{
         
     	Article article = articleService.find(id);
     	 
-        request.setAttribute("entity", article);
-        return "article/add";
+    	 request.setAttribute("entity", article);
+         request.setAttribute("parentCategories", articleService.findFirdLevel());
+         return "article/add";
     }
     
     @RequestMapping(value = "/article/update", method = {RequestMethod.POST})

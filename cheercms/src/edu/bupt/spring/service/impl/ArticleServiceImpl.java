@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import edu.bupt.spring.base.DaoSupport;
 import edu.bupt.spring.entity.Article;
+import edu.bupt.spring.entity.CategoryInfo;
 import edu.bupt.spring.service.ArticleService;
 
 @Service
@@ -18,9 +19,9 @@ public class ArticleServiceImpl extends DaoSupport<Article> implements ArticleSe
 		return query.getResultList();
 	}
 	
-	public List<Article> findCategory(Article article){
+	public List<CategoryInfo> findFirdLevel(){
 		
-		Query query = em.createQuery("select o from Article o where o.parentid = artile.getCategory.getId() ");
+		Query query = em.createQuery("select o from CategoryInfo o where o.parent is null");
 		return query.getResultList();
 	}
 	

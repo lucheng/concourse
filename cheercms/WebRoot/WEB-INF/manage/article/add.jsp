@@ -65,6 +65,9 @@
 					<td>
 						<select name="categoryName">
 							<option value="">请选择...</option>
+							<c:forEach items="${parentCategories}" var="parent" >
+									<option value="${parent.id}" <c:if test="${entity.parent.id == parent.id}"> selected="selected"</c:if> >${parent.name}</option>
+							</c:forEach>
 						</select>
 						<label class="requireField">*</label>
 					</td>

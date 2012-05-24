@@ -15,5 +15,5 @@ import edu.bupt.spring.entity.CategoryInfo;
 public interface ArticleService extends DAO<Article> {
 
 	public List<Article> findAll();
-	public List<Article> findCategory(Article article);
+	public List<CategoryInfo> findFirdLevel();
 }
