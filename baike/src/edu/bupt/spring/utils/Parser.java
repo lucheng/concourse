@@ -73,8 +73,8 @@ public class Parser {
 			String text = reinforces.get(i).attributeValue("url");
 			String index = reinforces.get(i).attributeValue("index");
 			String url = reinforces.get(i).getStringValue();
-			String baiduId = url.substring(url.lastIndexOf("/view/")+6, url.lastIndexOf(".htm"));
-//			System.out.println(baiduId);
+			String baiduId = url.substring(url.lastIndexOf("/")+1, url.lastIndexOf(".htm"));
+			logger.info(baiduId + "==" + text);
 			Reinforce reinforce = new Reinforce(Integer.parseInt(index), Integer.parseInt(baiduId), text);
 			reinforceList.add(reinforce);
 			

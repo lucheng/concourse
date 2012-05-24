@@ -65,7 +65,7 @@ public class Link {
 		this.text = text;
 	}
 
-	@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.MERGE,fetch=FetchType.EAGER)
 	@JoinColumn(name="content_id")
 	public Content getContent() {
 		return content;

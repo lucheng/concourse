@@ -65,7 +65,7 @@ public class Page {
 	}
 
 
-	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "page", fetch = FetchType.LAZY)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "page", fetch = FetchType.LAZY)
 	public Set<Reinforce> getReinforces() {
 		return reinforces;
 	}

@@ -66,7 +66,7 @@ public class Reinforce {
 		this.text = text;
 	}
 
-	@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.MERGE,fetch=FetchType.EAGER)
 	@JoinColumn(name="page_id")
 	public Page getPage() {
 		return page;

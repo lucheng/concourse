@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -41,6 +42,8 @@ public class Content {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	@Lob
 	public String getText() {
 		return text;
 	}
@@ -60,6 +63,7 @@ public class Content {
 		this.page = page;
 	}
 
+	@Lob
 	public String getSummary() {
 		return summary;
 	}
@@ -77,7 +81,7 @@ public class Content {
 		this.subTitle = subTitle;
 	}
 	
-	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy="content")
+	@OneToMany(cascade=CascadeType.MERGE,fetch=FetchType.LAZY,mappedBy="content")
 	public Set<Link> getLinks() {
 		return links;
 	}
