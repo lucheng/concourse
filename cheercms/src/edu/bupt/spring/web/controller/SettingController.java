@@ -5,13 +5,21 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import edu.bupt.spring.base.BaseController;
+
 
 /**
- * @author linzhe
+ * 
+ * @author  linzhe
+ * @Date    2012-5-26
+ * @email   m23linzhe@gmail.com
+ * @qq      398024808
  * @version 1.0
+ *
  */
+
 @Controller("settingController")
-public class SettingController {
+public class SettingController extends BaseController {
     
 //	@Autowired
 //    @Qualifier("UserService")

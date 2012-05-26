@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import edu.bupt.spring.base.BaseController;
 import edu.bupt.spring.entity.Category;
-import edu.bupt.spring.service.CategoryInfoService;
+import edu.bupt.spring.service.CategoryService;
 
 /**
  * 
@@ -24,13 +24,13 @@ import edu.bupt.spring.service.CategoryInfoService;
  * @email  m23linzhe@gmail.com
  */
 @Controller("categoryController")
-public class CategoryInfoController extends BaseController{
+public class CategoryController extends BaseController{
     
-	private static final Logger logger = LoggerFactory.getLogger(CategoryInfoController.class);
+	private static final Logger logger = LoggerFactory.getLogger(CategoryController.class);
 	
 	@Autowired
     @Qualifier("categoryInfoServiceImpl")
-	private CategoryInfoService categoryInfoService;
+	private CategoryService categoryInfoService;
 	
 	@RequestMapping(value = "/category/list")
     public ModelAndView list(HttpServletRequest request){

@@ -1,6 +1,5 @@
 package edu.bupt.spring.web.controller;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import edu.bupt.spring.base.BaseController;
 import edu.bupt.spring.entity.Admin;
 import edu.bupt.spring.service.AdminService;
 
@@ -26,7 +26,7 @@ import edu.bupt.spring.service.AdminService;
  * @email  m23linzhe@gmail.com
  */
 @Controller("adminController")
-public class AdminController {
+public class AdminController extends BaseController {
     
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 	

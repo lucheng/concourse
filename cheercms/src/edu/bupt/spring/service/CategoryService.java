@@ -11,7 +11,7 @@ import edu.bupt.spring.entity.Category;
  * @date   2012-5-17
  * @email  m23linzhe@gmail.com
  */
-public interface CategoryInfoService extends DAO<Category> {
+public interface CategoryService extends DAO<Category> {
 
 	public List<Category> findAll();
 	public List<Category> findFirdLevel();

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import edu.bupt.spring.base.BaseController;
 import edu.bupt.spring.entity.Admin;
 import edu.bupt.spring.service.AdminService;
 
@@ -27,7 +28,7 @@ import edu.bupt.spring.service.AdminService;
  * @email  m23linzhe@gmail.com
  */
 @Controller("manageController")
-public class ManageController {
+public class ManageController extends BaseController {
     
 	private static final Logger logger = LoggerFactory.getLogger(ManageController.class);
 	
