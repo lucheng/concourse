@@ -29,8 +29,8 @@ public class CategoryController extends BaseController{
 	private static final Logger logger = LoggerFactory.getLogger(CategoryController.class);
 	
 	@Autowired
-    @Qualifier("categoryInfoServiceImpl")
-	private CategoryService categoryInfoService;
+    @Qualifier("categoryServiceImpl")
+	private CategoryService categoryService;
 	
 	@RequestMapping(value = "/category/list")
     public ModelAndView list(HttpServletRequest request){
@@ -40,27 +40,27 @@ public class CategoryController extends BaseController{
 		pageView.setQueryResult(qr);*/
 		
 		
-		return new ModelAndView("category/list").addObject("entity", categoryInfoService.findFirdLevel());
+		return new ModelAndView("category/list").addObject("entity", categoryService.findFirdLevel());
     }
     
     @RequestMapping(value = "/category/add")
     public ModelAndView add(){
         
-    	return new ModelAndView("category/add").addObject("parentCategories", categoryInfoService.findFirdLevel());
+    	return new ModelAndView("category/add").addObject("parentCategories", categoryService.findFirdLevel());
     }
     
     @RequestMapping(value = "/category/save", method = {RequestMethod.POST})
     public String save(@ModelAttribute("category") Category category, @ModelAttribute("parentId")Integer parentId) {
         
     	if(parentId != null && parentId > 0){
-    		Category parent = categoryInfoService.find(parentId);
+    		Category parent = categoryService.find(parentId);
     		category.setParent(parent);	
     	}
     	
     	if(category.getId() > 0){
-        	categoryInfoService.update(category);
+        	categoryService.update(category);
         }else {
-        	categoryInfoService.save(category);
+        	categoryService.save(category);
         }
         return "redirect:/category/list";
     }
@@ -68,24 +68,24 @@ public class CategoryController extends BaseController{
     @RequestMapping(value = "/category/edit/{id}", method = {RequestMethod.GET})
     public String edit(@PathVariable Integer id, HttpServletRequest request) {
         
-    	Category category = categoryInfoService.find(id);
+    	Category category = categoryService.find(id);
     	 
         request.setAttribute("entity", category);
-        request.setAttribute("parentCategories", categoryInfoService.findFirdLevel());
+        request.setAttribute("parentCategories", categoryService.findFirdLevel());
         return "category/add";
     }
     
     @RequestMapping(value = "/category/update", method = {RequestMethod.POST})
     public String update(@ModelAttribute("category") Category category, HttpServletRequest request) {
         
-    	categoryInfoService.update(category);
+    	categoryService.update(category);
         return "redirect:/category/list";
     }
     
     @RequestMapping(value = "/category/delete/{id}", method = {RequestMethod.GET})
     public String delete(@ModelAttribute("category") Category category, HttpServletRequest request) {
         
-    	categoryInfoService.delete(category.getId());
+    	categoryService.delete(category.getId());
         return "redirect:/category/list";
     }
     

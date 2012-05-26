@@ -10,37 +10,18 @@
 	</head>
 	<body class="menu">
 		<div class="body">
-				<dl>
+			<dl>
+				<c:forEach items="${entry.children}" var="entry">
 					<dt>
-						<span>订单管理</span>
+						<span>${entry.name}</span>
 					</dt>
-					<dd>
-						<a href="order!list.action" target="mainFrame">订单列表</a>
-					</dd>
-					<dd>
-						<a href="payment!list.action" target="mainFrame">收款单</a>
-					</dd>
-					<dd>
-						<a href="refund!list.action" target="mainFrame">退款单</a>
-					</dd>
-					<dd>
-						<a href="shipping!list.action" target="mainFrame">发货单</a>
-					</dd>
-					<dd>
-						<a href="reship!list.action" target="mainFrame">退货单</a>
-					</dd>
-				</dl>
-				<dl>
-					<dt>
-						<span>快递单管理</span>
-					</dt>
+					<c:forEach items="${entry.children}" var="child">
 						<dd>
-							<a href="delivery_center!list.action" target="mainFrame">发货点管理</a>
+							<a href="${child.url}" target="mainFrame">${child.name }</a>
 						</dd>
-						<dd>
-							<a href="delivery_template!list.action" target="mainFrame">快递单模板</a>
-						</dd>
-				</dl>
+					</c:forEach>
+				</c:forEach>
+			</dl>
 		</div>
 	</body>
 </html>

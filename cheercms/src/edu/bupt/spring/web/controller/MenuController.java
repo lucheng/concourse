@@ -30,6 +30,8 @@ public class MenuController extends BaseController{
     @Qualifier("menuServiceImpl")
 	private MenuService menuService;
 	
+	
+	
     /*@RequestMapping(value = "/menu/setting")
     public String menuSetting(HttpServletRequest request){
         return "menu/setting";
@@ -60,10 +62,10 @@ public class MenuController extends BaseController{
         return "menu/member";
     }*/
     
-    @RequestMapping(value = "/menu/{menu}")
-    public String direct(HttpServletRequest request, @PathVariable String menu){
+    @RequestMapping(value = "/menu/{id}")
+    public ModelAndView direct(HttpServletRequest request, @PathVariable Integer id){
     	
-        return "menu/"+menu;
+    	return new ModelAndView("menu/left").addObject("entry", menuService.find(id));
     }
     
     @RequestMapping(value = "/menu/index")

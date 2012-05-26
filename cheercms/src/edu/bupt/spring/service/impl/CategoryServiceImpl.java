@@ -14,12 +14,12 @@ import edu.bupt.spring.service.CategoryService;
 public class CategoryServiceImpl extends DaoSupport<Category> implements CategoryService {
 
 	public List<Category> findAll() {
-		Query query = em.createQuery("select o from CategoryInfo o ");
+		Query query = em.createQuery("select o from Category o ");
 		return query.getResultList();
 	}
 
 	public List<Category> findFirdLevel() {
-		Query query = em.createQuery("select o from CategoryInfo o where o.parent is null");
+		Query query = em.createQuery("select o from Category o where o.parent is null");
 		return query.getResultList();
 	}
 

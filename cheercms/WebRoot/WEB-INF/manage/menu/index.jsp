@@ -2,23 +2,11 @@
 <%@ include file="../../inc/header.jsp"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>管理中心首页 - Powered By SHOP++</title>
 <meta name="Author" content="SHOP++ Team">
 <meta name="Copyright" content="SHOP++">
-<link href="<%=path %>/css/base.css" rel="stylesheet" type="text/css">
-<link href="<%=path %>/css/admin.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="<%=path %>/js/jquery.js"></script>
-<script type="text/javascript" src="<%=path %>/js/base.js"></script>
-<script type="text/javascript" src="<%=path %>/js/admin.js"></script>
-<%--<script type="text/javascript">
-$().ready( function() {
-	
-	$.dialog({type: "warn", content: '<span class="red">为了确保站点的完整性，您的部分操作将被限制执行!</span>', width: 450, modal: true, autoCloseTime: 5000});
-	
-});
-</script>
---%>
 </head>
 <body class="index">
 	<div class="bar">

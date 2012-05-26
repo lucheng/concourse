@@ -24,19 +24,19 @@
 					<a href="menu/add" target="mainFrame">菜单添加</a>
 				</dd>
 			</dl>
-			<dl>
+			<%--<dl>
 				<c:forEach items="${entry}" var="entry">
 					<dt>
 						<span>${entry.name}</span>
 					</dt>
 					<c:forEach items="${entry.children}" var="child">
 					<dd>
-						<a href="${child.url}" target="mainFrame">${child.name}</a>
+						<a href="menu/edit/${child.id}" target="mainFrame">${child.name}</a>
 					</dd>
 					</c:forEach>
 				</c:forEach>
 			</dl>
-		
+		--%>
 		</div>
 	</body>
 </html>

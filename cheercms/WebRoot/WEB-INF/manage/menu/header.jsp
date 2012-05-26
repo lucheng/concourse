@@ -45,7 +45,7 @@ $().ready(function() {
 				<ul>
 					<c:forEach items="${entry}" var="entry">
 						<li class="menuItem">
-							<a href="${entry.url}" target="menuFrame" hidefocus="">${entry.name}</a>
+							<a href="menu/${entry.id}" target="menuFrame" hidefocus="">${entry.name}</a>
 						</li>
 					</c:forEach>
 					
