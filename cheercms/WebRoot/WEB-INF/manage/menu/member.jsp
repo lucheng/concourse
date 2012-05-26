@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../../inc/header.jsp"%>
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<base href="<%=basePath%>">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <title>管理菜单 - Powered By SHOP++</title>
 <meta name="Author" content="SHOP++ Team">
 <meta name="Copyright" content="SHOP++">
-<link href="/template/admin/css/base.css" rel="stylesheet" type="text/css">
-<link href="/template/admin/css/admin.css" rel="stylesheet" type="text/css">
 </head>
 <body class="menu">
 	<div class="body">
@@ -15,13 +15,13 @@
 				<span>会员管理</span>
 			</dt>
 				<dd>
-					<a href="member!list.action" target="mainFrame">会员管理</a>
+					<a href="member/list" target="mainFrame">会员管理</a>
 				</dd>
 				<dd>
-					<a href="member_rank!list.action" target="mainFrame">会员等级</a>
+					<a href="memberRank/list" target="mainFrame">会员等级</a>
 				</dd>
 				<dd>
-					<a href="member_attribute!list.action" target="mainFrame">会员注册项</a>
+					<a href="memberAttribute/list" target="mainFrame">会员注册项</a>
 				</dd>
 		</dl>
 			<dl>
@@ -29,10 +29,10 @@
 					<span>商品评论</span>
 				</dt>
 				<dd>
-					<a href="comment!list.action" target="mainFrame">评论列表</a>
+					<a href="comment/list" target="mainFrame">评论列表</a>
 				</dd>
 				<dd>
-					<a href="comment!setting.action" target="mainFrame">评论设置</a>
+					<a href="comment/setting" target="mainFrame">评论设置</a>
 				</dd>
 			</dl>
 			<dl>

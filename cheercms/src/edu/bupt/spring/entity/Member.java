@@ -12,15 +12,15 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="student") 
-public class Student {
+@Table(name="tbl_member") 
+public class Member {
 	
 	private int id ;
 	private String name ;
-	private ClassInfo classInfo;
+	private MemberRank memberRank;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", unique = true, nullable = false)
 	public int getId() {
 		return id;
@@ -38,14 +38,13 @@ public class Student {
 	}
 
 	@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
-	@JoinColumn(name="classid")
-	public ClassInfo getClassInfo() {
-		return classInfo;
+	@JoinColumn(name="memberRank_id")
+	public MemberRank getMemberRank() {
+		return memberRank;
 	}
-	public void setClassInfo(ClassInfo classInfo) {
-		this.classInfo = classInfo;
+	public void setMemberRank(MemberRank memberRank) {
+		this.memberRank = memberRank;
 	}
-    
 	
 	
 	

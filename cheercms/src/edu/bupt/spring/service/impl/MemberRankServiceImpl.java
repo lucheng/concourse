@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 
 
 import edu.bupt.spring.base.DaoSupport;
-import edu.bupt.spring.entity.ClassInfo;
-import edu.bupt.spring.service.ClassInfoService;
+import edu.bupt.spring.entity.MemberRank;
+import edu.bupt.spring.service.MemberRankService;
 
 @Service
-public class ClassInfoServiceImpl extends DaoSupport<ClassInfo> implements ClassInfoService {
+public class MemberRankServiceImpl extends DaoSupport<MemberRank> implements MemberRankService {
 
-	public List<ClassInfo> findAll() {
+	public List<MemberRank> findAll() {
 		Query query = em.createQuery("select o from ClassInfo o ");
 		return query.getResultList();
 	}
