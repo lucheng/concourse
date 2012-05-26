@@ -12,24 +12,22 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tbl_Categoryinfo")
-public class CategoryInfo {
+@Table(name="tbl_menu")
+public class Menu {
 	
 	private int id;
 	private String name;
+	private String url;
 	private int orderList;
 	private String status;
 	/** 子类别 **/
-	private Set<CategoryInfo> children = new HashSet<CategoryInfo>();
+	private Set<Menu> children = new HashSet<Menu>();
 	/** 所属父类 **/
-	private CategoryInfo parent;
-	
-	/** 文章 **/
-	private Set<Article> articles = new HashSet<Article>();
-	
+	private Menu parent;
 	
 	@Id
 	@GeneratedValue
@@ -50,21 +48,30 @@ public class CategoryInfo {
 		this.name = name;
 	}
 	
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	
 	@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	@JoinColumn(name="parentid")
-	public CategoryInfo getParent() {
+	@OrderBy(value="orderList")
+	public Menu getParent() {
 		return parent;
 	}
 
-	public void setParent(CategoryInfo parent) {
+	public void setParent(Menu parent) {
 		this.parent = parent;
 	}
 	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy="parent")
-	public Set<CategoryInfo> getChildren() {
+	@OrderBy(value="orderList")
+	public Set<Menu> getChildren() {
 		return children;
 	}
 
-	public void setChildren(Set<CategoryInfo> children) {
+	public void setChildren(Set<Menu> children) {
 		this.children = children;
 	}
 	
@@ -81,16 +88,5 @@ public class CategoryInfo {
 	}
 	public void setStatus(String status) {
 		this.status = status;
-	}
-	
-	
-	@OneToMany(cascade = { CascadeType.PERSIST, CascadeType.REFRESH,  
-            CascadeType.MERGE, CascadeType.REMOVE }, fetch = FetchType.LAZY,   
-                       mappedBy = "category")  
-	public Set<Article> getArticles() {
-		return articles;
-	}
-	public void setArticles(Set<Article> articles) {
-		this.articles = articles;
 	}
 }

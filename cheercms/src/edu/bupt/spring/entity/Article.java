@@ -1,8 +1,6 @@
 package edu.bupt.spring.entity;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -12,11 +10,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tbl_Article")
+@Table(name="tbl_article")
 public class Article {
 	
 	private int id;
@@ -25,7 +22,7 @@ public class Article {
 	private Date createDate;
 	private String content;
 	private String status;
-	private CategoryInfo category;
+	private Category category;
 	
 	
 	@Id
@@ -80,10 +77,10 @@ public class Article {
 	
 	@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	@JoinColumn(name="category_id")	
-	public CategoryInfo getCategory() {
+	public Category getCategory() {
 		return category;
 	}
-	public void setCategory(CategoryInfo category) {
+	public void setCategory(Category category) {
 		this.category = category;
 	}
 }

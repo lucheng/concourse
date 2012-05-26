@@ -7,18 +7,18 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Service;
 
 import edu.bupt.spring.base.DaoSupport;
-import edu.bupt.spring.entity.CategoryInfo;
+import edu.bupt.spring.entity.Category;
 import edu.bupt.spring.service.CategoryInfoService;
 
 @Service
-public class CategoryInfoServiceImpl extends DaoSupport<CategoryInfo> implements CategoryInfoService {
+public class CategoryInfoServiceImpl extends DaoSupport<Category> implements CategoryInfoService {
 
-	public List<CategoryInfo> findAll() {
+	public List<Category> findAll() {
 		Query query = em.createQuery("select o from CategoryInfo o ");
 		return query.getResultList();
 	}
 
-	public List<CategoryInfo> findFirdLevel() {
+	public List<Category> findFirdLevel() {
 		Query query = em.createQuery("select o from CategoryInfo o where o.parent is null");
 		return query.getResultList();
 	}

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.bupt.spring.base.BaseController;
-import edu.bupt.spring.entity.CategoryInfo;
+import edu.bupt.spring.entity.Category;
 import edu.bupt.spring.service.CategoryInfoService;
 
 /**
@@ -50,10 +50,10 @@ public class CategoryInfoController extends BaseController{
     }
     
     @RequestMapping(value = "/category/save", method = {RequestMethod.POST})
-    public String save(@ModelAttribute("category") CategoryInfo category, @ModelAttribute("parentId")Integer parentId) {
+    public String save(@ModelAttribute("category") Category category, @ModelAttribute("parentId")Integer parentId) {
         
     	if(parentId != null && parentId > 0){
-    		CategoryInfo parent = categoryInfoService.find(parentId);
+    		Category parent = categoryInfoService.find(parentId);
     		category.setParent(parent);	
     	}
     	
@@ -68,7 +68,7 @@ public class CategoryInfoController extends BaseController{
     @RequestMapping(value = "/category/edit/{id}", method = {RequestMethod.GET})
     public String edit(@PathVariable Integer id, HttpServletRequest request) {
         
-    	CategoryInfo category = categoryInfoService.find(id);
+    	Category category = categoryInfoService.find(id);
     	 
         request.setAttribute("entity", category);
         request.setAttribute("parentCategories", categoryInfoService.findFirdLevel());
@@ -76,14 +76,14 @@ public class CategoryInfoController extends BaseController{
     }
     
     @RequestMapping(value = "/category/update", method = {RequestMethod.POST})
-    public String update(@ModelAttribute("category") CategoryInfo category, HttpServletRequest request) {
+    public String update(@ModelAttribute("category") Category category, HttpServletRequest request) {
         
     	categoryInfoService.update(category);
         return "redirect:/category/list";
     }
     
     @RequestMapping(value = "/category/delete/{id}", method = {RequestMethod.GET})
-    public String delete(@ModelAttribute("category") CategoryInfo category, HttpServletRequest request) {
+    public String delete(@ModelAttribute("category") Category category, HttpServletRequest request) {
         
     	categoryInfoService.delete(category.getId());
         return "redirect:/category/list";

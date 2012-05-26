@@ -2,6 +2,7 @@
 <%@ include file="../../inc/header.jsp"%>
 <html>
 <head>
+<base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>管理中心 - Powered By SHOP++</title>
 <meta name="Author" content="SHOP++ Team">
@@ -42,6 +43,13 @@ $().ready(function() {
 			</div>
 			<div id="menu" class="menu">
 				<ul>
+					<c:forEach items="${entry}" var="entry">
+						<li class="menuItem">
+							<a href="${entry.url}" target="menuFrame" hidefocus="">${entry.name}</a>
+						</li>
+					</c:forEach>
+					
+					<%--
 					<li class="menuItem">
 						<a href="<%=path %>/menu/goods" target="menuFrame" hidefocus="">商品管理</a>
 					</li>
@@ -61,13 +69,17 @@ $().ready(function() {
 					<li class="menuItem">
 						<a href="<%=path %>/menu/setting" target="menuFrame" hidefocus="">网站设置</a>
 					</li>
+					--%>
+					<li class="menuItem">
+						<a href="menu/menu" target="menuFrame" hidefocus="">菜单设置</a>
+					</li>
 					<li class="home">
-						<a href="<%=path %>" target="_blank" hidefocus="">网站首页</a>
+						<a href="" target="_blank" hidefocus="">网站首页</a>
 					</li>
 	            </ul>
 	            <div class="info">
-					<a class="profile" href="<%=path %>/admin/admin_profile/edit" target="mainFrame">个人资料</a>
-					<a class="logout" href="<%=path %>/admin/logout" target="_top">退出</a>
+					<a class="profile" href="admin/admin_profile/edit" target="mainFrame">个人资料</a>
+					<a class="logout" href="admin/logout" target="_top">退出</a>
 				</div>
 			</div>
 		</div>

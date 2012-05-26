@@ -3,7 +3,7 @@ package edu.bupt.spring.service;
 import java.util.List;
 
 import edu.bupt.spring.base.DAO;
-import edu.bupt.spring.entity.Category;
+import edu.bupt.spring.entity.Menu;
 
 /**
  * 
@@ -11,8 +11,7 @@ import edu.bupt.spring.entity.Category;
  * @date   2012-5-17
  * @email  m23linzhe@gmail.com
  */
-public interface CategoryInfoService extends DAO<Category> {
+public interface MenuService extends DAO<Menu> {
 
-	public List<Category> findAll();
-	public List<Category> findFirdLevel();
+	public List<Menu> findFirdLevel();
 }
