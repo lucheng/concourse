@@ -492,7 +492,7 @@ input:-moz-placeholder { font-size:12px; }
 .tip-for-oper .goCheck  { margin-left:70px; } 
 
 /* 你喜欢逛买单 */
-.logo_xihuo { width:100px;height:83px;float:left;display:block;background:url(../../img/event/logo_1.gif) no-repeat;text-indent:-999px;overflow:hidden; } 
+.logo_xihuo { width:100px;height:83px;float:left;display:block;background:url(../../images/ui/logo_1.gif) no-repeat;text-indent:-999px;overflow:hidden; } 
 
 /* 签到成功 */
 #checkin_intro{line-height:20px;color:#666;padding:10px;position:absolute;width:110px;background:#FFF;top:38px;right:0;border:1px solid #e4e4e4;}

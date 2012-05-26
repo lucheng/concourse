@@ -8,86 +8,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<head>
 		<base href="<%=basePath%>">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title> 发现喜欢 - 逛，发现喜欢</title>
-		<meta name="keywords" content=" 发现喜欢,逛,逛网,逛逛,逛街,网购,guang">
-		<meta name="description" content="这里有逛小编们精心挑选出来 的各种潮品，我们只推荐优质的商品，帮助找到最适合你的宝贝。来逛，我们一起发现喜欢！">
-		<link rel="icon" href="/favicon.ico" type="image/x-icon">
-		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-		<link href="web/css/ui/base.css?t=20120519.css" rel="stylesheet" type="text/css">
-		<link href="web/css/ui/global.css?t=20120519.css" rel="stylesheet" type="text/css">
+		<jsp:include page="../../web/inc/head.jsp"></jsp:include>
 		<link href="web/css/ui/goods.css?t=20120519.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
 		<!--header-->
-		<div class="header " id="header">
-			<div class="m-head">
-				<div class="layout960 clearfix">
-					<h1 class="g-logo">
-						<a href="http://guang.com">逛，发现喜欢</a>
-					</h1>
-					<a class="logo_xihuo" href="http://guang.com/huodong/event2" target="_blank">你喜欢 逛买单</a>
-					<div class="g-slogan clearfix">
-						<a class="gz-btn gz-weibo" href="http://weibo.com/guang" target="_blank">加关注</a>
-						<a class="gz-btn gz-qzong" href="http://user.qzone.qq.com/2408899511" target="_blank">加关注</a>
-						<a class="fl" href="http://blog.guang.com/" target="_blank" title="和好友一起“逛”">和好友一起“逛”</a>
-					</div>
-				</div>
-			</div>
-			<div class="m-nav">
-				<div class="layout960 clearfix pos-r">
-					<ul class="channel clearfix">
-						<li class="first"><a href="/">首页</a></li>
-						<li>
-							<dl class="clearfix">
-								<dt><a class=" on " href="/xihuan">发现喜欢</a></dt>
-								<dd><a class="" href="/xihuan/gallery/美容美体">美容美体</a></dd>
-								<dd><a class="" href="/xihuan/gallery/母婴家庭">母婴家庭</a></dd>
-								<dd><a class="" href="/xihuan/gallery/旅行美食">旅行美食</a></dd>
-							</dl>
-						</li>
-						<li>
-							<a class="" href="/jie">主题街</a>
-						</li>
-						<li>
-							<a class="" href="/pinpai">品牌汇</a>
-						</li>
-						<li>
-							<a class="" href="/f">好友逛</a>
-						</li>
-						<li class="last">
-							<a class="" href="/jianding">求鉴定</a>
-						</li>
-					</ul>
-					<a rel="signIn" class="btn-signIn fr" href="javascript:;">签到</a>
-					<a rel="shareGoods" class="btn-sg fr" href="javascript:;">+ 分享宝贝</a>
-									<div class="regLogin fr clearfix">
-						<a href="/login">登录</a><span class="vline5">|</span><a href="/signup">注册</a>
-						<span class="arrow-dn"></span>
-						<ul class="share-link login-dropdown">
-							<li><a class="s-qq" href="/snsLogin?snsType=4&amp;backType=1">QQ登录</a></li>
-							<li><a class="s-sina" href="/snsLogin?snsType=3&amp;backType=1">新浪微博登录</a></li>
-							<li><a class="s-tao" href="/snsLogin?snsType=8&amp;backType=1">淘宝登录</a></li>
-							<li><a class="s-alipay" href="/snsLogin?snsType=9&amp;backType=1">支付宝登录</a></li>
-							<li><a class="s-tencent" href="/snsLogin?snsType=5&amp;backType=1">腾讯微博登录</a></li>
-							<li><a class="s-douban" href="/snsLogin?snsType=6&amp;backType=1">豆瓣登录</a></li>
-							<li><a class="s-renren" href="/snsLogin?snsType=7&amp;backType=1">人人网登录</a></li>
-						</ul>
-					</div>
-								</div>
-			</div>
-				</div>	<div id="wrap">
-			<div id="container">
+		<jsp:include page="../../web/inc/header.jsp"></jsp:include>
+		<!-- end header -->
 				
-				  	<div class="category-nav">
+		<div id="wrap">
+			<div id="container">
+				<div class="category-nav">
 		<div class="nav-base">
 			<ul class="nav-bar clearfix">
 				<li class="on">
 	                <a href="/xihuan">发现喜欢</a>
 	            </li>
-	            	        <li>
+	            <li>
 		        	<a href="/xihuan/gallery/美容美体">美容美体</a>
 		        </li>
-	            	        <li>
+	            <li>
 		        	<a href="/xihuan/gallery/母婴家庭">母婴家庭</a>
 		        </li>
 	            	        <li>
@@ -1295,78 +1235,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 			</div><!--container end-->
 		</div>
-			<div class="footer" id="footer">
-			<a class="guangLink" href="http://guang.com/"></a>
-			<div class="footer-nav clearfix">
-				<dl class="about">
-					<dt>关于我们</dt>
-					<dd><a href="http://guang.com/aboutus" target="_blank">关于逛</a></dd>
-					<dd><a href="http://blog.guang.com/joinus/" target="_blank">加入我们</a></dd>
-					<dd><a href="http://guang.com/contact" target="_blank">合作联系</a></dd>
-					<dd><a href="http://site.douban.com/widget/board/5901738/" target="_blank">提建议</a></dd>
-				</dl>
-				<dl class="followus">
-					<dt>关注我们</dt>
-					<dd><a class="f-Qzone" href="http://user.qzone.qq.com/2408899511" target="_blank">QQ空间</a></dd>
-					<dd><a class="f-sina" href="http://weibo.com/guang" target="_blank">新浪微博</a></dd>
-					<dd><a class="f-tencent" href="http://t.qq.com/iguang2011" target="_blank">腾讯微博</a></dd>
-					<dd><a class="f-douban" href="http://site.douban.com/134349/" target="_blank">豆瓣</a></dd>
-				</dl>
-				<dl class="friendlinks">
-					<dt>友情链接<a class="ml10 fs12" href="/common/friends" target="_blank">更多…</a></dt>
-							<dd><a href="http://www.ny1988.com/" target="_blank">女友网</a></dd>
-							<dd style="position: absolute; left: -4000px; "><a href="http://guoku.com/" target="_blank">果库</a></dd>
-							<dd><a href="http://www.duitang.com/" target="_blank">堆糖网</a></dd> 
-							<dd style="position: absolute; left: -4000px; "><a href="http://donews.com/" target="_blank">Donews</a></dd>
-							<dd style="position: absolute; left: -4000px; "><a href="http://www.5w.com/" target="_blank">5W网</a></dd>
-							<dd style="position: absolute; left: -4000px; "><a href="http://hitao.com/" target="_blank">嗨淘网</a></dd>
-							<dd style="position: absolute; left: -4000px; "><a href="http://www.19lou.com/" target="_blank">19lou</a></dd>
-							<dd style="position: absolute; left: -4000px; "><a href="http://info.china.alibaba.com/" target="_blank">阿里巴巴</a></dd>
-							<dd style="position: absolute; left: -4000px; "><a href="http://zj.sina.com.cn/" target="_blank">新浪浙江</a></dd>
-							<dd style="position: absolute; left: -4000px; "><a href="http://www.yupsky.com/" target="_blank">潮人网</a></dd>			
-							<dd><a href="http://www.1626.com/" target="_blank">1626潮流网</a></dd>
-							<dd><a href="http://www.julemai.com/" target="_blank">聚乐买</a></dd>
-							<dd><a href="http://www.onlylady.com/" target="_blank">Onlylady女人志</a></dd>
-							<dd><a href="http://www.womai.com/" target="_blank">中粮我买网</a></dd>
-							<dd style="position: absolute; left: -4000px; "><a href="http://www.chenguangblog.com/" target="_blank">晨光博客</a></dd>
-							<dd style="position: absolute; left: -4000px; "><a href="http://www.poboo.com/" target="_blank">poboo</a></dd>
-							<dd><a href="http://www.tuolar.com/" target="_blank">拖拉网</a></dd>
-							<dd><a href="http://www.maichawang.com/" target="_blank">买茶网</a></dd>
-							<dd><a href="http://www.nvsheng.com/" target="_blank">女生闺蜜坊</a></dd>
-							<dd style="position: absolute; left: -4000px; "><a href="http://www.q68.com/" target="_blank">丰胸方法</a></dd>
-							<dd style="position: absolute; left: -4000px; "><a href="http://www.sahu.net/" target="_blank">啥狐女人网</a></dd>
-							<dd><a href="http://www.meiguici.com/" target="_blank">玫瑰刺女性网</a></dd>
-							<dd style="position: absolute; left: -4000px; "><a href="http://www.baixiangxiang.com/" target="_blank">白相相</a></dd>	
-							<dd><a href="http://beauty.familydoctor.com.cn/" target="_blank">家庭医生美容</a></dd>						 
-							<dd style="position: absolute; left: -4000px; "><a href="http://www.memejie.com/" target="_blank">服饰搭配</a></dd>						 
-							<dd><a href="http://www.qianjiao.cn/" target="_blank">千娇女性网</a></dd>						 
-				</dl>
-			</div>
-			<p class="cp">Copyright ©2011-2012 Guang.com, All Rights Reserved. 浙ICP备11008561-3</p>
-		</div>
-		<a id="returnTop" href="javascript:;" style="display: none; ">回到顶部</a>
-		
-	
-	<script type="text/javascript">
-		var photo = "";
-		if(photo == ""){
-			photo = "web/images/user/photo/avatar-50.png";
-		}else{
-			photo = "http://img.guang.com/"+photo;
-		}
-		GUANGER = { 
-			userId:"",
-			userPhoto:photo,
-			nick:"",
-			path:"",
-			isBlack: "",
-			checkInTotalScore: "", 
-			checkInDays: "",
-			referer : ""
-		}
-					
-	</script>
-	
+		<jsp:include page="../../web/inc/footer.jsp"></jsp:include>
 	<script src="web/js/ui/jquery-1.6.4.min.js" type="text/javascript"></script>
 	<script type="text/javascript" src="web/js/ui/jquery.tools.min.js"></script>
 	<script type="text/javascript" src="web/js/ui/localstorage.js?t=20120519.js"></script>
@@ -1486,6 +1355,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	</script>
 	<script type="text/javascript" src="web/js/ui/goods.js"></script>
-	<%--<%@ include file="../inc/guide.jsp"%>
---%></body>
+	</body>
 </html>
