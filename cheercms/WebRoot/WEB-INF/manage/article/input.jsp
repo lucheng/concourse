@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="../../inc/header.jsp"%>
+<%@ include file="../common/header.jsp"%>
 <html>
 	<head>
 	<base href="<%=basePath%>">
@@ -16,8 +16,8 @@
 				display: block;
 			}
 	</style>
-	<script charset="utf-8" src="<%=path %>/js/kindeditor-min.js"></script>
-	<script charset="utf-8" src="<%=path %>/js/zh_CN.js"></script>
+	<script charset="utf-8" src="js/kindeditor-min.js"></script>
+	<script charset="utf-8" src="js/zh_CN.js"></script>
 	<script>
 		var editor;
 		KindEditor.ready(function(K) {

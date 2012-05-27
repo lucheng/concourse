@@ -23,6 +23,15 @@ public class ArticleCategoryServiceImpl extends DaoSupport<ArticleCategory> impl
 		return query.getResultList();
 	}
 
+	public boolean checkSign(String path) {
+		
+		Query query = em.createQuery("select o from ArticleCategory o where o.path='"+ path +"'");
+		if(query.getResultList().size() > 0){
+			return false;
+		}
+		return true;
+	}
+
 	
 
 }

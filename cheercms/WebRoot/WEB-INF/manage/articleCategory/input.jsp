@@ -1,15 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="../../inc/header.jsp"%>
+<%@ include file="../common/header.jsp"%>
 <html>
 	<head>
 	<base href="<%=basePath%>">
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<title>添加/编辑文章分类 - Powered By SHOP++</title>
-	<meta name="Author" content="SHOP++ Team">
-	<meta name="Copyright" content="SHOP++">
-	<script type="text/javascript" src="/js/jquery.validate.js"></script>
-	<script type="text/javascript" src="/js/jquery.validate.methods.js"></script>
-	<script type="text/javascript" src="/js/jquery.translate.js"></script>
+	<%@ include file="../common/import.jsp"%>
+	<script type="text/javascript" src="<%=path %>/js/jquery.validate.js"></script>
+	<script type="text/javascript" src="<%=path %>/js/jquery.validate.methods.js"></script>
+	<script type="text/javascript" src="<%=path %>/js/jquery.translate.js"></script>
 	<script type="text/javascript">
 	$().ready( function() {
 	
@@ -49,22 +48,22 @@
 			errorClass: "validateError",
 			ignoreTitle: true,
 			rules: {
-				"articleCategory.name": "required",
-				"articleCategory.sign": {
+				"name": "required",
+				"path": {
 					required: true,
 					alphanumeric: true,
-						remote: "article_category!checkSign.action"
+						remote: "articleCategory/checkSign"
 				},
-				"articleCategory.orderList": "digits"
+				"orderList": "digits"
 			},
 			messages: {
-				"articleCategory.name": "请填写分类名称",
-				"articleCategory.sign": {
+				"name": "请填写分类名称",
+				"path": {
 					required: "请填写标识",
 					alphanumeric: "只允许输入字母或数字",
 					remote: "标识已存在"
 				},
-				"articleCategory.orderList": "排序必须为零或正整数"
+				"orderList": "排序必须为零或正整数"
 			},
 			submitHandler: function(form) {
 				$(form).find(":submit").attr("disabled", true);
@@ -77,17 +76,17 @@
 	</head>
 	<body class="input">
 		<div class="bar">
-			添加分类
+			添加/编辑分类
 		</div>
 		<div id="validateErrorContainer" class="validateErrorContainer">
 			<div class="validateErrorTitle">以下信息填写有误,请重新填写</div>
 			<ul></ul>
 		</div>
 		<div class="body">
-			<form id="validateForm" action="<%=path %>/category/save" method="post">
+			<form id="validateForm" action="articleCategory/save" method="post">
 				
-				<c:if test="${entity != null}">
-					<input type="hidden" name="id" value="${entity.id}">
+				<c:if test="${entry != null}">
+					<input type="hidden" name="id" value="${entry.id}">
 				</c:if>
 				<table class="inputTable">
 					<tbody><tr>
@@ -95,7 +94,7 @@
 							分类名称: 
 						</th>
 						<td>
-							<input type="text" id="articleCategoryName" name="name" class="formText" value="${entity.name}">
+							<input type="text" id="articleCategoryName" name="name" class="formText" value="${entry.name}">
 							<label class="requireField">*</label>
 						</td>
 					</tr>
@@ -107,9 +106,19 @@
 							<select name="parentId">
 								<option value="0">顶级分类</option>
 								<c:forEach items="${parentCategories}" var="parent" >
-									<option value="${parent.id}" <c:if test="${entity.parent.id == parent.id}"> selected="selected"</c:if> >${parent.name}</option>
+									<option value="${parent.id}" <c:if test="${entry.parent.id == parent.id}"> selected="selected"</c:if> >${parent.name}</option>
 								</c:forEach>
 							</select>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							标识: 
+						</th>
+						<td>
+							<input type="text" id="articleCategorySign" name="path" class="formText" value="${entry.path}" title="该分类的唯一标识，用于分类路径和模板标识">
+							<label class="requireField">*</label>
+							<span id="articleCategorySignLoadingIcon" class="loadingIcon hidden">&nbsp;</span>
 						</td>
 					</tr>
 					<tr>
@@ -117,7 +126,15 @@
 							排序: 
 						</th>
 						<td>
-							<input type="text" name="orderList" class="formText" value="${entity.orderList}" title="只允许输入零或正整数">
+							<input type="text" name="orderList" class="formText" value="${entry.orderList}" title="只允许输入零或正整数">
+						</td>
+					</tr>
+					<tr>
+						<th>
+							页面关键词: 
+						</th>
+						<td>
+							<input type="text" class="formText" name="metaKeywords" value="${entry.metaKeywords}">
 						</td>
 					</tr>
 					<tr>
@@ -125,7 +142,7 @@
 							页面描述: 
 						</th>
 						<td>
-							<textarea name="articleCategory.metaDescription" class="formTextarea"></textarea>
+							<textarea name="metaDescription" class="formTextarea">${entry.metaDescription}</textarea>
 						</td>
 					</tr>
 					<tr>

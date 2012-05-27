@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="../../inc/header.jsp"%>
+<%@ include file="../common/header.jsp"%>
 <html>
 <head>
 	<base href="<%=basePath%>">
 	<title>文章分类列表 - Powered By SHOP++</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
-	<meta name="Author" content="SHOP++ Team">
-	<meta name="Copyright" content="SHOP++">
 	<script type="text/javascript">
 	$(document).ready(function() {
 	
@@ -53,9 +51,9 @@
 			文章分类列表&nbsp;总记录数: 12
 		</div>
 		<div class="body articleCategory">
-			<form id="listForm" action="/category/list" method="post">
+			<form id="listForm" action="articleCategory/list" method="post">
 				<div class="listBar">
-					<input type="button" class="formButton" onclick="location.href='<%=path %>/category/add'" value="添加分类" hidefocus="">
+					<input type="button" class="formButton" onclick="location.href='articleCategory/add'" value="添加分类" hidefocus="">
 				</div>
 				<table id="listTable" class="listTable">
 					<tbody>
@@ -70,7 +68,7 @@
 								<span>操作</span>
 							</th>
 						</tr>
-						<c:forEach items="${entity}" var="entry">
+						<c:forEach items="${entry}" var="entry">
 						<tr grade="0">
 							<td class="articleCategoryName">
 									<span class="pointer firstCategory" style="margin-left: 0px;">
@@ -82,8 +80,8 @@
 							</td>
 							<td>
 								<a href="/shop/article_list/about_us.htm" target="_blank" title="浏览">[浏览]</a>
-									<a href="<%=path%>/category/delete/${entry.id}" class="deleteArticleCategory" title="删除">[删除]</a>
-								<a href="<%=path%>/category/edit/${entry.id}" title="编辑">[编辑]</a>
+									<a href="articleCategory/delete/${entry.id}" class="deleteArticleCategory" title="删除">[删除]</a>
+								<a href="articleCategory/edit/${entry.id}" title="编辑">[编辑]</a>
 							</td>
 						</tr>
 							<c:forEach items="${entry.children}" var="child">
@@ -98,8 +96,8 @@
 									</td>
 									<td>
 										<a href="/shop/article_list/terms.htm" target="_blank" title="浏览">[浏览]</a>
-											<a href="/category/delete/${child.id}" class="deleteArticleCategory" title="删除">[删除]</a>
-										<a href="<%=path%>/category/edit/${child.id}" title="编辑">[编辑]</a>
+											<a href="articleCategory/delete/${child.id}" class="deleteArticleCategory" title="删除">[删除]</a>
+										<a href="articleCategory/edit/${child.id}" title="编辑">[编辑]</a>
 									</td>
 								</tr>
 							</c:forEach>

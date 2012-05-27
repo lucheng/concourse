@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="../../inc/header.jsp"%>
+<%@ include file="../common/header.jsp"%>
 <html>
 <head>
 	<base href="<%=basePath%>">
 	<title>文章分类列表 - Powered By SHOP++</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
-	<meta name="Author" content="SHOP++ Team">
-	<meta name="Copyright" content="SHOP++">
+	
 	<script type="text/javascript">
 	$(document).ready(function() {
 	

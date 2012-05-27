@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="../inc/header.jsp"%>
+<%@ include file="common/header.jsp"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<base href="<%=basePath%>">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>管理中心 - Powered By SHOP++</title>
-		<meta name="Author" content="SHOP++ Team">
-		<meta name="Copyright" content="SHOP++">
 	</head>
 	<frameset id="parentFrameset" rows="60,*" cols="*" frameborder="no" border="0" framespacing="0">
 		<frame id="headerFrame" name="headerFrame" src="<c:url value='menu/header'/>" frameborder="no" scrolling="no" noresize="noresize">

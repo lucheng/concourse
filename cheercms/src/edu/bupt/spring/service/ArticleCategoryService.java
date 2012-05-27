@@ -15,4 +15,5 @@ public interface ArticleCategoryService extends DAO<ArticleCategory> {
 
 	public List<ArticleCategory> findAll();
 	public List<ArticleCategory> findFirdLevel();
+	public boolean checkSign(String sign);
 }
