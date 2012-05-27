@@ -1,71 +1,53 @@
 package edu.bupt.spring.entity;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.persistence.Transient;
 
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
-
-import edu.bupt.spring.web.validator.DateFormat;
+import org.springframework.security.core.GrantedAuthority;
 
 /**
- * 
- * @author linzhe
- * @date   2012-5-17
- * @email  m23linzhe@gmail.com
+ * 实体类 - 管理员
+ * @author  linzhe
+ * @Date    2012-5-27
+ * @email   m23linzhe@gmail.com
+ * @qq      398024808
+ * @version 1.0
+ *
  */
+
 @Entity
-@Table(name = "tbl_admin")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Admin {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+@Table(name="tbl_Admin")
+public class Admin extends BaseEntity {
 
-	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    private int id;
-    
-    @Pattern(regexp = "[A-Za-z0-9]{5,20}", message = "{username.illegal}") //java validator验证（用户名字母数字组成，长度为5-10）
-    private String username;
-    
-//    @Pattern(regexp = "[A-Za-z0-9]{5,20}", message = "{username.illegal}") 
-    private String name;
-    
-    @Pattern(regexp = "[A-Za-z0-9]{5,20}", message = "{password.illegal}") 
-    private String password;
-    
-    @NotNull
-    @Size(min = 1, max = 255)
-    @NotEmpty(message = "{email.illegal}")
-    @Email(message = "{email.illegal}") //错误消息会自动到MessageSource中查找
-    private String email;
-    
-    private String department;
-    
-    private boolean isAccountEnabled;
-    
-	public int getId() {
-		return id;
-	}
+	private static final long serialVersionUID = -7519486823153844426L;
+	
+	private String username;// 用户名
+	private String password;// 密码
+	private String email;// E-mail
+	private String name;// 姓名
+	private String department;// 部门
+	private Boolean isAccountEnabled;// 账号是否启用
+	private Boolean isAccountLocked;// 账号是否锁定
+	private Boolean isAccountExpired;// 账号是否过期
+	private Boolean isCredentialsExpired;// 凭证是否过期
+	private Integer loginFailureCount;// 连续登录失败的次数
+	private Date lockedDate;// 账号锁定日期
+	private Date loginDate;// 最后登录日期
+	private String loginIp;// 最后登录IP
+	
+	private Set<Role> roleSet;// 管理角色
+	private GrantedAuthority[] authorities;// 角色信息
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
+	@Column(updatable = false, nullable = false, unique = true)
 	public String getUsername() {
 		return username;
 	}
@@ -74,12 +56,22 @@ public class Admin {
 		this.username = username;
 	}
 
+	@Column(nullable = false)
 	public String getPassword() {
 		return password;
 	}
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	@Column(nullable = false)
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getName() {
@@ -98,33 +90,113 @@ public class Admin {
 		this.department = department;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public boolean isAccountEnabled() {
+	@Column(nullable = false)
+	public Boolean getIsAccountEnabled() {
 		return isAccountEnabled;
 	}
 
-	public void setAccountEnabled(boolean isAccountEnabled) {
+	public void setIsAccountEnabled(Boolean isAccountEnabled) {
 		this.isAccountEnabled = isAccountEnabled;
 	}
 
-	public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Admin other = (Admin) obj;
-        if (id != other.id)
-            return false;
-        return true;
-    }
+	@Column(nullable = false)
+	public Boolean getIsAccountLocked() {
+		return isAccountLocked;
+	}
+
+	public void setIsAccountLocked(Boolean isAccountLocked) {
+		this.isAccountLocked = isAccountLocked;
+	}
+
+	@Column(nullable = false)
+	public Boolean getIsAccountExpired() {
+		return isAccountExpired;
+	}
+
+	public void setIsAccountExpired(Boolean isAccountExpired) {
+		this.isAccountExpired = isAccountExpired;
+	}
+
+	@Column(nullable = false)
+	public Boolean getIsCredentialsExpired() {
+		return isCredentialsExpired;
+	}
+
+	public void setIsCredentialsExpired(Boolean isCredentialsExpired) {
+		this.isCredentialsExpired = isCredentialsExpired;
+	}
+
+	@Column(nullable = false)
+	public Integer getLoginFailureCount() {
+		return loginFailureCount;
+	}
+
+	public void setLoginFailureCount(Integer loginFailureCount) {
+		this.loginFailureCount = loginFailureCount;
+	}
+
+	public Date getLockedDate() {
+		return lockedDate;
+	}
+
+	public void setLockedDate(Date lockedDate) {
+		this.lockedDate = lockedDate;
+	}
+
+	public Date getLoginDate() {
+		return loginDate;
+	}
+
+	public void setLoginDate(Date loginDate) {
+		this.loginDate = loginDate;
+	}
+
+	public String getLoginIp() {
+		return loginIp;
+	}
+
+	public void setLoginIp(String loginIp) {
+		this.loginIp = loginIp;
+	}
+
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinColumn(nullable = false)
+	@OrderBy("name asc")
+	public Set<Role> getRoleSet() {
+		return roleSet;
+	}
+
+	public void setRoleSet(Set<Role> roleSet) {
+		this.roleSet = roleSet;
+	}
+	
+	@Transient
+	public GrantedAuthority[] getAuthorities() {
+		return authorities;
+	}
+
+	public void setAuthorities(GrantedAuthority[] authorities) {
+		this.authorities = authorities;
+	}
+
+	@Transient
+	public boolean isEnabled() {
+		return this.isAccountEnabled;
+	}
+
+	@Transient
+	public boolean isAccountNonLocked() {
+		return !this.isAccountLocked;
+	}
+
+	@Transient
+	public boolean isAccountNonExpired() {
+		return !this.isAccountExpired;
+	}
+
+	@Transient
+	public boolean isCredentialsNonExpired() {
+		return !this.isCredentialsExpired;
+	}
 
 }

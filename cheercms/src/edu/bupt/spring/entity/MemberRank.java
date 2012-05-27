@@ -1,74 +1,79 @@
 package edu.bupt.spring.entity;
 
-import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * 实体类 - 会员等级
+ * @author  linzhe
+ * @Date    2012-5-27
+ * @email   m23linzhe@gmail.com
+ * @qq      398024808
+ * @version 1.0
+ *
+ */
+
 @Entity
-@Table(name="tbl_member_rank")
-public class MemberRank {
+@Table(name="tbl_MemberRank")
+public class MemberRank extends BaseEntity {
+
+	private static final long serialVersionUID = 3599029355500655209L;
+
+	private String name;// 等級名称
+	private Double preferentialScale;// 优惠百分比
+	private Integer point;// 所需积分
+	private Boolean isDefault;// 是否为默认等级
 	
-	private int id;
-	private String name;
-	private int preferentialScale;
-	private int score;
-	private int defaulte;
-	
-	private Set<Member> members = new HashSet<Member>();
-	
-	@Id
-	@GeneratedValue
-	@Column(name="id",unique = true)
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	@Column(name="name")
+	private Set<Member> memberSet;// 会员
+
+	@Column(nullable = false, unique = true)
 	public String getName() {
 		return name;
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public int getPreferentialScale() {
+
+	@Column(nullable = false)
+	public Double getPreferentialScale() {
 		return preferentialScale;
 	}
-	public void setPreferentialScale(int preferentialScale) {
+
+	public void setPreferentialScale(Double preferentialScale) {
 		this.preferentialScale = preferentialScale;
 	}
-	public int getScore() {
-		return score;
-	}
-	public void setScore(int score) {
-		this.score = score;
-	}
 	
-	@Column(name="is_default")	
-	public int getDefaulte() {
-		return defaulte;
+	@Column(nullable = false, unique = true)
+	public Integer getPoint() {
+		return point;
 	}
-	public void setDefaulte(int defaulte) {
-		this.defaulte = defaulte;
+
+	public void setPoint(Integer point) {
+		this.point = point;
 	}
-	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy="memberRank")
-	public Set<Member> getMembers() {
-		return members;
+
+	@Column(nullable = false)
+	public Boolean getIsDefault() {
+		return isDefault;
 	}
-	public void setMembers(Set<Member> members) {
-		this.members = members;
+
+	public void setIsDefault(Boolean isDefault) {
+		this.isDefault = isDefault;
 	}
-	
+
+	@OneToMany(mappedBy = "memberRank", fetch = FetchType.LAZY)
+	public Set<Member> getMemberSet() {
+		return memberSet;
+	}
+
+	public void setMemberSet(Set<Member> memberSet) {
+		this.memberSet = memberSet;
+	}
+
 }

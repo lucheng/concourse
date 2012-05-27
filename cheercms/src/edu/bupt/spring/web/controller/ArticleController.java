@@ -16,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import edu.bupt.spring.base.BaseController;
 import edu.bupt.spring.entity.Article;
-import edu.bupt.spring.entity.Category;
 import edu.bupt.spring.service.ArticleService;
 
 /**

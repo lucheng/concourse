@@ -7,19 +7,29 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
+/**
+ * 实体类 - 菜单项
+ * @author  linzhe
+ * @Date    2012-5-27
+ * @email   m23linzhe@gmail.com
+ * @qq      398024808
+ * @version 1.0
+ *
+ */
 @Entity
-@Table(name="tbl_menu")
-public class Menu {
+@Table(name="tbl_Menu")
+public class Menu extends BaseEntity {
 	
-	private int id;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1967792886654690970L;
 	private String name;
 	private String url;
 	private int orderList;
@@ -28,16 +38,6 @@ public class Menu {
 	private Set<Menu> children = new HashSet<Menu>();
 	/** 所属父类 **/
 	private Menu parent;
-	
-	@Id
-	@GeneratedValue
-	@Column(name="id",unique = true)
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	
 	@Column(name="name")
 	public String getName() {

@@ -2,11 +2,11 @@
 <%@ include file="../inc/header.jsp"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>管理中心 - Powered By SHOP++</title>
 <meta name="Author" content="SHOP++ Team">
 <meta name="Copyright" content="SHOP++">
-<link rel="icon" href="http://demo.shopxx.net/admin/favicon.ico" type="image/x-icon">
 <script type="text/javascript">
 $().ready( function() {
 
@@ -53,17 +53,10 @@ $().ready( function() {
 	});
 
 	// 刷新验证码
-	$captchaImage.click( function() {
-		var timestamp = (new Date()).valueOf();
-		var imageSrc = $captchaImage.attr("src");
-		if(imageSrc.indexOf("?") >= 0) {
-			imageSrc = imageSrc.substring(0, imageSrc.indexOf("?"));
-		}
-		imageSrc = imageSrc + "?timestamp=" + timestamp;
-		$captchaImage.attr("src", imageSrc);
-	});
-
-	
+    $(function(){         
+        $('#captchaImage').click(function () {//生成验证码
+       	 $(this).hide().attr('src', 'captcha-image?' + Math.floor(Math.random()*100) ).fadeIn(); })    
+    }); 
 
 });
 </script>
@@ -108,7 +101,7 @@ $().ready( function() {
                 	</th>
                     <td>
                     	<input type="text" id="captcha" name="j_captcha" class="formText captcha">
-                   		<img id="captchaImage" class="captchaImage" src="<%=path %>/images/captcha" alt="换一张">
+                   		<img id="captchaImage" class="captchaImage" src="captcha-image" alt="换一张">
                     </td>
                 </tr>
                 <tr>

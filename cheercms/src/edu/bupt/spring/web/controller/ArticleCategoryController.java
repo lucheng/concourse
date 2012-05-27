@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.bupt.spring.base.BaseController;
-import edu.bupt.spring.entity.Category;
-import edu.bupt.spring.service.CategoryService;
+import edu.bupt.spring.entity.ArticleCategory;
+import edu.bupt.spring.service.ArticleCategoryService;
 
 /**
  * 
@@ -24,13 +24,13 @@ import edu.bupt.spring.service.CategoryService;
  * @email  m23linzhe@gmail.com
  */
 @Controller("categoryController")
-public class CategoryController extends BaseController{
+public class ArticleCategoryController extends BaseController{
     
-	private static final Logger logger = LoggerFactory.getLogger(CategoryController.class);
+	private static final Logger logger = LoggerFactory.getLogger(ArticleCategoryController.class);
 	
 	@Autowired
-    @Qualifier("categoryServiceImpl")
-	private CategoryService categoryService;
+    @Qualifier("articleCategoryServiceImpl")
+	private ArticleCategoryService articleCategoryService;
 	
 	@RequestMapping(value = "/category/list")
     public ModelAndView list(HttpServletRequest request){
@@ -40,27 +40,27 @@ public class CategoryController extends BaseController{
 		pageView.setQueryResult(qr);*/
 		
 		
-		return new ModelAndView("category/list").addObject("entity", categoryService.findFirdLevel());
+		return new ModelAndView("category/list").addObject("entity", articleCategoryService.findFirdLevel());
     }
     
     @RequestMapping(value = "/category/add")
     public ModelAndView add(){
         
-    	return new ModelAndView("category/add").addObject("parentCategories", categoryService.findFirdLevel());
+    	return new ModelAndView("category/add").addObject("parentCategories", articleCategoryService.findFirdLevel());
     }
     
     @RequestMapping(value = "/category/save", method = {RequestMethod.POST})
-    public String save(@ModelAttribute("category") Category category, @ModelAttribute("parentId")Integer parentId) {
+    public String save(@ModelAttribute("category") ArticleCategory category, @ModelAttribute("parentId")Integer parentId) {
         
     	if(parentId != null && parentId > 0){
-    		Category parent = categoryService.find(parentId);
+    		ArticleCategory parent = articleCategoryService.find(parentId);
     		category.setParent(parent);	
     	}
     	
     	if(category.getId() > 0){
-        	categoryService.update(category);
+        	articleCategoryService.update(category);
         }else {
-        	categoryService.save(category);
+        	articleCategoryService.save(category);
         }
         return "redirect:/category/list";
     }
@@ -68,24 +68,24 @@ public class CategoryController extends BaseController{
     @RequestMapping(value = "/category/edit/{id}", method = {RequestMethod.GET})
     public String edit(@PathVariable Integer id, HttpServletRequest request) {
         
-    	Category category = categoryService.find(id);
+    	ArticleCategory category = articleCategoryService.find(id);
     	 
         request.setAttribute("entity", category);
-        request.setAttribute("parentCategories", categoryService.findFirdLevel());
+        request.setAttribute("parentCategories", articleCategoryService.findFirdLevel());
         return "category/add";
     }
     
     @RequestMapping(value = "/category/update", method = {RequestMethod.POST})
-    public String update(@ModelAttribute("category") Category category, HttpServletRequest request) {
+    public String update(@ModelAttribute("category") ArticleCategory category, HttpServletRequest request) {
         
-    	categoryService.update(category);
+    	articleCategoryService.update(category);
         return "redirect:/category/list";
     }
     
     @RequestMapping(value = "/category/delete/{id}", method = {RequestMethod.GET})
-    public String delete(@ModelAttribute("category") Category category, HttpServletRequest request) {
+    public String delete(@ModelAttribute("category") ArticleCategory category, HttpServletRequest request) {
         
-    	categoryService.delete(category.getId());
+    	articleCategoryService.delete(category.getId());
         return "redirect:/category/list";
     }
     

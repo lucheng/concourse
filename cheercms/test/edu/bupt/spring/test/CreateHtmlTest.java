@@ -18,7 +18,7 @@ import edu.bupt.spring.utils.FreeMarkertUtil;
 public class CreateHtmlTest {
 	public static void main(String[] args) {
 		
-		Member content = new Member();
+		/*Member content = new Member();
 		content.setName("张三");
 		Map<String, Object> root = new HashMap<String, Object>();
 		root.put("content", content);
@@ -29,6 +29,6 @@ public class CreateHtmlTest {
 		String htmlFile = htmlPath + "/firsthtml.html";
 		
 		FreeMarkertUtil.analysisTemplate(templatesPath, templateFile, htmlFile,
-				root);
+				root);*/
 	}
 }
