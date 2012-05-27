@@ -11,6 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -243,6 +244,7 @@ public class Member extends BaseEntity {
 	}
 	
 	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "tbl_member_product", joinColumns = { @JoinColumn(name ="favoriteMemberSet_id" )}, inverseJoinColumns = { @JoinColumn(name = "favoriteProductSet_id") })
 	@OrderBy("name desc")
 	public Set<Product> getFavoriteProductSet() {
 		return favoriteProductSet;

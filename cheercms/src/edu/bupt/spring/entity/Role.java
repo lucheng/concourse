@@ -5,6 +5,8 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -69,6 +71,7 @@ public class Role extends BaseEntity {
 	}
 
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "roleSet")
+//	@JoinTable(name = "tbl_Admin_Role", joinColumns = { @JoinColumn(name ="admin_id" )}, inverseJoinColumns = { @JoinColumn(name = "role_id") })
 	public Set<Admin> getAdminSet() {
 		return adminSet;
 	}
@@ -78,6 +81,7 @@ public class Role extends BaseEntity {
 	}
 
 	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "tbl_Role_Resource", joinColumns = { @JoinColumn(name ="roleSet_id" )}, inverseJoinColumns = { @JoinColumn(name = "resourceSet_id") })
 	public Set<Resource> getResourceSet() {
 		return resourceSet;
 	}

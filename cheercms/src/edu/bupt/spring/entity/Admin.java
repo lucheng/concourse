@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
@@ -161,6 +162,7 @@ public class Admin extends BaseEntity {
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinColumn(nullable = false)
+	@JoinTable(name = "tbl_Admin_Role", joinColumns = { @JoinColumn(name ="admin_id" )}, inverseJoinColumns = { @JoinColumn(name = "role_id") })
 	@OrderBy("name asc")
 	public Set<Role> getRoleSet() {
 		return roleSet;

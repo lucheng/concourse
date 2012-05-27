@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -305,6 +306,7 @@ public class Product extends BaseEntity {
 	}
 
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy="favoriteProductSet")
+//	@JoinTable(name = "tbl_member_product", joinColumns = { @JoinColumn(name ="favoriteMemberSet_id" )}, inverseJoinColumns = { @JoinColumn(name = "favoriteProductSet_id") })
 	public Set<Member> getFavoriteMemberSet() {
 		return favoriteMemberSet;
 	}
