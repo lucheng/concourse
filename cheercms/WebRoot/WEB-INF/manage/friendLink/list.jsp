@@ -49,12 +49,12 @@
 	</head>
 	<body class="list">
 	<div class="bar">
-		文章列表&nbsp;总记录数: 34 (共2页)
+		友情链接&nbsp;总记录数: 34 (共2页)
 	</div>
 	<div class="body">
-		<form id="listForm" action="<%=path %>/article/list" method="post">
+		<form id="listForm" action="<%=path %>/friendLink/list" method="post">
 			<div class="listBar">
-				<input type="button" class="formButton" onclick="location.href='<%=path %>/article/add'" value="添加文章" hidefocus="">
+				<input type="button" class="formButton" onclick="location.href='<%=path %>/friendLink/add'" value="添加链接" hidefocus="">
 				&nbsp;&nbsp;
 				<label>查找: </label>
 				<select name="pager.searchBy">
@@ -87,56 +87,50 @@
 						<input type="checkbox" class="allCheck">
 					</th>
 					<th>
-						<a href="#" class="sort" name="title" hidefocus="">标题</a>
+						<a href="#" class="sort" name="title" hidefocus="">友情链接名称</a>
 					</th>
 					<th>
-						<a href="#" class="sort" name="articleCategory" hidefocus="">分类</a>
+						<a href="#" class="sort" name="articleCategory" hidefocus="">链接地址</a>
 					</th>
 					<th>
-						<a href="#" class="sort" name="isPublication" hidefocus="">是否发布</a>
+						<a href="#" class="sort" name="isPublication" hidefocus="">logo</a>
 					</th>
 					<th>
-						<a href="#" class="sort" name="isRecommend" hidefocus="">作者</a>
-					</th>
-					<th>
-						<a href="#" class="sort desc" name="createDate" hidefocus="">添加时间</a>
+						<a href="#" class="sort" name="isRecommend" hidefocus="">排序</a>
 					</th>
 					<th>
 						<span>操作</span>
 					</th>
 				</tr>
-				<c:forEach items="${entity}" var="article">
+				<c:forEach items="${entity}" var="friendLink">
 					<tr>
 						<td>
 							<input type="checkbox" name="ids" value="402881833054c381013054f0df410009">
 						</td>
 						<td>
-							<span title="${article.title}">
-								${article.title}
+							<span title="${friendLink.name}">
+								${friendLink.name}
 							</span>
 						</td>
 						<td>
-							${article.categoryName}
+							${friendLink.url}
 						</td>
 						<td>
-							<span>${article.status}</span>
+							<span>${friendLink.logo}</span>
 						</td>
 						<td>
-							<span>${article.author}</span>
+							<span title="${friendLink.orderList}">${friendLink.orderList}</span>
 						</td>
 						<td>
-							<span title="${article.createDate}">${article.createDate}</span>
-						</td>
-						<td>
-							<a href="<%=path%>/article/edit/${article.id}" title="编辑">[编辑]</a>
-								<a href="/html/201101/cab605b089cd44a5af83975915e55087.html" target="_blank" title="浏览">[浏览]</a>
+							<a href="<%=path%>/friendLink/edit/${friendLink.id}" title="编辑">[编辑]</a>
+							<a href="<%=path%>/friendLink/delete/${friendLink.id}" title="编辑">[删 除]</a>
 						</td>
 					</tr>
 					</c:forEach>
 			</tbody></table>
 				<div class="pagerBar">
 					<div class="delete">
-						<input type="button" id="deleteButton" class="formButton" url="article!delete.action" value="删 除" disabled="" hidefocus="">
+						<input type="button" id="deleteButton" class="formButton" url="friendLink!delete.action" value="删 除" disabled="" hidefocus="">
 					</div>
 					<div class="pager">
 <script type="text/javascript">
