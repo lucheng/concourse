@@ -5,35 +5,26 @@
 	<base href="<%=basePath%>">
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<title>添加/编辑文章 - Powered By SHOP++</title>
-	<meta name="Author" content="SHOP++ Team">
-	<meta name="Copyright" content="SHOP++">
-	
-	<style>
-			form {
-				margin: 0;
-			}
-			textarea {
-				display: block;
-			}
-	</style>
-	<script charset="utf-8" src="js/kindeditor-min.js"></script>
-	<script charset="utf-8" src="js/zh_CN.js"></script>
+	<script charset="utf-8" src="<%=path%>/kindeditor/kindeditor-min.js"></script>
+	<script charset="utf-8" src="<%=path%>/kindeditor/zh_CN.js"></script>
 	<script>
-		var editor;
-		KindEditor.ready(function(K) {
-			editor = K.create('textarea[name="content"]', {
-				resizeType : 1,
-				allowPreviewEmoticons : false,
-				allowImageUpload : false,
-				items : [
-					'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
-					'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
-					'insertunorderedlist', '|', 'emoticons', 'image', 'link']
-			});
-		});
+		KE.show({
+	    	id : 'content',  
+	    	allowFileManager : true,  
+	        imageUploadJson : '<%=path%>/kindeditor/jsp/upload_json.jsp',  
+			fileManagerJson : '<%=path%>kindeditor/jsp/file_manager_json.jsp',  
+	    	afterCreate : function(id) { 
+		    	KE.event.ctrl(document, 13, function() {  
+			        KE.util.setData(id);  
+			        document.forms['example'].submit();  
+			    });
+		    	KE.event.ctrl(KE.g[id].iframeDoc, 13, function() {
+			        KE.util.setData(id);
+			        document.forms['example'].submit();  
+		        });
+	      	}  
+	    }); 
 	</script>
-		
-	
 	</head>
 	<body class="input">
 	<div class="bar">
@@ -101,7 +92,7 @@
 						内容: 
 					</th>
 					<td>
-						<textarea name="content" style="width:700px;height:200px;visibility:hidden;">${entity.content}</textarea>
+						<textarea name="content" id="content" style="width:700px;height:200px;_visibility:hidden;">${entity.content}</textarea>
 					</td>
 					
 				</tr>
