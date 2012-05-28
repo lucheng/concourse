@@ -20,4 +20,10 @@ public class PageServiceImpl extends DaoSupport<Page> implements PageService {
 
     private static final Logger logger = LoggerFactory.getLogger(PageServiceImpl.class);
 
+	/*public void save(Page page) {
+		
+		
+		
+	}*/
+
 }

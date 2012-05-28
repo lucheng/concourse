@@ -18,7 +18,7 @@ import edu.bupt.spring.service.TagService;
 import edu.bupt.spring.utils.Parser;
 
 
-public class UserTest {
+public class BaikeTest {
 	
 	private static PageService pageService;
 	private static ReinforceService reinforceService;
@@ -32,42 +32,48 @@ public class UserTest {
 			ApplicationContext cxt = new ClassPathXmlApplicationContext("applicationContext.xml");
 			pageService = (PageService)cxt.getBean("pageServiceImpl");
 			reinforceService = (ReinforceService)cxt.getBean("reinforceServiceImpl");
-			contentService = (ContentService)cxt.getBean("pageServiceImpl");
+			contentService = (ContentService)cxt.getBean("contentServiceImpl");
 			linkService = (LinkService)cxt.getBean("linkServiceImpl");
 			tagService = (TagService)cxt.getBean("tagServiceImpl");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-
 	}
 	
 	@Test
 	public void addUser(){
 		
-		try {
-			Page page = Parser.parseXmlFile("\\\\buptsse215-02/data/baidu/1.xml");
-			
-			/*for(Reinforce reinforce : page.getReinforces()){
-				reinforceService.save(reinforce);
+		for(int i = 1000; i < 2000; i++){
+			try {
+				Page page = Parser.parseXmlFile("\\\\buptsse215-02/data/baidu/"+ i +".xml");
+				pageService.save(page);
+				
+				for(Reinforce reinforce : page.getReinforces()){
+					
+					reinforce.setPage(page);
+					reinforceService.save(reinforce);
+				}
+				
+				for(Content content : page.getContents()){
+					
+					content.setPage(page);
+					contentService.save(content);
+					
+					for(Link link : content.getLinks()){
+						link.setContent(content);
+						linkService.save(link);
+					}
+					
+					for(Tag tag : content.getTags()){
+						tag.setContent(content);
+						tagService.save(tag);
+					}
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				continue;
 			}
-			
-			for(Content content : page.getContents()){
-				
-				for(Link link : content.getLinks()){
-					linkService.save(link);
-				}
-				
-				for(Tag tag : content.getTags()){
-					tagService.save(tag);
-				}
-				contentService.save(content);
-			}*/
-			
-			
-			pageService.save(page);
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
 		
 	}

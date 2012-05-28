@@ -53,7 +53,7 @@ public class Content {
 		this.text = text;
 	}
 	
-	@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.REFRESH,fetch=FetchType.EAGER,optional=false)
 	@JoinColumn(name="page_id")
 	public Page getPage() {
 		return page;
@@ -81,7 +81,7 @@ public class Content {
 		this.subTitle = subTitle;
 	}
 	
-	@OneToMany(cascade=CascadeType.MERGE,fetch=FetchType.LAZY,mappedBy="content")
+	@OneToMany(cascade=CascadeType.REFRESH,fetch=FetchType.LAZY,mappedBy="content")
 	public Set<Link> getLinks() {
 		return links;
 	}
@@ -90,7 +90,7 @@ public class Content {
 		this.links = links;
 	}
 
-	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy="content")
+	@OneToMany(cascade=CascadeType.REFRESH,fetch=FetchType.LAZY,mappedBy="content")
 	public Set<Tag> getTags() {
 		return tags;
 	}

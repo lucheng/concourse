@@ -10,5 +10,7 @@ import edu.bupt.spring.entity.Page;
  * @email  m23linzhe@gmail.com
  */
 public interface PageService extends DAO<Page> {
+	
+//	public void save(Page page);
 
 }

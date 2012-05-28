@@ -18,8 +18,80 @@ import edu.bupt.spring.entity.Tag;
 public class Parser {
 	
 	private static Logger logger = Logger.getLogger(Parser.class);
+	/*private Page page;
+	private List<Content> contents = new ArrayList<Content>();
+	private List<Reinforce> reinforces = new ArrayList<Reinforce>();
+	private Document doc;*/
 	
-	
+	/*public void fetch(String url, String fileName){
+		
+		try {
+			doc = Jsoup.connect(url)
+					.userAgent("Mozilla/5.0 (Windows NT 6.1; rv:5.0)")
+					.cookie("auth", "token").timeout(1000).get();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		Elements codes = doc.body().select("body");
+
+		// 标题
+		Elements title = codes.select("h1[class=title]");
+		page.setTitle(title.text());
+
+		// 源码
+		Elements htmlElement = codes.select("div[class=content-bd main-body]");
+//		this.setHtml(htmlElement.html());
+
+		int contentSize = codes.select("div[id^=sec-content]").size();
+		for (int i = 0; i < contentSize; i++) {
+
+			Content content = new Content();
+
+			// 副标题
+			String subTitle = codes.select("div[id=sec-header" + i + "]")
+					.text();
+			content.setSubTitle(subTitle);
+
+			// 摘要
+			String summary = codes.select(
+					"div[id=sec-content" + i
+							+ "]>div>div>div[class=card-summary-content]")
+					.text();
+			content.setSummary(summary);
+
+			// 内容
+			Elements textElement = codes.select("div[id=sec-content" + i + "]");
+			content.setText(textElement.text());
+
+			// 内容链接
+			Elements links = textElement.select("a[href]");
+			// System.out.println(links.size());
+			Set<Link> linkList = new HashSet<Link>();
+			for (int j = 0; j < links.size(); j++) {
+				Link link = new Link(j, links.get(j).text(), links.get(j)
+						.select("a[href]").attr("href"));
+				linkList.add(link);
+			}
+			content.setLinks(linkList);
+			// 开放分类
+			Set<Tag> taglist = new HashSet<Tag>();
+			Elements tags = textElement.select("dl[id=viewExtCati]>dd>a");
+			for (Element element : tags) {
+				taglist.add(new Tag(element.text()));
+			}
+			content.setTags(taglist);
+			contents.add(content);
+		}
+		// 相关词条
+		Elements reinforceElements = codes.select("dd[class=relative]").select(
+				"a[href]");
+
+		for (int i = 0; i < reinforceElements.size(); i++) {
+			Reinforce reinforce = new Reinforce(i, reinforceElements.get(i)
+					.text(), reinforceElements.get(i).attr("href"));
+			this.reinforces.add(reinforce);
+		}
+	}*/
 	
 	public static Page parseXmlFile(String fileName) throws Exception{
 		
@@ -29,7 +101,7 @@ public class Parser {
 		Element root = doc.getRootElement();
 		Element data = (Element) root.selectSingleNode("//datas");
 		String title = data.element("title").getStringValue();
-		String fileId = fileName.substring(fileName.lastIndexOf("/") + 1, fileName.lastIndexOf("."));
+		int baikeId = Integer.parseInt(fileName.substring(fileName.lastIndexOf("/") + 1, fileName.lastIndexOf(".")));
 		
 		page.setTitle(title);
 		
@@ -66,6 +138,7 @@ public class Parser {
 		}
 		
 		page.setContents(contents);
+		page.setBaibeId(baikeId);
 		
 		Set<Reinforce> reinforceList = new HashSet<Reinforce>();
 		List<Element> reinforces = data.element("reinforces").elements();
@@ -73,11 +146,17 @@ public class Parser {
 			String text = reinforces.get(i).attributeValue("url");
 			String index = reinforces.get(i).attributeValue("index");
 			String url = reinforces.get(i).getStringValue();
-			String baiduId = url.substring(url.lastIndexOf("/")+1, url.lastIndexOf(".htm"));
-			logger.info(baiduId + "==" + text);
-			Reinforce reinforce = new Reinforce(Integer.parseInt(index), Integer.parseInt(baiduId), text);
-			reinforceList.add(reinforce);
-			
+			logger.info(url);
+			int beginIndex = url.lastIndexOf("/");
+			int endIndex = url.lastIndexOf(".htm");
+			if(beginIndex > 0 && endIndex > 0 && beginIndex < endIndex){
+				String baiduId = url.substring(url.lastIndexOf("/")+1, url.lastIndexOf(".htm"));
+				logger.info(index + "==" +baiduId + "==" + text);
+				if(!baiduId.equals("baike_help")){
+					Reinforce reinforce = new Reinforce(Integer.parseInt(index), Integer.parseInt(baiduId), text);
+					reinforceList.add(reinforce);
+				}
+			}
 		}
 		
 		page.setReinforces(reinforceList);
@@ -87,7 +166,8 @@ public class Parser {
 	
 	public static void main(String[] args) throws Exception {
 		
-		Page page = parseXmlFile("\\\\buptsse215-02/data/baidu/1.xml");
+//		Page page = parseXmlFile("\\\\buptsse215-02/data/baidu/1.xml");
+		Page page = parseXmlFile("d:/data/baike/19.xml");
 //		saveAsXml(page, "1.xml");
 	}
 }

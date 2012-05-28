@@ -10,7 +10,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -55,7 +54,7 @@ public class Page {
 		this.title = title;
 	}
 
-	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy="page")
+	@OneToMany(cascade=CascadeType.REFRESH,fetch=FetchType.LAZY,mappedBy="page")
 	public Set<Content> getContents() {
 		return contents;
 	}
@@ -65,7 +64,7 @@ public class Page {
 	}
 
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "page", fetch = FetchType.LAZY)
+	@OneToMany(cascade = CascadeType.REFRESH, mappedBy = "page", fetch = FetchType.LAZY)
 	public Set<Reinforce> getReinforces() {
 		return reinforces;
 	}

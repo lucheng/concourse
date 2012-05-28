@@ -46,7 +46,7 @@ public class Tag {
 		this.text = text;
 	}
 
-	@ManyToOne(cascade=CascadeType.MERGE,fetch=FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.REFRESH,fetch=FetchType.EAGER,optional=false)
 	@JoinColumn(name="content_id")
 	public Content getContent() {
 		return content;
@@ -55,7 +55,5 @@ public class Tag {
 	public void setContent(Content content) {
 		this.content = content;
 	}
-	
-	
 }
 
