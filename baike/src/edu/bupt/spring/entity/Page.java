@@ -24,7 +24,7 @@ public class Page {
 	private int id;
 	private String title;
 	private int baibeId;
-	private Set<Content> contents = new HashSet<Content>();
+//	private Set<Content> contents = new HashSet<Content>();
 	private Set<Reinforce> reinforces = new HashSet<Reinforce>();
 	
 	@Id
@@ -54,14 +54,14 @@ public class Page {
 		this.title = title;
 	}
 
-	@OneToMany(cascade=CascadeType.REFRESH,fetch=FetchType.LAZY,mappedBy="page")
+	/*@OneToMany(cascade=CascadeType.REFRESH,fetch=FetchType.LAZY,mappedBy="page")
 	public Set<Content> getContents() {
 		return contents;
 	}
 
 	public void setContents(Set<Content> contents) {
 		this.contents = contents;
-	}
+	}*/
 
 
 	@OneToMany(cascade = CascadeType.REFRESH, mappedBy = "page", fetch = FetchType.LAZY)

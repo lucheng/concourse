@@ -105,10 +105,11 @@ public class Parser {
 		
 		page.setTitle(title);
 		
-		List<Element> elements = data.element("contents").elements();
+//		List<Element> elements = data.element("contents").elements();
 		
-		Set<Content> contents = new HashSet<Content>();
-		for(Element e : elements){
+//		Set<Content> contents = new HashSet<Content>();
+		/*for(Element e : elements){
+			
 			Content content = new Content();
 			
 			String subTitle  = e.selectSingleNode(".//subtitle").getStringValue();
@@ -135,9 +136,9 @@ public class Parser {
 			content.setLinks(linkList);
 			content.setTags(tags);
 			contents.add(content);
-		}
+		}*/
 		
-		page.setContents(contents);
+//		page.setContents(contents);
 		page.setBaibeId(baikeId);
 		
 		Set<Reinforce> reinforceList = new HashSet<Reinforce>();
