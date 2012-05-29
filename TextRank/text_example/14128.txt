@@ -1,0 +1,1 @@
+社交应用开发公司Seesmic已经从商用软件巨人Salesforce.com和软银旗下的软银控股那里获得400万美元投资。至此Seesmic的融资总额已达1600万美元。 Seesmic由法国创业者Loic Le Meur创建，可以帮助企业和个人监视和跟踪社交网络。Seesmic有桌面客户端、网页版客户端、手机客户端，支持Twitter、Facebook等社交网站。可以导入来自很多社交网站的信息流。去年Seesmic开始深度整合Salesforce的社交网站Chatter。 Seesmic将利用这笔投资扩大企业用户群。 via TechCrunch 
