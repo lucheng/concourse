@@ -16,6 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import edu.bupt.spring.base.BaseController;
 import edu.bupt.spring.entity.Article;
+import edu.bupt.spring.entity.ArticleCategory;
+import edu.bupt.spring.service.ArticleCategoryService;
 import edu.bupt.spring.service.ArticleService;
 
 /**
@@ -33,6 +35,10 @@ public class ArticleController extends BaseController{
     @Qualifier("articleServiceImpl")
 	private ArticleService articleService;
 	
+	@Autowired
+    @Qualifier("articleCategoryServiceImpl")
+	private ArticleCategoryService articleCategoryService;
+	
 	@RequestMapping(value = "/article/list")
     public ModelAndView list(HttpServletRequest request){
 		
@@ -47,11 +53,18 @@ public class ArticleController extends BaseController{
     @RequestMapping(value = "/article/add", method = {RequestMethod.GET})
     public String add(Model model, HttpServletRequest request){
     	request.setAttribute("parentCategories", articleService.findFirdLevel());	
-    	return "article/add";
+    	return "article/input";
     }
     
     @RequestMapping(value = "/article/save", method = {RequestMethod.POST})
-    public String save(@ModelAttribute("article") Article article) {
+    public String save(@ModelAttribute("article") Article article, int articleCategory_id) {
+    	
+    	ArticleCategory articleCategory = articleCategoryService.find(articleCategory_id);
+    	article.setArticleCategory(articleCategory);
+    	
+    	if(article.getHits() == null){
+    		article.setHits(0);
+    	}
     	if(article.getId() > 0){
     		articleService.update(article);
         }else {
@@ -67,7 +80,7 @@ public class ArticleController extends BaseController{
     	 
     	 request.setAttribute("entity", article);
          request.setAttribute("parentCategories", articleService.findFirdLevel());
-         return "article/add";
+         return "article/input";
     }
     
     @RequestMapping(value = "/article/update", method = {RequestMethod.POST})

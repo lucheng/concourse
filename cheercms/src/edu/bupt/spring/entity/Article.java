@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -88,7 +89,8 @@ public class Article extends BaseEntity {
 	}
 	
 	//@SearchableProperty(store = Store.YES)
-	@Column(length = 10000, nullable = false)
+//	@Column(length = 10000, nullable = false)
+	@Lob
 	public String getContent() {
 		return content;
 	}
@@ -164,7 +166,7 @@ public class Article extends BaseEntity {
 		this.htmlFilePath = htmlFilePath;
 	}
 	
-	@Column(nullable = false)
+	@Column(columnDefinition="int default 0",nullable = false)
 	public Integer getHits() {
 		return hits;
 	}

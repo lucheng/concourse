@@ -9,7 +9,7 @@
 	<script charset="utf-8" src="<%=path%>/kindeditor/zh_CN.js"></script>
 	<script>
 		KE.show({
-	    	id : 'content',  
+	    	id : 'content',
 	    	allowFileManager : true,  
 	        imageUploadJson : '<%=path%>/kindeditor/jsp/upload_json.jsp',  
 			fileManagerJson : '<%=path%>kindeditor/jsp/file_manager_json.jsp',  
@@ -35,17 +35,18 @@
 		<ul></ul>
 	</div>
 	<div class="body">
-		<form id="validateForm" action="<%=path %>/article/save" method="post">
-			<c:if test="${entity != null}">
-					<input type="hidden" name="id" value="${entity.id}">
+		<form id="validateForm" action="article/save" method="post">
+			<c:if test="${entry != null}">
+					<input type="hidden" name="id" value="${entry.id}">
 			</c:if>
+			<input type="hidden" name="hits" value="${entry.hits}">
 			<table class="inputTable">
 				<tbody><tr>
 					<th>
 						文章标题: 
 					</th>
 					<td>
-						<input type="text" name="title" class="formText" value="${entity.title}">
+						<input type="text" name="title" class="formText" value="${entry.title}">
 						<label class="requireField">*</label>
 					</td>
 				</tr>
@@ -54,10 +55,10 @@
 						文章分类: 
 					</th>
 					<td>
-						<select name="categoryName">
-							<option value="">请选择...</option>
+						<select name="articleCategory_id">
+							<option value="0">请选择...</option>
 							<c:forEach items="${parentCategories}" var="parent" >
-									<option value="${parent.id}" <c:if test="${entity.parent.id == parent.id}"> selected="selected"</c:if> >${parent.name}</option>
+									<option value="${parent.id}" <c:if test="${entry.parent.id == parent.id}"> selected="selected"</c:if> >${parent.name}</option>
 							</c:forEach>
 						</select>
 						<label class="requireField">*</label>
@@ -68,7 +69,7 @@
 						作者: 
 					</th>
 					<td>
-						<input type="text" class="formText" name="author" value="${entity.author}">
+						<input type="text" class="formText" name="author" value="${entry.author}">
 					</td>
 				</tr>
 				<tr>
@@ -77,13 +78,13 @@
 					</th>
 					<td>
 						<label>
-							<input type="radio" name="status" value="true" id="article_isPublication" checked="checked">发布
+							<input type="checkbox" name="isPublication" value="true" id="article_isPublication" <c:if test="${entry.isPublication==true}" >checked="checked" </c:if>>发布
 						</label>
 						<label>
-							<input type="radio" name="status" value="true" id="article_isRecommend">推荐
+							<input type="checkbox" name="isRecommend" value="true" id="article_isRecommend" <c:if test="${entry.isRecommend==true}" >checked="checked" </c:if>>推荐
 						</label>
 						<label>
-							<input type="radio" name="status" value="true" id="article_isTop">置顶
+							<input type="checkbox" name="isTop" value="true" id="article_isTop" <c:if test="${entry.isTop==true}" >checked="checked" </c:if>>置顶
 						</label>
 					</td>
 				</tr>
@@ -92,12 +93,28 @@
 						内容: 
 					</th>
 					<td>
-						<textarea name="content" id="content" style="width:700px;height:200px;_visibility:hidden;">${entity.content}</textarea>
+						<textarea name="content" id="content" style="width:800px;height:500px;_visibility:hidden;">${entry.content}</textarea>
 					</td>
-					
+				</tr>
+				<tr>
+					<th>
+						页面关键词: 
+					</th>
+					<td>
+						<input type="text" class="formText" name="metaKeywords" value="${entry.metaKeywords}">
+					</td>
+				</tr>
+				<tr>
+					<th>
+						页面描述: 
+					</th>
+					<td>
+						<textarea name="metaDescription" class="formTextarea">${metaDescription}</textarea>
+					</td>
 				</tr>
 				
-			</tbody></table>
+			</tbody>
+		</table>
 			<div class="buttonArea">
 				<input type="submit" class="formButton" value="确  定" hidefocus="">&nbsp;&nbsp;
 				<input type="button" class="formButton" onclick="window.history.back(); return false;" value="返  回" hidefocus="">
