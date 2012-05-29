@@ -236,9 +236,6 @@ public class WordExtract extends Extractor{
 			str = tag.tag(str);
 		}
 		
-//		ICTCLAS50 ICTCLAS = new ICTCLAS50();
-//		str = ICTCLAS.testICTCLAS_ParagraphProcess(str);
-		
 		WDataSet wds = proceed(str);
 		LinkedHashMap<String,Integer> mapList = selectTop(num, wds);
 		return mapList;
