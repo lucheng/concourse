@@ -1,4 +1,4 @@
-package edu.fudan.example;
+package edu.bupt.example;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -7,8 +7,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import edu.fudan.nlp.keyword.Extractor;
-import edu.fudan.nlp.keyword.WordExtract;
+import edu.bupt.nlp.keyword.Extractor;
+import edu.bupt.nlp.keyword.WordExtract;
 
 /**
  * 关键词抽取

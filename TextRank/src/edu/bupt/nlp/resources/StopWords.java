@@ -1,4 +1,4 @@
-package edu.fudan.nlp.resources;
+package edu.bupt.nlp.resources;
 
 
 import java.io.BufferedReader;

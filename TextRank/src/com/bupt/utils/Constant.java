@@ -1,4 +1,4 @@
-package com.buptsse.ate.utils;
+package com.bupt.utils;
 /**
  * This class defines some constants used in the entire project.
  * 

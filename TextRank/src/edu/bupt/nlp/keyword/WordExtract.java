@@ -1,4 +1,4 @@
-package edu.fudan.nlp.keyword;
+package edu.bupt.nlp.keyword;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,7 +13,7 @@ import java.util.TreeSet;
 import org.apache.log4j.Logger;
 
 import ICTCLAS.I3S.AC.ICTCLAS50;
-import edu.fudan.nlp.resources.StopWords;
+import edu.bupt.nlp.resources.StopWords;
 
 class WDataSet{
 	Graph graph = new Graph();

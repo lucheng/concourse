@@ -1,4 +1,4 @@
-package edu.fudan.nlp.keyword;
+package edu.bupt.nlp.keyword;
 
 import java.util.ArrayList;
 

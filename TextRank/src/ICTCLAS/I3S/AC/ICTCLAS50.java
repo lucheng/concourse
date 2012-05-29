@@ -2,7 +2,7 @@ package ICTCLAS.I3S.AC;
 
 import org.apache.log4j.Logger;
 
-import com.buptsse.ate.utils.Constant;
+import com.bupt.utils.Constant;
  
 public class ICTCLAS50
 {

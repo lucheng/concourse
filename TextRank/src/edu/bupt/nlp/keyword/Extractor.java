@@ -1,9 +1,9 @@
-package edu.fudan.nlp.keyword;
+package edu.bupt.nlp.keyword;
 
 import java.util.Map;
 
 import ICTCLAS.I3S.AC.ICTCLAS50;
-import edu.fudan.nlp.resources.StopWords;
+import edu.bupt.nlp.resources.StopWords;
 
 public abstract class Extractor {
 

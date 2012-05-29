@@ -12,7 +12,7 @@
  * 修改单号：〈修改单号〉
  * 修改内容：〈修改内容〉
  */
-package edu.fudan.nlp.resources;
+package edu.bupt.nlp.resources;
 
 /**
  * @author Administrator
