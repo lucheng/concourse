@@ -11,17 +11,18 @@ import edu.fudan.nlp.keyword.Extractor;
 import edu.fudan.nlp.keyword.WordExtract;
 
 /**
- * 关键词抽取使用示例
- * @author jyzhao,ltian
- *
+ * 关键词抽取
+ * @author linzhe
+ * @email  m23linzhe@gmail.com
+ * @date   2012-5-29
  */
 public class KeyWordTest {
 	
 	public static Extractor key = null;; 
 
-	static {	
+	static {
 		try {
-			key = new WordExtract();
+			key = new WordExtract("./ICTCLAS_CONFIG/userdict.txt", "./ICTCLAS_CONFIG/stopwords.txt");
 		} catch (Exception e) {			
 			e.printStackTrace();
 		}
@@ -61,12 +62,15 @@ public class KeyWordTest {
 	}
 
 	public static void main(String[] args) throws Exception {	
-		long time = System.currentTimeMillis();
-
-		System.out.println(key.extract(readFile("./example-data/test.txt"), 100,true));
 		
-		double t = (System.currentTimeMillis() - time) / 1000.0;
-		System.out.println(t);
+		long time = System.currentTimeMillis();
+		
+		String text = readFile("./example-data/test.txt");
+		String result = key.extract(text, 100,true);
+		System.out.println(result);
+		
+		long t = System.currentTimeMillis() - time;
+		System.out.println("用时：" + t + " ms");
 
 	}
 }

@@ -14,7 +14,6 @@ import org.apache.log4j.Logger;
 
 import ICTCLAS.I3S.AC.ICTCLAS50;
 import edu.fudan.nlp.resources.StopWords;
-//import edu.fudan.nlp.tag.CWSTagger;
 
 class WDataSet{
 	Graph graph = new Graph();
@@ -33,26 +32,14 @@ public class WordExtract extends Extractor{
 		dN = 0.85;
 	}
 	
-	/*public WordExtract(String segPath, String dicPath) throws Exception{
-		tag = new CWSTagger(segPath);
-		test = new StopWords(dicPath);
-	}*/
-	
-	/*public WordExtract(CWSTagger tag, String dicPath){
-		this.tag = tag;
-		test = new StopWords(dicPath);
-	}*/
-	/*public WordExtract(CWSTagger tag, StopWords test){
-		this.tag = tag;
-		this.test = test;
-	}*/
-	
-	
+	public WordExtract(String dicPath, String stopPath) throws Exception{
+		tag = new ICTCLAS50(dicPath);
+		test = new StopWords(stopPath);
+	}
 	
 	private WDataSet getWord(String str){
 		Set<String> set = new TreeSet<String>();
 		WDataSet wds = new WDataSet();
-//		String s = tag.tag(str);
 		
 		if(test!=null){
 			wds.list = test.phraseDel(str);
@@ -245,19 +232,12 @@ public class WordExtract extends Extractor{
 	}
 	
 	public Map<String,Integer> extract(String str, int num){
-		/*if(tag!=null){
+		if(tag != null){
 			str = tag.tag(str);
-		}*/
-		/*for(String string : str.split(" ")){
-			log.info(string);
-		}*/
+		}
 		
-		ICTCLAS50 ICTCLAS = new ICTCLAS50();
-		
-		str = ICTCLAS.testICTCLAS_ParagraphProcess(str);
-		
-//		log.info(str1);
-		log.info(str);
+//		ICTCLAS50 ICTCLAS = new ICTCLAS50();
+//		str = ICTCLAS.testICTCLAS_ParagraphProcess(str);
 		
 		WDataSet wds = proceed(str);
 		LinkedHashMap<String,Integer> mapList = selectTop(num, wds);

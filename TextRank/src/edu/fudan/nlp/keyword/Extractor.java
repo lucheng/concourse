@@ -2,12 +2,15 @@ package edu.fudan.nlp.keyword;
 
 import java.util.Map;
 
+import ICTCLAS.I3S.AC.ICTCLAS50;
 import edu.fudan.nlp.resources.StopWords;
-import edu.fudan.nlp.tag.CWSTagger;
 
 public abstract class Extractor {
 
-	protected CWSTagger tag;
+	/*用于分词*/
+	protected ICTCLAS50 tag;
+//	protected CWSTagger tag;
+	/*停用词 */
 	protected StopWords test;
 	/**
 	 * 权重收敛的默认阈值

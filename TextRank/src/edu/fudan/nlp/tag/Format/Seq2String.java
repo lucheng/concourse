@@ -1,7 +1,5 @@
 package edu.fudan.nlp.tag.Format;
 
-import java.util.List;
-
 import edu.fudan.ml.types.Instance;
 import edu.fudan.ml.types.InstanceSet;
 
