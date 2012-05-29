@@ -104,19 +104,35 @@
     <bean id="defaultJsonView" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
     
     <!-- 文件上传相关 -->
-    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <!--one of the properties available;the maximum file size in bytes-->
-        <property name="maxUploadSize" value="100000"/>
-    </bean>
+    <!-- SpringMVC上传文件时，需要配置MultipartResolver处理器 --> 
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> 
+        <!-- 指定所上传文件的总大小不能超过200KB。注意maxUploadSize属性的限制不是针对单个文件，而是所有文件的容量之和 --> 
+        <property name="maxUploadSize" value="200000"/> 
+    </bean> 
+     
+    <!-- SpringMVC在超出上传文件限制时，会抛出org.springframework.web.multipart.MaxUploadSizeExceededException --> 
+    
+    <!-- 该异常是SpringMVC在检查上传的文件信息时抛出来的，而且此时还没有进入到Controller方法中 --> 
+    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"> 
+        <property name="exceptionMappings"> 
+            <props> 
+                <!-- 遇到MaxUploadSizeExceededException异常时，自动跳转到/WEB-INF/jsp/error_fileupload.jsp页面 --> 
+                <prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">error_fileupload</prop> 
+                <prop key="java.lang.Exception">error_all</prop>
+            </props> 
+        </property> 
+    </bean> 
+    <!-- 文件上传相关end -->
      
     <!-- 控制器异常处理 -->
-    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+    <!--<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <property name="exceptionMappings">
               <props>
                   <prop key="java.lang.Exception">error_all</prop>
             </props>
         </property>
     </bean>
+    -->
     
     <!-- 验证码 -->
 	<bean id="captchaProducer" class="com.google.code.kaptcha.impl.DefaultKaptcha">
