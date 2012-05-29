@@ -1,4 +1,4 @@
-package edu.bupt.example;
+package edu.bupt.test;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -38,6 +38,7 @@ public class KeyWordTest {
 			BufferedReader in = new BufferedReader(read);
 			while((s = in.readLine()) != null){
 				ss.append(s);
+				System.out.println(s);
 			}
 			in.close();
 		}catch(Exception e){
@@ -65,7 +66,8 @@ public class KeyWordTest {
 		
 		long time = System.currentTimeMillis();
 		
-		String text = readFile("./example-data/test.txt");
+		String text = readFile("text-example/100049.txt");
+		System.out.println(text);
 		String result = key.extract(text, 100,true);
 		System.out.println(result);
 		
