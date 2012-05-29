@@ -24,6 +24,7 @@ public class StopWords {
 	HashMap<String, Long> lastModTime = new HashMap<String, Long>();
 
 	public StopWords(){	
+
 	}
 	public StopWords(String dicPath1,boolean b){
 		this.dicPath = dicPath1;
