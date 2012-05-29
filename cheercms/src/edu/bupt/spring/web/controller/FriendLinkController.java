@@ -50,28 +50,32 @@ public class FriendLinkController extends BaseController{
 		return new ModelAndView("friendLink/list").addObject("entity", friendLinkService.findAll());
     }
     
-    @RequestMapping(value = "/friendLink/add", method = {RequestMethod.POST})
-    public String add(Model model, @RequestParam MultipartFile[] myfiles, HttpServletRequest request) throws IOException{ 
-    	for(MultipartFile logo : myfiles){ 
-            if(logo.isEmpty()){ 
-                System.out.println("文件未上传"); 
-            }else{ 
-                System.out.println("文件长度: " + logo.getSize()); 
-                System.out.println("文件类型: " + logo.getContentType()); 
-                System.out.println("文件名称: " + logo.getName()); 
-                System.out.println("文件原名: " + logo.getOriginalFilename()); 
-                System.out.println("========================================"); 
-                //如果用的是Tomcat服务器，则文件会上传到\\%TOMCAT_HOME%\\webapps\\YourWebProject\\WEB-INF\\upload\\文件夹中 
-                String realPath = request.getSession().getServletContext().getRealPath("/WEB-INF/upload"); 
-                //这里不必处理IO流关闭的问题，因为FileUtils.copyInputStreamToFile()方法内部会自动把用到的IO流关掉，我是看它的源码才知道的 
-                FileUtils.copyInputStreamToFile(logo.getInputStream(), new File(realPath, logo.getOriginalFilename())); 
-            } 
-        } 
-    	return "friendLink/add";
+    @RequestMapping(value = "/friendLink/add", method = {RequestMethod.GET})
+    public String add(Model model,  HttpServletRequest request){ 
+    	
+    	return "friendLink/input";
     }
     
     @RequestMapping(value = "/friendLink/save", method = {RequestMethod.POST})
-    public String save(@ModelAttribute("friendLink") FriendLink friendLink) {
+    public String save(@ModelAttribute("friendLink") FriendLink friendLink, @RequestParam MultipartFile[] myfiles, HttpServletRequest request) throws IOException {
+    	//图片文件上传
+    	for(MultipartFile file : myfiles){ 
+            if(file.isEmpty()){ 
+                System.out.println("文件未上传"); 
+            }else{ 
+                System.out.println("文件长度: " + file.getSize()); 
+                System.out.println("文件类型: " + file.getContentType()); 
+                System.out.println("文件名称: " + file.getName()); 
+                System.out.println("文件原名: " + file.getOriginalFilename()); 
+                System.out.println("========================================"); 
+                //如果用的是Tomcat服务器，则文件会上传到\\%TOMCAT_HOME%\\webapps\\YourWebProject\\WEB-INF\\upload\\文件夹中 
+                String realpath = request.getSession().getServletContext().getRealPath("/WEB-INF/upload"); 
+                //这里不必处理IO流关闭的问题，因为FileUtils.copyInputStreamToFile()方法内部会自动把用到的IO流关掉，我是看它的源码才知道的 
+                FileUtils.copyInputStreamToFile(file.getInputStream(), new File(realpath, file.getOriginalFilename())); 
+            } 
+        } 
+    	
+    	
     	if(friendLink.getId() > 0){
     		friendLinkService.update(friendLink);
         }else {
@@ -86,7 +90,7 @@ public class FriendLinkController extends BaseController{
     	FriendLink friendLink = friendLinkService.find(id);
     	 
     	 request.setAttribute("entity", friendLink);
-         return "friendLink/add";
+         return "friendLink/input";
     }
     
     @RequestMapping(value = "/friendLink/update", method = {RequestMethod.POST})

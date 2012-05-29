@@ -73,7 +73,7 @@
 						LOGO: 
 					</th>
 					<td>
-						<input type="file" name="logo"/>
+						<input type="file" name="file"/>
 					</td>
 				</tr>
 				<tr>
