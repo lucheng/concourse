@@ -91,7 +91,7 @@ public class FriendLinkController extends BaseController{
                 System.out.println("文件路径: " + request.getSession().getServletContext().getRealPath(realpath)); 
                 System.out.println("文件新名: " + newFileName); 
                 
-                friendLink.setLogo("/WEB-INF/upload/" + DateSuffix + "/" + newFileName);
+                friendLink.setLogo(DateSuffix + "/" + newFileName);
                 
             } 
         } 
