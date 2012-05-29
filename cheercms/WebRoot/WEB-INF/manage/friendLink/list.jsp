@@ -116,7 +116,7 @@
 							${friendLink.url}
 						</td>
 						<td>
-							<span>${friendLink.logo}</span>
+							<span><a href="<%=path %>${friendLink.logo}">LOGO</a></span>
 						</td>
 						<td>
 							<span title="${friendLink.orderList}">${friendLink.orderList}</span>
