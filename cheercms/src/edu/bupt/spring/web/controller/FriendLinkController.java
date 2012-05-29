@@ -2,8 +2,7 @@ package edu.bupt.spring.web.controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -25,12 +24,16 @@ import org.springframework.web.servlet.ModelAndView;
 import edu.bupt.spring.base.BaseController;
 import edu.bupt.spring.entity.FriendLink;
 import edu.bupt.spring.service.FriendLinkService;
+import edu.bupt.spring.utils.ImageUtils;
 
 /**
  * 
- * @author linzhe
- * @date   2012-5-17
- * @email  m23linzhe@gmail.com
+ * @author  linzhe
+ * @Date    2012-5-29
+ * @email   m23linzhe@gmail.com
+ * @qq      398024808
+ * @version 1.0
+ *
  */
 @Controller("friendLinkController")
 public class FriendLinkController extends BaseController{
@@ -74,24 +77,26 @@ public class FriendLinkController extends BaseController{
                 System.out.println("========================================");
                 
                 
-                String fileName = file.getOriginalFilename();
+                /*String fileName = file.getOriginalFilename();
                 int random = (int) (Math.random() * 10000);
                 Long  time = System.currentTimeMillis();
                 String newFileName = time.toString() + random + fileName.substring(fileName.lastIndexOf("."));
                 
                 Date date = new Date();
-                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                String DateSuffix = dateFormat.format(date);
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");*/
+                Map<String, String> map = ImageUtils.getImageNewName(file.getOriginalFilename());
                 
+                String newFileName = map.get("name");
+                String dir = map.get("dir");
               
                 //如果用的是Tomcat服务器，则文件会上传到\\%TOMCAT_HOME%\\webapps\\YourWebProject\\WEB-INF\\upload\\文件夹中 
-                String realpath = request.getSession().getServletContext().getRealPath("/WEB-INF/upload/"+DateSuffix); 
+                String realpath = request.getSession().getServletContext().getRealPath("/WEB-INF/upload/" + dir); 
                 //这里不必处理IO流关闭的问题，因为FileUtils.copyInputStreamToFile()方法内部会自动把用到的IO流关掉，我是看它的源码才知道的 
                 FileUtils.copyInputStreamToFile(file.getInputStream(), new File(realpath, newFileName));
                 System.out.println("文件路径: " + request.getSession().getServletContext().getRealPath(realpath)); 
                 System.out.println("文件新名: " + newFileName); 
                 
-                friendLink.setLogo(DateSuffix + "/" + newFileName);
+                friendLink.setLogo(dir + newFileName);
                 
             } 
         } 

@@ -7,7 +7,10 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 import javax.imageio.ImageIO;
 import javax.imageio.ImageReader;
@@ -21,7 +24,7 @@ import edu.bupt.spring.config.SystemConfig.WatermarkPosition;
  *
  */
 
-public class ImageUtil {
+public class ImageUtils {
 
 	/**
 	 * 图片缩放(图片等比例缩放为指定大小，空白部分以白色填充)
@@ -188,6 +191,30 @@ public class ImageUtil {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	public static synchronized Map<String, String> getImageNewName(String fileName){
+		
+        int random = (int) (Math.random() * 10000);
+        Long  time = System.currentTimeMillis();
+		String newFileName = time.toString() + random + fileName.substring(fileName.lastIndexOf("."));
+        
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        int month = Calendar.getInstance().get(Calendar.MONTH) + 1;
+        int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+        
+        Map<String, String> fileNameMap = new HashMap<String, String>();
+        fileNameMap.put("dir", year + "/" + month + "/" + day + "/");
+        fileNameMap.put("name", newFileName);
+        
+		return fileNameMap;
+	}
+	
+	public static void main(String[] args){
+		
+		Map newFileName = getImageNewName("sssi.jgp");
+		System.out.println(newFileName.get("name"));
+		System.out.println(newFileName.get("dir"));
 	}
 
 }
