@@ -45,7 +45,7 @@
 		<ul></ul>
 	</div>
 	<div class="body">
-		<form id="validateForm" action="<%=path %>/friendLink/save" enctype="multipart/form-data" method="post">
+		<form id="validateForm" action="<%=path %>/friendLink/save" enctype="multipart/form-data" method="post" enctype="multipart/form-data">
 			<c:if test="${entity != null}">
 					<input type="hidden" name="id" value="${entity.id}">
 			</c:if>
@@ -73,7 +73,7 @@
 						LOGO: 
 					</th>
 					<td>
-						<input type="text" name="url" class="formText" value="${entity.logo}">
+						<input type="file" name="logo"/>
 					</td>
 				</tr>
 				<tr>
