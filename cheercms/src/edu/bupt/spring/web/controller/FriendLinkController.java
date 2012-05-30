@@ -76,12 +76,13 @@ public class FriendLinkController extends BaseController{
                 System.out.println("文件原名: " + file.getOriginalFilename()); 
                 System.out.println("========================================");
                 
-                
+                //重命名图片
                 /*String fileName = file.getOriginalFilename();
                 int random = (int) (Math.random() * 10000);
                 Long  time = System.currentTimeMillis();
                 String newFileName = time.toString() + random + fileName.substring(fileName.lastIndexOf("."));
                 
+                //获取当前日期
                 Date date = new Date();
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");*/
                 Map<String, String> map = ImageUtils.getImageNewName(file.getOriginalFilename());
@@ -89,7 +90,7 @@ public class FriendLinkController extends BaseController{
                 String newFileName = map.get("name");
                 String dir = map.get("dir");
               
-                //如果用的是Tomcat服务器，则文件会上传到\\%TOMCAT_HOME%\\webapps\\YourWebProject\\WEB-INF\\upload\\文件夹中 
+                //如果用的是Tomcat服务器，则文件会上传到\\%TOMCAT_HOME%\\webapps\\YourWebProject\\WEB-INF\\upload\\当前日期 \\文件夹中 
                 String realpath = request.getSession().getServletContext().getRealPath("/WEB-INF/upload/" + dir); 
                 //这里不必处理IO流关闭的问题，因为FileUtils.copyInputStreamToFile()方法内部会自动把用到的IO流关掉，我是看它的源码才知道的 
                 FileUtils.copyInputStreamToFile(file.getInputStream(), new File(realpath, newFileName));
@@ -97,6 +98,7 @@ public class FriendLinkController extends BaseController{
                 System.out.println("文件新名: " + newFileName); 
                 
                 friendLink.setLogo(dir + newFileName);
+                System.out.println(dir + newFileName);
                 
             } 
         } 
@@ -129,7 +131,18 @@ public class FriendLinkController extends BaseController{
     @RequestMapping(value = "/friendLink/delete/{id}", method = {RequestMethod.GET})
     public String delete(@ModelAttribute("friendLink") FriendLink friendLink, HttpServletRequest request) {
         
-    	friendLinkService.delete(friendLink.getId());
+    	boolean del = friendLinkService.deleteEntity(friendLink);
+    	
+    	 System.out.println("del:" + del);
+    	
+    	if(del){
+    		String path = "/cheercms/upload/" + friendLink.getLogo();
+    		java.io.File file = new java.io.File(path); 
+    		file.delete();
+    		System.out.println("file1:" + friendLink.getLogo());
+    		System.out.println("file2:" + file);
+    	}
+    	
         return "redirect:/friendLink/list";
     }
     

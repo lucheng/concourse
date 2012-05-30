@@ -17,4 +17,5 @@ import edu.bupt.spring.entity.FriendLink;
 public interface FriendLinkService extends DAO<FriendLink> {
 
 	public List<FriendLink> findAll();
+	public boolean deleteEntity(FriendLink friendLink);
 }

@@ -18,5 +18,10 @@ public class FriendLinkServiceImpl extends DaoSupport<FriendLink> implements Fri
 		return query.getResultList();
 	}
 	
+	public boolean deleteEntity(FriendLink friendLink){
+		delete(friendLink.getId());
+		return true;
+	}
+	
 
 }

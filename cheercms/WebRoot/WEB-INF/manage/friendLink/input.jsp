@@ -73,7 +73,7 @@
 						LOGO: 
 					</th>
 					<td>
-						<input type="file" name="myfiles"/>
+						<input type="file" name="myfiles" value="${entity.url}" hidefocus/>
 					</td>
 				</tr>
 				<tr>
