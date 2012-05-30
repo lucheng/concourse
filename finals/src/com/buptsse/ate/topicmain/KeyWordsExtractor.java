@@ -10,7 +10,6 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 import ICTCLAS.I3S.AC.ICTCLAS50;
-import ICTCLAS.I3S.AC.MatchPage;
 
 import com.buptsse.ate.module.Content;
 import com.buptsse.ate.module.Link;
@@ -27,7 +26,8 @@ import com.buptsse.ate.utils.Parser;
 
 public class KeyWordsExtractor {
 
-	private static String filePath = "\\\\buptsse215-02/data/baidu/";
+//	private static String filePath = "\\\\buptsse215-02/data/baidu/";
+	private static String filePath = "d:/data/baike/";
 	private static String preUrl = "http://baike.baidu.com";
 	
 	private Map<String, Integer> singleTermMap = null;
@@ -91,11 +91,7 @@ public class KeyWordsExtractor {
 		return reinforces;
 	}
 	
-	/*private int getTags(Content content, Content dest){
-		content.getTaglist();
-	}*/
-	
-	public List<String> getWords(String fileName){
+	/*public List<String> getWords(String fileName){
 		
 		List<String> words = new ArrayList<String>();
 		ICTCLAS50 testICTCLAS2010 = new ICTCLAS50();
@@ -109,20 +105,15 @@ public class KeyWordsExtractor {
 			}
 		}
 		return words;
-	}
+	}*/
 
 	public void getWordsFrequency() throws IOException{
-		
-//		String text = page.getContents().get(0).getText();
-//		text.replaceAll("", "");
-//		FileHelp.writeFile("input/input/" + page.getBaibeId() + ".txt", text);
 		
 		String inputTrainPath = "input/input";   
 		String outputTrainPath = "input/output"; 
 		ATE ate = new ATE();
 		ate.pretreatmentTrain(inputTrainPath, outputTrainPath); 
 		
-//		log.info(page.getTitle());
 		singleTermMap = ate.getSingleTermMap();
 		bigramTermMap = ate.getBigramTermMap();
 		trigramTermMap = ate.getTrigramTermMap();
@@ -137,9 +128,7 @@ public class KeyWordsExtractor {
 		hsort.HeapSorting(array);
 		
 		for(String key : singleTermMap.keySet()){
-//			if(singleTermMap.get(key) > array[8]){
-				log.info(key);
-//			}
+			log.info(key);
 		}
 		
 		array = new int[bigramTermMap.size()];

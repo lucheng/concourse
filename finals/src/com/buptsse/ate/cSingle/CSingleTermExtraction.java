@@ -87,7 +87,6 @@ public class CSingleTermExtraction {
 							for (int j = 0; j < result.length; j++) 
 							{
 								temp[j] = result[j];
-//								log.info(temp[j]);
 							}
 							vector.add(temp);
 							

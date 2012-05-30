@@ -4,6 +4,7 @@ public class Entity {
 		
 		private String name;
 		private int weight;
+		private int position;
 		
 		public Entity(String name, int weight) {
 			this.name = name;
@@ -24,5 +25,13 @@ public class Entity {
 
 		public void setWeight(int weight) {
 			this.weight = weight;
+		}
+
+		public int getPosition() {
+			return position;
+		}
+
+		public void setPosition(int position) {
+			this.position = position;
 		}
 	}

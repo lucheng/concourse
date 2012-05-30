@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import javax.swing.JButton;
+
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.dom4j.Document;
@@ -19,14 +21,16 @@ import com.buptsse.ate.utils.XmlHelp;
 
 public abstract class ItemParser {
 
-	private static Logger logger = Logger.getLogger(ItemParser.class);
+	private Logger logger = Logger.getLogger(getClass());
 	private NewsItem newsItem = new NewsItem();
 	
 	public NewsItem getNewsItem() {
+		
 		return newsItem;
 	}
 
 	public void setNewsItem(NewsItem newsItem) {
+		
 		this.newsItem = newsItem;
 	}
 
@@ -80,11 +84,6 @@ public abstract class ItemParser {
 			
 			System.out.println(this.newsItem.getUrl() +"网页不存在！");
 			return;
-		}
-		
-		if(!newsItem.getSummary().equals("")){
-			EntityWeightComputer weightComputer = new EntityWeightComputer();
-			weightComputer.comput(newsItem);
 		}
 		
 		XMLWriter out;

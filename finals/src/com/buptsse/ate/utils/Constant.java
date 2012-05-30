@@ -6,11 +6,15 @@ package com.buptsse.ate.utils;
  */
 
 public class Constant {
+	public final static String LOG4J = "log4j.properties";
+	
+public final static String USERDICT = "./ICTCLAS_CONFIG/userdict.txt"; // 用户词典的路径
+	
+	public final static String STOPLIST = "./ICTCLAS_CONFIG/ext_stopword.dic";
+	
 	public final static String DELIMITER = "\\s";
 
 	public final static String PREPATH = "input";
-	
-	public final static String LOG4J = "log4j.properties";
 	
 	public final static String EPATH = PREPATH + "/etfiles";
 
@@ -23,8 +27,6 @@ public class Constant {
 	public final static int TRAIN_FLAG = 1;                    // 训练集标志
 	
 	public final static int TEST_FLAG = 2;                     // 测试集标志
-	
-	public final static String USERDICT = "./ICTCLAS_CONFIG/userdict.txt"; // 用户词典的路径
 	
 	public final static String PRECSTOPLIST = PREPATH + "/cate/StopLists/stop-list-prefix.txt";
 	

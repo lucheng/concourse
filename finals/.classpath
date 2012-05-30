@@ -6,7 +6,6 @@
 	<classpathentry kind="lib" path="lib/htmlcleaner-2.2.jar"/>
 	<classpathentry kind="lib" path="lib/log4j-1.2.15.jar"/>
 	<classpathentry kind="lib" path="lib/jaxen-1.1-beta-6.jar"/>
-	<classpathentry kind="lib" path="lib/jsoup-1.4.1.jar"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.6-bin.jar"/>
 	<classpathentry kind="lib" path="lib/json-lib-0.9.jar"/>
 	<classpathentry kind="lib" path="lib/ezmorph-1.0.3.jar"/>
@@ -23,5 +22,7 @@
 	<classpathentry kind="lib" path="lib/fudannlp-1.05.jar"/>
 	<classpathentry kind="lib" path="lib/IKAnalyzer3.2.5Stable.jar"/>
 	<classpathentry kind="lib" path="lib/lucene-core-3.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/jsoup-1.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/ictclas5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

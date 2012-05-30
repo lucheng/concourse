@@ -54,7 +54,7 @@ public class CBigramExtraction {
 		Iterator<Vector<String[]>> vecIter = vecList.iterator();
 		while (vecIter.hasNext()) {
 			Vector<String[]> vec = vecIter.next();
-			String subStr;						                         
+			String subStr;
 			for (int i = 1; i < vec.size(); i++) {
 				String[] tempRes = vec.get(i);
 				String[] result = new String[vec.get(i).length];
