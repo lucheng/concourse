@@ -1,5 +1,9 @@
 package ICTCLAS.I3S.AC;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.apache.log4j.Logger;
  
 public class ICTCLAS50
@@ -107,12 +111,15 @@ public class ICTCLAS50
 		}
 	}
 	
-	
-	public String tag(String sInput) {
+	/**
+	 * 
+	 * @param sInput 分词内容
+	 * @param bPOSTagged 是否显示词性
+	 * @return
+	 */
+	public String tag(String sInput, int bPOSTagged) {
 		try {
-//			ICTCLAS50 testICTCLAS50 = new ICTCLAS50();
 			String argu = "./ICTCLAS_CONFIG";
-			// 初始化
 			if (ICTCLAS_Init(argu.getBytes(charset)) == false) {
 				System.out.println("Init Fail!");
 				return "";
@@ -121,18 +128,15 @@ public class ICTCLAS50
 			// 设置词性标注集(0 计算所二级标注集，1 计算所一级标注集，2 北大二级标注集，3 北大一级标注集)
 			ICTCLAS_SetPOSmap(2);
 
-			// 导入用户字典
-//			int nCount = 0;
 			byte[] usrdirb = usrdir.getBytes();// 将string转化为byte类型
 			// 导入用户字典,返回导入用户词语个数第一个参数为用户字典路径，第二个参数为用户字典的编码类型
 			int nCount = ICTCLAS_ImportUserDictFile(usrdirb, 0);
 //			System.out.println("导入用户词个数" + nCount);
 
 			// 导入用户字典后再分词
-			byte nativeBytes[] = ICTCLAS_ParagraphProcess(sInput.getBytes(charset), 2, 0);
-//			System.out.println("文章字数：" + nativeBytes.length);
+			byte nativeBytes[] = ICTCLAS_ParagraphProcess(sInput.getBytes(charset), 2, bPOSTagged);
+			System.out.println("文章字数：" + nativeBytes.length);
 			String nativeStr1 = new String(nativeBytes, 0,nativeBytes.length, charset);
-//			System.out.println("导入用户词典后的分词结果： " + nativeStr1);
 			// 保存用户字典
 			ICTCLAS_SaveTheUsrDic();
 			// 释放分词组件资源
@@ -145,11 +149,15 @@ public class ICTCLAS50
 
 	}
 	
+	public String tag(String sInput) {
+		return tag(sInput, 0);
+	}
+	
 	public static void main(String[] args){
 		
 		ICTCLAS50 ICTCLAS = new ICTCLAS50();
 		String text = "最后，你所选择的平板电脑将决定你的创建和推广方式。最重要的是，它会决定你的目标用户。显然你多半会选择跨平台策略，无论是在应用生命周期初始还是末尾阶段。合理选择首个平台是你成败的关键。";
-		String segment = ICTCLAS.tag(text);
+		String segment = ICTCLAS.tag(text, 1);
 		System.out.println(segment);
 	}
 }
