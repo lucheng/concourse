@@ -41,7 +41,7 @@ public class EntityExtractor {
 		}
 		BufferedWriter output = new BufferedWriter(new FileWriter(entityFile, true));
 		
-		for (int i = 1960; i < 700000; i++) {
+		for (int i = 2172; i < 7000000; i++) {
 			if(i % 70 == 0){
 				output.flush();
 			}
