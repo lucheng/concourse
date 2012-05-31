@@ -63,7 +63,7 @@
 							<span>操作</span>
 						</th>
 					</tr>
-					<c:forEach items="${pageView.records}" var="entry">
+					<c:forEach items="${entity}" var="entry">
 					<tr>
 						<td>
 							<input type="checkbox" name="ids" value="${entry.id}">

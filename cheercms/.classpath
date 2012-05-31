@@ -63,7 +63,7 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/spring-security-config-3.1.0.RELEASE-sources.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/spring-security-config-3.1.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/spring-security-core-3.1.0.RELEASE-sources.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/spring-security-core-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/spring-security-core-3.1.0.RELEASE.jar" sourcepath="C:/Users/feixia/.m2/repository/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/spring-security-crypto-3.1.0.RELEASE-sources.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/spring-security-crypto-3.1.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/spring-security-ldap-3.1.0.RELEASE-sources.jar"/>
