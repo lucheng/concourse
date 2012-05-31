@@ -62,16 +62,16 @@
 						<input type="checkbox" class="allCheck">
 					</th>
 					<th>
-						<a href="#" class="sort" name="title" hidefocus="">友情链接名称</a>
+						<a href="javascript:void(0);" class="sort" name="name" hidefocus="">友情链接名称</a>
 					</th>
 					<th>
-						<a href="#" class="sort" name="articleCategory" hidefocus="">链接地址</a>
+						<a href="javascript:void(0);" class="sort" name="url" hidefocus="">链接地址</a>
 					</th>
 					<th>
-						<a href="#" class="sort" name="isPublication" hidefocus="">logo</a>
+						<a href="javascript:void(0);" class="sort" name="logo" hidefocus="">logo</a>
 					</th>
 					<th>
-						<a href="#" class="sort" name="isRecommend" hidefocus="">排序</a>
+						<a href="javascript:void(0);" class="sort" name="orderList" hidefocus="">排序</a>
 					</th>
 					<th>
 						<span>操作</span>

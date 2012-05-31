@@ -38,6 +38,14 @@ public class BaseController {
 			this.pageSize = Integer.parseInt(pageSize);
 		}
 		
+		System.out.println("orderBy:" + orderBy);
+		System.out.println("order:" + order);
+		
+		if(orderBy != null && order != null){
+			orderby.clear();
+			orderby.put(orderBy, order);
+		}
+		
 		request.setAttribute("pageNumber", this.pageNumber);
 		request.setAttribute("pageSize", this.pageSize);
 		

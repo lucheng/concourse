@@ -127,6 +127,7 @@ $().ready( function() {
 		// 排序
 		$sort.click( function() {
 			var $currentOrderBy = $(this).attr("name");
+//			alert(111);
 			if ($orderBy.val() == $currentOrderBy) {
 				if ($order.val() == "") {
 					$order.val("asc")
@@ -140,8 +141,7 @@ $().ready( function() {
 				$order.val("asc");
 			}
 			$pageNumber.val("1");
-			$
-();
+			$listForm.submit();
 		});
 	
 		// 排序图标效果
