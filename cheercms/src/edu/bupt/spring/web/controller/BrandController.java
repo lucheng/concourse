@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import edu.bupt.spring.base.BaseController;
 import edu.bupt.spring.entity.Brand;
 import edu.bupt.spring.service.BrandService;
 import edu.bupt.spring.utils.ImageUtils;

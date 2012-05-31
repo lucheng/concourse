@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import edu.bupt.spring.base.BaseController;
 import edu.bupt.spring.entity.ArticleCategory;
 import edu.bupt.spring.service.ArticleCategoryService;
 

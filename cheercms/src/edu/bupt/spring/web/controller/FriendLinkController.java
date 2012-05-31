@@ -21,7 +21,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import edu.bupt.spring.base.BaseController;
+import edu.bupt.spring.base.PageView;
+import edu.bupt.spring.base.QueryResult;
 import edu.bupt.spring.entity.FriendLink;
 import edu.bupt.spring.service.FriendLinkService;
 import edu.bupt.spring.utils.ImageUtils;
@@ -38,7 +39,7 @@ import edu.bupt.spring.utils.ImageUtils;
 @Controller("friendLinkController")
 public class FriendLinkController extends BaseController{
     
-	private static final Logger logger = LoggerFactory.getLogger(FriendLinkController.class);
+//	private static final Logger logger = LoggerFactory.getLogger(FriendLinkController.class);
 	
 	@Autowired
     @Qualifier("friendLinkServiceImpl")
@@ -47,12 +48,17 @@ public class FriendLinkController extends BaseController{
 	@RequestMapping(value = "/friendLink/list")
     public ModelAndView list(HttpServletRequest request){
 		
-		/*PageView<Article> pageView = new PageView<Article>(100, page);
-		QueryResult<Article> qr = articleService.getScrollData(pageView.getFirstResult(), pageView.getMaxresult(), " o.parent is null", queryParams.toArray(), orderby);
-		pageView.setQueryResult(qr);*/
+		fromPager(request);
+		
+		System.out.println("pageNumber:" + pageNumber);
+		System.out.println("pageSize:" + pageSize);
 		
 		
-		return new ModelAndView("friendLink/list").addObject("entity", friendLinkService.findAll());
+		PageView<FriendLink> pageView = new PageView<FriendLink>(this.pageSize, this.pageNumber);
+		QueryResult<FriendLink> qr = friendLinkService.getScrollData(pageView.getFirstResult(), pageView.getMaxresult(), "", queryParams.toArray(), orderby);
+		pageView.setQueryResult(qr);
+		
+		return new ModelAndView("friendLink/list").addObject("pageView", pageView);
     }
     
     @RequestMapping(value = "/friendLink/add", method = {RequestMethod.GET})

@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import edu.bupt.spring.base.BaseController;
 import edu.bupt.spring.base.PageView;
 import edu.bupt.spring.base.QueryResult;
 import edu.bupt.spring.entity.MemberRank;
@@ -46,9 +45,9 @@ public class MemberRankController extends BaseController{
 		
 		Map<String, Object> responseMap = new HashMap<String, Object>();
 		
-		logger.info(searchParam.getPageSize() + "");
+//		logger.info(searchParam.getPageSize() + "");
 		
-		PageView<MemberRank> pageView = new PageView<MemberRank>(searchParam.getPageSize(), page);
+		PageView<MemberRank> pageView = new PageView<MemberRank>(pageSize, pageNumber);
 		QueryResult<MemberRank> qr = memberRankService.getScrollData(pageView.getFirstResult(), pageView.getMaxresult(), "", queryParams.toArray(), orderby);
 		pageView.setQueryResult(qr);
 		

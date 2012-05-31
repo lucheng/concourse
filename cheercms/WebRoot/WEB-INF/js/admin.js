@@ -1,13 +1,19 @@
-/***
- *	SHOP++ Admin JavaScript
- *
- *	http://www.shopxx.net
- *
- *	Copyright © 2010 shopxx.net All Rights Reserved.
- **/
 
+function getBasePath(){
+	//获取当前网址，如：http://localhost:8080/prj/…/xxx.jsp
+	var fullPath=window.document.location.href;
+	//获取主机地址之后的目录，如：/prj/…/xxx.jsp
+	var pathName=window.document.location.pathname;
+	//获取主机地址，如：http://localhost:8080
+	var pos=fullPath.indexOf(pathName);
+	var hostPath=fullPath.substring(0,pos);
+	//获取带”/”的项目名，如：/prj
+	var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
+	return(hostPath+projectName);
+}
+var host = getBasePath();
 shopxx = {
-	base: "",
+	base: host,
 	currencySign: "￥",
 	currencyUnit: "元",
 	priceScale: "2",
@@ -134,7 +140,8 @@ $().ready( function() {
 				$order.val("asc");
 			}
 			$pageNumber.val("1");
-			$listForm.submit();
+			$
+();
 		});
 	
 		// 排序图标效果

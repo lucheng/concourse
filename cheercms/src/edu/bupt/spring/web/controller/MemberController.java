@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import edu.bupt.spring.base.BaseController;
 import edu.bupt.spring.base.PageView;
 import edu.bupt.spring.base.QueryResult;
 import edu.bupt.spring.entity.Member;
@@ -46,7 +45,7 @@ public class MemberController extends BaseController{
 	@RequestMapping(value = "/member/list")
     public ModelAndView list(int pageSize){
 		
-		PageView<Member> pageView = new PageView<Member>(pageSize, page);
+		PageView<Member> pageView = new PageView<Member>(pageSize, pageNumber);
 		QueryResult<Member> qr = memberService.getScrollData(pageView.getFirstResult(), pageView.getMaxresult(), " ", queryParams.toArray(), orderby);
 		pageView.setQueryResult(qr);
 		
