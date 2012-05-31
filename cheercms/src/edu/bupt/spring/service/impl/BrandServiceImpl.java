@@ -14,7 +14,7 @@ import edu.bupt.spring.service.BrandService;
 public class BrandServiceImpl extends DaoSupport<Brand> implements BrandService {
 
 	public List<Brand> findAll() {
-		Query query = em.createQuery("select o from Article o ");
+		Query query = em.createQuery("select o from Brand o ");
 		return query.getResultList();
 	}
 	

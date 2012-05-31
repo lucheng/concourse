@@ -75,7 +75,7 @@
 							<a href="${entry.url}" target="_blank">${entry.url}</a>
 						</td>
 						<td>
-								-
+								<a href="<%=path %>/upload/${entry.logo}" target="_blank">查看</a>
 						</td>
 						<td>
 							${entry.orderList}

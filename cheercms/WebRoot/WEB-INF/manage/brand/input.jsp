@@ -67,16 +67,15 @@ KE.show({
 		<ul></ul>
 	</div>
 	<div class="body">
-		<form id="validateForm" action="<%=path %>/brand/save" _enctype="multipart/form-data" method="post">
-			<%--<input type="hidden" name="id" value="${entity.id}">
-			--%>
+		<form id="validateForm" action="<%=path %>/brand/save" _enctype="multipart/form-data" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="id" value="${entity.id}">
 			<table class="inputTable">
 				<tbody><tr>
 					<th>
 						品牌名称: 
 					</th>
 					<td>
-						<input type="text" name="name" class="formText" value="">
+						<input type="text" name="name" class="formText" value="${entity.name}">
 						<label class="requireField">*</label>
 					</td>
 				</tr>
@@ -85,7 +84,7 @@ KE.show({
 						网址: 
 					</th>
 					<td>
-						<input type="text" name="url" class="formText" value="">
+						<input type="text" name="url" class="formText" value="${entity.url}">
 					</td>
 				</tr>
 				<tr>
@@ -93,7 +92,7 @@ KE.show({
 						LOGO: 
 					</th>
 					<td>
-						<input type="file" name="logo">
+						<input type="file" name="myfiles" value="${entity.logo}" hidefocus/>
 					</td>
 				</tr>
 				<tr>
@@ -101,7 +100,7 @@ KE.show({
 						排序: 
 					</th>
 					<td>
-						<input type="text" name="orderList" class="formText" value="" title="只允许输入零或正整数">
+						<input type="text" name="orderList" class="formText" value="${entity.orderList}" title="只允许输入零或正整数">
 					</td>
 				</tr>
 				<tr>
@@ -109,7 +108,7 @@ KE.show({
 						介绍: 
 					</th>
 					<td>
-						<textarea name="introduction" id="editor" class="editor" style="display: none; "></textarea>
+						<textarea name="introduction" id="editor" class="editor" style="display: none; ">${entity.introduction}</textarea>
 					</td>
 				</tr>
 			</tbody></table>
