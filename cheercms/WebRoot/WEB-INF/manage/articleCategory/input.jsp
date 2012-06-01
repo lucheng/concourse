@@ -142,7 +142,7 @@
 							页面描述: 
 						</th>
 						<td>
-							<textarea name="metaDescription" class="formTextarea">${entry.metaDescription}</textarea>
+							<textarea name="metaDescription" class="metaDescription">${entry.metaDescription}</textarea>
 						</td>
 					</tr>
 					<tr>

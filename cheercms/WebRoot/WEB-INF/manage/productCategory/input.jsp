@@ -93,7 +93,7 @@
 						分类名称: 
 					</th>
 					<td>
-						<input type="text" id="goodsCategoryName" name="goodsCategory.name" class="formText" value="${entry.name}">
+						<input type="text" id="goodsCategoryName" name="name" class="formText" value="${entry.name}">
 						<label class="requireField">*</label>
 					</td>
 				</tr>
@@ -115,7 +115,7 @@
 						商品类型: 
 					</th>
 					<td>
-						<select name="goodsCategory.goodsType.id">
+						<select name="productType">
 							<option value="">通用商品类型</option>
 						</select>
 					</td>
@@ -135,7 +135,7 @@
 						排序: 
 					</th>
 					<td>
-						<input type="text" name="goodsCategory.orderList" class="formText" value="${entry.orderList}" title="只允许输入零或正整数">
+						<input type="text" name="orderList" class="formText" value="${entry.orderList}" title="只允许输入零或正整数">
 					</td>
 				</tr>
 				<tr>
