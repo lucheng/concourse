@@ -23,10 +23,10 @@ public class ManageController extends BaseController {
     
 	private static final Logger logger = LoggerFactory.getLogger(ManageController.class);
 	
-	@RequestMapping(value = "/login")
+	/*@RequestMapping(value = "/login")
     public ModelAndView login(){
 		return new ModelAndView("login");
-    }
+    }*/
 	
 	@RequestMapping(value = "/manage")
     public String index(HttpServletRequest request){

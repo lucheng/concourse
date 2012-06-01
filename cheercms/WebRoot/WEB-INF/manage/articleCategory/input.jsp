@@ -84,7 +84,7 @@
 		<div class="body">
 			<form id="validateForm" action="articleCategory/save" method="post">
 				
-				<c:if test="${entry != null}">
+				<c:if test="${not empty entry}">
 					<input type="hidden" name="id" value="${entry.id}">
 				</c:if>
 				<table class="inputTable">

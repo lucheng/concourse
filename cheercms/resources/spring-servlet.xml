@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:security="http://www.springframework.org/schema/security"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx"
@@ -15,7 +16,9 @@
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context-3.1.xsd
         http://www.springframework.org/schema/mvc
-       http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+		http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+		http://www.springframework.org/schema/security  
+		http://www.springframework.org/schema/security/spring-security-3.1.xsd
 	">
     
     <!-- 会自动注册了validator  ConversionService  -->
@@ -152,4 +155,7 @@
         </property>
 	</bean>
 	<!-- 验证码 end -->
+	
+	<security:global-method-security jsr250-annotations="enabled" secured-annotations="enabled" />
+	
 </beans>
