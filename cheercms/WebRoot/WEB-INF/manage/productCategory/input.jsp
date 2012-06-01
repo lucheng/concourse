@@ -102,8 +102,8 @@
 						上级分类: 
 					</th>
 					<td>
-							<select name="parentId">
-								<option value="">顶级分类</option>
+							<select name="parent.id">
+								<option value="0">顶级分类</option>
 								<c:forEach items="${parentCategories}" var="parent" >
 									<option value="${parent.id}" <c:if test="${entry.parent.id == parent.id}"> selected="selected"</c:if> >${parent.name}</option>
 								</c:forEach>	
@@ -116,7 +116,7 @@
 					</th>
 					<td>
 						<select name="productType">
-							<option value="">通用商品类型</option>
+							<option value="0">通用商品类型</option>
 						</select>
 					</td>
 				</tr>
@@ -125,7 +125,7 @@
 						标识: 
 					</th>
 					<td>
-						<input type="text" id="goodsCategorySign" name="goodsCategory.sign" class="formText" value="${entry.path}" title="该分类的唯一标识,用于分类路径和模板标识">
+						<input type="text" id="goodsCategorySign" name="path" class="formText" value="${entry.path}" title="该分类的唯一标识,用于分类路径和模板标识">
 						<label class="requireField">*</label>
 						<span id="goodsCategorySignLoadingIcon" class="loadingIcon hidden">&nbsp;</span>
 					</td>
@@ -143,7 +143,7 @@
 						页面关键词: 
 					</th>
 					<td>
-						<input type="text" name="goodsCategory.metaKeywords" class="formText" value="${entry.metaKeywords}">
+						<input type="text" name="metaKeywords" class="formText" value="${entry.metaKeywords}">
 					</td>
 				</tr>
 				<tr>
@@ -151,7 +151,7 @@
 						页面描述: 
 					</th>
 					<td>
-						<textarea name="goodsCategory.metaDescription" class="formTextarea">${entry.metaDescription}</textarea>
+						<textarea name="metaDescription" class="formTextarea">${entry.metaDescription}</textarea>
 					</td>
 				</tr>
 				<tr>

@@ -1,15 +1,19 @@
 package edu.bupt.spring.web.controller;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.swing.JSpinner.DateEditor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.ServletRequestDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import edu.bupt.spring.entity.ArticleCategory;
 import edu.bupt.spring.entity.ProductCategory;
 import edu.bupt.spring.service.ProductCategoryService;
 
@@ -30,8 +33,6 @@ import edu.bupt.spring.service.ProductCategoryService;
 @Controller("productCategoryController")
 public class ProductCategoryController extends BaseController{
     
-	private static final Logger logger = LoggerFactory.getLogger(ProductCategoryController.class);
-	
 	@Autowired
     @Qualifier("productCategoryServiceImpl")
 	private ProductCategoryService productCategoryService;
@@ -61,16 +62,14 @@ public class ProductCategoryController extends BaseController{
     }
     
     @RequestMapping(value = "/productCategory/save", method = {RequestMethod.POST})
-    public String save(@ModelAttribute("productCategory") ProductCategory productCategory, @ModelAttribute("parentId")Integer parentId) {
+    public String save(@ModelAttribute("productCategory") ProductCategory productCategory/*, @ModelAttribute("parentId")Integer parentId*/) {
         
-    	if(parentId != null && parentId > 0){
-    		ProductCategory parent = productCategoryService.find(parentId);
-    		productCategory.setParent(parent);	
-    	}
-    	
     	if(productCategory.getId() > 0){
     		productCategoryService.update(productCategory);
         }else {
+        	if(productCategory.getParent().getId() == 0){
+        		productCategory.setParent(null);
+        	}
         	productCategoryService.save(productCategory);
         }
         return "redirect:/productCategory/list";
@@ -100,6 +99,4 @@ public class ProductCategoryController extends BaseController{
     	productCategoryService.delete(productCategory.getId());
         return "redirect:/productCategory/list";
     }
-    
-    
 }

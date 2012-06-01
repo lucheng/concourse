@@ -1,8 +1,16 @@
 package edu.bupt.spring.web.controller;
 
+import java.util.Date;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.swing.JSpinner.DateEditor;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.ServletRequestDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 
 import edu.bupt.spring.pager.PageParam;
+import edu.bupt.spring.web.Editor.IntegerEditor;
 
 
 @Controller
@@ -47,5 +55,9 @@ public class BaseController {
 		this.jpql = jpql;
 	}*/
 
+	@InitBinder
+    protected void initBinder(HttpServletRequest req, ServletRequestDataBinder binder) throws Exception {
+    	binder.registerCustomEditor(Integer.class, "parent.id", new IntegerEditor());
+    }
 	
 }
