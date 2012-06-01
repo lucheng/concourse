@@ -15,7 +15,7 @@ import edu.bupt.spring.service.MemberRankService;
 public class MemberRankServiceImpl extends DaoSupport<MemberRank> implements MemberRankService {
 
 	public List<MemberRank> findAll() {
-		Query query = em.createQuery("select o from ClassInfo o ");
+		Query query = em.createQuery("select o from MemberRank o ");
 		return query.getResultList();
 	}
 
