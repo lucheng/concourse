@@ -60,13 +60,11 @@ public class ArticleCategoryController extends BaseController{
     }
     
     @RequestMapping(value = "/articleCategory/save", method = {RequestMethod.POST})
-    public String save(@ModelAttribute("articleCategory") ArticleCategory articleCategory, @ModelAttribute("parentId")Integer parentId) {
+    public String save(@ModelAttribute("articleCategory") ArticleCategory articleCategory) {
         
-    	if(parentId != null && parentId > 0){
-    		ArticleCategory parent = articleCategoryService.find(parentId);
-    		articleCategory.setParent(parent);	
+    	if(articleCategory.getParent().getId() < 1){
+    		articleCategory.setParent(null);
     	}
-    	
     	if(articleCategory.getId() > 0){
         	articleCategoryService.update(articleCategory);
         }else {

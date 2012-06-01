@@ -5,7 +5,6 @@
 	<base href="<%=basePath%>">
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<title>添加/编辑文章分类 - Powered By SHOP++</title>
-	<%@ include file="../common/import.jsp"%>
 	<script type="text/javascript" src="<%=path %>/js/jquery.validate.js"></script>
 	<script type="text/javascript" src="<%=path %>/js/jquery.validate.methods.js"></script>
 	<script type="text/javascript" src="<%=path %>/js/jquery.translate.js"></script>
@@ -103,7 +102,7 @@
 							上级分类: 
 						</th>
 						<td>
-							<select name="parentId">
+							<select name="parent.id">
 								<option value="0">顶级分类</option>
 								<c:forEach items="${parentCategories}" var="parent" >
 									<option value="${parent.id}" <c:if test="${entry.parent.id == parent.id}"> selected="selected"</c:if> >${parent.name}</option>
