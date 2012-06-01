@@ -33,11 +33,11 @@
 				&nbsp;&nbsp;
 				<label>查找: </label>
 				<select name="searchBy">
-					<option value="title">
-						标题
+					<option value="name" <c:if test="${pageparam.searchBy=='name'}">selected="selected"</c:if> >
+						名称
 					</option>
 				</select>
-				<input type="text" name="keyword" value="">
+				<input type="text" name="keyword" value="${pageparam.keyword}">
 				<input type="button" id="searchButton" class="formButton" value="搜 索" hidefocus="" value="">
 				&nbsp;&nbsp;
 				<label>每页显示: </label>
@@ -62,16 +62,16 @@
 						<input type="checkbox" class="allCheck">
 					</th>
 					<th>
-						<a href="javascript:void(0);" class="sort" name="name" hidefocus="">友情链接名称</a>
+						<a href="javascript:void(0);" class="sort<c:if test="${pageparam.orderBy == 'name'}"> ${pageparam.order}</c:if>" name="name" hidefocus="">友情链接名称</a>
 					</th>
 					<th>
-						<a href="javascript:void(0);" class="sort" name="url" hidefocus="">链接地址</a>
+						<a href="javascript:void(0);" class="sort<c:if test="${pageparam.orderBy == 'url'}"> ${pageparam.order}</c:if>" name="url" hidefocus="">链接地址</a>
 					</th>
 					<th>
-						<a href="javascript:void(0);" class="sort" name="logo" hidefocus="">logo</a>
+						<a href="javascript:void(0);" name="logo" hidefocus="">logo</a>
 					</th>
 					<th>
-						<a href="javascript:void(0);" class="sort" name="orderList" hidefocus="">排序</a>
+						<a href="javascript:void(0);" class="sort<c:if test="${pageparam.orderBy == 'orderList'}"> ${pageparam.order}</c:if>" name="orderList" hidefocus="">排序</a>
 					</th>
 					<th>
 						<span>操作</span>
@@ -94,7 +94,6 @@
 							<span>
 								<c:if test="${friendLink.logo==null}" ><a href="#">LOGO</a></c:if>
 								<c:if test="${friendLink.logo!=null}" ><a href="<%=path %>/upload/${friendLink.logo}">LOGO</a></c:if>
-								
 							</span>
 						</td>
 						<td>

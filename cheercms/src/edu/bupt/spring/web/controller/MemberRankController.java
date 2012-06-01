@@ -5,8 +5,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -17,9 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import edu.bupt.spring.base.PageView;
-import edu.bupt.spring.base.QueryResult;
 import edu.bupt.spring.entity.MemberRank;
+import edu.bupt.spring.pager.PageParam;
+import edu.bupt.spring.pager.PageView;
+import edu.bupt.spring.pager.QueryResult;
 import edu.bupt.spring.service.MemberRankService;
 
 /**
@@ -34,8 +33,6 @@ import edu.bupt.spring.service.MemberRankService;
 @Controller("memberRankController")
 public class MemberRankController extends BaseController{
     
-	private static final Logger logger = LoggerFactory.getLogger(MemberRankController.class);
-	
 	@Autowired
     @Qualifier("memberRankServiceImpl")
 	private MemberRankService memberRankService;
@@ -45,10 +42,10 @@ public class MemberRankController extends BaseController{
 		
 		Map<String, Object> responseMap = new HashMap<String, Object>();
 		
-//		logger.info(searchParam.getPageSize() + "");
+		pageparam = new PageParam(request);
 		
-		PageView<MemberRank> pageView = new PageView<MemberRank>(pageSize, pageNumber);
-		QueryResult<MemberRank> qr = memberRankService.getScrollData(pageView.getFirstResult(), pageView.getMaxresult(), "", queryParams.toArray(), orderby);
+		PageView<MemberRank> pageView = new PageView<MemberRank>(pageparam.getPageSize(), pageparam.getPageNumber());
+		QueryResult<MemberRank> qr = memberRankService.getScrollData(pageView.getFirstResult(), pageView.getMaxresult(), "", pageparam.getQueryParams().toArray(), pageparam.getOrderby());
 		pageView.setQueryResult(qr);
 		
 		

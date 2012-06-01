@@ -17,6 +17,8 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.bupt.spring.entity.BaseEntity;
+import edu.bupt.spring.pager.PageParam;
+import edu.bupt.spring.pager.QueryResult;
 import edu.bupt.spring.utils.GenericsUtils;
 
 
@@ -92,6 +94,33 @@ public abstract class DaoSupport<T> implements DAO<T>{
 		qr.setResultlist(query.getResultList());
 		query = em.createQuery("select count("+ getCountField(this.entityClass)+ ") from "+ entityname+ " o "+(wherejpql==null || "".equals(wherejpql.trim())? "": "where "+ wherejpql));
 		setQueryParams(query, queryParams);
+		qr.setTotalrecord((Long)query.getSingleResult());
+		return qr;
+	}
+	/**
+	 * 
+	 */
+	@Transactional(readOnly=true,propagation=Propagation.NOT_SUPPORTED)
+	public QueryResult<T> getScrollData(int firstindex, int maxresult, PageParam pageParam) {
+		
+		String wherejpql = "o." + pageParam.getSearchBy() + " like ?1 ";
+		QueryResult qr = new QueryResult<T>();
+		String entityname = getEntityName(this.entityClass);
+		Query query = em.createQuery("select o from "+ entityname+ " o "+(pageParam.getKeyword()==null || "".equals(pageParam.getKeyword().trim())? "": "where "+ wherejpql)+ buildOrderby(pageParam.getOrderby()));
+		if(pageParam.getKeyword() != null && !pageParam.getKeyword().equals("")){
+			query.setParameter(1, "%"+pageParam.getKeyword()+"%");
+		}
+//		setQueryParams(query, queryParams);
+		if(firstindex!=-1 && maxresult!=-1){
+			query.setFirstResult(firstindex).setMaxResults(maxresult);
+		}
+		qr.setResultlist(query.getResultList());
+		query = em.createQuery("select count("+ getCountField(this.entityClass)+ ") from "+ entityname+ " o "+(pageParam.getKeyword()==null || "".equals(pageParam.getKeyword().trim())? "": "where "+ wherejpql));
+//		setQueryParams(query, queryParams);
+		if(pageParam.getKeyword() != null && !pageParam.getKeyword().equals("")){
+			query.setParameter(1, "%"+pageParam.getKeyword()+"%");
+		}
+		
 		qr.setTotalrecord((Long)query.getSingleResult());
 		return qr;
 	}

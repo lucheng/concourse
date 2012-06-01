@@ -26,8 +26,8 @@
 			<li class="pgNext <c:if test="${pageView.totalpage < 1}">pgEmpty</c:if>">末页</li>
 		</ul>
 	</span>
-	<input type="hidden" name="pageNumber" id="pageNumber" value="1">
-	<input type="hidden" name="orderBy" id="orderBy" value="createDate">
-	<input type="hidden" name="order" id="order" value="desc">
+	<input type="hidden" name="pageNumber" id="pageNumber" value="${pageparam.pageNumber}">
+	<input type="hidden" name="orderBy" id="orderBy" value="${pageparam.orderBy}">
+	<input type="hidden" name="order" id="order" value="${pageparam.order}">
 </div>
 <div></div>

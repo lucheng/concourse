@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.LinkedHashMap;
 
 import edu.bupt.spring.entity.BaseEntity;
+import edu.bupt.spring.pager.PageParam;
+import edu.bupt.spring.pager.QueryResult;
 
 public interface DAO<T> {
 	/**
@@ -55,6 +57,8 @@ public interface DAO<T> {
 	public QueryResult<T> getScrollData(int firstindex, int maxresult, LinkedHashMap<String, String> orderby);
 	
 	public QueryResult<T> getScrollData(int firstindex, int maxresult);
+	
+	public QueryResult<T> getScrollData(int firstindex, int maxresult, PageParam pageParam);
 	
 	public QueryResult<T> getScrollData();
 	

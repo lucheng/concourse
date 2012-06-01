@@ -14,9 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import edu.bupt.spring.base.PageView;
-import edu.bupt.spring.base.QueryResult;
 import edu.bupt.spring.entity.Member;
+import edu.bupt.spring.pager.PageParam;
+import edu.bupt.spring.pager.PageView;
+import edu.bupt.spring.pager.QueryResult;
 import edu.bupt.spring.service.MemberRankService;
 import edu.bupt.spring.service.MemberService;
 
@@ -43,10 +44,12 @@ public class MemberController extends BaseController{
 	private MemberRankService memberRankService;
 	
 	@RequestMapping(value = "/member/list")
-    public ModelAndView list(int pageSize){
+    public ModelAndView list(HttpServletRequest request){
 		
-		PageView<Member> pageView = new PageView<Member>(pageSize, pageNumber);
-		QueryResult<Member> qr = memberService.getScrollData(pageView.getFirstResult(), pageView.getMaxresult(), " ", queryParams.toArray(), orderby);
+		pageparam = new PageParam(request);
+		
+		PageView<Member> pageView = new PageView<Member>(pageparam.getPageSize(), pageparam.getPageNumber());
+		QueryResult<Member> qr = memberService.getScrollData(pageView.getFirstResult(), pageView.getMaxresult(), " ", pageparam.getQueryParams().toArray(), pageparam.getOrderby());
 		pageView.setQueryResult(qr);
 		
 		return new ModelAndView("member/list").addObject("pageView", pageView);

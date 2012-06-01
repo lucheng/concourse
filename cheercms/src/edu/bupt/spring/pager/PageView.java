@@ -1,4 +1,4 @@
-package edu.bupt.spring.base;
+package edu.bupt.spring.pager;
 
 import java.util.List;
 

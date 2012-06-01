@@ -7,8 +7,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.FileUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -21,9 +19,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import edu.bupt.spring.base.PageView;
-import edu.bupt.spring.base.QueryResult;
 import edu.bupt.spring.entity.FriendLink;
+import edu.bupt.spring.pager.PageParam;
+import edu.bupt.spring.pager.PageView;
+import edu.bupt.spring.pager.QueryResult;
 import edu.bupt.spring.service.FriendLinkService;
 import edu.bupt.spring.utils.ImageUtils;
 
@@ -48,17 +47,14 @@ public class FriendLinkController extends BaseController{
 	@RequestMapping(value = "/friendLink/list")
     public ModelAndView list(HttpServletRequest request){
 		
-		fromPager(request);
+		pageparam = new PageParam(request);
 		
-		System.out.println("pageNumber:" + pageNumber);
-		System.out.println("pageSize:" + pageSize);
-		
-		
-		PageView<FriendLink> pageView = new PageView<FriendLink>(this.pageSize, this.pageNumber);
-		QueryResult<FriendLink> qr = friendLinkService.getScrollData(pageView.getFirstResult(), pageView.getMaxresult(), "", queryParams.toArray(), orderby);
+		PageView<FriendLink> pageView = new PageView<FriendLink>(pageparam.getPageSize(), pageparam.getPageNumber());
+//		QueryResult<FriendLink> qr = friendLinkService.getScrollData(pageView.getFirstResult(), pageView.getMaxresult(), "", pageparam.getQueryParams().toArray(), pageparam.getOrderby());
+		QueryResult<FriendLink> qr = friendLinkService.getScrollData(pageView.getFirstResult(), pageView.getMaxresult(), pageparam);
 		pageView.setQueryResult(qr);
 		
-		return new ModelAndView("friendLink/list").addObject("pageView", pageView);
+		return new ModelAndView("friendLink/list").addObject("pageView", pageView).addObject("pageparam", pageparam);
     }
     
     @RequestMapping(value = "/friendLink/add", method = {RequestMethod.GET})
