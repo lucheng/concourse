@@ -1,15 +1,11 @@
 package edu.bupt.nlp.entity;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
 import com.buptsse.ate.module.Page;
-import com.buptsse.ate.topicmain.KeyWordsExtractor;
-import com.buptsse.ate.utils.FileHelp;
 import com.buptsse.ate.utils.Parser;
 
 /**
@@ -23,6 +19,8 @@ public class EntityExtractor {
 
 	final private static String BAIKE_XML_PATH = "\\\\buptsse215-02\\data\\baidu\\";
 	final private static String ENTITY_FILE_PATH = "./ICTCLAS_CONFIG/entity.txt";
+	
+	final private static String PAGE_FILE_PATH = "\\\\buptsse215-02\\data\\baidu\\";
 
 	public static void extractBaike() throws IOException {
 
