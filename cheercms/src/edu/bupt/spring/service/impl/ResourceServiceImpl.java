@@ -8,22 +8,25 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-
 import edu.bupt.spring.base.DaoSupport;
-import edu.bupt.spring.entity.Admin;
-import edu.bupt.spring.service.AdminService;
+import edu.bupt.spring.entity.User;
+import edu.bupt.spring.entity.Resource;
+import edu.bupt.spring.service.ResourceService;
 
 /**
  * 
- * @author linzhe
- * @date   2012-5-17
- * @email  m23linzhe@gmail.com
+ * @author  linzhe
+ * @Date    2012-6-1
+ * @email   m23linzhe@gmail.com
+ * @qq      398024808
+ * @version 1.0
+ *
  */
 
 @Service
-public class AdminServiceImpl extends DaoSupport<Admin> implements AdminService {
+public class ResourceServiceImpl extends DaoSupport<Resource> implements ResourceService {
 
-    private static final Logger logger = LoggerFactory.getLogger(AdminServiceImpl.class);
+    /*private static final Logger logger = LoggerFactory.getLogger(ResourceServiceImpl.class);
 
 	public List<Admin> findByType(String type) {
 		return null;
@@ -43,6 +46,7 @@ public class AdminServiceImpl extends DaoSupport<Admin> implements AdminService 
 			return loginAdmin;
 		}
 		return null;
-	}
+	}*/
+
    
 }

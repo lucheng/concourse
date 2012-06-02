@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -15,8 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import edu.bupt.spring.entity.Admin;
-import edu.bupt.spring.service.AdminService;
+import edu.bupt.spring.entity.User;
+import edu.bupt.spring.service.UserService;
 
 /**
  * 
@@ -24,18 +22,16 @@ import edu.bupt.spring.service.AdminService;
  * @date   2012-5-17
  * @email  m23linzhe@gmail.com
  */
-@Controller("adminController")
-public class AdminController extends BaseController {
+@Controller("userController")
+public class UserController extends BaseController {
     
-	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
-	
 	@Autowired
-    @Qualifier("adminServiceImpl")
-	private AdminService adminService;
+    @Qualifier("userServiceImpl")
+	private UserService userService;
 	
 	@RequestMapping(value = "/admin/list")
     public String list(HttpServletRequest request){
-    	List<Admin> list = adminService.findAll();
+    	List<User> list = userService.findAll();
     	request.setAttribute("list", list);
         return "admin/list";
     }
@@ -47,25 +43,24 @@ public class AdminController extends BaseController {
     }
     
     @RequestMapping(value = "/admin/save", method = {RequestMethod.POST})
-    public String save(@ModelAttribute("admin") Admin admin, HttpServletRequest request) {
+    public String save(@ModelAttribute("admin") User admin, HttpServletRequest request) {
         
-        adminService.save(admin);
+        userService.save(admin);
         return "redirect:/admin/list";
     }
     
     @RequestMapping(value = "/admin/edit/{id}", method = {RequestMethod.GET})
     public String edit(@PathVariable Integer id, HttpServletRequest request) {
         
-    	Admin admin = adminService.find(id);
-    	logger.info(admin.toString());
+    	User admin = userService.find(id);
         request.setAttribute("entity", admin);
         return "admin/edit";
     }
     
     @RequestMapping(value = "/admin/update", method = {RequestMethod.POST})
-    public String update(@ModelAttribute("admin") Admin admin, HttpServletRequest request) {
+    public String update(@ModelAttribute("admin") User admin, HttpServletRequest request) {
         
-    	adminService.update(admin);
+    	userService.update(admin);
         return "redirect:/admin/list";
     }
     

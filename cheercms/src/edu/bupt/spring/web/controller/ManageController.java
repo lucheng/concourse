@@ -23,24 +23,25 @@ public class ManageController extends BaseController {
     
 	private static final Logger logger = LoggerFactory.getLogger(ManageController.class);
 	
-	/*@RequestMapping(value = "/login")
+	@RequestMapping(value = "/manage/login")
     public ModelAndView login(){
 		return new ModelAndView("login");
-    }*/
+    }
 	
-	@RequestMapping(value = "/manage")
+	@RequestMapping(value = "/manage/index")
     public String index(HttpServletRequest request){
-
+		
+		
         return "index";
     }
 	
-	@RequestMapping(value = "/checkLogin", method = {RequestMethod.POST})
+	@RequestMapping(value = "/manage/checkLogin", method = {RequestMethod.POST})
     public String checkLogin(@RequestParam("username") String username,
 			@RequestParam("password") String password, 
 			@RequestParam("isRememberUsername") boolean isRememberUsername, 
 			HttpServletRequest request){
     	
-        return "redirect:/manage";
+        return "redirect:/manage/index";
     }
 	
 }

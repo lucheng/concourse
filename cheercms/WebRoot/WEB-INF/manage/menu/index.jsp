@@ -25,7 +25,7 @@
 						系统名称: 
 					</td>
 					<td>
-						SHOP++网店管理系统
+						${systemConfig.systemName}
 					</td>
 				</tr>
 				<tr>

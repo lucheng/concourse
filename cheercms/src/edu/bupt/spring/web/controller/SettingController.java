@@ -5,6 +5,9 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import edu.bupt.spring.config.SystemConfig;
+import edu.bupt.spring.utils.SystemConfigUtil;
+
 
 
 /**
@@ -26,6 +29,10 @@ public class SettingController extends BaseController {
 	
     @RequestMapping(value = "/setting/edit")
     public String edit(HttpServletRequest request){
+    	
+    	SystemConfig systemConfig = SystemConfigUtil.getSystemConfig();
+    	
+    	System.out.println(systemConfig.getAddress());
         return "setting/edit";
     }
     

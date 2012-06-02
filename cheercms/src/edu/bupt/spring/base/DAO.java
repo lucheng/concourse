@@ -2,6 +2,7 @@ package edu.bupt.spring.base;
 
 import java.io.Serializable;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 import edu.bupt.spring.entity.BaseEntity;
 import edu.bupt.spring.pager.PageParam;
@@ -42,6 +43,8 @@ public interface DAO<T> {
 	 * @return
 	 */
 	public T find(Serializable entityId);
+	
+	public List<T> findAll();
 	/**
 	 * 获取分页数据
 	 * @param <T>
@@ -62,8 +65,5 @@ public interface DAO<T> {
 	
 	public QueryResult<T> getScrollData();
 	
-	/**
-	 * 更新访问量
-	 */
-	public void increateVisitNum(Serializable entityId);
+	
 }

@@ -25,7 +25,7 @@ import edu.bupt.spring.config.SystemConfig.WatermarkPosition;
 
 public class SystemConfigUtil {
 	
-	public static final String CONFIG_FILE_NAME = "shopxx.xml";// 系统配置文件名称
+	public static final String CONFIG_FILE_NAME = "setting.xml";// 系统配置文件名称
 	public static final String SYSTEM_CONFIG_CACHE_KEY = "systemConfig";// systemConfig缓存Key
 
 	/**
@@ -35,8 +35,8 @@ public class SystemConfigUtil {
 	 */
 	public static SystemConfig getSystemConfig() {
 		
-//		SystemConfig systemConfig = (SystemConfig) OsCacheConfigUtil.getFromCache(SYSTEM_CONFIG_CACHE_KEY);
-		SystemConfig systemConfig = null;
+		SystemConfig systemConfig = (SystemConfig) OsCacheConfigUtil.getFromCache(SYSTEM_CONFIG_CACHE_KEY);
+//		SystemConfig systemConfig = null;
 		if (systemConfig != null) {
 			return systemConfig;
 		}
@@ -156,7 +156,7 @@ public class SystemConfigUtil {
 		systemConfig.setPointType(PointType.valueOf(pointTypeNode.getText()));
 		systemConfig.setPointScale(Double.valueOf(pointScaleNode.getText()));
 		
-//		OsCacheConfigUtil.putInCache(SYSTEM_CONFIG_CACHE_KEY, systemConfig);
+		OsCacheConfigUtil.putInCache(SYSTEM_CONFIG_CACHE_KEY, systemConfig);
 		return systemConfig;
 	}
 	
@@ -584,5 +584,5 @@ public class SystemConfigUtil {
 			return currencySign + "#0.00000" + currencyUnit;
 		}
 	}
-
+	
 }

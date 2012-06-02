@@ -74,7 +74,7 @@ $().ready( function() {
 	<div class="blank"></div>
 	<div class="blank"></div>
 	<div class="body">
-		<form id="loginForm" action="<%=path %>/checkLogin" method="post">
+		<form id="loginForm" action="<%=path %>/j_spring_security_check" method="post">
             <table class="loginTable">
             	<tbody><tr>
             		<td rowspan="3">

@@ -5,8 +5,6 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -31,6 +29,8 @@ public class Resource extends BaseEntity {
 	
 	private String name;// 资源名称
 	private String value;// 资源标识
+	private String url;// 资源标识
+	
 	private Boolean isSystem;// 是否为系统内置资源
 	private String description;// 描述
 	private Integer orderList;// 排序
@@ -60,6 +60,14 @@ public class Resource extends BaseEntity {
 		return isSystem;
 	}
 
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	
 	public void setIsSystem(Boolean isSystem) {
 		this.isSystem = isSystem;
 	}

@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.Date;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -42,6 +43,12 @@ public abstract class DaoSupport<T> implements DAO<T>{
 	public T find(Serializable entityId) {
 		if(entityId==null) throw new RuntimeException(this.entityClass.getName()+ ":�����ʵ��id����Ϊ��");
 		return em.find(this.entityClass, entityId);
+	}
+	
+	@Transactional(readOnly=true,propagation=Propagation.NOT_SUPPORTED)
+	public List<T> findAll() {
+		
+		return (List<T>)em.createQuery("select o from "+ this.entityClass.getName()+ " o ").getResultList();
 	}
 
 	public void save(BaseEntity entity) {

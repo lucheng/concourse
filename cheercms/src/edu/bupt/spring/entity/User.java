@@ -1,5 +1,6 @@
 package edu.bupt.spring.entity;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.Set;
 
@@ -14,6 +15,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  * 实体类 - 管理员
@@ -26,8 +28,8 @@ import org.springframework.security.core.GrantedAuthority;
  */
 
 @Entity
-@Table(name="tbl_Admin")
-public class Admin extends BaseEntity {
+@Table(name="tbl_User")
+public class User extends BaseEntity implements UserDetails {
 
 	private static final long serialVersionUID = -7519486823153844426L;
 	
@@ -36,17 +38,23 @@ public class Admin extends BaseEntity {
 	private String email;// E-mail
 	private String name;// 姓名
 	private String department;// 部门
-	private Boolean isAccountEnabled;// 账号是否启用
-	private Boolean isAccountLocked;// 账号是否锁定
-	private Boolean isAccountExpired;// 账号是否过期
-	private Boolean isCredentialsExpired;// 凭证是否过期
+	private boolean enabled;// 账号是否启用
+	private boolean accountNonLocked;// 账号是否锁定
+	private boolean accountNonExpired;// 账号是否过期
+	private boolean credentialsNonExpired;// 凭证是否过期
 	private Integer loginFailureCount;// 连续登录失败的次数
 	private Date lockedDate;// 账号锁定日期
 	private Date loginDate;// 最后登录日期
 	private String loginIp;// 最后登录IP
 	
 	private Set<Role> roleSet;// 管理角色
-	private GrantedAuthority[] authorities;// 角色信息
+	private Collection<GrantedAuthority> authorities;// 角色信息
+
+	public User(String username, String password, boolean enable,
+			boolean accountNonExpired, boolean credentialsNonExpired,
+			boolean accountNonLocked, Collection<GrantedAuthority> authorities) {
+		
+	}
 
 	@Column(updatable = false, nullable = false, unique = true)
 	public String getUsername() {
@@ -92,42 +100,6 @@ public class Admin extends BaseEntity {
 	}
 
 	@Column(nullable = false)
-	public Boolean getIsAccountEnabled() {
-		return isAccountEnabled;
-	}
-
-	public void setIsAccountEnabled(Boolean isAccountEnabled) {
-		this.isAccountEnabled = isAccountEnabled;
-	}
-
-	@Column(nullable = false)
-	public Boolean getIsAccountLocked() {
-		return isAccountLocked;
-	}
-
-	public void setIsAccountLocked(Boolean isAccountLocked) {
-		this.isAccountLocked = isAccountLocked;
-	}
-
-	@Column(nullable = false)
-	public Boolean getIsAccountExpired() {
-		return isAccountExpired;
-	}
-
-	public void setIsAccountExpired(Boolean isAccountExpired) {
-		this.isAccountExpired = isAccountExpired;
-	}
-
-	@Column(nullable = false)
-	public Boolean getIsCredentialsExpired() {
-		return isCredentialsExpired;
-	}
-
-	public void setIsCredentialsExpired(Boolean isCredentialsExpired) {
-		this.isCredentialsExpired = isCredentialsExpired;
-	}
-
-	@Column(nullable = false)
 	public Integer getLoginFailureCount() {
 		return loginFailureCount;
 	}
@@ -162,7 +134,7 @@ public class Admin extends BaseEntity {
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinColumn(nullable = false)
-	@JoinTable(name = "tbl_Admin_Role", joinColumns = { @JoinColumn(name ="admin_id" )}, inverseJoinColumns = { @JoinColumn(name = "role_id") })
+	@JoinTable(name = "tbl_User_Role", joinColumns = { @JoinColumn(name ="user_id" )}, inverseJoinColumns = { @JoinColumn(name = "role_id") })
 	@OrderBy("name asc")
 	public Set<Role> getRoleSet() {
 		return roleSet;
@@ -173,32 +145,44 @@ public class Admin extends BaseEntity {
 	}
 	
 	@Transient
-	public GrantedAuthority[] getAuthorities() {
+	public Collection<GrantedAuthority> getAuthorities() {
 		return authorities;
 	}
 
-	public void setAuthorities(GrantedAuthority[] authorities) {
+	public void setAuthorities(Collection<GrantedAuthority> authorities) {
 		this.authorities = authorities;
 	}
 
-	@Transient
 	public boolean isEnabled() {
-		return this.isAccountEnabled;
+		return enabled;
 	}
 
-	@Transient
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
 	public boolean isAccountNonLocked() {
-		return !this.isAccountLocked;
+		return accountNonLocked;
 	}
 
-	@Transient
+	public void setAccountNonLocked(boolean accountNonLocked) {
+		this.accountNonLocked = accountNonLocked;
+	}
+
 	public boolean isAccountNonExpired() {
-		return !this.isAccountExpired;
+		return accountNonExpired;
 	}
 
-	@Transient
+	public void setAccountNonExpired(boolean accountNonExpired) {
+		this.accountNonExpired = accountNonExpired;
+	}
+
 	public boolean isCredentialsNonExpired() {
-		return !this.isCredentialsExpired;
+		return credentialsNonExpired;
+	}
+
+	public void setCredentialsNonExpired(boolean credentialsNonExpired) {
+		this.credentialsNonExpired = credentialsNonExpired;
 	}
 
 }

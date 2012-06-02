@@ -30,8 +30,9 @@ public class Role extends BaseEntity {
 	private String value;// 角色标识
 	private Boolean isSystem;// 是否为系统内置角色
 	private String description;// 描述
+	private boolean enable;
 	
-	private Set<Admin> adminSet;// 管理员
+	private Set<User> userSet;// 管理员
 	private Set<Resource> resourceSet;// 资源
 
 	@Column(nullable = false, unique = true)
@@ -61,6 +62,14 @@ public class Role extends BaseEntity {
 		this.isSystem = isSystem;
 	}
 
+	public boolean isEnable() {
+		return enable;
+	}
+
+	public void setEnable(boolean enable) {
+		this.enable = enable;
+	}
+	
 	@Column(length = 5000)
 	public String getDescription() {
 		return description;
@@ -71,13 +80,12 @@ public class Role extends BaseEntity {
 	}
 
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "roleSet")
-//	@JoinTable(name = "tbl_Admin_Role", joinColumns = { @JoinColumn(name ="admin_id" )}, inverseJoinColumns = { @JoinColumn(name = "role_id") })
-	public Set<Admin> getAdminSet() {
-		return adminSet;
+	public Set<User> getUserSet() {
+		return userSet;
 	}
 
-	public void setAdminSet(Set<Admin> adminSet) {
-		this.adminSet = adminSet;
+	public void setUserSet(Set<User> userSet) {
+		this.userSet = userSet;
 	}
 
 	@ManyToMany(fetch = FetchType.LAZY)

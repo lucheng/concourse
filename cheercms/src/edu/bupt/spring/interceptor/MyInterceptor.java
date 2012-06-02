@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import edu.bupt.spring.entity.Admin;
+import edu.bupt.spring.entity.User;
 
 /**
  * 
@@ -33,7 +33,7 @@ public class MyInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
 			Object arg2) throws Exception {
 		
-		Admin loginAdmin = (Admin)request.getSession().getAttribute("loginAdmin");
+		User loginAdmin = (User)request.getSession().getAttribute("loginAdmin");
 		if(loginAdmin == null){
 			return false;
 		}

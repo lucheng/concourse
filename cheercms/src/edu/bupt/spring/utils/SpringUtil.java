@@ -36,5 +36,17 @@ public class SpringUtil implements ApplicationContextAware {
 	public static Object getBean(String name) throws BeansException {
 		return applicationContext.getBean(name);
 	}
-
+	
+	public boolean int4(String str){
+	int a=0; 
+		try 
+		{
+			a=Integer.parseInt(str);
+			if(a>999 && a<9999)return true;
+			else return false;
+		}catch(Exception e){
+			return false;
+		}	
+	}
+	
 }
