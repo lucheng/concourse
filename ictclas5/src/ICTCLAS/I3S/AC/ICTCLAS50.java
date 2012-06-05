@@ -13,8 +13,6 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.buptsse.ate.utils.FileHelp;
- 
 public class ICTCLAS50
 {
 	//public enum eCodeType

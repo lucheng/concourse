@@ -1,12 +1,8 @@
 package edu.bupt.nlp.entity;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 
-import com.buptsse.ate.module.Page;
-import com.buptsse.ate.utils.Parser;
+import org.apache.log4j.Logger;
 
 /**
  * 提取实体类
@@ -16,69 +12,26 @@ import com.buptsse.ate.utils.Parser;
  * @date 2012-5-31
  */
 public class EntityExtractor {
-
-	final private static String BAIKE_XML_PATH = "\\\\buptsse215-02\\data\\baidu\\";
-	final private static String ENTITY_FILE_PATH = "./ICTCLAS_CONFIG/entity.txt";
 	
-	final private static String PAGE_FILE_PATH = "\\\\buptsse215-02\\data\\baidu\\";
+	private static Logger logger = Logger.getLogger(EntityExtractor.class);
 
-	public static void extractBaike() throws IOException {
+	final public static String BAIKE_XML_PATH = "\\\\buptsse215-02\\data\\baidu\\";
+	final public static String ENTITY_FILE_PATH = "./ICTCLAS_CONFIG/entity.txt";
+	
+	final public static String PAGE_FILE_PATH = "\\\\buptsse215-02\\data\\baidu\\";
+	final public static String TAG_FILE_NAME = "d:\\data\\tags\\tags.txt";
+	final public static String TITLE_FILE_NAME = "d:\\data\\tags\\titles.txt";
 
-		String fileName = "";
-		
-		File entityFile = new File(ENTITY_FILE_PATH);
-		if (entityFile.exists()) {
-			System.out.println("文件存在");
-		} else {
-			System.out.println("文件不存在，正在创建...");
-			if (entityFile.createNewFile()) {
-				System.out.println("文件创建成功！");
-			} else {
-				System.out.println("文件创建失败！");
-			}
-		}
-		BufferedWriter output = new BufferedWriter(new FileWriter(entityFile, true));
-		
-		for (int i = 2172; i < 7000000; i++) {
-			if(i % 70 == 0){
-				output.flush();
-			}
-			try {
-				fileName = BAIKE_XML_PATH + i + ".xml";
-				File file = new File(fileName);
-				System.out.println(i);
-				if (file.exists()) {
-					Page page = Parser.parseXmlFile(fileName);
-					output.append(page.getTitle() + "@@ne" + System.getProperty("line.separator"));
-//					System.out.println(page.getTitle());
-				} else {
-					// System.out.println("file is not exists");
-				}
-			} catch (Exception e) {
-//				e.printStackTrace();
-				System.out.println(fileName);
-				/*String newfilename = "D:/data/error"
-						+ fileName.substring(fileName.lastIndexOf("/",
-								fileName.length()));
-				FileHelp.copyFile(new File(fileName), new File(newfilename));*/
-				continue;
-			}
-		}
-		
-		output.close();
-	}
-
+	
+	
 	/**
 	 * @param args
+	 * @throws IOException
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
-		try {
-			extractBaike();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
+		EntityExtractor extractor = new EntityExtractor();
+		
 	}
 
 }
