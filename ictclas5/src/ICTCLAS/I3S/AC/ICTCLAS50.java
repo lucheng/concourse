@@ -51,6 +51,8 @@ public class ICTCLAS50
 				System.out.println("Init Fail!");
 				return;
 			}
+			// 设置词性标注集(0 计算所二级标注集，1 计算所一级标注集，2 北大二级标注集，3 北大一级标注集)
+			ICTCLAS_SetPOSmap(1);
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
@@ -65,6 +67,8 @@ public class ICTCLAS50
 				System.out.println("Init Fail!");
 				return;
 			}
+			// 设置词性标注集(0 计算所二级标注集，1 计算所一级标注集，2 北大二级标注集，3 北大一级标注集)
+			ICTCLAS_SetPOSmap(1);
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
@@ -107,35 +111,6 @@ public class ICTCLAS50
 
 	}
 	
-	public void ICTCLAS_FileProcess(byte[] sSrcFilename, byte[] sDestFilename, int bPOSTagged) {
-		
-		try {
-			ICTCLAS50 testICTCLAS50 = new ICTCLAS50();
-			// 分词所需库的路径
-			String argu = "./ICTCLAS_CONFIG";
-			// 初始化
-			if (testICTCLAS50.ICTCLAS_Init(argu.getBytes("UTF-8")) == false) {
-				log.error("Init Fail!");
-				return;
-			}
-			// 设置词性标注集(0 计算所二级标注集，1 计算所一级标注集，2 北大二级标注集，3 北大一级标注集)
-			testICTCLAS50.ICTCLAS_SetPOSmap(3);
-			
-			// 用户字典路径
-			byte[] usrdirb = usrdir.getBytes();// 将string转化为byte类型
-			// 第一个参数为用户字典路径，第二个参数为用户字典的编码类型(0:type
-			// unknown;1:ASCII码;2:GB2312,GBK,GB10380;3:UTF-8;4:BIG5)
-			int nCount = testICTCLAS50.ICTCLAS_ImportUserDictFile(usrdirb, 3);// 导入用户字典,返回导入用户词语个数
-//			log.info("导入用户词个数" + nCount);
-			// 文件分词(第一个参数为输入文件的名,第二个参数为文件编码类型,第三个参数为是否标记词性集1 yes,0
-			// no,第四个参数为输出文件名)
-			testICTCLAS50.ICTCLAS_FileProcess(sSrcFilename, 3, bPOSTagged, sDestFilename);
-			
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			log.error(ex.getMessage());
-		}
-	}
 	/**
 	 * 导入用户词典
 	 * @param usrdir
@@ -209,20 +184,9 @@ public class ICTCLAS50
 	 */
 	public String tag(String sInput, int bPOSTagged) {
 		try {
-			String argu = "./ICTCLAS_CONFIG";
-			if (ICTCLAS_Init(argu.getBytes(charset)) == false) {
-				System.out.println("Init Fail!");
-				return "";
-			}
-
-			// 设置词性标注集(0 计算所二级标注集，1 计算所一级标注集，2 北大二级标注集，3 北大一级标注集)
-			ICTCLAS_SetPOSmap(2);
-
 			byte nativeBytes[] = ICTCLAS_ParagraphProcess(sInput.getBytes(charset), 2, bPOSTagged);
 			System.out.println("文章字数：" + nativeBytes.length);
 			String nativeStr1 = new String(nativeBytes, 0,nativeBytes.length, charset);
-			// 释放分词组件资源
-			ICTCLAS_Exit();
 			return nativeStr1;
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -235,10 +199,29 @@ public class ICTCLAS50
 		return tag(sInput, 0);
 	}
 	
+	public void tagFile(byte[] sSrcFilename, byte[] sDestFilename, int bPOSTagged) {
+		
+		try {
+			// 设置词性标注集(0 计算所二级标注集，1 计算所一级标注集，2 北大二级标注集，3 北大一级标注集)
+			ICTCLAS_SetPOSmap(2);
+			// 文件分词(第一个参数为输入文件的名,第二个参数为文件编码类型,第三个参数为是否标记词性集1 yes,0
+			// no,第四个参数为输出文件名)
+			ICTCLAS_FileProcess(sSrcFilename, 3, bPOSTagged, sDestFilename);
+			
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			log.error(ex.getMessage());
+		}
+	}
+	
+	public void tagFile(byte[] sSrcFilename, byte[] sDestFilename) {
+		tagFile(sSrcFilename, sDestFilename, 0);
+	}
+	
 	public static void main(String[] args){
 		
 		ICTCLAS50 ICTCLAS = new ICTCLAS50();
-		ICTCLAS.importUserDictFile("./ICTCLAS_CONFIG/entity.txt");
+		ICTCLAS.importUserDictFile("./ICTCLAS_CONFIG/filterEntity.txt");
 		ICTCLAS.ICTCLAS_SaveTheUsrDic();
 		ICTCLAS.ICTCLAS_Exit();
 		

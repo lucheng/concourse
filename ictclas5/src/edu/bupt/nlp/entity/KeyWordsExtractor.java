@@ -1,13 +1,8 @@
 package edu.bupt.nlp.entity;
 
-import java.io.IOException;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
-
-/**
- * 
- */
 
 public class KeyWordsExtractor {
 
@@ -21,11 +16,11 @@ public class KeyWordsExtractor {
 	
 	private Logger log = Logger.getLogger(getClass());
 	
-	public void getWordsFrequency() throws IOException{
+	public void getWordsFrequency() throws Exception{
 		
-		String inputTrainPath = "input/input";   
-		String outputTrainPath = "input/output"; 
-		ATE ate = new ATE();
+		String inputTrainPath = "input/input";
+		String outputTrainPath = "input/output";
+		EntityExtractor ate = new EntityExtractor();
 		ate.pretreatmentTrain(inputTrainPath, outputTrainPath); 
 		
 		singleTermMap = ate.getSingleTermMap();
@@ -75,7 +70,7 @@ public class KeyWordsExtractor {
 //			}
 		}
 	}
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
 		
 		KeyWordsExtractor test = new KeyWordsExtractor();
 		test.getWordsFrequency();
