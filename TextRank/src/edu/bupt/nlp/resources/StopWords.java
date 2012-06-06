@@ -7,9 +7,19 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
 import java.io.InputStreamReader;
-import java.lang.String;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.TreeSet;
 import java.util.regex.Pattern;
+
+import org.apache.log4j.Logger;
+
+import edu.bupt.nlp.keyword.Word;
 
 /**
  * 本类主要功能是过滤停用词
@@ -19,6 +29,8 @@ import java.util.regex.Pattern;
 
 public class StopWords {
 
+	private Logger logger = Logger.getLogger(getClass());
+	
 	TreeSet<String> sWord = new TreeSet<String>();
 	String dicPath;
 	HashMap<String, Long> lastModTime = new HashMap<String, Long>();
@@ -117,6 +129,28 @@ public class StopWords {
 		}
 		return list;
 	}
+	
+	
+	public List<Word> phraseDel(String str, int bTagged){
+		
+		List<Word> list = new ArrayList<Word>(); 
+		List<String> listTemp = new ArrayList<String>();
+//		logger.info(str);
+		listTemp = Arrays.asList(str.split("\\s+"));
+		String wordRaw;
+		String word;
+		String tagger;
+		int length= listTemp.size();
+		for(int i = 0; i < length; i++){
+			wordRaw = listTemp.get(i);
+			word = wordRaw.substring(0, wordRaw.lastIndexOf("/"));
+			tagger = wordRaw.substring(wordRaw.lastIndexOf("/")+1);
+//			logger.info(word + "===" + tagger);
+			if(!isStopWord(word))
+				list.add(new Word(i, word, tagger));
+		}
+		return list;
+	}
 
 	Pattern noise = Pattern.compile(".*["+CharSets.allRegexPunc+"\\d]+.*");
 	
@@ -138,4 +172,5 @@ public class StopWords {
 		System.out.println(sw.isStopWord("我#"));	
 		System.out.println(sw.isStopWord(" "));	
 	}
+	
 }

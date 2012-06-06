@@ -13,6 +13,10 @@ public class Vertex {
 		this.id = id;
 	}
 	
+	public Vertex(Word word){
+		this.id = word.getWord();
+	}
+	
 	public void setId(String id){
 		this.id = id;
 	}

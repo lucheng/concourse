@@ -66,6 +66,6 @@ public abstract class Extractor {
 		this.precision = precision;
 	}
 
-	abstract public String extract(String str, int num, boolean isWeighted);
-	abstract  public Map<String,Integer> extract(String readFile, int i);
+	abstract public Map<String,Integer> extract(String str, int num, boolean isWeighted);
+//	abstract  public Map<String,Integer> extract(String readFile, int i);
 }

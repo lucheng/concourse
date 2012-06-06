@@ -12,67 +12,73 @@ import java.util.TreeSet;
 
 import org.apache.log4j.Logger;
 
+import com.buptsse.ate.utils.FileHelp;
+
 import ICTCLAS.I3S.AC.ICTCLAS50;
 import edu.bupt.nlp.resources.StopWords;
 
-class WDataSet{
+class DataSet{
 	Graph graph = new Graph();
 	ArrayList<Double> w = new ArrayList<Double>();
 	ArrayList<Double> wBack = new ArrayList<Double>();
-	List<String> list = new ArrayList<String>();
-	ArrayList<String> subList = new ArrayList<String>();
+	List<Word> list = new ArrayList<Word>();
+	ArrayList<Word> subList = new ArrayList<Word>();
 }
 
-public class WordExtract extends Extractor{
+public class TextRankExtractor extends Extractor{
 		
-	private Logger log = Logger.getLogger(getClass());
+	private Logger logger = Logger.getLogger(getClass());
 	
-	public WordExtract(){
+	public TextRankExtractor(){
 		precision = 1.0;
 		dN = 0.85;
 	}
 	
-	public WordExtract(String dicPath, String stopPath) throws Exception{
+	public TextRankExtractor(String dicPath, String stopPath) throws Exception{
 		tag = new ICTCLAS50(dicPath);
 		test = new StopWords(stopPath);
 	}
 	
-	private WDataSet getWord(String str){
-		Set<String> set = new TreeSet<String>();
-		WDataSet wds = new WDataSet();
+	private DataSet getWord(String str){
+		
+		Set<Word> set = new TreeSet<Word>();
+		DataSet wds = new DataSet();
 		
 		if(test!=null){
-			wds.list = test.phraseDel(str);
-		}else{
-			wds.list = new ArrayList<String>(); 
+			//去除停用词
+			wds.list = test.phraseDel(str, 1);
+		}/*else{
+			wds.list = new ArrayList<Word>(); 
 			String[] toks = str.split("\\s+");
 			for(int i=0;i<toks.length;i++){
 				if(toks[i].length()>0)
 				wds.list.add(toks[i]);
 			}
-		}
+		}*/
 		
-		String temp;
+		Word temp;
 		
 		for(int i = 0; i < wds.list.size(); i++){
+//			将分词放入TreeSet中
 			temp = wds.list.get(i);
 			set.add(temp);
 		}
 		
-		Iterator<String> ii = set.iterator();
+		Iterator<Word> ii = set.iterator();
 		while(ii.hasNext()){
-			str = ii.next();
-			wds.subList.add(str);
+			temp = ii.next();
+			wds.subList.add(temp);
 		}
 		return wds;
 	}
 	
-	private WDataSet mapInit(int window, WDataSet wds){
-		TreeMap<String,Integer> treeMap = new TreeMap<String,Integer>();
-		Iterator<String> ii = wds.subList.iterator();
+	private DataSet mapInit(int window, DataSet wds){
+		
+		TreeMap<Word,Integer> treeMap = new TreeMap<Word,Integer>();
+		Iterator<Word> ii = wds.subList.iterator();
 		int nnn = 0;
 		while(ii.hasNext()){
-			String s = ii.next();
+			Word s = ii.next();
 			Vertex vertex = new Vertex(s);
 			wds.graph.addVertex(vertex);
 			wds.w.add(1.0);
@@ -81,7 +87,7 @@ public class WordExtract extends Extractor{
 			nnn++;
 		}
 		
-		String id1,id2;
+		Word id1,id2;
 		int index1,index2;
 		
 		int length = wds.list.size();
@@ -104,7 +110,7 @@ public class WordExtract extends Extractor{
 		return wds;
 	}
 	
-	boolean isCover(WDataSet wds){
+	boolean isCover(DataSet wds){
 		int i;
 		double result = 0.0;
 		
@@ -118,7 +124,7 @@ public class WordExtract extends Extractor{
 			return false;
 	}
 	
-	public void toBackW(WDataSet wds){
+	public void toBackW(DataSet wds){
 		int i;
 		
 		for(i = 0; i < wds.graph.getNVerts(); i++){
@@ -126,7 +132,7 @@ public class WordExtract extends Extractor{
 		}
 	}
 	
-	public WDataSet cal(WDataSet wds){
+	public DataSet cal(DataSet wds){
 		int i, j, forwardCount, times = 0;
 		double sumWBackLink, newW;
 		ArrayList<Vertex> nextList;
@@ -154,7 +160,6 @@ public class WordExtract extends Extractor{
 				}
 			}
 			if(isCover(wds) == true){
-//				System.out.println("Iteration Times: " + times);
 				break;
 			}
 			toBackW(wds);
@@ -162,7 +167,7 @@ public class WordExtract extends Extractor{
 		return wds;
 	}
 	
-	public ArrayList<Integer> normalized(WDataSet wds){
+	public ArrayList<Integer> normalized(DataSet wds){
 		ArrayList<Integer> wNormalized = new ArrayList<Integer>();
 		double max, min, wNDouble;
 		int i, wNormalInt;
@@ -184,7 +189,7 @@ public class WordExtract extends Extractor{
 		return wNormalized;
 	}
 	
-	public LinkedHashMap<String,Integer> selectTop(int selectCount, WDataSet wds){
+	public LinkedHashMap<String,Integer> selectTop(int selectCount, DataSet wds){
 		int i, j, index;
 		double max;
 		LinkedHashMap<String,Integer> mapList = new LinkedHashMap<String,Integer>();
@@ -216,11 +221,15 @@ public class WordExtract extends Extractor{
 		return mapList;
 	}
 	
-	public WDataSet proceed(String str){
-		WDataSet wds1, wds2;
+	public DataSet proceed(String str){
+		
+		DataSet wds1, wds2;
+//		初始化wds1
 		wds1 = getWord(str);
 //		long time1 = System.currentTimeMillis();
 //		System.out.println("InitGraph...");
+		
+//		初始化wds2
 		wds2 = mapInit(windowN, wds1);
 //		System.out.println("Succeed In InitGraph!");
 //		System.out.println("Now Calculate the PageRank Value...");
@@ -231,19 +240,31 @@ public class WordExtract extends Extractor{
 		return wds1;
 	}
 	
-	public Map<String,Integer> extract(String str, int num){
+	public Map<String,Integer> extract(String str, int num, boolean isWeighted){
 		if(tag != null){
-			str = tag.tag(str);
+			//将文本进行分词
+			str = tag.tag(str, 1);
 		}
 		
-		WDataSet wds = proceed(str);
+		//进行TextRank算法计算
+		DataSet wds = proceed(str);
 		LinkedHashMap<String,Integer> mapList = selectTop(num, wds);
 		return mapList;
 	}
 
-	@Override
-	public String extract(String str, int num, boolean isWeighted) {
-		return extract(str,num).toString();
+	public static void main(String[] args) throws Exception {	
+		
+		Extractor key = new TextRankExtractor("./ICTCLAS_CONFIG/userdict.txt", "./ICTCLAS_CONFIG/stopwords.txt");
+		long time = System.currentTimeMillis();
+		
+		String text = FileHelp.readText("./text_example/100059.txt");
+		System.out.println(text);
+		Map<String, Integer> result = key.extract(text, 100,true);
+		System.out.println(result);
+		
+		long t = System.currentTimeMillis() - time;
+		System.out.println("用时：" + t + " ms");
+
 	}
 }
 
