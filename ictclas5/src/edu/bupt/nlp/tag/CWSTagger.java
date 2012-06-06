@@ -59,7 +59,7 @@ public class CWSTagger {
 	
 	public void filter(String fileName){
 		
-		List<String> content = FileHelp.readTxtByLine(fileName, 5, 13);
+		List<String> content = FileHelp.readTxtByLine(fileName, 7, 11);
 		StringBuffer filterBuff = new StringBuffer();
 		for(int i = 0; i < content.size(); i++){
 //			logger.info(content.get(i) + "====" + content.get(i).length());
