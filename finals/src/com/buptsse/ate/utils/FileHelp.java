@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -100,7 +101,7 @@ public class FileHelp {
                 Matcher m = p.matcher(strFileName);
                 if(m.find()){
                 	filelist.add(strFileName);
-                	System.out.println(strFileName);
+//                	System.out.println(strFileName);
                 }
             } 
         } 
@@ -125,6 +126,26 @@ public class FileHelp {
 		return files;
 	}
 
+	public static List<String> readTxtByLine(String input, int min, int max){
+		
+		List<String> strList = new ArrayList<String>();
+		try {
+			InputStreamReader  read = new InputStreamReader (new FileInputStream(input),"utf-8");
+			BufferedReader lbin = new BufferedReader(read);
+			String str = lbin.readLine();
+			while(str != null){
+				if(str.length() > min && str.length() < max){
+					strList.add(str);
+				}
+				str = lbin.readLine();
+			}
+			lbin.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+		return strList;
+	}
 	public static void copyDirectory(String srcDirStr, String dstDirStr) {
 		File srcDir = new File(srcDirStr);
 		File dstDir = new File(dstDirStr);
