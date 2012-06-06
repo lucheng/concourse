@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
-import edu.bupt.nlp.keyword.Word;
+import edu.bupt.nlp.textrank.Word;
 
 /**
  * 本类主要功能是过滤停用词

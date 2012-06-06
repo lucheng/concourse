@@ -1,4 +1,4 @@
-package edu.bupt.nlp.keyword;
+package edu.bupt.nlp.textrank;
 
 public class Word implements Comparable<Word>{
 	
@@ -38,7 +38,14 @@ public class Word implements Comparable<Word>{
 	}
 
 	@Override
+	public String toString() {
+		
+		return "["+this.word + "," + this.tagger+"]";
+	}
+	
+	@Override
 	public int compareTo(Word another) {
-		return this.index - another.getIndex();
+		
+		return this.word.compareTo(another.getWord());
 	}
 }

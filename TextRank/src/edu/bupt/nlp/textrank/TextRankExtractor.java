@@ -1,4 +1,4 @@
-package edu.bupt.nlp.keyword;
+package edu.bupt.nlp.textrank;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -47,14 +47,7 @@ public class TextRankExtractor extends Extractor{
 		if(test!=null){
 			//去除停用词
 			wds.list = test.phraseDel(str, 1);
-		}/*else{
-			wds.list = new ArrayList<Word>(); 
-			String[] toks = str.split("\\s+");
-			for(int i=0;i<toks.length;i++){
-				if(toks[i].length()>0)
-				wds.list.add(toks[i]);
-			}
-		}*/
+		}
 		
 		Word temp;
 		
@@ -78,12 +71,12 @@ public class TextRankExtractor extends Extractor{
 		Iterator<Word> ii = wds.subList.iterator();
 		int nnn = 0;
 		while(ii.hasNext()){
-			Word s = ii.next();
-			Vertex vertex = new Vertex(s);
+			Word word = ii.next();
+			Vertex vertex = new Vertex(word);
 			wds.graph.addVertex(vertex);
 			wds.w.add(1.0);
 			wds.wBack.add(1.0);
-			treeMap.put(s, nnn);
+			treeMap.put(word, nnn);
 			nnn++;
 		}
 		
@@ -189,10 +182,10 @@ public class TextRankExtractor extends Extractor{
 		return wNormalized;
 	}
 	
-	public LinkedHashMap<String,Integer> selectTop(int selectCount, DataSet wds){
+	public LinkedHashMap<Word,Integer> selectTop(int selectCount, DataSet wds){
 		int i, j, index;
 		double max;
-		LinkedHashMap<String,Integer> mapList = new LinkedHashMap<String,Integer>();
+		LinkedHashMap<Word,Integer> mapList = new LinkedHashMap<Word,Integer>();
 		
 		if(wds.graph.getNVerts() == 0)
 			return mapList;
@@ -214,7 +207,7 @@ public class TextRankExtractor extends Extractor{
 				}
 			}
 			if(index != -1){
-				mapList.put(wds.graph.getVertex(index).getId(), wNormalized.get(index));
+				mapList.put(wds.graph.getVertex(index).getWord(), wNormalized.get(index));
 				wds.wBack.set(index, -2.0);
 			}
 		}
@@ -240,7 +233,8 @@ public class TextRankExtractor extends Extractor{
 		return wds1;
 	}
 	
-	public Map<String,Integer> extract(String str, int num, boolean isWeighted){
+	@Override
+	public Map<Word,Integer> extract(String str, int num, boolean isWeighted){
 		if(tag != null){
 			//将文本进行分词
 			str = tag.tag(str, 1);
@@ -248,7 +242,7 @@ public class TextRankExtractor extends Extractor{
 		
 		//进行TextRank算法计算
 		DataSet wds = proceed(str);
-		LinkedHashMap<String,Integer> mapList = selectTop(num, wds);
+		LinkedHashMap<Word,Integer> mapList = selectTop(num, wds);
 		return mapList;
 	}
 
@@ -259,13 +253,14 @@ public class TextRankExtractor extends Extractor{
 		
 		String text = FileHelp.readText("./text_example/100059.txt");
 		System.out.println(text);
-		Map<String, Integer> result = key.extract(text, 100,true);
+		Map<Word, Integer> result = key.extract(text, 100, true);
 		System.out.println(result);
 		
 		long t = System.currentTimeMillis() - time;
 		System.out.println("用时：" + t + " ms");
 
 	}
+
 }
 
 

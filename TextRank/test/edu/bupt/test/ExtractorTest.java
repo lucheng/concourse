@@ -4,9 +4,9 @@ import java.util.Map;
 
 import com.buptsse.ate.utils.FileHelp;
 
-import edu.bupt.nlp.keyword.EntityExtract;
-import edu.bupt.nlp.keyword.Extractor;
-import edu.bupt.nlp.keyword.TextRankExtractor;
+import edu.bupt.nlp.textrank.EntityExtract;
+import edu.bupt.nlp.textrank.Extractor;
+import edu.bupt.nlp.textrank.TextRankExtractor;
 
 public class ExtractorTest {
 		

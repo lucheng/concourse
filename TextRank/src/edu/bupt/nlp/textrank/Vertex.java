@@ -1,19 +1,30 @@
-package edu.bupt.nlp.keyword;
+package edu.bupt.nlp.textrank;
 
 import java.util.ArrayList;
 
 public class Vertex {
+	
 	public String id;
 	public int index;
 	private int forwardCount = 0;
 	private ArrayList<Vertex> next = null;
 	private ArrayList<Integer> wNext = null;
+	private Word word = new Word();
 	
 	public Vertex(String id){
 		this.id = id;
 	}
 	
+	public Word getWord() {
+		return word;
+	}
+
+	public void setWord(Word word) {
+		this.word = word;
+	}
+
 	public Vertex(Word word){
+		this.word = word;
 		this.id = word.getWord();
 	}
 	

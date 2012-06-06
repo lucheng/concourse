@@ -1,4 +1,4 @@
-package edu.bupt.nlp.keyword;
+package edu.bupt.nlp.textrank;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -266,6 +266,7 @@ public class EntityExtract extends Extractor{
 		System.out.println("用时：" + t + " ms");
 
 	}
+
 }
 
 

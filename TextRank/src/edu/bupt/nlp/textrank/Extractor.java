@@ -1,11 +1,11 @@
-package edu.bupt.nlp.keyword;
+package edu.bupt.nlp.textrank;
 
 import java.util.Map;
 
 import ICTCLAS.I3S.AC.ICTCLAS50;
 import edu.bupt.nlp.resources.StopWords;
 
-public abstract class Extractor {
+public abstract class Extractor<T> {
 
 	/*用于分词*/
 	protected ICTCLAS50 tag;
@@ -66,6 +66,8 @@ public abstract class Extractor {
 		this.precision = precision;
 	}
 
-	abstract public Map<String,Integer> extract(String str, int num, boolean isWeighted);
+	abstract public Map<Object,Integer> extract(String str, int num, boolean isWeighted);
+//	abstract public Map<Word,Integer> extract(String str, int num);
 //	abstract  public Map<String,Integer> extract(String readFile, int i);
+
 }
