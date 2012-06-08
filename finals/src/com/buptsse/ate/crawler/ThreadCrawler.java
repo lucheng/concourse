@@ -13,7 +13,7 @@ import com.buptsse.ate.utils.FileHelp;
 public class ThreadCrawler extends Thread {
 
 	private Document doc;
-	private static int counter = 0;
+	private static int counter = 117149;
 	
 	public static synchronized int getCounter(){
 		return ++counter;
@@ -45,7 +45,7 @@ public class ThreadCrawler extends Thread {
 	public static void main(String[] args){
 		
 		List<ThreadCrawler> list = new ArrayList<ThreadCrawler>();
-		for(int i = 0; i < 5; i++){
+		for(int i = 0; i < 2; i++){
 			ThreadCrawler crawler = new ThreadCrawler();
 			list.add(crawler);
 		}
