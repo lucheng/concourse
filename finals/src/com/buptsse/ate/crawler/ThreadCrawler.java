@@ -13,7 +13,7 @@ import com.buptsse.ate.utils.FileHelp;
 public class ThreadCrawler extends Thread {
 
 	private Document doc;
-	private static int counter = 117149;
+	private static int counter = 121526;
 	
 	public static synchronized int getCounter(){
 		return ++counter;
