@@ -13,10 +13,11 @@ import com.buptsse.ate.utils.FileHelp;
 public class ThreadCrawler extends Thread {
 
 	private Document doc;
-	private static int counter = 121526;
+	private static int counter = 132371;
 	
 	public static synchronized int getCounter(){
-		return ++counter;
+		counter += 2;
+		return counter;
 	}
 	public void fetch(String url, String saveFileName){
 		
