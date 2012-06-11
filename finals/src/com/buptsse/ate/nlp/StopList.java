@@ -35,7 +35,7 @@ public class StopList {
 	public StopList() {
 		
 		words = new HashSet<String>();
-		PropertyConfigurator.configure(Constant.LOG4J);
+		
 		try {
 			createList();
 		} catch (IOException e) {

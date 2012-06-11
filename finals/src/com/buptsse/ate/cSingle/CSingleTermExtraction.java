@@ -41,7 +41,7 @@ public class CSingleTermExtraction {
 		vecList = new ArrayList<Vector<String[]>>();
 		this.inPath = path;
 		this.userDictList = userDictList;
-		PropertyConfigurator.configure(Constant.LOG4J);
+		
 	}
 	
 	/**

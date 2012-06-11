@@ -23,7 +23,7 @@ public class SegmentParser {
 //	private Map<String, Integer> trigramWords = new HashMap<String, Integer>();
 	
 	public SegmentParser(){
-		PropertyConfigurator.configure(Constant.LOG4J);
+		
 	}
 	
 	public boolean match(String word, String regex){

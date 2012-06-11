@@ -27,7 +27,7 @@ public class StopList {
 		wordsMiddle = new HashSet<String>();
 		wordsPostfix = new HashSet<String>();
 		words = new HashSet<String>();
-		PropertyConfigurator.configure(Constant.LOG4J);
+		
 		try {
 			createList();
 		} catch (IOException e) {

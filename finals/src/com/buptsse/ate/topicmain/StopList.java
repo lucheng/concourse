@@ -24,7 +24,7 @@ public class StopList {
 		wordsPrefix = new HashSet<String>(); 
 		wordsPostfix = new HashSet<String>();
 		words = new HashSet<String>();
-		PropertyConfigurator.configure(Constant.LOG4J);
+		
 		createList();
 
 	}

@@ -439,7 +439,7 @@ public class FileHelp {
 	
 //		deleteFoder(new File("D:/sites/www.jiathis.com"));
 //		deleteFiles("C:/heritrix", ".password");
-		for(int i = 10482; i < 7000000; i ++){
+		for(int i = 3381421; i > 0; i --){
 			String fileName = "\\\\buptsse215-02/data/html/"+ i +".htm";
 			String newFileName = "d:/data/html/"+ i +".htm";
 			if(i % 1000 == 0){

@@ -1,5 +1,6 @@
 package com.buptsse.ate.module;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,7 @@ import org.jsoup.select.Elements;
 
 public class Page {
 
+	private String word;
 	private String title;
 	private String baibeId;
 	private String html;
@@ -19,12 +21,9 @@ public class Page {
 	private List<Reinforce> reinforces = new ArrayList<Reinforce>();
 	private Document doc;
 
-	public Page(String url) {
+	public Page(File file) {
 		try {
-			this.doc = Jsoup.connect(url)
-					.userAgent("Mozilla/5.0 (Windows NT 6.1; rv:5.0)")
-					.cookie("auth", "token").timeout(1000).get();
-			this.url = url;
+			this.doc = Jsoup.parse(file, "UTF-8");
 			formByXml();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -33,6 +32,76 @@ public class Page {
 
 	public Page() {
 
+	}
+
+	private void formByXml() {
+
+		Elements codes = doc.body().select("body");
+
+		// 标题
+		Elements word = codes.select("input[class=s_ipt]");
+		this.word = word.attr("value");
+
+		Elements title = codes.select("h1[class=title]");
+		this.title = title.text();
+		// 源码
+//		Elements htmlElement = codes.select("div[class=content-bd main-body]");
+//		this.setHtml(htmlElement.html());
+
+		int contentSize = codes.select("div[id^=sec-content]").size();
+		for (int i = 0; i < contentSize; i++) {
+
+			Content content = new Content();
+
+			// 副标题
+			String subTitle = codes.select("div[id=sec-header" + i + "]")
+					.text();
+			content.setSubTitle(subTitle);
+
+			// 摘要
+			String summary = codes.select(
+					"div[id=sec-content" + i
+							+ "]>div>div>div[class=card-summary-content]")
+					.text();
+			content.setSummary(summary);
+
+			// 内容
+			Elements textElement = codes.select("div[id=sec-content" + i + "]");
+			content.setText(textElement.text());
+
+			// 内容链接
+			Elements links = textElement.select("a[href]");
+			// System.out.println(links.size());
+			List<Link> linkList = new ArrayList<Link>();
+			for (int j = 0; j < links.size(); j++) {
+				String url = links.get(j).select("a[href]").attr("href");
+				if(url.startsWith("/view/")){
+					String id = url.substring(url.lastIndexOf("/")+1, url.lastIndexOf(".htm"));
+					Link link = new Link(j, id, links.get(j).text());
+					linkList.add(link);
+				}
+			}
+			content.setLinks(linkList);
+			// 开放分类
+			List<String> taglist = new ArrayList<String>();
+			Elements tags = textElement.select("dl[id=viewExtCati]>dd>a");
+			for (Element element : tags) {
+				taglist.add(element.text());
+			}
+			content.setTaglist(taglist);
+			contents.add(content);
+		}
+		// 相关词条
+		Elements reinforceElements = codes.select("dd[class=relative]").select("a[href]");
+
+		for (int i = 0; i < reinforceElements.size(); i++) {
+			String url = reinforceElements.get(i).attr("href");
+			if(!url.contains("#")){
+				String id = url.substring(url.lastIndexOf("/")+1, url.lastIndexOf(".htm"));
+				Reinforce reinforce = new Reinforce(i, id, reinforceElements.get(i).text());
+				this.reinforces.add(reinforce);
+			}
+		}
 	}
 
 	public String getTitle() {
@@ -82,68 +151,13 @@ public class Page {
 	public void setReinforces(List<Reinforce> reinforces) {
 		this.reinforces = reinforces;
 	}
+	
+	public String getWord() {
+		return word;
+	}
 
-	private void formByXml() {
-
-		Elements codes = doc.body().select("body");
-
-		// 标题
-		Elements title = codes.select("h1[class=title]");
-		this.title = title.text();
-
-		// 源码
-		Elements htmlElement = codes.select("div[class=content-bd main-body]");
-		this.setHtml(htmlElement.html());
-
-		int contentSize = codes.select("div[id^=sec-content]").size();
-		for (int i = 0; i < contentSize; i++) {
-
-			Content content = new Content();
-
-			// 副标题
-			String subTitle = codes.select("div[id=sec-header" + i + "]")
-					.text();
-			content.setSubTitle(subTitle);
-
-			// 摘要
-			String summary = codes.select(
-					"div[id=sec-content" + i
-							+ "]>div>div>div[class=card-summary-content]")
-					.text();
-			content.setSummary(summary);
-
-			// 内容
-			Elements textElement = codes.select("div[id=sec-content" + i + "]");
-			content.setText(textElement.text());
-
-			// 内容链接
-			Elements links = textElement.select("a[href]");
-			// System.out.println(links.size());
-			List<Link> linkList = new ArrayList<Link>();
-			for (int j = 0; j < links.size(); j++) {
-				Link link = new Link(j, links.get(j).text(), links.get(j)
-						.select("a[href]").attr("href"));
-				linkList.add(link);
-			}
-			content.setLinks(linkList);
-			// 开放分类
-			List<String> taglist = new ArrayList<String>();
-			Elements tags = textElement.select("dl[id=viewExtCati]>dd>a");
-			for (Element element : tags) {
-				taglist.add(element.text());
-			}
-			content.setTaglist(taglist);
-			contents.add(content);
-		}
-		// 相关词条
-		Elements reinforceElements = codes.select("dd[class=relative]").select(
-				"a[href]");
-
-		for (int i = 0; i < reinforceElements.size(); i++) {
-			Reinforce reinforce = new Reinforce(i, reinforceElements.get(i)
-					.text(), reinforceElements.get(i).attr("href"));
-			this.reinforces.add(reinforce);
-		}
+	public void setWord(String word) {
+		this.word = word;
 	}
 
 }

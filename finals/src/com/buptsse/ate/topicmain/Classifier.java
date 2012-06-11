@@ -23,7 +23,7 @@ public class Classifier {
 		filePath = path;
 		outPath = outputsPath;
 		flag = f;
-		PropertyConfigurator.configure(Constant.LOG4J);
+		
 	}
 
 	/**

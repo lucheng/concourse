@@ -1,5 +1,6 @@
 package com.buptsse.ate.utils;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -157,7 +158,7 @@ public class Parser {
 		return page;
 	}
 	
-	public static void saveAsXml(Page page, String filePath){
+	public void saveAsXml(Page page, String filePath){
 		
 		if(page.getTitle().equals("")){
 //			logger.info(filePath + "不存在！");
@@ -173,9 +174,12 @@ public class Parser {
 			out.startDocument();
 			
 			Element rootElement = DocumentHelper.createElement("datas");
+			Element wordElement = rootElement.addElement("word");
 			Element titlesElement = rootElement.addElement("title");
 			Element contentsElement = rootElement.addElement("contents");
 			Element reinforceElement = rootElement.addElement("reinforces");
+			
+			wordElement.addText(page.getWord());
 			
 			titlesElement.addText(page.getTitle());
 			
@@ -186,17 +190,17 @@ public class Parser {
 				Element subtitleElement = contentElement.addElement("subtitle");
 				subtitleElement.addText(content.getSubTitle());
 				
-				Element summaryElement = contentElement.addElement("summary");
-				summaryElement.addCDATA(content.getSummary());
+//				Element summaryElement = contentElement.addElement("summary");
+//				summaryElement.addCDATA(content.getSummary());
 				
-				Element textElement = contentElement.addElement("text");
-				textElement.addText(content.getText());
+//				Element textElement = contentElement.addElement("text");
+//				textElement.addText(content.getText());
 				
 				Element linksElement = contentElement.addElement("links");
 				for(Link link : content.getLinks()){
 					Element linkElement = linksElement.addElement("link");
 					linkElement.addText(link.getText());
-					linkElement.addAttribute("url", link.getUrl());
+					linkElement.addAttribute("id", link.getUrl());
 					linkElement.addAttribute("index", link.getIndex()+"");
 				}
 				
@@ -210,11 +214,12 @@ public class Parser {
 			for(Reinforce reinforce : page.getReinforces()){
 				Element linkElement = reinforceElement.addElement("reinforce");
 				linkElement.addText(reinforce.getText());
-				linkElement.addAttribute("url", reinforce.getUrl());
+				linkElement.addAttribute("id", reinforce.getUrl());
 				linkElement.addAttribute("index", reinforce.getIndex()+"");
 			}
 			
 			out.writeOpen(rootElement);
+			out.write(wordElement);
 			out.write(titlesElement);
 			out.write(contentsElement);
 			out.write(reinforceElement);
@@ -229,7 +234,9 @@ public class Parser {
 	
 	public static void main(String[] args) {
 		
-		Page page = parse("\\\\buptsse215-02/data/baidu/1.xml");
+//		Page page = parse("\\\\buptsse215-02/data/baidu/1.xml");
+		String fileName = "\\\\buptsse215-02/data/html/1.htm";
+		Page page = new Page(new File(fileName));
 //		saveAsXml(page, "1.xml");
 	}
 }

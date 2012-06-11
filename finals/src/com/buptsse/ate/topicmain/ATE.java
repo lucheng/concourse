@@ -26,7 +26,7 @@ public class ATE {
 
 	private Logger log = Logger.getLogger(getClass());
 	public ATE(){
-		PropertyConfigurator.configure(Constant.LOG4J);
+		
 	}
 	
 	private Map<String, Integer> singleTermMap = null;

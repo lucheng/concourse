@@ -41,7 +41,7 @@ public class Searcher {
 	private static Logger logger = Logger.getLogger(Searcher.class);
 	
 	public Searcher(){
-		PropertyConfigurator.configure(Constant.LOG4J);
+		
 	}
 	public static void main(String[] args){
 		
@@ -55,7 +55,10 @@ public class Searcher {
 		}*/
 		
 //		searcher.searchIKIndexByString("文化");
-		searcher.search("给力");
+//		searcher.search("给力");
+		
+		System.out.println(searcher.isWord("自己生命"));
+		
 	}
 	
 	public ArrayList<Document> queryByString(String queryStr){
@@ -140,7 +143,9 @@ public class Searcher {
         } 
     }
 	
-	public void search(String name){
+	public List<String> search(String key){
+		
+		List<String> hitdoc = new ArrayList<String>();
 		try {
 			//打开索引存放的目录
 			Directory dic = FSDirectory.open(new File(indexPath));
@@ -150,22 +155,57 @@ public class Searcher {
 			Analyzer analyzer = new IKAnalyzer();
 			//开始搜索
 			QueryParser parser = new QueryParser(Version.LUCENE_30,"title",analyzer);
-			Query query = parser.parse(name);
+			Query query = parser.parse(key);
 			TopDocs hits = search.search(query,100);
 			//显示搜索结果
-			logger.info("共找到"+hits.totalHits+"条记录");
-			logger.info("=====================================================");
-			for(ScoreDoc scoreDoc:hits.scoreDocs){
+//			logger.info(key + ": 共找到"+hits.totalHits+"条记录");
+			for(ScoreDoc scoreDoc : hits.scoreDocs){
 				Document doc = search.doc(scoreDoc.doc);
 //				logger.info("ID："+doc.get("id"));
-				logger.info("名称："+doc.get("title"));
+//				logger.info("名称："+doc.get("title"));
+				hitdoc.add(doc.get("title"));
 //				logger.info("关系："+doc.get("relation"));
 //				logger.info("tag："+doc.get("tag"));
+				break;
 			}
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+		return hitdoc;
+	}
+	
+	public boolean isWord(String key){
+		
+//		List<String> hitdoc = new ArrayList<String>();
+		try {
+			//打开索引存放的目录
+			Directory dic = FSDirectory.open(new File(indexPath));
+			//创建索引搜索
+			IndexSearcher search = new IndexSearcher(dic);
+			//创建中文分词
+			Analyzer analyzer = new IKAnalyzer();
+			//开始搜索
+			QueryParser parser = new QueryParser(Version.LUCENE_30,"title",analyzer);
+			Query query = parser.parse(key);
+			TopDocs hits = search.search(query,1);
+			if(hits.totalHits > 0){
+				
+				for(ScoreDoc scoreDoc : hits.scoreDocs){
+					Document doc = search.doc(scoreDoc.doc);
+					if(doc.get("title").contains(key)){
+						return true;
+					}
+				}
+			}
+			//显示搜索结果
+//			logger.info(key + ": 共找到"+hits.totalHits+"条记录");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 }

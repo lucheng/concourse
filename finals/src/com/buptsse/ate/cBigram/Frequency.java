@@ -37,7 +37,7 @@ class Frequency {
 		this.inPath = path;
 		map = new HashMap<String, Integer>();
 		createMap();
-		PropertyConfigurator.configure(Constant.LOG4J);
+		
 	}
 
 	/**

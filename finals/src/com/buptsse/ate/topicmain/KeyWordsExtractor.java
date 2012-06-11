@@ -39,7 +39,7 @@ public class KeyWordsExtractor {
 	private Page page = null;
 	
 	public KeyWordsExtractor(){
-		PropertyConfigurator.configure(Constant.LOG4J);
+		
 	}
 	public void pretreatment(String url){
 		
@@ -51,8 +51,8 @@ public class KeyWordsExtractor {
 		File file = new File(fileName);
 		
 		if(!file.exists()){
-			page = new Page(url);
-			Parser.saveAsXml(page, filePath + baikeId +".xml");
+			page = new Page(file);
+//			Parser.saveAsXml(page, filePath + baikeId +".xml");
 		} else {
 			try {
 				page = Parser.parseXmlFile(fileName);

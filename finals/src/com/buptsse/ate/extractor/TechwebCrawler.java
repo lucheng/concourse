@@ -45,22 +45,21 @@ public class TechwebCrawler extends ItemParser {
 	
 	public static void main(String[] args){
 
-		String filePath = "D:/sites/www.techweb.com.cn";
+		String filePath = "D:/data/sites/www.techweb.com.cn";
 		List<String> filelist = new ArrayList<String>();
 
-		/*FileHelp.refreshFileList(filePath, filelist, ".shtml");
+		FileHelp.refreshFileList(filePath, filelist, ".shtml");
 		for(String fileName : filelist){
-			Crawler crawler = new TechwebCrawler(new File(fileName));
-			crawler.fetch();
-			crawler.saveFile(fileName.replace("shtml", "xml"));
-		}*/
-		
-		FileHelp.refreshFileList(filePath, filelist, ".xml");
-		System.out.println(filelist.size());
-		for(String fileName : filelist){
-			
-			String newFileName = "D:/xml/www.techweb.com.cn" + fileName.substring(fileName.lastIndexOf("\\"), fileName.length());
-			FileHelp.copyFile(new File(fileName), new File(newFileName));
+			try{
+				TechwebCrawler crawler = new TechwebCrawler(new File(fileName));
+				crawler.fetch();
+				String name = fileName.substring(fileName.lastIndexOf("\\")+1, fileName.lastIndexOf("."));
+				System.out.println(name);
+//				System.out.println(fileName);
+				crawler.saveFile("D:/data/xml/www.techweb.com.cn/" + name + ".xml", true);
+			}catch(Exception e){
+				continue;
+			}
 		}
 	}
 	

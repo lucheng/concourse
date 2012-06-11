@@ -105,31 +105,27 @@ public class Tech2ipoCrawler extends ItemParser {
 		this.getNewsItem().setRelationList(relationList);
 	}
 	
-	public static void html2xml(String filePath, String regex){
+	public static void main(String[] args){
 		
+		String filePath = "D:/data/sites/tech2ipo.com";
 		List<String> filelist = new ArrayList<String>();
 		FileHelp.refreshFileList(filePath, filelist, ".html");
 		
 		Tech2ipoCrawler crawler = new Tech2ipoCrawler();
-		
 		for(String fileName : filelist){
-			crawler.setFile(new File(fileName));
-			crawler.fetch();
-			crawler.getNewsItem().setSource("Tech2IPO");
-			logger.info(fileName);
-			crawler.saveFile(fileName.replace("sites", "xml").replace(".html", ".xml"), true);
+			try{
+				crawler.setFile(new File(fileName));
+				crawler.fetch();
+				crawler.getNewsItem().setSource("Tech2IPO");
+				String name = fileName.substring(fileName.lastIndexOf("tech2ipo.com")+13, fileName.lastIndexOf("index.html")-1);
+	//			logger.info("D:/data/sites/tech2ipo.com=" + name);
+	//			logger.info(fileName);
+				crawler.saveFile("D:/data/xml/tech2ipo.com/" + name.replace("\\", "-") + ".xml", true);
+	//			break;
+			}catch(Exception e){
+				continue;
+			}
 		}
-	}
-	
-	public void xml2text(){
-		
-		
-	}
-	
-	public static void main(String[] args){
-
-		String filePath = "D:\\data\\sites\\tech2ipo.com";
-		html2xml(filePath, ".html");
 		
 	}
 	

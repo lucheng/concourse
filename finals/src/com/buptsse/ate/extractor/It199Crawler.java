@@ -1,5 +1,6 @@
 package com.buptsse.ate.extractor;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,25 +9,35 @@ import org.jsoup.select.Elements;
 
 import com.buptsse.ate.crawler.ItemParser;
 import com.buptsse.ate.crawler.Tag;
+import com.buptsse.ate.utils.FileHelp;
 
 public class It199Crawler extends ItemParser {
 	
 	public It199Crawler(String url) {
 		super(url);
 	}
-
+	
+	public It199Crawler(File file) {
+		super(file);
+	}
 
 	public void fetch() {
 
-		Elements main = doc.body().select("div.two-third-width");
+		Elements main = doc.body().select("div#contentArea");
 		
-		Elements blog_content = main.select("div.single-content");
+		Elements blog_content = main.select("div.postContent");
 		blog_content.select("div.wumii-hook").remove();
 		
-		String blog_title = main.select("h1").text();
-		Elements blog_tags = main.select("p.meta-data>span>a");
+		String blog_title = main.select("h2").text();
+		Elements blog_tags = main.select("span.postCategories");
 //		String author = doc.body().select("div#blog_owner_name").text();
-		String published = doc.body().select("p.meta-data>span").first().text();
+		String published = "";
+		if(doc.body().select("p.meta-data>span").first() != null){
+			published = doc.body().select("p.meta-data>span").first().text();
+		}else {
+			published = "";
+		}
+		
 		
 		List<Tag> tags = new ArrayList<Tag>();
 		
@@ -37,72 +48,29 @@ public class It199Crawler extends ItemParser {
 			tags.add(tag);
 		}
 		
-	
 		this.getNewsItem().setAuthor("");
 		this.getNewsItem().setPublished(published);
 		this.getNewsItem().setTagList(tags);
 		this.getNewsItem().setTitle(blog_title);
-		this.getNewsItem().setSummary(blog_content.html());
+		this.getNewsItem().setSummary(blog_content.text());
 	}
 	
 	public static void main(String[] args){
 		
-		String url = "http://www.199it.com/archives/34210.html";
-		ItemParser crawler = new It199Crawler(url);
-		String newFileName = "D:/panguso/it199/xml/" + url.substring(url.lastIndexOf("/")+1, url.lastIndexOf("."))+".xml";
-		crawler.fetch();
-		System.out.println(newFileName);
-		crawler.saveFile(newFileName,true);
-		
-		/*Crawler crawler = new It199Crawler();
-		String[] xmlfiles = FileHelp.getFiles("D:/panguso/36kr/xml");
-		for(String fileName : xmlfiles){
-			String textFileName = fileName.replace("xml", "txt");
-			System.out.println(textFileName);
-			crawler.extrcatText(fileName, textFileName);
-		}*/
-		
-		/*List<String> fileNames = new ArrayList<String>();
-		
-		String url1 = "http://robbin.iteye.com/";
-		Crawler crawler2 = new IteyeCrawler(url1);
-		Elements h3 = crawler2.getDoc().select("h3>a[href]");
-		for(Element e : h3){
-			fileNames.add("http://robbin.iteye.com" + e.attr("href"));
+//		String strPath = "\\\\buptsse215-02\\data\\sites\\www.199it.com\\archives";
+		String strPath = "d:\\data\\sites\\www.199it.com\\archives\\";
+		List<String> urlList = new ArrayList<String>();
+		FileHelp.refreshFileList(strPath, urlList, "");
+		for(String url : urlList){
+//			String url = "http://www.199it.com/archives/34210.html";
+			System.out.println(url);
+			ItemParser crawler = new It199Crawler(new File(url));
+			String newFileName = "D:/data/xml/www.199it.com/" + url.substring(url.lastIndexOf("\\")+1, url.lastIndexOf("."))+".xml";
+			crawler.fetch();
+			
+			System.out.println(crawler);
+			crawler.saveFile(newFileName,true);
 		}
-		
-		for(int i = 2; i < 14; i++){
-			String url = "http://robbin.iteye.com/?page=" + i;
-			crawler2 = new IteyeCrawler(url);
-			h3 = crawler2.getDoc().select("h3>a[href]");
-			for(Element e : h3){
-				fileNames.add("http://robbin.iteye.com" + e.attr("href"));
-			}
-		}
-		System.out.println(fileNames.size());
-		for(String url : fileNames){
-			try{
-				crawler2 = new IteyeCrawler(url);
-				String newFileName = "D:/panguso/iteye/xml/" + url.substring(url.lastIndexOf("/")+1, url.length())+".xml";
-				if(new File(newFileName).exists()){
-					System.out.println("网页已存在！");
-					continue;
-				}
-				crawler2.fetch();
-				
-				System.out.println(newFileName);
-				crawler2.saveFile(newFileName);
-				sleep(3000);
-			}catch(Exception e){
-				e.printStackTrace();
-				try {
-					sleep(3000);
-				} catch (InterruptedException e1) {
-					e1.printStackTrace();
-				}
-				continue;
-			}
-		}*/
 	}
 	
 }

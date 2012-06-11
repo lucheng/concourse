@@ -39,7 +39,7 @@ public class CBigramExtraction {
 		maps = new ArrayList<HashMap<String, Integer>>();
 		vecList = ste.getVecList();
 		this.userDictList = userDictList;
-		PropertyConfigurator.configure(Constant.LOG4J);
+		
 	}
 
 	/**

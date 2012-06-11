@@ -33,7 +33,7 @@ public class EntityWeightComputer {
 //	final public static int DESCRIPTION = 4;
 	
 	public EntityWeightComputer(){
-		PropertyConfigurator.configure(Constant.LOG4J);
+		
 	}
 	
 	public void compute(NewsItem item) throws Exception{

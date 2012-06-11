@@ -29,7 +29,7 @@ public class NewsItem {
 	protected List<Entity> entityList;
 	
 	public NewsItem(){
-		PropertyConfigurator.configure(Constant.LOG4J);
+		
 	}
 	
 	public static void main(String[] args){
@@ -46,7 +46,7 @@ public class NewsItem {
 	
 	public NewsItem(String filePath) throws Exception{
 		
-		PropertyConfigurator.configure(Constant.LOG4J);
+		
 		
 		Document doc = XmlHelp.getDocument(filePath);
 		Element root = doc.getRootElement();

@@ -33,7 +33,7 @@ public class Index {
 	private static String filePath = "\\\\buptsse215-02/data/baidu/";
 	
 	public Index(){
-		PropertyConfigurator.configure(Constant.LOG4J);
+		
 	}
 	public static void main(String[] args){
 		

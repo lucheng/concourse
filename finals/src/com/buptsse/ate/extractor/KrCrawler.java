@@ -39,14 +39,14 @@ public class KrCrawler extends ItemParser {
 	
 	public static void main(String[] args){
 		
-		String[] fileNames = FileHelp.getFiles("D:/sites/www.36kr.com/p");
+		String[] fileNames = FileHelp.getFiles("D:/data/sites/www.36kr.com/p");
 		for(String url : fileNames){
 			try{
 				ItemParser crawler2 = new KrCrawler(new File(url));
 				crawler2.fetch();
-				String newFileName = "D:/text/www.36kr.com/p" + url.substring(url.lastIndexOf("/"), url.lastIndexOf("."))+".txt";
+				String newFileName = "D:/data/xml/www.36kr.com" + url.substring(url.lastIndexOf("/"), url.lastIndexOf("."))+".xml";
 				System.out.println(url);
-//				crawler2.saveFile(newFileName);
+				crawler2.saveFile(newFileName, true);
 //				crawler2.saveText(newFileName);
 			}catch(Exception e){
 				e.printStackTrace();
