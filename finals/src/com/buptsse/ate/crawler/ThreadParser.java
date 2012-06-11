@@ -5,11 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.buptsse.ate.module.Page;
+import com.buptsse.ate.utils.FileHelp;
 import com.buptsse.ate.utils.Parser;
 
 public class ThreadParser extends Thread {
 
-	private static int counter = 1;
+	private static int counter = 0;
 	
 	public static synchronized int getCounter(){
 		return ++counter;
@@ -34,9 +35,10 @@ public class ThreadParser extends Thread {
 		while(true){
 			int num = getCounter();
 			String savePath = "\\\\buptsse215-02/data/html/";
+			String fileName = savePath+ num +".htm";
+			String xmlFile = fileName.replace("html", "baike").replace(".htm", ".xml");
 			try{
-				String fileName = savePath+ num +".htm";
-				String xmlFile = fileName.replace("html", "baike").replace(".htm", ".xml");
+				
 				File file = new File(fileName);
 				if(file.exists()){
 					Page page = new Page(file);
@@ -45,6 +47,7 @@ public class ThreadParser extends Thread {
 				}
 			}catch(Exception e){
 				e.printStackTrace();
+				FileHelp.writeFile(fileName + ".txt", "eee");
 			}
 		}
 	}
