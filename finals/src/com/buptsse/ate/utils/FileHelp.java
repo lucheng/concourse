@@ -12,7 +12,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -171,6 +174,33 @@ public class FileHelp {
 		}
 	}
 
+	public static long forChannel(File f1,File f2) throws Exception{
+        
+		long time=new Date().getTime();
+        int length=2097152;
+        FileInputStream in=new FileInputStream(f1);
+        FileOutputStream out=new FileOutputStream(f2);
+        FileChannel inC=in.getChannel();
+        FileChannel outC=out.getChannel();
+        ByteBuffer b=null;
+        while(true){
+            if(inC.position()==inC.size()){
+                inC.close();
+                outC.close();
+                return new Date().getTime()-time;
+            }
+            if((inC.size()-inC.position())<length){
+                length=(int)(inC.size()-inC.position());
+            }else
+                length=2097152;
+            b=ByteBuffer.allocateDirect(length);
+            inC.read(b);
+            b.flip();
+            outC.write(b);
+            outC.force(false);
+        }
+    }
+	
 	public static void copyFile(File src, File dst) {
 		InputStream in;
 		try {
@@ -405,10 +435,26 @@ public class FileHelp {
 		return "c:/";
 	}
 
-	public static void main(String argv[]) {
+	public static void main(String argv[]) throws Exception {
 	
 //		deleteFoder(new File("D:/sites/www.jiathis.com"));
-		deleteFiles("D:/data/xml/tech2ipo.com", ".temp");
+//		deleteFiles("C:/heritrix", ".password");
+		for(int i = 10482; i < 7000000; i ++){
+			String fileName = "\\\\buptsse215-02/data/html/"+ i +".htm";
+			String newFileName = "d:/data/html/"+ i +".htm";
+			if(i % 1000 == 0){
+				System.out.println(i);
+			}
+			File file = new File(fileName);
+			if(file.exists()){
+				copyFile(file, new File(newFileName));
+//				forChannel(file, new File(newFileName));
+			}
+		}
+		
+		
+		
+		
 	}
 
 }
