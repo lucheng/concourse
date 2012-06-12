@@ -233,8 +233,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</div>
 						<div class="user">
 							<a href="/u/1222373" title="谢爱珠_7972" target="_blank">
-														<img src="http://static.guang.com/images/user/photo/avatar-50.png" title="谢爱珠_7972" alt="谢爱珠_7972" width="30" height="30">
-													</a>
+								<img src="http://static.guang.com/images/user/photo/avatar-50.png" title="谢爱珠_7972" alt="谢爱珠_7972" width="30" height="30">
+							</a>
 							<span class="name ofh"><a href="/u/1222373" title="谢爱珠_7972" target="_blank">谢爱珠_7972</a></span>
 							<span class="baobeiNum">
 								1分钟前
@@ -1478,7 +1478,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<jsp:include page="web/inc/footer.jsp"></jsp:include>
 		<!-- end footer -->
 		
-	<script src="web/js/ui/jquery-1.6.4.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="web/js/ui/jquery-1.6.4.min.js"></script>
 	<script type="text/javascript" src="web/js/ui/jquery.tools.min.js"></script>
 	<script type="text/javascript" src="web/js/ui/localstorage.js"></script>
 	<script type="text/javascript" src="web/js/ui/jquery.json-2.2.min.js"></script>

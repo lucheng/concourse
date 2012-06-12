@@ -4,14 +4,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
@@ -29,34 +28,24 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Entity
 @Table(name = "share_product")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Product {
+public class Product extends BaseEntity {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-    private int id;
     private String name;
     private String originUrl;
     private String url;
     private double price;
+    private long num_iid;
     private int orderList;
     
+    private Shop shop = new Shop();
     private Set<Tag> tags = new HashSet<Tag>();
     private Set<Image> images = new HashSet<Image>();
     private Set<Comment> comments = new HashSet<Comment>();
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public String getName() {
 		return name;
 	}
@@ -83,6 +72,7 @@ public class Product {
 	}
 
 	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy="product")
+	@OrderBy("position")
 	public Set<Image> getImages() {
 		return images;
 	}
@@ -97,6 +87,14 @@ public class Product {
 
 	public void setOriginUrl(String originUrl) {
 		this.originUrl = originUrl;
+	}
+
+	public long getNum_iid() {
+		return num_iid;
+	}
+
+	public void setNum_iid(long numIid) {
+		num_iid = numIid;
 	}
 
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "products", fetch = FetchType.LAZY)
@@ -115,6 +113,16 @@ public class Product {
 
 	public void setComments(Set<Comment> comments) {
 		this.comments = comments;
+	}
+
+	@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@JoinColumn(name="shop_id")
+	public Shop getShop() {
+		return shop;
+	}
+
+	public void setShop(Shop shop) {
+		this.shop = shop;
 	}
 
 	public int getOrderList() {

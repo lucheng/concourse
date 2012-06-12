@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../../inc/header.jsp"%>
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<base href="<%=basePath%>">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <title>管理菜单 - Powered By SHOP++</title>
 <meta name="Author" content="SHOP++ Team">
@@ -15,10 +17,10 @@
 					<span>商品管理&nbsp;</span>
 				</dt>
 					<dd>
-						<a href="goods!list.action" target="mainFrame">商品列表</a>
+						<a href="product/list" target="mainFrame">商品列表</a>
 					</dd>
 					<dd>
-						<a href="goods!add.action" target="mainFrame">添加商品</a>
+						<a href="product/add" target="mainFrame">添加商品</a>
 					</dd>
 					<dd>
 						<a href="goods_notify!list.action" target="mainFrame">到货通知</a>

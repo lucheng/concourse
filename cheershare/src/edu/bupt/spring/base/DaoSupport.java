@@ -4,6 +4,7 @@ import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.io.Serializable;
 import java.lang.reflect.Method;
+import java.util.Date;
 import java.util.LinkedHashMap;
 
 import javax.persistence.EmbeddedId;
@@ -15,6 +16,7 @@ import javax.persistence.Query;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import edu.bupt.spring.entity.BaseEntity;
 import edu.bupt.spring.utils.GenericsUtils;
 
 
@@ -40,7 +42,9 @@ public abstract class DaoSupport<T> implements DAO<T>{
 		return em.find(this.entityClass, entityId);
 	}
 
-	public void save(Object entity) {
+	public void save(BaseEntity entity) {
+		
+		entity.setCreateDate(new Date());
 		em.persist(entity);
 	}
 	
@@ -49,8 +53,9 @@ public abstract class DaoSupport<T> implements DAO<T>{
 		return (Long)em.createQuery("select count("+ getCountField(this.entityClass) +") from "+ getEntityName(this.entityClass)+ " o").getSingleResult();
 	}
 	
-	public void update(Object entity) {
-		System.out.println("==================update==============");
+	public void update(BaseEntity entity) {
+		
+		entity.setModifyDate(new Date());
 		em.merge(entity);
 	}
 	

@@ -2,11 +2,7 @@ package edu.bupt.spring.entity;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -28,17 +24,12 @@ import edu.bupt.spring.web.validator.DateFormat;
 @Entity
 @Table(name = "share_admin")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Admin {
+public class Admin extends BaseEntity {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    private int id;
-    
     @Pattern(regexp = "[A-Za-z0-9]{5,20}", message = "{username.illegal}") //java validator验证（用户名字母数字组成，长度为5-10）
     private String username;
     
@@ -63,18 +54,8 @@ public class Admin {
     
     private boolean isAccountEnabled;
     
-    @DateFormat( message="{register.date.error}")//自定义的验证器
-    private Date createDate;
-    
-	public int getId() {
-		return id;
-	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getUsername() {
+    public String getUsername() {
 		return username;
 	}
 
@@ -122,14 +103,6 @@ public class Admin {
 		this.loginIp = loginIp;
 	}
 
-	public Date getCreateDate() {
-		return createDate;
-	}
-
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
-
 	public String getEmail() {
 		return email;
 	}
@@ -146,24 +119,5 @@ public class Admin {
 		this.isAccountEnabled = isAccountEnabled;
 	}
 
-	public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Admin other = (Admin) obj;
-        if (id != other.id)
-            return false;
-        return true;
-    }
 
-	@Override
-	public String toString() {
-		
-		return "username:" + this.username + "createDate:" + this.createDate;
-	}
-	
-	
 }

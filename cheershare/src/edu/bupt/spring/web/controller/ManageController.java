@@ -36,19 +36,19 @@ public class ManageController {
 	private AdminService adminService;
 	
 	
-	@RequestMapping(value = "/login")
+	@RequestMapping(value = "/manage/login")
     public String login(HttpServletRequest request){
 
         return "login";
     }
 	
-	@RequestMapping(value = "/index")
+	@RequestMapping(value = "/manage/index")
     public String index(HttpServletRequest request){
 
         return "index";
     }
 	
-	@RequestMapping(value = "/checkLogin", method = {RequestMethod.POST})
+	@RequestMapping(value = "/manage/checkLogin", method = {RequestMethod.POST})
     public String checkLogin(@RequestParam("username") String username,
 			@RequestParam("password") String password, 
 			@RequestParam("isRememberUsername") boolean isRememberUsername, 
@@ -63,7 +63,7 @@ public class ManageController {
 			
 		}
 		request.getSession().setAttribute("loginAdmin", loginAdmin);*/
-        return "redirect:/index";
+        return "redirect:/manage/index";
     }
 	
 }

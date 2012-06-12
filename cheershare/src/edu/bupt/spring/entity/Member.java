@@ -5,12 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -30,14 +26,12 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Entity
 @Table(name = "share_member")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Member {
+public class Member extends BaseEntity {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	
-    private int id;
     private String username;
     private String name;
     private String password;
@@ -47,7 +41,6 @@ public class Member {
     private Date loginDate;
     private String loginIp;
     private boolean isAccountEnabled;
-    private Date createDate;
     
     private Set<Comment> comments = new HashSet<Comment>();
     
@@ -55,17 +48,6 @@ public class Member {
     private Set<Member> fans = new HashSet<Member>();
     
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public String getUsername() {
 		return username;
 	}
@@ -112,14 +94,6 @@ public class Member {
 
 	public void setLoginIp(String loginIp) {
 		this.loginIp = loginIp;
-	}
-
-	public Date getCreateDate() {
-		return createDate;
-	}
-
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
 	}
 
 	public String getEmail() {

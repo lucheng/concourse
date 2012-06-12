@@ -1,16 +1,18 @@
 package edu.bupt.spring.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.FetchType;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  * 
@@ -21,46 +23,32 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 @Table(name = "share_shop")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Shop {
+public class Shop extends BaseEntity {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-    private int id;
-    private String name;
-    private String introduction;
+	private String title;
+	private Long sid;
+	private Long cid;
+    private String nick;
     private String url;
-    private String logoPath;
-    private int orderList;
+	private String pic_path;
+    private int credit;
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	@Lob
-	public String getIntroduction() {
-		return introduction;
-	}
-
-	public void setIntroduction(String introduction) {
-		this.introduction = introduction;
-	}
+    private Set<Product> products = new HashSet<Product>();;
+    
+    public Shop(String nick, String url, int credit){
+    	
+    	this.nick = nick;
+    	this.url = url;
+    	this.credit = credit;
+    }
+    
+    public Shop(){
+    	
+    }
 
 	public String getUrl() {
 		return url;
@@ -70,19 +58,59 @@ public class Shop {
 		this.url = url;
 	}
 
-	public String getLogoPath() {
-		return logoPath;
+	 public String getTitle() {
+			return title;
 	}
 
-	public void setLogoPath(String logoPath) {
-		this.logoPath = logoPath;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
-	public int getOrderList() {
-		return orderList;
+	public Long getSid() {
+		return sid;
 	}
 
-	public void setOrderList(int orderList) {
-		this.orderList = orderList;
+	public void setSid(Long sid) {
+		this.sid = sid;
 	}
+
+	public Long getCid() {
+		return cid;
+	}
+
+	public void setCid(Long cid) {
+		this.cid = cid;
+	}
+
+	public String getNick() {
+		return nick;
+	}
+
+	public void setNick(String nick) {
+		this.nick = nick;
+	}
+
+	public String getPic_path() {
+		return pic_path;
+	}
+
+	public void setPic_path(String picPath) {
+		pic_path = picPath;
+	}
+
+	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy="shop")
+	public Set<Product> getProducts() {
+		return products;
+	}
+	public void setProducts(Set<Product> products) {
+		this.products = products;
+	}
+	public int getCredit() {
+		return credit;
+	}
+
+	public void setCredit(int credit) {
+		this.credit = credit;
+	}
+
 }

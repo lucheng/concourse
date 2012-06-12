@@ -3,6 +3,8 @@ package edu.bupt.spring.base;
 import java.io.Serializable;
 import java.util.LinkedHashMap;
 
+import edu.bupt.spring.entity.BaseEntity;
+
 public interface DAO<T> {
 	/**
 	 * 获取记录总数
@@ -18,12 +20,12 @@ public interface DAO<T> {
 	 * 保存实体
 	 * @param entity 实体id
 	 */
-	public void save(Object entity);
+	public void save(BaseEntity entity);
 	/**
 	 * 更新实体
 	 * @param entity 实体id
 	 */
-	public void update(Object entity);
+	public void update(BaseEntity entity);
 	/**
 	 * 删除实体
 	 * @param entityClass 实体类

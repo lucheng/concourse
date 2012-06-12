@@ -1,10 +1,6 @@
 package edu.bupt.spring.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
 
@@ -24,17 +20,12 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 @Table(name = "share_setting")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Setting {
+public class Setting extends BaseEntity {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    private int id;
-    
 	@NotEmpty
     private String name;
     
@@ -45,14 +36,6 @@ public class Setting {
     
     private String logoPath;
     
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public String getName() {
 		return name;
 	}
