@@ -19,6 +19,11 @@ import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
+import ICTCLAS.I3S.AC.ICTCLAS50;
+
+import com.buptsse.ate.index.Searcher;
+import com.buptsse.ate.utils.FileHelp;
+
 import edu.bupt.nlp.textrank.Word;
 
 /**
@@ -30,6 +35,7 @@ import edu.bupt.nlp.textrank.Word;
 public class StopWords {
 
 	private Logger logger = Logger.getLogger(getClass());
+	private Searcher searcher = new Searcher();
 	
 	TreeSet<String> sWord = new TreeSet<String>();
 	String dicPath;
@@ -135,7 +141,6 @@ public class StopWords {
 		
 		List<Word> list = new ArrayList<Word>(); 
 		List<String> listTemp = new ArrayList<String>();
-//		logger.info(str);
 		listTemp = Arrays.asList(str.split("\\s+"));
 		String wordRaw;
 		String word;
@@ -143,19 +148,89 @@ public class StopWords {
 		int length= listTemp.size();
 		for(int i = 0; i < length; i++){
 			wordRaw = listTemp.get(i);
-			word = wordRaw.substring(0, wordRaw.lastIndexOf("/"));
+			word = wordRaw.substring(0, wordRaw.lastIndexOf("/")).toLowerCase();
 			tagger = wordRaw.substring(wordRaw.lastIndexOf("/")+1);
-//			logger.info(word + "===" + tagger);
-			if(!isStopWord(word))
-				list.add(new Word(i, word, tagger));
+			if(!isStopWord(word)){
+				
+				Word newWord = new Word(i, word, tagger);
+				list.add(newWord);
+			}
+//			&& (tagger.equals("n")||tagger.equals("x")||tagger.equals("nr")||tagger.equals("ne"))
+			/*Word newWord = new Word(i, word, tagger);
+			list.add(newWord);*/
 		}
-		return list;
+		
+		
+		return findWord(list, 0);
 	}
 
+	public List<Word> findWord(List<Word> words, int beginIndex){
+		
+		for(int i = 0; i < words.size()-1; i++){
+			if(words.get(i).getIndex()+1 == words.get(i+1).getIndex() && 
+					(words.get(i+1).getTagger().equals("n")||words.get(i+1).getTagger().equals("ne") || words.get(i+1).getTagger().equals("nr")
+							)){
+				String newStr = words.get(i).getWord() + words.get(i+1).getWord();
+//				List list = searcher.isWord(newStr);
+				if(searcher.isWord(newStr)){
+					words.set(i, new Word(i, newStr, "ne"));
+					words.remove(i+1);
+				}
+			}
+		}
+		
+		List<Word> newWords = new ArrayList<Word>();
+		for(int i = 0; i < words.size(); i++){
+			if(words.get(i).getTagger().equals("n")||words.get(i).getTagger().equals("ne") ||words.get(i).getTagger().equals("x")|| words.get(i).getTagger().equals("nr")){
+				newWords.add(words.get(i));
+			}
+		}
+		/*List<Word> newWords = new ArrayList<Word>();
+		
+//		System.out.println("dddd");
+		for(int i = 0; i < beginIndex; i++){
+			newWords.add(words.get(i));
+		}
+		
+		for(int i = beginIndex; i < words.size()-1; i++){
+			
+			String newStr = words.get(i).getWord() + words.get(i+1).getWord();
+			System.out.println(newStr);
+			List list = searcher.search(newStr);
+			
+			if(list.size() > 0 && list.get(0).equals(newStr)){
+				newWords.add(new Word(newStr, "ne"));
+				for(int j = beginIndex + 1; j < words.size(); j++){
+					newWords.add(words.get(j));
+				}
+			} else 
+			
+			System.out.println(newStr);
+			
+			if(list.size() > 0 && list.contains(newStr)){
+				
+				newWords.add(new Word(newStr, "ne"));
+				System.out.println("add new word:" + newStr);
+				for(int j = i; j < words.size(); j++){
+					newWords.add(words.get(j));
+				}
+				newWords = findWord(newWords, beginIndex);
+				
+			} else {
+				for(int j = i; j < words.size(); j++){
+					newWords.add(words.get(j));
+				}
+				newWords = findWord(newWords, beginIndex + 1);
+			}
+		}*/
+		
+		return newWords;
+	}
+	
 	Pattern noise = Pattern.compile(".*["+CharSets.allRegexPunc+"\\d]+.*");
 	
 	public boolean isStopWord(String word) {
-		if (word.length() == 1 || word.length()>4)
+		if (word.length() == 1)
 			return true;
 
 		if (noise.matcher(word).matches())
@@ -167,10 +242,24 @@ public class StopWords {
 		return false;
 	}
 	public static void main(String[] args){
+		
 		StopWords sw = new StopWords();
-		System.out.println(sw.isStopWord("我0"));
-		System.out.println(sw.isStopWord("我#"));	
-		System.out.println(sw.isStopWord(" "));	
+		String text = FileHelp.readText("./text_example/11.txt");
+		ICTCLAS50 tag = new ICTCLAS50();
+		System.out.println(text);
+		
+		text = tag.tag(text, 1);
+		
+//		List<Word> list = sw.phraseDel(text, 1);
+		
+//		System.out.println(list);
+		
+		
+		System.out.println("孵化器".compareTo("设施"));
+		System.out.println("设施".compareTo("孵化器"));
+		
+		
+		
 	}
 	
 }

@@ -1,5 +1,8 @@
 package edu.bupt.nlp.textrank;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Word implements Comparable<Word>{
 	
 	public Word(){
@@ -29,6 +32,8 @@ public class Word implements Comparable<Word>{
 	private String tagger;
 	private int index;
 	
+	
+
 	public int getIndex() {
 		return index;
 	}
@@ -40,12 +45,16 @@ public class Word implements Comparable<Word>{
 	@Override
 	public String toString() {
 		
+//		return "["+this.word + "," + this.tagger+","+ this.index +"]";
 		return "["+this.word + "," + this.tagger+"]";
 	}
 	
 	@Override
 	public int compareTo(Word another) {
 		
+//		return this.word.length() - another.getWord().length();
 		return this.word.compareTo(another.getWord());
+//		return this.word.compareTo(another.getWord());
+//		return another.getIndex().size() - this.index.size();
 	}
 }

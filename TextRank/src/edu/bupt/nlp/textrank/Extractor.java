@@ -1,5 +1,6 @@
 package edu.bupt.nlp.textrank;
 
+import java.util.List;
 import java.util.Map;
 
 import ICTCLAS.I3S.AC.ICTCLAS50;

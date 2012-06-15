@@ -1,5 +1,8 @@
 package edu.bupt.nlp.textrank;
 
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -12,10 +15,12 @@ import java.util.TreeSet;
 
 import org.apache.log4j.Logger;
 
+import com.buptsse.ate.index.Searcher;
 import com.buptsse.ate.utils.FileHelp;
 
 import ICTCLAS.I3S.AC.ICTCLAS50;
 import edu.bupt.nlp.resources.StopWords;
+import edu.bupt.nlp.resources.WebEntities;
 
 class DataSet{
 	Graph graph = new Graph();
@@ -25,15 +30,19 @@ class DataSet{
 	ArrayList<Word> subList = new ArrayList<Word>();
 }
 
+@SuppressWarnings("rawtypes")
 public class TextRankExtractor extends Extractor{
 		
 	private Logger logger = Logger.getLogger(getClass());
+	private WebEntities webentities = new WebEntities();
 	
+	@SuppressWarnings("unchecked")
 	public TextRankExtractor(){
 		precision = 1.0;
 		dN = 0.85;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public TextRankExtractor(String dicPath, String stopPath) throws Exception{
 		tag = new ICTCLAS50(dicPath);
 		test = new StopWords(stopPath);
@@ -57,14 +66,23 @@ public class TextRankExtractor extends Extractor{
 			set.add(temp);
 		}
 		
+		
+		
 		Iterator<Word> ii = set.iterator();
 		while(ii.hasNext()){
 			temp = ii.next();
+//			logger.info(temp);
 			wds.subList.add(temp);
 		}
 		return wds;
 	}
 	
+	/**
+	 * 初始化TreeMap
+	 * @param window 窗口大小
+	 * @param wds 数据集
+	 * @return
+	 */
 	private DataSet mapInit(int window, DataSet wds){
 		
 		TreeMap<Word,Integer> treeMap = new TreeMap<Word,Integer>();
@@ -85,10 +103,12 @@ public class TextRankExtractor extends Extractor{
 		
 		int length = wds.list.size();
 		while(true){
-			if(window > length)
+			if(window > length){
 				window /= 2;
-			else if(window <= length || window <= 3)
+			}
+			else if(window <= length || window <= 3){
 				break;
+			}
 		}
 		
 		for(int i = 0; i < wds.list.size() - window; i++){
@@ -126,6 +146,7 @@ public class TextRankExtractor extends Extractor{
 	}
 	
 	public DataSet cal(DataSet wds){
+		
 		int i, j, forwardCount, times = 0;
 		double sumWBackLink, newW;
 		ArrayList<Vertex> nextList;
@@ -238,6 +259,7 @@ public class TextRankExtractor extends Extractor{
 		if(tag != null){
 			//将文本进行分词
 			str = tag.tag(str, 1);
+			logger.info(str);
 		}
 		
 		//进行TextRank算法计算
@@ -246,19 +268,48 @@ public class TextRankExtractor extends Extractor{
 		return mapList;
 	}
 
+	private boolean isEntity(Word word){
+		
+		return webentities.isWebEntity(word.getWord());
+	}
+	
+	public Map<Word, Integer> findEntiry(Map<Word, Integer> result){
+		
+		Map<Word, Integer> entities = new TreeMap<Word, Integer>();
+		
+		for(Word word : result.keySet()){
+			if(isEntity(word)){
+				entities.put(word, result.get(word));
+			}
+		}
+		
+		return entities;
+	}
+
+	
 	public static void main(String[] args) throws Exception {	
 		
-		Extractor key = new TextRankExtractor("./ICTCLAS_CONFIG/userdict.txt", "./ICTCLAS_CONFIG/stopwords.txt");
-		long time = System.currentTimeMillis();
 		
-		String text = FileHelp.readText("./text_example/100059.txt");
-		System.out.println(text);
-		Map<Word, Integer> result = key.extract(text, 100, true);
-		System.out.println(result);
+//		Map<Word, Integer> finalResult = new TreeMap<Word, Integer>();
 		
-		long t = System.currentTimeMillis() - time;
-		System.out.println("用时：" + t + " ms");
-
+		TextRankExtractor key = new TextRankExtractor("./ICTCLAS_CONFIG/userdict.txt", "./ICTCLAS_CONFIG/stopwords.txt");
+		
+		String strPath = "./text_example/";
+		List<String> filelist = new ArrayList<String>();
+		FileHelp.refreshFileList(strPath, filelist, ".txt");
+		FileOutputStream fos = new FileOutputStream("./output/result.txt", true);
+		Writer out = new OutputStreamWriter(fos, "UTF-8");
+		
+		for(String fileName : filelist){
+			
+			String text = FileHelp.readText(fileName);
+			System.out.println(fileName);
+			Map<Word, Integer> result = key.extract(text, 1000, true);
+			out.write(result.toString() + System.getProperty("line.separator"));
+		}
+		out.close();
+		fos.close();
+		
 	}
 
 }

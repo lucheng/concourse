@@ -14,7 +14,7 @@ public class ExtractorTest {
 	public static void main(String[] args) throws Exception {	
 		
 		Extractor textRank = new TextRankExtractor("./ICTCLAS_CONFIG/userdict.txt", "./ICTCLAS_CONFIG/stopwords.txt");
-		String text = FileHelp.readText("./text_example/100059.txt");
+		String text = FileHelp.readText("./text_example/q1.txt");
 		System.out.println(text);
 		
 		Map<String, Integer> result = textRank.extract(text, 100,true);
