@@ -1,6 +1,7 @@
 <?php
 if (!defined('THINK_PATH')) exit();
 return array(
+	'APP_DEBUG'=>true,
 	'DB_TYPE'=>'mysql',
 	'DB_HOST'=>'localhost',
 	'DB_NAME'=>'wkcmsv1.0utf8',
