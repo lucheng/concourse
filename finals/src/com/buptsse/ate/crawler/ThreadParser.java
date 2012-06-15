@@ -10,7 +10,7 @@ import com.buptsse.ate.utils.Parser;
 
 public class ThreadParser extends Thread {
 
-	private static int counter = 0;
+	private static int counter = 2236746;
 	
 	public static synchronized int getCounter(){
 		return ++counter;
@@ -35,6 +35,7 @@ public class ThreadParser extends Thread {
 		while(true){
 			int num = getCounter();
 			String savePath = "\\\\buptsse215-02/data/html/";
+			String errorPath = "\\\\buptsse215-02/data/error/";
 			String fileName = savePath+ num +".htm";
 			String xmlFile = fileName.replace("html", "baike").replace(".htm", ".xml");
 			try{
@@ -47,7 +48,7 @@ public class ThreadParser extends Thread {
 				}
 			}catch(Exception e){
 				e.printStackTrace();
-				FileHelp.writeFile(fileName + ".txt", "eee");
+				FileHelp.writeFile(errorPath + num +".txt", "eee");
 			}
 		}
 	}
