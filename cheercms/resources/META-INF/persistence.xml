@@ -4,22 +4,20 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
     http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
     
-	<persistence-unit name="jpatestPU" transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="jpaPU" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<properties>
+			<!--
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
 			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
-			<!--  -->
 			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/cheercms?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;autoReconnect=true&amp;characterEncoding=UTF-8" />
 			<property name="hibernate.connection.username" value="root" />
 			<property name="hibernate.connection.password" value="root" />
-			<!--  -->
-			<!--
-			<property name="hibernate.connection.url" value="jdbc:mysql://mysql-cheerfly.jelastic.servint.net/test?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;autoReconnect=true&amp;characterEncoding=UTF-8" />
-			<property name="hibernate.connection.username" value="root" />
-			<property name="hibernate.connection.password" value="O8xmRgsAmJ" />
-			-->
-			
+			<property name="hibernate.dialect" value="${connection.dialect}" />
+			<property name="hibernate.connection.driver_class" value="${connection.driver_class}" />
+			<property name="hibernate.connection.url" value="${connection.url}" />
+			<property name="hibernate.connection.username" value="${connection.username}" />
+			<property name="hibernate.connection.password" value="${connection.password}" />
 			<property name="hibernate.hbm2ddl.auto" value="update"/>
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
@@ -29,6 +27,20 @@
 			<property name="hibernate.cache.provider_class" value="org.hibernate.cache.EhCacheProvider"></property>
 			<property name="hibernate.cache.use_second_level_cache" value="false"></property>
 			<property name="hibernate.cache.use_query_cache" value="false"></property>
+			-->
+			
+			<property name="hibernate.dialect" value="${hibernate.dialect}"/>            
+			<property name="hibernate.max_fetch_depth" value="${hibernate.max_fetch_depth}"/>
+			<property name="hibernate.hbm2ddl.auto" value="${hibernate.hbm2ddl.auto}"/>           
+			<property name="hibernate.jdbc.fetch_size" value="${hibernate.jdbc.fetch_size}"/>
+			<property name="hibernate.jdbc.batch_size" value="${hibernate.jdbc.batch_size}"/>
+			<property name="hibernate.show_sql" value="${hibernate.show_sql}"/>
+			<property name="hibernate.format_sql" value="${hibernate.format_sql}"/>
+			<property name="hibernate.cache.provider_class" value="org.hibernate.cache.EhCacheProvider"></property>
+			<property name="hibernate.cache.use_second_level_cache" value="false"></property>
+			<property name="hibernate.cache.use_query_cache" value="false"></property>
+			
+			
 		</properties> 
 	</persistence-unit>
 </persistence>

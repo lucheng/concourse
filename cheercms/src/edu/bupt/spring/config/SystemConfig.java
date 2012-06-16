@@ -58,6 +58,7 @@ public class SystemConfig {
 
 	private String shopName;// 网店名称
 	private String shopUrl;// 网店网址
+	private String bbs;// 论坛
 	private String shopLogo;// 网店Logo
 	private String hotSearch;// 热门搜索关键词
 
@@ -161,6 +162,14 @@ public class SystemConfig {
 
 	public void setShopUrl(String shopUrl) {
 		this.shopUrl = shopUrl;
+	}
+
+	public String getBbs() {
+		return bbs;
+	}
+
+	public void setBbs(String bbs) {
+		this.bbs = bbs;
 	}
 
 	public String getShopLogo() {

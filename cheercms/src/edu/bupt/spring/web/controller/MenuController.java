@@ -1,5 +1,7 @@
 package edu.bupt.spring.web.controller;
 
+import java.util.Properties;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import edu.bupt.spring.entity.Menu;
 import edu.bupt.spring.service.MenuService;
+import edu.bupt.spring.utils.SystemConfigUtil;
 
 
 /**
@@ -29,38 +32,6 @@ public class MenuController extends BaseController{
     @Qualifier("menuServiceImpl")
 	private MenuService menuService;
 	
-	
-	
-    /*@RequestMapping(value = "/menu/setting")
-    public String menuSetting(HttpServletRequest request){
-        return "menu/setting";
-    }
-    
-    @RequestMapping(value = "/menu/product")
-    public String menuGoods(HttpServletRequest request){
-        return "menu/product";
-    }
-    
-    @RequestMapping(value = "/menu/order")
-    public String menuOrder(HttpServletRequest request){
-        return "menu/order";
-    }
-    
-    @RequestMapping(value = "/menu/admin")
-    public String menuAdmin(HttpServletRequest request){
-        return "menu/admin";
-    }
-    
-    @RequestMapping(value = "/menu/content")
-    public String menuContent(HttpServletRequest request){
-        return "menu/content";
-    }
-    
-    @RequestMapping(value = "/menu/member")
-    public String menuMember(HttpServletRequest request){
-        return "menu/member";
-    }*/
-    
     @RequestMapping(value = "/menu/{id}")
     public ModelAndView direct(HttpServletRequest request, @PathVariable Integer id){
     	
@@ -68,8 +39,19 @@ public class MenuController extends BaseController{
     }
     
     @RequestMapping(value = "/menu/index")
-    public String pageIndex(HttpServletRequest request){
-        return "menu/index";
+    public ModelAndView pageIndex(HttpServletRequest request){
+    	
+    	Properties props = System.getProperties();
+        Runtime runtime = Runtime.getRuntime();
+        long freeMemoery = runtime.freeMemory();
+        long totalMemory = runtime.totalMemory();
+        long usedMemory = totalMemory - freeMemoery;
+        long maxMemory = runtime.maxMemory();
+        long useableMemory = maxMemory - totalMemory + freeMemoery;
+
+//    	SystemConfig systemConfig = SystemConfigUtil.getSystemConfig();
+    	
+    	return new ModelAndView("menu/index").addObject("systemConfig", SystemConfigUtil.getSystemConfig());
     }
     
     @RequestMapping(value = "/menu/middle")

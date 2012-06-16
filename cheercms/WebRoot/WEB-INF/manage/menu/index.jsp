@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page import="java.util.Enumeration" %>  
+<%@ page import="java.util.Locale" %>
 <%@ include file="../common/header.jsp"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -33,7 +35,7 @@
 						系统版本: 
 					</td>
 					<td>
-						2.0.7演示版
+						${systemConfig.systemVersion}
 					</td>
 				</tr>
 				<tr>
@@ -41,7 +43,7 @@
 						官方网站: 
 					</td>
 					<td>
-						<a href="http://www.shopxx.net/">http://www.shopxx.net</a>
+						<a href="${systemConfig.shopUrl}">${systemConfig.shopUrl}</a>
 					</td>
 				</tr>
 				<tr>
@@ -49,7 +51,7 @@
 						交流论坛: 
 					</td>
 					<td>
-						<a href="http://bbs.shopxx.net/">http://bbs.shopxx.net</a>
+						<a href="${systemConfig.bbs}">${systemConfig.bbs}</a>
 					</td>
 				</tr>
 				<tr>
@@ -57,7 +59,7 @@
 						BUG反馈邮箱: 
 					</td>
 					<td>
-						<a href="mailto:bug@shopxx.net">bug@shopxx.net</a>
+						<a href="mailto:${systemConfig.email}">${systemConfig.email}</a>
 					</td>
 				</tr>
 				<tr>
@@ -66,7 +68,6 @@
 					</td>
 					<td>
 						未取得商业授权之前,您不能将本软件应用于商业用途
-						<a class="red" href="http://www.shopxx.net/license.html" target="_blank">[授权查询]</a>
 					</td>
 				</tr>
 			</tbody></table>
@@ -123,7 +124,7 @@
 						Java版本: 
 					</td>
 					<td>
-						1.6.0_29
+						<%=System.getProperty("java.version") %>
 					</td>
 				</tr>
 				<tr>
@@ -131,7 +132,7 @@
 						操作系统名称: 
 					</td>
 					<td>
-						-
+						<%=System.getProperty("os.name") %>
 					</td>
 				</tr>
 				<tr>
@@ -139,7 +140,7 @@
 						操作系统构架: 
 					</td>
 					<td>
-						-
+						<%=System.getProperty("os.arch") %>
 					</td>
 				</tr>
 				<tr>
@@ -147,7 +148,7 @@
 						操作系统版本: 
 					</td>
 					<td>
-						-
+						<%=System.getProperty("os.version") %>
 					</td>
 				</tr>
 				<tr>
@@ -155,7 +156,7 @@
 						Server信息: 
 					</td>
 					<td>
-						Apache Tomcat/7.0.22
+						<%=application.getServerInfo() %>
 					</td>
 				</tr>
 				<tr>
@@ -163,7 +164,9 @@
 						Servlet版本: 
 					</td>
 					<td>
-						3.0
+						<%--<%=System.getProperty("java.version") %>
+						<%=System.getProperty("user.dir") %>
+						--%>
 					</td>
 				</tr>
 			</tbody></table>

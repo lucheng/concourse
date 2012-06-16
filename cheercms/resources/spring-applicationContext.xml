@@ -17,8 +17,20 @@
 	http://www.springframework.org/schema/util/spring-util-3.0.xsd
 	">
 
+	<bean id="propertyConfig" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	     <property name="location">
+	         <value>classpath:jdbc.properties</value>
+	     </property>  
+ 	</bean>
+
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <property name="persistenceUnitName" value="jpatestPU" />
+        <!--<property name="persistenceUnitName" value="jpatestPU" />
+        -->
+        <property name="dataSource" ref="dataSource"/><!-- 注入数据源bean到实体管理工厂bean -->
+		<property name="persistenceXmlLocation" value="classpath:META-INF/persistence.xml"/>
+		<property name="loadTimeWeaver"><!-- 运行时植入 -->
+			<bean class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver"/>
+		</property>
     </bean>
     
     <bean id="cacheManager" class="org.springmodules.cache.provider.oscache.OsCacheManagerFactoryBean">
@@ -82,13 +94,7 @@
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
-    <bean id="propertyConfig" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-	     <property name="location">
-	         <value>classpath:jdbc.properties</value>
-	     </property>  
- 	</bean>
-   
-    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" >
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass">
             <value>${connection.driver_class}</value>
         </property>

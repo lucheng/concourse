@@ -57,6 +57,7 @@ public class SystemConfigUtil {
 		Node isInstalledNode = document.selectSingleNode("/shopxx/systemConfig/isInstalled");
 		Node shopNameNode = document.selectSingleNode("/shopxx/systemConfig/shopName");
 		Node shopUrlNode = document.selectSingleNode("/shopxx/systemConfig/shopUrl");
+		Node bbsNode = document.selectSingleNode("/shopxx/systemConfig/bbs");
 		Node shopLogoNode = document.selectSingleNode("/shopxx/systemConfig/shopLogo");
 		Node hotSearchNode = document.selectSingleNode("/shopxx/systemConfig/hotSearch");
 		Node metaKeywordsNode = document.selectSingleNode("/shopxx/systemConfig/metaKeywords");
@@ -110,6 +111,7 @@ public class SystemConfigUtil {
 		systemConfig.setIsInstalled(Boolean.valueOf(isInstalledNode.getText()));
 		systemConfig.setShopName(shopNameNode.getText());
 		systemConfig.setShopUrl(shopUrlNode.getText());
+		systemConfig.setBbs(bbsNode.getText());
 		systemConfig.setShopLogo(shopLogoNode.getText());
 		systemConfig.setHotSearch(hotSearchNode.getText());
 		systemConfig.setMetaKeywords(metaKeywordsNode.getText());
@@ -185,6 +187,7 @@ public class SystemConfigUtil {
 		Node isInstalledNode = document.selectSingleNode("/shopxx/systemConfig/isInstalled");
 		Node shopNameNode = document.selectSingleNode("/shopxx/systemConfig/shopName");
 		Node shopUrlNode = document.selectSingleNode("/shopxx/systemConfig/shopUrl");
+		Node bbsNode = document.selectSingleNode("/shopxx/systemConfig/bbs");
 		Node shopLogoNode = document.selectSingleNode("/shopxx/systemConfig/shopLogo");
 		Node hotSearchNode = document.selectSingleNode("/shopxx/systemConfig/hotSearch");
 		Node metaKeywordsNode = document.selectSingleNode("/shopxx/systemConfig/metaKeywords");
@@ -248,6 +251,9 @@ public class SystemConfigUtil {
 		}
 		if(shopUrlNode == null){
 			shopUrlNode = systemConfigElement.addElement("shopUrl");
+		}
+		if(bbsNode == null){
+			bbsNode = systemConfigElement.addElement("bbsUrl");
 		}
 		if(shopLogoNode == null){
 			shopLogoNode = systemConfigElement.addElement("shopLogo");
