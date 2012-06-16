@@ -55,7 +55,7 @@ $().ready( function() {
 	// 刷新验证码
     $(function(){         
         $('#captchaImage').click(function () {//生成验证码
-       	 $(this).hide().attr('src', 'captcha-image?' + Math.floor(Math.random()*100) ).fadeIn(); })    
+       	 $(this).hide().attr('src', '<%=path%>/captchaImage?' + Math.floor(Math.random()*100) ).fadeIn(); })    
     }); 
 
 });
@@ -101,7 +101,7 @@ $().ready( function() {
                 	</th>
                     <td>
                     	<input type="text" id="captcha" name="j_captcha" class="formText captcha">
-                   		<img id="captchaImage" class="captchaImage" src="captcha-image" alt="换一张">
+                   		<img id="captchaImage" class="captchaImage" src="<%=path%>/captchaImage" alt="换一张">
                     </td>
                 </tr>
                 <tr>

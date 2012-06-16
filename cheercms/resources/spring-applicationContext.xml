@@ -115,6 +115,29 @@
      	<property name="maxStatements"><value>0</value></property>
 	</bean>
 	
+	<bean id="imageCaptchaService" class="com.octo.captcha.service.image.DefaultManageableImageCaptchaService">    
+        <constructor-arg type="com.octo.captcha.service.captchastore.CaptchaStore" index="0">    
+            <ref bean="fastHashMapCaptchaStore"/>    
+        </constructor-arg>       
+        <!--which captcha Engine you use-->       
+        <constructor-arg type="com.octo.captcha.engine.CaptchaEngine" index="1">    
+            <ref bean="captchaEngineEx"/>    
+        </constructor-arg>       
+        <constructor-arg index="2">       
+            <value>180</value>       
+        </constructor-arg>       
+        <constructor-arg index="3">       
+            <value>100000</value>       
+        </constructor-arg>       
+        <constructor-arg index="4">       
+            <value>75000</value>       
+        </constructor-arg>      
+    </bean>    
+    <bean id="fastHashMapCaptchaStore" class="com.octo.captcha.service.captchastore.FastHashMapCaptchaStore"/>       
+    <!--you can define more than one captcha engine here -->       
+    <bean id="captchaEngineEx" class="edu.bupt.spring.utils.JCaptchaEngine"/>
+	
+	
 	<!--Kaptcha 验证码  -->
 	<bean id="captchaProducer" class="com.google.code.kaptcha.impl.DefaultKaptcha">
 		<property name="config">
@@ -125,7 +148,7 @@
 						<prop key="kaptcha.border.color">105,179,90</prop>
 						<prop key="kaptcha.textproducer.font.color">red</prop>
 						<prop key="kaptcha.image.width">250</prop>
-						<prop key="kaptcha.textproducer.font.size">90</prop>
+						<prop key="kaptcha.textproducer.font.size">20</prop>
 						<prop key="kaptcha.image.height">90</prop>
 						<prop key="kaptcha.session.key">code</prop>
 						<prop key="kaptcha.textproducer.char.length">4</prop>

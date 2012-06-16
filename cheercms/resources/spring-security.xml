@@ -11,11 +11,12 @@
     <http pattern="/css/**" security="none"/>
     <http pattern="/images/**" security="none"/>
     <http pattern="/upload/**" security="none"/>
-
+	<http pattern="/captchaImage" security="none"/>
+	
     <http auto-config="true">
 	    <!-- Authentication policy --> 
 	    <form-login login-page="/manage/login" login-processing-url="/j_spring_security_check" default-target-url="/manage/index" authentication-failure-url="/manage/login?login_error=1"/>
-	    <logout logout-url="/manage/logout" logout-success-url="/users/logoutSuccess"/>
+	    <logout logout-url="/manage/logout" logout-success-url="/manage/login"/>
 	    <intercept-url pattern="/static/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 	    <intercept-url pattern="/manage/login" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 	    <intercept-url pattern="/manage/logoutSuccess" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
