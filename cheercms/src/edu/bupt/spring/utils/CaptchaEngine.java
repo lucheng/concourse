@@ -33,8 +33,8 @@ public class CaptchaEngine extends ListImageCaptchaEngine {
 	private static final Integer IMAGE_WIDTH = 80;// 验证码图片宽度
 	private static final Integer MIN_FONT_SIZE = 16;// 验证码最小字体
 	private static final Integer MAX_FONT_SIZE = 16;// 验证码最大字体
-//	private static final String RANDOM_WORD = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";// 随机字符
-	private static final String RANDOM_WORD = "abcdefghijklmnopqrstuvwxyz";// 随机字符
+	private static final String RANDOM_WORD = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";// 随机字符
+//	private static final String RANDOM_WORD = "abcdefghijklmnopqrstuvwxyz";// 随机字符
 	private static final String IMAGE_PATH = "./net/shopxx/captcha/";// 随机背景图片路径
 	
 	// 验证码随机字体

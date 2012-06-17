@@ -160,16 +160,12 @@ public class JCaptchaFilter implements Filter {
 			String challengeResponse = request.getParameter(captchaParamterName);
 			logger.info("challengeResponse:"+challengeResponse);
 			
-			String captcha = new String(challengeResponse.getBytes(),"gbk");
 			//自动通过值存在时,检验输入值是否等于自动通过值
 			if (StringUtils.isNotBlank(autoPassValue) && autoPassValue.equals(challengeResponse)) {
 				return true;
 			}
-			return captchaService.validateResponseForID(captchaID, captcha);
+			return captchaService.validateResponseForID(captchaID, challengeResponse.toUpperCase());
 		} catch (CaptchaServiceException e) {
-			logger.error(e.getMessage(), e);
-			return false;
-		} catch (UnsupportedEncodingException e) {
 			logger.error(e.getMessage(), e);
 			return false;
 		}
