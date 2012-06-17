@@ -50,7 +50,7 @@ public class MySecurityFilter extends AbstractSecurityInterceptor implements Fil
     }  
   
     public FilterInvocationSecurityMetadataSource getSecurityMetadataSource() {  
-        return securityMetadataSource;  
+        return securityMetadataSource;
     }  
   
     public void setSecurityMetadataSource(FilterInvocationSecurityMetadataSource securityMetadataSource) {  
@@ -63,7 +63,7 @@ public class MySecurityFilter extends AbstractSecurityInterceptor implements Fil
       
     public void destroy() {  
           
-    }  
+    }
   
     @Override  
     public Class<? extends Object> getSecureObjectClass() {  

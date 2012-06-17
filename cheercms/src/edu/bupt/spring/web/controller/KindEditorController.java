@@ -1,9 +1,6 @@
 package edu.bupt.spring.web.controller;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -14,22 +11,15 @@ import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 
-import javassist.bytecode.annotation.Annotation;
+import net.sf.json.JSONObject;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.commons.io.FilenameUtils;
-import org.apache.commons.lang.RandomStringUtils;
-import org.apache.commons.lang.time.DateUtils;
-import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.support.RequestContext;
 
 /**
  * kindeditor 上传
@@ -154,7 +144,7 @@ public class KindEditorController extends BaseController{
 				obj.put("error", 0);
 				obj.put("url", saveUrl + newFileName);
 //				out.println(obj.toJSONString());
-				return obj.toJSONString();
+				return obj.toString();
 			}
 		}
 		return "";
@@ -164,6 +154,6 @@ public class KindEditorController extends BaseController{
 		JSONObject obj = new JSONObject();
 		obj.put("error", 1);
 		obj.put("message", message);
-		return obj.toJSONString();
+		return obj.toString();
 	}
 }

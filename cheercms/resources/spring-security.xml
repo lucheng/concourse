@@ -7,24 +7,27 @@
                           
     <global-method-security pre-post-annotations="enabled" />   
     <!-- 该路径下的资源不用过滤 --> 
+    
     <http pattern="/js/**" security="none"/>
     <http pattern="/css/**" security="none"/>
     <http pattern="/images/**" security="none"/>
     <http pattern="/upload/**" security="none"/>
 	<http pattern="/captchaImage" security="none"/>
-	
-    <http auto-config="true">
-	    <!-- Authentication policy --> 
+    
+    <http>
 	    <form-login login-page="/manage/login" login-processing-url="/j_spring_security_check" default-target-url="/manage/index" authentication-failure-url="/manage/login?login_error=1"/>
 	    <logout logout-url="/manage/logout" logout-success-url="/manage/login"/>
-	    <intercept-url pattern="/static/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
-	    <intercept-url pattern="/manage/login" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
-	    <intercept-url pattern="/manage/logoutSuccess" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
-	    <intercept-url pattern="/**" access="ROLE_USER" />
+	    <remember-me  />
+		<!-- 会话配置管理 -->
+		<session-management invalid-session-url="/manage/login">
+		<!-- 只允许一个人登陆,并且第二个人登陆不了 -->
+		<concurrency-control max-sessions="1" error-if-maximum-exceeded="true" />
+		</session-management>
 	</http>
-	 
-	<authentication-manager>
+	
+	<authentication-manager alias="authenticationManager">
 	    <authentication-provider>
+	    	<jdbc-user-service data-source-ref="dataSource"></jdbc-user-service>
 			<user-service>
 	        	<user name="admin" password="admin" authorities="ROLE_USER, ROLE_ADMIN" />
 	        	<user name="user" password="user" authorities="ROLE_USER" />
@@ -32,11 +35,21 @@
 	    </authentication-provider>
 	</authentication-manager>
     
+    <!-- Jcaptcha相关的配置 -->
+	<beans:bean id="captchaService" class="com.octo.captcha.service.image.DefaultManageableImageCaptchaService">
+		<beans:property name="captchaEngine">
+			<beans:bean class="edu.bupt.spring.utils.CaptchaEngine" />
+		</beans:property>
+		<!-- 默认生成的图片180秒过期 , 可另行设置 
+		<property name="minGuarantedStorageDelayInSeconds" value="180" />
+		-->
+	</beans:bean>
+    
     <!-- 配置过滤器 -->  
     <!--<beans:bean id="myFilter" class="edu.bupt.spring.web.security.MySecurityFilter">  
          用户拥有的权限   
         <beans:property name="authenticationManager" ref="myAuthenticationManager" />  
-         用户是否拥有所请求资源的权限   
+         用户是否拥有所请求资源的权限
         <beans:property name="accessDecisionManager" ref="myAccessDecisionManager" />  
          资源与权限对应关系   
         <beans:property name="securityMetadataSource" ref="mySecurityMetadataSource" />  

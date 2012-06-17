@@ -29,11 +29,11 @@ public class Resource extends BaseEntity {
 	
 	private String name;// 资源名称
 	private String value;// 资源标识
-	private String url;// 资源标识
+//	private String url;// 资源标识
 	
 	private Boolean isSystem;// 是否为系统内置资源
 	private String description;// 描述
-	private Integer orderList;// 排序
+//	private Integer orderList;// 排序
 	
 	private Set<Role> roleSet;// 权限
 
@@ -60,13 +60,13 @@ public class Resource extends BaseEntity {
 		return isSystem;
 	}
 
-	public String getUrl() {
+	/*public String getUrl() {
 		return url;
 	}
 
 	public void setUrl(String url) {
 		this.url = url;
-	}
+	}*/
 	
 	public void setIsSystem(Boolean isSystem) {
 		this.isSystem = isSystem;
@@ -81,14 +81,14 @@ public class Resource extends BaseEntity {
 		this.description = description;
 	}
 
-	@Column(nullable = false)
+	/*@Column(nullable = false)
 	public Integer getOrderList() {
 		return orderList;
 	}
 
 	public void setOrderList(Integer orderList) {
 		this.orderList = orderList;
-	}
+	}*/
 	
 	@ManyToMany(mappedBy = "resourceSet", fetch = FetchType.EAGER)
 //	@JoinTable(name = "tbl_Role_Resource", joinColumns = { @JoinColumn(name ="roleSet_id" )}, inverseJoinColumns = { @JoinColumn(name = "resourceSet_id") })

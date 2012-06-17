@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*,java.io.*" %>
 <%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="org.json.simple.*" %>
+<%@ page import="net.sf.json.JSONObject" %>
 <%
 
 /**
@@ -104,7 +104,7 @@ result.put("total_count", fileList.size());
 result.put("file_list", fileList);
 
 response.setContentType("application/json; charset=UTF-8");
-out.println(result.toJSONString());
+out.println(result.toString());
 %>
 <%!
 public class NameComparator implements Comparator {

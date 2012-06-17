@@ -93,7 +93,7 @@ $().ready( function() {
 		<ul></ul>
 	</div>
 	<div class="body">
-		<form id="validateForm1" action="<%=path %>/admin/update" method="post">
+		<form id="validateForm1" action="<%=path %>/user/save" method="post">
 			<c:if test="${not empty entry}">
 				<input type="hidden" name="id" value="${entry.id}">
 			</c:if>
@@ -147,9 +147,9 @@ $().ready( function() {
 						管理角色: 
 					</th>
 					<td>
-							<label>
-								<input type="checkbox" name="roleList.id" value="0731dcsoft2010031200000000000016">超级管理员
-							</label>
+						<label>
+							<input type="checkbox" name="roleList.id" value="0731dcsoft2010031200000000000016">超级管理员
+						</label>
 						<label class="requireField">*</label>
 					</td>
 				</tr>
@@ -164,7 +164,8 @@ $().ready( function() {
 						</label>
 					</td>
 				</tr>
-			</tbody></table>
+			</tbody>
+			</table>
 			<table class="inputTable tabContent" style="display: none; ">
 				<tbody><tr>
 					<th>
@@ -182,7 +183,8 @@ $().ready( function() {
 						<input type="text" name="name" class="formText" value="${entry.name}">
 					</td>
 				</tr>
-			</tbody></table>
+			</tbody>
+			</table>
 			<div class="buttonArea">
 				<input type="submit" class="formButton" value="确  定" hidefocus="">&nbsp;&nbsp;
 				<input type="button" class="formButton" onclick="window.history.back(); return false;" value="返  回" hidefocus="">

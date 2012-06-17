@@ -49,49 +49,71 @@
     </filter-mapping>
     <!-- 设置servlet编码结束 -->
     
-    <!-- spring security必须的过滤器,保证在访问所有的页面时都必须通过认证 -->
+	<!-- JCaptcha`s filter -->
 	<filter>
-        <filter-name>springSecurityFilterChain</filter-name>
-        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-    </filter>
-    <filter-mapping>
-      <filter-name>springSecurityFilterChain</filter-name>
-      <url-pattern>/*</url-pattern>
-    </filter-mapping>
-	<!-- spring security结束-->
-
-	<!-- 验证码图片生成 -->
-	<filter>
-		<filter-name>jCaptchaFilter</filter-name>
-		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+		<filter-name>jcaptchaFilter</filter-name>
+		<filter-class>edu.bupt.spring.web.filter.JCaptchaFilter</filter-class>
 		<init-param>
-			<param-name>targetFilterLifecycle</param-name>
-			<param-value>true</param-value>
+			<param-name>failureUrl</param-name>
+			<param-value>/manage/login</param-value>
 		</init-param>
 	</filter>
-
+	
+	<!-- jcaptcha图片生成URL. -->
+	<filter-mapping>
+		<filter-name>jcaptchaFilter</filter-name>
+		<url-pattern>/jcaptcha.jpg</url-pattern>
+	</filter-mapping>
+	
+	<!-- jcaptcha登录表单处理URL. 必须放在springSecurityFilter的filter-mapping定义之前 -->
+	<filter-mapping>
+		<filter-name>jcaptchaFilter</filter-name>
+		<url-pattern>/j_spring_security_check</url-pattern>
+	</filter-mapping>
+	
 
     <!-- 设置BackURL开始 -->    
-    <!--<filter>
+    <filter>
         <filter-name>BackURLFilter</filter-name>
-        <filter-class>edu.bupt.common.web.filter.BackURLFilter</filter-class>
+        <filter-class>edu.bupt.spring.web.filter.BackURLFilter</filter-class>
     </filter>
 
     <filter-mapping>
         <filter-name>BackURLFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-    -->
     <!-- 设置BackURL结束 -->    
     
-    <!-- Spring配置文件开始  -->    
-    <!--<context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>
-            classpath:applicationContext.xml
-        </param-value>
-    </context-param>
-	-->
+    <!-- spring security必须的过滤器,保证在访问所有的页面时都必须通过认证 -->
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+
+	<!-- security 同步会话控制 -->
+	<listener>
+		<listener-class>
+			org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
+	</listener>
+
+	<!-- Spring 刷新Introspector防止内存泄露 -->
+	<listener>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	</listener>
+
+	<!-- session超时定义,单位为分钟 -->
+	<session-config>
+		<session-timeout>20</session-timeout>
+	</session-config>
+	<!-- spring security结束-->
+    
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>

@@ -29,40 +29,32 @@ public class UserController extends BaseController {
     @Qualifier("userServiceImpl")
 	private UserService userService;
 	
-	@RequestMapping(value = "/admin/list")
+	@RequestMapping(value = "/user/list")
     public String list(HttpServletRequest request){
     	List<User> list = userService.findAll();
     	request.setAttribute("list", list);
-        return "admin/list";
+        return "user/list";
     }
     
-    @RequestMapping(value = "/admin/add")
+    @RequestMapping(value = "/user/add")
     public String add(Model model){
         
-    	return "admin/add";
+    	return "user/input";
     }
     
-    @RequestMapping(value = "/admin/save", method = {RequestMethod.POST})
-    public String save(@ModelAttribute("admin") User admin, HttpServletRequest request) {
+    @RequestMapping(value = "/user/save", method = {RequestMethod.POST})
+    public String save(@ModelAttribute("user") User user, HttpServletRequest request) {
         
-        userService.save(admin);
-        return "redirect:/admin/list";
+        userService.save(user);
+        return "redirect:/user/list";
     }
     
-    @RequestMapping(value = "/admin/edit/{id}", method = {RequestMethod.GET})
+    @RequestMapping(value = "/user/edit/{id}", method = {RequestMethod.GET})
     public String edit(@PathVariable Integer id, HttpServletRequest request) {
         
-    	User admin = userService.find(id);
-        request.setAttribute("entity", admin);
-        return "admin/edit";
+    	User user = userService.find(id);
+        request.setAttribute("entry", user);
+        return "user/edit";
     }
-    
-    @RequestMapping(value = "/admin/update", method = {RequestMethod.POST})
-    public String update(@ModelAttribute("admin") User admin, HttpServletRequest request) {
-        
-    	userService.update(admin);
-        return "redirect:/admin/list";
-    }
-    
     
 }

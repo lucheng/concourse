@@ -1,10 +1,8 @@
 package edu.bupt.spring.web.controller;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 
 import javax.annotation.Resource;
-import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,9 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.octo.captcha.service.CaptchaServiceException;
 import com.octo.captcha.service.image.ImageCaptchaService;
-import com.sun.image.codec.jpeg.ImageFormatException;
 import com.sun.image.codec.jpeg.JPEGCodec;
 import com.sun.image.codec.jpeg.JPEGImageEncoder;
 
@@ -26,8 +22,7 @@ public class CaptchaImageCreateController {
     private ImageCaptchaService imageCaptchaService;  
   
     @RequestMapping(value = "/captchaImage")  
-    public void ImageCaptcha(HttpServletRequest request , HttpServletResponse response , Model model)   
-     throws ServletException, IOException{  
+    public void ImageCaptcha(HttpServletRequest request , HttpServletResponse response , Model model) throws Exception{  
   
         byte[] captchaChallengeAsJpeg = null;  
         // the output stream to render the captcha image as jpeg into  
@@ -36,23 +31,18 @@ public class CaptchaImageCreateController {
             // get the session id that will identify the generated captcha.  
             // the same id must be used to validate the response, the session id  
             // is a good candidate!  
-            String captchaId = request.getSession().getId();  
+            String captchaId = request.getSession().getId();
+            
+            System.out.println("captchaId:" + captchaId);
+            
             // call the ImageCaptchaService getChallenge method  
-            BufferedImage challenge = imageCaptchaService  
-                    .getImageChallengeForID(captchaId, request  
-                            .getLocale());  
+            BufferedImage challenge = imageCaptchaService.getImageChallengeForID(captchaId, request.getLocale());  
   
             // a jpeg encoder  
-            JPEGImageEncoder jpegEncoder = JPEGCodec  
-                    .createJPEGEncoder(jpegOutputStream);  
+            JPEGImageEncoder jpegEncoder = JPEGCodec.createJPEGEncoder(jpegOutputStream);  
             jpegEncoder.encode(challenge);  
-        } catch (IllegalArgumentException e) {  
-        } catch (CaptchaServiceException e) {  
-        } catch (ImageFormatException e) {  
-            // TODO Auto-generated catch block  
-            e.printStackTrace();  
-        } catch (IOException e) {  
-            // TODO Auto-generated catch block  
+        }catch (Exception e) {  
+            // TODO Auto-generated catch block
             e.printStackTrace();  
         }  
           
@@ -62,8 +52,7 @@ public class CaptchaImageCreateController {
         response.setHeader("Pragma", "no-cache");    
         response.setDateHeader("Expires", 0);    
         response.setContentType("image/jpeg");    
-        ServletOutputStream responseOutputStream = response    
-                .getOutputStream();    
+        ServletOutputStream responseOutputStream = response.getOutputStream();    
         responseOutputStream.write(captchaChallengeAsJpeg);    
         responseOutputStream.flush();    
         responseOutputStream.close();  

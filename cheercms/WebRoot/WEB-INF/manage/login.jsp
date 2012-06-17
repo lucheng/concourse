@@ -57,7 +57,10 @@ $().ready( function() {
         $('#captchaImage').click(function () {//生成验证码
        	 $(this).hide().attr('src', '<%=path%>/captchaImage?' + Math.floor(Math.random()*100) ).fadeIn(); })    
     }); 
+	
+	$.dialog({type: "error", content: "验证码错误,请重新输入!", modal: true, autoCloseTime: 3000});
 
+	
 });
 </script>
 </head>
@@ -101,7 +104,7 @@ $().ready( function() {
                 	</th>
                     <td>
                     	<input type="text" id="captcha" name="j_captcha" class="formText captcha">
-                   		<img id="captchaImage" class="captchaImage" src="<%=path%>/captchaImage" alt="换一张">
+                   		<img id="captchaImage" class="captchaImage" src="<c:url value="/jcaptcha.jpg"/>" alt="换一张">
                     </td>
                 </tr>
                 <tr>
@@ -129,7 +132,8 @@ $().ready( function() {
                         <input type="submit" class="submitButton" value="登 录" hidefocus="">
                     </td>
                 </tr>
-            </tbody></table>
+            </tbody>
+            </table>
             <div class="powered">
             	COPYRIGHT © 2005-2011 SHOPXX.NET ALL RIGHTS RESERVED.
             </div>
@@ -143,6 +147,11 @@ $().ready( function() {
             </div>
         </form>
 	</div>
+	
+	<%--<div id="dialogOverlaydialog0" class="dialogOverlay" style="display: block; "></div>
+	<div id="dialog0" class="baseDialog" style="width: 320px; height: auto; margin-left: -160px; z-index: 100; display: block; "><div class="dialogWrap"></div><div class="dialogMain"><div id="dialogClosedialog0" class="dialogClose"></div><div id="dialogContentdialog0" class="dialogContent dialogerrorIcon">验证码错误,请重新输入!</div></div></div>
 
-</body></html>
+--%></body>
+
+</html>
 </html>

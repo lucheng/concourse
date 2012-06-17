@@ -1,9 +1,6 @@
 package edu.bupt.spring.web.controller;
 
-import java.util.Date;
-
 import javax.servlet.http.HttpServletRequest;
-import javax.swing.JSpinner.DateEditor;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.ServletRequestDataBinder;

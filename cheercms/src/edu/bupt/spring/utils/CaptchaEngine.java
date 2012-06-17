@@ -20,18 +20,9 @@ import com.octo.captcha.image.gimpy.GimpyFactory;
 
 /**
  * 生成验证码图片
- * ============================================================================
- * 版权所有 2008-2010 长沙鼎诚软件有限公司，并保留所有权利。
- * ----------------------------------------------------------------------------
- * 提示：在未取得SHOP++商业授权之前，您不能将本软件应用于商业用途，否则SHOP++将保留追究的权力。
- * ----------------------------------------------------------------------------
- * 官方网站：http://www.shopxx.net
- * ----------------------------------------------------------------------------
- * KEY: SHOPXX9FE8D53C556BAB409DC740961B1468A3
- * ============================================================================
  */
 
-public class JCaptchaEngine extends ListImageCaptchaEngine {
+public class CaptchaEngine extends ListImageCaptchaEngine {
 
 	public static final String IMAGE_CAPTCHA_KEY = "imageCaptcha";// ImageCaptcha对象存放在Session中的key
 	public static final String CAPTCHA_INPUT_NAME = "j_captcha";// 验证码输入表单名称
@@ -42,7 +33,8 @@ public class JCaptchaEngine extends ListImageCaptchaEngine {
 	private static final Integer IMAGE_WIDTH = 80;// 验证码图片宽度
 	private static final Integer MIN_FONT_SIZE = 16;// 验证码最小字体
 	private static final Integer MAX_FONT_SIZE = 16;// 验证码最大字体
-	private static final String RANDOM_WORD = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";// 随机字符
+//	private static final String RANDOM_WORD = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";// 随机字符
+	private static final String RANDOM_WORD = "abcdefghijklmnopqrstuvwxyz";// 随机字符
 	private static final String IMAGE_PATH = "./net/shopxx/captcha/";// 随机背景图片路径
 	
 	// 验证码随机字体
@@ -83,6 +75,7 @@ public class JCaptchaEngine extends ListImageCaptchaEngine {
 		WordToImage wordToImage = new ComposedWordToImage(fontGenerator, backgroundGenerator, textPaster);
 
 		addFactory(new GimpyFactory(wordGenerator, wordToImage));
+		
 	}
 
 }
