@@ -30,7 +30,7 @@ public class ConverEncoding {
 	 */
 	public static void main(String[] args) throws Exception {
 		
-		String srcDir = "D:\\workspace\\ANN\\src";
+		String srcDir = "D:\\workspace\\lda\\src";
 		List<String> files = new ArrayList<String>();
 		fetchFileList(srcDir, files, "(.java)$");
 		

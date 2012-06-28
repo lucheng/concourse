@@ -31,6 +31,8 @@ public class Classifier {
 	 */
 	public void classify() {
 		
+		int bPOSTTagged = 1;
+		
 		File path = new File(filePath);
 
 		// the file object which contains the directory of folder
@@ -86,7 +88,7 @@ public class Classifier {
 						temp2 = Constant.CTPATH + "/" + rename(tempF.getName());
 					}
 				
-					testICTCLAS2010.ICTCLAS_FileProcess(temp1.getBytes("GB2312"), temp2.getBytes("GB2312"), 1);
+					testICTCLAS2010.ICTCLAS_FileProcess(temp1.getBytes("GB2312"), temp2.getBytes("GB2312"), bPOSTTagged);
 				} catch (UnsupportedEncodingException e) {
 					e.printStackTrace();
 					log.info(e.getMessage());
@@ -118,7 +120,7 @@ public class Classifier {
 						String temp2 = argu2.replace("", "");
 						try {
 							// form tag file
-							testICTCLAS2010.ICTCLAS_FileProcess(temp1.getBytes("GB2312"), temp2.getBytes("GB2312"), 1);
+							testICTCLAS2010.ICTCLAS_FileProcess(temp1.getBytes("GB2312"), temp2.getBytes("GB2312"), bPOSTTagged);
 						} catch (UnsupportedEncodingException e) {
 							e.printStackTrace();
 							log.info(e.getMessage());

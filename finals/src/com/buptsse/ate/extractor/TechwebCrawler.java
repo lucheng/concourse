@@ -17,8 +17,8 @@ public class TechwebCrawler extends ItemParser {
 		super(url);
 	}
 
-	public TechwebCrawler(File file) {
-		super(file);
+	public TechwebCrawler(File file, String charset) {
+		super(file, charset);
 	}
 	public void fetch() {
 
@@ -51,7 +51,7 @@ public class TechwebCrawler extends ItemParser {
 		FileHelp.refreshFileList(filePath, filelist, ".shtml");
 		for(String fileName : filelist){
 			try{
-				TechwebCrawler crawler = new TechwebCrawler(new File(fileName));
+				TechwebCrawler crawler = new TechwebCrawler(new File(fileName), "UTF-8");
 				crawler.fetch();
 				String name = fileName.substring(fileName.lastIndexOf("\\")+1, fileName.lastIndexOf("."));
 				System.out.println(name);

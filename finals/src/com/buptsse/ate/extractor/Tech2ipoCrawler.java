@@ -24,8 +24,8 @@ public class Tech2ipoCrawler extends ItemParser {
 		
 	}
 
-	public Tech2ipoCrawler(File file) {
-		super(file);
+	public Tech2ipoCrawler(File file, String charset) {
+		super(file, charset);
 	}
 	
 	public Tech2ipoCrawler() {

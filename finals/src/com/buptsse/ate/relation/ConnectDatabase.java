@@ -183,6 +183,7 @@ public class ConnectDatabase {
 	}
 
 	public static void main(String args[]) throws SQLException {
+		
 		ConnectDatabase cd = new ConnectDatabase();
 		User user = cd.new User();
 		cd.ConnectMysql();

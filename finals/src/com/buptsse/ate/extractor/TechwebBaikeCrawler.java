@@ -13,8 +13,8 @@ public class TechwebBaikeCrawler extends ItemParser {
 		super(url);
 	}
 	
-	public TechwebBaikeCrawler(File file) {
-		super(file);
+	public TechwebBaikeCrawler(File file, String charset) {
+		super(file, charset);
 	}
 
 	public void fetch() {
@@ -39,7 +39,7 @@ public class TechwebBaikeCrawler extends ItemParser {
 		String title = "";
 		for(String url : files){
 			if(url.contains("/doc-view-")){
-				ItemParser crawler = new TechwebBaikeCrawler(new File(url));
+				ItemParser crawler = new TechwebBaikeCrawler(new File(url), "UTF-8");
 				crawler.fetch();
 				title += crawler.getNewsItem().getTitle() + System.getProperty("line:separator");
 			}

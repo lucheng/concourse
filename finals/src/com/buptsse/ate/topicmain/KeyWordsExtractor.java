@@ -85,7 +85,7 @@ public class KeyWordsExtractor {
 		List<Reinforce> reinforces = new ArrayList<Reinforce>();
 		List<Reinforce> reinforceList = page.getReinforces();
 		for(Reinforce reinforce : reinforceList){
-			System.out.println(reinforce.getText() + reinforce.getUrl());
+			System.out.println(reinforce.getText() + reinforce.getId());
 			reinforces.add(reinforce);
 		}
 		return reinforces;

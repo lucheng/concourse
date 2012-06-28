@@ -42,11 +42,11 @@ public class ItemParser {
 		}
 	}
 	
-	public ItemParser(File file) {
+	public ItemParser(File file, String charset) {
 		
 		
 		try {
-			this.doc = Jsoup.parse(file, "UTF-8");
+			this.doc = Jsoup.parse(file, charset);
 			this.newsItem.setUrl(file.getAbsolutePath());
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -161,6 +161,7 @@ public class ItemParser {
 		
 		Element datas = (Element) root.selectSingleNode("//datas");
 		String title = datas.element("title").getStringValue();
+		String published = datas.element("published").getStringValue();
 		String summary = datas.element("summary").getStringValue();
 		
 		List<Tag> tagList = new ArrayList<Tag>();
@@ -171,6 +172,7 @@ public class ItemParser {
 		}
 		
 		newsItem.setTitle(title);
+		newsItem.setPublished(published);
 		newsItem.setSummary(summary);
 		newsItem.setTagList(tagList);
 		return newsItem;
@@ -203,19 +205,30 @@ public class ItemParser {
 
 	public static void main(String[] args){
 		
+		String filePath = "D:/data/sina/xml";
+		String savePath = "D:/data/sina/txt";
+		
 		List<String> filelist = new ArrayList<String>();
-		FileHelp.refreshFileList("D:/data/xml/tech2ipo.com", filelist, ".xml");
+		FileHelp.refreshFileList(filePath, filelist, ".xml");
 		ItemParser parser = new ItemParser();
+		
+		String saveFileName = "";
 		
 		for(String fileName : filelist){
 	//		String url = "http://www.36kr.com/p/97503.html";
 			try{
 				NewsItem newsItem = parser.parse(fileName);
 				String title = newsItem.getTitle();
-				logger.info(title);
+				String time = newsItem.getPublished();
+//				String content = newsItem.getSummary();
 				
+				saveFileName = savePath + "/" + time.substring(0, 11) + "_" + title.replace("/", "_") + ".txt";
+//				logger.info(saveFileName);
+				
+				FileHelp.writeFile(saveFileName, newsItem.getSummary());
+//				break;
 			}catch(Exception e){
-				logger.error(fileName);
+				logger.info("文件名:" + saveFileName);
 				continue;
 			}
 		}

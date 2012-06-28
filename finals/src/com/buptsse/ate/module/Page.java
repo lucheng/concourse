@@ -24,6 +24,9 @@ public class Page {
 	public Page(File file) {
 		try {
 			this.doc = Jsoup.parse(file, "UTF-8");
+			String fileName = file.getName();
+			System.out.println(fileName);
+			this.baibeId = fileName.substring(0, fileName.lastIndexOf("."));
 			formByXml();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -98,7 +101,7 @@ public class Page {
 			String url = reinforceElements.get(i).attr("href");
 			if(!url.contains("#")){
 				String id = url.substring(url.lastIndexOf("/")+1, url.lastIndexOf(".htm"));
-				Reinforce reinforce = new Reinforce(i, id, reinforceElements.get(i).text());
+				Reinforce reinforce = new Reinforce(i, Integer.parseInt(id), reinforceElements.get(i).text());
 				this.reinforces.add(reinforce);
 			}
 		}

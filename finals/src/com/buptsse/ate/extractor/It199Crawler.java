@@ -17,8 +17,8 @@ public class It199Crawler extends ItemParser {
 		super(url);
 	}
 	
-	public It199Crawler(File file) {
-		super(file);
+	public It199Crawler(File file, String charset) {
+		super(file, charset);
 	}
 
 	public void fetch() {
@@ -64,7 +64,7 @@ public class It199Crawler extends ItemParser {
 		for(String url : urlList){
 //			String url = "http://www.199it.com/archives/34210.html";
 			System.out.println(url);
-			ItemParser crawler = new It199Crawler(new File(url));
+			ItemParser crawler = new It199Crawler(new File(url), "UTF-8");
 			String newFileName = "D:/data/xml/www.199it.com/" + url.substring(url.lastIndexOf("\\")+1, url.lastIndexOf("."))+".xml";
 			crawler.fetch();
 			

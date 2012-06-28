@@ -4,17 +4,13 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
-import org.jsoup.Jsoup;
-import org.jsoup.select.Elements;
 
 import com.buptsse.ate.module.Content;
 import com.buptsse.ate.module.Link;
@@ -26,20 +22,13 @@ public class Parser {
 	
 	private static Logger logger = Logger.getLogger(Parser.class);
 	
-	public static Page parse(String fileName){
+	public static Page parse(String fileName) throws Exception{
 		
 		Page page = new Page();
 		
-		org.jsoup.nodes.Document doc = Jsoup.parse(fileName,"UTF-8");
+		Document doc = XmlHelp.getDocument(fileName);
 		
-		Elements datas = doc.body().select("datas");
-		
-//		System.out.println(doc.html());
-		
-		for(org.jsoup.nodes.Element value : datas){
-			System.out.println(value.html());
-		}
-		/*Element root = doc.getRootElement();
+		Element root = doc.getRootElement();
 		Element data = (Element) root.selectSingleNode("//datas");
 		String title = data.element("title").getStringValue();
 		String fileId = fileName.substring(fileName.lastIndexOf("/") + 1, fileName.lastIndexOf("."));
@@ -53,8 +42,8 @@ public class Parser {
 			Content content = new Content();
 			
 			String subTitle  = e.selectSingleNode(".//subtitle").getStringValue();
-			String text  = e.selectSingleNode(".//text").getStringValue();
-			String summary  = e.selectSingleNode(".//summary").getStringValue();
+//			String text  = e.selectSingleNode(".//text").getStringValue();
+//			String summary  = e.selectSingleNode(".//summary").getStringValue();
 			
 			List<Element> links  = e.selectNodes(".//links//link");
 			List<Link> linkList = new ArrayList<Link>();
@@ -71,8 +60,8 @@ public class Parser {
 			}
 			
 			content.setSubTitle(subTitle);
-			content.setText(text);
-			content.setSummary(summary);
+//			content.setText(text);
+//			content.setSummary(summary);
 			content.setLinks(linkList);
 			content.setTaglist(tags);
 			contents.add(content);
@@ -83,15 +72,15 @@ public class Parser {
 		List<Reinforce> reinforceList = new ArrayList<Reinforce>();
 		List<Element> reinforces = data.element("reinforces").elements();
 		for(int i = 0; i < reinforces.size(); i++){
-			String url = reinforces.get(i).attributeValue("url");
+			String id = reinforces.get(i).attributeValue("id");
 			String index = reinforces.get(i).attributeValue("index");
 			String text = reinforces.get(i).getStringValue();
-			Reinforce reinforce = new Reinforce(Integer.parseInt(index), text, url);
+			Reinforce reinforce = new Reinforce(Integer.parseInt(index), Integer.parseInt(id), text);
 			reinforceList.add(reinforce);
 			
 		}
 		
-		page.setReinforces(reinforceList);*/
+		page.setReinforces(reinforceList);
 		
 		return page;
 	}
@@ -145,10 +134,10 @@ public class Parser {
 		List<Reinforce> reinforceList = new ArrayList<Reinforce>();
 		List<Element> reinforces = data.element("reinforces").elements();
 		for(int i = 0; i < reinforces.size(); i++){
-			String url = reinforces.get(i).attributeValue("url");
+			String id = reinforces.get(i).attributeValue("id");
 			String index = reinforces.get(i).attributeValue("index");
 			String text = reinforces.get(i).getStringValue();
-			Reinforce reinforce = new Reinforce(Integer.parseInt(index), text, url);
+			Reinforce reinforce = new Reinforce(Integer.parseInt(index), Integer.parseInt(id), text);
 			reinforceList.add(reinforce);
 			
 		}
@@ -161,10 +150,13 @@ public class Parser {
 	public void saveAsXml(Page page, String filePath){
 		
 		if(page.getTitle().equals("")){
-//			logger.info(filePath + "不存在！");
 			return;
 		}
 		
+		File dir = new File(filePath.substring(0, filePath.lastIndexOf("/")));
+		if(!dir.exists()){
+			dir.mkdirs();
+		}
 		XMLWriter out;
 		OutputFormat outputFormat = OutputFormat.createPrettyPrint();
 		outputFormat.setEncoding("UTF-8");
@@ -175,10 +167,12 @@ public class Parser {
 			
 			Element rootElement = DocumentHelper.createElement("datas");
 			Element wordElement = rootElement.addElement("word");
+			Element idElement = rootElement.addElement("id");
 			Element titlesElement = rootElement.addElement("title");
 			Element contentsElement = rootElement.addElement("contents");
 			Element reinforceElement = rootElement.addElement("reinforces");
 			
+			idElement.addText(page.getBaibeId());
 			wordElement.addText(page.getWord());
 			
 			titlesElement.addText(page.getTitle());
@@ -189,12 +183,6 @@ public class Parser {
 				
 				Element subtitleElement = contentElement.addElement("subtitle");
 				subtitleElement.addText(content.getSubTitle());
-				
-//				Element summaryElement = contentElement.addElement("summary");
-//				summaryElement.addCDATA(content.getSummary());
-				
-//				Element textElement = contentElement.addElement("text");
-//				textElement.addText(content.getText());
 				
 				Element linksElement = contentElement.addElement("links");
 				for(Link link : content.getLinks()){
@@ -214,7 +202,7 @@ public class Parser {
 			for(Reinforce reinforce : page.getReinforces()){
 				Element linkElement = reinforceElement.addElement("reinforce");
 				linkElement.addText(reinforce.getText());
-				linkElement.addAttribute("id", reinforce.getUrl());
+				linkElement.addAttribute("id", reinforce.getId()+"");
 				linkElement.addAttribute("index", reinforce.getIndex()+"");
 			}
 			
@@ -232,12 +220,32 @@ public class Parser {
 		}
 	}
 	
-	public static void main(String[] args) {
+	public void extractText(Page page, String fileName){
+		
+		File dir = new File(fileName.substring(0, fileName.lastIndexOf("/")));
+		if(!dir.exists()){
+			dir.mkdirs();
+		}
+		
+		
+	}
+	
+	public static void main(String[] args) throws Exception {
 		
 //		Page page = parse("\\\\buptsse215-02/data/baidu/1.xml");
-		String fileName = "\\\\buptsse215-02/data/html/1.htm";
-		Page page = new Page(new File(fileName));
-//		saveAsXml(page, "1.xml");
+		String strPath = "D:/data/sina";
+		List<String> filelist = new ArrayList<String>();
+		FileHelp.refreshFileList(strPath, filelist, ".xml");
+		for(String fileName : filelist){
+//			String fileName = "\\\\buptsse215-02/data/html/302.htm";
+			Page page = parseXmlFile(fileName);
+			List<Content> contents = page.getContents();
+			
+			for(int i = 0; i < contents.size(); i ++){
+				FileHelp.writeFile("data/" + fileName.substring(fileName.lastIndexOf("/"), fileName.lastIndexOf(".")) + i + ".txt", contents.get(i).getSummary());
+			}
+		}
+		
 	}
 }
 

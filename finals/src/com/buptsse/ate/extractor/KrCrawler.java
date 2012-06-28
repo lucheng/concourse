@@ -13,8 +13,8 @@ public class KrCrawler extends ItemParser {
 		super(url);
 	}
 
-	public KrCrawler(File file) {
-		super(file);
+	public KrCrawler(File file, String charset) {
+		super(file, charset);
 	}
 	public void fetch() {
 
@@ -42,7 +42,7 @@ public class KrCrawler extends ItemParser {
 		String[] fileNames = FileHelp.getFiles("D:/data/sites/www.36kr.com/p");
 		for(String url : fileNames){
 			try{
-				ItemParser crawler2 = new KrCrawler(new File(url));
+				ItemParser crawler2 = new KrCrawler(new File(url), "UTF-8");
 				crawler2.fetch();
 				String newFileName = "D:/data/xml/www.36kr.com" + url.substring(url.lastIndexOf("/"), url.lastIndexOf("."))+".xml";
 				System.out.println(url);

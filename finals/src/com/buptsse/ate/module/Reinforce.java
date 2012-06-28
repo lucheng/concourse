@@ -4,13 +4,13 @@ package com.buptsse.ate.module;
 public class Reinforce {
 	
 	private int index;
-	private String url;
+	private int id;
 	private String text;
 	
-	public Reinforce(int index, String url, String text){
+	public Reinforce(int index, int id, String text){
 		
 		this.index = index;
-		this.url = url;
+		this.id = id;
 		this.text = text;
 	}
 	
@@ -21,12 +21,7 @@ public class Reinforce {
 	public void setIndex(int index) {
 		this.index = index;
 	}
-	public String getUrl() {
-		return url;
-	}
-	public void setUrl(String url) {
-		this.url = url;
-	}
+	
 	public String getText() {
 		return text;
 	}
@@ -34,7 +29,15 @@ public class Reinforce {
 		this.text = text;
 	}
 
-	@Override
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	/*@Override
 	public String toString() {
 		
 		int beginIndex = url.lastIndexOf("/")+1;
@@ -49,7 +52,7 @@ public class Reinforce {
 			}
 		}
 		return "";
-	}
+	}*/
 	
 }
 
