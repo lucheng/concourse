@@ -1,0 +1,567 @@
+﻿/*search result css */
+.leftPanelHeader{
+    margin-bottom: 13px;
+    margin-left: 5px;
+    margin-top: 24px;
+    width: 328px;
+ }
+ 
+ .leftPanelHeaderText {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.PanelHeaderTool{
+    float: right;
+    margin-right: 10px;
+    margin-top: -12px;
+}
+
+.MoreTool {
+    background: url("/App_Themes/cn/images/view_more.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 11px;
+    margin: 0 0 0 0;
+    width: 12px;
+}
+
+.leftPanelContent .item
+{
+   margin-left: -10px;
+       
+}
+    
+.leftPanelContent .item .title
+{
+    color: #00c;
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 3px;
+    font-family:微软雅黑,helvetica,黑体,宋体;
+}
+
+.leftPanelContent .item .title A
+{
+    color: black;
+    font-weight: normal;
+}
+
+.leftPanelContent .item .relationship {
+    color: #717171;
+    float: right;
+
+    margin: 0 0 0 10px;
+}
+
+.leftPanelContent .item .relationship A
+{
+    color: #717171;
+    font-size:12px;
+}
+
+.leftPanelContent .item .join
+{
+    margin: 0px 10px 0px 0px;
+    display: inline;
+}
+
+.leftPanelContent .item .join A 
+{
+    font-size: 12px;
+    color: #84acd1;
+    margin-right: 2px;
+}
+
+.leftPanelContent .item .why {
+    display: inline;
+    margin: 0 10px 0 0;
+}
+
+.leftPanelContent .item .why A 
+{
+    font-size: 12px;
+    color: #84acd1;
+    margin-left: 8px;
+}
+
+.entityGuanxi-splitter {
+    background: url("/App_Themes/cn/images/xuxian.png") repeat-x scroll 0 0 transparent;
+    height: 1px;
+    margin-bottom: 6px;
+    margin-top: 6px;
+    margin-left:-3px;
+    width: 100%;
+}
+
+ .index-content-wrapper .index-news-wrapper .content .cat .news .item .name A
+{
+    font-family:微软雅黑,helvetica,黑体,宋体;
+    color: #84acd1;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+
+.result-title-bar-tip-hot-list {
+    border-top: 1px solid #909090;
+    margin-top: 4px;
+    margin-bottom:5px;
+    margin-left: 0px;
+    width: 100%;
+}
+
+.result-title-bar-tip {
+  border-top: 1px solid #909090;
+  height: 10px;
+  margin-top: 5px;
+  width: 100%;
+}
+
+.result-left-wrapper
+{
+    float: left;
+    width: 320px;
+}
+
+.result-right-wrapper
+{
+    margin-left: 364px;
+    margin-top: 0;
+    width: 635px; 
+}
+
+.view-title-bar-rsstool {
+    float: right;
+    margin-right: 40px;
+    margin-top: -12px;
+}
+
+.RssTool
+{
+    background: url("/App_Themes/cn/images/rss.png") no-repeat scroll 0 0 transparent;
+    display: inline-block;
+    height: 12px;
+    margin: 0 20px 0 0;
+    width: 12px;    
+}
+
+.RssTool:hover
+{
+    background: url("/App_Themes/cn/images/rss_mouseover.png") no-repeat scroll 0 0 transparent;    
+}
+
+.RssTool#more-news-rsstool
+{
+    display: inline-block;
+}
+
+.result-newsitem
+{
+     margin-top: -4px;
+}
+.result-newsitem .title {
+    color: #000000;
+    font-size: 14px;
+    text-decoration: none;
+    font-family: 微软雅黑,黑体,宋体;
+}
+
+.result-newsitem .title:hover
+{
+     text-decoration: underline;
+}
+
+.result-newsitem .info
+{
+    color: #909090;
+    font-size: 12px;
+}
+
+.result-newsitem .content
+{
+   margin-bottom: 25px;
+    margin-top: 6px;
+    color: #717171;
+}
+
+.EditWikiEntry-icon
+{
+    margin-top:5px;    
+    width: 328px;
+    margin-left:-5px;
+    cursor:hand;
+    cursor:pointer;
+}
+
+.result-newsitem .time
+{
+    color: #FF8F00;
+}
+
+.basicInfo#result-basicInfo
+{
+    margin-left: -9px;
+    margin-top: -4px;
+    width: 328px;   
+    margin-bottom:6px;   
+}
+
+#wikiEntries
+{
+    margin-top: 0px;    
+    margin-left: 2px;
+}
+
+#result-related-people
+{
+    margin-bottom:12px;
+    margin-left: 2px;
+    margin-top:0px;
+}
+
+#result-guanximap
+{
+    margin-top:40px;
+    margin-bottom:12px;
+    margin-left: 2px;
+}
+
+.more-result-header
+{
+  font-family: 微软雅黑,黑体,宋体;
+  color:Black;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.more-result-header A
+{
+  color:#84acd1;
+
+}
+
+#result-basicInfo .basicInfoContent .basicInfoBasicContent .profileEditTool
+{
+    position: absolute;
+    top: 146px;   
+    left: 521px;
+}
+
+.result-header
+{
+    color: white;
+    font-family: 微软雅黑,黑体,宋体;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 0;
+    margin-top: 7px;
+    width: 1000px;
+}
+
+.tongmingren-title
+{
+    background: url("/App_Themes/cn/images/tongmingren_title_bg.png") no-repeat scroll 0 0 transparent;
+    height: 24px;
+    margin-left: 0px;
+    margin-top: 9px;
+    margin-bottom: 14px;
+    width: 957px;
+}
+
+.tomingren-title-content
+{
+    padding-top: 3px;        
+}
+
+.tongmingren-header-ringht-img
+{
+    margin-left: 994px;
+    margin-top: -24px;
+}
+
+.leftPanelHeaderText
+{
+	font-size:14px;
+	font-weight:bold;
+	font-family: 微软雅黑,黑体,宋体;
+}
+
+.guanxi-result-page-navigator
+{
+    margin-left: -37px;
+    margin-top: 40px;   
+    font-weight: bold;
+}
+
+.guanxi-result-page-navigator span.current
+{
+    color: #FF8F00;
+    font-size: 12px;
+
+}
+
+.guanxi-result-page-navigator span {
+    margin-left: 20px;
+}
+
+.guanxi-result-page-navigator A
+{
+    color: #A8A8A8;
+    font-size: 12px;
+    margin-left: 20px;
+}
+
+.guanxi-result-page-navigator span.view-nextpage {
+    background: url("/App_Themes/cn/images/view_nextpage.png") no-repeat scroll 0 0 transparent;
+    height: 11px;
+    width: 6px;
+    margin-left: 1px;
+}
+
+.guanxi-result-page-navigator span.view-prepage {
+    background: url("/App_Themes/cn/images/view_prepage.png") no-repeat scroll 0 0 transparent;
+    height: 11px;
+    width: 6px;
+}
+
+.history-news {
+  font-family: 微软雅黑,黑体,宋体;
+  font-size: 14px;
+  height: 10px;
+}
+
+.dataTxBox {
+  border: 1px solid Gray;
+  height: 20px;
+  line-height: 20px;
+  margin-left: 11px;
+  padding-left: 7px;
+  text-align: left;
+  width: 229px;
+}
+.start-time {
+  font-family: 微软雅黑,黑体,宋体;
+  font-size: 14px;
+}
+
+.news-set-Button {
+  background: url("/App_Themes/cn/images/ok.png") no-repeat scroll 0 0 transparent;
+  height: 26px;
+  margin-left: 72px;
+  width: 57px;
+  cursor:pointer;
+}
+
+.historySelector {
+  margin-top: 30px;
+}
+
+#result-selectedMapView {
+    border: 3px solid #BDBEC0;
+    height: 312px;
+    width: 312px;
+}
+
+.more-news-rssLink
+{
+    font-family: 微软雅黑,黑体,宋体;
+    font-weight: bold;
+}
+
+.news-note {
+  color: #717171;
+  font-size: 12px;
+  margin-left: 73px;
+  margin-top: 5px;
+}
+
+.dateMsg{margin-left: 73px;}
+
+.news-history-chart
+{
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+
+.view-panel#new-panel1
+{
+    
+}
+
+#rss-link-content A
+{
+    color: #717171;
+    font-weight: normal;
+}
+
+#zuijinzixun
+{
+    color: #000000;
+    font-family: 微软雅黑,黑体,宋体;
+    font-size: 14px;
+    font-weight:normal;
+    margin-bottom:5px;
+}
+
+.short-spliter
+{
+    font-size:12px;
+    color:#84acd1;
+    
+}
+
+.longblock-text
+{
+    color: #717171;
+}
+
+#guanxi-title-bar-tip
+{
+    margin-bottom:0px;
+}
+
+.guanxi-active-tab
+{
+    background-color: white;
+    display: block;
+    float: left;
+    font-family: 微软雅黑,黑体,宋体;
+    height: 34px;
+    line-height: 31px;
+    text-align: center;
+    width: 106px;
+}
+
+.guanxi-tab
+{
+    line-height: 1.8em;
+    margin-bottom: 45px;
+    width: 318px;
+    margin-left: 4px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.guanxi-result-tab
+{
+    background-color: #F2F2F2;
+    display: block;
+    float: left;
+    font-family: 微软雅黑,黑体,宋体;
+    height: 34px;
+    line-height: 31px;
+    text-align: center;
+    width: 106px;
+    
+}
+
+#history-news-text
+{
+    font-size:14px;
+    font-family: 微软雅黑,黑体,宋体;
+}
+
+#guanxi-entity-navigator
+{
+    margin-top: 20px;    
+}
+
+.create-new-citiao
+{
+    margin-bottom:30px;
+    z-index:100;
+}
+
+
+#help-all-title
+{
+    font-weight:bold;
+    font-size:14px;
+    font-family: 微软雅黑,黑体,宋体;
+}
+
+
+.help-all-index {
+  font-size: 14px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.index-inner-body li {
+  border-bottom: 1px solid #E9E9E9;
+  margin-left: 45px;
+  margin-top: 5px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+
+
+.help_sub_t
+{
+    font-size:16px;
+    font-weight:bold;
+    display:block;
+}
+
+.help_sub_t2 {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 15px 0 5px 29px;
+}
+
+.index-inner-body A:hover
+{
+    color:Green;
+    text-decoration: underline;
+}
+
+
+.helpall-entry-title
+{
+    font-family: 微软雅黑,黑体,宋体;
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 10px;
+    margin-top: 24px;
+}
+
+.entry-content
+{
+    font-weight:normal;
+    font-size:14px;
+}
+
+#help_title_bar_tip
+{
+    margin-bottom:22px;
+}
+
+.reusult-header-img
+{
+    background: url("/App_Themes/cn/images/chakan.png") no-repeat scroll 0 0 transparent;      
+    
+}
+
+.query-suggest-panel
+{
+    font-size: 14px;
+    margin-bottom: 20px;
+    margin-left: 312px;
+    margin-top: -18px;
+    
+}
+
+.query-suggest-panel A
+{
+    color: #84ACD1;
+    margin-left: 12px;
+    text-decoration: underline;    
+}
+
+.suggested-query A
+{
+    
+    }

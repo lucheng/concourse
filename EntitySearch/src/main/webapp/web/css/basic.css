@@ -1,0 +1,24 @@
+﻿/* CSS Document */
+body, div, label, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, p, blockquote, th, td {
+	border:0 none;
+	margin:0;
+	outline:0 none;
+	padding:0;
+	font-family:SimSun;
+	word-wrap:break-word;
+}
+.clear{
+	clear:both;
+	font-size:1px;
+}
+input
+{
+    font-family:SimSun;
+}
+
+* {
+	padding: 0;
+	border:0pt none;
+	margin:0pt;
+	padding:0pt;	
+}
