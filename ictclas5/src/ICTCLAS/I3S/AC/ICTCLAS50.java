@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.sql.Savepoint;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -53,6 +54,8 @@ public class ICTCLAS50
 			}
 			// 设置词性标注集(0 计算所二级标注集，1 计算所一级标注集，2 北大二级标注集，3 北大一级标注集)
 			ICTCLAS_SetPOSmap(1);
+			importUserDictFile(usrdir);
+			
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
@@ -185,14 +188,13 @@ public class ICTCLAS50
 	public String tag(String sInput, int bPOSTagged) {
 		try {
 			byte nativeBytes[] = ICTCLAS_ParagraphProcess(sInput.getBytes(charset), 2, bPOSTagged);
-			System.out.println("文章字数：" + nativeBytes.length);
-			String nativeStr1 = new String(nativeBytes, 0,nativeBytes.length, charset);
-			return nativeStr1;
+//			System.out.println("文章字数：" + nativeBytes.length);
+			String content = new String(nativeBytes, 0, nativeBytes.length, charset);
+			return content;
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 		return "";
-
 	}
 	
 	public String tag(String sInput) {
@@ -220,11 +222,6 @@ public class ICTCLAS50
 	
 	public static void main(String[] args){
 		
-		ICTCLAS50 ICTCLAS = new ICTCLAS50();
-		ICTCLAS.importUserDictFile("./ICTCLAS_CONFIG/filterEntity.txt");
-		ICTCLAS.ICTCLAS_SaveTheUsrDic();
-		ICTCLAS.ICTCLAS_Exit();
-		
 		/*for(int i = 1; i < 1019; i++){
 			ICTCLAS50 ICTCLAS = new ICTCLAS50();
 			ICTCLAS.importUserDictFile("./USER_DIC/" + i + ".txt");
@@ -243,10 +240,10 @@ public class ICTCLAS50
 		//分割百度百科
 //		ICTCLAS.partUserDic(usrdir, "./USER_DIC", 4000);
 		
-		/*ICTCLAS50 ICTCLAS = new ICTCLAS50();
+		ICTCLAS50 ICTCLAS = new ICTCLAS50();
 		String text = "最后，你所选择的学生平板电脑将决定你的创建和推广方式。最重要的是，它会决定你的目标用户。显然你多半会选择跨平台策略，无论是在应用生命周期初始还是末尾阶段。合理选择首个平台是你成败的关键。";
 		String segment = ICTCLAS.tag(text, 1);
-		System.out.println(segment);*/
+		System.out.println(segment);
 	}
 }
 

@@ -90,7 +90,7 @@ public class CTrigramExtraction {
 					}
 				}
 			}
-			map.put(name, -999);
+//			map.put(name, -999);
 			maps.add(map);
 		}
 	}

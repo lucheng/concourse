@@ -1,6 +1,5 @@
 package ICTCLAS.I3S.AC;
 
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,11 +19,12 @@ import java.util.regex.Pattern;
 public class StopWords {
 
 	TreeSet<String> sWord = new TreeSet<String>();
-	String dicPath;
+	String dicPath = "./ICTCLAS_CONFIG/stopwords.txt";
 	HashMap<String, Long> lastModTime = new HashMap<String, Long>();
-
+	Pattern noise = Pattern.compile(".*["+CharSets.allRegexPunc+"\\d]+.*");
+	
 	public StopWords(){	
-
+		read(dicPath);
 	}
 	public StopWords(String dicPath1,boolean b){
 		this.dicPath = dicPath1;
@@ -35,8 +35,6 @@ public class StopWords {
 			public void run() {
 				read(dicPath);
 			}
-
-
 		}, new Date(System.currentTimeMillis() + 10000), 24*60*60*1000);
 	}
 	/**
@@ -47,13 +45,12 @@ public class StopWords {
 
 	public StopWords(String dicPath) {		
 		this.dicPath = dicPath;
-		read(dicPath);		
+		read(dicPath);
 	}
 
 	/**
 	 * 读取stopword
-	 * @param dicPath
-	 *       stopword所在地址
+	 * @param dicPath stopword所在地址
 	 * @throws FileNotFoundException
 	 */
 
@@ -99,30 +96,35 @@ public class StopWords {
 	/**
 	 * 删除stopword
 	 * 将string字符串转换为List类型，并返回
-	 * @param str
-	 *       要进行处理的字符串 
-	 * @return
-	 *       删除stopword后的List类型
+	 * @param str 要进行处理的字符串 
+	 * @return 删除stopword后的List类型
 	 */
 
 	public List<String> phraseDel(String str){
+		
 		List<String> list = new ArrayList<String>(); 
 		List<String> listTemp = new ArrayList<String>(); 
 		listTemp = Arrays.asList(str.split("\\s+"));
+		
 		String s;
+		String temp;
+		String tag;
 		int length= listTemp.size();
 		for(int i = 0; i < length; i++){
-			s = listTemp.get(i);
-			if(!isStopWord(s))
+			
+			temp = listTemp.get(i);
+			s = temp.substring(0, temp.lastIndexOf("/"));
+			tag = temp.substring(temp.lastIndexOf("/"));
+			
+			if(!isStopWord(s) && tag.contains("n")){
 				list.add(s);
+			}
 		}
 		return list;
 	}
 
-	Pattern noise = Pattern.compile(".*["+CharSets.allRegexPunc+"\\d]+.*");
-	
 	public boolean isStopWord(String word) {
-		if (word.length() == 1 || word.length()>4)
+		if (word.length() == 1 || word.length()>6)
 			return true;
 
 		if (noise.matcher(word).matches())
@@ -133,6 +135,7 @@ public class StopWords {
 
 		return false;
 	}
+	
 	public static void main(String[] args){
 		StopWords sw = new StopWords();
 		System.out.println(sw.isStopWord("我0"));
