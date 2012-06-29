@@ -72,6 +72,7 @@ public class ICTCLAS50
 			}
 			// 设置词性标注集(0 计算所二级标注集，1 计算所一级标注集，2 北大二级标注集，3 北大一级标注集)
 			ICTCLAS_SetPOSmap(1);
+			importUserDictFile(usrdir);
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
@@ -125,7 +126,7 @@ public class ICTCLAS50
 //			System.out.println("导入用户词个数" + usrdirb.length);
 			// 导入用户字典,返回导入用户词语个数第一个参数为用户字典路径，第二个参数为用户字典的编码类型
 			int nCount = ICTCLAS_ImportUserDictFile(usrdirb, 0);
-			System.out.println("导入用户词个数" + nCount);
+//			System.out.println("导入用户词个数" + nCount);
 			ICTCLAS_SaveTheUsrDic();
 			
 	}
