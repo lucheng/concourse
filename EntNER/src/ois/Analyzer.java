@@ -24,6 +24,7 @@ import ois.xmlParser.HTMLParser;
  * 
  *********************************************************/
 public class Analyzer extends HTMLParser implements Runnable {
+	
 	private EnterpriseCache eCache;
 	private TrademarkInfo tInfo;
 	private StringParser strParser;
@@ -39,28 +40,31 @@ public class Analyzer extends HTMLParser implements Runnable {
 	 * @param url URL or file name
 	 * 
 	 ************************************/
-	public Analyzer(String url){
-		super(url);
+	public Analyzer(String url, String charset){
+		
+		super(url, charset);
 		eCache=new EnterpriseCache();
 		tInfo=new TrademarkInfo();
 		strParser=new StringParser(super.content);
 		iFactory=new ICTCLASFactory();
 		nAnalyzer=new NEAnalyzer();
 		extractor=new Extractor(iFactory);
-		//cAnalyzer=new CommodityAnalyzer();
+		cAnalyzer=new CommodityAnalyzer();
 	}
 
 	public static void main(String[] args) {
-		Analyzer analyzer=new Analyzer("http://www.hengshengtang.com/qiyejianjie/qiyejianjie.htm");
-		new Thread(analyzer).start();
+		Analyzer analyzer=new Analyzer("http://www.hengshengtang.com/qiyejianjie/qiyejianjie.htm", "GB2312");
+//		new Thread(analyzer).start();
+//		analyzer.run();
 		analyzer.test("Test.txt");
 	}
 	
 	public void run(){
+		
 		this.eCache.setTitle(this.getTitle());
 		this.eCache.setURL(this.getURL());
 		this.eCache.setOwner(this.getOwner());
-		System.out.println(content);
+//		System.out.println(content);
 		String sString;
 		LinkedList<String> sentence=new LinkedList<String>();
 		while(!strParser.isEmpty()){
@@ -68,15 +72,15 @@ public class Analyzer extends HTMLParser implements Runnable {
 				sentence=strParser.splitToArray(iFactory.split(sString));
 				if(sentence.size()<RunParam.MinLengthOfSentence)
 					continue;
-//				cAnalyzer.Recognize(sentence);
-//				System.out.println(sentence);
+				cAnalyzer.Recognize(sentence);
+				System.out.println(sentence);
 				nAnalyzer.Process(sentence);
 				extractor.findShortName(sentence, eCache);
 //				System.out.println(sentence);
 				extractor.process(sentence, eCache,tInfo);
 				
 		}
-		eCache.print();
+//		eCache.print();
 //		tInfo.print();
 //		eVerify=new Verify();
 //		eVerify.process(eCache,tInfo);
@@ -107,10 +111,8 @@ public class Analyzer extends HTMLParser implements Runnable {
 			bReader.close();
 //			bWriter.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

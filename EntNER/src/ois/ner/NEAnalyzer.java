@@ -22,7 +22,9 @@ import ois.ner.constant.XMLConfig;
  *************************************************************************************/
 
 public class NEAnalyzer {
+	
 	private SuffixParser sParser; //recognize suffix word of organization
+	
 	public NEAnalyzer()	{
 		 sParser=new SuffixParser();
 	}
@@ -55,6 +57,7 @@ public class NEAnalyzer {
 	 * 
 	 ***************************************************/
 	public int dateRecognize(final List<String> sentence,int index, int flag){
+		
 		String word;
 		int length=0,i;
 		if(flag==RunParam.Prefix){
@@ -160,6 +163,7 @@ public class NEAnalyzer {
 	 *           
 	 ***********************************************************************/
 	public int orgReconize(final LinkedList<String> sentence,int suffixindex,float param,int MaxLength) {
+		
 		RuleParser rParser = new RuleParser();    
 		//parser for POS rules of organization
 		double pri;
@@ -341,8 +345,7 @@ public class NEAnalyzer {
 		if(sentence.size()<=1)
 			return;
 		lastType=Tagging.getEntityType(sentence.get(0));
-		for(i=1;i<sentence.size();i++)
-		{
+		for(i=1;i<sentence.size();i++){
 			word=sentence.get(i);
 			newType=Tagging.getEntityType(word);
 			if(newType!=null && lastType!=null){
@@ -386,7 +389,7 @@ public class NEAnalyzer {
 			}
 		}
 
-		//		其他实体识别
+		//其他实体识别
 		iterator=sentence.listIterator();
 		while(iterator.hasNext())
 		{

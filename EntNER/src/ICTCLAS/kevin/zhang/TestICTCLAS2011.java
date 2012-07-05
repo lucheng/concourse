@@ -19,23 +19,23 @@ class Result {
 
 public class TestICTCLAS2011 {
 
-	public static void main(String[] args) throws Exception
-	{
-		try
-		{
-			String sInput = "张华平2009年底调入北京理工大学计算机学院。";
+	public static void main(String[] args) throws Exception {
+		try {
+//			String sInput = "张华平2009年底调入北京理工大学计算机学院。";
+			String sInput = "衡阳日报社印刷厂创建于1949年10月16日，在60年的岁月中，印刷厂从最初靠人力摇机，铅字排版、圆盘印刷发展到激光照排、高速彩色轮转印刷多版面彩色报纸，见证了解放后中国印刷史的巨大变迁。";
 
 			//分词
 			Split(sInput);
 
 			//对UTF8进行分词处理
-			SplitUTF8();
+//			SplitUTF8();
 
 			//对BIG5进行分词处理
-			SplitBIG5();
+//			SplitBIG5();
 		}
 		catch (Exception ex)
 		{
+			ex.printStackTrace();
 		} 
 
 
@@ -201,6 +201,7 @@ public class TestICTCLAS2011 {
 		}
 		catch (Exception ex)
 		{
+			ex.printStackTrace();
 		} 
 	}
 	
@@ -228,6 +229,7 @@ public class TestICTCLAS2011 {
 		}
 		catch (Exception ex)
 		{
+			ex.printStackTrace();
 		} 
 	}
 }
