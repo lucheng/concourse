@@ -2,14 +2,12 @@ package com.mywie.utils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
@@ -21,7 +19,6 @@ import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 import org.htmlcleaner.CleanerProperties;
 import org.htmlcleaner.HtmlCleaner;
-import org.htmlcleaner.PrettyXmlSerializer;
 import org.htmlcleaner.SimpleXmlSerializer;
 import org.htmlcleaner.TagNode;
 
@@ -29,7 +26,7 @@ import com.mywie.model.NodeCompare;
 
 public class XmlHelp {
 	
-	private String charset = "GBK";
+	private static String charset = "gbk";
 	private static SAXReader xmlReader = new SAXReader();
 
 	public Document parseWithSAX(File aFile) throws DocumentException {
@@ -51,6 +48,7 @@ public class XmlHelp {
 	}
 
 	public static Document getDocumentWithClean(String filePath) {
+		
 		Document document = null;
 		try {
 			cleanHtml(filePath);
@@ -95,18 +93,18 @@ public class XmlHelp {
 		HtmlCleaner cleaner = new HtmlCleaner();
 		CleanerProperties props = cleaner.getProperties();
 		
-		props.setUseEmptyElementTags(false);
-		props.setOmitUnknownTags(true);
+//		props.setUseEmptyElementTags(false);
+//		props.setOmitUnknownTags(true);
 		props.setPruneTags("script,style,link,iframe,input,textarea");
 //		props.setPruneTags("script");
-		props.setNamespacesAware(false);
+//		props.setNamespacesAware(false);
         
 		
 		TagNode node;
 		try {
-			node = cleaner.clean(file, "gbk");
+			node = cleaner.clean(file, charset);
 			OutputStream out = new FileOutputStream(temp);
-			new SimpleXmlSerializer(props).writeToStream(node, out, "gbk");
+			new SimpleXmlSerializer(props).writeToStream(node, out, charset);
 			out.close();
 		} catch (IOException e) {
 			
@@ -301,6 +299,6 @@ public class XmlHelp {
 	}
 	
 	public static void main(String[] args) {
-		Document doc = getDocumentWithClean("D:/data/test1/rjxTest/http---www-sohu-com--1.html");
+		Document doc = getDocumentWithClean("C:/Users/Administrator/Desktop/other/example/http---news-sina-com-cn-c-2005-12-07-16438517687-shtml-1.html");
 	}
 }
