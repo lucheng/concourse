@@ -49,7 +49,7 @@ public class Analyzer extends HTMLParser implements Runnable {
 		iFactory=new ICTCLASFactory();
 		nAnalyzer=new NEAnalyzer();
 		extractor=new Extractor(iFactory);
-		cAnalyzer=new CommodityAnalyzer();
+//		cAnalyzer=new CommodityAnalyzer();
 	}
 
 	public static void main(String[] args) {
@@ -80,10 +80,10 @@ public class Analyzer extends HTMLParser implements Runnable {
 				extractor.process(sentence, eCache,tInfo);
 				
 		}
-//		eCache.print();
-//		tInfo.print();
-//		eVerify=new Verify();
-//		eVerify.process(eCache,tInfo);
+		eCache.print();
+		tInfo.print();
+		eVerify=new Verify();
+		eVerify.process(eCache,tInfo);
 		iFactory.exit();
 		
 	}
