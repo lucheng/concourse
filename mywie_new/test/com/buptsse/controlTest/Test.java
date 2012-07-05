@@ -1,6 +1,5 @@
 package com.buptsse.controlTest;
 
-import com.mywie.control.Generater;
 
 
 public class Test {
@@ -9,8 +8,8 @@ public class Test {
 		/**
 		 * 生成模板文件
 		 */
-		Generater generater = new Generater("C:/Users/Administrator/Desktop/data/template/1.html", 0);
-		generater.generateTemplates();
+//		Generater generater = new Generater("C:/Users/Administrator/Desktop/data/template/1.html");
+//		generater.generateTemplates("C:/Users/Administrator/Desktop/data");
 		/**
 		 * 抽取数据
 		 */

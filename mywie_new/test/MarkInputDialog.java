@@ -5,6 +5,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -126,9 +127,19 @@ public class MarkInputDialog extends Dialog {
 		return value;
 	}
 
+		
+    public void centerSell(Display display,Shell shell) {
+        Rectangle displayBounds = display.getPrimaryMonitor().getBounds();
+        Rectangle shellBounds = shell.getBounds();
+        int x = displayBounds.x + (displayBounds.width-shellBounds.width)>>1;
+        int y = displayBounds.y + (displayBounds.height - shellBounds.height)>>1;
+        shell.setLocation(x, y);
+    }
+	
 	public static void main(String[] args) {
 		Shell shell = new Shell();
 		MarkInputDialog dialog = new MarkInputDialog(shell);
+		dialog.centerSell(shell.getDisplay(), shell);
 		System.out.println(dialog.open());
 	}
 }
