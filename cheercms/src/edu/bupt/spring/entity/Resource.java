@@ -29,7 +29,7 @@ public class Resource extends BaseEntity {
 	
 	private String name;// 资源名称
 	private String value;// 资源标识
-//	private String url;// 资源标识
+	private String url;// 资源标识
 	
 	private Boolean isSystem;// 是否为系统内置资源
 	private String description;// 描述
@@ -60,13 +60,13 @@ public class Resource extends BaseEntity {
 		return isSystem;
 	}
 
-	/*public String getUrl() {
+	public String getUrl() {
 		return url;
 	}
 
 	public void setUrl(String url) {
 		this.url = url;
-	}*/
+	}
 	
 	public void setIsSystem(Boolean isSystem) {
 		this.isSystem = isSystem;

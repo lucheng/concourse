@@ -23,9 +23,10 @@ public class ManageController extends BaseController {
     
 	private static final Logger logger = LoggerFactory.getLogger(ManageController.class);
 	
-	@RequestMapping(value = "/manage/login")
-    public ModelAndView login(){
-		return new ModelAndView("login");
+	@RequestMapping(value = "/manage/login", method = {RequestMethod.GET})
+    public ModelAndView login(HttpServletRequest request){
+		String error = (String) request.getParameter("login_error");
+		return new ModelAndView("login").addObject("error", error);
     }
 	
 	@RequestMapping(value = "/manage/index")

@@ -55,11 +55,12 @@ $().ready( function() {
 	// 刷新验证码
     $(function(){         
         $('#captchaImage').click(function () {//生成验证码
-       	 $(this).hide().attr('src', '<%=path%>/captchaImage?' + Math.floor(Math.random()*100) ).fadeIn(); })    
+       	 $(this).hide().attr('src', '/jcaptcha.jpg?' + Math.floor(Math.random()*100) ).fadeIn(); })    
     }); 
 	
-	$.dialog({type: "error", content: "验证码错误,请重新输入!", modal: true, autoCloseTime: 3000});
-
+	<c:if test="${not empty error}">
+		$.dialog({type: "error", content: "验证码错误,请重新输入!", modal: true, autoCloseTime: 3000});
+	</c:if>
 	
 });
 </script>
@@ -116,7 +117,7 @@ $().ready( function() {
                 	</th>
                     <td>
                     	<label>
-                    		<input type="checkbox" name="isRememberUsername" id="isRememberUsername" >&nbsp;记住用户名
+                    		<input type="checkbox" name="_spring_security_remember_me" id="isRememberUsername" >&nbsp;记住用户名
                     	</label>
                     </td>
                 </tr>

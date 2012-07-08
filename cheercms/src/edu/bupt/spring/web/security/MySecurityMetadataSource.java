@@ -46,10 +46,10 @@ public class MySecurityMetadataSource implements FilterInvocationSecurityMetadat
             List<Resource> resources = resourceService.findAll();  
             for (Resource resource : resources) {  
                 Collection<ConfigAttribute> configAttributes = new ArrayList<ConfigAttribute>();  
-                                //以权限名封装为Spring的security Object  
+                //以权限名封装为Spring的security Object  
                 ConfigAttribute configAttribute = new SecurityConfig(resource.getName());  
                 configAttributes.add(configAttribute);  
-//                resourceMap.put(resource.getUrl(), configAttributes);  
+                resourceMap.put(resource.getUrl(), configAttributes);  
             }  
         }  
           
