@@ -4,7 +4,7 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <title>会员列表 - Powered By SHOP++</title>
 <meta name="Author" content="SHOP++ Team">
-<meta name="Copyright" content="SHOP++">
+<base href="<%=basePath%>">
 <link href="/template/admin/css/base.css" rel="stylesheet" type="text/css">
 <link href="/template/admin/css/admin.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="/template/common/js/jquery.js"></script>

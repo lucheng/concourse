@@ -5,22 +5,56 @@
 <title>添加/编辑管理员 - Powered By SHOP++</title>
 <meta name="Author" content="SHOP++ Team">
 <meta name="Copyright" content="SHOP++">
+<base href="<%=basePath%>">
+<script type="text/javascript" src="<%=path %>/js/jquery.js"></script>
 <script type="text/javascript" src="<%=path %>/js/jquery.tools.js"></script>
 <script type="text/javascript" src="<%=path %>/js/jquery.validate.js"></script>
 <script type="text/javascript" src="<%=path %>/js/jquery.validate.methods.js"></script>
+<script type="text/javascript" src="<%=path %>/js/base.js"></script>
+<script type="text/javascript" src="<%=path %>//js/admin.js"></script>
 <script type="text/javascript">
-$().ready( function() {
+$().ready(function() {
 
 	var $validateErrorContainer = $("#validateErrorContainer");
 	var $validateErrorLabelContainer = $("#validateErrorContainer ul");
 	var $validateForm = $("#validateForm");
-	
-	var $tab = $("#tab");
 
-	// Tab效果
-	$tab.tabs(".tabContent", {
-		tabs: "input"
+	var $memberAttributeTable = $("#memberAttributeTable");
+	var $memberAttributeType = $("#memberAttributeType");
+	var $addOptionButton = $("#addOptionButton");
+	var $deleteOptionIcon = $("#memberAttributeTable .deleteOptionIcon");
+	
+	// 显示/隐藏“增加选项”按钮
+	$memberAttributeType.change(function() {
+		if($memberAttributeType.val() == "select" || $memberAttributeType.val() == "checkbox") {
+			$memberAttributeTable.find(".optionTr").remove();
+			$addOptionButton.show();
+			addOption();
+		} else {
+			$addOptionButton.hide();
+			$memberAttributeTable.find(".optionTr").remove();
+		}
+	})
+	
+	// 增加选项内容
+	$addOptionButton.click( function() {
+		addOption();
 	});
+		
+	// 删除选项内容
+	$("#memberAttributeTable .deleteOptionIcon").live("click", function() {
+		if ($memberAttributeTable.find(".optionTr").length <= 1) {
+			$.dialog({type: "warn", content: "请至少保留一个选项内容!", modal: true, autoCloseTime: 3000});
+		} else {
+			$(this).parent().parent().remove();
+		}
+	});
+	
+	// 增加选项内容
+	function addOption() {
+var optionTrHtml = '<tr class="optionTr"> <th>选项内容: </th> <td> <input type="text" name="optionList" class="formText optionList" />&nbsp; <span class="deleteIcon deleteOptionIcon" title="删 除">&nbsp;</span> </td> </tr>';		
+		$memberAttributeTable.append(optionTrHtml);
+	}
 	
 	// 表单验证
 	$validateForm.validate({
@@ -30,126 +64,86 @@ $().ready( function() {
 		errorClass: "validateError",
 		ignoreTitle: true,
 		rules: {
-				"admin.username": {
-					required: true,
-					username: true,
-					minlength: 2,
-					maxlength: 	 20,
-					remote: "admin/checkUsername"
-				},
-			"admin.password": {
-					required: true,
-				minlength: 4,
-				maxlength: 	 20
-			},
-			"rePassword": {
-					required: true,
-				equalTo: "#password"
-			},
-			"admin.email": {
-				required: true,
-				email: true
-			},
-			"roleList.id": "required"
+			"memberAttribute.attributeType": "required",
+			"memberAttribute.name": "required",
+			"memberAttribute.orderList": "digits"
 		},
 		messages: {
-				"admin.username": {
-					required: "请填写用户名",
-					username: "用户名只允许包含中文、英文、数字和下划线",
-					minlength: "用户名必须大于等于2",
-					maxlength: 	 "用户名必须小于等于20",
-					remote: "用户名已存在"
-				},
-			"admin.password": {
-					required: "请填写密码",
-				minlength: "密码必须大于等于4",
-				maxlength: 	 "密码必须小于等于20"
-			},
-			"rePassword": {
-					required: "请填写重复密码",
-				equalTo: "两次密码输入不一致"
-			},
-			"admin.email": {
-				required: "请填写E-mail",
-				email: "E-mail格式不正确"
-			},
-			"roleList.id": "请选择管理角色"
+			"memberAttribute.attributeType": "请选择注册项类型",
+			"memberAttribute.name": "请填写注册项名称",
+			"memberAttribute.orderList": "排序必须为零或正整数"
 		},
 		submitHandler: function(form) {
 			$(form).find(":submit").attr("disabled", true);
 			form.submit();
 		}
 	});
+	
+	$.validator.addMethod("optionListRequired", $.validator.methods.required, "请填写选项内容");
+	
+	$.validator.addClassRules("optionList", {
+		optionListRequired: true
+	});
 
-});
+})
 </script>
 </head>
-<body class="input admin">
+
+<body class="input">
 	<div class="bar">
-		添加管理员
+		添加会员注册项
 	</div>
 	<div id="validateErrorContainer" class="validateErrorContainer">
 		<div class="validateErrorTitle">以下信息填写有误,请重新填写</div>
 		<ul></ul>
 	</div>
 	<div class="body">
-		<form id="validateForm1" action="<%=path %>/admin/save" method="post">
-			<%--<input type="hidden" name="id" value="0">
-			--%>
-			<ul id="tab" class="tab">
-				<li>
-					<input type="button" value="基本信息" hidefocus="" class="current">
-				</li>
-				<li>
-					<input type="button" value="个人资料" hidefocus="" class="">
-				</li>
-			</ul>
-			<table class="inputTable tabContent" style="display: table; ">
+		<form id="validateForm" action="<%=path %>/memberAttribute/save"  method="post">
+			<c:if test="${entity != null}">
+						<input type="hidden" name="id" value="${entity.id}">
+					</c:if>
+			<table id="memberAttributeTable" class="inputTable">
 				<tbody><tr>
 					<th>
-						用户名: 
+						注册项类型: 
 					</th>
 					<td>
-							<input type="text" name="username" class="formText" title="用户名只允许包含中文、英文、数字和下划线">
-							<label class="requireField">*</label>
+								<select id="memberAttributeType" name="attributeType">
+									<option value="">请选择...</option>
+										<option value="text">
+											文本
+										</option>
+										<option value="number">
+											数字
+										</option>
+										<option value="alphaint">
+											字母
+										</option>
+										<option value="select">
+											单选项
+										</option>
+										<option value="checkbox">
+											多选项
+										</option>
+								</select>
+								<label class="requireField">*</label>
 					</td>
 				</tr>
 				<tr>
 					<th>
-						密 码: 
+						注册项名称: 
 					</th>
 					<td>
-						<input type="password" name="password" id="password" class="formText" title="密码长度只允许在4-20之间">
+						<input type="text" name="name" class="formText" value="">
 						<label class="requireField">*</label>
 					</td>
 				</tr>
 				<tr>
 					<th>
-						重复密码: 
+						排序: 
 					</th>
 					<td>
-						<input type="password" name="rePassword" class="formText">
-						<label class="requireField">*</label>
-					</td>
-				</tr>
-				<tr>
-					<th>
-						E-mail: 
-					</th>
-					<td>
-						<input type="text" name="email" class="formText" value="">
-						<label class="requireField">*</label>
-					</td>
-				</tr>
-				<tr class="roleList">
-					<th>
-						管理角色: 
-					</th>
-					<td>
-							<label>
-								<input type="checkbox" name="roleList.id" value="0731dcsoft2010031200000000000016">超级管理员
-							</label>
-						<label class="requireField">*</label>
+						<input type="text" name="orderList" class="formText" value="" title="只允许输入零或正整数">
 					</td>
 				</tr>
 				<tr>
@@ -158,26 +152,17 @@ $().ready( function() {
 					</th>
 					<td>
 						<label>
-							<input type="checkbox" name="isAccountEnabled" value="true" id="admin_isAccountEnabled" checked="checked"><input type="hidden" id="__checkbox_admin_isAccountEnabled" name="__checkbox_admin.isAccountEnabled" value="true">启用
+							<input type="checkbox" name="attributeOptionList" value="true" id="memberAttribute_isEnabled" checked="checked"><input type="hidden" id="__checkbox_memberAttribute_isEnabled" name="__checkbox_memberAttribute.isEnabled" value="true">启用
+						</label>
+						<label>
+							<input type="checkbox" name="attributeOptionList" value="true" id="memberAttribute_isRequired"><input type="hidden" id="__checkbox_memberAttribute_isRequired" name="__checkbox_memberAttribute.isRequired" value="true">必填
 						</label>
 					</td>
 				</tr>
-			</tbody></table>
-			<table class="inputTable tabContent" style="display: none; ">
-				<tbody><tr>
-					<th>
-						部门: 
-					</th>
-					<td>
-						<input type="text" name="department" class="formText" value="">
-					</td>
-				</tr>
 				<tr>
-					<th>
-						姓名: 
-					</th>
+					<th>&nbsp;</th>
 					<td>
-						<input type="text" name="name" class="formText" value="">
+							<input type="button" id="addOptionButton" class="hidden formButton" value="增加选项" hidefocus="">
 					</td>
 				</tr>
 			</tbody></table>
@@ -188,4 +173,5 @@ $().ready( function() {
 		</form>
 	</div>
 
-</body></html>
+</body>
+</html>
