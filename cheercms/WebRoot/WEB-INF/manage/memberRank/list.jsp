@@ -60,7 +60,7 @@
 							<a href="#" class="sort" name="preferentialScale" hidefocus="">优惠百分比</a>
 						</th>
 						<th>
-							<a href="#" class="sort" name="score" hidefocus="">所需积分</a>
+							<a href="#" class="sort" name="point" hidefocus="">所需积分</a>
 						</th>
 						<th>
 							<a href="#" class="sort" name="isDefault" hidefocus="">是否默认</a>
@@ -82,7 +82,7 @@
 							${entry.preferentialScale}%
 						</td>
 						<td>
-							${entry.score}
+							${entry.point}
 						</td>
 						<td>
 							<%--<c:if test="${entry.isDefaulted}"><span class="trueIcon">&nbsp;</span></c:if>
@@ -98,7 +98,7 @@
 			</table>
 				<div class="pagerBar">
 					<div class="delete">
-						<input type="button" id="deleteButton" class="formButton" url="memberRank/delete" value="删 除" disabled="" hidefocus="">
+						<input type="button" id="deleteButton" class="formButton" onclick="location.href='memberRank/delete'" value="删 除" disabled="" hidefocus="">
 					</div>
 					<div class="pager">
 						<script type="text/javascript">

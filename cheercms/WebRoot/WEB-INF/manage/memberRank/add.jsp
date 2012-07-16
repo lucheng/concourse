@@ -98,7 +98,7 @@
 							所需积分: 
 						</th>
 						<td>
-							<input type="text" name="score" class="formText" value="${entity.score}" title="只允许输入零或正整数">
+							<input type="text" name="point" class="formText" value="${entity.point}" title="只允许输入零或正整数">
 							<label class="requireField">*</label>
 						</td>
 					</tr>

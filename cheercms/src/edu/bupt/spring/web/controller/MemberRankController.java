@@ -78,7 +78,7 @@ public class MemberRankController extends BaseController{
         return "redirect:/memberRank/list";
     }
     
-    @RequestMapping(value = "/memberRank/delete/{id}", method = {RequestMethod.GET})
+    @RequestMapping(value = "/memberRank/delete/{id}", method = {RequestMethod.POST})
     public String delete(@ModelAttribute("memberRank") MemberRank memberRank, HttpServletRequest request) {
         
     	memberRankService.delete(memberRank.getId());
