@@ -3,7 +3,9 @@ package com.buptsse.baike.utils;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.dom4j.Document;
@@ -61,6 +63,14 @@ public class Parser {
 				linkList.add(link);
 			}
 			
+			List<Element> attributeElements  = e.selectNodes(".//attrbutes//attrbute");
+			Map<String,String> keys = new HashMap<String, String>();
+			for(Element attribute : attributeElements){
+				String keyText = attribute.attributeValue("key");
+				String text = attribute.getStringValue();
+				keys.put(keyText, text);
+			}
+			
 			List<Element> tagElements  = e.selectNodes(".//tags//tag");
 			List<String> tags = new ArrayList<String>();
 			for(Element tag : tagElements){
@@ -71,6 +81,7 @@ public class Parser {
 			content.setSubTitle(subTitle);
 //			content.setText(text);
 			content.setSummary(summary);
+			content.setAttributes(keys);
 			content.setLinks(linkList);
 			content.setTaglist(tags);
 			contents.add(content);
@@ -194,38 +205,102 @@ public class Parser {
 		
 	}
 	
-	public static void main(String[] args) throws Exception {
+	
+	/**
+	 * 读取attribute
+	 * @param args
+	 * @throws Exception
+	 */
+	public static void getAttribute() throws Exception {
 		
-		String strPath = "D:/data/attribute";
-		for(int i = 1; i < 2000; i++){
+		String strPath = "D:/data/baike";
+		for(int i = 1; i < 200000; i++){
 			
 			String fileName = strPath + "/" + (int)(i / 10000)+ "/" + i + ".xml";
-			Page page = parseXmlFile(fileName);
-			if(page == null){
+			try{
+				Page page = parseXmlFile(fileName);
+				if(page == null){
+					continue;
+				}
+				System.out.println(page.getTitle());
+				List<Content> contents = page.getContents();
+				
+	//			FileHelp.writeFile("data/" + fileName.substring(fileName.lastIndexOf("/"), fileName.lastIndexOf(".")) + i +"_"+ j + ".txt", contents.get(i).getSummary());
+				for(int j = 0; j < contents.size() && !contents.get(j).getSummary().equals(""); j ++){
+					
+					String content = "";
+					for(String key : contents.get(j).getAttributes().keySet()){
+						content += key + System.getProperty("line.separator");
+					}
+					
+					content += contents.get(j).getSummary();
+					
+					if(content.equals("")){
+						continue;
+					}
+					FileHelp.writeFile("d:/data/attribute/" + i +"_"+ page.getTitle() + ".txt", content);
+				}
+			}catch(Exception e){
 				continue;
-			}
-			System.out.println(page.getTitle());
-			List<Content> contents = page.getContents();
-			
-//			FileHelp.writeFile("data/" + fileName.substring(fileName.lastIndexOf("/"), fileName.lastIndexOf(".")) + i +"_"+ j + ".txt", contents.get(i).getSummary());
-			for(int j = 0; j < contents.size() && !contents.get(j).getSummary().equals(""); j ++){
-				FileHelp.writeFile("data/" + i +"_"+ page.getTitle() + ".txt", contents.get(j).getSummary());
 			}
 		}
 		
-//		Page page = parse("\\\\buptsse215-02/data/baidu/1.xml");
-		/*String strPath = "D:/data/sina";
-		List<String> filelist = new ArrayList<String>();
-		FileHelp.refreshFileList(strPath, filelist, ".xml");
-		for(String fileName : filelist){
-//			String fileName = "\\\\buptsse215-02/data/html/302.htm";
-			Page page = parseXmlFile(fileName);
-			List<Content> contents = page.getContents();
+	}
+	public static void getText() throws Exception {
+		
+		String strPath = "D:/data/baike";
+		for(int i = 1; i < 200000; i++){
 			
-			for(int i = 0; i < contents.size(); i ++){
-				FileHelp.writeFile("data/" + fileName.substring(fileName.lastIndexOf("/"), fileName.lastIndexOf(".")) + i + ".txt", contents.get(i).getSummary());
+			String fileName = strPath + "/" + (int)(i / 10000)+ "/" + i + ".xml";
+			try{
+				Page page = parseXmlFile(fileName);
+				if(page == null){
+					continue;
+				}
+				System.out.println(page.getTitle());
+				List<Content> contents = page.getContents();
+				
+	//			FileHelp.writeFile("data/" + fileName.substring(fileName.lastIndexOf("/"), fileName.lastIndexOf(".")) + i +"_"+ j + ".txt", contents.get(i).getSummary());
+				for(int j = 0; j < contents.size() && !contents.get(j).getSummary().equals(""); j ++){
+					FileHelp.writeFile("d:/data/text/" + i +"_"+ page.getTitle() + ".txt", contents.get(j).getSummary());
+				}
+			}catch(Exception e){
+				continue;
 			}
-		}*/
+		}
+		
+	}
+	
+	/**
+	 * 将分类copy
+	 * 
+	 * @param args
+	 * @throws Exception
+	 */
+	public static void copy(){
+		
+		String strPath = "D:/data/samples";
+		List<String> filelist = new ArrayList<String>();
+		FileHelp.refreshFileList(strPath, filelist, ".txt");
+		for(String src : filelist){
+			// src = "D:/data/samples/机构/baidu.txt";
+			System.out.println(src);
+			String oldChar = src.substring(src.lastIndexOf("data\\")+5, src.lastIndexOf("\\"));
+			String from = src.replace(oldChar, "attribute");
+//			System.out.println(from);
+			
+			String to = src.replace("samples", "all");
+			
+//			System.out.println(to);
+			FileHelp.copyFile(new File(from), new File(to));
+		}
+		
+	}
+	public static void main(String[] args) throws Exception{
+		
+//		getText();
+//		getAttribute();
+		copy();
 		
 	}
 }
