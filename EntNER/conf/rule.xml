@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <RuleList>
-	<total>1574</total>
+	<total>1618</total>
 	<rule>
 		<POS>/nz/n/n</POS>
-		<count>53</count>
+		<count>54</count>
 	</rule>
 <rule>
 		<POS>/nz/n/n/n</POS>
-		<count>27</count>
+		<count>28</count>
 	</rule><rule>
 		<POS>/ns/v/a/n/n/n</POS>
-		<count>29</count>
+		<count>30</count>
 	</rule><rule>
 		<POS>/ns/n/n/n/n</POS>
 		<count>12</count>
 	</rule><rule>
 		<POS>/ns/n/n</POS>
-		<count>469</count>
+		<count>483</count>
 	</rule><rule>
 		<POS>/ng/ns/ng/n/n</POS>
 		<count>5</count>
@@ -37,13 +37,13 @@
 		<count>5</count>
 	</rule><rule>
 		<POS>/ns/n/vn/n</POS>
-		<count>24</count>
+		<count>25</count>
 	</rule><rule>
 		<POS>/nr2/nz/n/vn/n</POS>
 		<count>10</count>
 	</rule><rule>
 		<POS>/vn/n/n</POS>
-		<count>26</count>
+		<count>28</count>
 	</rule><rule>
 		<POS>/ns/nz/ng/ng/n</POS>
 		<count>5</count>
@@ -58,7 +58,7 @@
 		<count>5</count>
 	</rule><rule>
 		<POS>/ns/n/n/n</POS>
-		<count>191</count>
+		<count>197</count>
 	</rule><rule>
 		<POS>/ns/nt/n/n</POS>
 		<count>2</count>
@@ -70,7 +70,7 @@
 		<count>5</count>
 	</rule><rule>
 		<POS>/ns/ns/n/n</POS>
-		<count>13</count>
+		<count>14</count>
 	</rule><rule>
 		<POS>/ns/vn/n/n/n/n/n</POS>
 		<count>5</count>
@@ -82,7 +82,7 @@
 		<count>2</count>
 	</rule><rule>
 		<POS>/t/vn/n</POS>
-		<count>31</count>
+		<count>32</count>
 	</rule><rule>
 		<POS>/nr/n/n</POS>
 		<count>69</count>
@@ -94,7 +94,7 @@
 		<count>5</count>
 	</rule><rule>
 		<POS>/ns/ns/n/n/n</POS>
-		<count>12</count>
+		<count>13</count>
 	</rule><rule>
 		<POS>/x/n/n/n</POS>
 		<count>5</count>
@@ -130,10 +130,10 @@
 		<count>5</count>
 	</rule><rule>
 		<POS>/b/nz/n/n</POS>
-		<count>29</count>
+		<count>30</count>
 	</rule><rule>
 		<POS>/nz/n/vn/n/n</POS>
-		<count>16</count>
+		<count>17</count>
 	</rule><rule>
 		<POS>/ns/ag/ng/n/n</POS>
 		<count>11</count>
@@ -143,20 +143,20 @@
 	</rule>
 	<rule>
 		<POS>/a/n/nz/nz/n</POS>
-		<count>14</count>
+		<count>15</count>
 	</rule>
 	<rule>
 		<POS>/nz/n</POS>
-		<count>76</count>
+		<count>79</count>
 	</rule><rule>
 		<POS>/nrf/n/n</POS>
 		<count>10</count>
 	</rule><rule>
 		<POS>/a/n/n/n</POS>
-		<count>41</count>
+		<count>42</count>
 	</rule><rule>
 		<POS>/m/qv/n/n</POS>
-		<count>23</count>
+		<count>24</count>
 	</rule><rule>
 		<POS>/ns/nt/n</POS>
 		<count>8</count>
@@ -165,19 +165,19 @@
 		<count>22</count>
 	</rule><rule>
 		<POS>/tg/v/n/n/n</POS>
-		<count>16</count>
+		<count>17</count>
 	</rule><rule>
 		<POS>/ns/n/ns/n/n/n</POS>
-		<count>6</count>
+		<count>7</count>
 	</rule><rule>
 		<POS>/n/ns/n/n</POS>
-		<count>10</count>
+		<count>11</count>
 	</rule><rule>
 		<POS>/ns/a/ns/n/n</POS>
-		<count>6</count>
+		<count>7</count>
 	</rule><rule>
 		<POS>/f/nr1/n/d/n/a/n</POS>
-		<count>7</count>
+		<count>8</count>
 	</rule><rule>
 		<POS>/n/nz/m/ng/n/n</POS>
 		<count>4</count>
@@ -192,10 +192,10 @@
 		<count>3</count>
 	</rule><rule>
 		<POS>/ns/b/n/n/vn/n</POS>
-		<count>11</count>
+		<count>12</count>
 	</rule><rule>
 		<POS>/nt/n</POS>
-		<count>14</count>
+		<count>15</count>
 	</rule>
 	<rule>
 		<POS>/vg/ag/n/n/n</POS>
