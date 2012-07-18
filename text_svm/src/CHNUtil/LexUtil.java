@@ -20,9 +20,6 @@ import ICTCLAS.kevin.zhang.ICTCLAS2011;
  *
  * 分词程序
  */
-
-
-
  public class LexUtil {
 
      //对ICTCLAS进行必要的初始化
