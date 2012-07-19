@@ -7,7 +7,7 @@ package service;
 
 import edu.udo.cs.wvtool.config.WVTConfiguration;
 import edu.udo.cs.wvtool.config.WVTConfigurationFact;
-import edu.udo.cs.wvtool.external.CHNWVTTokenizer;
+import edu.udo.cs.wvtool.external.Tokenizer;
 import edu.udo.cs.wvtool.generic.stemmer.WVTStemmer;
 import edu.udo.cs.wvtool.generic.output.WVTOutputFilter;
 import edu.udo.cs.wvtool.generic.stemmer.DictionaryStemmer;
@@ -42,19 +42,19 @@ import libsvm.svm_problem;
  */
 public class VSMService {
 
-    private static VSMService _instance;
-    private HashMap<String, Object> _config;
-    private WVTConfiguration _wvtConfig;
-    private WVTFileInputList _inputList;
-    private WVTool _wvtool;
-    private LIBSVMWordVectorWriter _outputFilter;
-    private WVTWordList _wordList;
+    private static VSMService instance;
+    private HashMap<String, Object> config;
+    private WVTConfiguration wvtConfig;
+    private WVTFileInputList inputList;
+    private WVTool wvtool;
+    private LIBSVMWordVectorWriter outputFilter;
+    private WVTWordList wordList;
 
     private void createWordListAndVSM() {
         try {
-            _wordList = _wvtool.createWordList(_inputList, _wvtConfig);
-            _wordList.pruneByFrequency((Integer)_config.get("DF_MIN"), (Integer)_config.get("DF_MAX"));
-            _wvtool.createVectors(_inputList, _wvtConfig, _wordList);
+            wordList = wvtool.createWordList(inputList, wvtConfig);
+            wordList.pruneByFrequency((Integer)config.get("DF_MIN"), (Integer)config.get("DF_MAX"));
+            wvtool.createVectors(inputList, wvtConfig, wordList);
         } catch (WVToolException ex) {
             Logger.getLogger(VSMService.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -114,7 +114,7 @@ public class VSMService {
     }
 
     protected VSMService(HashMap<String, Object> config) {
-        this._config = config;
+        this.config = config;
         initWVTFileInputList();
         initWVTConfig();
         initWVTool();
@@ -123,23 +123,23 @@ public class VSMService {
 
     //单体模式
     public static void build(HashMap<String, Object> config) {
-        _instance = new VSMService(config);
+        instance = new VSMService(config);
     }
     
     //单体模式
     public static VSMService getInstance() {
-        return _instance;
+        return instance;
     }
 
     public svm_problem getVSM() {
-       return _outputFilter.getSVMProblem();
+       return outputFilter.getSVMProblem();
     }
 
     public svm_node[] getVSM(String doc) {
         WVTWordVector vector = null;
         try {
             WVTDocumentInfo info = new WVTDocumentInfo("", "", "", "");
-            vector = _wvtool.createVector(doc, info, _wvtConfig, _wordList);
+            vector = wvtool.createVector(doc, info, wvtConfig, wordList);
         } catch (WVToolException ex) {
             Logger.getLogger(VSMService.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -155,17 +155,17 @@ public class VSMService {
     }
 
     public int getDictionarySize() {
-        return this._wordList.getNumWords();
+        return this.wordList.getNumWords();
     }
 
     private void initWVTConfig() {
-        _wvtConfig = new WVTConfiguration();
+        wvtConfig = new WVTConfiguration();
 
         DummyWordFilter wordFilter = new DummyWordFilter();
         wordFilter.setMinNumChars(2);
 
         WVTStemmer stemmer = null;
-        String THERSAUS = (String)_config.get("THERSAUS");
+        String THERSAUS = (String)config.get("THERSAUS");
 
         if(THERSAUS.length() != 0) {
             try {
@@ -180,10 +180,10 @@ public class VSMService {
             stemmer = new DummyStemmer();
         }
         
-        _outputFilter = new LIBSVMWordVectorWriter();
+        outputFilter = new LIBSVMWordVectorWriter();
         
         WVTVectorCreator vectorCreator = null;
-        String type = (String)this._config.get("WEIGHT");
+        String type = (String)this.config.get("WEIGHT");
         
         if(type.equals("TFIDF")) {
             vectorCreator = new TFIDF();
@@ -195,24 +195,24 @@ public class VSMService {
             vectorCreator = new BinaryOccurrences();
         }
       
-        _wvtConfig.setConfigurationRule(WVTConfiguration.STEP_WORDFILTER, new WVTConfigurationFact(wordFilter));
-        _wvtConfig.setConfigurationRule(WVTConfiguration.STEP_TOKENIZER, new WVTConfigurationFact(new CHNWVTTokenizer()));
-        _wvtConfig.setConfigurationRule(WVTConfiguration.STEP_STEMMER, new WVTConfigurationFact(stemmer));
-        _wvtConfig.setConfigurationRule(WVTConfiguration.STEP_OUTPUT, new WVTConfigurationFact(_outputFilter));
-        _wvtConfig.setConfigurationRule(WVTConfiguration.STEP_VECTOR_CREATION, new WVTConfigurationFact(vectorCreator));
+        wvtConfig.setConfigurationRule(WVTConfiguration.STEP_WORDFILTER, new WVTConfigurationFact(wordFilter));
+        wvtConfig.setConfigurationRule(WVTConfiguration.STEP_TOKENIZER, new WVTConfigurationFact(new Tokenizer()));
+        wvtConfig.setConfigurationRule(WVTConfiguration.STEP_STEMMER, new WVTConfigurationFact(stemmer));
+        wvtConfig.setConfigurationRule(WVTConfiguration.STEP_OUTPUT, new WVTConfigurationFact(outputFilter));
+        wvtConfig.setConfigurationRule(WVTConfiguration.STEP_VECTOR_CREATION, new WVTConfigurationFact(vectorCreator));
 
     }
 
     private void initWVTFileInputList() {
-        File corpus = new File((String)this._config.get("CORPUS"));
+        File corpus = new File((String)this.config.get("CORPUS"));
         String[] cDirs = corpus.list();
-        _inputList = new WVTFileInputList(cDirs.length);
+        inputList = new WVTFileInputList(cDirs.length);
         for(int i=0; i<cDirs.length; i++) {
-            _inputList.addEntry(new WVTDocumentInfo((String)this._config.get("CORPUS") + "/" + cDirs[i], "", "UTF-8", "", i));
+            inputList.addEntry(new WVTDocumentInfo((String)this.config.get("CORPUS") + "/" + cDirs[i], "", "UTF-8", "", i));
         }
     }
 
     private void initWVTool() {
-       _wvtool = new WVTool(false);
+       wvtool = new WVTool(false);
     }
 }

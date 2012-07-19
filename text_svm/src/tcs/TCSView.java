@@ -48,6 +48,7 @@ public class TCSView extends FrameView {
         private HashMap<String, Object> config;
         private Calendar start;
         private Calendar end;
+        
         public VSMTask(Application app, HashMap<String, Object> map) {
             super(app);
             this.config = map;
@@ -55,6 +56,7 @@ public class TCSView extends FrameView {
 
         @Override
         protected svm_problem doInBackground() {
+        	System.out.println("doInBackground run");
             start = Calendar.getInstance();
             VSMService.build(config);
             VSMService vsm  = VSMService.getInstance();
@@ -63,6 +65,8 @@ public class TCSView extends FrameView {
 
         @Override
         public void succeeded(svm_problem problem) {
+        	
+        	System.out.println("succeeded run");
             int i = problem.l;
             end = Calendar.getInstance();
             int s  = end.get(Calendar.SECOND) - start.get(Calendar.SECOND);
@@ -90,6 +94,7 @@ public class TCSView extends FrameView {
     }
 
     public class SVMPredictTask extends Task<Double, Object> {
+    	
         private Calendar start;
         private Calendar end;
 
@@ -189,6 +194,8 @@ public class TCSView extends FrameView {
             jButton4.setEnabled(true);
             jButton5.setEnabled(true);
             jButton7.setEnabled(true);
+//            System.out.println(model);
+//            svm_save_model(model);
         }
     }
 
@@ -873,6 +880,12 @@ public class TCSView extends FrameView {
         }
     }//GEN-LAST:event_chooseThersaus
 
+    /**
+     * 生成向量空间模型
+     * 
+     * @param evt
+     * @return
+     */
     @Action
     public Task generateVSM(java.awt.event.ActionEvent evt) {
         HashMap<String, Object> config = new HashMap<String, Object>();
@@ -909,8 +922,15 @@ public class TCSView extends FrameView {
         }
     }
 
+    /**
+     * 对模型进行训练
+     * 
+     * @param evt
+     * @return
+     */
     @Action
     public Task train(java.awt.event.ActionEvent evt) {
+//    	
         jButton4.setEnabled(false);
         jLabel8.setText("正在进行训练...");
         jButton7.setEnabled(false);

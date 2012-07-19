@@ -11,8 +11,9 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
+ * 
+ * @author linzhe
  *
- * @author dvdface
  */
 public class CHNTokenEnumeration implements TokenEnumeration {
 

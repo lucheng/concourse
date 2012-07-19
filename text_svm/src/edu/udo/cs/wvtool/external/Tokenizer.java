@@ -13,10 +13,11 @@ import java.io.Reader;
 import CHNUtil.FileUtil;
 import CHNUtil.LexUtil;
 /**
+ * 
+ * @author linzhe
  *
- * @author dvdface
  */
-public class CHNWVTTokenizer implements WVTTokenizer {
+public class Tokenizer implements WVTTokenizer {
 
     public TokenEnumeration tokenize(Reader reader, WVTDocumentInfo docInfo) throws WVToolException {
         String str = FileUtil.file2String(reader);
