@@ -63,7 +63,7 @@ public class Parser {
 				linkList.add(link);
 			}
 			
-			List<Element> attributeElements  = e.selectNodes(".//attrbutes//attrbute");
+			List<Element> attributeElements  = e.selectNodes(".//attributes//attribute");
 			Map<String,String> keys = new HashMap<String, String>();
 			for(Element attribute : attributeElements){
 				String keyText = attribute.attributeValue("key");
@@ -152,11 +152,11 @@ public class Parser {
 				Element summaryElement = contentElement.addElement("summary");
 				summaryElement.addText(content.getSummary());
 				
-				Element attrbutesElement = contentElement.addElement("attrbutes");
+				Element attrbutesElement = contentElement.addElement("attributes");
 				for(String key : content.getAttributes().keySet()){
-					Element attrbuteElement = attrbutesElement.addElement("attrbute");
-					attrbuteElement.addText(content.getAttributes().get(key));
-					attrbuteElement.addAttribute("key", key);
+					Element attributeElement = attrbutesElement.addElement("attribute");
+					attributeElement.addText(content.getAttributes().get(key));
+					attributeElement.addAttribute("key", key);
 				}
 				
 				Element linksElement = contentElement.addElement("links");
