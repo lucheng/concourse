@@ -233,7 +233,7 @@ public class Parser {
 						content += key + System.getProperty("line.separator");
 					}
 					
-					content += contents.get(j).getSummary();
+//					content += contents.get(j).getSummary();
 					
 					if(content.equals("")){
 						continue;
@@ -292,7 +292,11 @@ public class Parser {
 			String to = src.replace("samples", "all");
 			
 //			System.out.println(to);
-			FileHelp.copyFile(new File(from), new File(to));
+			File fromFile = new File(from);
+			File toFile = new File(to);
+			if(fromFile.exists()){
+				FileHelp.copyFile(fromFile, toFile);
+			}
 		}
 		
 	}
