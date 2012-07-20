@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-configuration-1.6.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang-2.3.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging.jar"/>
+	<classpathentry kind="lib" path="lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/jaxen-1.1-beta-6.jar"/>
+	<classpathentry kind="lib" path="lib/jdom.jar"/>
+	<classpathentry kind="lib" path="lib/libsvm.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="lib/qtjambi-4.5.2_01.jar"/>
+	<classpathentry kind="lib" path="lib/qtjambi-win32-msvc2005-4.5.2_01.jar"/>
+	<classpathentry kind="lib" path="lib/sqljdbc4.jar"/>
+	<classpathentry kind="lib" path="lib/stanford-parser.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
