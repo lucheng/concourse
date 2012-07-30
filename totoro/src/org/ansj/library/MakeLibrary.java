@@ -64,6 +64,7 @@ public class MakeLibrary {
 	public static void makeLibrary() throws Exception {
 		BufferedReader reader = IOUtil.getReader(path, charEncoding);
 		sortLibrary(reader);
+		System.out.println(path);
 
 	}
 
@@ -75,7 +76,7 @@ public class MakeLibrary {
 			if (line.contains("#")) {
 				continue;
 			}
-			System.out.println(line);
+//			System.out.println(line);
 			keyWords.add(line);
 		}
 		ltr.addLibrary(keyWords);
