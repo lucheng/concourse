@@ -13,7 +13,7 @@ import org.ansj.splitWord.analysis.UserDefinedAnalysis;
 public class UserDefinedAnalysisTest {
 	static HashSet hs = new HashSet() ;
 	public static void main(String[] args) throws IOException {
-		Reader reader = new InputStreamReader(new FileInputStream("/Users/ansj/Documents/快盘/冒死记录中国神秘事件（真全本）.txt"), "GBK");
+		Reader reader = new InputStreamReader(new FileInputStream("D:/data/text/1139_ceo.txt"), "UTF-8");
 		UserDefinedAnalysis toAnalysis = new UserDefinedAnalysis(reader,true);
 		Term next = null;
 		long start = System.currentTimeMillis();

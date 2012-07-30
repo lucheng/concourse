@@ -12,7 +12,7 @@ import org.ansj.util.IOUtil;
 
 public class ToAnalysisTest {
 	public static void main(String[] args) throws IOException {
-		Reader reader = new InputStreamReader(new FileInputStream("/Users/ansj/Documents/快盘/冒死记录中国神秘事件（真全本）.txt"), "GBK");
+		Reader reader = new InputStreamReader(new FileInputStream("D:/data/text/1139_ceo.txt"), "UTF-8");
 		ToAnalysis toAnalysis = new ToAnalysis(reader,true);
 		Term next = null;
 		long start = System.currentTimeMillis();

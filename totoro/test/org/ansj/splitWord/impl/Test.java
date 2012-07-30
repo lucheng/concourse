@@ -51,7 +51,8 @@ public class Test {
 //		strs[27] ="c语言怎么读写ini文件" ;
 //		strs[28] ="关卡编辑器" ;
 //		strs[29] = "eclipse 多项目依赖" ;
-		strs[30] = "蔡晴是2b.特别二.孙健是好人.专门打2b蔡晴天" ;
+//		strs[30] = "蔡晴是2b.特别二.孙健是好人.专门打2b蔡晴天" ;
+		strs[30] = "缘患者2周前在看电脑时突然出现头晕头胀，头晕呈昏沉感，无天旋地转感，头胀为双侧颞部及后枕部持续性胀满感为主，上症白天时加重，夜晚可减轻，同时伴有行走不稳，无恶寒发热、恶心呕吐、胸闷心悸，无耳鸣、抽搐、大汗，四肢无麻木，现患者为进一步诊治收入我科。 入院症见：神清，精神可，稍有头晕头胀，行走不稳，无胸闷心悸，无口角流涎，无言语不利，无呕吐，二便调，纳眠可。";
 		
 		
 		List all = null ;
@@ -69,7 +70,9 @@ public class Test {
 				System.out.println(NumRecognition.recognition(all));
 			}
 		}
-		System.out.println(num);
+//		System.out.println(all);
+		
+		System.out.println(System.currentTimeMillis()-start);
 		
 	}
 }
