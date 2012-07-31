@@ -30,9 +30,9 @@ public class ConverEncoding {
 	 */
 	public static void main(String[] args) throws Exception {
 		
-		String srcDir = "D:\\workspace\\FinalProject\\src";
+		String srcDir = "D:\\workspace\\OpinionMining1.0\\input1";
 		List<String> files = new ArrayList<String>();
-		fetchFileList(srcDir, files, "(.java)$");
+		fetchFileList(srcDir, files, "(.txt)$");
 		
 		for(String fileName : files){
 			
