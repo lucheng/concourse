@@ -23,7 +23,7 @@ public class TestAutoSuggest {
 	public static void main(String[] args) {
 		AutoSuggest as = new AutoSuggest();
 
-		ArrayList<String> result = as.find("林");
+		ArrayList<String> result = as.find("Shame");
 		System.out.println("***************************");
 		for( int i=0; i < result.size() && i < 10; ++i )
 		{
