@@ -2494,7 +2494,7 @@ userDefine	非值	1000
 userDefine	非终极符	1000
 userDefine	非主属性	1000
 userDefine	非阻塞交叉怀关	1000
-userDefine	费尔托��特	1000
+userDefine	费尔托��特	1000
 userDefine	分安全	1000
 userDefine	分安全模式	1000
 userDefine	分包商	1000
@@ -10919,3 +10919,98 @@ userDefine	耦合度	1000
 userDefine	耦合器	1000
 userDefine	耦合系统	1000
 userDefine	箴言	1000
+
+topic	精神	1000
+topic	神色	1000
+topic	神	1000
+topic	体温	1000
+topic	T 1000
+topic	P 1000
+topic	R 1000
+topic	BP 1000
+topic	对光反射 1000
+topic	体位 1000
+topic	发育 1000
+topic	皮疹 1000
+topic	乳突 1000
+topic	瞳孔 1000
+topic	头颅 1000
+topic	五官 1000
+topic	形体 1000
+topic	言语 1000
+topic	查体 1000
+topic	营养 1000
+topic	皮肤粘膜 1000
+topic	巩膜 1000
+topic	全身浅表淋巴结 1000
+topic	头面 1000
+topic	眼睑 1000
+topic	结膜 1000
+topic	角膜 1000
+topic	双瞳孔 1000
+topic	耳鼻 1000
+topic	口唇 1000
+topic	咽 1000
+topic	扁桃体 1000
+topic	颈 1000
+topic	气管 1000
+topic	胸廓 1000
+topic	甲状腺 1000
+topic	颈静脉 1000
+topic	双肺叩诊 1000
+topic	双肺呼吸音 1000
+topic	罗音 1000
+topic	哮鸣音 1000
+topic	心前区 1000
+topic	心界 1000
+topic	心率 1000
+topic	瓣膜听诊区 1000
+topic	腹|腹部 1000
+topic	浅表静脉 1000
+topic	肝|肾 1000
+topic	肠鸣音 1000
+topic	脊柱 1000
+topic	四肢 1000
+topic	下肢 1000
+topic	舌 1000
+topic	舌底脉络 1000
+topic	苔 1000
+topic	脉 1000
+topic	尺脉 1000
+topic	叩诊 1000
+topic	呼吸动度 1000
+topic	面色 1000
+topic	听力 1000
+
+topic	对答 1000
+topic	耳鼻 1000
+topic	输血史 1000
+topic	外伤史 1000
+topic	纳眠 1000
+topic	小便 1000
+topic	舌质 1000
+topic	脉弦 1000
+topic	构音 1000
+topic	脑动脉 1000
+topic	过敏史 1000
+topic	接触物 1000
+topic	紫癜 1000
+topic	肝掌 1000
+topic	蜘蛛痣 1000
+topic	肝颈静脉回流征 1000
+
+有|level
+无|level
+未|level
+为|level
+欠|level
+不|level
+微|level
+稍|level
+
+
+次/分|measure
+℃|measure
+毫米汞柱|measure
+
+
