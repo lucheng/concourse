@@ -15,10 +15,11 @@ import java.util.TreeSet;
 
 import org.apache.log4j.Logger;
 
+import ICTCLAS.kevin.zhang.CWSTagger;
+
 import com.buptsse.ate.index.Searcher;
 import com.buptsse.ate.utils.FileHelp;
 
-import ICTCLAS.I3S.AC.ICTCLAS50;
 import edu.bupt.nlp.resources.StopWords;
 import edu.bupt.nlp.resources.WebEntities;
 
@@ -44,7 +45,7 @@ public class TextRankExtractor extends Extractor{
 	
 	@SuppressWarnings("unchecked")
 	public TextRankExtractor(String dicPath, String stopPath) throws Exception{
-		tag = new ICTCLAS50(dicPath);
+		tag = new CWSTagger();
 		test = new StopWords(stopPath);
 	}
 	

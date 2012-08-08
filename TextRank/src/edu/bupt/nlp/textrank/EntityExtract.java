@@ -12,9 +12,10 @@ import java.util.TreeSet;
 
 import org.apache.log4j.Logger;
 
+import ICTCLAS.kevin.zhang.CWSTagger;
+
 import com.buptsse.ate.utils.FileHelp;
 
-import ICTCLAS.I3S.AC.ICTCLAS50;
 import edu.bupt.nlp.resources.StopWords;
 
 class WDataSet{
@@ -35,7 +36,7 @@ public class EntityExtract extends Extractor{
 	}
 	
 	public EntityExtract(String dicPath, String stopPath) throws Exception{
-		tag = new ICTCLAS50(dicPath);
+		tag = new CWSTagger();
 		test = new StopWords(stopPath);
 	}
 	

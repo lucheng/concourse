@@ -1,15 +1,14 @@
 package edu.bupt.nlp.textrank;
 
-import java.util.List;
 import java.util.Map;
 
-import ICTCLAS.I3S.AC.ICTCLAS50;
+import ICTCLAS.kevin.zhang.CWSTagger;
 import edu.bupt.nlp.resources.StopWords;
 
 public abstract class Extractor<T> {
 
 	/*用于分词*/
-	protected ICTCLAS50 tag;
+	protected CWSTagger tag;
 //	protected CWSTagger tag;
 	/*停用词 */
 	protected StopWords test;

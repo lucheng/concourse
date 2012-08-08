@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
-import ICTCLAS.I3S.AC.ICTCLAS50;
+import ICTCLAS.kevin.zhang.CWSTagger;
 
 import com.buptsse.ate.index.Searcher;
 import com.buptsse.ate.utils.FileHelp;
@@ -148,6 +148,9 @@ public class StopWords {
 		int length= listTemp.size();
 		for(int i = 0; i < length; i++){
 			wordRaw = listTemp.get(i);
+			if(wordRaw.lastIndexOf("/") < 0){
+				continue;
+			}
 			word = wordRaw.substring(0, wordRaw.lastIndexOf("/")).toLowerCase();
 			tagger = wordRaw.substring(wordRaw.lastIndexOf("/")+1);
 			if(!isStopWord(word)){
@@ -245,7 +248,7 @@ public class StopWords {
 		
 		StopWords sw = new StopWords();
 		String text = FileHelp.readText("./text_example/11.txt");
-		ICTCLAS50 tag = new ICTCLAS50();
+		CWSTagger tag = new CWSTagger();
 		System.out.println(text);
 		
 		text = tag.tag(text, 1);
