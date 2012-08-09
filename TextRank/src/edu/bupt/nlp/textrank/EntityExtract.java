@@ -36,8 +36,8 @@ public class EntityExtract extends Extractor{
 	}
 	
 	public EntityExtract(String dicPath, String stopPath) throws Exception{
-		tag = new CWSTagger();
-		test = new StopWords(stopPath);
+		tagger = new CWSTagger();
+		stopword = new StopWords(stopPath);
 	}
 	
 	private WDataSet getWord(String str){
@@ -45,9 +45,9 @@ public class EntityExtract extends Extractor{
 		Set<String> set = new TreeSet<String>();
 		WDataSet wds = new WDataSet();
 		
-		if(test!=null){
+		if(stopword!=null){
 			//去除停用词
-			wds.list = test.phraseDel(str);
+			wds.list = stopword.phraseDel(str);
 		}else{
 			wds.list = new ArrayList<String>(); 
 			String[] toks = str.split("\\s+");
@@ -242,9 +242,9 @@ public class EntityExtract extends Extractor{
 	}
 	
 	public Map<String,Integer> extract(String str, int num, boolean isWeighted){
-		if(tag != null){
+		if(tagger != null){
 			//将文本进行分词
-			str = tag.tag(str, 0);
+			str = tagger.tag(str, 0);
 		}
 		
 		//进行TextRank算法计算

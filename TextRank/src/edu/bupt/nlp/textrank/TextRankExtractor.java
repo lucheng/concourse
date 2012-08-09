@@ -17,7 +17,6 @@ import org.apache.log4j.Logger;
 
 import ICTCLAS.kevin.zhang.CWSTagger;
 
-import com.buptsse.ate.index.Searcher;
 import com.buptsse.ate.utils.FileHelp;
 
 import edu.bupt.nlp.resources.StopWords;
@@ -45,8 +44,8 @@ public class TextRankExtractor extends Extractor{
 	
 	@SuppressWarnings("unchecked")
 	public TextRankExtractor(String dicPath, String stopPath) throws Exception{
-		tag = new CWSTagger();
-		test = new StopWords(stopPath);
+		tagger = new CWSTagger();
+		stopword = new StopWords(stopPath);
 	}
 	
 	private DataSet getWord(String str){
@@ -54,9 +53,9 @@ public class TextRankExtractor extends Extractor{
 		Set<Word> set = new TreeSet<Word>();
 		DataSet wds = new DataSet();
 		
-		if(test!=null){
+		if(stopword!=null){
 			//去除停用词
-			wds.list = test.phraseDel(str, 1);
+			wds.list = stopword.phraseDel(str, 1);
 		}
 		
 		Word temp;
@@ -257,9 +256,9 @@ public class TextRankExtractor extends Extractor{
 	
 	@Override
 	public Map<Word,Integer> extract(String str, int num, boolean isWeighted){
-		if(tag != null){
+		if(tagger != null){
 			//将文本进行分词
-			str = tag.tag(str, 1);
+			str = tagger.tag(str, 1);
 			logger.info(str);
 		}
 		
@@ -290,8 +289,6 @@ public class TextRankExtractor extends Extractor{
 	
 	public static void main(String[] args) throws Exception {	
 		
-		
-//		Map<Word, Integer> finalResult = new TreeMap<Word, Integer>();
 		
 		TextRankExtractor key = new TextRankExtractor("./ICTCLAS_CONFIG/userdict.txt", "./ICTCLAS_CONFIG/stopwords.txt");
 		

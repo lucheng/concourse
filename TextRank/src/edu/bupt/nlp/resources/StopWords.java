@@ -164,7 +164,8 @@ public class StopWords {
 		}
 		
 		
-		return findWord(list, 0);
+//		return findWord(list, 0);
+		return list;
 	}
 
 	public List<Word> findWord(List<Word> words, int beginIndex){

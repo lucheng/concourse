@@ -8,10 +8,10 @@ import edu.bupt.nlp.resources.StopWords;
 public abstract class Extractor<T> {
 
 	/*用于分词*/
-	protected CWSTagger tag;
+	protected CWSTagger tagger;
 //	protected CWSTagger tag;
 	/*停用词 */
-	protected StopWords test;
+	protected StopWords stopword;
 	/**
 	 * 权重收敛的默认阈值
 	 */
