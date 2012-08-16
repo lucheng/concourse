@@ -68,6 +68,7 @@ public class CorpusReader {
 		while ((line = m_reader.readLine()) != null && line.trim().length() != 0)
 		{
 			String[] vec = line.split("\\s+");
+//			System.out.println(vec[1] + vec.length);
 			sentence.add(new WordTag(vec[1], vec[2]));		
 		}
 		sentence.add(new WordTag("<End>", "<End>"));

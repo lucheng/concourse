@@ -34,22 +34,27 @@ public class Test {
 	
 	public static void main(String[] args) throws ParseException, IOException
 	{
-		if (args.length != 3)
+		/*if (args.length != 3)
 		{
 			System.out.println("test.txt lexicon.txt ngram.txt");
 			System.exit(-1);
-		}
+		}*/
+		
+		String testText = "corpus/pos/现病史test.txt";
+		String lexiconText = "corpus/pos/lexicon.txt";
+		String ngramsText = "corpus/pos/ngrams.txt";
+		
 		int ivT = 0;
 		int oovT = 0;
 		int ivF = 0;
 		int oovF = 0;
 		
-		Model model = new Model(args[1], args[2]);
+		Model model = new Model(lexiconText, ngramsText);
 		model.loadModel();
 		IVWord ivword = model.getIVWord();
 		HMMTagger tagger = new HMMTagger(model);
 		
-		CorpusReader corpus = new CorpusReader(args[0]);
+		CorpusReader corpus = new CorpusReader(testText);
 		ArrayList<WordTag> sentence = null;
 		while ((sentence = corpus.getSequence()) != null)
 		{
@@ -62,6 +67,13 @@ public class Test {
 				ans.add(wt.getTag());
 			}
 			ArrayList<String> res = tagger.viterbi(words);
+			
+			for(int i=0; i< words.size(); i++){
+				
+				System.out.println(words.get(i));
+				System.out.println(ans.get(i));
+			}
+			
 			for (int i=0; i<res.size(); i++)
 			{
 				if (res.get(i).equals(ans.get(i+2)))

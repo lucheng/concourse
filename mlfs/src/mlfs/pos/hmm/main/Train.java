@@ -35,21 +35,26 @@ public class Train {
 
 	public static void main(String[] args) throws IOException
 	{
-		if (args.length != 3)
+		/*if (args.length != 3)
 		{
 			System.out.println("train.txt lexicon.txt ngrams.txt");
 			System.exit(-1);
-		}
+		}*/
+		String trainText = "corpus/pos/现病史train1.txt";
+//		String trainText = "corpus/pos/train.txt";
+		String lexiconText = "corpus/pos/lexicon.txt";
+		String ngramsText = "corpus/pos/ngrams.txt";
+		
 		ArrayList<ArrayList<WordTag>> allData = new ArrayList<ArrayList<WordTag>>();
 		
-		CorpusReader corpus = new CorpusReader(args[0]);
+		CorpusReader corpus = new CorpusReader(trainText);
 		ArrayList<WordTag> sentence = null;
 		while ((sentence = corpus.getSequence()) != null)
 		{
 			allData.add(sentence);
 		}
 		
-		Model model = new Model(args[1], args[2]);
+		Model model = new Model(lexiconText, ngramsText);
 		model.saveModel(allData);
 	}
 

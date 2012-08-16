@@ -358,6 +358,7 @@ public class Model {
 	}
 	public String tagInt2Str(int t) throws ParseException
 	{
+		System.out.println(t);
 		if (m_idTagMap.containsKey(t))
 			return m_idTagMap.get(t);
 		else
