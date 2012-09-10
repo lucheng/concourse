@@ -5,23 +5,41 @@ import java.util.Map;
 
 public class CWSTagger {
 
-	private ICTCLAS2011 testICTCLAS2011 = new ICTCLAS2011();
+	private ICTCLAS2011 tagger = new ICTCLAS2011();
 	private final String CHARSET = "UTF-8";
+	private String dicPath = "./dict/userdict.txt";
 	
-	public CWSTagger(){
+	public CWSTagger(String dicPath){
 		
 		String argu = ".";
 		try {
-			if (testICTCLAS2011.ICTCLAS_Init(argu.getBytes(CHARSET),1) == false) {
+			if (tagger.ICTCLAS_Init(argu.getBytes(CHARSET),1) == false) {
 				System.out.println("Init Fail!");
 				return;
 			}
+			importFileDict(dicPath);
+			
 		} catch (UnsupportedEncodingException e) {
 			System.out.println("Init Fail!");
 			e.printStackTrace();
 		}
 	}
 	
+	
+	public CWSTagger(){
+		
+		String argu = ".";
+		try {
+			if (tagger.ICTCLAS_Init(argu.getBytes(CHARSET),1) == false) {
+				System.out.println("Init Fail!");
+				return;
+			}
+			tagger.ICTCLAS_ImportUserDict(this.dicPath.getBytes());
+		} catch (UnsupportedEncodingException e) {
+			System.out.println("Init Fail!");
+			e.printStackTrace();
+		}
+	}
 	
 	public String tag(String sInput, int bPOSTagged) {	
 		
@@ -34,9 +52,9 @@ public class CWSTagger {
 					2			北大二级标注集
 					3			北大一级标注集
 			*/
-			testICTCLAS2011.ICTCLAS_SetPOSmap(2);
+			tagger.ICTCLAS_SetPOSmap(2);
 	
-			byte nativeBytes[] = testICTCLAS2011.ICTCLAS_ParagraphProcess(sInput.getBytes(CHARSET), bPOSTagged);
+			byte nativeBytes[] = tagger.ICTCLAS_ParagraphProcess(sInput.getBytes(CHARSET), bPOSTagged);
 			String nativeStr = new String(nativeBytes, 0, nativeBytes.length, CHARSET);
 			return nativeStr;
 			
@@ -56,8 +74,8 @@ public class CWSTagger {
 		//导入用户词典
 		int nCount;
 		try {
-			nCount = testICTCLAS2011.ICTCLAS_ImportUserDict(sUserDict.getBytes(CHARSET));
-			testICTCLAS2011.ICTCLAS_SaveTheUsrDic();//保存用户词典
+			nCount = tagger.ICTCLAS_ImportUserDict(sUserDict.getBytes(CHARSET));
+			tagger.ICTCLAS_SaveTheUsrDic();//保存用户词典
 			System.out.println("导入个用户词： " + nCount);
 		} catch (UnsupportedEncodingException e) {
 			
@@ -78,9 +96,9 @@ public class CWSTagger {
 		try {
 			for(String key : userWordMap.keySet()){
 				sWordUser = key + "\t" + userWordMap.get(key);
-				testICTCLAS2011.ICTCLAS_AddUserWord(sWordUser.getBytes(CHARSET));
+				tagger.ICTCLAS_AddUserWord(sWordUser.getBytes(CHARSET));
 			}
-			testICTCLAS2011.ICTCLAS_SaveTheUsrDic();//保存用户词典
+			tagger.ICTCLAS_SaveTheUsrDic();//保存用户词典
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
@@ -91,12 +109,12 @@ public class CWSTagger {
 	 * 释放分词组件资源
 	 */
 	public void exit(){
-		testICTCLAS2011.ICTCLAS_Exit();
+		tagger.ICTCLAS_Exit();
 	}
 	
 	public void tagFile(String srcFile, String desFile, int bPOSTagged){
 		try {
-			testICTCLAS2011.ICTCLAS_FileProcess(srcFile.getBytes(CHARSET), desFile.getBytes(CHARSET), bPOSTagged);
+			tagger.ICTCLAS_FileProcess(srcFile.getBytes(CHARSET), desFile.getBytes(CHARSET), bPOSTagged);
 		} catch(Exception ex) {
 			ex.printStackTrace();
 		} 
@@ -110,8 +128,8 @@ public class CWSTagger {
 		String sInput = "患者于2006年1月在家安静状态下突发右侧肢体乏力，当时神清，伴言语欠清，无肢体抽搐，无头晕头痛等不适，家属急送其至广州军区总医院就诊，查头颅MR提示：左侧顶叶脑梗塞，给予抗聚、营养神经等治疗后病情稳定出院，遗留右侧肢体乏力，右手不能持物、不能行走，言语欠清。之后于2006年2月至我院康复科康复治疗，出院时可自行缓慢步行、右手仍不能持物。2006年6月10日患者在家中突然出现意识丧失、双目上视、四肢抽搐，至我院急诊就诊，拟“继发性癫痫”收入我科，经治疗后症状好转出院，出院后坚持口服“得理多”控制癫痫发作，2007年8月再次因“继发性癫痫”在我科接受治疗，根据病情将得理多加量以控制癫痫发作，至今无再发癫痫发作。之后先后多次于我院行针灸康复治疗，仍有右侧肢体乏力，自行扶拐拖步行走，右上肢不能持物，近1月患者自觉右侧肢体拘挛僵硬感明显，伴有右上肢轻微肿胀，活动受限，为求进一步系统诊疗，由门诊拟“脑梗塞后遗症”收入我科。 入院症见：患者神清，精神稍倦，右侧肢体乏力，局部僵硬感，右上肢远端肿胀，活动受限，右下肢扶行拖步，言语欠流利，夜间偶有胸闷不适，无恶寒发热、头痛耳鸣、无咳嗽咯痰、肢体抽搐等症状，纳眠可，口干无口苦，夜尿3－4次，大便日一行，质软通畅。";
 		sInput = "既往因支气管扩张病数次在我院住院治疗，经治疗后均症状好转出院。既往慢性浅表性胃炎炎病史，偶有胃脘部不适。于2004年因车祸致右胫腓骨下段骨折在我院行手术治疗，现遗留钢板，否认高血压、糖尿病、冠心病、肾病等病史，否认肝病、结核等传染病史，否认输血及外伤史。";
 		//分词
-		CWSTagger tagger = new CWSTagger();
-		System.out.println(tagger.tag(sInput, 1));
+		CWSTagger tagger = new CWSTagger("");
+//		System.out.println(tagger.tag(sInput, 1));
 		tagger.tagFile("./text_example/0.txt", "./output/0.txt", 1);
 		tagger.exit();
 	}
