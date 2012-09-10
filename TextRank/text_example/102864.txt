@@ -1,1 +1,0 @@
-移动端视频分享大战已经拉开序幕！继上午我们报道的Viddy获新一轮融资之后，视频分享应用Socialcam也爆出一个周末增加400万新用户，超出Viddy每天30万用户几倍之遥。 Viddy现在有1000万用户，平均每天增长30万左右，之前曾在11天时间内获得了550万用户。而Socialcam的创始人在Hacker News上发布这一消息之后，在周末短短两天之内，Socialcam赢得了400万用户（总用户数未知）。更不可思议的是，这个团队只有三人！ 和Viddy一样，Socialcam也只有iPhone版。它也可以使用各种滤镜拍摄视频，但视频不像Viddy那样限制时间在15s之内。Socialcam也可以直接在Facebook和Twitter上分享，还可以通过YouTube、Email甚至SMS短信进行分享。  source TNW 

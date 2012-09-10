@@ -1,1 +1,0 @@
-微软在2月份发布了Skype的Windows Phone Beta版，用户可以通过3G、4G和WiFi用Skype帐号进行视频和音频通话。 今天，Skype for Windows Phone终于抛弃了名字里的beta，发布了正式的1.0版本。 与beta版相比，这个版本并没有重大功能改进，只是新增了搜索和添加新联系人功能。而且可惜的是，这个正式版依然不能在后台运行，这意味着在非开启的情况下，你是无法接到Skype电话的。Skype的发言人表示，这个限制是因为“Skype和Windows Phone系统两者的工作方式不同”。 预计Skype会与Windows Phone 8有更深度的整合，如果等不了那么久的话，这个所谓的1.0正式版就先将就用着吧。 via theverge 
