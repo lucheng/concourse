@@ -16,11 +16,9 @@ import java.util.TreeSet;
 import org.apache.log4j.Logger;
 
 import ICTCLAS.kevin.zhang.CWSTagger;
-
-import com.buptsse.ate.utils.FileHelp;
-
 import edu.bupt.nlp.resources.StopWords;
 import edu.bupt.nlp.resources.WebEntities;
+import edu.bupt.utils.FileUtils;
 
 class DataSet{
 	Graph graph = new Graph();
@@ -44,7 +42,7 @@ public class TextRankExtractor extends Extractor{
 	
 	@SuppressWarnings("unchecked")
 	public TextRankExtractor(String dicPath, String stopPath) throws Exception{
-		tagger = new CWSTagger();
+		tagger = new CWSTagger(dicPath);
 		stopword = new StopWords(stopPath);
 	}
 	
@@ -294,13 +292,13 @@ public class TextRankExtractor extends Extractor{
 		
 		String strPath = "./text_example/";
 		List<String> filelist = new ArrayList<String>();
-		FileHelp.refreshFileList(strPath, filelist, ".txt");
+		FileUtils.refreshFileList(strPath, filelist, ".txt");
 		FileOutputStream fos = new FileOutputStream("./output/result.txt", true);
 		Writer out = new OutputStreamWriter(fos, "UTF-8");
 		
 		for(String fileName : filelist){
 			
-			String text = FileHelp.readText(fileName);
+			String text = FileUtils.readText(fileName);
 			System.out.println(fileName);
 			Map<Word, Integer> result = key.extract(text, 1000, true);
 			out.write(result.toString() + System.getProperty("line.separator"));

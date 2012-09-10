@@ -13,10 +13,8 @@ import java.util.TreeSet;
 import org.apache.log4j.Logger;
 
 import ICTCLAS.kevin.zhang.CWSTagger;
-
-import com.buptsse.ate.utils.FileHelp;
-
 import edu.bupt.nlp.resources.StopWords;
+import edu.bupt.utils.FileUtils;
 
 class WDataSet{
 	Graph graph = new Graph();
@@ -258,7 +256,7 @@ public class EntityExtract extends Extractor{
 		Extractor key = new EntityExtract("./ICTCLAS_CONFIG/userdict.txt", "./ICTCLAS_CONFIG/stopwords.txt");
 		long time = System.currentTimeMillis();
 		
-		String text = FileHelp.readText("./text_example/100059.txt");
+		String text = FileUtils.readText("./text_example/100059.txt");
 		System.out.println(text);
 		Map<String, Integer> result = key.extract(text, 100,true);
 		System.out.println(result);

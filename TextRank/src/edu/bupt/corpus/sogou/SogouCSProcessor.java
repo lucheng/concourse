@@ -100,8 +100,7 @@ public class SogouCSProcessor {
 	 * @param fileDir
 	 */
 	public void processor(String fileDir) {
-		List<String> filePath = FileListViewer
-				.getFileList(fileDir, "txt", true);
+		List<String> filePath = FileListViewer.getFileList(fileDir, "txt", true);
 		System.out.println("文件数目:" + filePath.size());
 		Iterator<String> iter = filePath.iterator();
 		while (iter.hasNext()) {
@@ -138,6 +137,7 @@ public class SogouCSProcessor {
 	public static void main(String args[]) {
 		SogouCSProcessor pro = new SogouCSProcessor();
 		resultToFile("sogoucs.txt");
-		pro.processor("D:/sogou/SogouCS.WWW08");
+//		pro.processor("E:/data/test");
+		pro.processor("E:/data/SogouCA");
 	}
 }

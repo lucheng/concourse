@@ -20,11 +20,8 @@ import java.util.regex.Pattern;
 import org.apache.log4j.Logger;
 
 import ICTCLAS.kevin.zhang.CWSTagger;
-
-import com.buptsse.ate.index.Searcher;
-import com.buptsse.ate.utils.FileHelp;
-
 import edu.bupt.nlp.textrank.Word;
+import edu.bupt.utils.FileUtils;
 
 /**
  * 本类主要功能是过滤停用词
@@ -35,7 +32,7 @@ import edu.bupt.nlp.textrank.Word;
 public class StopWords {
 
 	private Logger logger = Logger.getLogger(getClass());
-	private Searcher searcher = new Searcher();
+//	private Searcher searcher = new Searcher();
 	
 	TreeSet<String> sWord = new TreeSet<String>();
 	String dicPath;
@@ -176,10 +173,10 @@ public class StopWords {
 							)){
 				String newStr = words.get(i).getWord() + words.get(i+1).getWord();
 //				List list = searcher.isWord(newStr);
-				if(searcher.isWord(newStr)){
+				/*if(searcher.isWord(newStr)){
 					words.set(i, new Word(i, newStr, "ne"));
 					words.remove(i+1);
-				}
+				}*/
 			}
 		}
 		
@@ -248,7 +245,7 @@ public class StopWords {
 	public static void main(String[] args){
 		
 		StopWords sw = new StopWords();
-		String text = FileHelp.readText("./text_example/11.txt");
+		String text = FileUtils.readText("./text_example/11.txt");
 		CWSTagger tag = new CWSTagger();
 		System.out.println(text);
 		
