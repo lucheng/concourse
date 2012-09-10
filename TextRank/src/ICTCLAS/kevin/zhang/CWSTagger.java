@@ -18,7 +18,6 @@ public class CWSTagger {
 				return;
 			}
 			importFileDict(dicPath);
-			
 		} catch (UnsupportedEncodingException e) {
 			System.out.println("Init Fail!");
 			e.printStackTrace();
@@ -34,7 +33,7 @@ public class CWSTagger {
 				System.out.println("Init Fail!");
 				return;
 			}
-			tagger.ICTCLAS_ImportUserDict(this.dicPath.getBytes());
+			importFileDict(dicPath);
 		} catch (UnsupportedEncodingException e) {
 			System.out.println("Init Fail!");
 			e.printStackTrace();
@@ -129,7 +128,7 @@ public class CWSTagger {
 		sInput = "既往因支气管扩张病数次在我院住院治疗，经治疗后均症状好转出院。既往慢性浅表性胃炎炎病史，偶有胃脘部不适。于2004年因车祸致右胫腓骨下段骨折在我院行手术治疗，现遗留钢板，否认高血压、糖尿病、冠心病、肾病等病史，否认肝病、结核等传染病史，否认输血及外伤史。";
 		//分词
 		CWSTagger tagger = new CWSTagger("");
-//		System.out.println(tagger.tag(sInput, 1));
+		System.out.println(tagger.tag(sInput, 1));
 		tagger.tagFile("./text_example/0.txt", "./output/0.txt", 1);
 		tagger.exit();
 	}

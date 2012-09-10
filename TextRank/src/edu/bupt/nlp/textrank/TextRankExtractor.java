@@ -17,7 +17,6 @@ import org.apache.log4j.Logger;
 
 import ICTCLAS.kevin.zhang.CWSTagger;
 import edu.bupt.nlp.resources.StopWords;
-import edu.bupt.nlp.resources.WebEntities;
 import edu.bupt.utils.FileUtils;
 
 class DataSet{
@@ -32,7 +31,6 @@ class DataSet{
 public class TextRankExtractor extends Extractor{
 		
 	private Logger logger = Logger.getLogger(getClass());
-	private WebEntities webentities = new WebEntities();
 	
 	@SuppressWarnings("unchecked")
 	public TextRankExtractor(){
@@ -266,12 +264,8 @@ public class TextRankExtractor extends Extractor{
 		return mapList;
 	}
 
-	private boolean isEntity(Word word){
-		
-		return webentities.isWebEntity(word.getWord());
-	}
 	
-	public Map<Word, Integer> findEntiry(Map<Word, Integer> result){
+	/*public Map<Word, Integer> findEntiry(Map<Word, Integer> result){
 		
 		Map<Word, Integer> entities = new TreeMap<Word, Integer>();
 		
@@ -282,13 +276,13 @@ public class TextRankExtractor extends Extractor{
 		}
 		
 		return entities;
-	}
+	}*/
 
 	
 	public static void main(String[] args) throws Exception {	
 		
 		
-		TextRankExtractor key = new TextRankExtractor("./ICTCLAS_CONFIG/userdict.txt", "./ICTCLAS_CONFIG/stopwords.txt");
+		TextRankExtractor key = new TextRankExtractor("./dict/userdict.txt", "./dict/stopwords.txt");
 		
 		String strPath = "./text_example/";
 		List<String> filelist = new ArrayList<String>();
