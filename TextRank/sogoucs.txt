@@ -1,0 +1,1153 @@
+文件数目:384
+===========================================
+E:\data\SogouCA\news.allsites.010805.txt
+txt contains 4235 docs!
+===========================================
+E:\data\SogouCA\news.allsites.010806.txt
+txt contains 5068 docs!
+===========================================
+E:\data\SogouCA\news.allsites.020805.txt
+txt contains 4308 docs!
+===========================================
+E:\data\SogouCA\news.allsites.020806.txt
+txt contains 5082 docs!
+===========================================
+E:\data\SogouCA\news.allsites.030805.txt
+txt contains 4368 docs!
+===========================================
+E:\data\SogouCA\news.allsites.030806.txt
+txt contains 5055 docs!
+===========================================
+E:\data\SogouCA\news.allsites.040805.txt
+txt contains 4231 docs!
+===========================================
+E:\data\SogouCA\news.allsites.040806.txt
+txt contains 5067 docs!
+===========================================
+E:\data\SogouCA\news.allsites.050805.txt
+txt contains 4214 docs!
+===========================================
+E:\data\SogouCA\news.allsites.050806.txt
+txt contains 5107 docs!
+===========================================
+E:\data\SogouCA\news.allsites.060805.txt
+txt contains 4287 docs!
+===========================================
+E:\data\SogouCA\news.allsites.060806.txt
+txt contains 5078 docs!
+===========================================
+E:\data\SogouCA\news.allsites.070805.txt
+txt contains 4153 docs!
+===========================================
+E:\data\SogouCA\news.allsites.070806.txt
+txt contains 4880 docs!
+===========================================
+E:\data\SogouCA\news.allsites.080805.txt
+txt contains 4350 docs!
+===========================================
+E:\data\SogouCA\news.allsites.080806.txt
+txt contains 4962 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1010805.txt
+txt contains 4420 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1010806.txt
+txt contains 5160 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1020805.txt
+txt contains 4333 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1020806.txt
+txt contains 5083 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1030805.txt
+txt contains 4212 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1030806.txt
+txt contains 5004 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1040805.txt
+txt contains 2463 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1040806.txt
+txt contains 2571 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1050805.txt
+txt contains 4172 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1050806.txt
+txt contains 5036 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1060805.txt
+txt contains 4259 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1060806.txt
+txt contains 4899 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1070805.txt
+txt contains 4207 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1070806.txt
+txt contains 4919 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1080805.txt
+txt contains 4245 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1080806.txt
+txt contains 5054 docs!
+===========================================
+E:\data\SogouCA\news.allsites.110805.txt
+txt contains 4272 docs!
+===========================================
+E:\data\SogouCA\news.allsites.110806.txt
+txt contains 5059 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1110805.txt
+txt contains 4214 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1110806.txt
+txt contains 5066 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1120805.txt
+txt contains 4133 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1120806.txt
+txt contains 5035 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1130805.txt
+txt contains 4334 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1130806.txt
+txt contains 4651 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1140805.txt
+txt contains 4115 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1140806.txt
+txt contains 4948 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1150805.txt
+txt contains 4319 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1150806.txt
+txt contains 5005 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1160805.txt
+txt contains 4212 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1160806.txt
+txt contains 5003 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1170805.txt
+txt contains 4145 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1170806.txt
+txt contains 4908 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1180805.txt
+txt contains 4330 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1180806.txt
+txt contains 4973 docs!
+===========================================
+E:\data\SogouCA\news.allsites.120805.txt
+txt contains 4351 docs!
+===========================================
+E:\data\SogouCA\news.allsites.120806.txt
+txt contains 4965 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1210805.txt
+txt contains 4151 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1210806.txt
+txt contains 5032 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1220805.txt
+txt contains 4341 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1220806.txt
+txt contains 4964 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1230805.txt
+txt contains 4231 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1230806.txt
+txt contains 4964 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1240805.txt
+txt contains 4149 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1240806.txt
+txt contains 4791 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1250805.txt
+txt contains 4221 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1250806.txt
+txt contains 4920 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1260805.txt
+txt contains 4234 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1260806.txt
+txt contains 4930 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1270805.txt
+txt contains 4202 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1270806.txt
+txt contains 4886 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1280805.txt
+txt contains 4133 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1280806.txt
+txt contains 4958 docs!
+===========================================
+E:\data\SogouCA\news.allsites.130805.txt
+txt contains 4172 docs!
+===========================================
+E:\data\SogouCA\news.allsites.130806.txt
+txt contains 5102 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1310805.txt
+txt contains 4127 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1310806.txt
+txt contains 5062 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1320805.txt
+txt contains 4386 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1320806.txt
+txt contains 5005 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1330805.txt
+txt contains 4270 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1330806.txt
+txt contains 4945 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1340805.txt
+txt contains 4270 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1340806.txt
+txt contains 5000 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1350805.txt
+txt contains 4198 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1350806.txt
+txt contains 5010 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1360805.txt
+txt contains 4312 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1360806.txt
+txt contains 5041 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1370805.txt
+txt contains 4200 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1370806.txt
+txt contains 5043 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1380805.txt
+txt contains 4238 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1380806.txt
+txt contains 5023 docs!
+===========================================
+E:\data\SogouCA\news.allsites.140805.txt
+txt contains 4100 docs!
+===========================================
+E:\data\SogouCA\news.allsites.140806.txt
+txt contains 4966 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1410805.txt
+txt contains 4212 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1410806.txt
+txt contains 5057 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1420805.txt
+txt contains 4197 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1420806.txt
+txt contains 5059 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1430805.txt
+txt contains 4230 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1430806.txt
+txt contains 4946 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1440805.txt
+txt contains 4320 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1440806.txt
+txt contains 5116 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1450805.txt
+txt contains 4214 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1450806.txt
+txt contains 5018 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1460805.txt
+txt contains 4252 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1460806.txt
+txt contains 5048 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1470805.txt
+txt contains 4332 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1470806.txt
+txt contains 5009 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1480805.txt
+txt contains 4243 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1480806.txt
+txt contains 5032 docs!
+===========================================
+E:\data\SogouCA\news.allsites.150805.txt
+txt contains 4392 docs!
+===========================================
+E:\data\SogouCA\news.allsites.150806.txt
+txt contains 4995 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1510805.txt
+txt contains 4246 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1510806.txt
+txt contains 5012 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1520805.txt
+txt contains 4336 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1520806.txt
+txt contains 5025 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1530805.txt
+txt contains 4237 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1530806.txt
+txt contains 4994 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1540805.txt
+txt contains 4293 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1540806.txt
+txt contains 5064 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1550805.txt
+txt contains 4327 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1550806.txt
+txt contains 4916 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1560805.txt
+txt contains 4213 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1560806.txt
+txt contains 4888 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1570805.txt
+txt contains 4404 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1570806.txt
+txt contains 5075 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1580805.txt
+txt contains 4327 docs!
+===========================================
+E:\data\SogouCA\news.allsites.1580806.txt
+txt contains 5141 docs!
+===========================================
+E:\data\SogouCA\news.allsites.160805.txt
+txt contains 4194 docs!
+===========================================
+E:\data\SogouCA\news.allsites.160806.txt
+txt contains 4972 docs!
+===========================================
+E:\data\SogouCA\news.allsites.170805.txt
+txt contains 4253 docs!
+===========================================
+E:\data\SogouCA\news.allsites.170806.txt
+txt contains 4897 docs!
+===========================================
+E:\data\SogouCA\news.allsites.180805.txt
+txt contains 4177 docs!
+===========================================
+E:\data\SogouCA\news.allsites.180806.txt
+txt contains 4942 docs!
+===========================================
+E:\data\SogouCA\news.allsites.210805.txt
+txt contains 4266 docs!
+===========================================
+E:\data\SogouCA\news.allsites.210806.txt
+txt contains 5006 docs!
+===========================================
+E:\data\SogouCA\news.allsites.220805.txt
+txt contains 4207 docs!
+===========================================
+E:\data\SogouCA\news.allsites.220806.txt
+txt contains 5036 docs!
+===========================================
+E:\data\SogouCA\news.allsites.230805.txt
+txt contains 4166 docs!
+===========================================
+E:\data\SogouCA\news.allsites.230806.txt
+txt contains 5047 docs!
+===========================================
+E:\data\SogouCA\news.allsites.240805.txt
+txt contains 4188 docs!
+===========================================
+E:\data\SogouCA\news.allsites.240806.txt
+txt contains 5084 docs!
+===========================================
+E:\data\SogouCA\news.allsites.250805.txt
+txt contains 4305 docs!
+===========================================
+E:\data\SogouCA\news.allsites.250806.txt
+txt contains 5142 docs!
+===========================================
+E:\data\SogouCA\news.allsites.260805.txt
+txt contains 4136 docs!
+===========================================
+E:\data\SogouCA\news.allsites.260806.txt
+txt contains 4953 docs!
+===========================================
+E:\data\SogouCA\news.allsites.270805.txt
+txt contains 4207 docs!
+===========================================
+E:\data\SogouCA\news.allsites.270806.txt
+txt contains 5014 docs!
+===========================================
+E:\data\SogouCA\news.allsites.280805.txt
+txt contains 4211 docs!
+===========================================
+E:\data\SogouCA\news.allsites.280806.txt
+txt contains 5098 docs!
+===========================================
+E:\data\SogouCA\news.allsites.310805.txt
+txt contains 4251 docs!
+===========================================
+E:\data\SogouCA\news.allsites.310806.txt
+txt contains 4969 docs!
+===========================================
+E:\data\SogouCA\news.allsites.320805.txt
+txt contains 4151 docs!
+===========================================
+E:\data\SogouCA\news.allsites.320806.txt
+txt contains 4914 docs!
+===========================================
+E:\data\SogouCA\news.allsites.330805.txt
+txt contains 4251 docs!
+===========================================
+E:\data\SogouCA\news.allsites.330806.txt
+txt contains 5054 docs!
+===========================================
+E:\data\SogouCA\news.allsites.340805.txt
+txt contains 4247 docs!
+===========================================
+E:\data\SogouCA\news.allsites.340806.txt
+txt contains 4969 docs!
+===========================================
+E:\data\SogouCA\news.allsites.350805.txt
+txt contains 4283 docs!
+===========================================
+E:\data\SogouCA\news.allsites.350806.txt
+txt contains 5111 docs!
+===========================================
+E:\data\SogouCA\news.allsites.360805.txt
+txt contains 4350 docs!
+===========================================
+E:\data\SogouCA\news.allsites.360806.txt
+txt contains 4960 docs!
+===========================================
+E:\data\SogouCA\news.allsites.370805.txt
+txt contains 4158 docs!
+===========================================
+E:\data\SogouCA\news.allsites.370806.txt
+txt contains 5074 docs!
+===========================================
+E:\data\SogouCA\news.allsites.380805.txt
+txt contains 4260 docs!
+===========================================
+E:\data\SogouCA\news.allsites.380806.txt
+txt contains 4975 docs!
+===========================================
+E:\data\SogouCA\news.allsites.410805.txt
+txt contains 4234 docs!
+===========================================
+E:\data\SogouCA\news.allsites.410806.txt
+txt contains 5121 docs!
+===========================================
+E:\data\SogouCA\news.allsites.420805.txt
+txt contains 4244 docs!
+===========================================
+E:\data\SogouCA\news.allsites.420806.txt
+txt contains 5088 docs!
+===========================================
+E:\data\SogouCA\news.allsites.430805.txt
+txt contains 4068 docs!
+===========================================
+E:\data\SogouCA\news.allsites.430806.txt
+txt contains 5119 docs!
+===========================================
+E:\data\SogouCA\news.allsites.440805.txt
+txt contains 4245 docs!
+===========================================
+E:\data\SogouCA\news.allsites.440806.txt
+txt contains 5008 docs!
+===========================================
+E:\data\SogouCA\news.allsites.450805.txt
+txt contains 4130 docs!
+===========================================
+E:\data\SogouCA\news.allsites.450806.txt
+txt contains 5068 docs!
+===========================================
+E:\data\SogouCA\news.allsites.460805.txt
+txt contains 4290 docs!
+===========================================
+E:\data\SogouCA\news.allsites.460806.txt
+txt contains 5080 docs!
+===========================================
+E:\data\SogouCA\news.allsites.470805.txt
+txt contains 4274 docs!
+===========================================
+E:\data\SogouCA\news.allsites.470806.txt
+txt contains 4824 docs!
+===========================================
+E:\data\SogouCA\news.allsites.480805.txt
+txt contains 4245 docs!
+===========================================
+E:\data\SogouCA\news.allsites.480806.txt
+txt contains 5073 docs!
+===========================================
+E:\data\SogouCA\news.allsites.510805.txt
+txt contains 4324 docs!
+===========================================
+E:\data\SogouCA\news.allsites.510806.txt
+txt contains 4999 docs!
+===========================================
+E:\data\SogouCA\news.allsites.520805.txt
+txt contains 4255 docs!
+===========================================
+E:\data\SogouCA\news.allsites.520806.txt
+txt contains 5153 docs!
+===========================================
+E:\data\SogouCA\news.allsites.530805.txt
+txt contains 4383 docs!
+===========================================
+E:\data\SogouCA\news.allsites.530806.txt
+txt contains 4952 docs!
+===========================================
+E:\data\SogouCA\news.allsites.540805.txt
+txt contains 4337 docs!
+===========================================
+E:\data\SogouCA\news.allsites.540806.txt
+txt contains 5043 docs!
+===========================================
+E:\data\SogouCA\news.allsites.550805.txt
+txt contains 4214 docs!
+===========================================
+E:\data\SogouCA\news.allsites.550806.txt
+txt contains 4832 docs!
+===========================================
+E:\data\SogouCA\news.allsites.560805.txt
+txt contains 4343 docs!
+===========================================
+E:\data\SogouCA\news.allsites.560806.txt
+txt contains 4992 docs!
+===========================================
+E:\data\SogouCA\news.allsites.570805.txt
+txt contains 4193 docs!
+===========================================
+E:\data\SogouCA\news.allsites.570806.txt
+txt contains 5043 docs!
+===========================================
+E:\data\SogouCA\news.allsites.580805.txt
+txt contains 4324 docs!
+===========================================
+E:\data\SogouCA\news.allsites.580806.txt
+txt contains 4980 docs!
+===========================================
+E:\data\SogouCA\news.allsites.610805.txt
+txt contains 4216 docs!
+===========================================
+E:\data\SogouCA\news.allsites.610806.txt
+txt contains 5028 docs!
+===========================================
+E:\data\SogouCA\news.allsites.620805.txt
+txt contains 4248 docs!
+===========================================
+E:\data\SogouCA\news.allsites.620806.txt
+txt contains 5035 docs!
+===========================================
+E:\data\SogouCA\news.allsites.630805.txt
+txt contains 4231 docs!
+===========================================
+E:\data\SogouCA\news.allsites.630806.txt
+txt contains 4978 docs!
+===========================================
+E:\data\SogouCA\news.allsites.640805.txt
+txt contains 4296 docs!
+===========================================
+E:\data\SogouCA\news.allsites.640806.txt
+txt contains 4938 docs!
+===========================================
+E:\data\SogouCA\news.allsites.650805.txt
+txt contains 4247 docs!
+===========================================
+E:\data\SogouCA\news.allsites.650806.txt
+txt contains 5126 docs!
+===========================================
+E:\data\SogouCA\news.allsites.660805.txt
+txt contains 4157 docs!
+===========================================
+E:\data\SogouCA\news.allsites.660806.txt
+txt contains 5006 docs!
+===========================================
+E:\data\SogouCA\news.allsites.670805.txt
+txt contains 4282 docs!
+===========================================
+E:\data\SogouCA\news.allsites.670806.txt
+txt contains 4982 docs!
+===========================================
+E:\data\SogouCA\news.allsites.680805.txt
+txt contains 4227 docs!
+===========================================
+E:\data\SogouCA\news.allsites.680806.txt
+txt contains 5012 docs!
+===========================================
+E:\data\SogouCA\news.allsites.710805.txt
+txt contains 4322 docs!
+===========================================
+E:\data\SogouCA\news.allsites.710806.txt
+txt contains 4964 docs!
+===========================================
+E:\data\SogouCA\news.allsites.720805.txt
+txt contains 4297 docs!
+===========================================
+E:\data\SogouCA\news.allsites.720806.txt
+txt contains 5063 docs!
+===========================================
+E:\data\SogouCA\news.allsites.730805.txt
+txt contains 4258 docs!
+===========================================
+E:\data\SogouCA\news.allsites.730806.txt
+txt contains 5061 docs!
+===========================================
+E:\data\SogouCA\news.allsites.740805.txt
+txt contains 4373 docs!
+===========================================
+E:\data\SogouCA\news.allsites.740806.txt
+txt contains 5083 docs!
+===========================================
+E:\data\SogouCA\news.allsites.750805.txt
+txt contains 4298 docs!
+===========================================
+E:\data\SogouCA\news.allsites.750806.txt
+txt contains 5033 docs!
+===========================================
+E:\data\SogouCA\news.allsites.760805.txt
+txt contains 4209 docs!
+===========================================
+E:\data\SogouCA\news.allsites.760806.txt
+txt contains 5051 docs!
+===========================================
+E:\data\SogouCA\news.allsites.770805.txt
+txt contains 4260 docs!
+===========================================
+E:\data\SogouCA\news.allsites.770806.txt
+txt contains 5036 docs!
+===========================================
+E:\data\SogouCA\news.allsites.780805.txt
+txt contains 4216 docs!
+===========================================
+E:\data\SogouCA\news.allsites.780806.txt
+txt contains 5000 docs!
+===========================================
+E:\data\SogouCA\news.allsites.810805.txt
+txt contains 4175 docs!
+===========================================
+E:\data\SogouCA\news.allsites.810806.txt
+txt contains 5152 docs!
+===========================================
+E:\data\SogouCA\news.allsites.820805.txt
+txt contains 4282 docs!
+===========================================
+E:\data\SogouCA\news.allsites.820806.txt
+txt contains 5025 docs!
+===========================================
+E:\data\SogouCA\news.allsites.830805.txt
+txt contains 4277 docs!
+===========================================
+E:\data\SogouCA\news.allsites.830806.txt
+txt contains 4987 docs!
+===========================================
+E:\data\SogouCA\news.allsites.840805.txt
+txt contains 4270 docs!
+===========================================
+E:\data\SogouCA\news.allsites.840806.txt
+txt contains 5062 docs!
+===========================================
+E:\data\SogouCA\news.allsites.850805.txt
+txt contains 4137 docs!
+===========================================
+E:\data\SogouCA\news.allsites.850806.txt
+txt contains 5003 docs!
+===========================================
+E:\data\SogouCA\news.allsites.860805.txt
+txt contains 4276 docs!
+===========================================
+E:\data\SogouCA\news.allsites.860806.txt
+txt contains 4949 docs!
+===========================================
+E:\data\SogouCA\news.allsites.870805.txt
+txt contains 4083 docs!
+===========================================
+E:\data\SogouCA\news.allsites.870806.txt
+txt contains 5066 docs!
+===========================================
+E:\data\SogouCA\news.allsites.880805.txt
+txt contains 4122 docs!
+===========================================
+E:\data\SogouCA\news.allsites.880806.txt
+txt contains 4961 docs!
+===========================================
+E:\data\SogouCA\news.allsites.910805.txt
+txt contains 4158 docs!
+===========================================
+E:\data\SogouCA\news.allsites.910806.txt
+txt contains 5169 docs!
+===========================================
+E:\data\SogouCA\news.allsites.920805.txt
+txt contains 4172 docs!
+===========================================
+E:\data\SogouCA\news.allsites.920806.txt
+txt contains 5006 docs!
+===========================================
+E:\data\SogouCA\news.allsites.930805.txt
+txt contains 4320 docs!
+===========================================
+E:\data\SogouCA\news.allsites.930806.txt
+txt contains 5008 docs!
+===========================================
+E:\data\SogouCA\news.allsites.940805.txt
+txt contains 4273 docs!
+===========================================
+E:\data\SogouCA\news.allsites.940806.txt
+txt contains 5083 docs!
+===========================================
+E:\data\SogouCA\news.allsites.950805.txt
+txt contains 4109 docs!
+===========================================
+E:\data\SogouCA\news.allsites.950806.txt
+txt contains 4926 docs!
+===========================================
+E:\data\SogouCA\news.allsites.960805.txt
+txt contains 4230 docs!
+===========================================
+E:\data\SogouCA\news.allsites.960806.txt
+txt contains 4982 docs!
+===========================================
+E:\data\SogouCA\news.allsites.970805.txt
+txt contains 4183 docs!
+===========================================
+E:\data\SogouCA\news.allsites.970806.txt
+txt contains 5154 docs!
+===========================================
+E:\data\SogouCA\news.allsites.980805.txt
+txt contains 4199 docs!
+===========================================
+E:\data\SogouCA\news.allsites.980806.txt
+txt contains 4905 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.0107.txt
+txt contains 2391 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.0207.txt
+txt contains 2589 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.0307.txt
+txt contains 2497 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.0407.txt
+txt contains 2481 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.0507.txt
+txt contains 2429 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.0607.txt
+txt contains 2590 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.0707.txt
+txt contains 2443 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.0807.txt
+txt contains 2547 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.10107.txt
+txt contains 2435 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.10207.txt
+txt contains 2568 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.10307.txt
+txt contains 2434 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.10407.txt
+txt contains 2510 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.10507.txt
+txt contains 2448 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.10607.txt
+txt contains 2390 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.10707.txt
+txt contains 2526 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.10807.txt
+txt contains 2481 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.1107.txt
+txt contains 2361 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.11107.txt
+txt contains 2454 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.11207.txt
+txt contains 2435 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.11307.txt
+txt contains 2407 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.11407.txt
+txt contains 2470 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.11507.txt
+txt contains 2557 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.11607.txt
+txt contains 2402 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.11707.txt
+txt contains 2516 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.11807.txt
+txt contains 2408 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.1207.txt
+txt contains 2558 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.12107.txt
+txt contains 2521 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.12207.txt
+txt contains 2402 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.12307.txt
+txt contains 2519 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.12407.txt
+txt contains 2482 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.12507.txt
+txt contains 2467 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.12607.txt
+txt contains 2443 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.12707.txt
+txt contains 2372 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.12807.txt
+txt contains 2534 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.1307.txt
+txt contains 2497 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.13107.txt
+txt contains 2413 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.13207.txt
+txt contains 2451 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.13307.txt
+txt contains 2532 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.13407.txt
+txt contains 2483 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.13507.txt
+txt contains 2524 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.13607.txt
+txt contains 2552 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.13707.txt
+txt contains 2453 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.13807.txt
+txt contains 2548 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.1407.txt
+txt contains 2431 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.14107.txt
+txt contains 2462 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.14207.txt
+txt contains 2639 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.14307.txt
+txt contains 2492 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.14407.txt
+txt contains 2390 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.14507.txt
+txt contains 2494 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.14607.txt
+txt contains 2527 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.14707.txt
+txt contains 2400 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.14807.txt
+txt contains 2427 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.1507.txt
+txt contains 2485 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.15107.txt
+txt contains 2442 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.15207.txt
+txt contains 2481 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.15307.txt
+txt contains 2546 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.15407.txt
+txt contains 2456 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.15507.txt
+txt contains 2577 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.15607.txt
+txt contains 2490 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.15707.txt
+txt contains 2415 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.15807.txt
+txt contains 2463 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.1607.txt
+txt contains 2532 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.1707.txt
+txt contains 2443 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.1807.txt
+txt contains 2505 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.2107.txt
+txt contains 2521 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.2207.txt
+txt contains 2454 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.2307.txt
+txt contains 2454 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.2407.txt
+txt contains 2499 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.2507.txt
+txt contains 2508 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.2607.txt
+txt contains 2573 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.2707.txt
+txt contains 2444 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.2807.txt
+txt contains 2492 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.3107.txt
+txt contains 2397 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.3207.txt
+txt contains 2419 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.3307.txt
+txt contains 2551 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.3407.txt
+txt contains 2410 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.3507.txt
+txt contains 2456 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.3607.txt
+txt contains 2457 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.3707.txt
+txt contains 2489 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.3807.txt
+txt contains 2552 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.4107.txt
+txt contains 2619 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.4207.txt
+txt contains 2458 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.4307.txt
+txt contains 2500 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.4407.txt
+txt contains 2434 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.4507.txt
+txt contains 2485 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.4607.txt
+txt contains 2548 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.4707.txt
+txt contains 2577 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.4807.txt
+txt contains 2562 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.5107.txt
+txt contains 2544 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.5207.txt
+txt contains 2486 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.5307.txt
+txt contains 2515 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.5407.txt
+txt contains 2498 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.5507.txt
+txt contains 2484 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.5607.txt
+txt contains 2409 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.5707.txt
+txt contains 2456 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.5807.txt
+txt contains 2445 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.6107.txt
+txt contains 2472 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.6207.txt
+txt contains 2563 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.6307.txt
+txt contains 2477 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.6407.txt
+txt contains 2474 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.6507.txt
+txt contains 2488 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.6607.txt
+txt contains 2492 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.6707.txt
+txt contains 2519 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.6807.txt
+txt contains 2403 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.7107.txt
+txt contains 2420 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.7207.txt
+txt contains 2493 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.7307.txt
+txt contains 2404 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.7407.txt
+txt contains 2490 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.7507.txt
+txt contains 2459 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.7607.txt
+txt contains 2445 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.7707.txt
+txt contains 2468 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.7807.txt
+txt contains 2483 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.8107.txt
+txt contains 2539 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.8207.txt
+txt contains 2502 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.8307.txt
+txt contains 2456 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.8407.txt
+txt contains 2462 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.8507.txt
+txt contains 2456 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.8607.txt
+txt contains 2477 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.8707.txt
+txt contains 2515 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.8807.txt
+txt contains 2589 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.9107.txt
+txt contains 2461 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.9207.txt
+txt contains 2447 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.9307.txt
+txt contains 2515 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.9407.txt
+txt contains 2437 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.9507.txt
+txt contains 2448 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.9607.txt
+txt contains 2483 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.9707.txt
+txt contains 2605 docs!
+===========================================
+E:\data\SogouCA\news.allsites.sports.9807.txt
+txt contains 2447 docs!
