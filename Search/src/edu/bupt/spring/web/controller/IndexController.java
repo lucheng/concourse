@@ -1,10 +1,15 @@
 package edu.bupt.spring.web.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import edu.bupt.spring.entity.Entry;
 
 import ICTCLAS.kevin.zhang.CWSTagger;
 
@@ -37,4 +42,18 @@ public class IndexController extends BaseController {
         return new ModelAndView("index").addObject("entity", test);
     }
     
+    @RequestMapping(value = "/create")
+    public ModelAndView create(){
+        return new ModelAndView("create");
+    }
+    
+    @RequestMapping(value = "/create",method=RequestMethod.POST)
+    public String create(@Valid Entry entry,BindingResult binding){
+    	
+    	if(binding.hasErrors()) {
+			return "error";
+		}
+//		users.put(user.getUsername(), user);
+        return "show";
+    }
 }
