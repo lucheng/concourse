@@ -1,12 +1,9 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!-- saved from url=(0042)http://renlifang.msra.cn/view.aspx?id=1429 -->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-   
-    
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <style type="text/css">
         *
         {
@@ -110,14 +107,13 @@
                 <div class="basicInfoFooter">
                 </div>
             </div>
-
             <!--关人物关系图-->
             <div class="leftPanelHeader">
-                <div class="leftPanelHeaderText">
-                    人物关系图</div>
+                <div class="leftPanelHeaderText">人物关系图</div>
                 <div class="leftPanelHeaderTool">
-                    
-                    <a href="#" onclick="return bigGraph();"><span class="leftPanelMoreTool"></span></a>
+                    <a href="#" onclick="return bigGraph();">
+                    	<span class="leftPanelMoreTool"></span>
+                    </a>
                 </div>
             </div>
             <div class="leftPanelContent">
@@ -132,7 +128,6 @@
                         <param value="asset/visualizeSearchViewConfig.xml" name="configUrl">
                         <param value="isSearch=true&amp;configUrl=asset/visualizeSearchViewConfig.xml&amp;query=1429:e4fbddf131c7bbbc42db699f38893b7b" name="FlashVars">
                         <embed src="asset/visualizedSearch.swf" quality="high" bgcolor="#000000" width="312px" height="312px" name="visualizedSearch" align="middle" play="true" loop="false" vmode="Opaque" allowscriptaccess="sameDomain" type="application/x-shockwave-flash" flashvars="isSearch=true&amp;configUrl=asset/visualizeSearchViewConfig.xml&amp;query=1429:e4fbddf131c7bbbc42db699f38893b7b" pluginspage="http://www.macromedia.com/go/getflashplayer">
-                         
                     </object>
                 --%></div>
             </div>
