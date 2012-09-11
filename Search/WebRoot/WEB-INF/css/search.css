@@ -1,0 +1,161 @@
+﻿/* CSS Document */
+.content-wrapper {
+    clear: both;
+    display: block;
+    margin: 0 auto;
+    padding-top: 25px;
+    width: 1000px;
+}
+
+.content-wrapper .left-wrapper {
+    float: left;
+    width: 220px;
+}
+
+.tab-main
+{
+    padding-bottom: 0px;
+    line-height: 1.8em;
+    background-color: #666;
+    margin: 0px 0px 10px;
+    padding-left: 10px;
+    padding-right: 0px;
+    color: #fff;
+    font-size: 1.2em;
+    overflow: hidden;
+    padding-top: 5px;
+}
+
+.tab-main .title {
+    color: #FFFFFF;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 0 25px 0 10px;
+}
+
+.tab-main .active {
+    background-color: #FFFFFF;
+    color: #074363;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+.tab-main a {
+    background-color: #999999;
+    color: #FFFFFF;
+    padding: 5px 10px;
+}
+
+.tab-main A:visited
+{
+    text-decoration: none;
+}
+
+.search-category {
+    font-size: 1.2em;
+    margin: 0 0 10px;
+    vertical-align: middle;
+}
+
+.search-category .query
+{
+    font-weight:bold;
+}
+
+.search-category-arrow {
+    height: 12px;
+    margin: 0 5px 0 0;
+}
+
+.identity-photo-column {
+    float: left;
+    overflow: hidden;
+    padding: 5px;
+}
+
+.identity-photo-column > img
+{
+    height:39px;
+    width:39px;
+}
+
+.basicInfoWrapper {
+  float: left;
+  height: 124px;
+  width: 328px;
+}
+
+.basicInfoCreateNew
+{
+    display:block;
+}
+
+.generalDisplayTitleLine {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  margin-top: 20px;
+  font-family: 微软雅黑;
+}
+
+.generalDisplayTitleLine .parent {
+  color: #84ACD1;
+}
+
+/* -----------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.cardPaneWrap
+{
+   height: 88px; 
+   background-color: #EEF7FF; 
+   border-bottom: 1px solid #B4C4D4;
+   margin-bottom:13px;
+}
+
+
+.content-wrapper .template2-left-wrapper
+{
+    width: 230px;
+    float: left;
+}
+.cardWrap
+{
+    width: 1000px; 
+    margin: 0 auto; 
+    padding: 6px 0 6px 0;
+}
+#MainContentHead_createWikiLink
+{
+    float:left;
+}
+Div.SmallBusinessCardBorder
+{
+    width: 184px;
+    height: 76px;
+    background: url(images/searchCard.png) no-repeat;
+    float: left;
+    margin-right: 5px;
+}
+a.cardName{
+    font-size: 14px; 
+    font-weight: bold; 
+    float:left;
+    color:#0044cd;
+    padding-top: 3px;
+}
+
+
+
