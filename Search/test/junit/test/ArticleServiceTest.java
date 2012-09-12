@@ -15,10 +15,8 @@ import edu.bupt.corpus.sogou.CategoryDetector;
 import edu.bupt.corpus.sogou.DocBean;
 import edu.bupt.corpus.sogou.FileListViewer;
 import edu.bupt.corpus.sogou.FileUtil;
-import edu.bupt.corpus.sogou.SogouDBManager;
 import edu.bupt.spring.entity.Article;
 import edu.bupt.spring.service.ArticleService;
-import edu.bupt.utils.FileUtils;
 
 
 public class ArticleServiceTest {
@@ -149,13 +147,13 @@ public class ArticleServiceTest {
 					
 					articleService.save(article);
 					
-					String fileName = System.currentTimeMillis() + ".txt";
-					FileUtils.writeFile("E:/data/title/" + fileName, docbean.getTitle());
-					FileUtils.writeFile("E:/data/content/" + fileName, docbean.getContent());
+//					String fileName = System.currentTimeMillis() + ".txt";
+//					FileUtils.writeFile("E:/data/title/" + fileName, docbean.getTitle());
+//					FileUtils.writeFile("E:/data/content/" + fileName, docbean.getContent());
 				}
 			} catch (Exception e) {
 				System.out.println("插入newsbean时,Sql语句执行错误!");
-				System.out.println("内容是:" + docbean.getContent());
+//				System.out.println("内容是:" + docbean.getContent());
 //				e.printStackTrace();
 				continue;
 			}

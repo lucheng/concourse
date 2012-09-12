@@ -7,7 +7,6 @@ import java.util.Map;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -30,6 +29,7 @@ public class Entry extends BaseEntity {
 
 	private String title;// 标题
 	private String alias;// 别名
+	private String pos; //词性
 	private String summary;// 摘要
 	private String property; //属性
 	private String url;// 链接
@@ -56,6 +56,14 @@ public class Entry extends BaseEntity {
 	public void setAlias(String alias) {
 		this.alias = alias;
 	}
+	
+	public String getPos() {
+		return pos;
+	}
+	public void setPos(String pos) {
+		this.pos = pos;
+	}
+	
 	public String getSummary() {
 		return summary;
 	}
