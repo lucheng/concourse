@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.bupt.spring.entity.Article;
-import edu.bupt.spring.entity.ArticleCategory;
-import edu.bupt.spring.service.ArticleCategoryService;
 import edu.bupt.spring.service.ArticleService;
 
 /**
@@ -34,10 +32,6 @@ public class ArticleController extends BaseController{
     @Qualifier("articleServiceImpl")
 	private ArticleService articleService;
 	
-	@Autowired
-    @Qualifier("articleCategoryServiceImpl")
-	private ArticleCategoryService articleCategoryService;
-	
 	@RequestMapping(value = "/article/list")
     public ModelAndView list(HttpServletRequest request){
 		
@@ -51,50 +45,42 @@ public class ArticleController extends BaseController{
     
     @RequestMapping(value = "/article/add", method = {RequestMethod.GET})
     public String add(Model model, HttpServletRequest request){
-    	request.setAttribute("parentCategories", articleService.findFirdLevel());	
     	return "article/input";
     }
     
     @RequestMapping(value = "/article/save", method = {RequestMethod.POST})
     public String save(@ModelAttribute("article") Article article, int articleCategory_id) {
     	
-    	ArticleCategory articleCategory = articleCategoryService.find(articleCategory_id);
-    	article.setArticleCategory(articleCategory);
-    	
-    	if(article.getHits() == null){
-    		article.setHits(0);
-    	}
-    	if(article.getId() > 0){
+    	/*if(article.getId() > 0){
     		articleService.update(article);
         }else {
         	articleService.save(article);
-        }
+        }*/
         return "redirect:/article/list";
     }
     
-    @RequestMapping(value = "/article/edit/{id}", method = {RequestMethod.GET})
+    /*@RequestMapping(value = "/article/edit/{id}", method = {RequestMethod.GET})
     public String edit(@PathVariable Integer id, HttpServletRequest request) {
         
     	Article article = articleService.find(id);
     	 
     	 request.setAttribute("entity", article);
-         request.setAttribute("parentCategories", articleService.findFirdLevel());
          return "article/input";
-    }
+    }*/
     
-    @RequestMapping(value = "/article/update", method = {RequestMethod.POST})
+    /*@RequestMapping(value = "/article/update", method = {RequestMethod.POST})
     public String update(@ModelAttribute("article") Article article, HttpServletRequest request) {
         
     	articleService.update(article);
         return "redirect:/article/list";
-    }
+    }*/
     
-    @RequestMapping(value = "/article/delete/{id}", method = {RequestMethod.GET})
+    /*@RequestMapping(value = "/article/delete/{id}", method = {RequestMethod.GET})
     public String delete(@ModelAttribute("article") Article article, HttpServletRequest request) {
         
     	articleService.delete(article.getId());
         return "redirect:/article/list";
-    }
+    }*/
     
     
 }

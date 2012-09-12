@@ -4,7 +4,6 @@ import java.util.List;
 
 import edu.bupt.spring.base.DAO;
 import edu.bupt.spring.entity.Article;
-import edu.bupt.spring.entity.ArticleCategory;
 
 /**
  * 
@@ -18,5 +17,4 @@ import edu.bupt.spring.entity.ArticleCategory;
 public interface ArticleService extends DAO<Article> {
 
 	public List<Article> findAll();
-	public List<ArticleCategory> findFirdLevel();
 }

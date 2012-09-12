@@ -37,9 +37,8 @@ public class IndexController extends BaseController {
     @RequestMapping(value = "/index")
     public ModelAndView index(HttpServletRequest request){
     	
-    	CWSTagger tagger = new CWSTagger();
-    	String test = tagger.tag("张华平2009年底调入北京理工大学计算机学院。", 1);
-        return new ModelAndView("index").addObject("entity", test);
+    	
+        return new ModelAndView("index").addObject("entity", "");
     }
     
     @RequestMapping(value = "/create")
