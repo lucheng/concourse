@@ -1,42 +1,16 @@
 package edu.bupt.spring.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
-
-import org.apache.commons.lang.StringUtils;
-import org.htmlparser.Node;
-import org.htmlparser.NodeFilter;
-import org.htmlparser.Parser;
-import org.htmlparser.filters.NodeClassFilter;
-import org.htmlparser.filters.OrFilter;
-import org.htmlparser.tags.Bullet;
-import org.htmlparser.tags.BulletList;
-import org.htmlparser.tags.DefinitionList;
-import org.htmlparser.tags.DefinitionListBullet;
-import org.htmlparser.tags.Div;
-import org.htmlparser.tags.ParagraphTag;
-import org.htmlparser.tags.TableTag;
-import org.htmlparser.util.NodeList;
-import org.htmlparser.util.ParserException;
-import org.htmlparser.visitors.TextExtractingVisitor;
-
-import edu.bupt.spring.utils.CommonUtil;
 
 /**
  * 文章
@@ -60,15 +34,7 @@ public class Article extends BaseEntity{
 	private String newsUrl;// 页面关键词
 	private String category;// 页面描述
 	
-	private Relation relation;
-	
-	@OneToOne(cascade={CascadeType.MERGE,CascadeType.REFRESH},mappedBy="article")
-	public Relation getRelation() {
-		return relation;
-	}
-	public void setRelation(Relation relation) {
-		this.relation = relation;
-	}
+	private Set<Relation> relations = new HashSet<Relation>();
 	
 	@Column(unique = true)
 	public String getNewsno() {
@@ -112,4 +78,11 @@ public class Article extends BaseEntity{
 		this.category = category;
 	}
 	
+	@OneToMany(mappedBy = "article", fetch = FetchType.LAZY,cascade={CascadeType.MERGE,CascadeType.PERSIST})
+	public Set<Relation> getRelations() {
+		return relations;
+	}
+	public void setRelations(Set<Relation> relations) {
+		this.relations = relations;
+	}
 }

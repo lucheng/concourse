@@ -136,7 +136,11 @@ public class CWSTagger {
 		CWSTagger tagger = new CWSTagger();
 //		System.out.println(tagger.tag("Ｚａｃｋｓ重申空中网持有评级 　目标股价５美元", 1));
 		
-		List<String> filelist = new ArrayList<String>();
+		String content = FileUtils.readText("E:/data/content/1347260299274.txt");
+		String tagged = tagger.tag(BCConvert.qj2bj(content), 1);
+		System.out.println(tagged);
+		
+		/*List<String> filelist = new ArrayList<String>();
 		
 		FileUtils.fetchFileList("E:/data/title", filelist, ".txt");
 		for(String file : filelist){
@@ -147,7 +151,7 @@ public class CWSTagger {
 		}
 		tagger.exit();
 		
-		FileUtils.mergeFiles("E:/data/title_seg", "E:/data/title_seg.txt");
+		FileUtils.mergeFiles("E:/data/title_seg", "E:/data/title_seg.txt");*/
 	}
 	
 }

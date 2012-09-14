@@ -99,6 +99,8 @@ LG org
 国美 org
 苏泊尔 org
 慧点科技 org
+中石油 org
+中石化 org
 创维 org
 建行 org
 网通 org
@@ -127,7 +129,9 @@ Android nz
 MSN nz
 QQ nz
 郭台铭	nr
-盖茨		nr
+盖茨	nr
+沃伦·巴菲特	nr
+巴菲特	nr
 乔布斯	nr
 鲍尔默	nr
 杨致远	nr

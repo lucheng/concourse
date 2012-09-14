@@ -1,17 +1,26 @@
 package edu.bupt.spring.web.controller;
 
+import java.util.List;
+
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.bupt.spring.entity.Entry;
-
-import ICTCLAS.kevin.zhang.CWSTagger;
+import edu.bupt.spring.entity.Query;
+import edu.bupt.spring.entity.Relation;
+import edu.bupt.spring.service.ArticleService;
+import edu.bupt.spring.service.EntryService;
+import edu.bupt.spring.service.RelationService;
 
 /**
  * 
@@ -26,15 +35,33 @@ import ICTCLAS.kevin.zhang.CWSTagger;
 @Controller("indexController")
 public class IndexController extends BaseController {
     
-    @RequestMapping(value = "/view")
-    public ModelAndView view(HttpServletRequest request){
+	@Autowired
+    @Qualifier("relationServiceImpl")
+	private RelationService relationService;
+	
+//	@Resource(name="introductionServiceBean")private IntroductionService introductionService;
+	/*@Autowired
+    @Qualifier("articleServiceImpl")
+	private static ArticleService articleService;*/
+	
+	@Autowired
+    @Qualifier("entryServiceImpl")
+	private EntryService entryService;
+	
+    @RequestMapping(value="/view",method=RequestMethod.POST)
+    public String view(@Valid Query query, ModelMap map){
     	
-    	CWSTagger tagger = new CWSTagger();
-    	String test = tagger.tag("张华平2009年底调入北京理工大学计算机学院。", 1);
-        return new ModelAndView("view").addObject("entity", test);
+    	System.out.println(query.getQuery());
+//    	Entry entry = entryService.find(1);
+    	Entry entry = entryService.findByTitle(query.getQuery());
+    	List<Relation> relations = relationService.findByEntry(entry);
+    	map.put("entry", entry);
+    	map.put("relations", relations);
+        
+    	return "view";
     }
     
-    @RequestMapping(value = "/index")
+    @RequestMapping(value="/index")
     public ModelAndView index(HttpServletRequest request){
     	
     	

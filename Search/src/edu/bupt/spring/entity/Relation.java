@@ -4,7 +4,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -28,7 +28,7 @@ public class Relation extends BaseEntity {
 	private Entry entry;
 	private double relationship;
 	
-	@OneToOne(optional=false,cascade={CascadeType.ALL})  
+	@ManyToOne(optional=false,cascade={CascadeType.REFRESH})  
     @JoinColumn(name="article_id")
 	public Article getArticle() {
 		return article;
@@ -37,7 +37,7 @@ public class Relation extends BaseEntity {
 		this.article = article;
 	}
 	
-	@OneToOne(optional=false,cascade={CascadeType.ALL})  
+	@ManyToOne(optional=false,cascade={CascadeType.REFRESH})  
     @JoinColumn(name="entry_id")
 	public Entry getEntry() {
 		return entry;

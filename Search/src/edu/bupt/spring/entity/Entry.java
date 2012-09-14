@@ -1,12 +1,16 @@
 package edu.bupt.spring.entity;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -34,18 +38,20 @@ public class Entry extends BaseEntity {
 	private String property; //属性
 	private String url;// 链接
 	
-	private Relation relation;
+	private Set<Relation> relations = new HashSet<Relation>();
 	
-	@OneToOne(cascade={CascadeType.MERGE,CascadeType.REFRESH},mappedBy="entry")
-	public Relation getRelation() {
-		return relation;
-	}
-	public void setRelation(Relation relation) {
-		this.relation = relation;
-	}
-	@Column(nullable = false)
+	
+	@Column(nullable = false,unique=true)
 	public String getTitle() {
 		return title;
+	}
+	
+	@OneToMany(mappedBy = "entry",fetch=FetchType.LAZY,cascade={CascadeType.ALL})
+	public Set<Relation> getRelations() {
+		return relations;
+	}
+	public void setRelations(Set<Relation> relations) {
+		this.relations = relations;
 	}
 	public void setTitle(String title) {
 		this.title = title;

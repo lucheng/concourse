@@ -4,6 +4,7 @@ import java.util.List;
 
 import edu.bupt.spring.base.DAO;
 import edu.bupt.spring.entity.Entry;
+import edu.bupt.spring.entity.Relation;
 
 /**
  * 
@@ -14,7 +15,8 @@ import edu.bupt.spring.entity.Entry;
  * @version 1.0
  *
  */
-public interface EntryService extends DAO<Entry> {
+public interface RelationService extends DAO<Relation> {
 
-	public Entry findByTitle(String title);
+	public List<Relation> findByEntry(Entry entry);
+
 }

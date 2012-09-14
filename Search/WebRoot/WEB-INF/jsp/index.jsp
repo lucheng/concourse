@@ -42,19 +42,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	            
 		    <div class="index-search-bar">
 		        <div id="MainContent_Panel1" onkeypress="">
-					<form action="<%=path%>/view" method="get">
+					<form:form action="view" method="post" modelAttribute="query">
 		            <div class="index-search-panel">
 		                <div class="index-search-input-wrapper">
 		                    <div class="index-search-input-box-wrapper">
-		                        <input name="q" type="text" id="MainContent_HomepageSearchTextBox" class="index-search-input" title="输入中文关键词，如：张亚勤，比尔-盖茨，兵乓球，微软亚洲研究院">
+		                        <input name="query" type="text" class="index-search-input" title="输入中文关键词，如：张亚勤，比尔-盖茨，兵乓球，微软亚洲研究院"/>
 		                    </div>
-		                    <input type="submit" name="ctl00$MainContent$HomepageSearchButton" value="" id="MainContent_HomepageSearchButton" class="index-search-btn" alt="搜索" title="搜索">
-		                    <input type="submit" name="ctl00$MainContent$HomepageCreateButton" value="" id="MainContent_HomepageCreateButton" class="index-create-btn" alt="创建词条" title="创建词条">
+		                    <input type="submit" value="" id="MainContent_HomepageSearchButton" class="index-search-btn" alt="搜索" title="搜索"/>
+		                    <input type="submit" value="" id="MainContent_HomepageCreateButton" class="index-create-btn" alt="创建词条" title="创建词条">
 		                </div>
 		                <div class="index-search-readme">
 		                    <a href="#">使用须知</a></div>
 		            </div>
-		        	</form>
+		        	</form:form>
 				</div>
 		    </div>
 			    <div class="index-content-wrapper">
