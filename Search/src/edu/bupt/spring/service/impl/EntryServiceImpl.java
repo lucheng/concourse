@@ -14,12 +14,15 @@ public class EntryServiceImpl extends DaoSupport<Entry> implements EntryService 
 	@Override
 	public Entry findByTitle(String title) {
 		
+		Entry entry = null;
 		try{
-			Query query = em.createQuery("select o from Entry o where o.title='"+ title +"'");
-			return (Entry) query.getSingleResult();
+			Query query = em.createQuery("select o from Entry o where o.title='?1'");
+			query.setParameter(1, title);
+			entry = (Entry) query.getSingleResult();
 		}catch(Exception e){
-			return null;
+			e.printStackTrace();
 		}
+		return entry;
 	}
 	
 }

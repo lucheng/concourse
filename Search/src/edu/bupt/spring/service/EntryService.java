@@ -1,7 +1,5 @@
 package edu.bupt.spring.service;
 
-import java.util.List;
-
 import edu.bupt.spring.base.DAO;
 import edu.bupt.spring.entity.Entry;
 

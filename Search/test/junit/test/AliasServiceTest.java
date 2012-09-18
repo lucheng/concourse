@@ -8,35 +8,33 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import edu.bupt.spring.entity.Alias;
-import edu.bupt.spring.entity.Entry;
+import edu.bupt.spring.entity.Relation;
 import edu.bupt.spring.service.AliasService;
-import edu.bupt.spring.service.EntryService;
 import edu.bupt.utils.FileUtils;
 
 
-public class EntryServiceTest {
+public class AliasServiceTest {
 	
-	private static EntryService entryService;
 	private static AliasService aliasService;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		try {
 			AbstractApplicationContext cxt = new ClassPathXmlApplicationContext("spring-applicationContext.xml");
-			entryService = (EntryService)cxt.getBean("entryServiceImpl");
 			aliasService = (AliasService)cxt.getBean("aliasServiceImpl");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	/*@Test
+	@Test
 	public void testFind(){
 		
-		Entry entry = entryService.findByTitle("英特尔");
+		Alias alias = aliasService.findByTitle("英特尔");
     	
-    	System.out.println(entry.getTitle());
-	}*/
+    	System.out.println(alias.getTitle());
+//    	List<Relation> relations = relationService.findByAlias(alias);
+	}
 	
 	@Test
 	public void testSave() {
@@ -46,7 +44,7 @@ public class EntryServiceTest {
 			String value = str.substring(0, str.lastIndexOf("|"));
 			String pos = str.substring(str.lastIndexOf("|")+1, str.length());
 			
-			Entry entry = new Entry();
+			Alias entry = new Alias();
 			entry.setTitle(value);
 			entry.setPos(pos);
 			

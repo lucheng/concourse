@@ -4,7 +4,6 @@ import java.util.List;
 
 import edu.bupt.spring.base.DAO;
 import edu.bupt.spring.entity.Alias;
-import edu.bupt.spring.entity.Relation;
 
 /**
  * 
@@ -15,8 +14,7 @@ import edu.bupt.spring.entity.Relation;
  * @version 1.0
  *
  */
-public interface RelationService extends DAO<Relation> {
+public interface AliasService extends DAO<Alias> {
 
-	public List<Relation> findByAlias(Alias alias);
-
+	public Alias findByTitle(String title);
 }

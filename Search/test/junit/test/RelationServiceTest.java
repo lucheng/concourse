@@ -14,10 +14,10 @@ import edu.bupt.nlp.textrank.Extractor;
 import edu.bupt.nlp.textrank.TextRankExtractor;
 import edu.bupt.nlp.textrank.Word;
 import edu.bupt.spring.entity.Article;
-import edu.bupt.spring.entity.Entry;
+import edu.bupt.spring.entity.Alias;
 import edu.bupt.spring.entity.Relation;
 import edu.bupt.spring.service.ArticleService;
-import edu.bupt.spring.service.EntryService;
+import edu.bupt.spring.service.AliasService;
 import edu.bupt.spring.service.RelationService;
 
 
@@ -25,7 +25,7 @@ public class RelationServiceTest {
 	
 	private static RelationService relationService;
 	private static ArticleService articleService;
-	private static EntryService entryService;
+	private static AliasService aliasService;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -33,7 +33,7 @@ public class RelationServiceTest {
 			AbstractApplicationContext cxt = new ClassPathXmlApplicationContext("spring-applicationContext.xml");
 			relationService = (RelationService)cxt.getBean("relationServiceImpl");
 			articleService = (ArticleService)cxt.getBean("articleServiceImpl");
-			entryService = (EntryService)cxt.getBean("entryServiceImpl");
+			aliasService = (AliasService)cxt.getBean("aliasServiceImpl");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -42,8 +42,8 @@ public class RelationServiceTest {
 	@Test
 	public void testFind(){
 		
-		Entry entry = entryService.findByTitle("英特尔");
-    	List<Relation> relations = relationService.findByEntry(entry);
+		Alias entry = aliasService.findByTitle("英特尔");
+    	List<Relation> relations = relationService.findByAlias(entry);
     	for(Relation r : relations){
     		System.out.println(r.getArticle().getNewsTitle());
     	}
@@ -70,19 +70,18 @@ public class RelationServiceTest {
 				
 				if(pos.equals("org")||pos.equals("nz")||pos.startsWith("nr")){
 					
-					Entry entry = entryService.findByTitle(title);
+					Alias alias = aliasService.findByTitle(title);
 					
-					if(entry == null){
-						entry = new Entry();
-						entry.setPos(pos);
-						entry.setTitle(title);
-						entry.setUrl("#");
-						entryService.save(entry);
+					if(alias == null){
+						alias = new Alias();
+						alias.setPos(pos);
+						alias.setTitle(title);
+						aliasService.save(alias);
 					}
 					
 					if(result.get(word) > 0){
 						Relation relation = new Relation();
-						relation.setEntry(entry);
+						relation.setAlias(alias);
 						relation.setArticle(article);
 						relation.setRelationship(result.get(word));
 						

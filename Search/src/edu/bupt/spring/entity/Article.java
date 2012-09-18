@@ -78,7 +78,7 @@ public class Article extends BaseEntity{
 		this.category = category;
 	}
 	
-	@OneToMany(mappedBy = "article", fetch = FetchType.LAZY,cascade={CascadeType.MERGE,CascadeType.PERSIST})
+	@OneToMany(mappedBy = "article", fetch=FetchType.EAGER,cascade={CascadeType.MERGE,CascadeType.PERSIST})
 	public Set<Relation> getRelations() {
 		return relations;
 	}

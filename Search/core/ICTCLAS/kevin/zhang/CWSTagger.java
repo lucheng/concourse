@@ -3,7 +3,6 @@ package ICTCLAS.kevin.zhang;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import edu.bupt.nlp.resources.BCConvert;
 import edu.bupt.utils.FileUtils;
@@ -136,22 +135,49 @@ public class CWSTagger {
 		CWSTagger tagger = new CWSTagger();
 //		System.out.println(tagger.tag("Ｚａｃｋｓ重申空中网持有评级 　目标股价５美元", 1));
 		
-		String content = FileUtils.readText("E:/data/content/1347260299274.txt");
-		String tagged = tagger.tag(BCConvert.qj2bj(content), 1);
-		System.out.println(tagged);
+//		String content = FileUtils.readText("E:/data/content/1347260299274.txt");
+//		String tagged = tagger.tag(BCConvert.qj2bj(content), 1);
+//		System.out.println(tagged);
 		
-		/*List<String> filelist = new ArrayList<String>();
+		List<String> filelist = new ArrayList<String>();
+		StringBuffer train = new StringBuffer();
 		
-		FileUtils.fetchFileList("E:/data/title", filelist, ".txt");
-		for(String file : filelist){
+		FileUtils.fetchFileList("E:/data/content", filelist, ".txt");
+		
+		System.out.println(filelist.size());
+		
+		for(int i = 0; i < filelist.size() && i < 20000; i++){
+			String file = filelist.get(i);
 			String content = FileUtils.readText(file);
 			String tagged = tagger.tag(BCConvert.qj2bj(content), 1);
-			System.out.println(tagged);
-			FileUtils.writeFile(file.replace("title", "title_seg"), tagged);
+			train.append(tagged);
+//			FileUtils.writeFile(file.replace("content", "content_seg"), tagged);
 		}
 		tagger.exit();
 		
-		FileUtils.mergeFiles("E:/data/title_seg", "E:/data/title_seg.txt");*/
+		/*FileUtils.mergeFiles("E:/data/content_seg", "E:/data/content_seg.txt");
+		
+		List<String> tagged = FileUtils.readTxtByLine("E:/data/content_seg.txt", 1, Integer.MAX_VALUE);
+		StringBuffer train = new StringBuffer();
+		for(int i = 0; i < tagged.size(); i++){
+			
+			String str = tagged.get(i);
+			String[] s = str.split(" ");
+			for(String word : s){
+				String[] value = word.split("/");
+				String vv = value[0];
+				String pos = value[1];
+				
+				train.append(vv+"	"+pos + "	" + pos + "\n");
+				
+				if(pos.equals("wj") || pos.equals("wf")){
+					train.append("\n");
+				}
+			}
+			train.append("\n");
+		}*/
+		
+		FileUtils.writeFile("train.data", train.toString());
 	}
 	
 }

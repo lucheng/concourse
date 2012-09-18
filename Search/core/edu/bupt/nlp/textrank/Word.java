@@ -1,7 +1,5 @@
 package edu.bupt.nlp.textrank;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class Word implements Comparable<Word>{
 	

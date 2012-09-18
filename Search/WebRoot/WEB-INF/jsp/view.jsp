@@ -251,12 +251,14 @@
 	            </div>
 	
 	            <!--人物关系-->
-	            <%--
+	            
 	            <div class="view-title-bar" id="relation_panel_header" style="display: block">
 	                <div class="view-title-bar-text">人物关系</div>
 	                <div class="view-title-bar-tip"></div>
 	            </div>
+	            
 	            <div class="view-panel" id="relation_panel" style="display: block">
+	            	<c:forEach items="${aliases}" var="alias">
 	                <div class="profile-person-view">
 	                    <ul class="profile-related-people" id="select-per">
 	                        <li class="profile-related-people-item" seq="0" style="">
@@ -265,7 +267,7 @@
 	                            </a>
 	                            <div class="related-people-info">
 	                                <span class="related-people-info-name">
-	                                    <a href="">唐骏</a>
+	                                    <a href="">${alias.title}</a>
 	                                </span><span class="related-people-info-label">标签:职业经理人、新华都集团总裁兼CEO,IT风云人物;</span>
 	                                <div class="related-people-info-rel"></div>
 	                                <div class="related-block-info" kw="唐骏">
@@ -282,7 +284,9 @@
 	                        </li>
 	                    </ul>
 	                </div>
+	            	</c:forEach>
 	            </div>
+	            
 	            <div class="view-title-bar" id="relation_panel_tailer" style="display: block;margin-bottom:12px;">
 	                <div class="view-title-bar-tool">
 	                    <div class="profile-related-people-item-page view-page-navigator">
@@ -295,7 +299,7 @@
 						</div>
 	                </div>
 	            </div>
-				--%>
+				
 				<!--人物关系 end-->
 	            
 	          

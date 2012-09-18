@@ -7,6 +7,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -22,17 +24,17 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name="tbl_Entry")
-public class Entry extends BaseEntity {
+@Table(name="tbl_Alias")
+public class Alias extends BaseEntity {
 
 	private static final long serialVersionUID = 1475773294701585482L;
 
 	private String title;// 标题
 	private String pos; //词性
-	private String summary;// 摘要
-	private String property; //属性
-	private String url;// 链接
-	private Set<Alias> alias = new HashSet<Alias>();// 别名
+	
+	private Entry entry;
+	
+	private Set<Relation> relations = new HashSet<Relation>();
 	
 	@Column(nullable = false,unique=true)
 	public String getTitle() {
@@ -42,6 +44,7 @@ public class Entry extends BaseEntity {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
 	
 	public String getPos() {
 		return pos;
@@ -50,34 +53,27 @@ public class Entry extends BaseEntity {
 		this.pos = pos;
 	}
 	
-	public String getSummary() {
-		return summary;
-	}
-	public void setSummary(String summary) {
-		this.summary = summary;
-	}
-	public String getProperty() {
-		return property;
-	}
-	public void setProperty(String property) {
-		this.property = property;
-	}
-	
-	@Column(nullable = false)
-	public String getUrl() {
-		return url;
-	}
-	public void setUrl(String url) {
-		this.url = url;
-	}
-	
-	@OneToMany(mappedBy = "entry",fetch=FetchType.LAZY,cascade={CascadeType.ALL})
-	public Set<Alias> getAlias() {
-		return alias;
+	@ManyToOne(optional=false,fetch=FetchType.LAZY,cascade={CascadeType.REFRESH})  
+    @JoinColumn(name="entry_id")
+	public Entry getEntry() {
+		return entry;
 	}
 
-	public void setAlias(Set<Alias> alias) {
-		this.alias = alias;
+	public void setEntry(Entry entry) {
+		this.entry = entry;
 	}
 
+	@OneToMany(mappedBy = "alias", fetch = FetchType.LAZY,cascade={CascadeType.MERGE,CascadeType.PERSIST})
+	public Set<Relation> getRelations() {
+		return relations;
+	}
+	public void setRelations(Set<Relation> relations) {
+		this.relations = relations;
+	}
+	
+	@Override
+	public String toString() {
+		
+		return this.title;
+	}
 }

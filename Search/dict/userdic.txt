@@ -84,7 +84,7 @@ TOM集团 org
 东软 org
 奥多比 org
 海辉 org
-悠视/vg 网
+悠视网	org
 海信 org
 GE org
 芒果网 org

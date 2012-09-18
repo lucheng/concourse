@@ -25,7 +25,8 @@ public class Relation extends BaseEntity {
 	private static final long serialVersionUID = 1475773294701585482L;
 
 	private Article article;
-	private Entry entry;
+	private Alias alias;
+	
 	private double relationship;
 	
 	@ManyToOne(optional=false,cascade={CascadeType.REFRESH})  
@@ -38,12 +39,12 @@ public class Relation extends BaseEntity {
 	}
 	
 	@ManyToOne(optional=false,cascade={CascadeType.REFRESH})  
-    @JoinColumn(name="entry_id")
-	public Entry getEntry() {
-		return entry;
+    @JoinColumn(name="alias_id")
+	public Alias getAlias() {
+		return alias;
 	}
-	public void setEntry(Entry entry) {
-		this.entry = entry;
+	public void setAlias(Alias alias) {
+		this.alias = alias;
 	}
 	
 	@Column(nullable = false)
