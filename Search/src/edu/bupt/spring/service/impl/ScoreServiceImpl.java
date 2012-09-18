@@ -21,18 +21,15 @@ public class ScoreServiceImpl extends DaoSupport<Score> implements ScoreService 
 		
 		List<Alias> aliases = new ArrayList<Alias>();
 		try{
-			Query query = em.createQuery("select o from Score o where (o.second.id=?1 or (o.first.id=?1) and ");
+			Query query = em.createQuery("select o from Score o where (o.second.id=?1 or o.first.id=?1) order by score desc");
 			query.setParameter(1, alias.getId());
 			List<Score> list = (List<Score>)query.getResultList();
 			for(Score score : list){
-				aliases.add(score.getFirst());
-			}
-			
-			query = em.createQuery("select o from Score o where o.first.id=?1");
-			query.setParameter(1, alias.getId());
-			list = (List<Score>)query.getResultList();
-			for(Score score : list){
-				aliases.add(score.getSecond());
+				if(alias.getId() == score.getFirst().getId()){
+					aliases.add(score.getSecond());
+				}else {
+					aliases.add(score.getFirst());
+				}
 			}
 			
 		}catch(Exception e){

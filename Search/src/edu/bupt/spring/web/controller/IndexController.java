@@ -41,11 +41,11 @@ public class IndexController extends BaseController {
 	
 	@Autowired
     @Qualifier("articleServiceImpl")
-	private static ArticleService articleService;
+	private ArticleService articleService;
 	
 	@Autowired
     @Qualifier("scoreServiceImpl")
-	private static ScoreService scoreService;
+	private ScoreService scoreService;
 	
 	
 	@Autowired
@@ -55,7 +55,6 @@ public class IndexController extends BaseController {
     @RequestMapping(value="/view",method=RequestMethod.POST)
     public String view(@Valid Query query, ModelMap map){
     	
-//    	System.out.println(query.getQuery());
     	Alias alias = aliasService.findByTitle(query.getQuery());
     	
     	System.out.println(alias.getTitle());

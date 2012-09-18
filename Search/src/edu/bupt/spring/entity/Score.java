@@ -26,6 +26,9 @@ public class Score extends BaseEntity {
 	private Alias second;
 	private double score;
 	
+	public Score(){
+		
+	}
 	public Score(Alias first, Alias second, double score){
 		
 		if(first.getId() > second.getId()){
