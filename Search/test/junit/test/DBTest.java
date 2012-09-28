@@ -2,7 +2,6 @@ package junit.test;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 

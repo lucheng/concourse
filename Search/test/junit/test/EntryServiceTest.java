@@ -29,19 +29,21 @@ public class EntryServiceTest {
 			e.printStackTrace();
 		}
 	}
-
-	/*@Test
-	public void testFind(){
-		
-		Entry entry = entryService.findByTitle("英特尔");
-    	
-    	System.out.println(entry.getTitle());
-	}*/
 	
 	@Test
 	public void testSave() {
 		
-		List<String> rules = FileUtils.readTxtByLine("./dict/rules.txt", 1, 20);
+		List<Alias> aliases = aliasService.findAll();
+		StringBuffer sb = new StringBuffer();
+		
+		for(Alias alias : aliases){
+			
+			sb.append(alias.getTitle() + "\n");
+		}
+		
+		FileUtils.writeFile("alias.txt", sb.toString());
+		
+		/*List<String> rules = FileUtils.readTxtByLine("./dict/rules.txt", 1, 20);
 		for(String str : rules){
 			String value = str.substring(0, str.lastIndexOf("|"));
 			String pos = str.substring(str.lastIndexOf("|")+1, str.length());
@@ -54,7 +56,7 @@ public class EntryServiceTest {
 			System.out.println(str);
 			System.out.println(value);
 			System.out.println(pos);
-		}
+		}*/
 		
 	}
 

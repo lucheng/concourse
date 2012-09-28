@@ -20,7 +20,7 @@ public class RelationServiceImpl extends DaoSupport<Relation> implements Relatio
 		
 		List<Relation> result = new ArrayList<Relation>();
 		try{
-			Query query = em.createQuery("select o from Relation o where o.alias.id=?1 order by o.relationship desc");
+			Query query = em.createQuery("select o from Relation o where o.alias.id=?1 order by o.relationship desc limit 0 to 8");
 			query.setParameter(1, alias.getId());
 			result = query.getResultList();
 		}catch(Exception e){

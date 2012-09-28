@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
     <style type="text/css">
         .create-panel
@@ -109,7 +109,7 @@
 		</script>
     <div class="container" style="min-height: 715px; ">
         
-        <%@include file="header.jsp" %>
+        <%@include file="common/header.jsp" %>
         <div class="content-wrapper">
 		    <div class="create-panel">
 		        <div class="create-panel-title">创建人立方词条</div>
@@ -143,7 +143,7 @@
         </div>
         <div class="clear"></div>
     </div>
-    <%@include file="footer.jsp" %>
+    <%@include file="common/footer.jsp" %>
 </form>
 </body>
 </html>

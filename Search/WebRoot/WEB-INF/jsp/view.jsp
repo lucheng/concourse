@@ -1,7 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!-- saved from url=(0042)http://renlifang.msra.cn/view.aspx?id=1429 -->
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	    <style type="text/css">
@@ -59,7 +57,7 @@
 	</head>
 	<body screen_capture_injected="true">
 		<div class="container">
-			<%@include file="header.jsp" %>
+			<%@include file="common/header.jsp" %>
 			<div class="content-wrapper">
 	    
 	    <div class="view-content">
@@ -310,7 +308,7 @@
 	            </div>
 	            <div class="view-panel" id="webpage-panel" style="display: block">
 	                
-	                <c:forEach items="${relations}" var="relation">
+	                <c:forEach items="${pageView.records}" var="relation">
 		                <div class="selectedpage view-clip" seq="0" style="">
 		                    <div class="view-title">
 		                        <a href="${relation.article.newsUrl}" target="_blank">${relation.article.newsTitle}（关联度：${relation.relationship}）</a>
@@ -322,23 +320,12 @@
 		                </div>
 					</c:forEach>
 	            </div>
-	            <div class="view-title-bar" id="selectedpage_tailer" style="display: block;margin-bottom:12px;">
-	                <div class="view-title-bar-tool">
-	                    <div class="selectedpage-page view-page-navigator">
-							<span class="current">1</span>
-							<a href="#" onclick="">2</a>
-							<a href="#" onclick="">3</a>
-							<a href="#" onclick="">4</a>
-							<a href="#" onclick="">5</a>
-							<span class="view-nextpage" style="width:6px;">&nbsp;</span></a>
-						</div>
-	                </div>
-	            </div>
+	            <%@include file="common/fenye.jsp" %>
 	        	<div class="clear"></div>
 	   </div>
 	</div>
 	        <div class="clear"></div>
 	    </div>
-	    <%@include file="footer.jsp" %>
+	    <%@include file="common/footer.jsp" %>
     </body>
 </html>

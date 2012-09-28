@@ -25,7 +25,14 @@ public class Score extends BaseEntity {
 	private Alias first;
 	private Alias second;
 	private double score;
+	private double score1;
 	
+	public double getScore1() {
+		return score1;
+	}
+	public void setScore1(double score1) {
+		this.score1 = score1;
+	}
 	public Score(){
 		
 	}

@@ -31,7 +31,7 @@
 		</script>
 
     <div class="container">
-        <%@include file="header.jsp" %>
+        <%@include file="common/header.jsp" %>
         <div class="content-wrapper">
             
 	    <div class="generalDisplayTitleLine">
@@ -74,6 +74,6 @@
         <div class="clear">
         </div>
     </div>
-    <%@include file="footer.jsp" %>
+    <%@include file="common/footer.jsp" %>
 	</form>
 </body></html>

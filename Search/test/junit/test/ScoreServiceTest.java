@@ -1,5 +1,6 @@
 package junit.test;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -37,7 +38,7 @@ public class ScoreServiceTest {
 		}
 	}
 
-	@Test
+	/*@Test
 	public void testFind() {
 		
 		Alias alias = aliasService.findByTitle("英特尔");
@@ -48,13 +49,13 @@ public class ScoreServiceTest {
     	for(Alias a : aliases){
     		System.out.println(a);
     	}
-	}
+	}*/
 	@Test
 	public void testSave() {
 		
 //		List<Article> articles = articleService.findAll();
 		
-		for(int index = 1000; index < 20332; index++){
+		for(int index = 1; index < 20332; index++){
 			
 			Article article = articleService.find(index);
 			Set<Relation> relations = article.getRelations();
@@ -74,14 +75,27 @@ public class ScoreServiceTest {
 			for(int i = 0; i < size-1; i++){
 				
 				for(int j = i+1; j < size; j++){
+					
 					Alias first = relationList.get(i).getAlias();
 					Alias second = relationList.get(j).getAlias();
+					
 					double scoreValue = relationList.get(i).getRelationship() * relationList.get(j).getRelationship();
-					Score score = new Score(first, second, scoreValue);
+//					double score2 = relationList.get(j).getRelationship() / relationList.get(i).getRelationship();
+					
+					BigDecimal b1 = new BigDecimal(scoreValue);
+//					BigDecimal b2 = new BigDecimal(score2);
+					double f1 = b1.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+//					double f2 = b2.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+					
+					Score score = new Score(first, second, f1);
 					scoreService.save(score);
 				}
+				
 			}
-			
+//			break;
+			if(index % 1000 == 0){
+				System.out.println(index);
+			}
 		}
 		
 	}

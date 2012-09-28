@@ -1,5 +1,7 @@
 package edu.bupt.spring.web.controller;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +19,8 @@ import org.springframework.web.servlet.ModelAndView;
 import edu.bupt.spring.entity.Alias;
 import edu.bupt.spring.entity.Query;
 import edu.bupt.spring.entity.Relation;
+import edu.bupt.spring.pager.PageView;
+import edu.bupt.spring.pager.QueryResult;
 import edu.bupt.spring.service.AliasService;
 import edu.bupt.spring.service.ArticleService;
 import edu.bupt.spring.service.RelationService;
@@ -57,14 +61,31 @@ public class IndexController extends BaseController {
     	
     	Alias alias = aliasService.findByTitle(query.getQuery());
     	
-    	System.out.println(alias.getTitle());
-    	List<Relation> relations = relationService.findByAlias(alias);
+    	StringBuffer wherejpql = new StringBuffer("");
+    	LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
+    	List<Object> params = new ArrayList<Object>();
     	
-    	List<Alias> aliases = scoreService.findRelatedAlias(alias);
+    	wherejpql.append("o.alias.id=?1");
+    	params.add(alias.getId());
+    	orderby.put("relationship", "desc");
+		PageView<Relation> pageView = new PageView<Relation>(10, page);
+		QueryResult<Relation> qr = relationService.getScrollData(pageView.getFirstResult(), pageView.getMaxresult(), wherejpql.toString(), params.toArray(), orderby);
+		pageView.setQueryResult(qr);
+    	
+		
+		/*StringBuffer jpql = new StringBuffer();
+    	params.add(alias.getId());
+    	orderby.put("relationship", "desc");
+    	PageView<Alias> aliasView = new PageView<Alias>(10, page);
+    	QueryResult<Alias> qrAlias = aliasService.getScrollData(aliasView.getFirstResult(), aliasView.getMaxresult(), jpql.toString(), params.toArray(), orderby);
+    	aliasView.setQueryResult(qrAlias);*/
+    	
+//    	List<Alias> aliases = scoreService.findRelatedAlias(alias);
     	
     	map.put("entry", alias);
-    	map.put("relations", relations);
-    	map.put("aliases", aliases);
+//    	map.put("relations", relations);
+//    	map.put("aliases", aliasView);
+    	map.put("pageView", pageView);
         
     	return "view";
     }

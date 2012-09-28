@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ include file="taglib.jsp"%>
+<%@ include file="common/taglib.jsp"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -270,6 +270,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        </div>
 	        <div class="clear"></div>
 	    </div>
-    	<%@include file="footer.jsp" %>
+    	<%@include file="common/footer.jsp" %>
     </body>
 </html>
