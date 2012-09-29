@@ -1,6 +1,8 @@
 package junit.test;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -33,30 +35,58 @@ public class EntryServiceTest {
 	@Test
 	public void testSave() {
 		
-		List<Alias> aliases = aliasService.findAll();
+		
+		/*List<Alias> aliases = aliasService.findAll();
 		StringBuffer sb = new StringBuffer();
 		
 		for(Alias alias : aliases){
-			
-			sb.append(alias.getTitle() + "\n");
+			if(alias.getPos().equals("org")){
+				sb.append(alias.getTitle() + "\n");
+			}
 		}
 		
-		FileUtils.writeFile("alias.txt", sb.toString());
+		FileUtils.writeFile("org.txt", sb.toString());*/
 		
-		/*List<String> rules = FileUtils.readTxtByLine("./dict/rules.txt", 1, 20);
+		List<String> rules = FileUtils.readTxtByLine("./dict/org.txt", 1, Integer.MAX_VALUE);
+		
 		for(String str : rules){
-			String value = str.substring(0, str.lastIndexOf("|"));
-			String pos = str.substring(str.lastIndexOf("|")+1, str.length());
+			
+			if(str.length() < 1){
+				continue;
+			}
+			String[] value = str.split("/");
+			
+			String pos = value[0];
+			String title = value[1];
 			
 			Entry entry = new Entry();
-			entry.setTitle(value);
-			entry.setPos(pos);
 			
-//			entryService.save(entry);
-			System.out.println(str);
-			System.out.println(value);
-			System.out.println(pos);
-		}*/
+			entry.setTitle(title);
+			entry.setPos(pos);
+//			entry.setAlias(aliasSet);
+			entry.setUrl("#");
+			
+			entryService.save(entry);
+			
+			Set<Alias> aliasSet = new HashSet<Alias>();
+			
+			for(int i = 1; i < value.length; i++){
+				Alias alias = aliasService.findByTitle(value[i]);
+				
+				if(alias == null){
+					alias = new Alias();
+					alias.setTitle(value[i]);
+					alias.setPos(value[0]);
+					alias.setEntry(entry);
+					aliasService.save(alias);
+				}
+				aliasSet.add(alias);
+			}
+			
+//			System.out.println(str);
+//			System.out.println(title);
+//			System.out.println(pos);
+		}
 		
 	}
 

@@ -71,7 +71,7 @@ public class Entry extends BaseEntity {
 		this.url = url;
 	}
 	
-	@OneToMany(mappedBy = "entry",fetch=FetchType.LAZY,cascade={CascadeType.ALL})
+	@OneToMany(mappedBy = "entry",fetch=FetchType.EAGER,cascade=CascadeType.REFRESH)
 	public Set<Alias> getAlias() {
 		return alias;
 	}

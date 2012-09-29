@@ -16,11 +16,12 @@ public class EntryServiceImpl extends DaoSupport<Entry> implements EntryService 
 		
 		Entry entry = null;
 		try{
-			Query query = em.createQuery("select o from Entry o where o.title='?1'");
+			Query query = em.createQuery("select o from Entry o where o.title=?1");
 			query.setParameter(1, title);
 			entry = (Entry) query.getSingleResult();
 		}catch(Exception e){
 			e.printStackTrace();
+			return null;
 		}
 		return entry;
 	}

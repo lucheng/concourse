@@ -8,7 +8,6 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import edu.bupt.spring.entity.Alias;
-import edu.bupt.spring.entity.Relation;
 import edu.bupt.spring.service.AliasService;
 import edu.bupt.utils.FileUtils;
 

@@ -53,7 +53,7 @@ public class Alias extends BaseEntity {
 		this.pos = pos;
 	}
 	
-	@ManyToOne(optional=false,fetch=FetchType.LAZY,cascade={CascadeType.REFRESH})  
+	@ManyToOne(optional=false,fetch=FetchType.EAGER,cascade={CascadeType.REMOVE,CascadeType.REFRESH})  
     @JoinColumn(name="entry_id")
 	public Entry getEntry() {
 		return entry;
