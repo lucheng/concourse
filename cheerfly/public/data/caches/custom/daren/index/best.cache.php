@@ -1,5 +1,0 @@
-<?php
-$data['best'] = array (
-);
-
-?>
