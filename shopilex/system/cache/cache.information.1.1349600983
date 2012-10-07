@@ -1,9 +1,0 @@
-a:4:{i:0;a:6:{s:14:"information_id";s:1:"4";s:10:"sort_order";s:1:"1";s:6:"status";s:1:"1";s:11:"language_id";s:1:"1";s:5:"title";s:12:"关于我们";s:11:"description";s:36:"&lt;p&gt;
-	关于我们&lt;/p&gt;
-";}i:1;a:6:{s:14:"information_id";s:1:"5";s:10:"sort_order";s:1:"4";s:6:"status";s:1:"1";s:11:"language_id";s:1:"1";s:5:"title";s:12:"相关条款";s:11:"description";s:36:"&lt;p&gt;
-	相关条款&lt;/p&gt;
-";}i:2;a:6:{s:14:"information_id";s:1:"3";s:10:"sort_order";s:1:"3";s:6:"status";s:1:"1";s:11:"language_id";s:1:"1";s:5:"title";s:12:"购买条款";s:11:"description";s:36:"&lt;p&gt;
-	购买条款&lt;/p&gt;
-";}i:3;a:6:{s:14:"information_id";s:1:"6";s:10:"sort_order";s:1:"2";s:6:"status";s:1:"1";s:11:"language_id";s:1:"1";s:5:"title";s:12:"送货说明";s:11:"description";s:36:"&lt;p&gt;
-	送货说明&lt;/p&gt;
-";}}

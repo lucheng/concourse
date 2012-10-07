@@ -1,12 +1,12 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://localhost/shopilex/admin/');
-define('HTTP_CATALOG', 'http://localhost/shopilex/');
-define('HTTP_IMAGE', 'http://localhost/shopilex/image/');
+define('HTTP_SERVER', 'http://localhost/admin/');
+define('HTTP_CATALOG', 'http://localhost/');
+define('HTTP_IMAGE', 'http://localhost/image/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://localhost/shopilex/admin/');
-define('HTTPS_IMAGE', 'http://localhost/shopilex/image/');
+define('HTTPS_SERVER', 'http://localhost/admin/');
+define('HTTPS_IMAGE', 'http://localhost/image/');
 
 // DIR
 define('DIR_APPLICATION', 'F:\wamp\www\shopilex/admin/');
