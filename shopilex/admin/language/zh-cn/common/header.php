@@ -93,4 +93,8 @@ $_['text_tool']                    	   = '工具箱';
 $_['text_localisation_zone']           = '国家地区设置';
 $_['text_tax']          			   = '税率设置';
 $_['text_specification']          	   = '商品规格';
+
+$_['text_menu']          	   = '菜单维护';
+$_['text_menu_manager']          	   = '菜单管理';
+$_['text_menu_page']          	   = '单页管理';
 ?>

@@ -7,6 +7,14 @@
   <div class="nav-collapse">
   <ul class="nav">
   <li id="h_dashboard" ><a href="<?php echo $home; ?>" ><?php echo $text_dashboard; ?></a></li>
+  <!--菜单维护-->
+  <li class="dropdown" id="h_menu">
+	  <a href="#" class="dropdown-toggle" data-toggle="dropdown" ><?php echo $text_menu; ?> <b class="caret"></b></a>
+	  <ul class="dropdown-menu">
+		 <li><a href="<?php echo $text_menu_manager; ?>"><?php echo $text_menu_manager; ?></a></li>
+	    <li><a href="<?php echo $information; ?>"><?php echo $text_information; ?></a></li>
+     </ul>
+  </li>
   <li class="dropdown" id="h_catalog">
 	  <a href="#" class="dropdown-toggle" data-toggle="dropdown" ><?php echo $text_catalog; ?> <b class="caret"></b></a>
 	  <ul class="dropdown-menu">
