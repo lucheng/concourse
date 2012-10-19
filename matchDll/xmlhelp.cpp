@@ -107,7 +107,7 @@ TiXmlElement * xmlhelp::getRootElement(char* file)
 
 ElementList * xmlhelp::getRootList(std::vector<char*> &files, int size) 
 {
-//	std::ofstream out("d:/test/xmlhelp_getRootList_exception.txt");
+	std::ofstream out("d:/test/xmlhelp_getRootList_exception.txt");
 
 	ElementList * rootList=new ElementList();
 //	out << "test 1" << endl;

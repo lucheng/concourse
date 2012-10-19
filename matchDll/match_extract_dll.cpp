@@ -151,7 +151,8 @@ int matchAndAlign(char* dir, char* tempDir, double rate)
 	ElementList  *roots2=new ElementList ();				
 	int *nums=new int[size];
 
-	
+	out << "root size:" << files.size() << endl;
+	out.flush();
 
 	int t=0;
 
@@ -172,6 +173,7 @@ int matchAndAlign(char* dir, char* tempDir, double rate)
 		bool flag1 = false;
 		bool flag2 = false;		
 		out << "test 1" << endl;
+		out << "root:" << root->Value() << endl;
 		out.flush();
 
 		while (roots1->size() > 0) {
@@ -181,6 +183,7 @@ int matchAndAlign(char* dir, char* tempDir, double rate)
 			out.flush();
 			roots1->pop_front();
 			out << "test 12" << endl;
+			out << "root1:" << root2->Value() << endl;
 			out.flush();
 			ElementList * nodes1 = new ElementList ();
 			ElementList * nodes2 = new ElementList ();
@@ -276,9 +279,12 @@ int __stdcall STM(TiXmlElement *element1, TiXmlElement *element2,ElementList  *m
 	}
 	out << "test 2" << endl;
 	out.flush();
+
 	int n=element1->ChildElementCount();
 	int m=element2->ChildElementCount();
 
+	out << "test 21 " << "n:" << n << "m:" << m << endl;
+	out.flush();
 	TiXmlElement * child1=element1->FirstChildElement();
 	TiXmlElement * child2=element2->FirstChildElement();	
 
@@ -299,7 +305,7 @@ int __stdcall STM(TiXmlElement *element1, TiXmlElement *element2,ElementList  *m
 	int j=0;
 	TiXmlElement * p=child2;
 
-	out << "test 3" << endl;
+	out << "test 3:" << c[n][m] <<endl;
 	out.flush();
 
 	while (NULL!=child1) {
@@ -311,6 +317,8 @@ int __stdcall STM(TiXmlElement *element1, TiXmlElement *element2,ElementList  *m
 			int w=STM(child1,child2,&u[i][j],&v[i][j]);
 			b[i][j]=0;
 			c[i][j]=c[i-1][j-1]+w;
+			out << "test 31:" << c[i][j] << endl;
+			out.flush();
 			if (c[i][j-1]>c[i][j]) {
 				c[i][j]=c[i][j-1];
 				b[i][j]=1;
