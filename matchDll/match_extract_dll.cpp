@@ -282,8 +282,8 @@ int __stdcall STM(TiXmlElement *element1, TiXmlElement *element2,ElementList  *m
 
 	int n=element1->ChildElementCount();
 	int m=element2->ChildElementCount();
-
-	out << "test 21 " << "n:" << n << "m:" << m << endl;
+	
+	out << "test 21 " << "n:" <<n << "m:" << xmlhelp::getNodeCount(element2) << endl;
 	out.flush();
 	TiXmlElement * child1=element1->FirstChildElement();
 	TiXmlElement * child2=element2->FirstChildElement();	

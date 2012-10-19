@@ -31,7 +31,7 @@ int xmlhelp::getElementCount(TiXmlElement *element)
 {
 	int t=1;			
 	TiXmlElement * child=element->FirstChildElement();	
-	while (NULL!=child) {					
+	while (NULL!=child) {
 		t+=getElementCount(child);		
 		child=child->NextSiblingElement();
 	}	

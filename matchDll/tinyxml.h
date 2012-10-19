@@ -532,7 +532,18 @@ public:
 	TiXmlNode* LastChild()	{ return lastChild; }
 	
 	int ChildCount() const	{ return childCount; }
-	int ChildElementCount() const	{ return childElementCount; }
+	int ChildElementCount() const	
+	{ 
+		/*
+		TiXmlElement *child=element->FirstChildElement();	
+		while (NULL!=child) {					
+			getSemanticElements(child,semantics);
+			child=child->NextSiblingElement();
+		}	
+		return semantics->size();
+		*/
+		return childElementCount;
+	}
 	
 	const TiXmlNode* LastChild( const char * value ) const;			/// The last child of this node matching 'value'. Will be null if there are no children.
 	TiXmlNode* LastChild( const char * _value ) {
