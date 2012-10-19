@@ -350,6 +350,7 @@ int __stdcall STM(TiXmlElement *element1, TiXmlElement *element2,ElementList  *m
 	out << "m:" << m << endl;
 	out << "c[n][m]:" << c[n][m] << endl;
 	out.flush();
+
 	int result=c[n][m]+1;
 	out << "test 51a" << endl;
 	out.flush();
