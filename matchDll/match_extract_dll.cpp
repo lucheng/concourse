@@ -108,13 +108,8 @@ DWORD WINAPI Begin_matchAndAlign(LPVOID lpParam)
 DWORD WINAPI Begin_extract(LPVOID lpParam)
 {
 	PEXTRACTARGUMENT pArgs = (PEXTRACTARGUMENT)lpParam;
-	try{
-		extract(pArgs->templateFile, pArgs->tempDir, pArgs->dir);
-	}catch(exception const& ex){
-		std::ofstream out("d:/test/Begin_extract_exception.txt");
-		out << ex.what() << "\n";
-		out.close();
-	}
+	
+	extract(pArgs->templateFile, pArgs->tempDir, pArgs->dir);
 	
 	return 0;
 }
@@ -133,6 +128,8 @@ int matchAndAlign(char* dir, char* tempDir, double rate)
 {			
 	std::ofstream out("d:/test/match_extract_dll_matchAndAlign_exception.txt");
 	
+	out << "dir:" << dir << endl << "tempDir:" << tempDir << endl;
+	out.flush();
 
 	totalFiles = 0;
 	remanentFiles = 0;
@@ -280,8 +277,11 @@ int __stdcall STM(TiXmlElement *element1, TiXmlElement *element2,ElementList  *m
 	out << "test 2" << endl;
 	out.flush();
 
-	int n=element1->ChildElementCount();
-	int m=element2->ChildElementCount();
+//	int n=element1->ChildElementCount();
+//	int m=element2->ChildElementCount();
+
+	int n=xmlhelp::getNodeCount(element1);
+	int m=xmlhelp::getNodeCount(element2);
 	
 	out << "test 21 " << "n:" <<n << "m:" << xmlhelp::getNodeCount(element2) << endl;
 	out.flush();
@@ -384,9 +384,15 @@ int __stdcall STM(TiXmlElement *element1, TiXmlElement *element2,ElementList  *m
 }
 
 void __stdcall align(TiXmlElement *element1, TiXmlElement *element2, ElementList  *matchNodes1, ElementList  *matchNodes2)
-{			
+{	
+	/*
 	int n=element1->ChildElementCount();
 	int m=element2->ChildElementCount();
+	*/
+
+	int n=xmlhelp::getNodeCount(element1);
+	int m=xmlhelp::getNodeCount(element2);
+
 	if (m == 0) {
 		return;
 	}	
@@ -452,9 +458,14 @@ int __stdcall matchMarked(TiXmlElement* element1, TiXmlElement* element2, Elemen
 		|| (NULL!=element1->Attribute("title") &&  NULL==element2->Attribute("title")) 
 		|| (NULL==element1->Attribute("title") &&  NULL!=element2->Attribute("title"))){
 			return 0;
-	}	
+	}
+	/*
 	int n=element1->ChildElementCount();
 	int m=element2->ChildElementCount();
+	*/
+
+	int n=xmlhelp::getNodeCount(element1);
+	int m=xmlhelp::getNodeCount(element2);
 
 	TiXmlElement * child1=element1->FirstChildElement();
 	TiXmlElement * child2=element2->FirstChildElement();	
@@ -532,10 +543,7 @@ int __stdcall matchMarked(TiXmlElement* element1, TiXmlElement* element2, Elemen
 void extract(char* templateFile, char* tempDir, char* dir)
 {
 	std::ofstream out;
-try{
-	
-	
-	out.open("d:/test/extract_exception.txt");
+	out.open("d:/test/match_extract_dll_extract_exception.txt");
 
 	totalFiles = 0;
 	remanentFiles = 0;
@@ -550,8 +558,6 @@ try{
 	out << "tempDir:" <<tempDir << "\n";
 	out << "file size:" <<files.size() << "\n";
 
-//	out.close();
-
 	string extractFile(dir);
 	extractFile+=RESULT_File;
 	TiXmlDocument * outDoc=new TiXmlDocument();	
@@ -562,15 +568,16 @@ try{
 	TiXmlElement * titlesElement=new TiXmlElement("titles");
 	rootElement->LinkEndChild(titlesElement);
 	char ** titles=new char * [total+1];	
-	titles[0]="ÍøÒ³Ãû³Æ";		
+	titles[0]="ÍøÒ³Ãû³Æ";
 	for (int i=0; i<total; i++) {		
 		TiXmlElement* element=semantics->front();				
 		semantics->pop_front();
 		titles[i+1]=new char[strlen(element->Attribute("semantic"))+1];
-		strncpy(titles[i+1],element->Attribute("semantic"),sizeof(titles));
-	}				
+		strcpy(titles[i+1],element->Attribute("semantic"));
+	}
 	for (int i=0; i<total+1; i++) {
-		//cout<<titles[i]<<endl;
+		out<<titles[i]<<endl;
+		out.flush();
 		TiXmlElement * titleElement=new TiXmlElement("title");
 		titleElement->SetText(titles[i]);
 		titlesElement->LinkEndChild(titleElement);		
@@ -580,12 +587,20 @@ try{
 
 	totalFiles = size;
 	remanentFiles = size;
+
 	
+
 	for (int k=0; k<size; ++k,--remanentFiles) {		
 		TiXmlElement * root2=xmlhelp::getRootElement(files[k]);
 		ElementList * result=new ElementList();
+
+		out<<"remanentFiles1:" << k <<endl;
+		out.flush();
+
 		matchMarked(root, root2, result);
 
+		out<<"remanentFiles:" << k <<endl;
+		out.flush();
 
 		int m=result->size();
 
@@ -622,12 +637,4 @@ try{
 	out.close();
 
 	outDoc->SaveFile(extractFile.c_str());
-	
-}
-catch (...)
-{
-	out.close();
-	return;
-}
-out.close();
 }
