@@ -26,6 +26,12 @@ public class TemplateGenerator extends GeneratorOld {
 		generate(pages, null);
 	}
 	
+	/**
+	 * 异步实现模板生成
+	 * 
+	 * @param pages
+	 * @param monitor
+	 */
 	public void generateAsync(File[] pages, IAsyncMonitor monitor) {
 		if (monitor == null) {
 			return;
@@ -34,6 +40,7 @@ public class TemplateGenerator extends GeneratorOld {
 		final File[] fPages = pages;
 		final IAsyncMonitor fMonitor = monitor;
 		
+		// 开启一个新的线程，生成模板文件
 		new Thread() {
 			public void run() {
 				if (fMonitor.isCancellationRequested()) {
@@ -50,6 +57,12 @@ public class TemplateGenerator extends GeneratorOld {
 		}.start();
 	}
 	
+	/**
+	 * 根据传入的网页集，生成模板
+	 * 
+	 * @param pages
+	 * @param monitor
+	 */
 	private void generate(File[] pages, IAsyncMonitor monitor) {
 		Document rawHtmlDoc = null;
 		List<Element> roots = new ArrayList<Element>();// 源代码list
@@ -82,12 +95,17 @@ class GeneratorOld {
 	protected Matcher matchAlign = new Matcher();
 	private XmlHelp xmlHelp = new XmlHelp();
 	
+	/**
+	 * 对网页dom树的每个节点进行编号
+	 * @param root
+	 */
 	@SuppressWarnings("unchecked")
 	private void processTemplate(Element root) {
 		List<Element> elements = new ArrayList<Element>();
 		elements.add(root);
 		int count = 1;
 		
+		// 将网页节点进行编号
 		while (elements.size() > 0) {
 			
 			Element temp = elements.remove(0);
@@ -96,6 +114,12 @@ class GeneratorOld {
 		}
 	}
 
+	/**
+	 * 调用核心算法中的树匹配算法，计算两个网页dom树是否相似
+	 * @param templateRoot
+	 * @param alignRoot
+	 * @return
+	 */
 	protected boolean matchAlign(Element templateRoot, Element alignRoot) {
 		
 		List<Element> nodes1 = new ArrayList<Element>();
@@ -104,7 +128,9 @@ class GeneratorOld {
 		int w = matchAlign.simpleTreeMatch(templateRoot, alignRoot, nodes1, nodes2);
 		int m = XmlHelp.getElementCount(alignRoot);
 		System.out.println("相似度：" + rate);
+		// 计算两个网页dom树是否相似
 		if ((double) w / m >= rate) {
+			// 进行树对齐
 			matchAlign.alignTrees(templateRoot, alignRoot, nodes1, nodes2);
 			return true;
 		} else {
@@ -115,13 +141,26 @@ class GeneratorOld {
 	protected int generateTemplate(List<Element> roots) {
 		return this.generateTemplate(roots, null);
 	}
-
+	
+	/**
+	 * 模板生成
+	 * 调用模板生成算法，生成模板文件，并返回生成的模板数量
+	 * 
+	 * @param roots
+	 * @param monitor
+	 * @return
+	 */
+	@SuppressWarnings("static-access")
 	protected int generateTemplate(List<Element> roots, IAsyncMonitor monitor) {
+		
+		// 初始化数据
+		
 		srcRoots = roots;
 		newRoots = new ArrayList<Element>();
 		int num = roots.size();
 		double totalNum = (double)num;
-		//int nums[] = new int[num];
+		
+		// 循环遍历，直到所有文件都已经进行过对比
 		while (num > 0) {
 			
 			if (monitor != null && monitor.isCancellationRequested()) {
@@ -143,6 +182,7 @@ class GeneratorOld {
 				}
 				Element root2 = srcRoots.get(0);
 				srcRoots.remove(0);
+				// 调用核心算法中的树匹配算法，计算两个网页dom树是否相似
 				if (matchAlign(root, root2)) {
 					flag1 = true;
 					total++;
@@ -188,6 +228,11 @@ class GeneratorOld {
 		return templateNum;
 	}
 
+	/**
+	 * 将js脚本文件加入到模板文件头中
+	 * @param src
+	 * @param element
+	 */
 	private void addScript(String src, Element element) {
 		Element jsElement = element.addElement("script");
 		jsElement.setText(" ");
@@ -195,6 +240,11 @@ class GeneratorOld {
 		jsElement.addAttribute("type", "text/javascript");
 	}
 
+	/**
+	 * 将css脚本文件加入到模板文件头中
+	 * @param src
+	 * @param element
+	 */
 	private void addLink(String href, Element element) {
 		Element cssElement = element.addElement("link");
 		cssElement.addAttribute("rel", "stylesheet");

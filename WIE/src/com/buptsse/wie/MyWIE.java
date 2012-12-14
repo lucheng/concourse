@@ -26,15 +26,14 @@ public final class MyWIE {
 	}
 	
 	/**
-	 * 模板生成方法
+	 * 传入文件夹路径，生成模板
 	 * 
 	 * @param pageFolder
 	 * @param outputFolder
 	 * @param simIndex
 	 * @param monitor
 	 */
-	public static void generateTemplateAsync(
-			File pageFolder, File outputFolder, double simIndex, IAsyncMonitor monitor) {
+	public static void generateTemplateAsync(File pageFolder, File outputFolder, double simIndex, IAsyncMonitor monitor) {
 		
 		File dir = pageFolder;
 		
@@ -45,8 +44,14 @@ public final class MyWIE {
 		}
 	}
 	
-	public static void generateTemplateAsync(
-			File[] pages, File outputFolder, double simIndex, IAsyncMonitor monitor) {
+	/**
+	 * 传入文件数组，生成模板
+	 * @param pages
+	 * @param outputFolder
+	 * @param simIndex
+	 * @param monitor
+	 */
+	public static void generateTemplateAsync(File[] pages, File outputFolder, double simIndex, IAsyncMonitor monitor) {
 		
 		File output = outputFolder;
 		
@@ -64,6 +69,12 @@ public final class MyWIE {
 		}
 	}
 	
+	/**
+	 * 模板生成方法
+	 * @param pageFolder
+	 * @param outputFolder
+	 * @param simIndex
+	 */
 	public static void generateTemplate(
 			File pageFolder, File outputFolder, double simIndex) {
 		
@@ -76,8 +87,13 @@ public final class MyWIE {
 		}
 	}
 	
-	public static void generateTemplate(
-			File[] pages, File outputFolder, double simIndex) {
+	/**
+	 * 模板生成方法
+	 * @param pages
+	 * @param outputFolder
+	 * @param simIndex
+	 */
+	public static void generateTemplate(File[] pages, File outputFolder, double simIndex) {
 		
 		File output = outputFolder;
 		
@@ -89,8 +105,14 @@ public final class MyWIE {
 		}
 	}
 	
-	public static ExtractionResultCollection extractData(
-			File templateFile, File[] pages) {
+	/**
+	 * 传入文件数组，抽取数据
+	 * 
+	 * @param templateFile 模板文件
+	 * @param pages 网页数组
+	 * @return
+	 */
+	public static ExtractionResultCollection extractData(File templateFile, File[] pages) {
 		if (pages.length == 0 || !templateFile.exists()) {
 			return null;
 		} else {
@@ -99,8 +121,14 @@ public final class MyWIE {
 		}
 	}
 	
-	public static ExtractionResultCollection extractData(
-			File templateFile, File pageFolder) {
+	/**
+	 * 传入文件夹路径，抽取数据
+	 * 
+	 * @param templateFile
+	 * @param pageFolder
+	 * @return
+	 */
+	public static ExtractionResultCollection extractData(File templateFile, File pageFolder) {
 		if (!pageFolder.exists()) {
 			return null;
 		} else {
@@ -109,7 +137,7 @@ public final class MyWIE {
 	}
 	
 	/**
-	 * 抽取方法
+	 * 异步数据抽取方法
 	 * 
 	 * @param templateFile
 	 * @param pages
@@ -131,8 +159,13 @@ public final class MyWIE {
 		}
 	}
 	
-	public static void extractDataAsync(
-			File templateFile, File pageFolder, IAsyncMonitor monitor) {
+	/**
+	 * 异步数据抽取方法
+	 * @param templateFile
+	 * @param pageFolder
+	 * @param monitor
+	 */
+	public static void extractDataAsync(File templateFile, File pageFolder, IAsyncMonitor monitor) {
 		if (!pageFolder.exists()) {
 			return;
 		} else {

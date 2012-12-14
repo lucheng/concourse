@@ -28,6 +28,12 @@ public class Extractor {
 		return extract(pages, null);
 	}
 	
+	/**
+	 * 开启线程进行数据抽取
+	 * 
+	 * @param pages
+	 * @param monitor
+	 */
 	public void extractAsync(File[] pages, IAsyncMonitor monitor) {
 		if (monitor == null) {
 			return;
@@ -64,7 +70,7 @@ public class Extractor {
 			monitor.onCompleted(CompletionType.Cancelled, null, null);
 			return null;
 		}
-		
+		// 初始化
 		ExtractionResultCollection rc = new ExtractionResultCollection();
 		Element tempRoot = XmlHelp.getDocument(templateFile).getRootElement();
 		Matcher match = new Matcher();
@@ -88,8 +94,10 @@ public class Extractor {
 			List<Element> matchNodes1 = new ArrayList<Element>();
 			List<Element> matchNodes2 = new ArrayList<Element>();
 			
+			// 将模板文件与抽取文件进行匹配，取出相同的节点
 			match.match(tempRoot, fileRoot, matchNodes1, matchNodes2);
 			
+			// 循环抽取文件，取出带有标注标签的节点
 			for (int j = 0; j < matchNodes1.size(); j++) {
 				String semantic = matchNodes1.get(j).attributeValue("semantic");
 				if (semantic != null) {
@@ -101,8 +109,7 @@ public class Extractor {
 						List<Element> nodes = fileRoot.selectNodes(path);
 						for (Element node : nodes) {
 							if (NodeStructureComparer.compare(fileNode, node)) {
-								exResult.addContent(semantic,
-										new ExtractionContent(node));
+								exResult.addContent(semantic, new ExtractionContent(node));
 							}
 						}
 					} else {
@@ -151,7 +158,18 @@ public class Extractor {
 	}
 }
 
+/**
+ * 节点结构比较类
+ */
 class NodeStructureComparer {
+	
+	/**
+	 * 判断节点的结构是否相同
+	 * 
+	 * @param node1
+	 * @param node2
+	 * @return
+	 */
 	public static boolean compare(Element node1, Element node2) {
 		if (!node1.getName().equals(node2.getName())) {
 			return false;
@@ -162,6 +180,7 @@ class NodeStructureComparer {
 		trimAttributes(attr1);
 		trimAttributes(attr2);
 		
+		// 判断属性是否相同
 		if (!compareAttributes(attr1, attr2)) {
 			return false;
 		}
@@ -186,6 +205,13 @@ class NodeStructureComparer {
 		}
 	}
 	
+	/**
+	 * 判断属性是否相同
+	 * 
+	 * @param attrs1
+	 * @param attrs2
+	 * @return
+	 */
 	private static boolean compareAttributes(List<Attribute> attrs1, List<Attribute> attrs2) {
 		if (attrs1.size() != attrs2.size()) {
 			return false;
@@ -208,6 +234,12 @@ class NodeStructureComparer {
 		return true;
 	}
 	
+	/**
+	 * 判断节点path是否相同
+	 * @param node1
+	 * @param node2
+	 * @return
+	 */
 	private static boolean comparePath(Element node1, Element node2) {
 		while (node1 != null) {
 			if (node2 == null) {

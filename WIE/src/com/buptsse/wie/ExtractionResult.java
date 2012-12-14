@@ -55,6 +55,11 @@ public class ExtractionResult {
 		}
 	}
 	
+	/**
+	 * 将抽取出来的标签数据，归并到一个集合中
+	 * @param tagName
+	 * @param content
+	 */
 	public void addContent(String tagName, ExtractionContent content) {
 		if (content == null) {
 			return;
@@ -74,6 +79,11 @@ public class ExtractionResult {
 		tags.clear();
 	}
 	
+	/**
+	 * 将抽取出来的数据进行归并操作
+	 * 
+	 * @param result
+	 */
 	public void merge(ExtractionResult result) {
 		if (result != null) {
 			for (ExtractionTag tag : result.tags()) {

@@ -65,6 +65,12 @@ public class ExtractionResultCollection {
 		saveXml(fileName, defaultCharset);
 	}
 	
+	/**
+	 * 将抽取出来的网页数据写入到XML文件中
+	 * @param fileName
+	 * @param charset
+	 * @throws Exception
+	 */
 	public void saveXml(String fileName, String charset) throws Exception {
 		XMLOutputFactory xof = XMLOutputFactory.newInstance();
 		IndentingXMLStreamWriter writer = null;
@@ -134,6 +140,12 @@ public class ExtractionResultCollection {
 		writer.close();
 	}
 	
+	/**
+	 * 读取xml文件，载入xml文件
+	 * 
+	 * @param fileName
+	 * @throws Exception
+	 */
 	public void loadXml(String fileName) throws Exception {
 		XMLInputFactory xif = XMLInputFactory.newInstance();
 		XMLEventReader reader = xif.createXMLEventReader(new FileInputStream(fileName));

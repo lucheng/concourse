@@ -20,8 +20,6 @@ import org.htmlcleaner.HtmlCleaner;
 import org.htmlcleaner.SimpleXmlSerializer;
 import org.htmlcleaner.TagNode;
 
-import com.buptsse.wie.core.NodeComparer;
-
 /**
  * XML文件操作类
  * 包括对xml文件的各种操作方法
@@ -89,7 +87,6 @@ public class XmlHelp {
 		List<Element> roots = new ArrayList<Element>();
 		// FileHelp.sortFiles(files);
 		for (Element srcRoot : rawRoots) {
-			//����ҳ����һ�´���
 			initEelment(srcRoot);
 			roots.add(srcRoot);
 		}
@@ -147,27 +144,26 @@ public class XmlHelp {
 		return DocumentHelper.parseText(htmlSrc);
 	}
 	
-//	public String cleanSrc(String src, String charset) {
-//		
-//		HtmlCleaner cleaner = new HtmlCleaner();
-//		CleanerProperties props = cleaner.getProperties();
-//		props.setUseEmptyElementTags(false);
-//		props.setOmitUnknownTags(true);
-//		props.setPruneTags("script,style,link,iframe,input,textarea");
-////		props.setPruneTags("script");
-//		props.setNamespacesAware(false);
-//		String cleanSrc = null;
-//		try {
-//			TagNode node = cleaner.clean(src);
-//			OutputStream out = new ByteArrayOutputStream();
-//			new SimpleXmlSerializer(props).writeToStream(node, out, charset);
-//			cleanSrc = out.toString();
-//			out.close();
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		return cleanSrc;
-//	}
+	/*public String cleanSrc(String src, String charset) {
+		
+		HtmlCleaner cleaner = new HtmlCleaner();
+		CleanerProperties props = cleaner.getProperties();
+		props.setUseEmptyElementTags(false);
+		props.setOmitUnknownTags(true);
+		props.setPruneTags("script,style,link,iframe,input,textarea");
+		props.setNamespacesAware(false);
+		String cleanSrc = null;
+		try {
+			TagNode node = cleaner.clean(src);
+			OutputStream out = new ByteArrayOutputStream();
+			new SimpleXmlSerializer(props).writeToStream(node, out, charset);
+			cleanSrc = out.toString();
+			out.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return cleanSrc;
+	}*/
 	
 	/**
 	 * 给每个节点添加my_count_id属性，并给每个my_count_id编号
@@ -242,6 +238,12 @@ public class XmlHelp {
 		}
 	}
 
+	/**
+	 * 复制节点
+	 * 
+	 * @param nodes1
+	 * @param nodes2
+	 */
 	public static void copy(List<Element> nodes1, List<Element> nodes2) {
 		nodes2.clear();
 		for (int i = 0; i < nodes1.size(); i++) {
@@ -249,12 +251,17 @@ public class XmlHelp {
 		}
 	}
 
+	/**
+	 * 去除树中多会的节点，将其设置成不可见
+	 * @param element
+	 * @param num
+	 */
+	@SuppressWarnings("unchecked")
 	public static void reduceElement(Element element, int num) {
 		List<Element> elementList = element.elements();
-		List<Element> elementList2 = new ArrayList<Element>();
+//		List<Element> elementList2 = new ArrayList<Element>();
 		for (int i = 0; i < elementList.size(); i++) {
-			int temp = Integer
-					.valueOf(elementList.get(i).attributeValue("num"));
+			int temp = Integer.valueOf(elementList.get(i).attributeValue("num"));
 			if (temp >= num) {
 				reduceElement(elementList.get(i), num);
 			} else {
@@ -263,6 +270,10 @@ public class XmlHelp {
 		}
 	}
 
+	/**
+	 * 初始化节点，去除链接
+	 * @param element
+	 */
 	@SuppressWarnings("unchecked")
 	public static void initEelment(Element element) {
 		List<Element> elementList = element.elements();
@@ -277,7 +288,7 @@ public class XmlHelp {
 		}
 	}
 
-	public static List<Node> getNodeList(Element e) {
+	/*public static List<Node> getNodeList(Element e) {
 		List<Node> nodeList = new ArrayList<Node>();
 		for (int i = 0; i < e.nodeCount(); i++) {
 			if (isLegal(e.node(i))) {
@@ -285,14 +296,20 @@ public class XmlHelp {
 			}
 		}
 		return nodeList;
-	}
+	}*/
 
+	/**
+	 * 判断节点是否合法
+	 * 
+	 * @param node
+	 * @return
+	 */
 	public static boolean isLegal(Node node) {
 		return null != node.getName()
 				|| !"".equals(node.getStringValue().trim());
 	}
 
-	public static int getNodeCount(Node node) {
+	/*public static int getNodeCount(Node node) {
 		int nodeCount = 1;
 		if (isLegal(node) == false) {
 			return 0;
@@ -308,8 +325,13 @@ public class XmlHelp {
 			}
 		}
 		return nodeCount;
-	}
+	}*/
 
+	/**
+	 * 判断节点中子节点Text节点的数量
+	 * @param node
+	 * @return
+	 */
 	public static int getTextNodeCount(Node node) {
 		int nodeCount = 0;
 		if (node.getNodeType() == Node.ELEMENT_NODE) {
@@ -324,7 +346,11 @@ public class XmlHelp {
 		return nodeCount;
 	}
 
-	
+	/**
+	 * 统计节点的所有子节点数
+	 * @param element
+	 * @return
+	 */
 	@SuppressWarnings("unchecked")
 	public static int getElementCount(Element element) {
 		int elementCount = 1;

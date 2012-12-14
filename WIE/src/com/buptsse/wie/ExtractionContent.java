@@ -30,6 +30,12 @@ public class ExtractionContent {
 		this.href = link;
 	}
 	
+	/**
+	 * 抽取节点内容的拼接，将一些多属性
+	 * 的标签的内容进行内容组合
+	 * 
+	 * @param node
+	 */
 	public ExtractionContent(Element node) {
 		if (node.getName().equalsIgnoreCase("img")) {
 			this.value = "[图片]";
