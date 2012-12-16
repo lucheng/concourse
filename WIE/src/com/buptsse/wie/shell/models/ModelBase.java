@@ -1,7 +1,8 @@
 package com.buptsse.wie.shell.models;
 
-import java.util.*;
-import java.util.concurrent.Callable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
@@ -9,9 +10,13 @@ import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseListener;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
-import org.eclipse.swt.widgets.*;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Slider;
+import org.eclipse.swt.widgets.Text;
 
 public abstract class ModelBase {
+	
 	private Map<String, Object> data;
 	private Shell shell;
 	private static Map<String, ArrayList<Callback>> events = new HashMap<String, ArrayList<Callback>>();

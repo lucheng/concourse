@@ -8,18 +8,25 @@ import org.dom4j.Element;
 /**
  * 树算法类，包含简单树匹配、树对齐方法
  * 是整个抽取工具的核心算法类
+ * 
  */
 public class Matcher {
 
 	/**
+	 * 
 	 * 简单树匹配算法
 	 * 
-	 * @param templateRoot
-	 * @param alignRoot
-	 * @param matchNodes1
-	 * @param matchNodes2
-	 * @return
+	 * 输入两个网页文件，递归比较两个网页的相似度，
+	 * 并把相同的节点放入matchNodes1与matchNodes2中，
+	 * 返回两个网页的相似度
+	 * 
+	 * @param templateRoot 	模板网页dom树的根节点
+	 * @param alignRoot 	对齐网页dom树的根节点
+	 * @param matchNodes1 	模板网页中与对齐网页相同的节点
+	 * @param matchNodes2	对齐网页中与模板网页相同的节点
+	 * @return				两个网页的相似度
 	 */
+	@SuppressWarnings("unchecked")
 	public int simpleTreeMatch(Element templateRoot, Element alignRoot, List<Element> matchNodes1, List<Element> matchNodes2) {
 
 		//模板节点与对齐节点数组
@@ -132,6 +139,8 @@ public class Matcher {
 		List<Element> elements2 = node2.elements();
 		int n = elements1.size();
 		int m = elements2.size();
+		
+		// 用于记录中间变量
 		int c[][] = new int[n + 1][m + 1];
 		int b[][] = new int[n + 1][m + 1];
 		NodeList p[][] = new NodeList[n + 1][m + 1];
@@ -194,6 +203,8 @@ public class Matcher {
 
 		int i = n;
 		int j = m;
+		
+		// 将相同节点加入到数组中
 		while (i != 0 && j != 0) {
 			if (b[i][j] == 0) {
 				matchNodes1.addAll(p[i][j].getNodes());
@@ -223,10 +234,15 @@ public class Matcher {
 	
 
 	/**
-	 * 树对齐算法
-	 * 将模板网页与对齐网页进行对比，将对齐网页中的模板网页没有的节点
+	 * 树对齐算法:
+	 * 将模板网页与对齐网页进行对比，
+	 * 将对齐网页中的模板网页没有的节点，
 	 * 插入到模板网页文件中
-	 * 
+	 *
+	 * @param node1 		模板网页dom树的根节点
+	 * @param node2			对齐网页dom树的根节点
+	 * @param matchNodes1 	模板网页中与对齐网页相同的节点
+	 * @param matchNodes2	对齐网页中与模板网页相同的节点
 	 */
 	@SuppressWarnings("unchecked")
 	public void alignTrees(Element node1, Element node2, List<Element> matchNodes1, List<Element> matchNodes2) {

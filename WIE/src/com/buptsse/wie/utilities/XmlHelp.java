@@ -9,7 +9,6 @@ import java.util.List;
 
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
-import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.Node;
 import org.dom4j.io.OutputFormat;
@@ -28,14 +27,22 @@ public class XmlHelp {
 
 	private static SAXReader xmlReader = new SAXReader();
 
+	/**
+	 * xml转换方法，将html转化成xml格式，并返回document对象
+	 * 
+	 * @param aFile html文件的路径
+	 * @return 		document对象
+	 * @throws DocumentException document异常
+	 */
 	public Document parseWithSAX(File aFile) throws DocumentException {
 		return xmlReader.read(aFile);
 	}
 
 	/**
-	 * 根据文件名字，生成Document对象返回
-	 * @param filePath
-	 * @return
+	 * 根据html文件的路径，生成Document对象返回
+	 * 
+	 * @param filePath 	html文件的路径
+	 * @return			Document对象
 	 */
 	public static Document getDocument(String filePath) {
 		
@@ -51,6 +58,13 @@ public class XmlHelp {
 		return document;
 	}
 
+	/**
+	 * 根据html文件的路径，生成Document对象返回，
+	 * 并将生成的临时文件删除
+	 * 
+	 * @param filePath	html文件的路径
+	 * @return			Document对象
+	 */
 	public static Document getHtmlDocument(String filePath) {
 		
 		Document document = null;
@@ -67,9 +81,11 @@ public class XmlHelp {
 	}
 
 	/**
-	 * 得到输入文件集的根节点
-	 * @param files
-	 * @return
+	 * 根据html文件名的数组，生成Document对象返回，得到输入文件集的根节点
+	 * 
+	 * @param files	html文件名的数组
+	 * @return		转化后的Document对象的根节点
+	 * 
 	 */
 	public static List<Element> getRootList(String files[]) {
 		List<Element> roots = new ArrayList<Element>();
@@ -83,6 +99,13 @@ public class XmlHelp {
 		return roots;
 	}
 	
+	/**
+	 * 根据Document的根节点的数组，对dom树进行处理后，
+	 * 返回处理后的dom树的根节点
+	 * 
+	 * @param rawRoots	Document的根节点的数组
+	 * @return			处理后Document的根节点的数组
+	 */
 	public static List<Element> getRootList(List<Element> rawRoots) {
 		List<Element> roots = new ArrayList<Element>();
 		// FileHelp.sortFiles(files);
@@ -95,8 +118,9 @@ public class XmlHelp {
 
 	/**
 	 * 清理不规的html文件，返回Document对象
-	 * @param fileName
-	 * @return
+	 * 
+	 * @param fileName	html文件
+	 * @return			Document对象
 	 */
 	public static Document cleanHtml(String fileName) {
 		
@@ -140,9 +164,9 @@ public class XmlHelp {
 		return tmp.getDocument();
 	}
 	
-	public Document parseWithSAX(String htmlSrc) throws DocumentException {
+	/*public Document parseWithSAX(String htmlSrc) throws DocumentException {
 		return DocumentHelper.parseText(htmlSrc);
-	}
+	}*/
 	
 	/*public String cleanSrc(String src, String charset) {
 		
@@ -167,7 +191,8 @@ public class XmlHelp {
 	
 	/**
 	 * 给每个节点添加my_count_id属性，并给每个my_count_id编号
-	 * @param root
+	 * 
+	 * @param root	Document的根节点
 	 */
 	@SuppressWarnings("unchecked")
 	public static void processTemplate(Element root) {
@@ -185,9 +210,10 @@ public class XmlHelp {
 	}
 		
 	/**
-	 * 给文件添加css与js文件
-	 * @param root
-	 * @return
+	 * 在head中给文件添加css与js文件
+	 * 
+	 * @param root 	Document的根节点
+	 * @return		添加脚本后的Document的根节点
 	 */
 	public static Element addHtml(Element root) {
 		Node headNode = root.selectSingleNode("//head");
@@ -217,8 +243,9 @@ public class XmlHelp {
 	
 	/**
 	 * 写入XML文件
-	 * @param path
-	 * @param document
+	 * 
+	 * @param path		输入的文件路径
+	 * @param document	Document对象
 	 */
 	public static void writeDocument(String path, Document document) {
 		OutputFormat format = OutputFormat.createPrettyPrint();
@@ -241,8 +268,8 @@ public class XmlHelp {
 	/**
 	 * 复制节点
 	 * 
-	 * @param nodes1
-	 * @param nodes2
+	 * @param nodes1	复制的源节点数组
+	 * @param nodes2	复制的目标节点数组
 	 */
 	public static void copy(List<Element> nodes1, List<Element> nodes2) {
 		nodes2.clear();
@@ -253,8 +280,9 @@ public class XmlHelp {
 
 	/**
 	 * 去除树中多会的节点，将其设置成不可见
-	 * @param element
-	 * @param num
+	 * 
+	 * @param element	根节点
+	 * @param num		节点数
 	 */
 	@SuppressWarnings("unchecked")
 	public static void reduceElement(Element element, int num) {
@@ -272,7 +300,8 @@ public class XmlHelp {
 
 	/**
 	 * 初始化节点，去除链接
-	 * @param element
+	 * 
+	 * @param element	根节点
 	 */
 	@SuppressWarnings("unchecked")
 	public static void initEelment(Element element) {
@@ -301,8 +330,8 @@ public class XmlHelp {
 	/**
 	 * 判断节点是否合法
 	 * 
-	 * @param node
-	 * @return
+	 * @param node	被判断结点
+	 * @return		是否合法
 	 */
 	public static boolean isLegal(Node node) {
 		return null != node.getName()
@@ -328,9 +357,9 @@ public class XmlHelp {
 	}*/
 
 	/**
-	 * 判断节点中子节点Text节点的数量
-	 * @param node
-	 * @return
+	 * 统计节点中子节点Text节点的数量
+	 * @param node	被统计节点
+	 * @return		Text节点的数量
 	 */
 	public static int getTextNodeCount(Node node) {
 		int nodeCount = 0;
@@ -348,8 +377,8 @@ public class XmlHelp {
 
 	/**
 	 * 统计节点的所有子节点数
-	 * @param element
-	 * @return
+	 * @param element	根节点
+	 * @return			子节点数
 	 */
 	@SuppressWarnings("unchecked")
 	public static int getElementCount(Element element) {

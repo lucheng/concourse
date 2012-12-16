@@ -8,6 +8,11 @@ import org.eclipse.swt.graphics.*;
 import org.eclipse.swt.layout.*;
 import org.eclipse.swt.widgets.*;
 
+/**
+ * 关于WIE对话框
+ * 用于显示关于WIE信息抽取系统信息的描述
+ * 
+ */
 public class AboutBox extends Dialog {
 
 	public AboutBox(Shell parentShell) {

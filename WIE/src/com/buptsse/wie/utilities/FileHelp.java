@@ -1,24 +1,20 @@
 package com.buptsse.wie.utilities;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 
 /**
  * 文件操作类
+ * 包括对文件的各种操作
  */
 public class FileHelp {
 
@@ -30,8 +26,8 @@ public class FileHelp {
 	/**
 	 * 取得一个文件夹下所有的文件
 	 * 
-	 * @param directory
-	 * @return
+	 * @param directory	文件夹路径
+	 * @return			包含文件夹下所有文件名的字符串数组
 	 */
 	public static String[] getFiles(String directory) {
 		File file = new File(directory);
@@ -57,9 +53,9 @@ public class FileHelp {
 	/**
 	 * 根据后缀取得一个文件夹下的所有文件名
 	 * 
-	 * @param directory
-	 * @param suffix
-	 * @return
+	 * @param directory		文件夹路径
+	 * @param suffix		后缀名字
+	 * @return				包含文件夹下所有文件名的字符串数组
 	 */
 	public static String[] getFiles(String directory, final String suffix) {
 		File file = new File(directory);
@@ -84,8 +80,8 @@ public class FileHelp {
 	/**
 	 * 复制文件夹到指定路径
 	 * 
-	 * @param srcDirStr
-	 * @param dstDirStr
+	 * @param srcDirStr 源目录
+	 * @param dstDirStr	目标目录
 	 */
 	public static void copyDirectory(String srcDirStr, String dstDirStr) {
 		File srcDir = new File(srcDirStr);
@@ -100,8 +96,8 @@ public class FileHelp {
 	/**
 	 * 复制文件夹到指定路径
 	 * 
-	 * @param srcDir
-	 * @param dstDir
+	 * @param srcDir	源目录
+	 * @param dstDir	目标目录
 	 */
 	public static void copyDirectory(File srcDir, File dstDir) {
 		if (srcDir.isDirectory()) {
@@ -121,8 +117,8 @@ public class FileHelp {
 	/**
 	 * 复制文件到指定路径
 	 * 
-	 * @param src
-	 * @param dst
+	 * @param src	源文件
+	 * @param dst	目标文件
 	 */
 	public static void copyFile(File src, File dst) {
 		InputStream in;
@@ -145,9 +141,10 @@ public class FileHelp {
 
 	/**
 	 * 根据传入的文件名数组，按照节点数的多少进行排序
-	 * @param files
-	 * @return
-	 * @throws IOException
+	 * 
+	 * @param files		文件名数组
+	 * @return			排序好的文件名数组
+	 * @throws IOException	IO异常
 	 * @throws DocumentException
 	 */
 	public static String[] sortFiles(String[] files) throws IOException, DocumentException {
@@ -180,8 +177,8 @@ public class FileHelp {
 	/**
 	 * 根据文件类型，删除文件夹里的文件
 	 * 
-	 * @param directory
-	 * @param fileType
+	 * @param directory		文件夹路径
+	 * @param fileType		文件类型
 	 */
 	public static void deleteFiles(String directory, final String fileType) {
 		File file = new File(directory);
@@ -201,9 +198,9 @@ public class FileHelp {
 
 	/**
 	 * 删除文件夹里的文件
-	 * @param foder
+	 * @param foder		文件夹路径
 	 */
-	private static void deleteFoder(File foder) {
+	/*private static void deleteFoder(File foder) {
 		for (File file : foder.listFiles()) {
 			if (file.isFile()) {
 				file.delete();
@@ -211,12 +208,12 @@ public class FileHelp {
 				deleteFoder(file);
 			}
 		}
-	}
+	}*/
 
 	/**
 	 * 创建新的文件夹
 	 * 
-	 * @param path
+	 * @param path 文件夹路径
 	 */
 	public static void makedir(String path) {
 		File foder = new File(path);
@@ -261,8 +258,8 @@ public class FileHelp {
 	/**
 	 * 从jar包中将文件复制到目标目录中
 	 * 
-	 * @param source
-	 * @param dest
+	 * @param source	源文件名
+	 * @param dest		目标文件名
 	 */
 	public static void copyJarFile(String source, String dest) {
 		InputStream in = FileHelp.class.getResourceAsStream(source);
@@ -281,10 +278,11 @@ public class FileHelp {
 	}
 
 	/**
+	 * 
 	 * 取得文件名数组中文件的文件名
 	 * 
-	 * @param files
-	 * @return
+	 * @param files	文件路径数组
+	 * @return		文件名数组
 	 */
 	public static String[] getNames(String[] files) {
 		String[] names = new String[files.length];

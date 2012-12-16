@@ -6,6 +6,7 @@ import java.io.*;
  * 外部调用接口类
  */
 public final class MyWIE {
+	
 	public static FileFilter htmlFilter;
 	
 	static {
@@ -13,7 +14,7 @@ public final class MyWIE {
 			
 			@Override
 			public boolean accept(File pathname) {
-				// TODO Auto-generated method stub
+				
 				if (pathname.isFile() && 
 					(pathname.getName().toLowerCase().endsWith(".html") ||
 					 pathname.getName().toLowerCase().endsWith(".htm"))) {

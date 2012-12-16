@@ -17,6 +17,14 @@ import com.buptsse.wie.utilities.XmlHelp;
  * 
  */
 public class TemplateGenerator extends GeneratorOld {
+	
+	/**
+	 * 构造方法
+	 * 传入网页所在的文件夹与相似度，生成模板
+	 * 
+	 * @param outputFolder	网页所在的文件夹
+	 * @param simIndex		相似度
+	 */
 	public TemplateGenerator(File outputFolder, double simIndex) {
 		this.setDirectory(outputFolder.getAbsolutePath());
 		this.setRate(simIndex);
@@ -29,8 +37,8 @@ public class TemplateGenerator extends GeneratorOld {
 	/**
 	 * 异步实现模板生成
 	 * 
-	 * @param pages
-	 * @param monitor
+	 * @param pages		文件名数组
+	 * @param monitor	监听器
 	 */
 	public void generateAsync(File[] pages, IAsyncMonitor monitor) {
 		if (monitor == null) {
@@ -49,7 +57,7 @@ public class TemplateGenerator extends GeneratorOld {
 					try {
 						generate(fPages, fMonitor);
 					} catch (Exception e) {
-						// TODO: handle exception
+					
 						fMonitor.onCompleted(CompletionType.Exception, e, null);
 					}
 				}
@@ -60,8 +68,8 @@ public class TemplateGenerator extends GeneratorOld {
 	/**
 	 * 根据传入的网页集，生成模板
 	 * 
-	 * @param pages
-	 * @param monitor
+	 * @param pages 包含网页文件路径的字符数组
+	 * @param monitor	监听器
 	 */
 	private void generate(File[] pages, IAsyncMonitor monitor) {
 		Document rawHtmlDoc = null;
@@ -84,11 +92,17 @@ public class TemplateGenerator extends GeneratorOld {
 
 class GeneratorOld {
 	
+	// 文件目录
 	private String directory;
+	// 生成的模板数
 	private int templateNum;
+	// 模板根节点
 	private Element root;
+	// 模板聚合数
 	private int total;
+	// 相似度
 	protected double rate;
+	
 	private List<Element> srcRoots;
 	private List<Element> newRoots;
 	
@@ -96,8 +110,9 @@ class GeneratorOld {
 	private XmlHelp xmlHelp = new XmlHelp();
 	
 	/**
-	 * 对网页dom树的每个节点进行编号
-	 * @param root
+	 * 对网页dom树的每个节点进行编号处理
+	 * 
+	 * @param root dom树的根节点
 	 */
 	@SuppressWarnings("unchecked")
 	private void processTemplate(Element root) {
@@ -116,9 +131,9 @@ class GeneratorOld {
 
 	/**
 	 * 调用核心算法中的树匹配算法，计算两个网页dom树是否相似
-	 * @param templateRoot
-	 * @param alignRoot
-	 * @return
+	 * @param templateRoot	模板网页文件根节点
+	 * @param alignRoot		对齐网页文件根节点
+	 * @return				相似度是否大于给定的相似度
 	 */
 	protected boolean matchAlign(Element templateRoot, Element alignRoot) {
 		
@@ -138,6 +153,12 @@ class GeneratorOld {
 		}
 	}
 	
+	/**
+	 * 根据传入的网页的dom树根节点，生成模板文件
+	 * 
+	 * @param roots		网页的dom树根节点
+	 * @return			生成的模板数
+	 */
 	protected int generateTemplate(List<Element> roots) {
 		return this.generateTemplate(roots, null);
 	}
@@ -146,9 +167,9 @@ class GeneratorOld {
 	 * 模板生成
 	 * 调用模板生成算法，生成模板文件，并返回生成的模板数量
 	 * 
-	 * @param roots
-	 * @param monitor
-	 * @return
+	 * @param roots		网页的dom树根节点
+	 * @param monitor	监听器
+	 * @return			生成的模板数
 	 */
 	@SuppressWarnings("static-access")
 	protected int generateTemplate(List<Element> roots, IAsyncMonitor monitor) {
@@ -230,8 +251,8 @@ class GeneratorOld {
 
 	/**
 	 * 将js脚本文件加入到模板文件头中
-	 * @param src
-	 * @param element
+	 * @param src	js脚本文件的位置
+	 * @param element	js脚本文件的所要添加到的节点
 	 */
 	private void addScript(String src, Element element) {
 		Element jsElement = element.addElement("script");
@@ -242,8 +263,9 @@ class GeneratorOld {
 
 	/**
 	 * 将css脚本文件加入到模板文件头中
-	 * @param src
-	 * @param element
+	 * 
+	 * @param href	css样式文件的位置
+	 * @param element	css样式文件的所要添加到的节点
 	 */
 	private void addLink(String href, Element element) {
 		Element cssElement = element.addElement("link");

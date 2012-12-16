@@ -24,7 +24,6 @@ public class CharsetDetector {
 	public static int UNKNOWN = 6;
 
 	public CharsetDetector(int lang) {
-		// TODO Auto-generated constructor stub
 		detector = new nsDetector(lang);
 	}
 	
@@ -35,7 +34,6 @@ public class CharsetDetector {
 			
 			@Override
 			public void Notify(String arg0) {
-				// TODO Auto-generated method stub
 				found = true;
 				charset = arg0;
 			}
@@ -61,6 +59,8 @@ public class CharsetDetector {
 		
 		detector.DataEnd();
 		
+		stream.close();
+		
 		if (isAscii) {
 			charset = "us-ascii";
 			found = true;
@@ -69,6 +69,7 @@ public class CharsetDetector {
 		if (!found) {
 			return null;
 		}
+		
 		
 		return charset;
 	}

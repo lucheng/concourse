@@ -8,6 +8,7 @@ import java.util.List;
  */
 public class SemanticTag {
 	
+	
 	private String semantic;
 	private String block;
 	private String windowStatus;

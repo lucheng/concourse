@@ -16,13 +16,18 @@ import com.sun.xml.internal.txw2.output.IndentingXMLStreamWriter;
  */
 
 public class ExtractionResultCollection {
-	public static String defaultCharset = "utf-8";
 	
+	// 默认的字符编码
+	public static String defaultCharset = "utf-8";
+	// 抽取结果的map集合
 	private Map<String, ExtractionResult> results;
+	// 抽取结果的标签名
 	private HashSet<String> headers;
 
+	/**
+	 * 构造方法，初始化类变量
+	 */
 	public ExtractionResultCollection() {
-		// TODO Auto-generated constructor stub
 		results = new HashMap<String, ExtractionResult>();
 		headers = new HashSet<String>();
 	}
@@ -35,15 +40,31 @@ public class ExtractionResultCollection {
 		return headers;
 	}
 	
+	
+	/**
+	 * 判断结果集中是否已包含输入的文件名
+	 * 
+	 * @param fileName 输入的文件名
+	 * @return 是否已包含
+	 */
 	public boolean containsFile(String fileName) {
 		return results.containsKey(fileName);
 	}
 	
+	/**
+	 * 将抽取结果添加到抽取结果集中
+	 * 
+	 * @param result 一个文件抽取出来的内容
+	 */
 	public void addResult(ExtractionResult result) {
+		
+		// 判断是否为空
 		if (result != null) {
+			// 如果没有包含文件名，则将文件名做有key，内容做为value放入map中
 			if (!results.containsKey(result.getFileName())) {
 				results.put(result.getFileName(), result);
 			} else {
+				// 如果已经包含，则将内容归并到原有内容里
 				results.get(result.getFileName()).merge(result);
 			}
 			
@@ -51,25 +72,39 @@ public class ExtractionResultCollection {
 		}
 	}
 	
+	/**
+	 * 将标签名与已有的标签名集合进行合并
+	 * 
+	 * @param headers 标签名集合
+	 */
 	private void mergeHeaders(HashSet<String> headers) {
 		for (String header : headers) {
 			this.headers.add(header);
 		}
 	}
 	
+	/**
+	 * 清除结果集
+	 */
 	public void clear() {
 		results.clear();
 	}
 	
+	/**
+	 * 将内容以默认的编码保存到xml文件中
+	 * 
+	 * @param fileName 要保存的文件名
+	 * @throws Exception 抛出异常
+	 */
 	public void saveXml(String fileName) throws Exception {
 		saveXml(fileName, defaultCharset);
 	}
 	
 	/**
 	 * 将抽取出来的网页数据写入到XML文件中
-	 * @param fileName
-	 * @param charset
-	 * @throws Exception
+	 * @param fileName 要保存到的文件名
+	 * @param charset 文件字符编码
+	 * @throws Exception 异常
 	 */
 	public void saveXml(String fileName, String charset) throws Exception {
 		XMLOutputFactory xof = XMLOutputFactory.newInstance();
@@ -77,11 +112,13 @@ public class ExtractionResultCollection {
 		writer = new IndentingXMLStreamWriter(
 				xof.createXMLStreamWriter(
 						new FileOutputStream(fileName), charset));
-		writer.setIndentStep("  ");
 		
+		// 对输入流进行配置
+		writer.setIndentStep("  ");
 		writer.writeStartDocument(charset, "1.0");
 		writer.writeStartElement("ExtractionResults");
 		
+		// 如果headers集合的大小大于0，将集合内容写入
 		if (headers.size() > 0) {
 			writer.writeStartElement("Headers");
 			
@@ -94,17 +131,21 @@ public class ExtractionResultCollection {
 			writer.writeEndElement();
 		}
 		
+		// 如果抽取内容集合的大小大于0，将集合内容写入
 		if (results.size() > 0) {
 			writer.writeStartElement("Results");
 			
+			// 循环写入抽取的内容
 			for (ExtractionResult result : this.results()) {
-				writer.writeStartElement("Result");
 				
+				writer.writeStartElement("Result");
 				writer.writeStartElement("FileName");
 				writer.writeCharacters(result.getFileName());
 				writer.writeEndElement();
 				
+				// 写入标签名和标签内容
 				if (result.tags().size() > 0) {
+					
 					writer.writeStartElement("Values");
 					
 					for (ExtractionTag tag : result.tags()) {
@@ -133,20 +174,23 @@ public class ExtractionResultCollection {
 			writer.writeEndElement();
 		}
 		
+		// 输出流写入节点结尾
 		writer.writeEndElement();
 		writer.writeEndDocument();
 		
+		// 关闭输出流
 		writer.flush();
 		writer.close();
 	}
 	
 	/**
-	 * 读取xml文件，载入xml文件
+	 * 根据传入的文件地址，载入xml文件
 	 * 
-	 * @param fileName
-	 * @throws Exception
+	 * @param fileName 载入的文件名
+	 * @throws Exception 异常
 	 */
 	public void loadXml(String fileName) throws Exception {
+		
 		XMLInputFactory xif = XMLInputFactory.newInstance();
 		XMLEventReader reader = xif.createXMLEventReader(new FileInputStream(fileName));
 		

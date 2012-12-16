@@ -9,21 +9,34 @@ import org.dom4j.Element;
 /**
  * 节点比较类
  * 用于计算节点之间的相似度
+ * 
  */
 public class NodeComparer {
+	
+	// 表示节点不同
 	public static int DIFFERENT = 0;
+	// 表示节点具有相同标签名
 	public static int SAME_TAG = 1;
+	// 表示节点具有相同标签名和内容
 	public static int SAME_CONTENT = 2;
 
+	// 需要对比的一些标签的名称
 	public static String[] names = { "id", "type", "style", "onsubmit",
 			"onchange", "border", "target", "onmouseover", "content", "method",
 			"valign" };
+	
 	public static List<String> attributes = new ArrayList<String>();
 	static {
 		for (int i = 0; i < names.length; i++)
 			attributes.add(names[i]);
 	}
 
+	/**
+	 * 对比两个节点是否相同
+	 * @param node1		输入节点1
+	 * @param node2		输入节点2
+	 * @return			节点对比结果
+	 */
 	public static int compare(Element node1, Element node2) {
 
 		// 标签名称不一致
@@ -52,9 +65,9 @@ public class NodeComparer {
 	/**
 	 * 对比title是否相同
 	 * 
-	 * @param text1
-	 * @param text2
-	 * @return
+	 * @param text1	title1的内容
+	 * @param text2	title2的内容
+	 * @return	是否相同
 	 */
 	public static boolean isTitleEqual(String text1, String text2) {
 		if ("".endsWith(text1) || "".equals(text2))
@@ -75,6 +88,12 @@ public class NodeComparer {
 		return false;
 	}
 
+	/**
+	 * 
+	 * @param attribute
+	 * @param attributeList
+	 * @return
+	 */
 	public static boolean findAttribute(Attribute attribute,
 			List<Attribute> attributeList) {
 		for (Attribute a : attributeList) {
