@@ -26,6 +26,7 @@ import com.buptsse.wie.shell.components.Border;
 import com.buptsse.wie.utilities.FileHelp;
 import com.buptsse.wie.utilities.XmlHelp;
 
+//模板编辑器
 public class TemplateEditorWindow extends ApplicationWindow {
 
 	private TableViewer tagTable;
@@ -76,6 +77,7 @@ public class TemplateEditorWindow extends ApplicationWindow {
 		
 		parent.getChildren()[0].dispose();
 		
+		//创建标注列表和浏览器控件
 		tagTable = new TableViewer(parent, SWT.FULL_SELECTION|SWT.BORDER|SWT.SINGLE|SWT.H_SCROLL);
 		Border border = new Border(parent, SWT.NONE);
 		browser = new Browser(border, SWT.NONE);
@@ -83,7 +85,7 @@ public class TemplateEditorWindow extends ApplicationWindow {
 			
 			@Override
 			public void changed(StatusTextEvent arg0) {
-				// TODO Auto-generated method stub
+				// 侦听Window Status改变
 				if (Pattern.matches("[1-9][0-9]*", arg0.text.trim())) {
 					updateWindowStatus(arg0.text.trim());
 				} else if (arg0.text.trim().equals("null")) {
@@ -379,12 +381,14 @@ public class TemplateEditorWindow extends ApplicationWindow {
 		shell.setMenuBar(menuBar);
 	}
 	
+	//设置菜单Enabled属性
 	private void setMenuEnabled(String name, boolean enabled) {
 		if (menuTable.containsKey(name)){
 			menuTable.get(name).setEnabled(enabled);
 		}
 	}
 	
+	//设置保存状态
 	private void setSaveStatus(boolean isSaved) {
 		if (!this.isSaved && isSaved) {
 			this.isSaved = true;
@@ -396,6 +400,7 @@ public class TemplateEditorWindow extends ApplicationWindow {
 		}
 	}
 	
+	//添加新标注
 	private void addTagData(SemanticTag data) {
 		if (!tagNameTable.contains(data.getSemantic())) {
 			tagData.add(data);
@@ -404,6 +409,7 @@ public class TemplateEditorWindow extends ApplicationWindow {
 		}
 	}
 	
+	//删除标注
 	private void removeTagData(SemanticTag data) {
 		if (tagNameTable.contains(data.getSemantic())) {
 			tagData.remove(data);
@@ -414,11 +420,13 @@ public class TemplateEditorWindow extends ApplicationWindow {
 		}
 	}
 	
+	//处理Window Status更改
 	private void updateWindowStatus(String status) {
 		if (!status.equals(windowStatus) && !tagIdTable.contains(status)) {
 			windowStatus = status;
 			
 			if (windowStatus != null) {
+				//已选定新元素，创建标注，显示编辑标注对话框。
 				SemanticTag data = new SemanticTag();
 				data.setBlock(getBlock(windowStatus));
 				data.setSemantic("标注" + (tagData.size() + 1));
@@ -438,6 +446,7 @@ public class TemplateEditorWindow extends ApplicationWindow {
 		}
 	}
 	
+	//打开新模板文件
 	private void reloadTemplate(String newTemplate) {
 		tagData.clear();
 		tagIdTable.clear();
@@ -446,6 +455,7 @@ public class TemplateEditorWindow extends ApplicationWindow {
 		loadTemplate(newTemplate);
 	}
 	
+	//打开模板文件
 	private void loadTemplate(String templateFile) {
 		final String file = templateFile;
 		
@@ -456,7 +466,7 @@ public class TemplateEditorWindow extends ApplicationWindow {
 		Display.getCurrent().asyncExec(new Runnable() {
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
+				// 创建副本并打开。
 				FileHelp.makedir(FileHelp.TEMPDIR);
 				String tempfile = FileHelp.TEMPDIR + "temp.html";
 				FileHelp.copyFile(new File(file), new File(tempfile));
@@ -483,6 +493,7 @@ public class TemplateEditorWindow extends ApplicationWindow {
 		return selectNode.asXML();
 	}
 	
+	//从模板XML文档中读取已保存的标注数据。
 	private void extractTags() {
 		Element root = xmlDoc.getRootElement();
 		List<Element> list = root.selectNodes("//*[@semantic]");
@@ -499,8 +510,10 @@ public class TemplateEditorWindow extends ApplicationWindow {
 		tagTable.refresh();
 	}
 	
+	//保存模板文件
 	private void saveFile(String fileName) {
 		if(fileName != null){
+			//创建Tag列表
 			List<SemanticTag> list = new ArrayList<SemanticTag>();
 			for (SemanticTag data : tagData) {
 				SemanticTag slim = new SemanticTag();
@@ -511,6 +524,7 @@ public class TemplateEditorWindow extends ApplicationWindow {
 				list.add(slim);
 			}
 			
+			//更新标注数据
 			Element root = XmlHelp.getHtmlDocument(currentTempFile).getRootElement();
 			
 			List<Node> oldNodes = root.selectNodes("//*[@semantic]");
@@ -550,12 +564,14 @@ public class TemplateEditorWindow extends ApplicationWindow {
 				}
 			}
 			
+			//保存到磁盘
 			XmlHelp.writeDocument(fileName, root.getDocument());
-			
+			//设置为已保存
 			setSaveStatus(true);
 		}
 	}
 	
+	//弹出保存提醒
 	private boolean promptSave(){
 		if (!isSaved) {
 			MessageBox mbox = new MessageBox(getShell(), SWT.ICON_QUESTION | SWT.YES | SWT.NO | SWT.CANCEL);
@@ -579,6 +595,7 @@ public class TemplateEditorWindow extends ApplicationWindow {
 		}
 	}
 	
+	//拦截窗口关闭
 	private boolean onClosing() {
 		return promptSave();
 	}
@@ -600,10 +617,12 @@ public class TemplateEditorWindow extends ApplicationWindow {
 		}
 	}
 	
+	//编辑标注
 	private void editTag(IStructuredSelection selection) {
 		SemanticTag data = getSelectedItem(selection);
-				
+		
 		tagNameTable.remove(data.getSemantic());
+		//显示编辑对话框
 		EditTagDialog dialog = new EditTagDialog(getShell(), data, tagNameTable);
 		
 		dialog.open();
@@ -617,16 +636,22 @@ public class TemplateEditorWindow extends ApplicationWindow {
 	}
 }
 
+/**
+ * 编辑标注对话框
+ * 
+ */
 class EditTagDialog extends org.eclipse.jface.dialogs.Dialog {
 
 	private SemanticTag tag;
 	
 	private Text tagNameText;
 	private Button multi;
+	//用于重名判定
 	private Set<String> nameTable;
 	
 	private boolean tagOk = false;
 	
+	//表示用户确认标注的更改
 	public boolean getTagOK() {
 		return tagOk;
 	}
@@ -702,6 +727,7 @@ class EditTagDialog extends org.eclipse.jface.dialogs.Dialog {
 					 false);
 	}
 	
+	//处理对话框按钮事件
 	@Override
 	protected void buttonPressed(int buttonId) {
 		// TODO Auto-generated method stub

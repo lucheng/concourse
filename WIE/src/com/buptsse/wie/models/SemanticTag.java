@@ -5,15 +5,19 @@ import java.util.List;
 
 /**
  * 标注标签类
+ * 
+ * 抽取内容在程序中的表现形式
  */
 public class SemanticTag {
-	
-	
+	// 标注名
 	private String semantic;
+	// 块标注
 	private String block;
+	// 节点编号
 	private String windowStatus;
+	// 节点性质
 	private String behave;
-	
+	// 抽取的值
 	private List<String> values = new ArrayList<String>();
 	
 	public SemanticTag() {
@@ -55,6 +59,11 @@ public class SemanticTag {
 		this.values = values;
 	}
 	
+	/**
+	 * 将抽取的数据值转化成字符串后返回
+	 * 
+	 * @return 转化成字符串后返回
+	 */
 	public String getXmlFormat(){
 		
 		StringBuffer sb = new StringBuffer();

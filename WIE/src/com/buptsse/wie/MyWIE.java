@@ -3,7 +3,10 @@ package com.buptsse.wie;
 import java.io.*;
 
 /**
+ * 
  * 外部调用接口类
+ * 向外部提供调用 接口，允许程度在别的应用项目中完成整体的功能
+ * 
  */
 public final class MyWIE {
 	
@@ -27,12 +30,12 @@ public final class MyWIE {
 	}
 	
 	/**
-	 * 传入文件夹路径，生成模板
+	 * 传入文件夹路径，生成模板(异步)
 	 * 
-	 * @param pageFolder
-	 * @param outputFolder
-	 * @param simIndex
-	 * @param monitor
+	 * @param pageFolder	网页文件夹
+	 * @param outputFolder	模板生成后输出的位置
+	 * @param simIndex		相似度
+	 * @param monitor		监视器
 	 */
 	public static void generateTemplateAsync(File pageFolder, File outputFolder, double simIndex, IAsyncMonitor monitor) {
 		
@@ -46,11 +49,11 @@ public final class MyWIE {
 	}
 	
 	/**
-	 * 传入文件数组，生成模板
-	 * @param pages
-	 * @param outputFolder
-	 * @param simIndex
-	 * @param monitor
+	 * 传入文件数组，生成模板(异步)
+	 * @param pages			包含网页文件名的数组
+	 * @param outputFolder	模板生成后输出的位置
+	 * @param simIndex		相似度
+	 * @param monitor		监视器
 	 */
 	public static void generateTemplateAsync(File[] pages, File outputFolder, double simIndex, IAsyncMonitor monitor) {
 		
@@ -71,10 +74,10 @@ public final class MyWIE {
 	}
 	
 	/**
-	 * 模板生成方法
-	 * @param pageFolder
-	 * @param outputFolder
-	 * @param simIndex
+	 * 模板生成方法(同步)
+	 * @param pageFolder	网页文件夹
+	 * @param outputFolder	模板生成后输出的位置
+	 * @param simIndex		相似度
 	 */
 	public static void generateTemplate(
 			File pageFolder, File outputFolder, double simIndex) {
@@ -89,10 +92,10 @@ public final class MyWIE {
 	}
 	
 	/**
-	 * 模板生成方法
-	 * @param pages
-	 * @param outputFolder
-	 * @param simIndex
+	 * 模板生成方法(同步)
+	 * @param pages			包含网页文件名的数组
+	 * @param outputFolder	模板生成后输出的位置
+	 * @param simIndex		相似度
 	 */
 	public static void generateTemplate(File[] pages, File outputFolder, double simIndex) {
 		
@@ -107,7 +110,7 @@ public final class MyWIE {
 	}
 	
 	/**
-	 * 传入文件数组，抽取数据
+	 * 传入文件数组，抽取数据(同步)
 	 * 
 	 * @param templateFile 模板文件
 	 * @param pages 网页数组
@@ -123,11 +126,11 @@ public final class MyWIE {
 	}
 	
 	/**
-	 * 传入文件夹路径，抽取数据
+	 * 传入文件夹路径，抽取数据(同步)
 	 * 
-	 * @param templateFile
-	 * @param pageFolder
-	 * @return
+	 * @param templateFile	模板文件
+	 * @param pageFolder	网页文件夹
+	 * @return				抽取的数据内容
 	 */
 	public static ExtractionResultCollection extractData(File templateFile, File pageFolder) {
 		if (!pageFolder.exists()) {
@@ -138,11 +141,11 @@ public final class MyWIE {
 	}
 	
 	/**
-	 * 异步数据抽取方法
+	 * 数据抽取方法(异步)
 	 * 
-	 * @param templateFile
-	 * @param pages
-	 * @param monitor
+	 * @param templateFile	模板文件
+	 * @param pages			网页数组
+	 * @param monitor		监视器
 	 */
 	public static void extractDataAsync(
 			File templateFile, File[] pages, IAsyncMonitor monitor) {
@@ -161,10 +164,10 @@ public final class MyWIE {
 	}
 	
 	/**
-	 * 异步数据抽取方法
-	 * @param templateFile
-	 * @param pageFolder
-	 * @param monitor
+	 * 数据抽取方法(异步)
+	 * @param templateFile	模板文件
+	 * @param pageFolder	网页文件夹
+	 * @param monitor		监视器
 	 */
 	public static void extractDataAsync(File templateFile, File pageFolder, IAsyncMonitor monitor) {
 		if (!pageFolder.exists()) {

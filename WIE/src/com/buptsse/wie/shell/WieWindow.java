@@ -9,8 +9,7 @@ import org.eclipse.swt.graphics.*;
 import com.buptsse.wie.shell.models.*;
 
 /**
- * 工具程序入口
- * 
+ * 主窗体.
  */
 public class WieWindow extends ApplicationWindow {
 	public WieWindow(Shell shell) {
@@ -29,6 +28,7 @@ public class WieWindow extends ApplicationWindow {
 		
 		Composite root = new Composite(parent, SWT.NONE);
 		
+		//初始化模板生成和数据抽取两个控件面板
 		TemplateGenerationControlGroup templateGroup = new TemplateGenerationControlGroup(root, SWT.NONE);
 		ExtractionControlGroup extractionGroup = new ExtractionControlGroup(root, SWT.NONE);
 		
@@ -72,6 +72,7 @@ public class WieWindow extends ApplicationWindow {
 		return parent;
 	}
 	
+	//创建菜单栏
 	private void createMenu() {
 		Shell shell = getShell();
 		Menu menuBar = new Menu(shell, SWT.BAR);

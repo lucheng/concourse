@@ -7,6 +7,11 @@ import com.buptsse.wie.shell.models.Callback;
 import com.buptsse.wie.shell.models.ExtractionModel;
 import com.buptsse.wie.shell.models.ModelBase;
 
+/**
+ * 抽取控件面板
+ * 负责主界面抽取部分的UI逻辑。
+ * 
+ */
 public class ExtractionControlGroup extends Composite {
 	
 	ExtractionModel model;
@@ -41,6 +46,7 @@ public class ExtractionControlGroup extends Composite {
 		final ProgressBar progress = new ProgressBar(group, SWT.NONE);
 		progress.setVisible(false);
 		
+		//侦听抽取开始事件
 		ModelBase.subscribeGlobalEvent("extractBegin", new Callback() {
 			
 			@Override
@@ -50,7 +56,7 @@ public class ExtractionControlGroup extends Composite {
 					
 					@Override
 					public void run() {
-						// TODO Auto-generated method stub
+						// 抽取开始，设置取消按钮，disable 部分控件。
 						templateFileText.setEnabled(false);
 						templateBrowseButton.setEnabled(false);
 						pageFolderText.setEnabled(false);
@@ -63,6 +69,7 @@ public class ExtractionControlGroup extends Composite {
 			}
 		});
 		
+		//侦听抽取取消事件
 		ModelBase.subscribeGlobalEvent("extractCancel", new Callback() {
 			
 			@Override
@@ -72,7 +79,7 @@ public class ExtractionControlGroup extends Composite {
 					
 					@Override
 					public void run() {
-						// TODO Auto-generated method stub
+						// 设置按钮
 						startButton.setText("正在取消");
 						startButton.setEnabled(false);
 					}
@@ -80,7 +87,7 @@ public class ExtractionControlGroup extends Composite {
 			}
 		});
 		
-		
+		//侦听抽取结束事件
 		ModelBase.subscribeGlobalEvent("extractEnd", new Callback() {
 			
 			@Override
@@ -90,7 +97,7 @@ public class ExtractionControlGroup extends Composite {
 					
 					@Override
 					public void run() {
-						// TODO Auto-generated method stub
+						// 恢复控件到默认状态
 						templateFileText.setEnabled(true);
 						templateBrowseButton.setEnabled(true);
 						pageFolderText.setEnabled(true);
@@ -105,14 +112,15 @@ public class ExtractionControlGroup extends Composite {
 			}
 		});
 		
+		//初始化抽取模块。
 		model = new ExtractionModel(getShell(), progress, getDisplay(), pageFolderText, templateFileText);
+		//为模块注册控件属性
 		model.registerTextProperty("pageFolder", pageFolderText);
 		model.registerTextProperty("template", templateFileText);
 		model.registerButtonAction("browsePageFolder", pageBrowseButton);
 		model.registerButtonAction("browseTemplate", templateBrowseButton);
 		model.registerButtonAction("extract", startButton);
 		
-		//设定位置和大小
 		//设定位置和大小
 		int groupTop = 10;
 		int groupLeft = 10;

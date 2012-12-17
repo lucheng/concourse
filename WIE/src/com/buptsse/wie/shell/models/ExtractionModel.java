@@ -12,12 +12,13 @@ import com.buptsse.wie.IAsyncMonitor;
 import com.buptsse.wie.MyWIE;
 
 /**
- * 抽取界面类
- * 控制抽取过程中界面的显示
+ * 数据抽取模块
+ * 负责抽取逻辑控制
  * 
  */
 public class ExtractionModel extends ModelBase {
 	
+	//部分控件引用,用来控制界面显示
 	private ProgressBar progress;
 	private Display display;
 	private Text pageFolder;
@@ -25,6 +26,7 @@ public class ExtractionModel extends ModelBase {
 	
 	private String outputFolder;
 	
+	//状态变量
 	boolean isRunning = false;
 	boolean isCancelling = false;
 
@@ -38,10 +40,13 @@ public class ExtractionModel extends ModelBase {
 		this.templateFile = templateFile;
 	}
 	
+	//异步抽取数据
 	public void extractDataAsync() {
+		//从基类获取控件属性.
 		String pageFolder = (String)this.getProperty("pageFolder");
 		String templateFile = (String)this.getProperty("template");
 		
+		//判断开始条件
 		File folder = new File(pageFolder);
 		File template = new File(templateFile);
 		
@@ -63,9 +68,11 @@ public class ExtractionModel extends ModelBase {
 			return;
 		}
 		
+		//发布抽取开始全局事件
 		ModelBase.publishGlobalEvent("extractBegin", null);
 		isRunning = true;
 		outputFolder = pageFolder + "/result";
+		//调用异步抽取方法
 		MyWIE.extractDataAsync(new File(templateFile), new File(pageFolder), new IAsyncMonitor() {
 			
 			@Override
@@ -76,7 +83,7 @@ public class ExtractionModel extends ModelBase {
 					
 					@Override
 					public void run() {
-						// TODO Auto-generated method stub
+						// 更新进度
 						updateProgress(fProgress);
 					}
 				});
@@ -86,6 +93,8 @@ public class ExtractionModel extends ModelBase {
 			public void onCompleted(CompletionType completion, Exception exception, Object result) {
 				// TODO Auto-generated method stub
 				final CompletionType type = completion;
+				
+				//保存抽取结果
 				ExtractionResultCollection rc = (ExtractionResultCollection)result;
 				boolean saveOk = false;
 				
@@ -108,7 +117,7 @@ public class ExtractionModel extends ModelBase {
 
 						@Override
 						public void run() {
-							// TODO Auto-generated method stub
+							// 弹出完成信息
 							MessageBox mbox = null;
 
 							if (type == CompletionType.Normal) {
@@ -134,28 +143,33 @@ public class ExtractionModel extends ModelBase {
 				isRunning = false;
 				isCancelling = false;
 				outputFolder = null;
+				//发布抽取结束全局事件
 				ModelBase.publishGlobalEvent("extractEnd", null);
 			}
 			
 			@Override
 			public boolean isCancellationRequested() {
-				// TODO Auto-generated method stub
+				// 返回取消状态
 				return isCancelling;
 			}
 		});
 	}
 	
+	//处理为Button注册的Action
 	@Override
 	protected void handleAction(String actionName) {
-		// TODO Auto-generated method stub
+		
 		if (actionName.equals("extract")) {
+			//抽取
 			if (!isRunning) {
 				this.extractDataAsync();
 			} else {
+				//取消
 				ModelBase.publishGlobalEvent("extractCancel", null);
 				isCancelling = true;
 			}
 		} else if (actionName.equals("browsePageFolder")) {
+			//浏览网页集目录
 			DirectoryDialog dialog = new DirectoryDialog(getShell());
 			dialog.setMessage("选择网页集位置");
 			String target = dialog.open();
@@ -164,6 +178,7 @@ public class ExtractionModel extends ModelBase {
 				pageFolder.setText(target);
 			}
 		} else if (actionName.equals("browseTemplate")) {
+			//浏览模板文件
 			FileDialog dialog = new FileDialog(getShell(), SWT.SINGLE | SWT.OPEN);
 			dialog.setText("选择模板文件");
 			dialog.setFilterNames(new String[] {"模板文件(*.html;*.htm)", "所有文件(*.*)"});
@@ -179,6 +194,7 @@ public class ExtractionModel extends ModelBase {
 		}
 	}
 	
+	//更新进度
 	protected void updateProgress(int progress) {
 		if (isRunning) {
 			this.progress.setSelection(progress);

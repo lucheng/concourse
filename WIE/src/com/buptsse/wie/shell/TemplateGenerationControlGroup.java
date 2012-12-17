@@ -11,8 +11,8 @@ import com.buptsse.wie.shell.models.TemplateGenerationModel;
 import com.sun.org.apache.bcel.internal.generic.GETSTATIC;
 
 /**
- * 
- * 主界面类，包含 界面上的各种控件的布局
+ * 模板生成面板
+ * 负责主界面模板生成的UI逻辑
  * 
  */
 public class TemplateGenerationControlGroup extends Composite {
@@ -51,6 +51,7 @@ public class TemplateGenerationControlGroup extends Composite {
 		final ProgressBar progress = new ProgressBar(group, SWT.NONE);
 		progress.setVisible(false);
 		
+		//侦听抽取开始事件
 		ModelBase.subscribeGlobalEvent("generateBegin", new Callback() {
 			
 			@Override
@@ -60,7 +61,7 @@ public class TemplateGenerationControlGroup extends Composite {
 					
 					@Override
 					public void run() {
-						// TODO Auto-generated method stub
+						// 设置取消按钮,disable部分控件
 						pageFolderText.setEnabled(false);
 						browseButton.setEnabled(false);
 						simIndexSlider.setEnabled(false);
@@ -72,6 +73,7 @@ public class TemplateGenerationControlGroup extends Composite {
 			}
 		});
 		
+		//侦听抽取取消事件
 		ModelBase.subscribeGlobalEvent("generateCancel", new Callback() {
 			
 			@Override
@@ -89,6 +91,7 @@ public class TemplateGenerationControlGroup extends Composite {
 			}
 		});
 		
+		//侦听抽取结束事件
 		ModelBase.subscribeGlobalEvent("generateEnd", new Callback() {
 			
 			@Override
@@ -98,7 +101,7 @@ public class TemplateGenerationControlGroup extends Composite {
 					
 					@Override
 					public void run() {
-						// TODO Auto-generated method stub
+						// 恢复控件状态
 						pageFolderText.setEnabled(true);
 						browseButton.setEnabled(true);
 						simIndexSlider.setEnabled(true);
@@ -112,8 +115,10 @@ public class TemplateGenerationControlGroup extends Composite {
 			}
 		});
 		
+		//创建模板生成模块
 		model = new TemplateGenerationModel(getShell(), progress, getDisplay(),
 				pageFolderText);
+		//为模块注册控件属性通知
 		model.registerTextProperty("pageFolder", pageFolderText);
 		model.registerSliderProperty("simIndex", simIndexSlider);
 		model.registerButtonAction("genasync", startButton);
@@ -125,7 +130,7 @@ public class TemplateGenerationControlGroup extends Composite {
 			
 			@Override
 			public void widgetSelected(SelectionEvent arg0) {
-				// TODO Auto-generated method stub
+				// 同步滑块和百分比显示
 				fLabel.setText(
 					Integer.valueOf(fSlider.getSelection()).toString()
 					+ "%");

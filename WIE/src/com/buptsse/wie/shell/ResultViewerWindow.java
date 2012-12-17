@@ -50,6 +50,11 @@ import com.buptsse.wie.ExtractionResultCollection;
 import com.buptsse.wie.ExtractionTag;
 import com.buptsse.wie.models.SemanticTag;
 
+/**
+ * 结果查看器
+ * 用来显示结果
+ * 
+ */
 public class ResultViewerWindow extends ApplicationWindow {
 
 	private String resultFile;
@@ -74,6 +79,7 @@ public class ResultViewerWindow extends ApplicationWindow {
 		parent.setLayout(new FillLayout());
 		parent.getChildren()[0].dispose();
 		
+		//创建菜单栏
 		Shell shell = getShell();
 		Menu menuBar = new Menu(shell, SWT.BAR);
 		
@@ -101,6 +107,7 @@ public class ResultViewerWindow extends ApplicationWindow {
 		detailItem.setAccelerator(SWT.CTRL | 'd');
 		detailItem.setEnabled(false);
 		
+		//处理退出命令
 		exitItem.addSelectionListener(new SelectionListener() {
 			
 			@Override
@@ -116,6 +123,7 @@ public class ResultViewerWindow extends ApplicationWindow {
 			}
 		});
 		
+		//处理打开命令
 		openItem.addSelectionListener(new SelectionListener() {
 			
 			@Override
@@ -141,6 +149,7 @@ public class ResultViewerWindow extends ApplicationWindow {
 			}
 		});
 		
+		//处理显示详细信息命令
 		detailItem.addSelectionListener(new SelectionListener() {
 			
 			@Override
@@ -164,6 +173,7 @@ public class ResultViewerWindow extends ApplicationWindow {
 		return parent;
 	}
 	
+	//显示ExtractionResult详细信息
 	private void showDetail(IStructuredSelection selection) {
 		ExtractionResult result = getSelectedItem(selection);
 		
@@ -185,10 +195,11 @@ public class ResultViewerWindow extends ApplicationWindow {
 		}
 	}
 	
+	//打开结果XML文件
 	private void openResult(String resultFile, Composite parent) {
 		if (resultFile != null && new File(resultFile).exists()) {
 			
-			
+			//从XML读入结果集。
 			ExtractionResultCollection rc = new ExtractionResultCollection();
 			try {
 				rc.loadXml(resultFile);
@@ -204,6 +215,7 @@ public class ResultViewerWindow extends ApplicationWindow {
 			
 			getShell().setText("结果查看器 - " + resultFile);
 			
+			//创建结果列表
 			if (resultTable != null) {
 				resultTable.getTable().dispose();
 				resultTable = null;
@@ -346,6 +358,11 @@ public class ResultViewerWindow extends ApplicationWindow {
 	}
 }
 
+/**
+ * 详细信息对话框
+ * 显示单个ExtractionResult
+ * 
+ */
 class DetailResultDialog extends Dialog {
 
 	private ExtractionResult result;
@@ -379,6 +396,7 @@ class DetailResultDialog extends Dialog {
 		root.setLayoutData(new GridData(GridData.FILL_BOTH));
 		root.setLayout(new FillLayout());
 		
+		//创建选项卡和详细列表
 		TabFolder tabFolder = new TabFolder(root, SWT.BORDER);
 		for (ExtractionTag tag : result.tags()) {
 			TabItem item = new TabItem(tabFolder, SWT.NONE);

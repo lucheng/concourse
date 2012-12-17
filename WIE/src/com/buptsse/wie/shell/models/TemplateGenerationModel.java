@@ -11,15 +11,16 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.*;
 
 /**
- * 生成模板界面类
- * 用于控制模板生成时界面的显示
- * 
+ * 模板生成模块
+ * 负责模板生成的控制逻辑
  */
 public class TemplateGenerationModel extends ModelBase {
+	//控件引用用来控制界面显示
 	private ProgressBar progress;
 	private Display display;
 	private Text pageFolder;
 	
+	//状态变量
 	boolean isRunning = false;
 	boolean isCancelling = false;
 	
@@ -30,10 +31,13 @@ public class TemplateGenerationModel extends ModelBase {
 		this.pageFolder = pageFolder;
 	}
 	
+	//异步开始生成模板
 	public void generateTemplateAsync() {
+		//从模块基类获取控件属性
 		String pageFolder = (String) this.getProperty("pageFolder");
 		double simIndex = (double)((Integer) this.getProperty("simIndex")) / 100.0;
 		
+		//判断开始条件
 		File dir = new File(pageFolder);
 		if (!dir.exists()) {
 			MessageBox mbox = new MessageBox(getShell(),
@@ -47,6 +51,7 @@ public class TemplateGenerationModel extends ModelBase {
 		String output = pageFolder + "/template";
 		FileHelp.makedir(output);
 		
+		//发布生成开始全局事件
 		ModelBase.publishGlobalEvent("generateBegin", null);
 		isRunning = true;
 		MyWIE.generateTemplateAsync(new File(pageFolder), new File(output), simIndex, new IAsyncMonitor() {
@@ -59,7 +64,7 @@ public class TemplateGenerationModel extends ModelBase {
 					
 					@Override
 					public void run() {
-						// TODO Auto-generated method stub
+						// 更新进度
 						updateProgress(fProgress);
 					}
 				});
@@ -73,7 +78,7 @@ public class TemplateGenerationModel extends ModelBase {
 					
 					@Override
 					public void run() {
-						// TODO Auto-generated method stub
+						// 弹出完成消息
 						MessageBox mbox = null;
 						
 						if (type == CompletionType.Normal) {
@@ -94,26 +99,31 @@ public class TemplateGenerationModel extends ModelBase {
 				});
 				isRunning = false;
 				isCancelling = false;
+				//发布生成结束全局事件
 				ModelBase.publishGlobalEvent("generateEnd", null);
 			}
 			
 			@Override
 			public boolean isCancellationRequested() {
-				// TODO Auto-generated method stub
+				
 				return isCancelling;
 			}
 		});
 	}
 	
+	//处理按钮动作
 	protected void handleAction(String actionName) {
 		if (actionName.equals("genasync")) {
 			if (!isRunning) {
+				//开始
 				generateTemplateAsync();
 			} else {
+				//取消
 				ModelBase.publishGlobalEvent("generateCancel", null);
 				isCancelling = true;
 			}
 		} else if (actionName.equals("browsePageFolder")) {
+			//浏览网页集
 			DirectoryDialog dialog = new DirectoryDialog(getShell());
 			dialog.setMessage("选择网页集位置");
 			String target = dialog.open();
@@ -126,6 +136,7 @@ public class TemplateGenerationModel extends ModelBase {
 		}
 	}
 	
+	//更新进度
 	protected void updateProgress(int progress) {
 		if (isRunning) {
 			this.progress.setSelection(progress);
