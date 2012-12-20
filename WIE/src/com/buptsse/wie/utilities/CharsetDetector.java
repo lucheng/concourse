@@ -6,7 +6,9 @@ import org.mozilla.intl.chardet.*;
 
 /**
  * 字符编码检测类
- * 用于读取文件时文件编码的检测
+ * 
+ * 用于读取文件时文件编码的检测，可以将不同的
+ * 文件编码格式转换成默认的同一个编码规则的文件
  * 
  */
 public class CharsetDetector {

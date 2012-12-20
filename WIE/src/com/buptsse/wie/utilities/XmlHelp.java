@@ -21,7 +21,9 @@ import org.htmlcleaner.TagNode;
 
 /**
  * XML文件操作类
- * 包括对xml文件的各种操作方法
+ * 
+ * 包括对xml文件的转化、xml文件的读取与写入操作方法，
+ * 同时可以进行HTML文件进行读取，返回Document对象等操作
  */
 public class XmlHelp {
 

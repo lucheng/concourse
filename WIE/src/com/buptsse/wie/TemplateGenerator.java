@@ -13,13 +13,17 @@ import com.buptsse.wie.utilities.XmlHelp;
 
 /**
  * 模板生成类
- * 控制模板生成
+ * 
+ * 控制模板生成，所要进行的操作主要有：给定一个网页数据集，
+ * 模板生成方法将根据用户给出的网页相似度进行网页模板的聚合匹配，
+ * 然后给相似度大于阈值的网页进行树对齐操作，最终聚合成一个模板
  * 
  */
 public class TemplateGenerator extends GeneratorOld {
 	
 	/**
 	 * 构造方法
+	 * 
 	 * 传入网页所在的文件夹与相似度，生成模板
 	 * 
 	 * @param outputFolder	网页所在的文件夹
