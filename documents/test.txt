@@ -40,3 +40,12 @@ HtmlCleaner是一个开源的Html文档解析器。HtmlCleaner能够安全的解
 2.提供基本HtmlCleaner DOM的XPath支持 
 3.使用XML配置温江让创建定制tag变得更加容易 
 4.修复多个bug以及API改进
+
+
+中文词法分析是中文信息处理的基础与关键。中国科学院计算技术研究所在多年研究工作积累的基础上，研制出了汉语词法分析系统ICTCLAS(Institute of Computing Technology, Chinese Lexical Analysis System)，主要功能包括中文分词；词性标注；命名实体识别；新词识别；同时支持用户词典。
+
+首先定义一个wordPmcessor类，在该类中对需要用到的
+本地方法进行声明，本地方法的声明必须使用关键字
+“native”，而且不能拥有方法主体，实现部分放在了Java类之
+外的本地代码之中，在Windows平台下将编译成为一个DLL
+文件(unix／unux下为一个so文件)。
