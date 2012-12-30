@@ -1,51 +1,5 @@
-一种基于实体模型的信息融合方法的研究
-
-an entity-based method of information fusion
-
-随着信息产业的不断发展，网络上的数据信息在以惊人的速度不断的增长，现在的搜索引擎，例如谷歌、百度等通用搜索引擎使用的基于文档级别的文本索引，已经开始不能满足用户越来越广泛的搜索需求。与此同时，越来越多的用户倾向于在搜索中查找一些实体或者对象，越来越多的在查询中包含实体，例如人名、机构名、地点等，试图通过实体来构建有意义的查询条件。本文研究了当前通用搜索引擎的一些不足与用户搜索的习惯，提出一种基于实体模型的信息融合方法，以实体为中心，将信息集中起来，更方便于互联网用户对信息进行搜索与查询。实验证明，通过信息的加权处理，很好的弥补当前通用搜索引擎的一些不足，能够较好的满足用户对信息的检索的需求。
-
-计算机应用；实体模型；信息融合；机器学习
-
-With the development of the information industry, the data in the Internet is created by an amazing speed. Search engins such as Google and Baidu, can not meet the more requestment of users. At the same time, more and more users try to use the query contained entities, such as a person's name, agency name, location, to build a meaningful query. In this paper, a model baesed on entity was proposed to group information together around the entity. Experiments show that, weighted by the information processing, the entity model is able to meet the demand of the users of information retrieval better.
-
-computer application; entity model; information fusion; machine learning
-
-随着信息产业的不断发展，网络已经成为人们工作生活中不可缺少的重要工具。Web也随之成为人类获取信息的主要来源。Web中的数据正以每天新增一百万个页面的速度增长。到目前为止，页面的数量已经超过10亿[1]。面对海量的、非结构化的文本信息、如何快速有效地获得我们所需要的在信息成为当前信息处理的热点问题，其目标是从大规模的、动态变化的web数据中自动地获取满足用户需求的结果信息。我们已经进入了依靠搜索技术在日益增长的网络信息中查找有意义的信息并帮助我们做出决策的时代。搜索是目前的主流方法，各种商业搜索系统日趋成熟，比如Google、Yahoo等。然而不论是浏览还是搜索，传统的网页搜索引擎可以为用户提供基于主题的文档搜索。越来越多的用户倾向于在在搜索中查找一些实体或者对象[2]，而不仅限于文档的搜索，我们越来越多的在查询中包含命名实体，例如人名、机构名、地点等。我们总是试图通过围绕实体来构建对我们有意义的查询条件。虽然现在出现了诸如基于搜索引擎的浅层Web信息整合[3]、基于RSS的信息整合[4]、基于主题的深层Web信息整合[5]等方法，但还是远远不能满足用户的需要。
-
-
-信息融合是按照相应的查询请求对已有的数据信息，尤其是文本数据进行相关处理，从而找到所期望信息的一个过程。这一小节，我们将详细的阐述基于实体的信息聚合的模型
-
-[1] Deyi Xiong, Hongkui Yu, Qun Li. Tagging Complex NES With Maxent Models: Layered Structures Versus Extended Tagset[J]. IJCNLP, 2004, 530-548
-[2] B.J.Jansen and A. Spink. How are we searching the world wide web? a comparison of nine search engine transaction logs[J]. Inf. Processing & Management, 42(1):248-263, 2006.
-[3] INFOMINE:scholarly internet resource collections[OL].[2005-03-09].http://infomine.uer.edu/.
-[4] RSS 2.0 specification[OL].[2005-07-15]. http://blogd.law.harvard.edu/tech/rss.
-[5] Bergman M K.The deep Web:surfaeinghiddenvalue[OL].[2005-05-09]. http://~.press.umieh.edu/jep/07-01/berglllan.html
-[6] G. Salton, A. Wong, and C. S. Yang, A Vector Space Model for Automatic Indexing[J]. Communications of the ACM, 1975,18(11):613–620.
-[7] R.Mihalcea,and P.Tarau. Textrank:Bringing Order into Texts[J].EMNLP, 2004,404-411.
-[8] H. Haikun, C. Xiaoxin, W. Guoshi, L. Jing, Web Data Extraction Based on Tree Structure Analysis and Template Generation[J]. ICEEE, 2010, 1-5.
-
-
-+RAND()*0.2-0.1
-
-
-早期的HTML语法规则定义较为松散，这有助于不熟悉网络出版的人采用。网页浏览器接受了这个事实，使之可以显示语法不严格的网页。随着时间的流逝，官方标准渐渐趋于严格的语法，但是浏览器继续显示一些远称不上合乎标准的HTML。使用XML的严格规则的XHTML（可扩展超文本标记语言）是W3C计划中的HTML的接替者。虽然很多人认为它已经成为当前的HTML标准，但是它实际上是一个独立的、和HTML平行发展的标准。W3C目前建议使用XHTML 1.1、XHTML 1.0或者HTML 4.01标准编写网页，但已有不少网页转用较新的 HTML5 编码撰写（如Google）。
-
-通常互联网上的HTML页面都是不规则的，非结构化的页面。如果我们需要访问或者抽取里面的内容的话，我们需要分析HTML页面，去除垃圾。
-而最近新发布的 HtmlCleaner 就是这样一个工具. 能够帮助我们将HTML 文档 转化为结构化的XML文档。虽然目前已经有了类似这样的工具，但是HtmlCleaner 能够完成几乎所有的HTML转换，而且不到30k，这是他们值得称道的地方。
-
-HtmlCleaner是一个开源的Html文档解析器。HtmlCleaner能够安全的解析和转换web上的HTML到标准的XML，重新排序每个元素，然后生成结构良好(Well-Formed)的XML文档。默认它遵循的规则是类似于大部份web浏览器为创文档对象模型所使用的规则。然后，用户可以提供自定义tag和规则组来进行过滤和匹配。它被设计的小，快速，灵活而且独立。HtmlCleaner也可用在Java代码中，当命令行工具或Ant任务。 解析后编程轻量级文档对象，能够很容易的被转换到DOM或者JDom标准文档，或者通过各种方式(压缩，打印)连续输出XML。
-
-新版本的重要功能更新包括： 
-1.HtmlCleaner的文档对象模型现在拥有了一些函数，处理节点和属性，所以现在在序列化之前搜索或者编辑是非常容易的。 
-2.提供基本HtmlCleaner DOM的XPath支持 
-3.使用XML配置温江让创建定制tag变得更加容易 
-4.修复多个bug以及API改进
-
-
-中文词法分析是中文信息处理的基础与关键。中国科学院计算技术研究所在多年研究工作积累的基础上，研制出了汉语词法分析系统ICTCLAS(Institute of Computing Technology, Chinese Lexical Analysis System)，主要功能包括中文分词；词性标注；命名实体识别；新词识别；同时支持用户词典。
-
-首先定义一个wordPmcessor类，在该类中对需要用到的
-本地方法进行声明，本地方法的声明必须使用关键字
-“native”，而且不能拥有方法主体，实现部分放在了Java类之
-外的本地代码之中，在Windows平台下将编译成为一个DLL
-文件(unix／unux下为一个so文件)。
+[1] [111] http://web-harvest.sourceforge.net/
+[2] [112]http://www.dia.uniroma3.it/db/roadRunner/
+[4] [113] Zhang Y M, Zhou J F. 2000. A Trainable Method for Extraction Chinese Entity Names and Their Relations. In Proceeding of the Second Chinese Language Processing Workshop, Hong Kong, 66~72.
+[5] [114] 孙承杰, 关毅. 2004. 基于统计的网页正文信息抽取方法的研究. 中文信息学报, 18(5): 17~22.
+[6] [115] 李剑波, 李小华, 董树明, 杨科华. 2006. 一种基于 XML 的 Web 信息抽取方法. 情报杂志, 8:49~51.
