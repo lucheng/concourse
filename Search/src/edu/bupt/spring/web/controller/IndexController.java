@@ -65,8 +65,8 @@ public class IndexController extends BaseController {
     	LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
     	List<Object> params = new ArrayList<Object>();
     	
-    	wherejpql.append("o.alias.id=?1");
-    	params.add(alias.getId());
+//    	wherejpql.append("o.alias.id=?1");
+//    	params.add(alias.getId());
     	orderby.put("relationship", "desc");
 		PageView<Relation> pageView = new PageView<Relation>(10, page);
 		QueryResult<Relation> qr = relationService.getScrollData(pageView.getFirstResult(), pageView.getMaxresult(), wherejpql.toString(), params.toArray(), orderby);

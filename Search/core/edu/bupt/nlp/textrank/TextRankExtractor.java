@@ -1,8 +1,5 @@
 package edu.bupt.nlp.textrank;
 
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -17,7 +14,6 @@ import org.apache.log4j.Logger;
 
 import ICTCLAS.kevin.zhang.CWSTagger;
 import edu.bupt.nlp.resources.StopWords;
-import edu.bupt.utils.FileUtils;
 
 class DataSet{
 	Graph graph = new Graph();
@@ -282,9 +278,12 @@ public class TextRankExtractor extends Extractor{
 	public static void main(String[] args) throws Exception {	
 		
 		
-		TextRankExtractor key = new TextRankExtractor("./dict/userdict.txt", "./dict/stopwords.txt");
+		TextRankExtractor key = new TextRankExtractor("./dict/userdic.txt", "./dict/stopLibrary.dic");
+		String text ="全球200万名Linux开发者终于等到了这一天，是时候对微软说“不”了，因为“云计算”时代即将来临，以及廉价的、超小型笔记本电脑正在快速普及。日前，香港Linux商会会长简锦源在广州信息产业周上指出，由于手机、超小型笔记本等移动互联网终端的出现，这种移动终端设备采用Linux平台作为操作系统已经成为IT业界的一种发展趋势。简锦源指出，在过去几年里，以Linux为代表在开放源码软件的使用率正在不断上升，已经开始挑战微软的桌面平台和办公软件等等产品。简锦源透露，开放源码的软件在服务器端占有率已经超过50%，而在中国新的电脑中预装和捆绑Linux的，每年都超过200万台。";
+		Map<Word, Integer> result = key.extract(text, 1000, true);
+		System.out.println(result);
 		
-		String strPath = "./text_example/";
+		/*String strPath = "./text_example/";
 		List<String> filelist = new ArrayList<String>();
 		FileUtils.fetchFileList(strPath, filelist, ".txt");
 		FileOutputStream fos = new FileOutputStream("./output/result.txt", true);
@@ -298,7 +297,7 @@ public class TextRankExtractor extends Extractor{
 			out.write(result.toString() + System.getProperty("line.separator"));
 		}
 		out.close();
-		fos.close();
+		fos.close();*/
 		
 	}
 

@@ -452,7 +452,7 @@ OL
 }
 
 .header-wrapper .header-middle {
-  background: url("images/hp_logo.jpg") no-repeat scroll 0 -75px transparent;
+  /**background: url("images/hp_logo.jpg") no-repeat scroll 0 -75px transparent;**/
   display: block;
   margin: -20px auto 0;
   width: 1000px;
@@ -467,7 +467,7 @@ OL
 }
 
 .header-wrapper .search-down {
-    background: url("images/logo_ex_white.jpg") no-repeat scroll 91px 0 #FFFFFF;
+  /** background: url("images/logo_ex_white.jpg") no-repeat scroll 91px 0 #FFFFFF;**/
     margin: 0 auto;
     padding-top: 30px;
     width: 1000px;

@@ -24,7 +24,7 @@ public class TestICTCLAS2011 {
 	{
 		try
 		{
-			String sInput = "张华平2009年底调入北京理工大学计算机学院。";
+			String sInput = "这是一个测试句子。";
 
 			//分词
 			Split(sInput);

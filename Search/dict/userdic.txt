@@ -141,3 +141,6 @@ Linux	nz
 Safari	nz
 迅驰	nz
 福布斯	nz
+移动互联网	nz
+移动终端	nz
+Firefox	nz
