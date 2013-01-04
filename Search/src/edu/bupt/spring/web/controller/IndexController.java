@@ -61,12 +61,13 @@ public class IndexController extends BaseController {
     	
     	Alias alias = aliasService.findByTitle(query.getQuery());
     	
-    	StringBuffer wherejpql = new StringBuffer("");
+    	StringBuffer wherejpql = new StringBuffer();
     	LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
     	List<Object> params = new ArrayList<Object>();
     	
-//    	wherejpql.append("o.alias.id=?1");
-//    	params.add(alias.getId());
+    	wherejpql.append(" o.alias.id=?1 ");
+    	params.add(1);
+    	
     	orderby.put("relationship", "desc");
 		PageView<Relation> pageView = new PageView<Relation>(10, page);
 		QueryResult<Relation> qr = relationService.getScrollData(pageView.getFirstResult(), pageView.getMaxresult(), wherejpql.toString(), params.toArray(), orderby);
@@ -80,9 +81,9 @@ public class IndexController extends BaseController {
     	QueryResult<Alias> qrAlias = aliasService.getScrollData(aliasView.getFirstResult(), aliasView.getMaxresult(), jpql.toString(), params.toArray(), orderby);
     	aliasView.setQueryResult(qrAlias);*/
     	
-//    	List<Alias> aliases = scoreService.findRelatedAlias(alias);
+    	List<Alias> aliases = scoreService.findRelatedAlias(alias);
     	
-    	map.put("entry", alias);
+    	map.put("aliases", aliases);
 //    	map.put("relations", relations);
 //    	map.put("aliases", aliasView);
     	map.put("pageView", pageView);

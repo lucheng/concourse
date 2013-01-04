@@ -53,7 +53,7 @@
 		<link href="css/search.css" type="text/css" rel="stylesheet">
 		<link href="css/searchresult.css" type="text/css" rel="stylesheet">
 		<link href="css/view.css" type="text/css" rel="stylesheet">
-		<title>人立方关系搜索 - ${entry.title}</title>
+		<title>关系搜索 - ${entry.title}</title>
 	</head>
 	<body screen_capture_injected="true">
 		<div class="container">
@@ -63,8 +63,6 @@
 	    <div class="view-content">
 	    
 	        <div class="nav-panel">
-	            <a href="#" style="font-weight: bold">去找其他的${entry.title}<img src="images/find_all_name.jpg" style="width:15px;height:16px;vertical-align:top;margin-left:3px;margin-top:2px;">
-	            </a>
 	        </div>
 	
 	        <div class="view-left-wrapper">
@@ -83,8 +81,10 @@
 	                    </div>
 	                    <div class="basicInfoBasicContent">
 	                        <div class="basicInfoBasicContent_Name">${entry.title}</div>
-	                        <div class="basicInfoBasicContent_Label">
-	                            <div class="twoLineDescPerLineNotShown" title="">标签:Google,微软全球副...</div></div>
+	                        <%--<div class="basicInfoBasicContent_Label">
+	                            <div class="twoLineDescPerLineNotShown" title="">标签:Google,微软全球副...</div>
+	                        </div>
+	                    --%>
 	                    </div>
 	                    
 	                </div>
@@ -104,7 +104,7 @@
 	                </div>
 	            </div>
 	            <!--关人物关系图-->
-	            <div class="leftPanelHeader">
+	            <%--<div class="leftPanelHeader">
 	                <div class="leftPanelHeaderText">人物关系图</div>
 	                <div class="leftPanelHeaderTool">
 	                    <a href="#" onclick="return bigGraph();">
@@ -112,9 +112,11 @@
 	                    </a>
 	                </div>
 	            </div>
-	            <div class="leftPanelContent">
+	            --%>
+	            
+	            <%--<div class="leftPanelContent">
 	                <div class="selected-map-view-small" id="selectedMapView" style="display: visible;">
-	                    <%--<object width="312px" height="312px" bgcolor="#000000" id="visualizedSearch" data="http://renlifang.msra.cn/asset/visualizedSearch.swf" type="application/x-shockwave-flash" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab">
+	                    <object width="312px" height="312px" bgcolor="#000000" id="visualizedSearch" data="http://renlifang.msra.cn/asset/visualizedSearch.swf" type="application/x-shockwave-flash" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab">
 	                        <param value="asset/visualizedSearch.swf" name="movie">
 	                        <param name="quality" value="high">
 	                        <param name="bgcolor" value="#000000">
@@ -125,14 +127,15 @@
 	                        <param value="isSearch=true&amp;configUrl=asset/visualizeSearchViewConfig.xml&amp;query=1429:e4fbddf131c7bbbc42db699f38893b7b" name="FlashVars">
 	                        <embed src="asset/visualizedSearch.swf" quality="high" bgcolor="#000000" width="312px" height="312px" name="visualizedSearch" align="middle" play="true" loop="false" vmode="Opaque" allowscriptaccess="sameDomain" type="application/x-shockwave-flash" flashvars="isSearch=true&amp;configUrl=asset/visualizeSearchViewConfig.xml&amp;query=1429:e4fbddf131c7bbbc42db699f38893b7b" pluginspage="http://www.macromedia.com/go/getflashplayer">
 	                    </object>
-	                --%></div>
+	                </div>
 	            </div>
-	            
+				--%>
 				<!--可能的人物关系-->
 	            <div class="leftPanelHeader" id="rec-person-header" style="display: block;">
-	                <div class="leftPanelHeaderText" id="rec-person-headertext"> 可能的人物关系</div>       
-	                <div class="leftPanelHeaderTip" id="recperson-tip"> 众人拾柴火焰高，进入<a href="#">关系百科</a>进行编辑
+	                <div class="leftPanelHeaderText" id="rec-person-headertext"> 可能的实体关系</div>       
+	                <%--<div class="leftPanelHeaderTip" id="recperson-tip"> 众人拾柴火焰高，进入<a href="#">关系百科</a>进行编辑
 	                </div>
+	            --%>
 	            </div>
 	            <div class="leftPanelContent" style="display: block">
 	                <div class="rec-person-view">
@@ -196,7 +199,7 @@
 	        </div>
 			<!--个人信息-->
 	        <div class="view-right-wrapper">
-	            <div class="view-panel" id="profileInfo_panel" style="display: block">
+	            <div class="view-panel" id="profileInfo_panel" style="display: none;">
 	                <div class="kvp-person-view">
 	                    <ul class="kvp-person-itemset">
 	                        
@@ -250,7 +253,7 @@
 	
 	            <!--人物关系-->
 	            
-	            <div class="view-title-bar" id="relation_panel_header" style="display: block">
+	            <div class="view-title-bar" id="relation_panel_header" style="display: none;">
 	                <div class="view-title-bar-text">人物关系</div>
 	                <div class="view-title-bar-tip"></div>
 	            </div>

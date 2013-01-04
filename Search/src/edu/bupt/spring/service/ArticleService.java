@@ -3,6 +3,7 @@ package edu.bupt.spring.service;
 import java.util.List;
 
 import edu.bupt.spring.base.DAO;
+import edu.bupt.spring.entity.Alias;
 import edu.bupt.spring.entity.Article;
 
 /**
@@ -17,4 +18,6 @@ import edu.bupt.spring.entity.Article;
 public interface ArticleService extends DAO<Article> {
 
 	public List<Article> findAll();
+	
+	public List<Article> findByAlias(Alias alias);
 }

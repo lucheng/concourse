@@ -41,7 +41,7 @@ public abstract class DaoSupport<T> implements DAO<T>{
 	
 	@Transactional(readOnly=true,propagation=Propagation.NOT_SUPPORTED)
 	public T find(Serializable entityId) {
-		if(entityId==null) throw new RuntimeException(this.entityClass.getName()+ ":�����ʵ��id����Ϊ��");
+		if(entityId==null) throw new RuntimeException(this.entityClass.getName()+ ":出现错误！");
 		return em.find(this.entityClass, entityId);
 	}
 	

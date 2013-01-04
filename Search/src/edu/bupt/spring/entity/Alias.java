@@ -32,7 +32,7 @@ public class Alias extends BaseEntity {
 	private String title;// 标题
 	private String pos; //词性
 	
-	private Entry entry;
+//	private Entry entry;
 	
 	private Set<Relation> relations = new HashSet<Relation>();
 	
@@ -53,7 +53,7 @@ public class Alias extends BaseEntity {
 		this.pos = pos;
 	}
 	
-	@ManyToOne(optional=false,fetch=FetchType.EAGER,cascade={CascadeType.REMOVE,CascadeType.REFRESH})  
+	/*@ManyToOne(optional=false,fetch=FetchType.EAGER,cascade={CascadeType.REMOVE,CascadeType.REFRESH})  
     @JoinColumn(name="entry_id")
 	public Entry getEntry() {
 		return entry;
@@ -61,7 +61,7 @@ public class Alias extends BaseEntity {
 
 	public void setEntry(Entry entry) {
 		this.entry = entry;
-	}
+	}*/
 
 	@OneToMany(mappedBy = "alias", fetch = FetchType.LAZY,cascade={CascadeType.MERGE,CascadeType.PERSIST})
 	public Set<Relation> getRelations() {

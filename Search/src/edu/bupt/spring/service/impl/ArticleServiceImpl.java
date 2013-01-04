@@ -7,6 +7,7 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Service;
 
 import edu.bupt.spring.base.DaoSupport;
+import edu.bupt.spring.entity.Alias;
 import edu.bupt.spring.entity.Article;
 import edu.bupt.spring.service.ArticleService;
 
@@ -15,6 +16,13 @@ public class ArticleServiceImpl extends DaoSupport<Article> implements ArticleSe
 
 	public List<Article> findAll() {
 		Query query = em.createQuery("select o from Article o ");
+		return query.getResultList();
+	}
+
+	@Override
+	public List<Article> findByAlias(Alias alias) {
+		
+		Query query = em.createQuery("select o from Relation o");
 		return query.getResultList();
 	}
 	

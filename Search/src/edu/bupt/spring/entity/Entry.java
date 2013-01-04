@@ -32,7 +32,7 @@ public class Entry extends BaseEntity {
 	private String summary;// 摘要
 	private String property; //属性
 	private String url;// 链接
-	private Set<Alias> alias = new HashSet<Alias>();// 别名
+//	private Set<Alias> alias = new HashSet<Alias>();// 别名
 	
 	@Column(nullable = false,unique=true)
 	public String getTitle() {
@@ -71,13 +71,13 @@ public class Entry extends BaseEntity {
 		this.url = url;
 	}
 	
-	@OneToMany(mappedBy = "entry",fetch=FetchType.EAGER,cascade=CascadeType.REFRESH)
+	/*@OneToMany(mappedBy = "entry",fetch=FetchType.EAGER,cascade=CascadeType.REFRESH)
 	public Set<Alias> getAlias() {
 		return alias;
 	}
 
 	public void setAlias(Set<Alias> alias) {
 		this.alias = alias;
-	}
+	}*/
 
 }

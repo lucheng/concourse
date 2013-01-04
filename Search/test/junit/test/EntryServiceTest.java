@@ -77,7 +77,7 @@ public class EntryServiceTest {
 					alias = new Alias();
 					alias.setTitle(value[i]);
 					alias.setPos(value[0]);
-					alias.setEntry(entry);
+//					alias.setEntry(entry);
 					aliasService.save(alias);
 				}
 				aliasSet.add(alias);

@@ -18,5 +18,7 @@ import edu.bupt.spring.entity.Relation;
 public interface RelationService extends DAO<Relation> {
 
 	public List<Relation> findByAlias(Alias alias);
+	
+	
 
 }
