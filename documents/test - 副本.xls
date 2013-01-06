@@ -1,0 +1,3497 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <LastAuthor>ibm</LastAuthor>
+  <LastSaved>2013-01-04T08:08:14Z</LastSaved>
+  <Version>12.00</Version>
+ </DocumentProperties>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>10005</WindowHeight>
+  <WindowWidth>10005</WindowWidth>
+  <WindowTopX>120</WindowTopX>
+  <WindowTopY>135</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Center"/>
+   <Borders/>
+   <Font ss:FontName="宋体" x:CharSet="134" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s62">
+   <Font ss:FontName="宋体" x:CharSet="134" ss:Size="11"/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s63">
+   <Font ss:FontName="宋体" x:CharSet="134" ss:Size="11"/>
+  </Style>
+  <Style ss:ID="s64">
+   <Font ss:FontName="宋体" x:CharSet="134" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Table1">
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="595" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="54" ss:DefaultRowHeight="13.5">
+   <Column ss:AutoFitWidth="0" ss:Width="110.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="204"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s62">
+    <Cell><Data ss:Type="String">实体1</Data></Cell>
+    <Cell><Data ss:Type="String">实体2</Data></Cell>
+    <Cell><Data ss:Type="String">关联度</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Safari</Data></Cell>
+    <Cell><Data ss:Type="String">苹果</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">盖茨</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Windows</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">爱立信</Data></Cell>
+    <Cell><Data ss:Type="String">索尼</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">富士</Data></Cell>
+    <Cell><Data ss:Type="String">施乐</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">杨元庆</Data></Cell>
+    <Cell><Data ss:Type="String">联想</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">中国联通</Data></Cell>
+    <Cell><Data ss:Type="String">中国电信</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.95</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">李健熙</Data></Cell>
+    <Cell><Data ss:Type="String">三星</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.94</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">张建国</Data></Cell>
+    <Cell><Data ss:Type="String">华为</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">创维</Data></Cell>
+    <Cell><Data ss:Type="String">TCL</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AMD</Data></Cell>
+    <Cell><Data ss:Type="String">英特尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">佩奇</Data></Cell>
+    <Cell><Data ss:Type="String">谷歌</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">雅虎</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">潘文彪</Data></Cell>
+    <Cell><Data ss:Type="String">新浪</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.42</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">乔布斯</Data></Cell>
+    <Cell><Data ss:Type="String">苹果</Data></Cell>
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Windows</Data></Cell>
+    <Cell><Data ss:Type="String">苏宁</Data></Cell>
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Facebook</Data></Cell>
+    <Cell><Data ss:Type="String">MySpace</Data></Cell>
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">iphone</Data></Cell>
+    <Cell><Data ss:Type="String">苹果</Data></Cell>
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">大通</Data></Cell>
+    <Cell><Data ss:Type="String">摩根</Data></Cell>
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">科龙</Data></Cell>
+    <Cell><Data ss:Type="String">海信</Data></Cell>
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">卡莉</Data></Cell>
+    <Cell><Data ss:Type="String">惠普</Data></Cell>
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">大唐</Data></Cell>
+    <Cell><Data ss:Type="String">大唐移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">唐骏</Data></Cell>
+    <Cell><Data ss:Type="String">新华</Data></Cell>
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">唐骏</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">贝尔斯登</Data></Cell>
+    <Cell><Data ss:Type="String">巴菲特</Data></Cell>
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">IBM</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">阿尔卡特朗讯</Data></Cell>
+    <Cell><Data ss:Type="String">中国移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">林雷</Data></Cell>
+    <Cell><Data ss:Type="String">联通</Data></Cell>
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Facebook</Data></Cell>
+    <Cell><Data ss:Type="String">谷歌</Data></Cell>
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.61</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">大众</Data></Cell>
+    <Cell><Data ss:Type="String">百度</Data></Cell>
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.35</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">通用电气</Data></Cell>
+    <Cell><Data ss:Type="String">LG</Data></Cell>
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.34</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">扎米特</Data></Cell>
+    <Cell><Data ss:Type="String">杜德</Data></Cell>
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">李治</Data></Cell>
+    <Cell><Data ss:Type="String">武氏</Data></Cell>
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">菲奥丽娜</Data></Cell>
+    <Cell><Data ss:Type="String">麦凯恩</Data></Cell>
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">彼得</Data></Cell>
+    <Cell><Data ss:Type="String">索菲娅</Data></Cell>
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">王建宙</Data></Cell>
+    <Cell><Data ss:Type="String">中国移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">比尔</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">郑泉</Data></Cell>
+    <Cell><Data ss:Type="String">孙权</Data></Cell>
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">IBM</Data></Cell>
+    <Cell><Data ss:Type="String">联想</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">冠捷</Data></Cell>
+    <Cell><Data ss:Type="String">飞利浦</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">国美</Data></Cell>
+    <Cell><Data ss:Type="String">苏宁</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">移动</Data></Cell>
+    <Cell><Data ss:Type="String">铁通</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.95</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">雅虎</Data></Cell>
+    <Cell><Data ss:Type="String">Google</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.95</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">凯明</Data></Cell>
+    <Cell><Data ss:Type="String">诺基亚</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.94</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">金山</Data></Cell>
+    <Cell><Data ss:Type="String">谷歌</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">IBM</Data></Cell>
+    <Cell><Data ss:Type="String">Google</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">雅虎</Data></Cell>
+    <Cell><Data ss:Type="String">谷歌</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">联通</Data></Cell>
+    <Cell><Data ss:Type="String">中移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">中芯国际</Data></Cell>
+    <Cell><Data ss:Type="String">IBM</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AMD</Data></Cell>
+    <Cell><Data ss:Type="String">惠普</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">鲍尔默</Data></Cell>
+    <Cell><Data ss:Type="String">盖茨</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Facebook</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.86</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">晓红</Data></Cell>
+    <Cell><Data ss:Type="String">冉海燕</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.86</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">赵忠尧</Data></Cell>
+    <Cell><Data ss:Type="String">TCL</Data></Cell>
+    <Cell><Data ss:Type="Number">0.95</Data></Cell>
+    <Cell><Data ss:Type="Number">0.95</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">贝瑞特</Data></Cell>
+    <Cell><Data ss:Type="String">英特尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.95</Data></Cell>
+    <Cell><Data ss:Type="Number">0.94</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">鲍喜顺</Data></Cell>
+    <Cell><Data ss:Type="String">夏淑娟</Data></Cell>
+    <Cell><Data ss:Type="Number">0.95</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MSN</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.95</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="String">英特尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.95</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">网通</Data></Cell>
+    <Cell><Data ss:Type="String">联通</Data></Cell>
+    <Cell><Data ss:Type="Number">0.95</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">电信</Data></Cell>
+    <Cell><Data ss:Type="String">中国移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.95</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">奔驰</Data></Cell>
+    <Cell><Data ss:Type="String">LG</Data></Cell>
+    <Cell><Data ss:Type="Number">0.95</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Facebook</Data></Cell>
+    <Cell><Data ss:Type="String">Google</Data></Cell>
+    <Cell><Data ss:Type="Number">0.95</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">QQ</Data></Cell>
+    <Cell><Data ss:Type="String">雅虎</Data></Cell>
+    <Cell><Data ss:Type="Number">0.95</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">莱昂斯</Data></Cell>
+    <Cell><Data ss:Type="String">博客</Data></Cell>
+    <Cell><Data ss:Type="Number">0.95</Data></Cell>
+    <Cell><Data ss:Type="Number">0.51</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">曾馨莹</Data></Cell>
+    <Cell><Data ss:Type="String">郭台铭</Data></Cell>
+    <Cell><Data ss:Type="Number">0.94</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">振华</Data></Cell>
+    <Cell><Data ss:Type="String">高通</Data></Cell>
+    <Cell><Data ss:Type="Number">0.94</Data></Cell>
+    <Cell><Data ss:Type="Number">0.94</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">奥兹</Data></Cell>
+    <Cell><Data ss:Type="String">盖茨</Data></Cell>
+    <Cell><Data ss:Type="Number">0.94</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Nvidia</Data></Cell>
+    <Cell><Data ss:Type="String">英特尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.94</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">西门子</Data></Cell>
+    <Cell><Data ss:Type="String">诺基亚</Data></Cell>
+    <Cell><Data ss:Type="Number">0.94</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">电信</Data></Cell>
+    <Cell><Data ss:Type="String">移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.94</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">电信</Data></Cell>
+    <Cell><Data ss:Type="String">联通</Data></Cell>
+    <Cell><Data ss:Type="Number">0.94</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">中国电信</Data></Cell>
+    <Cell><Data ss:Type="String">联通</Data></Cell>
+    <Cell><Data ss:Type="Number">0.94</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">摩托罗拉</Data></Cell>
+    <Cell><Data ss:Type="String">诺基亚</Data></Cell>
+    <Cell><Data ss:Type="Number">0.94</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">左迅</Data></Cell>
+    <Cell><Data ss:Type="String">张春江</Data></Cell>
+    <Cell><Data ss:Type="Number">0.94</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">方明</Data></Cell>
+    <Cell><Data ss:Type="String">电信</Data></Cell>
+    <Cell><Data ss:Type="Number">0.94</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">丽贝卡</Data></Cell>
+    <Cell><Data ss:Type="String">沃尔玛</Data></Cell>
+    <Cell><Data ss:Type="Number">0.94</Data></Cell>
+    <Cell><Data ss:Type="Number">0.33</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">惠而浦</Data></Cell>
+    <Cell><Data ss:Type="String">海信</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">陈一舟</Data></Cell>
+    <Cell><Data ss:Type="String">Facebook</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">路透</Data></Cell>
+    <Cell><Data ss:Type="String">汤姆森</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">鲍尔默</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">李开复</Data></Cell>
+    <Cell><Data ss:Type="String">盖茨</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">邵氏</Data></Cell>
+    <Cell><Data ss:Type="String">杨国强</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">思科</Data></Cell>
+    <Cell><Data ss:Type="String">华为</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">伊丽莎</Data></Cell>
+    <Cell><Data ss:Type="String">伊利埃斯库</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">格林柯尔</Data></Cell>
+    <Cell><Data ss:Type="String">科龙</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">梅琳达</Data></Cell>
+    <Cell><Data ss:Type="String">盖茨</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">三联</Data></Cell>
+    <Cell><Data ss:Type="String">国美</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">中国联通</Data></Cell>
+    <Cell><Data ss:Type="String">联通</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">布拉德利</Data></Cell>
+    <Cell><Data ss:Type="String">惠普</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">惠普</Data></Cell>
+    <Cell><Data ss:Type="String">戴尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+    <Cell><Data ss:Type="Number">0.86</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">张亚勤</Data></Cell>
+    <Cell><Data ss:Type="String">盖茨</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+    <Cell><Data ss:Type="Number">0.83</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">iphone</Data></Cell>
+    <Cell><Data ss:Type="String">中国移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">宏基</Data></Cell>
+    <Cell><Data ss:Type="String">Linux</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+    <Cell><Data ss:Type="Number">0.67</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">董明珠</Data></Cell>
+    <Cell><Data ss:Type="String">格力</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">霍夫斯特拉</Data></Cell>
+    <Cell><Data ss:Type="String">利瓦顿</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">黎智林</Data></Cell>
+    <Cell><Data ss:Type="String">黎刚</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">中国电信</Data></Cell>
+    <Cell><Data ss:Type="String">中国移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">洪小文</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">中国联通</Data></Cell>
+    <Cell><Data ss:Type="String">电信</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">移动</Data></Cell>
+    <Cell><Data ss:Type="String">中国移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">巴蒂拉克</Data></Cell>
+    <Cell><Data ss:Type="String">艾伦</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">移动</Data></Cell>
+    <Cell><Data ss:Type="String">英特尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">世奇</Data></Cell>
+    <Cell><Data ss:Type="String">施华洛</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">施密特</Data></Cell>
+    <Cell><Data ss:Type="String">谷歌</Data></Cell>
+    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">陈文琦</Data></Cell>
+    <Cell><Data ss:Type="String">威盛</Data></Cell>
+    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+    <Cell><Data ss:Type="Number">0.94</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">海尔集团</Data></Cell>
+    <Cell><Data ss:Type="String">海尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+    <Cell><Data ss:Type="Number">0.94</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">徐祚立</Data></Cell>
+    <Cell><Data ss:Type="String">金融界</Data></Cell>
+    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+    <Cell><Data ss:Type="Number">0.94</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">阿尔卡特</Data></Cell>
+    <Cell><Data ss:Type="String">朗讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">网通</Data></Cell>
+    <Cell><Data ss:Type="String">中国电信</Data></Cell>
+    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">LG</Data></Cell>
+    <Cell><Data ss:Type="String">长虹</Data></Cell>
+    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">海尔</Data></Cell>
+    <Cell><Data ss:Type="String">英特尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">小泽秀树</Data></Cell>
+    <Cell><Data ss:Type="String">佳能</Data></Cell>
+    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">李善友</Data></Cell>
+    <Cell><Data ss:Type="String">搜狐</Data></Cell>
+    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">刘建秋</Data></Cell>
+    <Cell><Data ss:Type="String">中国移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">佩克</Data></Cell>
+    <Cell><Data ss:Type="String">吉尼斯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">默多克</Data></Cell>
+    <Cell><Data ss:Type="String">雅虎</Data></Cell>
+    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="String">谷歌</Data></Cell>
+    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">电信</Data></Cell>
+    <Cell><Data ss:Type="String">中国电信</Data></Cell>
+    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">iphone</Data></Cell>
+    <Cell><Data ss:Type="String">电信</Data></Cell>
+    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="Number">0.83</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">三联</Data></Cell>
+    <Cell><Data ss:Type="String">三联集团</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="Number">0.93</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">网通</Data></Cell>
+    <Cell><Data ss:Type="String">中国联通</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">云计算</Data></Cell>
+    <Cell><Data ss:Type="String">IBM</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">方正</Data></Cell>
+    <Cell><Data ss:Type="String">方正集团</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">范承工</Data></Cell>
+    <Cell><Data ss:Type="String">EMC</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">陈绍鹏</Data></Cell>
+    <Cell><Data ss:Type="String">联想</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">希拉里</Data></Cell>
+    <Cell><Data ss:Type="String">麦凯恩</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">施密特</Data></Cell>
+    <Cell><Data ss:Type="String">雅虎</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">阿尔卡特</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">GE</Data></Cell>
+    <Cell><Data ss:Type="String">海尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="Number">0.88</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">凯恩</Data></Cell>
+    <Cell><Data ss:Type="String">摩根</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+    <Cell><Data ss:Type="Number">0.88</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">西游</Data></Cell>
+    <Cell><Data ss:Type="String">完美时空</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+    <Cell><Data ss:Type="Number">0.88</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">阿里巴巴</Data></Cell>
+    <Cell><Data ss:Type="String">高盛</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="Number">0.87</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Linux</Data></Cell>
+    <Cell><Data ss:Type="String">Windows</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">明基</Data></Cell>
+    <Cell><Data ss:Type="String">国美</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">宏基</Data></Cell>
+    <Cell><Data ss:Type="String">惠普</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Windows</Data></Cell>
+    <Cell><Data ss:Type="String">戴尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="Number">0.79</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">王建宙</Data></Cell>
+    <Cell><Data ss:Type="String">电信</Data></Cell>
+    <Cell><Data ss:Type="Number">0.88</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s64"><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="String">Google</Data></Cell>
+    <Cell><Data ss:Type="Number">0.88</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ebay</Data></Cell>
+    <Cell><Data ss:Type="String">Google</Data></Cell>
+    <Cell><Data ss:Type="Number">0.88</Data></Cell>
+    <Cell><Data ss:Type="Number">0.88</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.88</Data></Cell>
+    <Cell><Data ss:Type="Number">0.88</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">凯恩</Data></Cell>
+    <Cell><Data ss:Type="String">大通</Data></Cell>
+    <Cell><Data ss:Type="Number">0.88</Data></Cell>
+    <Cell><Data ss:Type="Number">0.88</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">伊坎</Data></Cell>
+    <Cell><Data ss:Type="String">雅虎</Data></Cell>
+    <Cell><Data ss:Type="Number">0.88</Data></Cell>
+    <Cell><Data ss:Type="Number">0.88</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">网通</Data></Cell>
+    <Cell><Data ss:Type="String">电信</Data></Cell>
+    <Cell><Data ss:Type="Number">0.88</Data></Cell>
+    <Cell><Data ss:Type="Number">0.88</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">电信</Data></Cell>
+    <Cell><Data ss:Type="String">中电信</Data></Cell>
+    <Cell><Data ss:Type="Number">0.88</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="Number">0.87</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">阿里巴巴</Data></Cell>
+    <Cell><Data ss:Type="String">雅虎</Data></Cell>
+    <Cell><Data ss:Type="Number">0.88</Data></Cell>
+    <Cell><Data ss:Type="Number">0.86</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">阿斯图里亚斯</Data></Cell>
+    <Cell><Data ss:Type="String">谷歌</Data></Cell>
+    <Cell><Data ss:Type="Number">0.88</Data></Cell>
+    <Cell><Data ss:Type="Number">0.86</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">IBM</Data></Cell>
+    <Cell><Data ss:Type="String">谷歌</Data></Cell>
+    <Cell><Data ss:Type="Number">0.88</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">林德</Data></Cell>
+    <Cell><Data ss:Type="String">Google</Data></Cell>
+    <Cell><Data ss:Type="Number">0.88</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">美林</Data></Cell>
+    <Cell><Data ss:Type="String">新浪</Data></Cell>
+    <Cell><Data ss:Type="Number">0.88</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">刘景山</Data></Cell>
+    <Cell><Data ss:Type="String">龙凤</Data></Cell>
+    <Cell><Data ss:Type="Number">0.88</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">马丁</Data></Cell>
+    <Cell><Data ss:Type="String">美林</Data></Cell>
+    <Cell><Data ss:Type="Number">0.88</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">邓文迪</Data></Cell>
+    <Cell><Data ss:Type="String">默多克</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">朗明</Data></Cell>
+    <Cell><Data ss:Type="String">摩托罗拉</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">唐骏</Data></Cell>
+    <Cell><Data ss:Type="String">盛大</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">电信</Data></Cell>
+    <Cell><Data ss:Type="String">中移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">杨致远</Data></Cell>
+    <Cell><Data ss:Type="String">雅虎</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+    <Cell><Data ss:Type="Number">0.88</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">高通</Data></Cell>
+    <Cell><Data ss:Type="String">中国电信</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+    <Cell><Data ss:Type="Number">0.88</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">LG</Data></Cell>
+    <Cell><Data ss:Type="String">伊莱克斯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+    <Cell><Data ss:Type="Number">0.88</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">方明</Data></Cell>
+    <Cell><Data ss:Type="String">联通</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">莱昂斯</Data></Cell>
+    <Cell><Data ss:Type="String">福布斯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">LG</Data></Cell>
+    <Cell><Data ss:Type="String">GE</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">创维</Data></Cell>
+    <Cell><Data ss:Type="String">LG</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">海尔</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">苹果</Data></Cell>
+    <Cell><Data ss:Type="String">英特尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">福布斯</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+    <Cell><Data ss:Type="Number">0.86</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">苏宁</Data></Cell>
+    <Cell><Data ss:Type="String">IBM</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+    <Cell><Data ss:Type="Number">0.86</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">李可</Data></Cell>
+    <Cell><Data ss:Type="String">崔曼莉</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">国美</Data></Cell>
+    <Cell><Data ss:Type="String">三联集团</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">鲍尔默</Data></Cell>
+    <Cell><Data ss:Type="String">雅虎</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+    <Cell><Data ss:Type="Number">0.82</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">刘金铎</Data></Cell>
+    <Cell><Data ss:Type="String">复星</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Android</Data></Cell>
+    <Cell><Data ss:Type="String">Google</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">QQ</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.86</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="Number">0.93</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">韦德</Data></Cell>
+    <Cell><Data ss:Type="String">罗威</Data></Cell>
+    <Cell><Data ss:Type="Number">0.86</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">孙冰</Data></Cell>
+    <Cell><Data ss:Type="String">王强</Data></Cell>
+    <Cell><Data ss:Type="Number">0.86</Data></Cell>
+    <Cell><Data ss:Type="Number">0.86</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">斯尔卡泽克</Data></Cell>
+    <Cell><Data ss:Type="String">西门子</Data></Cell>
+    <Cell><Data ss:Type="Number">0.86</Data></Cell>
+    <Cell><Data ss:Type="Number">0.86</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">康奈尔</Data></Cell>
+    <Cell><Data ss:Type="String">惠普</Data></Cell>
+    <Cell><Data ss:Type="Number">0.86</Data></Cell>
+    <Cell><Data ss:Type="Number">0.86</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">摩托罗拉</Data></Cell>
+    <Cell><Data ss:Type="String">移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.86</Data></Cell>
+    <Cell><Data ss:Type="Number">0.86</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">雅虎</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.86</Data></Cell>
+    <Cell><Data ss:Type="Number">0.86</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">徐新</Data></Cell>
+    <Cell><Data ss:Type="String">丁磊</Data></Cell>
+    <Cell><Data ss:Type="Number">0.86</Data></Cell>
+    <Cell><Data ss:Type="Number">0.86</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">宏磊</Data></Cell>
+    <Cell><Data ss:Type="String">用友</Data></Cell>
+    <Cell><Data ss:Type="Number">0.86</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">杰克逊</Data></Cell>
+    <Cell><Data ss:Type="String">雅虎</Data></Cell>
+    <Cell><Data ss:Type="Number">0.86</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">巴菲特</Data></Cell>
+    <Cell><Data ss:Type="String">雅虎</Data></Cell>
+    <Cell><Data ss:Type="Number">0.86</Data></Cell>
+    <Cell><Data ss:Type="Number">0.79</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">QQ</Data></Cell>
+    <Cell><Data ss:Type="String">谷歌</Data></Cell>
+    <Cell><Data ss:Type="Number">0.86</Data></Cell>
+    <Cell><Data ss:Type="Number">0.76</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">中国电信</Data></Cell>
+    <Cell><Data ss:Type="String">移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="Number">0.93</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">管仲</Data></Cell>
+    <Cell><Data ss:Type="String">齐桓公</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">张烈生</Data></Cell>
+    <Cell><Data ss:Type="String">SAP</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">三洋</Data></Cell>
+    <Cell><Data ss:Type="String">夏普</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">奥兹</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+    <Cell><Data ss:Type="Number">0.86</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">周小天</Data></Cell>
+    <Cell><Data ss:Type="String">海信</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+    <Cell><Data ss:Type="Number">0.86</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">摩托罗拉</Data></Cell>
+    <Cell><Data ss:Type="String">惠普</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ebay</Data></Cell>
+    <Cell><Data ss:Type="String">易趣网</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">多利</Data></Cell>
+    <Cell><Data ss:Type="String">国美</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">罗伊</Data></Cell>
+    <Cell><Data ss:Type="String">Google</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">威英利</Data></Cell>
+    <Cell><Data ss:Type="String">完美时空</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">施密特</Data></Cell>
+    <Cell><Data ss:Type="String">Google</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="Number">0.85</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">大唐</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">电信</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="Number">0.85</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="Number">0.85</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">中国移动</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="Number">0.83</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">金山</Data></Cell>
+    <Cell><Data ss:Type="String">Google</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="Number">0.82</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s63">
+    <Cell ss:StyleID="Default"><Data ss:Type="String">诺亚</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">诺亚舟</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="Number">0.85</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">马丁</Data></Cell>
+    <Cell><Data ss:Type="String">新浪</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">博客</Data></Cell>
+    <Cell><Data ss:Type="String">福布斯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">iphone</Data></Cell>
+    <Cell><Data ss:Type="String">诺基亚</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">高通</Data></Cell>
+    <Cell><Data ss:Type="String">三星</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">联想</Data></Cell>
+    <Cell><Data ss:Type="String">英特尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">比尔盖茨</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">福布斯</Data></Cell>
+    <Cell><Data ss:Type="String">鲍尔默</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+    <Cell><Data ss:Type="Number">0.77</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">惠普</Data></Cell>
+    <Cell><Data ss:Type="String">新浪</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">宇信</Data></Cell>
+    <Cell><Data ss:Type="String">易诚</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">小袁</Data></Cell>
+    <Cell><Data ss:Type="String">小徐</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">鸿海</Data></Cell>
+    <Cell><Data ss:Type="String">郭台铭</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">新华网</Data></Cell>
+    <Cell><Data ss:Type="String">电信</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">英特尔</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">阿尔法</Data></Cell>
+    <Cell><Data ss:Type="String">松下</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">南茜</Data></Cell>
+    <Cell><Data ss:Type="String">托马斯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">亚马逊</Data></Cell>
+    <Cell><Data ss:Type="String">Google</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">盖茨</Data></Cell>
+    <Cell><Data ss:Type="String">Windows</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AMD</Data></Cell>
+    <Cell><Data ss:Type="String">苹果</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">苏宁电器</Data></Cell>
+    <Cell><Data ss:Type="String">苏宁</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">中国联通</Data></Cell>
+    <Cell><Data ss:Type="String">中国移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">苹果</Data></Cell>
+    <Cell><Data ss:Type="String">惠普</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">惠普</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">方明</Data></Cell>
+    <Cell><Data ss:Type="String">网通</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">凯恩</Data></Cell>
+    <Cell><Data ss:Type="String">贝尔斯登</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">周小天</Data></Cell>
+    <Cell><Data ss:Type="String">科龙</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">朗讯</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">福布斯</Data></Cell>
+    <Cell><Data ss:Type="String">雅虎</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Linux</Data></Cell>
+    <Cell><Data ss:Type="String">移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">第九城市</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">易趣</Data></Cell>
+    <Cell><Data ss:Type="String">淘宝</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MySpace</Data></Cell>
+    <Cell><Data ss:Type="String">谷歌</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">移动</Data></Cell>
+    <Cell><Data ss:Type="String">联通</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">IBM</Data></Cell>
+    <Cell><Data ss:Type="String">惠普</Data></Cell>
+    <Cell><Data ss:Type="Number">0.83</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">刘仕利</Data></Cell>
+    <Cell><Data ss:Type="String">冉海燕</Data></Cell>
+    <Cell><Data ss:Type="Number">0.83</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">左婷</Data></Cell>
+    <Cell><Data ss:Type="String">张琪</Data></Cell>
+    <Cell><Data ss:Type="Number">0.83</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">张建国</Data></Cell>
+    <Cell><Data ss:Type="String">中华</Data></Cell>
+    <Cell><Data ss:Type="Number">0.83</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">大通</Data></Cell>
+    <Cell><Data ss:Type="String">贝尔斯登</Data></Cell>
+    <Cell><Data ss:Type="Number">0.83</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">黄光裕</Data></Cell>
+    <Cell><Data ss:Type="String">国美</Data></Cell>
+    <Cell><Data ss:Type="Number">0.83</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">iphone</Data></Cell>
+    <Cell><Data ss:Type="String">HTC</Data></Cell>
+    <Cell><Data ss:Type="Number">0.83</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">盖茨</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.83</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">网通</Data></Cell>
+    <Cell><Data ss:Type="String">中国移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.83</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">淘宝</Data></Cell>
+    <Cell><Data ss:Type="String">易趣网</Data></Cell>
+    <Cell><Data ss:Type="Number">0.83</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">阿尔卡特朗讯</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.83</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">金六福</Data></Cell>
+    <Cell><Data ss:Type="String">玉泉</Data></Cell>
+    <Cell><Data ss:Type="Number">0.83</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">任天堂</Data></Cell>
+    <Cell><Data ss:Type="String">索尼</Data></Cell>
+    <Cell><Data ss:Type="Number">0.83</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">贝尔斯登</Data></Cell>
+    <Cell><Data ss:Type="String">摩根</Data></Cell>
+    <Cell><Data ss:Type="Number">0.83</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">欧德宁</Data></Cell>
+    <Cell><Data ss:Type="String">英特尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.83</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">索爱</Data></Cell>
+    <Cell><Data ss:Type="String">爱立信</Data></Cell>
+    <Cell><Data ss:Type="Number">0.83</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">索爱</Data></Cell>
+    <Cell><Data ss:Type="String">索尼</Data></Cell>
+    <Cell><Data ss:Type="Number">0.83</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">张春江</Data></Cell>
+    <Cell><Data ss:Type="String">中国移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.83</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">沃达丰</Data></Cell>
+    <Cell><Data ss:Type="String">电信</Data></Cell>
+    <Cell><Data ss:Type="Number">0.82</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">iphone</Data></Cell>
+    <Cell><Data ss:Type="String">中移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.82</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Windows</Data></Cell>
+    <Cell><Data ss:Type="String">英特尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.82</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">百度</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.82</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">中国电信</Data></Cell>
+    <Cell><Data ss:Type="String">中移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.82</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">马云</Data></Cell>
+    <Cell><Data ss:Type="String">阿里巴巴</Data></Cell>
+    <Cell><Data ss:Type="Number">0.82</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">维亚康姆</Data></Cell>
+    <Cell><Data ss:Type="String">Google</Data></Cell>
+    <Cell><Data ss:Type="Number">0.82</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">摩尔</Data></Cell>
+    <Cell><Data ss:Type="String">贝瑞特</Data></Cell>
+    <Cell><Data ss:Type="Number">0.82</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">巴菲特</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.82</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">郭台铭</Data></Cell>
+    <Cell><Data ss:Type="String">富士康</Data></Cell>
+    <Cell><Data ss:Type="Number">0.82</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">通用电气</Data></Cell>
+    <Cell><Data ss:Type="String">海尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.82</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">创维</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.82</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">盛大</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.82</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">苏宁</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.82</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">移动</Data></Cell>
+    <Cell><Data ss:Type="String">惠普</Data></Cell>
+    <Cell><Data ss:Type="Number">0.82</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">联通</Data></Cell>
+    <Cell><Data ss:Type="String">爱立信</Data></Cell>
+    <Cell><Data ss:Type="Number">0.82</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">苹果</Data></Cell>
+    <Cell><Data ss:Type="String">Google</Data></Cell>
+    <Cell><Data ss:Type="Number">0.82</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">戴尔</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.82</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">颜志荣</Data></Cell>
+    <Cell><Data ss:Type="String">安利</Data></Cell>
+    <Cell><Data ss:Type="Number">0.82</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">徐正刚</Data></Cell>
+    <Cell><Data ss:Type="String">富士</Data></Cell>
+    <Cell><Data ss:Type="Number">0.82</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">林德</Data></Cell>
+    <Cell><Data ss:Type="String">ebay</Data></Cell>
+    <Cell><Data ss:Type="Number">0.82</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">奥克斯</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.82</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">周树华</Data></Cell>
+    <Cell><Data ss:Type="String">王峰</Data></Cell>
+    <Cell><Data ss:Type="Number">0.82</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">吕莉</Data></Cell>
+    <Cell><Data ss:Type="String">惠普</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">陈晓</Data></Cell>
+    <Cell><Data ss:Type="String">三联</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">黄仁勋</Data></Cell>
+    <Cell><Data ss:Type="String">Nvidia</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">步步高</Data></Cell>
+    <Cell><Data ss:Type="String">万利达</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">网易</Data></Cell>
+    <Cell><Data ss:Type="String">搜狐</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Linux</Data></Cell>
+    <Cell><Data ss:Type="String">惠普</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">高通</Data></Cell>
+    <Cell><Data ss:Type="String">联通</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">LG</Data></Cell>
+    <Cell><Data ss:Type="String">海尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">TOM集团</Data></Cell>
+    <Cell><Data ss:Type="String">易趣</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">次仁</Data></Cell>
+    <Cell><Data ss:Type="String">平措</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">刘仕利</Data></Cell>
+    <Cell><Data ss:Type="String">晓红</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">梁兆柱</Data></Cell>
+    <Cell><Data ss:Type="String">新浪</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">布汗</Data></Cell>
+    <Cell><Data ss:Type="String">迪恩</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">张某</Data></Cell>
+    <Cell><Data ss:Type="String">王某</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">徐正刚</Data></Cell>
+    <Cell><Data ss:Type="String">施乐</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">王峰</Data></Cell>
+    <Cell><Data ss:Type="String">金山</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">陈晓</Data></Cell>
+    <Cell><Data ss:Type="String">国美</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">巴菲特</Data></Cell>
+    <Cell><Data ss:Type="String">盖茨</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">康佳</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">iphone</Data></Cell>
+    <Cell><Data ss:Type="String">英特尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">中兴</Data></Cell>
+    <Cell><Data ss:Type="String">华为</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">铁通</Data></Cell>
+    <Cell><Data ss:Type="String">中移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">诺基亚</Data></Cell>
+    <Cell><Data ss:Type="String">中国移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">龚克</Data></Cell>
+    <Cell><Data ss:Type="String">移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">麦卡迪</Data></Cell>
+    <Cell><Data ss:Type="String">仁宝</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">叶柳</Data></Cell>
+    <Cell><Data ss:Type="String">中芯国际</Data></Cell>
+    <Cell><Data ss:Type="Number">0.8</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">王少剑</Data></Cell>
+    <Cell><Data ss:Type="String">华友</Data></Cell>
+    <Cell><Data ss:Type="Number">0.8</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">云计算</Data></Cell>
+    <Cell><Data ss:Type="String">谷歌</Data></Cell>
+    <Cell><Data ss:Type="Number">0.8</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">盖茨</Data></Cell>
+    <Cell><Data ss:Type="String">雅虎</Data></Cell>
+    <Cell><Data ss:Type="Number">0.8</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Windows</Data></Cell>
+    <Cell><Data ss:Type="String">苹果</Data></Cell>
+    <Cell><Data ss:Type="Number">0.8</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AMD</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.8</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">海信</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.8</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">电信</Data></Cell>
+    <Cell><Data ss:Type="String">苹果</Data></Cell>
+    <Cell><Data ss:Type="Number">0.8</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">中国电信</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.8</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">喻子达</Data></Cell>
+    <Cell><Data ss:Type="String">海尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.8</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">卫哲</Data></Cell>
+    <Cell><Data ss:Type="String">阿里巴巴</Data></Cell>
+    <Cell><Data ss:Type="Number">0.8</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">陈晓薇</Data></Cell>
+    <Cell><Data ss:Type="String">保罗</Data></Cell>
+    <Cell><Data ss:Type="Number">0.8</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">贝瑞特</Data></Cell>
+    <Cell><Data ss:Type="String">盖茨</Data></Cell>
+    <Cell><Data ss:Type="Number">0.8</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">李泽楷</Data></Cell>
+    <Cell><Data ss:Type="String">网通</Data></Cell>
+    <Cell><Data ss:Type="Number">0.8</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Linux</Data></Cell>
+    <Cell><Data ss:Type="String">诺基亚</Data></Cell>
+    <Cell><Data ss:Type="Number">0.8</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">中国联通</Data></Cell>
+    <Cell><Data ss:Type="String">中移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.8</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">电信</Data></Cell>
+    <Cell><Data ss:Type="String">华为</Data></Cell>
+    <Cell><Data ss:Type="Number">0.8</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">中兴</Data></Cell>
+    <Cell><Data ss:Type="String">中国移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.8</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">金山</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.8</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">联通</Data></Cell>
+    <Cell><Data ss:Type="String">中国移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.8</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">格力</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.8</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">空中网</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.79</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">肯德基</Data></Cell>
+    <Cell><Data ss:Type="String">曙光</Data></Cell>
+    <Cell><Data ss:Type="Number">0.79</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">凌珑</Data></Cell>
+    <Cell><Data ss:Type="String">威盛</Data></Cell>
+    <Cell><Data ss:Type="Number">0.79</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">比提</Data></Cell>
+    <Cell><Data ss:Type="String">南茜</Data></Cell>
+    <Cell><Data ss:Type="Number">0.79</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">比提</Data></Cell>
+    <Cell><Data ss:Type="String">托马斯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.79</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">伊坎</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.79</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">李毅中</Data></Cell>
+    <Cell><Data ss:Type="String">电信</Data></Cell>
+    <Cell><Data ss:Type="Number">0.79</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">陈景河</Data></Cell>
+    <Cell><Data ss:Type="String">紫金矿业</Data></Cell>
+    <Cell><Data ss:Type="Number">0.79</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">马化腾</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.79</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">日立</Data></Cell>
+    <Cell><Data ss:Type="String">LG</Data></Cell>
+    <Cell><Data ss:Type="Number">0.79</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">日立</Data></Cell>
+    <Cell><Data ss:Type="String">戴尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.79</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">网通</Data></Cell>
+    <Cell><Data ss:Type="String">中移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.79</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">易趣</Data></Cell>
+    <Cell><Data ss:Type="String">ebay</Data></Cell>
+    <Cell><Data ss:Type="Number">0.79</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">美的</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.79</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">西门子</Data></Cell>
+    <Cell><Data ss:Type="String">电信</Data></Cell>
+    <Cell><Data ss:Type="Number">0.79</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">中国联通</Data></Cell>
+    <Cell><Data ss:Type="String">移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.79</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">富华</Data></Cell>
+    <Cell><Data ss:Type="String">奥美</Data></Cell>
+    <Cell><Data ss:Type="Number">0.79</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">默奇森</Data></Cell>
+    <Cell><Data ss:Type="String">中钢</Data></Cell>
+    <Cell><Data ss:Type="Number">0.79</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">曹操</Data></Cell>
+    <Cell><Data ss:Type="String">孔融</Data></Cell>
+    <Cell><Data ss:Type="Number">0.79</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">梅尔</Data></Cell>
+    <Cell><Data ss:Type="String">谷歌</Data></Cell>
+    <Cell><Data ss:Type="Number">0.79</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">柯达</Data></Cell>
+    <Cell><Data ss:Type="String">惠普</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">iphone</Data></Cell>
+    <Cell><Data ss:Type="String">乔布斯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SAP</Data></Cell>
+    <Cell><Data ss:Type="String">IBM</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">海尔</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">苹果</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">英特尔</Data></Cell>
+    <Cell><Data ss:Type="String">谷歌</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">泽拉</Data></Cell>
+    <Cell><Data ss:Type="String">希特勒</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">伯泽拉格尔</Data></Cell>
+    <Cell><Data ss:Type="String">希特勒</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">阿宾</Data></Cell>
+    <Cell><Data ss:Type="String">陈某</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">孔晓明</Data></Cell>
+    <Cell><Data ss:Type="String">iphone</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">安永</Data></Cell>
+    <Cell><Data ss:Type="String">电信</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">袁元</Data></Cell>
+    <Cell><Data ss:Type="String">IBM</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">施密特</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">陈发树</Data></Cell>
+    <Cell><Data ss:Type="String">新华</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">曾文祺</Data></Cell>
+    <Cell><Data ss:Type="String">明基</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">博世</Data></Cell>
+    <Cell><Data ss:Type="String">美的</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">黄光裕</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">杨致远</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">海信</Data></Cell>
+    <Cell><Data ss:Type="String">IBM</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">中芯国际</Data></Cell>
+    <Cell><Data ss:Type="String">高盛</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">百度</Data></Cell>
+    <Cell><Data ss:Type="String">谷歌</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">移动</Data></Cell>
+    <Cell><Data ss:Type="String">联想</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">移动</Data></Cell>
+    <Cell><Data ss:Type="String">华为</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">张晓轩</Data></Cell>
+    <Cell><Data ss:Type="String">王某</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">安利</Data></Cell>
+    <Cell><Data ss:Type="String">中华</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">程东红</Data></Cell>
+    <Cell><Data ss:Type="String">英特尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">富豪</Data></Cell>
+    <Cell><Data ss:Type="String">福布斯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.77</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">圣达</Data></Cell>
+    <Cell><Data ss:Type="String">李照林</Data></Cell>
+    <Cell><Data ss:Type="Number">0.77</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">北川</Data></Cell>
+    <Cell><Data ss:Type="String">海尔集团</Data></Cell>
+    <Cell><Data ss:Type="Number">0.77</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">亚马逊</Data></Cell>
+    <Cell><Data ss:Type="String">ebay</Data></Cell>
+    <Cell><Data ss:Type="Number">0.77</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">中华</Data></Cell>
+    <Cell><Data ss:Type="String">华为</Data></Cell>
+    <Cell><Data ss:Type="Number">0.77</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">日立</Data></Cell>
+    <Cell><Data ss:Type="String">通用电气</Data></Cell>
+    <Cell><Data ss:Type="Number">0.77</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">常小兵</Data></Cell>
+    <Cell><Data ss:Type="String">中国移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.77</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">新华网</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.77</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ebay</Data></Cell>
+    <Cell><Data ss:Type="String">淘宝</Data></Cell>
+    <Cell><Data ss:Type="Number">0.77</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">铁通</Data></Cell>
+    <Cell><Data ss:Type="String">中国移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.77</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">新浪</Data></Cell>
+    <Cell><Data ss:Type="String">英特尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.77</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">王文汉</Data></Cell>
+    <Cell><Data ss:Type="String">英特尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.77</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">田春仁</Data></Cell>
+    <Cell><Data ss:Type="String">新浪</Data></Cell>
+    <Cell><Data ss:Type="Number">0.77</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">董正青</Data></Cell>
+    <Cell><Data ss:Type="String">广发</Data></Cell>
+    <Cell><Data ss:Type="Number">0.77</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">克林顿</Data></Cell>
+    <Cell><Data ss:Type="String">麦凯恩</Data></Cell>
+    <Cell><Data ss:Type="Number">0.77</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">林德</Data></Cell>
+    <Cell><Data ss:Type="String">亚马逊</Data></Cell>
+    <Cell><Data ss:Type="Number">0.77</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">陈发树</Data></Cell>
+    <Cell><Data ss:Type="String">唐骏</Data></Cell>
+    <Cell><Data ss:Type="Number">0.77</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">皓龙</Data></Cell>
+    <Cell><Data ss:Type="String">AMD</Data></Cell>
+    <Cell><Data ss:Type="Number">0.77</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">伊坎</Data></Cell>
+    <Cell><Data ss:Type="String">杨致远</Data></Cell>
+    <Cell><Data ss:Type="Number">0.77</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">永乐</Data></Cell>
+    <Cell><Data ss:Type="String">朱棣</Data></Cell>
+    <Cell><Data ss:Type="Number">0.77</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">扬子</Data></Cell>
+    <Cell><Data ss:Type="String">吉尼斯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.77</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">iphone</Data></Cell>
+    <Cell><Data ss:Type="String">移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.77</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">苏泊尔</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.77</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">威立雅</Data></Cell>
+    <Cell><Data ss:Type="String">中北</Data></Cell>
+    <Cell><Data ss:Type="Number">0.77</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">布拉德利</Data></Cell>
+    <Cell><Data ss:Type="String">摩托罗拉</Data></Cell>
+    <Cell><Data ss:Type="Number">0.77</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">阚绪杭</Data></Cell>
+    <Cell><Data ss:Type="String">钟离</Data></Cell>
+    <Cell><Data ss:Type="Number">0.77</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">杨红坚</Data></Cell>
+    <Cell><Data ss:Type="String">丰田</Data></Cell>
+    <Cell><Data ss:Type="Number">0.76</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">克林顿</Data></Cell>
+    <Cell><Data ss:Type="String">希拉里</Data></Cell>
+    <Cell><Data ss:Type="Number">0.76</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">李昕</Data></Cell>
+    <Cell><Data ss:Type="String">百度</Data></Cell>
+    <Cell><Data ss:Type="Number">0.76</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">华都</Data></Cell>
+    <Cell><Data ss:Type="String">新华</Data></Cell>
+    <Cell><Data ss:Type="Number">0.76</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">李明博</Data></Cell>
+    <Cell><Data ss:Type="String">大唐</Data></Cell>
+    <Cell><Data ss:Type="Number">0.76</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">鲁毅智</Data></Cell>
+    <Cell><Data ss:Type="String">AMD</Data></Cell>
+    <Cell><Data ss:Type="Number">0.76</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">摩根士丹利</Data></Cell>
+    <Cell><Data ss:Type="String">中国电信</Data></Cell>
+    <Cell><Data ss:Type="Number">0.76</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">网易</Data></Cell>
+    <Cell><Data ss:Type="String">谷歌</Data></Cell>
+    <Cell><Data ss:Type="Number">0.76</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">国美</Data></Cell>
+    <Cell><Data ss:Type="String">苏宁电器</Data></Cell>
+    <Cell><Data ss:Type="Number">0.76</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">长虹</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.76</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">百度</Data></Cell>
+    <Cell><Data ss:Type="String">阿里巴巴</Data></Cell>
+    <Cell><Data ss:Type="Number">0.76</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">中国联通</Data></Cell>
+    <Cell><Data ss:Type="String">铁通</Data></Cell>
+    <Cell><Data ss:Type="Number">0.76</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">电信</Data></Cell>
+    <Cell><Data ss:Type="String">中兴</Data></Cell>
+    <Cell><Data ss:Type="Number">0.76</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">苹果</Data></Cell>
+    <Cell><Data ss:Type="String">中移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.76</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">阿里巴巴</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.76</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">穆利</Data></Cell>
+    <Cell><Data ss:Type="String">英特尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.76</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">康恩贝</Data></Cell>
+    <Cell><Data ss:Type="String">华源</Data></Cell>
+    <Cell><Data ss:Type="Number">0.76</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">戈峻</Data></Cell>
+    <Cell><Data ss:Type="String">英特尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">左婷</Data></Cell>
+    <Cell><Data ss:Type="String">QQ</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">任天堂</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">蓝光</Data></Cell>
+    <Cell><Data ss:Type="String">索尼</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">格兰仕</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Safari</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">iphone</Data></Cell>
+    <Cell><Data ss:Type="String">Google</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">电信</Data></Cell>
+    <Cell><Data ss:Type="String">Google</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">谷歌</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">南希</Data></Cell>
+    <Cell><Data ss:Type="String">托马斯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">段永平</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">林森</Data></Cell>
+    <Cell><Data ss:Type="String">戴尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">王石</Data></Cell>
+    <Cell><Data ss:Type="String">万科</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">英伟达</Data></Cell>
+    <Cell><Data ss:Type="String">英特尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">张琪</Data></Cell>
+    <Cell><Data ss:Type="String">QQ</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">华都</Data></Cell>
+    <Cell><Data ss:Type="String">唐骏</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">孙正义</Data></Cell>
+    <Cell><Data ss:Type="String">雅虎</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">谢永斌</Data></Cell>
+    <Cell><Data ss:Type="String">大唐移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">张朝阳</Data></Cell>
+    <Cell><Data ss:Type="String">搜狐</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">贝瑞特</Data></Cell>
+    <Cell><Data ss:Type="String">比尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">杨国猛</Data></Cell>
+    <Cell><Data ss:Type="String">TOM集团</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">王建宙</Data></Cell>
+    <Cell><Data ss:Type="String">iphone</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">王建宙</Data></Cell>
+    <Cell><Data ss:Type="String">中移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">博客</Data></Cell>
+    <Cell><Data ss:Type="String">惠普</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">华硕</Data></Cell>
+    <Cell><Data ss:Type="String">富士康</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Safari</Data></Cell>
+    <Cell><Data ss:Type="String">Windows</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">鲍尔默</Data></Cell>
+    <Cell><Data ss:Type="String">Windows</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ThinkPad</Data></Cell>
+    <Cell><Data ss:Type="String">招商银行</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">通用电气</Data></Cell>
+    <Cell><Data ss:Type="String">伊莱克斯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.75</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">暴雪</Data></Cell>
+    <Cell><Data ss:Type="String">雅虎</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AMD</Data></Cell>
+    <Cell><Data ss:Type="String">雅虎</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">移动</Data></Cell>
+    <Cell><Data ss:Type="String">诺基亚</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">联想</Data></Cell>
+    <Cell><Data ss:Type="String">惠普</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">韦东</Data></Cell>
+    <Cell><Data ss:Type="String">冉海燕</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">何克思</Data></Cell>
+    <Cell><Data ss:Type="String">长虹</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">康培凯</Data></Cell>
+    <Cell><Data ss:Type="String">诺基亚</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">刘玉才</Data></Cell>
+    <Cell><Data ss:Type="String">捷昂</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">冯必乐</Data></Cell>
+    <Cell><Data ss:Type="String">西门子</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">赖因哈特</Data></Cell>
+    <Cell><Data ss:Type="String">西门子</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">李美川</Data></Cell>
+    <Cell><Data ss:Type="String">长虹</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">赫德</Data></Cell>
+    <Cell><Data ss:Type="String">惠普</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">美菱</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">杰克逊</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">娜塔利娅</Data></Cell>
+    <Cell><Data ss:Type="String">索菲娅</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">网易</Data></Cell>
+    <Cell><Data ss:Type="String">约合</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">张亚勤</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AMD</Data></Cell>
+    <Cell><Data ss:Type="String">IBM</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">苏宁电器</Data></Cell>
+    <Cell><Data ss:Type="String">IBM</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">移动</Data></Cell>
+    <Cell><Data ss:Type="String">爱立信</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">苹果</Data></Cell>
+    <Cell><Data ss:Type="String">谷歌</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">戴尔</Data></Cell>
+    <Cell><Data ss:Type="String">英特尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">柴滕</Data></Cell>
+    <Cell><Data ss:Type="String">柴滕镇</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">刘东海</Data></Cell>
+    <Cell><Data ss:Type="String">迪信</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">孔晓明</Data></Cell>
+    <Cell><Data ss:Type="String">中国移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">陈文琦</Data></Cell>
+    <Cell><Data ss:Type="String">英特尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">凯立德</Data></Cell>
+    <Cell><Data ss:Type="String">中华</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">简宜彬</Data></Cell>
+    <Cell><Data ss:Type="String">郭台铭</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">巴顿</Data></Cell>
+    <Cell><Data ss:Type="String">Google</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">小天鹅</Data></Cell>
+    <Cell><Data ss:Type="String">美的</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">移动</Data></Cell>
+    <Cell><Data ss:Type="String">Google</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">利安娜</Data></Cell>
+    <Cell><Data ss:Type="String">安娜</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">尤涛</Data></Cell>
+    <Cell><Data ss:Type="String">汤逢雨</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">洪小文</Data></Cell>
+    <Cell><Data ss:Type="String">苹果</Data></Cell>
+    <Cell><Data ss:Type="Number">0.74</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">科库尔罗</Data></Cell>
+    <Cell><Data ss:Type="String">圣多明</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">钟新</Data></Cell>
+    <Cell><Data ss:Type="String">曾馨莹</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">乌里韦</Data></Cell>
+    <Cell><Data ss:Type="String">吉尼斯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">布莱恩</Data></Cell>
+    <Cell><Data ss:Type="String">戴尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">格林柯尔</Data></Cell>
+    <Cell><Data ss:Type="String">海信</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">杨叙</Data></Cell>
+    <Cell><Data ss:Type="String">英特尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">宏基</Data></Cell>
+    <Cell><Data ss:Type="String">电信</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">步步高</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Android</Data></Cell>
+    <Cell><Data ss:Type="String">谷歌</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ThinkPad</Data></Cell>
+    <Cell><Data ss:Type="String">联想</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">网通</Data></Cell>
+    <Cell><Data ss:Type="String">移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">移动</Data></Cell>
+    <Cell><Data ss:Type="String">中移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">移动</Data></Cell>
+    <Cell><Data ss:Type="String">新浪</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">苹果</Data></Cell>
+    <Cell><Data ss:Type="String">戴尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">中移动</Data></Cell>
+    <Cell><Data ss:Type="String">中国移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">马克库拉</Data></Cell>
+    <Cell><Data ss:Type="String">乔布斯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">张昌惠</Data></Cell>
+    <Cell><Data ss:Type="String">杨文</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">世嘉</Data></Cell>
+    <Cell><Data ss:Type="String">雪铁龙</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">施瓦德尔</Data></Cell>
+    <Cell><Data ss:Type="String">英特尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">韦东</Data></Cell>
+    <Cell><Data ss:Type="String">晓红</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">梁兆柱</Data></Cell>
+    <Cell><Data ss:Type="String">英特尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">王敏文</Data></Cell>
+    <Cell><Data ss:Type="String">李立本</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">林德</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">辛迪</Data></Cell>
+    <Cell><Data ss:Type="String">桑德拉</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">贝尔纳黛特</Data></Cell>
+    <Cell><Data ss:Type="String">天主教</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">王雷雷</Data></Cell>
+    <Cell><Data ss:Type="String">易趣</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">刘彦青</Data></Cell>
+    <Cell><Data ss:Type="String">东芝</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">方中华</Data></Cell>
+    <Cell><Data ss:Type="String">方正</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">洪汉青</Data></Cell>
+    <Cell><Data ss:Type="String">明基</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">李东生</Data></Cell>
+    <Cell><Data ss:Type="String">TCL</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">紫金矿业</Data></Cell>
+    <Cell><Data ss:Type="String">金山</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ebay</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">移动</Data></Cell>
+    <Cell><Data ss:Type="String">苹果</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">铁通</Data></Cell>
+    <Cell><Data ss:Type="String">联通</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">索尼</Data></Cell>
+    <Cell><Data ss:Type="String">苹果</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">搜狐</Data></Cell>
+    <Cell><Data ss:Type="String">新浪</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">郭氏</Data></Cell>
+    <Cell><Data ss:Type="String">郭炳湘</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">胡总</Data></Cell>
+    <Cell><Data ss:Type="String">胡锦涛</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">巴尔默</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">格林</Data></Cell>
+    <Cell><Data ss:Type="String">Windows</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">默多克</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">英文</Data></Cell>
+    <Cell><Data ss:Type="String">雅虎</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">摩根</Data></Cell>
+    <Cell><Data ss:Type="String">巴菲特</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">网易</Data></Cell>
+    <Cell><Data ss:Type="String">金山</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">博世</Data></Cell>
+    <Cell><Data ss:Type="String">西门子</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">张春江</Data></Cell>
+    <Cell><Data ss:Type="String">移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Nvidia</Data></Cell>
+    <Cell><Data ss:Type="String">AMD</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">百度</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">苏宁</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">TCL</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">奥奥</Data></Cell>
+    <Cell><Data ss:Type="String">龙凤</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">马达</Data></Cell>
+    <Cell><Data ss:Type="String">松下</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">阿宾</Data></Cell>
+    <Cell><Data ss:Type="String">杨某</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">布希</Data></Cell>
+    <Cell><Data ss:Type="String">新华</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">佩克</Data></Cell>
+    <Cell><Data ss:Type="String">扬子</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">雪铁龙</Data></Cell>
+    <Cell><Data ss:Type="String">福克斯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">刘凤鸣</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">麦格里</Data></Cell>
+    <Cell><Data ss:Type="String">联通</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">侨兴</Data></Cell>
+    <Cell><Data ss:Type="String">移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">朱勇</Data></Cell>
+    <Cell><Data ss:Type="String">联通</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">琼斯</Data></Cell>
+    <Cell><Data ss:Type="String">默多克</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">谷歌金山</Data></Cell>
+    <Cell><Data ss:Type="String">金山</Data></Cell>
+    <Cell><Data ss:Type="Number">0.72</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">迪斯尼</Data></Cell>
+    <Cell><Data ss:Type="String">英语</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">李新雨</Data></Cell>
+    <Cell><Data ss:Type="String">QQ</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">格林</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">大通</Data></Cell>
+    <Cell><Data ss:Type="String">巴菲特</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">永乐</Data></Cell>
+    <Cell><Data ss:Type="String">国美</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">莱昂斯</Data></Cell>
+    <Cell><Data ss:Type="String">乔布斯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">博世</Data></Cell>
+    <Cell><Data ss:Type="String">三星</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">李开复</Data></Cell>
+    <Cell><Data ss:Type="String">金山</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">刘允</Data></Cell>
+    <Cell><Data ss:Type="String">谷歌</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">张春江</Data></Cell>
+    <Cell><Data ss:Type="String">网通</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">沃达丰</Data></Cell>
+    <Cell><Data ss:Type="String">iphone</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">暴雪</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Nvidia</Data></Cell>
+    <Cell><Data ss:Type="String">苹果</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">创维</Data></Cell>
+    <Cell><Data ss:Type="String">移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">海尔</Data></Cell>
+    <Cell><Data ss:Type="String">TCL</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">新华网</Data></Cell>
+    <Cell><Data ss:Type="String">谷歌</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">电信</Data></Cell>
+    <Cell><Data ss:Type="String">惠普</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">诺基亚</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">松下</Data></Cell>
+    <Cell><Data ss:Type="String">谷歌</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">周杰</Data></Cell>
+    <Cell><Data ss:Type="String">博客</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">罗扬</Data></Cell>
+    <Cell><Data ss:Type="String">移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">刘勇</Data></Cell>
+    <Cell><Data ss:Type="String">家乐福</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">钟新</Data></Cell>
+    <Cell><Data ss:Type="String">郭台铭</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">潘邦贵</Data></Cell>
+    <Cell><Data ss:Type="String">建川</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">深天健</Data></Cell>
+    <Cell><Data ss:Type="String">高科</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">英伟达</Data></Cell>
+    <Cell><Data ss:Type="String">移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">巴顿</Data></Cell>
+    <Cell><Data ss:Type="String">谷歌</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">新华网</Data></Cell>
+    <Cell><Data ss:Type="String">移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">百度</Data></Cell>
+    <Cell><Data ss:Type="String">雅虎</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+    <Cell><Data ss:Type="Number">0.69</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">穆迪</Data></Cell>
+    <Cell><Data ss:Type="String">中移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">金莎</Data></Cell>
+    <Cell><Data ss:Type="String">博客</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">陆益民</Data></Cell>
+    <Cell><Data ss:Type="String">网通</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">顾雏军</Data></Cell>
+    <Cell><Data ss:Type="String">科龙</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">古伟中</Data></Cell>
+    <Cell><Data ss:Type="String">电信</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">伊坎</Data></Cell>
+    <Cell><Data ss:Type="String">暴雪</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">王超</Data></Cell>
+    <Cell><Data ss:Type="String">新浪</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">英文</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">黄宏生</Data></Cell>
+    <Cell><Data ss:Type="String">创维</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">刘建秋</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">李开复</Data></Cell>
+    <Cell><Data ss:Type="String">Google</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">黄光裕</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">柳传志</Data></Cell>
+    <Cell><Data ss:Type="String">联想</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">中文</Data></Cell>
+    <Cell><Data ss:Type="String">Facebook</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">HTC</Data></Cell>
+    <Cell><Data ss:Type="String">多普达</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">摩托罗拉</Data></Cell>
+    <Cell><Data ss:Type="String">三星</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">彼得布莱克摩尔</Data></Cell>
+    <Cell><Data ss:Type="String">斯达康</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">彼得布莱克摩尔</Data></Cell>
+    <Cell><Data ss:Type="String">移动</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">何海</Data></Cell>
+    <Cell><Data ss:Type="String">冉海燕</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">田健</Data></Cell>
+    <Cell><Data ss:Type="String">雅虎</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">宗庆后</Data></Cell>
+    <Cell><Data ss:Type="String">娃哈哈</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">布罗迪</Data></Cell>
+    <Cell><Data ss:Type="String">阿什拉</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">潘邦贵</Data></Cell>
+    <Cell><Data ss:Type="String">樊建川</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">陆奇</Data></Cell>
+    <Cell><Data ss:Type="String">雅虎</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">福克斯</Data></Cell>
+    <Cell><Data ss:Type="String">Google</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">摩根士丹利</Data></Cell>
+    <Cell><Data ss:Type="String">中国联通</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">约合</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">iphone</Data></Cell>
+    <Cell><Data ss:Type="String">微软</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">GE</Data></Cell>
+    <Cell><Data ss:Type="String">戴尔</Data></Cell>
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">诺基亚</Data></Cell>
+    <Cell><Data ss:Type="String">谷歌</Data></Cell>
+    <Cell><Data ss:Type="Number">0.69</Data></Cell>
+    <Cell><Data ss:Type="Number">0.66</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Google</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.69</Data></Cell>
+    <Cell><Data ss:Type="Number">0.65</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">电信</Data></Cell>
+    <Cell><Data ss:Type="String">爱立信</Data></Cell>
+    <Cell><Data ss:Type="Number">0.69</Data></Cell>
+    <Cell><Data ss:Type="Number">0.64</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">联想</Data></Cell>
+    <Cell><Data ss:Type="String">腾讯</Data></Cell>
+    <Cell><Data ss:Type="Number">0.69</Data></Cell>
+    <Cell><Data ss:Type="Number">0.63</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <TopRowVisible>578</TopRowVisible>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>591</ActiveRow>
+     <ActiveCol>2</ActiveCol>
+     <RangeSelection>R592C3:R595C4</RangeSelection>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="Sheet2">
+  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="56" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="54" ss:DefaultRowHeight="13.5">
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.79</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.61</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.35</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.95</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.94</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.85</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.42</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.84</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.34</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+    <Cell><Data ss:Type="Number">0.69</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.95</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.94</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.69</Data></Cell>
+    <Cell><Data ss:Type="Number">0.65</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.69</Data></Cell>
+    <Cell><Data ss:Type="Number">0.64</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.69</Data></Cell>
+    <Cell><Data ss:Type="Number">0.63</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.95</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.69</Data></Cell>
+    <Cell><Data ss:Type="Number">0.66</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>16</ActiveRow>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>
