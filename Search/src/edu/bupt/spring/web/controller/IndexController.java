@@ -1,8 +1,13 @@
 package edu.bupt.spring.web.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -19,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 import edu.bupt.spring.entity.Alias;
 import edu.bupt.spring.entity.Query;
 import edu.bupt.spring.entity.Relation;
+import edu.bupt.spring.entity.Score;
 import edu.bupt.spring.pager.PageView;
 import edu.bupt.spring.pager.QueryResult;
 import edu.bupt.spring.service.AliasService;
@@ -57,16 +63,22 @@ public class IndexController extends BaseController {
 	private AliasService aliasService;
 	
     @RequestMapping(value="/view",method=RequestMethod.POST)
-    public String view(@Valid Query query, ModelMap map){
+    public String view(@Valid Query query, ModelMap map, HttpServletRequest request){
     	
     	Alias alias = aliasService.findByTitle(query.getQuery());
+    	
+    	if(alias == null){
+    		
+    		request.setAttribute("javax.servlet.error.message", "没有查询的实体！");
+    		return "error";
+    	}
     	
     	StringBuffer wherejpql = new StringBuffer();
     	LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
     	List<Object> params = new ArrayList<Object>();
     	
     	wherejpql.append(" o.alias.id=?1 ");
-    	params.add(1);
+    	params.add(alias.getId());
     	
     	orderby.put("relationship", "desc");
 		PageView<Relation> pageView = new PageView<Relation>(10, page);
@@ -74,18 +86,35 @@ public class IndexController extends BaseController {
 		pageView.setQueryResult(qr);
     	
 		
-		/*StringBuffer jpql = new StringBuffer();
-    	params.add(alias.getId());
-    	orderby.put("relationship", "desc");
-    	PageView<Alias> aliasView = new PageView<Alias>(10, page);
-    	QueryResult<Alias> qrAlias = aliasService.getScrollData(aliasView.getFirstResult(), aliasView.getMaxresult(), jpql.toString(), params.toArray(), orderby);
-    	aliasView.setQueryResult(qrAlias);*/
+		StringBuffer jpql = new StringBuffer();
+		LinkedHashMap<String, String> orderby1 = new LinkedHashMap<String, String>();
+    	List<Object> params1 = new ArrayList<Object>();
     	
-    	List<Alias> aliases = scoreService.findRelatedAlias(alias);
+		jpql.append("(o.first.id=?1 or o.second.id=?1)");
+    	params1.add(alias.getId());
+    	orderby1.put("score", "desc");
+    	PageView<Score> aliasView = new PageView<Score>(10, page);
+    	QueryResult<Score> qrAlias = scoreService.getScrollData(aliasView.getFirstResult(), aliasView.getMaxresult(), jpql.toString(), params1.toArray(), orderby1);
+    	aliasView.setQueryResult(qrAlias);
     	
-    	map.put("aliases", aliases);
-//    	map.put("relations", relations);
-//    	map.put("aliases", aliasView);
+    	List<Score> list = aliasView.getRecords();
+    	List<Alias> data = new ArrayList<Alias>();
+    	
+    	for(Score s : list){
+    		if(s.getSecond().getId() == alias.getId()){
+    			if(!data.contains(s.getFirst())){
+    				data.add(s.getFirst());
+    			}
+    		}else {
+    			if(!data.contains(s.getSecond())){
+    				data.add(s.getSecond());
+    			}
+    		}
+    		
+    	}
+    	
+    	map.put("aliases", data);
+    	map.put("entry", alias);
     	map.put("pageView", pageView);
         
     	return "view";

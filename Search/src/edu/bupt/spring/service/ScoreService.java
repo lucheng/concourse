@@ -1,9 +1,11 @@
 package edu.bupt.spring.service;
 
+import java.util.Date;
 import java.util.List;
 
 import edu.bupt.spring.base.DAO;
 import edu.bupt.spring.entity.Alias;
+import edu.bupt.spring.entity.BaseEntity;
 import edu.bupt.spring.entity.Score;
 
 /**
@@ -18,5 +20,9 @@ import edu.bupt.spring.entity.Score;
 public interface ScoreService extends DAO<Score> {
 
 	List<Alias> findRelatedAlias(Alias alias);
+	
+	public void save(BaseEntity entity);
+	
+//	public Score findTop();
 
 }

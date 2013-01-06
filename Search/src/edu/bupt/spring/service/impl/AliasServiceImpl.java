@@ -14,14 +14,12 @@ public class AliasServiceImpl extends DaoSupport<Alias> implements AliasService 
 	@Override
 	public Alias findByTitle(String title) {
 		
-//		try{
+		try{
 			Query query = em.createQuery("select o from Alias o where o.title='"+ title +"'");
 			return (Alias) query.getResultList().get(0);
-			
-//			return (Alias) query.getFirstResult();
-		/*}catch(Exception e){
+		}catch(Exception e){
 			return null;
-		}*/
+		}
 	}
 	
 }

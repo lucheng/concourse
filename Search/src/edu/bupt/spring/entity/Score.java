@@ -36,7 +36,7 @@ public class Score extends BaseEntity {
 	public Score(){
 		
 	}
-	public Score(Alias first, Alias second, double score){
+	public Score(Alias first, Alias second, double score, double score1){
 		
 		if(first.getId() > second.getId()){
 			this.first = first;
@@ -46,6 +46,7 @@ public class Score extends BaseEntity {
 			this.second = first;
 		}
 		this.score = score;
+		this.score1 = score1;
 	}
 	
 	@ManyToOne(optional=false,cascade={CascadeType.REFRESH})  
