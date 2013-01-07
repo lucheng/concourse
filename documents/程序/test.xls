@@ -1,0 +1,553 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <LastAuthor>linzhe</LastAuthor>
+  <LastSaved>2013-01-04T08:29:07Z</LastSaved>
+  <Version>12.00</Version>
+ </DocumentProperties>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>10005</WindowHeight>
+  <WindowWidth>10005</WindowWidth>
+  <WindowTopX>120</WindowTopX>
+  <WindowTopY>135</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Center"/>
+   <Borders/>
+   <Font ss:FontName="宋体" x:CharSet="134" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Sheet2">
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="100" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="54" ss:DefaultRowHeight="13.5">
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">1.0000000000000009E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">1.0000000000000009E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">1.0000000000000009E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.99</Data></Cell>
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">1.0000000000000009E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">1.0000000000000009E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">1.0000000000000009E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">1.0000000000000009E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">1.0000000000000009E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">2.0000000000000018E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">2.0000000000000018E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">2.0000000000000018E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">2.0000000000000018E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">2.0000000000000018E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">2.0000000000000018E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">2.0000000000000018E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">2.0000000000000018E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.95</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">3.0000000000000027E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.95</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">3.0000000000000027E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.95</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">3.0000000000000027E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.95</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">3.0000000000000027E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.95</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">3.0000000000000027E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.95</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">3.0000000000000027E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.94</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">4.0000000000000036E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.94</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">4.0000000000000036E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.94</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">4.0000000000000036E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.94</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">4.0000000000000036E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">4.9999999999999933E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">4.9999999999999933E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">4.9999999999999933E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">4.9999999999999933E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">4.9999999999999933E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">4.9999999999999933E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">4.9999999999999933E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.98</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">4.9999999999999933E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">3.9999999999999925E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="Number">0.93</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">3.9999999999999925E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">4.9999999999999933E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">4.9999999999999933E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">4.9999999999999933E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">4.9999999999999933E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">4.9999999999999933E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">4.9999999999999933E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">4.9999999999999933E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">4.9999999999999933E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">4.9999999999999933E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="Number">0.92</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">4.9999999999999933E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">5.9999999999999942E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">5.9999999999999942E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">4.9999999999999933E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">4.9999999999999933E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">4.9999999999999933E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">4.9999999999999933E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">4.9999999999999933E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.91</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">4.9999999999999933E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">6.9999999999999951E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">6.9999999999999951E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">6.9999999999999951E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">6.9999999999999951E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">6.9999999999999951E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">6.9999999999999951E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">6.9999999999999951E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">6.9999999999999951E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">8.9999999999999969E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.87</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">8.9999999999999969E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0.17999999999999994</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="Number">0.78</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0.17999999999999994</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0.19000000000000006</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+    <Cell><Data ss:Type="Number">0.71</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0.19000000000000006</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+    <Cell><Data ss:Type="Number">0.69</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0.21000000000000008</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+    <Cell><Data ss:Type="Number">0.69</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0.21000000000000008</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+    <Cell><Data ss:Type="Number">0.66</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0.22999999999999998</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.89</Data></Cell>
+    <Cell><Data ss:Type="Number">0.66</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0.22999999999999998</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+    <Cell><Data ss:Type="Number">0.64</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">5.9999999999999942E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+    <Cell><Data ss:Type="Number">0.64</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">5.9999999999999942E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+    <Cell><Data ss:Type="Number">0.63</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">6.9999999999999951E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.7</Data></Cell>
+    <Cell><Data ss:Type="Number">0.63</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">6.9999999999999951E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.69</Data></Cell>
+    <Cell><Data ss:Type="Number">0.61</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">7.999999999999996E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.69</Data></Cell>
+    <Cell><Data ss:Type="Number">0.61</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">7.999999999999996E-2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.69</Data></Cell>
+    <Cell><Data ss:Type="Number">0.42</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0.26999999999999996</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.69</Data></Cell>
+    <Cell><Data ss:Type="Number">0.42</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0.26999999999999996</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.69</Data></Cell>
+    <Cell><Data ss:Type="Number">0.35</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0.33999999999999997</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.69</Data></Cell>
+    <Cell><Data ss:Type="Number">0.35</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0.33999999999999997</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.69</Data></Cell>
+    <Cell><Data ss:Type="Number">0.34</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0.34999999999999992</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">0.69</Data></Cell>
+    <Cell><Data ss:Type="Number">0.34</Data></Cell>
+    <Cell ss:Formula="=ABS(RC[-2]-RC[-1])"><Data ss:Type="Number">0.34999999999999992</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <RangeSelection>C1</RangeSelection>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>
