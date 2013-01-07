@@ -116,7 +116,7 @@ public final class MyWIE {
 	 * 
 	 * @param templateFile 模板文件
 	 * @param pages 网页数组
-	 * @return
+	 * @return 抽取结果类集合
 	 */
 	public static ExtractionResultCollection extractData(File templateFile, File[] pages) {
 		if (pages.length == 0 || !templateFile.exists()) {
