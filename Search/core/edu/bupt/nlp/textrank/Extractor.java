@@ -66,7 +66,16 @@ public abstract class Extractor<T> {
 		this.precision = precision;
 	}
 
-	abstract public Map<Object,Integer> extract(String str, int num, boolean isWeighted);
+	/**
+	 * 文本中实体的权重抽取算法
+	 * 基于图排序算法的TextRank算法实现
+	 * 
+	 * @param text	输入的新闻文本
+	 * @param num	抽取实体个数
+	 * @param isWeighted
+	 * @return		实体与实体权重的Map
+	 */
+	abstract public Map<Object,Integer> extract(String text, int num, boolean isWeighted);
 //	abstract public Map<Word,Integer> extract(String str, int num);
 //	abstract  public Map<String,Integer> extract(String readFile, int i);
 

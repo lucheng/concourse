@@ -70,6 +70,7 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/spring-modules-cache-0.9.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jaxen-1.1.1.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jcaptcha-1.0-all.jar" sourcepath="F:/jar/jcaptcha-1.0-bin/jcaptcha-1.0-all.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jxl-2.6.10.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/my java EE 5"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

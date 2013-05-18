@@ -23,7 +23,6 @@ class DataSet{
 	ArrayList<Word> subList = new ArrayList<Word>();
 }
 
-@SuppressWarnings("rawtypes")
 public class TextRankExtractor extends Extractor{
 		
 	private Logger logger = Logger.getLogger(getClass());

@@ -14,6 +14,15 @@ package edu.bupt.spring.entity;
 public class Query {
 
 	private String query;
+	private String page;
+
+	public String getPage() {
+		return page;
+	}
+
+	public void setPage(String page) {
+		this.page = page;
+	}
 
 	public String getQuery() {
 		return query;

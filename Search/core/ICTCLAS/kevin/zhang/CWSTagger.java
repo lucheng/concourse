@@ -44,6 +44,14 @@ public class CWSTagger {
 		}
 	}
 	
+	/**
+	 * 实体抽取
+	 * 返回实体与实体类型的Map
+	 * 
+	 * @param sInput		输入的文本
+	 * @param bPOSTagged	
+	 * @return				返回实体与实体类型的Map
+	 */
 	public String tag(String sInput, int bPOSTagged) {	
 		
 		try{	

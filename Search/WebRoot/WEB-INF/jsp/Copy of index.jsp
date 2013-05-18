@@ -26,17 +26,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	            --%>
 	            </div>
 	            <div class="index-header-middle">
-	                <div class="_index-logo-up">
+	                <div class="index-logo-up">
 	                </div>
 	            </div>
 	            <div class="index-header-bottom">
-	                <div class="top-right" >
-	                    <%--<a href="#" style="margin-left: 13px;">登录</a>
-	                --%><h1>信息融合系统</h1>
+	                <div class="top-right">
+	                    <a href="#" style="margin-left: 13px;">登录</a>
 	                </div>
 	            </div>
 	        </div>
-	        <div class="_index-search-down">
+	        <div class="index-search-down">
 	        </div>
 	        <div>
 	            
@@ -46,15 +45,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		            <div class="index-search-panel">
 		                <div class="index-search-input-wrapper">
 		                    <div class="index-search-input-box-wrapper">
-		                        <input name="query" type="text" class="index-search-input" title="输入中文关键词，如：张亚勤，比尔-盖茨"/>
+		                        <input name="query" type="text" class="index-search-input" title="输入中文关键词，如：张亚勤，比尔-盖茨，兵乓球，微软亚洲研究院"/>
 		                    </div>
 		                    <input type="submit" value="" id="MainContent_HomepageSearchButton" class="index-search-btn" alt="搜索" title="搜索"/>
 		                    <input type="submit" value="" id="MainContent_HomepageCreateButton" class="index-create-btn" alt="创建词条" title="创建词条">
 		                </div>
 		                <div class="index-search-readme">
-		                    <%--<a href="#">使用须知</a>
-		                --%>
-		                </div>
+		                    <a href="#">使用须知</a></div>
 		            </div>
 		        	</form:form>
 				</div>
@@ -80,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			        </div>
 			        --%>
 			        
-			        <%--<div class="feature">
+			        <div class="feature">
 			            <div class="item">
 			                <div class="icon">
 			                    <a href="#">
@@ -130,7 +127,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			            <div class="clear">
 			            </div>
 			        </div>
-			        --%>
+			        
 			        
 			        <div class="index-news-wrapper">
 			            <div class="title">
@@ -268,7 +265,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			            </div>
 			
 			        </div>
-			    
 			    </div>
 	        </div>
 	        <div class="clear"></div>

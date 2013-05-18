@@ -1,12 +1,6 @@
 package edu.bupt.spring.web.controller;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-
 import org.springframework.stereotype.Controller;
-
-import edu.bupt.spring.pager.PageParam;
 
 
 @Controller
